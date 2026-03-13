@@ -20,6 +20,7 @@ import ArticleView from './components/ArticleView.tsx';
 import AssessmentModal from './components/AssessmentModal.tsx';
 import TrustProtocol from './components/TrustProtocol.tsx';
 import StrategicOutcomes from './components/StrategicOutcomes.tsx';
+import YieldStatement from './components/YieldStatement.tsx';
 import AdminDashboard from './components/AdminDashboard.tsx';
 
 interface Article {
@@ -45,12 +46,12 @@ const App: React.FC = () => {
     const legalContent: Record<string, Article> = {
       disclosure: {
         category: "Institutional Protocol",
-        title: "Privileged Disclosure Framework",
+        title: "Privileged Disclosure & Data Sovereignty",
         content: [
           "The Unbounded Leadership Co. (TULC) operates under a Zero Data Retention (ZDR) mandate. We recognize that for the Sovereign Leader, data is not merely information—it is institutional power. Our systems are architected to ensure that this power remains exclusively with the Principal.",
-          "All diagnostic inputs, including voice prints, strategic assessments, and organizational telemetry, are processed in volatile memory. Upon the conclusion of a terminal session or diagnostic cycle, all raw data is purged. We do not maintain a persistent database of client strategic secrets.",
+          "All diagnostic inputs, including strategic assessments and organizational telemetry, are processed in volatile memory. Upon the conclusion of a terminal session, all raw data is purged. We do not maintain a persistent database of client strategic secrets.",
           "We do not engage in data harvesting, third-party analytics sharing, or the training of public models on client-specific substrates. Our AI interventions are siloed and ephemeral, ensuring that your institutional 'moat' remains uncompromised.",
-          "By engaging with the Sovereign Ledger or the Structural Audit, you acknowledge that TULC acts as a temporary diagnostic conduit. Your intellectual property and strategic intent remain your own, protected by our Privileged Disclosure protocols."
+          "By engaging with the Sovereign Ledger or the Yield Calibration, you acknowledge that TULC acts as a temporary diagnostic conduit. Your intellectual property and strategic intent remain your own, protected by our Privileged Disclosure protocols."
         ]
       },
       terms: {
@@ -58,7 +59,7 @@ const App: React.FC = () => {
         title: "Terms of Institutional Authority",
         content: [
           "Engagement with The Unbounded Leadership Co. is governed by the principle of Limited Intake. We do not operate as a mass-market consultancy. Access to the Sovereign Ledger is granted at the sole discretion of the Principal Architect based on strategic alignment and institutional readiness.",
-          "TULC provides architectural diagnostics and structural recalibration. While our methodologies are anchored in the 'Physics of Scale,' outcomes are subject to organizational variance. We do not guarantee specific market cap increases but provide the structural conditions that make such outcomes inevitable.",
+          "TULC provides architectural diagnostics and structural recalibration. While our methodologies are anchored in the 'Physics of Scale,' outcomes are subject to organizational variance. We do not guarantee specific market cap increases; results are unique to the structural integrity and leadership substrate of each individual organization. No two institutional outcomes are identical.",
           "All materials, dispatches, and methodologies provided by TULC are the intellectual property of the firm and are shared under a non-redistribution mandate. Unauthorized disclosure of TULC protocols is a violation of the Privileged Disclosure Framework.",
           "By utilizing this terminal, you agree to operate within the bounds of Institutional Sovereignty. TULC reserves the right to terminate any diagnostic intervention if the leadership substrate is found to be fundamentally uncalibrated or resistant to architectural integrity."
         ]
@@ -71,9 +72,9 @@ const App: React.FC = () => {
     if (phaseId === '01') {
       setActiveArticle({
         category: "Methodology Phase 01",
-        title: "The Diagnostic Audit Protocol",
+        title: "The Diagnostic Mapping Protocol",
         content: [
-          "The Diagnostic Audit is a non-invasive, high-fidelity mapping of your institutional 'nervous system.' We don't ask for opinions; we observe the flow of strategic intent.",
+          "The Diagnostic Mapping is a non-invasive, high-fidelity visualization of your institutional 'nervous system.' We don't ask for opinions; we observe the flow of strategic intent.",
           "Key Diagnostic Vectors:",
           "1. Intent Dilution Analysis: Identifying where the Principal's vision loses fidelity as it moves through the organizational layers.",
           "2. Cognitive Friction Mapping: Locating the specific operational bottlenecks that consume 80% of leadership bandwidth for 20% of the value.",
@@ -162,6 +163,7 @@ const App: React.FC = () => {
         <ScaleEvidence onBriefClick={handleBriefClick} />
         <Problem />
         <StrategicOutcomes />
+        <YieldStatement />
         <Assessment onCtaClick={() => setShowAssessment(true)} />
         <Program onBriefClick={handleBriefClick} />
         <Methodology onBriefClick={handleBriefClick} />

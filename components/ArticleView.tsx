@@ -80,16 +80,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
                   }}
                   className="w-full md:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-[#b8860b] text-white text-[9px] sm:text-[10px] font-bold uppercase hover:bg-[#111111] transition-all shadow-lg tracking-widest"
                 >
-                  Initiate Structural Audit
-                </button>
-                <button 
-                  onClick={() => {
-                    onClose();
-                    document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="w-full md:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-[#111111] text-white text-[9px] sm:text-[10px] font-bold uppercase hover:bg-black transition-all"
-                >
-                  Consult on this Subject
+                  Initiate Yield Calibration
                 </button>
               </div>
             </div>

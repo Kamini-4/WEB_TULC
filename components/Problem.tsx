@@ -95,7 +95,7 @@ const Problem: React.FC = () => {
               onClick={() => document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' })}
               className="w-full px-10 sm:px-12 py-4 sm:py-5 bg-[#b8860b] text-white text-[9px] sm:text-[11px] font-black uppercase tracking-widest hover:bg-white hover:text-[#111111] transition-all whitespace-nowrap shadow-xl"
             >
-              Audit Your System
+              Calibrate Your System
             </button>
           </div>
         </div>

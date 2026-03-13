@@ -22,7 +22,7 @@ const ImpactLedger: React.FC = () => {
       id: "CASE-072",
       sector: "Financial Services",
       challenge: "Authority Leakage during Global Expansion",
-      intervention: "Sovereign Substrate Audit & Logic-Driven Governance",
+      intervention: "Sovereign Substrate Calibration & Logic-Driven Governance",
       outcome: "Intent projected with 100% fidelity across 12 global hubs; Neutralized 15% 'Inaction Tax'.",
       stats: ["Zero Tactical Noise", "ISO/TULC Compliant"]
     }

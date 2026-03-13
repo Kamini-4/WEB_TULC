@@ -194,7 +194,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick }) => {
             <div>
               <h4 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-6">Live Intelligence Pulse</h4>
               <h5 className="text-3xl font-bold mb-6 leading-tight">
-                Audit global trends against <span className="text-[#b8860b] italic">architectural excellence.</span>
+                Map global trends against <span className="text-[#b8860b] italic">architectural excellence.</span>
               </h5>
               <div className="flex flex-col sm:flex-row gap-4">
                 <input 

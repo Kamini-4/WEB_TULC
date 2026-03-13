@@ -40,7 +40,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
           <PhaseCard 
             phase="01"
-            title="The Diagnostic Audit"
+            title="The Diagnostic Mapping"
             subtitle="The 'What'"
             action="We deploy 'Silent Work' diagnostics to map the invisible constraints in your leadership OS."
             outcome="A 'Constraint Map' identifying exactly where your strategic intent is being diluted."

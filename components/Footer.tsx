@@ -65,6 +65,13 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
             <p className="text-white/40 text-[9px] sm:text-[11px] leading-relaxed max-w-xs uppercase font-black mb-6 sm:mb-8 tracking-widest">
               Re-architecting leadership operating systems for global institutional authority.
             </p>
+            <div className="flex gap-4">
+              <a href="https://www.linkedin.com/company/the-unbounded-leadership-co" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-[#b8860b] transition-colors">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+            </div>
           </div>
           
           <div>
@@ -87,7 +94,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
         <div className="pt-12 sm:pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 sm:gap-12">
             <div className="max-w-md text-center md:text-left">
               <p className="text-[#b8860b] text-[9px] sm:text-[11px] uppercase font-black tracking-[0.2em] mb-3 sm:mb-4">
-                "Apply → Systemic Audit → Institutional Legacy."
+                "Apply → Yield Calibration → Institutional Legacy."
               </p>
               <div className="text-white/20 text-[8px] sm:text-[10px] uppercase font-bold">© {new Date().getFullYear()} THE UNBOUNDED LEADERSHIP CO.</div>
             </div>
@@ -101,7 +108,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
         {/* Base Legal Disclaimer */}
         <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-white/[0.03] text-center">
           <p className="text-white/10 text-[7px] sm:text-[8px] uppercase font-black tracking-[0.2em] sm:tracking-[0.25em] max-w-5xl mx-auto leading-relaxed">
-            PRIVILEGED DISCLOSURE: THE UNBOUNDED LEADERSHIP CO. IS A STRATEGIC ARCHITECTURE AND INSTITUTIONAL DIAGNOSTIC ADVISORY. ALL DATA TRANSMITTED DURING THE SOVEREIGN AUDIT PROCESS IS PROCESSED VIA EPHEMERAL ZERO DATA RETENTION (ZDR) PROTOCOLS.
+            PRIVILEGED DISCLOSURE: THE UNBOUNDED LEADERSHIP CO. IS A STRATEGIC ARCHITECTURE AND INSTITUTIONAL DIAGNOSTIC ADVISORY. ALL DATA TRANSMITTED DURING THE YIELD CALIBRATION PROCESS IS PROCESSED VIA EPHEMERAL ZERO DATA RETENTION (ZDR) PROTOCOLS.
           </p>
         </div>
       </div>

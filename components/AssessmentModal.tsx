@@ -171,9 +171,9 @@ const AssessmentModal: React.FC<AssessmentModalProps> = ({ onClose }) => {
       <div className="relative w-full max-w-3xl max-h-[90vh] bg-[#f5f5f0] border border-[#b8860b]/30 p-6 sm:p-12 md:p-16 overflow-y-auto shadow-2xl scroll-smooth">
         {step === 'intro' && (
           <div className="text-center py-4">
-            <h2 className="text-4xl font-bold mb-8 text-[#111111]">The Structural Audit</h2>
+            <h2 className="text-4xl font-bold mb-8 text-[#111111]">The Yield Calibration</h2>
             <p className="text-zinc-600 mb-12 text-xl italic font-light leading-relaxed">
-              A preliminary calibration of your <span className="text-[#b8860b]">Vertical Maturity</span>. This audit identifies the constraints in your leadership OS that training cannot detect.
+              A preliminary calibration of your <span className="text-[#b8860b]">Vertical Maturity</span>. This calibration identifies the constraints in your leadership OS that training cannot detect.
             </p>
             <button 
               onClick={() => setStep('collect_email')}

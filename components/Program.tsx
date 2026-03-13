@@ -28,7 +28,7 @@ const Program: React.FC<ProgramProps> = ({ onBriefClick }) => {
                 onClick={() => document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' })}
                 className="w-full px-10 py-5 border border-[#111111] text-[#111111] text-[10px] font-black uppercase tracking-widest hover:bg-[#111111] hover:text-white transition-all shadow-sm"
               >
-                Start Structural Audit
+                Start Yield Calibration
               </button>
             </div>
             <div className="mt-12 p-8 border border-[#b8860b]/20 bg-white/50 backdrop-blur-sm">

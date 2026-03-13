@@ -64,8 +64,8 @@ async function startServer() {
             html = `
               <div style="font-family: 'Georgia', serif; padding: 40px; color: #111; max-width: 600px; margin: auto; border: 1px solid #e5e5e5; line-height: 1.6;">
                 <p style="font-size: 16px; margin-bottom: 25px;">${reminder.name},</p>
-                <p style="margin-bottom: 20px;">As we approach the <strong>April 5th</strong> milestone, we are reviewing the structural profiles of our incoming cohort.</p>
-                <p style="margin-bottom: 20px;">Strategic continuity requires a clear understanding of your current leverage points. If you have not yet finalized your <strong>Structural Audit</strong>, we recommend doing so before the intake cycle concludes.</p>
+                <p style="margin-bottom: 20px;">As we approach the <strong>April 15th</strong> milestone, we are reviewing the structural profiles of our incoming cohort.</p>
+                <p style="margin-bottom: 20px;">Strategic continuity requires a clear understanding of your current leverage points. If you have not yet finalized your <strong>Yield Calibration</strong>, we recommend doing so before the intake cycle concludes.</p>
                 <p style="margin-bottom: 30px;">Your progress is being monitored. No further action is required at this stage.</p>
                 <div style="margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px;">
                   <p style="font-size: 12px; margin: 0; font-weight: bold;">The Unbounded Concierge</p>
@@ -78,7 +78,7 @@ async function startServer() {
             html = `
               <div style="font-family: 'Georgia', serif; padding: 40px; color: #111; max-width: 600px; margin: auto; border: 1px solid #e5e5e5; line-height: 1.6;">
                 <p style="font-size: 16px; margin-bottom: 25px;">${reminder.name},</p>
-                <p style="margin-bottom: 20px;">The <strong>April 5th</strong> deadline is now imminent. This is your final briefing before the Sovereign Ledger transitions into the active phase.</p>
+                <p style="margin-bottom: 20px;">The <strong>April 15th</strong> deadline is now imminent. This is your final briefing before the Sovereign Ledger transitions into the active phase.</p>
                 <p style="margin-bottom: 20px;">Ensure your organization is prepared for the structural shifts discussed in our core thesis. Your priority calendar link will be dispatched shortly after the deadline.</p>
                 <p style="margin-bottom: 30px;">The future awaits.</p>
                 <div style="margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px;">
@@ -180,13 +180,13 @@ async function startServer() {
               
               <div style="margin: 40px 0; padding: 20px; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
                 <p style="text-transform: uppercase; font-size: 11px; letter-spacing: 2px; color: #b8860b; margin-bottom: 15px;">The Strategic Timeline</p>
-                <p style="font-size: 14px; margin-bottom: 0;">Our current institutional intake cycle concludes on <strong>April 5th</strong>. This period of strategic silence is intentional; it allows for the necessary calibration of our ecosystem before your entry.</p>
+                <p style="font-size: 14px; margin-bottom: 0;">Our current institutional intake cycle concludes on <strong>April 15th</strong>. This period of strategic silence is intentional; it allows for the necessary calibration of our ecosystem before your entry.</p>
               </div>
               
               <p style="text-transform: uppercase; font-size: 11px; letter-spacing: 2px; color: #b8860b; margin-bottom: 15px;">Protocol for Accession</p>
               <ol style="font-size: 14px; padding-left: 20px; margin-bottom: 30px;">
                 <li style="margin-bottom: 15px;"><strong>The Strategic Briefing:</strong> As an immediate resource, we have attached your copy of the <em>2026 Strategic Briefing: The Physics of Inevitability</em>. This document outlines the structural shifts required for the upcoming cycle. <br/><a href="#" style="color: #b8860b; font-weight: bold; text-decoration: underline; margin-top: 5px; display: inline-block;">Download Briefing (PDF)</a></li>
-                <li style="margin-bottom: 15px;"><strong>The Calibration Link:</strong> Following the April 5th milestone, you will receive a priority invitation to secure a session on our principal calendar. This is a peer-level alignment to map your primary leverage points.</li>
+                <li style="margin-bottom: 15px;"><strong>The Calibration Link:</strong> Following the April 15th milestone, you will receive a priority invitation to secure a session on our principal calendar. This is a peer-level alignment to map your primary leverage points.</li>
                 <li><strong>Data Sovereignty:</strong> Your strategic profile is currently protected under our <strong>Zero Data Retention (ZDR)</strong> protocol. In an era of surveillance, we prioritize your invisibility as much as your impact.</li>
               </ol>
               
@@ -219,12 +219,12 @@ async function startServer() {
     try {
       if (resend) {
         await resend.emails.send({
-          from: "TULC Structural Audit <notifications@resend.dev>",
+          from: "TULC Yield Calibration <notifications@resend.dev>",
           to: [adminEmail],
-          subject: `New Structural Audit Calibration: ${email}`,
+          subject: `New Yield Calibration: ${email}`,
           html: `
             <div style="font-family: sans-serif; padding: 20px; color: #111; max-width: 600px; margin: auto; border: 1px solid #eee;">
-              <h2 style="color: #b8860b; text-transform: uppercase; letter-spacing: 2px; font-size: 18px;">Structural Audit Calibration</h2>
+              <h2 style="color: #b8860b; text-transform: uppercase; letter-spacing: 2px; font-size: 18px;">Yield Calibration</h2>
               <div style="background: #111; color: white; padding: 30px; margin: 20px 0; text-align: center;">
                 <p style="text-transform: uppercase; font-size: 10px; color: #b8860b; margin-bottom: 10px; letter-spacing: 2px;">Sovereign Grade</p>
                 <h1 style="font-size: 60px; margin: 0; color: #b8860b;">${score}</h1>

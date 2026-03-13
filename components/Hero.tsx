@@ -68,7 +68,7 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
                   onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-12 py-6 bg-[#111111] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#b8860b] transition-all duration-500 shadow-2xl"
                 >
-                  Initialize Structural Audit
+                  Initialize Yield Calibration
                 </button>
                 <button 
                   onClick={onBriefClick}

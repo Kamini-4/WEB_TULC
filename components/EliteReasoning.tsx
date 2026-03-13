@@ -64,7 +64,7 @@ const EliteReasoning: React.FC = () => {
                     onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
                     className="text-[10px] font-black uppercase text-white/40 hover:text-[#b8860b] transition-all text-left tracking-widest block w-full"
                   >
-                    Inquire Regarding Custom Audit →
+                    Inquire Regarding Custom Calibration →
                   </button>
                 </div>
               </div>

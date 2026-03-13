@@ -9,7 +9,7 @@ const Countdown: React.FC = () => {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2026-04-05T00:00:00');
+    const targetDate = new Date('2026-04-15T00:00:00');
 
     const timer = setInterval(() => {
       const now = new Date();
@@ -37,7 +37,7 @@ const Countdown: React.FC = () => {
         <div className="flex items-center gap-3">
           <span className="text-[#b8860b] text-[10px] sm:text-[8px] font-black uppercase tracking-[0.3em]">Institutional Intake Window</span>
           <div className="h-[1px] w-4 bg-[#b8860b]/30"></div>
-          <span className="text-[10px] sm:text-[9px] font-bold uppercase tracking-widest text-zinc-400">Closing April 5th</span>
+          <span className="text-[10px] sm:text-[9px] font-bold uppercase tracking-widest text-zinc-400">Closing April 15th</span>
         </div>
         
         <div className="flex items-center gap-4 sm:gap-6">

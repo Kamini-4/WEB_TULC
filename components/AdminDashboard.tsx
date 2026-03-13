@@ -100,7 +100,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
           <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <StatCard label="Total Leads" value={data.leads.length.toString()} />
-              <StatCard label="Completed Audits" value={data.assessments.length.toString()} />
+              <StatCard label="Completed Calibrations" value={data.assessments.length.toString()} />
               <StatCard label="System Resonance" value="98.2%" />
             </div>
 
@@ -112,7 +112,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                     <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 tracking-widest">Identity</th>
                     <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 tracking-widest">Organization</th>
                     <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 tracking-widest">Yield Target / Message</th>
-                    <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 tracking-widest">Audit Status</th>
+                    <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 tracking-widest">Calibration Status</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-zinc-100">

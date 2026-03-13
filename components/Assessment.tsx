@@ -9,12 +9,12 @@ const Assessment: React.FC<AssessmentProps> = ({ onCtaClick }) => {
     <section id="assessment" className="py-24 bg-[#f5f5f0]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-12 sm:mb-20">
-          <h2 className="text-[#b8860b] text-[9px] sm:text-[10px] font-bold uppercase mb-4 tracking-[0.2em]">The Structural Audit</h2>
+          <h2 className="text-[#b8860b] text-[9px] sm:text-[10px] font-bold uppercase mb-4 tracking-[0.2em]">The Yield Calibration</h2>
           <h3 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-6 sm:mb-8 text-[#111111] max-w-4xl leading-[1.1]">
             Vertical Development. <span className="italic text-[#b8860b]">Sovereignty</span> is the evolution of architectural maturity.
           </h3>
           <p className="text-zinc-600 text-base sm:text-xl max-w-3xl font-light italic leading-relaxed">
-            Our audit measures maturity across 5 Vertical Domains. We identify your primary constraint and secondary leverage points to stabilize your architecture before engineering expansion.
+            Our calibration measures maturity across 5 Vertical Domains. We identify your primary constraint and secondary leverage points to stabilize your architecture before engineering expansion.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ const Assessment: React.FC<AssessmentProps> = ({ onCtaClick }) => {
           />
           
           <div className="bg-[#111111] p-10 flex flex-col justify-center text-white group h-full min-h-[450px]">
-             <div className="text-[10px] uppercase text-[#b8860b] mb-4 font-black tracking-[0.3em]">Vertical Maturity Audit</div>
+             <div className="text-[10px] uppercase text-[#b8860b] mb-4 font-black tracking-[0.3em]">Vertical Maturity Calibration</div>
              <p className="text-lg text-zinc-400 mb-8 italic font-light leading-relaxed">
                Stabilize constraints. Maximize leverage. This is not a skills test; it is an evolution of your sovereign substrate.
              </p>
@@ -84,7 +84,7 @@ const Assessment: React.FC<AssessmentProps> = ({ onCtaClick }) => {
                 onClick={onCtaClick}
                 className="w-full py-5 bg-[#b8860b] text-white text-[11px] font-bold uppercase hover:bg-white hover:text-[#111111] transition-all shadow-xl tracking-[0.2em]"
              >
-                Initiate Sovereign Audit
+                Initiate Yield Calibration
              </button>
           </div>
         </div>
