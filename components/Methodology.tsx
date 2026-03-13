@@ -7,6 +7,19 @@ interface MethodologyProps {
 const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
   return (
     <section id="methodology" className="py-20 sm:py-24 md:py-32 bg-[#0a0a0a] text-white overflow-hidden relative isolate">
+      <style>
+        {`
+          @keyframes executivePulse {
+            0% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(184, 134, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0); }
+          }
+          .animate-pulse-executive {
+            animation: executivePulse 3s infinite cubic-bezier(0.66, 0, 0, 1);
+          }
+        `}
+      </style>
+      
       {/* Background Decorative Element */}
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none -z-10">
         <img 
@@ -30,7 +43,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
           <div className="pb-2 w-full md:w-auto">
             <button 
               onClick={() => onBriefClick()}
-              className="w-full md:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-[#b8860b] text-white text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 shadow-2xl"
+              className="w-full md:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-[#b8860b] text-white text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 shadow-2xl animate-pulse-executive"
             >
               Request Full Protocol
             </button>
@@ -40,37 +53,37 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
           <PhaseCard 
             phase="01"
-            title="The Diagnostic Mapping"
-            subtitle="The 'What'"
-            action="We deploy 'Silent Work' diagnostics to map the invisible constraints in your leadership OS."
-            outcome="A 'Constraint Map' identifying exactly where your strategic intent is being diluted."
+            title="Yield Calibration"
+            subtitle="The Diagnostic"
+            action="Deployment of the Sovereign Assessment to map the vertical maturity of your institutional substrate."
+            outcome="Identification of systemic constraints and authority leakage points."
             image="https://picsum.photos/seed/audit/800/600?grayscale"
             onBriefClick={() => onBriefClick('01')}
           />
           <PhaseCard 
             phase="02"
-            title="Structural Stabilization"
-            subtitle="The 'How'"
-            action="Onsite intensives to 'plug the leaks.' We stabilize the team’s relational and operational substrates."
-            outcome="Immediate reclamation of 20-30% of your cognitive bandwidth."
+            title="Strategic Domain Mapping"
+            subtitle="The Synthesis"
+            action="Generation of the Structural Integrity Report, isolating the Two Primary Domains for immediate calibration."
+            outcome="A definitive architectural blueprint for bandwidth reclamation."
             image="https://picsum.photos/seed/stabilize/800/600?grayscale"
             onBriefClick={() => onBriefClick('02')}
           />
           <PhaseCard 
             phase="03"
-            title="Architectural Recalibration"
-            subtitle="The 'Evolution'"
-            action="Re-wiring the organizational 'nervous system' so it executes vision as natural law."
-            outcome="A self-regulating leadership tier that requires 0% tactical intervention."
+            title="Architectural Intervention"
+            subtitle="The Calibration"
+            action="Bespoke re-engineering of leadership protocols tailored to your institutional requirements."
+            outcome="Neutralization of systemic entropy and restoration of strategic velocity."
             image="https://picsum.photos/seed/calibration/800/600?grayscale"
             onBriefClick={() => onBriefClick('03')}
           />
           <PhaseCard 
             phase="04"
-            title="Institutional Governance"
-            subtitle="The 'Legacy'"
-            action="Implementing 'Shadow Metrics' that allow you to monitor health without being 'in' the business."
-            outcome="Total institutional permanence. Your legacy is now independent of your presence."
+            title="Sovereign Integration"
+            subtitle="The Integration"
+            action="Implementing autonomous governance substrates to ensure 100% intent fidelity."
+            outcome="Total institutional permanence. Strategic outcomes become natural law."
             image="https://picsum.photos/seed/governance/800/600?grayscale"
             onBriefClick={() => onBriefClick('04')}
           />
@@ -78,14 +91,14 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
 
         <div className="mt-16 sm:mt-24 flex flex-wrap justify-center gap-4 sm:gap-8">
           <button 
-            onClick={() => document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
             className="px-8 sm:px-12 py-4 sm:py-6 border border-white/20 text-white text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-500"
           >
             Initiate Phase 01
           </button>
           <button 
             onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 sm:px-12 py-4 sm:py-6 bg-white text-black text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:bg-[#b8860b] hover:text-white transition-all duration-500 shadow-2xl"
+            className="px-8 sm:px-12 py-4 sm:py-6 bg-white text-black text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:bg-[#b8860b] hover:text-white transition-all duration-500 shadow-2xl animate-pulse-executive"
           >
             Secure Strategic Intake
           </button>

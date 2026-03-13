@@ -27,7 +27,7 @@ const CalibrationScheduler: React.FC<CalibrationSchedulerProps> = ({ onClose, le
 
   const getNextAvailableDates = () => {
     const dates = [];
-    let current = new Date();
+    const current = new Date();
     current.setDate(current.getDate() + 2); // Minimum 48h buffer
 
     while (dates.length < 5) {

@@ -17,7 +17,6 @@ import FAQ from './components/FAQ.tsx';
 import Waitlist from './components/Waitlist.tsx';
 import Footer from './components/Footer.tsx';
 import ArticleView from './components/ArticleView.tsx';
-import AssessmentModal from './components/AssessmentModal.tsx';
 import TrustProtocol from './components/TrustProtocol.tsx';
 import StrategicOutcomes from './components/StrategicOutcomes.tsx';
 import YieldStatement from './components/YieldStatement.tsx';
@@ -72,13 +71,10 @@ const App: React.FC = () => {
     if (phaseId === '01') {
       setActiveArticle({
         category: "Methodology Phase 01",
-        title: "The Diagnostic Mapping Protocol",
+        title: "Yield Calibration (Diagnostic)",
         content: [
-          "The Diagnostic Mapping is a non-invasive, high-fidelity visualization of your institutional 'nervous system.' We don't ask for opinions; we observe the flow of strategic intent.",
-          "Key Diagnostic Vectors:",
-          "1. Intent Dilution Analysis: Identifying where the Principal's vision loses fidelity as it moves through the organizational layers.",
-          "2. Cognitive Friction Mapping: Locating the specific operational bottlenecks that consume 80% of leadership bandwidth for 20% of the value.",
-          "3. Structural Fragility Assessment: Stress-testing the systems that currently rely on individual heroics rather than systemic integrity.",
+          "The Yield Calibration is a non-invasive, high-fidelity diagnostic that measures your institutional substrate across five vertical domains.",
+          "This is not a survey; it is a stress-test of your leadership operating system. We identify the specific 'cracks' in your substrate where strategic intent is being diluted and where cognitive bandwidth is being consumed by tactical noise.",
           "The Deliverable: A comprehensive 'Constraint Map' that serves as the blueprint for the subsequent stabilization and recalibration phases."
         ]
       });
@@ -88,14 +84,11 @@ const App: React.FC = () => {
     if (phaseId === '02') {
       setActiveArticle({
         category: "Methodology Phase 02",
-        title: "Structural Stabilization Framework",
+        title: "Strategic Domain Mapping (Synthesis)",
         content: [
-          "Stabilization is about stopping the bleed. Before we can re-architect, we must ensure the current foundation is not actively eroding strategic focus.",
-          "Intervention Protocols:",
-          "1. Relational Substrate Repair: Resolving the high-level misalignments that create 'relational drag' at the board and executive level.",
-          "2. Operational Leak Plugging: Immediate implementation of 'Silent Work' protocols to reclaim lost time and focus.",
-          "3. Bandwidth Reclamation: Targeted removal of tactical noise from the Principal's daily cycle.",
-          "The Outcome: A 20-30% reclamation of cognitive bandwidth within the first 30 days, creating the necessary space for architectural evolution."
+          "Data without direction is entropy. In this phase, we isolate the Two Primary Domains that represent your highest constraint and your greatest leverage.",
+          "You receive a comprehensive Structural Integrity Report—a definitive mapping of your current entropy against projected stability.",
+          "This report serves as the architectural blueprint for the intervention, ensuring we only move the levers that yield the highest strategic return."
         ]
       });
       return;
@@ -104,14 +97,11 @@ const App: React.FC = () => {
     if (phaseId === '03') {
       setActiveArticle({
         category: "Methodology Phase 03",
-        title: "Architectural Recalibration Strategy",
+        title: "Architectural Intervention (Calibration)",
         content: [
-          "Recalibration is the core of our work. We move from fixing the past to engineering the future by re-wiring how the organization processes intent.",
-          "Architectural Shifts:",
-          "1. Autonomous Execution Substrates: Building systems that execute vision as natural law, requiring zero tactical oversight.",
-          "2. Feedback Loop Optimization: Engineering high-fidelity signals that allow for rapid strategic adjustment without manual intervention.",
-          "3. Vision-System Integration: Ensuring the 'Physics of Scale' are embedded in every operational layer.",
-          "The Result: A self-regulating leadership tier where the Principal's presence is a strategic choice, not an operational necessity."
+          "We move from mapping to engineering. This is a Bespoke Calibration of your leadership operating system, built strictly to your institutional requirements.",
+          "We do not use templates; we re-build your decision-making protocols, communication substrates, and governance logic from the ground up.",
+          "This phase is tailored to your specific mandate, ensuring the system is calibrated for your unique scale."
         ]
       });
       return;
@@ -120,14 +110,11 @@ const App: React.FC = () => {
     if (phaseId === '04') {
       setActiveArticle({
         category: "Methodology Phase 04",
-        title: "Institutional Governance & Legacy",
+        title: "Sovereign Integration (Integration)",
         content: [
-          "The final phase ensures that the new architecture is permanent and independent of any single individual, including the Principal.",
-          "Governance Standards:",
-          "1. Shadow Metrics Implementation: Monitoring institutional health through high-level indicators that don't require 'deep dives.'",
-          "2. Legacy Preservation Protocols: Codifying the institutional 'DNA' to ensure continuity across leadership generations.",
-          "3. Sovereignty Maintenance: Establishing the long-term guardrails that prevent structural entropy from returning.",
-          "The Legacy: Total institutional permanence. The organization now possesses the structural integrity to endure and thrive indefinitely."
+          "The final phase is the transition from intervention to Sovereignty. We ensure the new structural logic is autonomous, self-correcting, and projected with 100% fidelity across your organization.",
+          "The result is the elimination of 'Authority Leakage.' You are no longer managing a team; you are presiding over an institution that functions with the precision of your own strategic intent.",
+          "The Legacy: Total institutional permanence. Strategic outcomes become natural law."
         ]
       });
       return;
@@ -164,7 +151,7 @@ const App: React.FC = () => {
         <Problem />
         <StrategicOutcomes />
         <YieldStatement />
-        <Assessment onCtaClick={() => setShowAssessment(true)} />
+        <Assessment onCtaClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })} />
         <Program onBriefClick={handleBriefClick} />
         <Methodology onBriefClick={handleBriefClick} />
         <ImpactLedger />
@@ -182,10 +169,6 @@ const App: React.FC = () => {
         article={activeArticle} 
         onClose={() => setActiveArticle(null)} 
       />
-
-      {showAssessment && (
-        <AssessmentModal onClose={() => setShowAssessment(false)} />
-      )}
 
       {showAdmin && (
         <AdminDashboard onClose={() => setShowAdmin(false)} />

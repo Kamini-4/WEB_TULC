@@ -21,6 +21,7 @@ const Waitlist: React.FC = () => {
     name: '',
     email: '',
     organization: '',
+    role: '',
     message: ''
   });
 
@@ -33,6 +34,7 @@ const Waitlist: React.FC = () => {
       name: formData.name,
       email: formData.email,
       organization: formData.organization,
+      role: formData.role,
       message: formData.message
     });
 
@@ -67,9 +69,21 @@ const Waitlist: React.FC = () => {
 
   return (
     <section id="waitlist" className="py-16 sm:py-24 bg-[#f5f5f0]">
+      <style>
+        {`
+          @keyframes executivePulse {
+            0% { box-shadow: 0 0 0 0 rgba(17, 17, 17, 0.2); }
+            70% { box-shadow: 0 0 0 15px rgba(17, 17, 17, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(17, 17, 17, 0); }
+          }
+          .animate-pulse-executive-dark {
+            animation: executivePulse 3s infinite cubic-bezier(0.66, 0, 0, 1);
+          }
+        `}
+      </style>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <h2 className="text-[#b8860b] text-[8px] sm:text-[10px] font-black uppercase mb-6 sm:mb-8 tracking-[0.3em]">The Sovereign Ledger</h2>
-        <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 text-[#111111]">Request <span className="italic text-[#b8860b]">Architectural Access.</span></h3>
+        <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 text-[#111111]">Privileged <span className="italic text-[#b8860b]">Intake Terminal.</span></h3>
         
         {isEncrypting && !submitted ? (
           <div className="bg-[#111111] p-8 sm:p-12 border border-[#b8860b]/30 text-left font-inter">
@@ -102,7 +116,7 @@ const Waitlist: React.FC = () => {
                 setSubmitted(false);
                 setIsEncrypting(false);
                 setLedgerLog([]);
-                setFormData({ name: '', email: '', organization: '', message: '' });
+                setFormData({ name: '', email: '', organization: '', role: '', message: '' });
               }}
               className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-400 hover:text-[#b8860b] tracking-widest transition-all"
             >
@@ -138,15 +152,28 @@ const Waitlist: React.FC = () => {
               </div>
             </div>
             
-            <div className="space-y-1 sm:space-y-2">
-              <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Organization Name</label>
-              <input 
-                required
-                type="text" 
-                value={formData.organization}
-                onChange={(e) => setFormData({...formData, organization: e.target.value})}
-                className="w-full bg-transparent border-b border-zinc-200 py-2 sm:py-3 text-[#111111] focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
-              />
+            <div className="grid sm:grid-cols-2 gap-6 sm:gap-10">
+              <div className="space-y-1 sm:space-y-2">
+                <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Organization Name</label>
+                <input 
+                  required
+                  type="text" 
+                  value={formData.organization}
+                  onChange={(e) => setFormData({...formData, organization: e.target.value})}
+                  className="w-full bg-transparent border-b border-zinc-200 py-2 sm:py-3 text-[#111111] focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
+                />
+              </div>
+              <div className="space-y-1 sm:space-y-2">
+                <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Institutional Role</label>
+                <input 
+                  required
+                  type="text" 
+                  value={formData.role}
+                  onChange={(e) => setFormData({...formData, role: e.target.value})}
+                  placeholder="e.g. CEO, Principal Architect"
+                  className="w-full bg-transparent border-b border-zinc-200 py-2 sm:py-3 text-[#111111] focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
+                />
+              </div>
             </div>
             
             <div className="space-y-1 sm:space-y-2">
@@ -164,7 +191,7 @@ const Waitlist: React.FC = () => {
             <div className="pt-4 sm:pt-6">
               <button 
                 type="submit"
-                className="w-full py-4 sm:py-6 bg-[#111111] text-white text-[9px] sm:text-[11px] font-bold uppercase hover:bg-black transition-all shadow-2xl tracking-[0.2em] sm:tracking-[0.3em]"
+                className="w-full py-4 sm:py-6 bg-[#111111] text-white text-[9px] sm:text-[11px] font-bold uppercase hover:bg-black transition-all shadow-2xl tracking-[0.2em] sm:tracking-[0.3em] animate-pulse-executive-dark"
               >
                 Transmit to Sovereign Ledger
               </button>

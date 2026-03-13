@@ -60,12 +60,12 @@ async function startServer() {
           let html = "";
 
           if (reminder.type === "FOLLOW_UP_1") {
-            subject = "Strategic Continuity | Accession Progress Update";
+            subject = "Yield Calibration | Phase 02 Synthesis Update";
             html = `
               <div style="font-family: 'Georgia', serif; padding: 40px; color: #111; max-width: 600px; margin: auto; border: 1px solid #e5e5e5; line-height: 1.6;">
                 <p style="font-size: 16px; margin-bottom: 25px;">${reminder.name},</p>
                 <p style="margin-bottom: 20px;">As we approach the <strong>April 15th</strong> milestone, we are reviewing the structural profiles of our incoming cohort.</p>
-                <p style="margin-bottom: 20px;">Strategic continuity requires a clear understanding of your current leverage points. If you have not yet finalized your <strong>Yield Calibration</strong>, we recommend doing so before the intake cycle concludes.</p>
+                <p style="margin-bottom: 20px;">Strategic continuity requires a clear understanding of your current leverage points. If you have not yet finalized your <strong>Yield Calibration</strong> (Phase 01), we recommend doing so before the intake cycle concludes. This allows us to move directly into <strong>Phase 02: Strategic Domain Mapping</strong>.</p>
                 <p style="margin-bottom: 30px;">Your progress is being monitored. No further action is required at this stage.</p>
                 <div style="margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px;">
                   <p style="font-size: 12px; margin: 0; font-weight: bold;">The Unbounded Concierge</p>
@@ -79,7 +79,7 @@ async function startServer() {
               <div style="font-family: 'Georgia', serif; padding: 40px; color: #111; max-width: 600px; margin: auto; border: 1px solid #e5e5e5; line-height: 1.6;">
                 <p style="font-size: 16px; margin-bottom: 25px;">${reminder.name},</p>
                 <p style="margin-bottom: 20px;">The <strong>April 15th</strong> deadline is now imminent. This is your final briefing before the Sovereign Ledger transitions into the active phase.</p>
-                <p style="margin-bottom: 20px;">Ensure your organization is prepared for the structural shifts discussed in our core thesis. Your priority calendar link will be dispatched shortly after the deadline.</p>
+                <p style="margin-bottom: 20px;">Ensure your organization is prepared for the 4-phase architectural shift: Diagnostic, Synthesis, Calibration, and Integration. Your priority calendar link will be dispatched shortly after the deadline.</p>
                 <p style="margin-bottom: 30px;">The future awaits.</p>
                 <div style="margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px;">
                   <p style="font-size: 12px; margin: 0; font-weight: bold;">The Unbounded Concierge</p>
@@ -180,13 +180,13 @@ async function startServer() {
               
               <div style="margin: 40px 0; padding: 20px; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
                 <p style="text-transform: uppercase; font-size: 11px; letter-spacing: 2px; color: #b8860b; margin-bottom: 15px;">The Strategic Timeline</p>
-                <p style="font-size: 14px; margin-bottom: 0;">Our current institutional intake cycle concludes on <strong>April 15th</strong>. This period of strategic silence is intentional; it allows for the necessary calibration of our ecosystem before your entry.</p>
+                <p style="font-size: 14px; margin-bottom: 0;">Our current institutional intake cycle concludes on <strong>April 15th</strong>. Following this, we move through the 4-Phase Protocol: Diagnostic Calibration, Strategic Synthesis, Architectural Intervention, and Sovereign Integration.</p>
               </div>
               
               <p style="text-transform: uppercase; font-size: 11px; letter-spacing: 2px; color: #b8860b; margin-bottom: 15px;">Protocol for Accession</p>
               <ol style="font-size: 14px; padding-left: 20px; margin-bottom: 30px;">
                 <li style="margin-bottom: 15px;"><strong>The Strategic Briefing:</strong> As an immediate resource, we have attached your copy of the <em>2026 Strategic Briefing: The Physics of Inevitability</em>. This document outlines the structural shifts required for the upcoming cycle. <br/><a href="#" style="color: #b8860b; font-weight: bold; text-decoration: underline; margin-top: 5px; display: inline-block;">Download Briefing (PDF)</a></li>
-                <li style="margin-bottom: 15px;"><strong>The Calibration Link:</strong> Following the April 15th milestone, you will receive a priority invitation to secure a session on our principal calendar. This is a peer-level alignment to map your primary leverage points.</li>
+                <li style="margin-bottom: 15px;"><strong>The Yield Calibration:</strong> Following the April 15th milestone, you will receive a priority invitation to initiate Phase 01. This is a peer-level alignment to map your primary leverage points and isolate the Two Primary Domains for calibration.</li>
                 <li><strong>Data Sovereignty:</strong> Your strategic profile is currently protected under our <strong>Zero Data Retention (ZDR)</strong> protocol. In an era of surveillance, we prioritize your invisibility as much as your impact.</li>
               </ol>
               
