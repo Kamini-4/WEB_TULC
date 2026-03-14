@@ -23,7 +23,7 @@ const ImpactLedger: React.FC = () => {
       sector: "Financial Services",
       challenge: "Authority Leakage during Global Expansion",
       intervention: "Sovereign Substrate Calibration & Logic-Driven Governance",
-      outcome: "Intent projected with 100% fidelity across 12 global hubs; Neutralized 15% 'Inaction Tax'.",
+      outcome: "Intent projected with near-absolute fidelity across 12 global hubs; Neutralized 15% 'Inaction Tax'.",
       stats: ["Zero Tactical Noise", "ISO/TULC Compliant"]
     }
   ];

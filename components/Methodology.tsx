@@ -82,7 +82,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             phase="04"
             title="Sovereign Integration"
             subtitle="The Integration"
-            action="Implementing autonomous governance substrates to ensure 100% intent fidelity."
+            action="Implementing autonomous governance substrates to ensure asymptotic intent fidelity."
             outcome="Total institutional permanence. Strategic outcomes become natural law."
             image="https://picsum.photos/seed/governance/800/600?grayscale"
             onBriefClick={() => onBriefClick('04')}

@@ -135,7 +135,7 @@ async function startServer() {
   setInterval(runSchedulerPulse, 5 * 60 * 1000);
 
   app.post("/api/waitlist", async (req, res) => {
-    const { name, email, organization, message } = req.body;
+    const { name, email, organization, role, message } = req.body;
 
     try {
       if (resend) {
@@ -151,6 +151,7 @@ async function startServer() {
                 <p><strong>Name:</strong> ${name}</p>
                 <p><strong>Email:</strong> ${email}</p>
                 <p><strong>Organization:</strong> ${organization}</p>
+                <p><strong>Role:</strong> ${role || "Not Specified"}</p>
               </div>
               <p style="text-transform: uppercase; font-size: 10px; font-weight: bold; color: #999; letter-spacing: 1px;">Institutional Yield Target</p>
               <p style="font-style: italic; color: #444; line-height: 1.6;">"${message}"</p>
@@ -203,8 +204,8 @@ async function startServer() {
         });
 
         // 3. Schedule Future Reminders (Proprietary Automation)
-        await scheduleReminder({ name, email, organization }, 3, "FOLLOW_UP_1");
-        await scheduleReminder({ name, email, organization }, 7, "FOLLOW_UP_2");
+        await scheduleReminder({ name, email, organization, role }, 3, "FOLLOW_UP_1");
+        await scheduleReminder({ name, email, organization, role }, 7, "FOLLOW_UP_2");
       }
       res.json({ success: true });
     } catch (error) {

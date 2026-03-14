@@ -54,7 +54,7 @@ const ScaleEvidence: React.FC<ScaleEvidenceProps> = ({ onBriefClick }) => {
                 <div className="text-3xl sm:text-4xl font-bold mb-1 sm:mb-2">Zero</div>
                 <div className="text-[8px] sm:text-[10px] uppercase font-black tracking-widest text-zinc-500 mb-3 sm:mb-4">Tactical Intervention</div>
                 <p className="text-zinc-400 text-xs sm:text-sm italic font-light leading-relaxed">
-                  Our goal is to render the leader's intent with absolute fidelity, requiring zero tactical intervention from the board once the substrate is calibrated.
+                  Our goal is to render the leader's intent with near-absolute fidelity, requiring zero tactical intervention from the board once the substrate is calibrated.
                 </p>
               </div>
  

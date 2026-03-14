@@ -38,12 +38,12 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
                 <p className="text-[10px] text-zinc-500 italic leading-relaxed max-w-[160px]">Reclaiming the capacity for high-stakes architectural thought.</p>
               </div>
               <div className="flex flex-col items-center bg-[#111111] p-8 transition-colors hover:bg-zinc-900">
-                <span className="text-3xl font-bold text-white mb-1">100%</span>
+                <span className="text-2xl font-bold text-white mb-1">Near-Absolute</span>
                 <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-3">Cognitive Reclamation</span>
                 <p className="text-[10px] text-zinc-500 italic leading-relaxed max-w-[160px]">Purging tactical noise to restore absolute decision velocity.</p>
               </div>
               <div className="flex flex-col items-center bg-[#111111] p-8 transition-colors hover:bg-zinc-900">
-                <span className="text-3xl font-bold text-white mb-1">100%</span>
+                <span className="text-2xl font-bold text-white mb-1">Asymptotic</span>
                 <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-3">Intent Fidelity</span>
                 <p className="text-[10px] text-zinc-500 italic leading-relaxed max-w-[160px]">Eliminating authority dilution across the organizational substrate.</p>
               </div>

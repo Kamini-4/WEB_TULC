@@ -12,7 +12,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "What distinguishes TULC's structural recalibration from traditional executive coaching or Tier-1 management consulting?",
-      answer: "Executive coaching focuses on the individual; management consulting focuses on the strategy. TULC focuses on the architecture that connects them. We recalibrate the leadership operating system itself, ensuring that strategic intent is transmitted with 100% fidelity through the organizational substrate, rendering heroic human effort unnecessary."
+      answer: "Executive coaching focuses on the individual; management consulting focuses on the strategy. TULC focuses on the architecture that connects them. We recalibrate the leadership operating system itself, ensuring that strategic intent is transmitted with asymptotic fidelity through the organizational substrate, rendering heroic human effort unnecessary."
     },
     {
       question: "How is the yield of systemic velocity and strategic intent fidelity quantified for Board-level reporting?",

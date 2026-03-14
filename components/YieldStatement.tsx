@@ -21,7 +21,7 @@ const YieldStatement: React.FC = () => {
               />
               <YieldPoint 
                 label="Intent Fidelity" 
-                value="100%" 
+                value="Asymptotic" 
                 desc="The elimination of authority dilution as vision moves from the Board to the operational edge."
               />
               <YieldPoint 

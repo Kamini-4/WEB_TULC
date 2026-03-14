@@ -112,7 +112,7 @@ const App: React.FC = () => {
         category: "Methodology Phase 04",
         title: "Sovereign Integration (Integration)",
         content: [
-          "The final phase is the transition from intervention to Sovereignty. We ensure the new structural logic is autonomous, self-correcting, and projected with 100% fidelity across your organization.",
+          "The final phase is the transition from intervention to Sovereignty. We ensure the new structural logic is autonomous, self-correcting, and projected with asymptotic fidelity across your organization.",
           "The result is the elimination of 'Authority Leakage.' You are no longer managing a team; you are presiding over an institution that functions with the precision of your own strategic intent.",
           "The Legacy: Total institutional permanence. Strategic outcomes become natural law."
         ]
@@ -131,7 +131,7 @@ const App: React.FC = () => {
         "III. Strategic Velocity: The capacity to convert external disruption into systemic advantage through autonomous substrate recalibration.",
         "IV. Moral Gravity: The weight and integrity that prevents institutional drift, ensuring intent is projected with absolute resonance.",
         "V. Cultural Fidelity: The elimination of authority dilution, ensuring the vision at the operational edge is a high-fidelity mirror of the source.",
-        "The Yield: 30% Strategic Bandwidth Reclamation, 100% Intent Fidelity, and the engineering of Institutional Permanence.",
+        "The Yield: 30% Strategic Bandwidth Reclamation, Asymptotic Intent Fidelity, and the engineering of Institutional Permanence.",
         "The Window for Architectural Transition: Strategic intent is currently being diluted by institutional noise. Reclaim the authority that structural entropy is absorbing before the next board cycle concludes."
       ]
     };
