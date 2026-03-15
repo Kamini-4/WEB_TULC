@@ -17,6 +17,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
   };
 
   const navItems = [
+    { label: 'Newsletter', id: 'thought-leadership' },
     { label: 'Blogs', id: 'registry' },
     { label: 'Our Methodology', id: 'methodology' },
     { label: 'Impact', id: 'impact-ledger' },

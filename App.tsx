@@ -21,6 +21,7 @@ import TrustProtocol from './components/TrustProtocol.tsx';
 import StrategicOutcomes from './components/StrategicOutcomes.tsx';
 import YieldStatement from './components/YieldStatement.tsx';
 import AdminDashboard from './components/AdminDashboard.tsx';
+import ThoughtLeadership from './components/ThoughtLeadership.tsx';
 
 interface Article {
   id?: string;
@@ -158,6 +159,11 @@ const App: React.FC = () => {
         <TrustProtocol />
         <EliteReasoning />
         <Insights onArticleClick={handleOpenArticle} />
+        <ThoughtLeadership onDispatchClick={(dispatch) => handleOpenArticle({
+          category: `Sovereign Dispatch | ${dispatch.id}`,
+          title: dispatch.title,
+          content: dispatch.content
+        })} />
         <Blog onArticleClick={handleOpenArticle} />
         <PrincipalDispatch />
         <FAQ />
