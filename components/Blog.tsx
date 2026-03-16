@@ -55,14 +55,19 @@ const INITIAL_POSTS: BlogEntry[] = [
 ];
 
 const Blog: React.FC<BlogProps> = ({ onArticleClick }) => {
-  const [posts] = useState<BlogEntry[]>(() => {
-    const storedPosts = SovereignDB.getBlogPosts();
-    if (storedPosts.length > 0) {
-      const customPosts = storedPosts.filter(sp => !INITIAL_POSTS.some(ip => ip.title === sp.title));
-      return [...INITIAL_POSTS, ...customPosts];
-    }
-    return INITIAL_POSTS;
-  });
+  const [posts, setPosts] = useState<BlogEntry[]>(INITIAL_POSTS);
+
+  useEffect(() => {
+    const unsub = SovereignDB.subscribeToBlog((storedPosts) => {
+      if (storedPosts.length > 0) {
+        const customPosts = storedPosts.filter(sp => !INITIAL_POSTS.some(ip => ip.title === sp.title));
+        setPosts([...INITIAL_POSTS, ...customPosts]);
+      } else {
+        setPosts(INITIAL_POSTS);
+      }
+    });
+    return () => unsub();
+  }, []);
 
   return (
     <section id="registry" className="py-20 sm:py-24 bg-[#111111] text-[#f5f5f0] overflow-hidden isolate">

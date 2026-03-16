@@ -1,6 +1,21 @@
 import React, { useState, useEffect } from 'react';
 
+const getNextTargetDate = () => {
+  const now = new Date();
+  const target = new Date(now.getFullYear(), now.getMonth(), 15);
+  
+  // If we've passed the 15th of this month, go to the 15th of next month
+  if (now.getDate() >= 15) {
+    target.setMonth(target.getMonth() + 1);
+  }
+  
+  return target;
+};
+
 const Countdown: React.FC = () => {
+  const targetDate = React.useMemo(() => getNextTargetDate(), []);
+  const targetLabel = targetDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -9,11 +24,10 @@ const Countdown: React.FC = () => {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2026-04-15T00:00:00');
-
+    const targetTime = targetDate.getTime();
     const timer = setInterval(() => {
       const now = new Date();
-      const difference = targetDate.getTime() - now.getTime();
+      const difference = targetTime - now.getTime();
 
       if (difference <= 0) {
         clearInterval(timer);
@@ -29,7 +43,7 @@ const Countdown: React.FC = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [targetDate]);
 
   return (
     <div className="bg-[#111111] text-white py-2 px-4 border-b border-[#b8860b]/20 relative z-[60]">
@@ -37,7 +51,7 @@ const Countdown: React.FC = () => {
         <div className="flex items-center gap-3">
           <span className="text-[#b8860b] text-[10px] sm:text-[8px] font-black uppercase tracking-[0.3em]">Institutional Intake Window</span>
           <div className="h-[1px] w-4 bg-[#b8860b]/30"></div>
-          <span className="text-[10px] sm:text-[9px] font-bold uppercase tracking-widest text-zinc-400">Closing April 15th</span>
+          <span className="text-[10px] sm:text-[9px] font-bold uppercase tracking-widest text-zinc-400">Closing {targetLabel}</span>
         </div>
         
         <div className="flex items-center gap-4 sm:gap-6">

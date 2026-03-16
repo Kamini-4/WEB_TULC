@@ -1,0 +1,99 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: leads
+    // Fields: name, email, organization, role, message, timestamp, type
+    //
+    // Collection: assessments
+    // Fields: email, score, analysis, constraint, leverage, timestamp, type
+    //
+    // Collection: blog
+    // Fields: category, date, title, excerpt, content, timestamp
+    //
+    // Collection: reminders
+    // Fields: email, name, organization, type, scheduledFor, sent
+    //
+    // ===============================================================
+
+    // Helper Functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && 
+        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' || 
+         (request.auth.token.email == "suchita135sancheti@gmail.com" && request.auth.token.email_verified == true));
+    }
+
+    function isValidEmail(email) {
+      return email is string && email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    // Leads Validation
+    function isValidLead(data) {
+      return data.keys().hasAll(['name', 'email', 'organization', 'message', 'timestamp']) &&
+             data.name is string && data.name.size() > 0 && data.name.size() < 100 &&
+             isValidEmail(data.email) &&
+             data.organization is string && data.organization.size() < 100 &&
+             data.message is string && data.message.size() < 2000 &&
+             data.timestamp is number;
+    }
+
+    // Assessment Validation
+    function isValidAssessment(data) {
+      return data.keys().hasAll(['email', 'score', 'timestamp']) &&
+             isValidEmail(data.email) &&
+             data.score is string &&
+             data.timestamp is number;
+    }
+
+    // Blog Validation
+    function isValidBlog(data) {
+      return data.keys().hasAll(['title', 'content', 'timestamp']) &&
+             data.title is string && data.title.size() > 0 && data.title.size() < 200 &&
+             data.content is list && data.content.size() < 50 &&
+             data.timestamp is number;
+    }
+
+    // Reminders Validation
+    function isValidReminder(data) {
+      return data.keys().hasAll(['email', 'name', 'type', 'scheduledFor', 'sent']) &&
+             isValidEmail(data.email) &&
+             data.name is string &&
+             data.type in ['FOLLOW_UP_1', 'FOLLOW_UP_2'] &&
+             data.scheduledFor is string &&
+             data.sent is bool;
+    }
+
+    // Rules
+    match /leads/{leadId} {
+      allow create: if isValidLead(request.resource.data);
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /assessments/{assessmentId} {
+      allow create: if isValidAssessment(request.resource.data);
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /blog/{postId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin() && isValidBlog(request.resource.data);
+    }
+
+    match /reminders/{reminderId} {
+      allow read, create, update, delete: if isAdmin() && isValidReminder(request.resource.data);
+    }
+
+    match /users/{userId} {
+      allow read: if isAuthenticated() && request.auth.uid == userId;
+      allow write: if isAdmin();
+    }
+  }
+}

@@ -136,7 +136,7 @@ const DomainCard: React.FC<{ num: string, title: string; reason: string; cost: s
       <div className="absolute inset-0 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#111111] p-8 sm:p-12 flex flex-col h-full border border-[#b8860b]/30 shadow-2xl">
         <div className="flex items-center gap-3 mb-6 sm:mb-8">
           <div className="w-1 h-8 sm:h-10 bg-[#b8860b]" />
-          <span className="text-[10px] sm:text-[11px] font-black uppercase text-[#b8860b] tracking-[0.2em] sm:tracking-[0.3em]">Program Architecture</span>
+          <span className="text-[10px] sm:text-[11px] font-black uppercase text-[#b8860b] tracking-[0.2em] sm:tracking-[0.3em]">Institutional Engineering</span>
         </div>
 
         <h4 className="text-base sm:text-xl font-bold mb-6 sm:mb-8 text-white leading-tight uppercase tracking-wider">

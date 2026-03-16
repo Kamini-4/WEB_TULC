@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { SovereignDB, LeadEntry, AssessmentEntry } from '../lib/database.ts';
+import { SovereignDB, LeadEntry, AssessmentEntry, BlogEntry } from '../lib/database.ts';
 
 interface AdminDashboardProps {
   onClose: () => void;
@@ -12,9 +12,21 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
   const [newPost, setNewPost] = useState({ category: '', title: '', excerpt: '', content: '' });
 
   useEffect(() => {
-    const initialData = SovereignDB.getAllData();
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setData(initialData);
+    const unsubLeads = SovereignDB.subscribeToLeads((leads) => {
+      setData(prev => ({ ...prev, leads }));
+    });
+    const unsubAssessments = SovereignDB.subscribeToAssessments((assessments) => {
+      setData(prev => ({ ...prev, assessments }));
+    });
+    const unsubBlog = SovereignDB.subscribeToBlog((blog) => {
+      setData(prev => ({ ...prev, blog }));
+    });
+
+    return () => {
+      unsubLeads();
+      unsubAssessments();
+      unsubBlog();
+    };
   }, []);
 
   const handleAddPost = (e: React.FormEvent) => {
@@ -29,7 +41,6 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
       content: newPost.content.split('\n\n')
     });
     
-    setData(SovereignDB.getAllData());
     setNewPost({ category: '', title: '', excerpt: '', content: '' });
     alert("Dispatch successfully archived in the Registry.");
   };
@@ -37,14 +48,12 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
   const handleDeletePost = (id: string) => {
     if (window.confirm("Are you certain you wish to purge this dispatch?")) {
       SovereignDB.deleteBlogPost(id);
-      setData(SovereignDB.getAllData());
     }
   };
 
   const handleDeleteAll = () => {
-    if (window.confirm("ARCHIVE PERMANENTLY: Are you certain you wish to purge the Sovereign Ledger?")) {
-      SovereignDB.clearAll();
-      setData({ ...data, leads: [], assessments: [] });
+    if (window.confirm("ARCHIVE PERMANENTLY: Are you certain you wish to purge the Sovereign Ledger? (This feature is currently restricted for data integrity)")) {
+      // SovereignDB.clearAll();
     }
   };
 

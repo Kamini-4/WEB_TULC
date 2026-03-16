@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import emailjs from '@emailjs/browser';
 
 interface CalibrationSchedulerProps {
   onClose: () => void;
@@ -43,10 +44,34 @@ const CalibrationScheduler: React.FC<CalibrationSchedulerProps> = ({ onClose, le
 
   const handleRequest = async () => {
     setIsSubmitting(true);
-    // Simulate API call to request alignment
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    setStep('confirmation');
-    setIsSubmitting(false);
+    
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (serviceId && templateId && publicKey) {
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            from_name: leadData.name,
+            from_email: leadData.email,
+            organization: leadData.organization,
+            selected_date: selectedDate,
+            selected_time: selectedTime,
+            type: 'CALIBRATION_REQUEST',
+            to_email: 'suchita135sancheti@gmail.com',
+          },
+          publicKey
+        );
+      }
+      setStep('confirmation');
+    } catch (error) {
+      console.error("Scheduling Request Failed:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

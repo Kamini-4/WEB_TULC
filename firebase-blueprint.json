@@ -1,0 +1,80 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "A potential client inquiry from the waitlist.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Full name of the lead." },
+        "email": { "type": "string", "format": "email", "description": "Work email address." },
+        "organization": { "type": "string", "description": "Organization name." },
+        "role": { "type": "string", "description": "Institutional role." },
+        "message": { "type": "string", "description": "Yield target or message." },
+        "timestamp": { "type": "number", "description": "Creation timestamp." },
+        "type": { "type": "string", "enum": ["waitlist"] }
+      },
+      "required": ["name", "email", "organization", "message", "timestamp"]
+    },
+    "Assessment": {
+      "title": "Assessment",
+      "description": "A completed yield calibration assessment.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email", "description": "Email of the participant." },
+        "score": { "type": "string", "description": "Sovereign grade." },
+        "analysis": { "type": "string", "description": "Brief analysis." },
+        "constraint": { "type": "string", "description": "Primary constraint." },
+        "leverage": { "type": "string", "description": "Primary leverage." },
+        "timestamp": { "type": "number", "description": "Creation timestamp." },
+        "type": { "type": "string", "enum": ["assessment"] }
+      },
+      "required": ["email", "score", "timestamp"]
+    },
+    "BlogPost": {
+      "title": "BlogPost",
+      "description": "An institutional dispatch in the registry.",
+      "type": "object",
+      "properties": {
+        "category": { "type": "string", "description": "Blog category." },
+        "date": { "type": "string", "description": "Display date (e.g. Q1 2026)." },
+        "title": { "type": "string", "description": "Post title." },
+        "excerpt": { "type": "string", "description": "Short summary." },
+        "content": { "type": "array", "items": { "type": "string" }, "description": "Paragraphs of content." },
+        "timestamp": { "type": "number", "description": "Creation timestamp." }
+      },
+      "required": ["title", "content", "timestamp"]
+    },
+    "Reminder": {
+      "title": "Reminder",
+      "description": "A scheduled email reminder for the scheduler.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "name": { "type": "string" },
+        "organization": { "type": "string" },
+        "type": { "type": "string", "enum": ["FOLLOW_UP_1", "FOLLOW_UP_2"] },
+        "scheduledFor": { "type": "string", "format": "date-time" },
+        "sent": { "type": "boolean" }
+      },
+      "required": ["email", "name", "type", "scheduledFor", "sent"]
+    }
+  },
+  "firestore": {
+    "leads": {
+      "schema": "Lead",
+      "description": "Collection of waitlist inquiries."
+    },
+    "assessments": {
+      "schema": "Assessment",
+      "description": "Collection of yield calibration results."
+    },
+    "blog": {
+      "schema": "BlogPost",
+      "description": "Collection of registry dispatches."
+    },
+    "reminders": {
+      "schema": "Reminder",
+      "description": "Collection of scheduled email reminders."
+    }
+  }
+}
