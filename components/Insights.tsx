@@ -6,6 +6,7 @@ interface Article {
   title: string;
   excerpt: string;
   content: string[];
+  image: string;
 }
 
 interface InsightsProps {
@@ -17,6 +18,7 @@ const articles: Article[] = [
     category: "Systems Design",
     title: "The Architecture of Authority: Why Systems Outperform Personal Brands",
     excerpt: "Analyzing the transition points where institutional logic unlocks unprecedented organizational growth.",
+    image: "https://picsum.photos/seed/unbounded-arch-1/1200/800?grayscale&blur=1",
     content: [
       "Authority is the most potent lever in leadership. While charisma is essential for the 0-to-1 phase, architectural integrity becomes the dominant force in the scaling phase.",
       "When an institution relies on the systems rather than the individual, it creates a 'Velocity Substrate.' Every decision is amplified by the collective architecture, creating a scale that challenges market paradigms exponentially.",
@@ -28,6 +30,7 @@ const articles: Article[] = [
     category: "Cognitive Architecture",
     title: "Strategic Substrates: The Invisible Tax of Latent Inefficiency",
     excerpt: "How aligning mental models at the board level yields compounding institutional velocity.",
+    image: "https://picsum.photos/seed/unbounded-arch-2/1200/800?grayscale&blur=1",
     content: [
       "Strategic Substrates are the foundational logic layers of decision-making. High-velocity institutions recognize that short-term tactical wins are best served by long-term structural integrity.",
       "In our deep-dive audits of global boards, we find that most 'breakthroughs' are simply the result of aligning mental models to market reality. A calibrated system is, by definition, an anti-fragile system.",
@@ -39,6 +42,7 @@ const articles: Article[] = [
     category: "Future of Governance",
     title: "Sovereign Leadership: Designing for Anti-Fragility in the Age of AI",
     excerpt: "Transitioning from individual effort to systemic intelligence as the core competitive advantage.",
+    image: "https://picsum.photos/seed/unbounded-arch-3/1200/800?grayscale&blur=1",
     content: [
       "The age of AI demands a new kind of leader: the Sovereign Architect. As synthetic intelligence handles data-heavy governance, the human leader's role shifts to the design of anti-fragile substrates.",
       "An anti-fragile system is one that doesn't just survive disruption but gains momentum from it. This requires a leadership architecture that can integrate AI-driven insights while maintaining human sovereign integrity.",
@@ -52,47 +56,24 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick }) => {
   const [pulseQuery, setPulseQuery] = useState('');
   const [pulseResult, setPulseResult] = useState<{text: string, links: {uri: string, title: string}[]} | null>(null);
   const [isPulseLoading, setIsPulseLoading] = useState(false);
-  const [articleImages, setArticleImages] = useState<Record<number, string>>({});
+  const [hasApiKey, setHasApiKey] = useState(true);
 
   useEffect(() => {
-    const generateImages = async () => {
-      const apiKey = process.env.API_KEY;
-      if (!apiKey) return;
-
-      const ai = new GoogleGenAI({ apiKey });
-      const newImages: Record<number, string> = {};
-      
-      const requests = articles.map(async (article, idx) => {
-        try {
-          const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash-image',
-            contents: {
-              parts: [{ 
-                text: `Create a minimalist, high-end conceptual architectural art piece for a global leadership consultancy. Theme: "${article.title}". Style: Brutalist elegance, beige and charcoal tones, sharp geometric lines, vast empty spaces, institutional authority. No text in image.` 
-              }]
-            },
-            config: { imageConfig: { aspectRatio: "16:9" } }
-          });
-          
-          const parts = response.candidates?.[0]?.content?.parts;
-          if (parts) {
-            for (const part of parts) {
-              if (part.inlineData) {
-                newImages[idx] = `data:image/png;base64,${part.inlineData.data}`;
-              }
-            }
-          }
-        } catch (e) {
-          console.error("Image gen failed for article", idx, e);
-        }
-      });
-
-      await Promise.all(requests);
-      setArticleImages(prev => ({ ...prev, ...newImages }));
+    const checkApiKey = async () => {
+      if (typeof window !== 'undefined' && (window as any).aistudio) {
+        const selected = await (window as any).aistudio.hasSelectedApiKey();
+        setHasApiKey(selected);
+      }
     };
-
-    generateImages();
+    checkApiKey();
   }, []);
+
+  const handleOpenKeyDialog = async () => {
+    if (typeof window !== 'undefined' && (window as any).aistudio) {
+      await (window as any).aistudio.openSelectKey();
+      setHasApiKey(true);
+    }
+  };
 
   const handlePulseSearch = async () => {
     if (!pulseQuery) return;
@@ -156,20 +137,14 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick }) => {
           {articles.map((article, idx) => (
             <div key={idx} className="group cursor-pointer" onClick={() => onArticleClick(article)}>
               <div className="mb-6 overflow-hidden bg-[#111111] aspect-[16/10] relative border border-zinc-200">
-                {articleImages[idx] ? (
-                  <img 
-                    src={articleImages[idx]} 
-                    alt={article.title} 
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
-                    loading="lazy"
-                    decoding="async"
-                    referrerPolicy="no-referrer"
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-8 h-8 border-t border-[#b8860b] rounded-full animate-spin" />
-                  </div>
-                )}
+                <img 
+                  src={article.image} 
+                  alt={article.title} 
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-40" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#111111] bg-white px-6 py-3 shadow-2xl">Access Briefing</span>
@@ -207,10 +182,10 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick }) => {
                 />
                 <button 
                   disabled={isPulseLoading || !pulseQuery}
-                  onClick={handlePulseSearch}
+                  onClick={hasApiKey ? handlePulseSearch : handleOpenKeyDialog}
                   className="bg-[#b8860b] px-8 py-4 text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all disabled:opacity-50"
                 >
-                  {isPulseLoading ? 'Gathering...' : 'Calibrate Intel'}
+                  {!hasApiKey ? 'Configure API Key' : isPulseLoading ? 'Gathering...' : 'Calibrate Intel'}
                 </button>
               </div>
             </div>

@@ -55,7 +55,7 @@ const Waitlist: React.FC = () => {
             organization: formData.organization,
             role: formData.role,
             message: formData.message,
-            to_email: 'suchita135sancheti@gmail.com', // Admin email
+            to_email: import.meta.env.VITE_ADMIN_EMAIL || 'suchita135sancheti@gmail.com',
           },
           publicKey
         );

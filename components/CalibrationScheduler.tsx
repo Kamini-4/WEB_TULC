@@ -61,7 +61,7 @@ const CalibrationScheduler: React.FC<CalibrationSchedulerProps> = ({ onClose, le
             selected_date: selectedDate,
             selected_time: selectedTime,
             type: 'CALIBRATION_REQUEST',
-            to_email: 'suchita135sancheti@gmail.com',
+            to_email: import.meta.env.VITE_ADMIN_EMAIL || 'suchita135sancheti@gmail.com',
           },
           publicKey
         );

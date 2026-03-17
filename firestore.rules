@@ -83,7 +83,7 @@ service cloud.firestore {
     }
 
     match /blog/{postId} {
-      allow read: if true;
+      allow get, list: if true;
       allow create, update, delete: if isAdmin() && isValidBlog(request.resource.data);
     }
 

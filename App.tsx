@@ -1,5 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
+import { doc, getDocFromServer } from 'firebase/firestore';
+import { db } from './src/firebase.ts';
+import { handleFirestoreError, OperationType } from './src/lib/firestore-errors.ts';
 import Header from './components/Header.tsx';
 import Hero from './components/Hero.tsx';
 import InstitutionalMetrics from './components/InstitutionalMetrics.tsx';
@@ -22,6 +25,7 @@ import StrategicOutcomes from './components/StrategicOutcomes.tsx';
 import YieldStatement from './components/YieldStatement.tsx';
 import AdminDashboard from './components/AdminDashboard.tsx';
 import ThoughtLeadership from './components/ThoughtLeadership.tsx';
+import ErrorBoundary from './components/ErrorBoundary.tsx';
 
 interface Article {
   id?: string;
@@ -37,6 +41,27 @@ const App: React.FC = () => {
   const [activeArticle, setActiveArticle] = useState<Article | null>(null);
   const [showAssessment, setShowAssessment] = useState(false);
   const [showAdmin, setShowAdmin] = useState(false);
+
+  useEffect(() => {
+    const testConnection = async () => {
+      const path = 'blog';
+      try {
+        // Attempt to fetch a doc from the 'blog' collection to test connection
+        await getDocFromServer(doc(db, path, '_health_check_'));
+        console.log("Firestore connection successful.");
+      } catch (error: any) {
+        if (error.message?.includes('offline')) {
+          console.error("Firestore is offline. Please check your Firebase configuration.");
+        } else if (error.code === 'permission-denied') {
+          // If we get a permission error, it means we successfully reached the Firestore backend
+          console.log("Firestore connection successful (reached backend).");
+        } else {
+          console.error("Firestore connection test error:", error);
+        }
+      }
+    };
+    testConnection();
+  }, []);
 
   const handleOpenArticle = (article: any) => {
     setActiveArticle(article);
@@ -72,11 +97,14 @@ const App: React.FC = () => {
     if (phaseId === '01') {
       setActiveArticle({
         category: "Methodology Phase 01",
-        title: "Yield Calibration (Diagnostic)",
+        title: "The Substrate Audit: Forensic Analysis of Institutional Lag",
         content: [
-          "The Yield Calibration is a non-invasive, high-fidelity diagnostic that measures your institutional substrate across five vertical domains.",
-          "This is not a survey; it is a stress-test of your leadership operating system. We identify the specific 'cracks' in your substrate where strategic intent is being diluted and where cognitive bandwidth is being consumed by tactical noise.",
-          "The Deliverable: A comprehensive 'Constraint Map' that serves as the blueprint for the subsequent stabilization and recalibration phases."
+          "In Phase 01, we move beyond surface-level management consulting to perform a forensic audit of your organizational substrate. We are identifying the specific points of **Institutional Lag**—the invisible friction that turns strategic intent into operational entropy. This is not just about efficiency; it is about the preservation of your **Strategic Sovereignty**.",
+          "We analyze the 'rhythm of command' within your institution. Most Principals are trapped in a cycle of tactical resolution, spending over **60% of their bandwidth** on variances that should be handled by systemic logic. This is what we define as a *Substrate Leak*. Your foundation is currently draining your most precious asset: your cognitive equity.",
+          "The Audit asks the high-stakes questions: *Why does the organization require your direct intervention for tactical execution? Why is your authority being diluted by layers of consensus?* We identify every logic gate that currently acts as a bottleneck. These are not merely management issues; they are structural failures that limit your ability to scale.",
+          "Using data-driven diagnostics, we map the flow of intent from the Source to the Edge. We often find that the 'Heroic Founder' archetype—while responsible for initial success—is now the primary constraint on institutional growth. The Audit is the first step in transitioning from the 'Hero' who solves problems to the **Architect** who prevents them.",
+          "This phase is deep and analytical. We observe the relational infrastructure and find where 'Trust Resonance' is being lost. We are not looking for incremental improvements; we are looking for the structural arbitrage that will reclaim your strategic bandwidth. This is the foundation of the Sovereign Institution.",
+          "The yield of Phase 01 is a clear, documented map of your institutional leaks. It is the moment you stop dousing fires and start analyzing the physics of the building. We are preparing the ground for a total recalibration of your leadership operating system."
         ]
       });
       return;
@@ -85,11 +113,14 @@ const App: React.FC = () => {
     if (phaseId === '02') {
       setActiveArticle({
         category: "Methodology Phase 02",
-        title: "Strategic Domain Mapping (Synthesis)",
+        title: "Logic Gate Engineering: Hard-Coding Strategic Intent",
         content: [
-          "Data without direction is entropy. In this phase, we isolate the Two Primary Domains that represent your highest constraint and your greatest leverage.",
-          "You receive a comprehensive Structural Integrity Report—a definitive mapping of your current entropy against projected stability.",
-          "This report serves as the architectural blueprint for the intervention, ensuring we only move the levers that yield the highest strategic return."
+          "Once the leaks are identified, we move to **Logic Gate Engineering**. This is the process of externalizing your unique strategic DNA and hard-coding it into the organizational substrate. We are building a high-fidelity proxy of your mind, ensuring the system executes with your precision, even in your absence.",
+          "Most delegation fails because the *Logic* is not transferred—only the *Task*. Phase 02 solves this by creating autonomous logic gates that handle 80% of tactical variances. We define the parameters, the moral logic, and the strategic boundaries that govern your institution. This is the move from 'Management' to **Architectural Command**.",
+          "Think of this as building the 'Automatic Transmission' for your enterprise. You are no longer shifting the gears of daily operations; you are designing the system that optimizes the shift. We ensure that your vision is not a 'suggestion' that gets lost in translation, but a 'law' that governs the structural design.",
+          "This phase creates **Operational Leverage**. By engineering the substrate, you project your authority with absolute resonance. It is an inclusive process that provides your team with a clear, logical framework. They no longer have to guess your intent; the system makes it obvious. This empowers the edge and liberates the source.",
+          "We are targeting a **10x increase in decision velocity**. By reclaiming 30-40% of your bandwidth, we restore your capacity for high-stakes strategic work. You are no longer the engine of the company; you are the engineer of the institution. You are moving from the loud noise of execution to the quiet resonance of design.",
+          "The soul of this phase is the restoration of your peace. It is the realization that your standards can be met through architecture rather than intervention. You are building a foundation of logic that carries your intent with asymptotic fidelity, ensuring your legacy is built on structure, not just effort."
         ]
       });
       return;
@@ -98,11 +129,14 @@ const App: React.FC = () => {
     if (phaseId === '03') {
       setActiveArticle({
         category: "Methodology Phase 03",
-        title: "Architectural Intervention (Calibration)",
+        title: "Institutional Calibration: Achieving Trust Resonance",
         content: [
-          "We move from mapping to engineering. This is a Bespoke Calibration of your leadership operating system, built strictly to your institutional requirements.",
-          "We do not use templates; we re-build your decision-making protocols, communication substrates, and governance logic from the ground up.",
-          "This phase is tailored to your specific mandate, ensuring the system is calibrated for your unique scale."
+          "With the logic gates engineered, we must ensure the entire system is in sync. This is **Institutional Calibration**. We are aligning every layer of the organization—from the boardroom to the front line—to vibrate at the same frequency as your core intent. We call this achieving **Trust Resonance**.",
+          "Trust is not a 'feeling'; it is the gravity that holds your institution together. When resonance is low, there is friction and *Institutional Drift*. People may be aligned on paper, but they are pulling in different directions in practice. Phase 03 eliminates this drift by calibrating the relational infrastructure.",
+          "We use 'Resonance Audits' to identify where the strategic signal is being lost. We recalibrate communication substrates, incentive structures, and governance protocols. We ensure that the 'Moral Logic' engineered in Phase 02 is felt and acted upon at every level. This is the move from 'Heroic Intervention' to **Systemic Inevitability**.",
+          "This is a soulful, yet highly strategic process. We are aligning the human element with the architectural design. We are creating a 'heavy' institution—one with so much institutional gravity that alignment becomes effortless. When resonance is high, you do not 'manage' people; you project intent, and the system executes.",
+          "The yield of Calibration is total institutional alignment and the elimination of cultural entropy. Research indicates that high-trust organizations experience **50% higher productivity** and significantly lower operational stress. You will feel the difference in the quiet confidence of your leaders and the weight of the intent in every room.",
+          "You have built a vessel that can finally carry your vision across the ocean. The organization is no longer a collection of individuals; it is a high-fidelity execution machine, calibrated to your unique strategic frequency. This is the restoration of your institutional peace."
         ]
       });
       return;
@@ -111,11 +145,14 @@ const App: React.FC = () => {
     if (phaseId === '04') {
       setActiveArticle({
         category: "Methodology Phase 04",
-        title: "Sovereign Integration (Integration)",
+        title: "Sovereign Handover: Transitioning to the Architect’s Seat",
         content: [
-          "The final phase is the transition from intervention to Sovereignty. We ensure the new structural logic is autonomous, self-correcting, and projected with asymptotic fidelity across your organization.",
-          "The result is the elimination of 'Authority Leakage.' You are no longer managing a team; you are presiding over an institution that functions with the precision of your own strategic intent.",
-          "The Legacy: Total institutional permanence. Strategic outcomes become natural law."
+          "This is the culmination of the methodology: the **Sovereign Handover**. This is not about your departure; it is about your arrival in the role you were meant to play. You are transitioning from the 'Chief Problem Solver' to the **Sovereign Architect**. You are finally presiding over the institution.",
+          "In Phase 04, we finalize the autonomous protocols and ensure the **Adaptive Logic Layers** are functioning. Your institution has moved from 'Resilience' to **Antifragility**. It no longer just survives disruption; it gains from it. It is a self-regulating organism that carries your DNA in every cell.",
+          "This is the quiet reclamation of your life. You have restored your **Cognitive Equity**. You are now cognitively solvent, with the bandwidth to spot the next major market disruption or to simply enjoy the fruits of your labor. You have decoupled your impact from your hours.",
+          "This is the **Architect’s Mandate**. Your primary role is now to maintain the resonance of the design, not to solve the tactical problems of the day. You are the Source. The Principal. The organization is now a sovereign institution that respects your time and your vision, moving as fast as you think and as deep as you feel.",
+          "Most leaders stay trapped in the 'Hero' identity until they burn out or the company plateaus. By choosing the path of architecture, you have built something bigger than yourself. You have created a legacy that is truly sovereign, ensuring your intent persists with absolute fidelity long after you have left the room.",
+          "The yield is a documented **30-40% increase in strategic bandwidth** and a system that out-decides the competition by 10x. But the real yield is the restoration of your sovereignty. You are free. The institution is sovereign. The vision is secure. This is the beginning of your true leadership journey."
         ]
       });
       return;
@@ -123,63 +160,62 @@ const App: React.FC = () => {
 
     const briefContent: Article = {
       category: "Institutional Protocol",
-      title: "The Sovereignty Brief: Architectural Recalibration",
+      title: "The Sovereignty Brief: A Manifesto for the Sovereign Principal",
       content: [
-        "Institutional Sovereignty is the state where vision and execution are indistinguishable. It is the immunity to organizational entropy and the restoration of absolute strategic focus.",
-        "The Five Vertical Domains of Recalibration:",
-        "I. Cognitive Clarity: The removal of tactical fog to restore high-stakes decision velocity.",
-        "II. Systemic Integrity: The engineering of self-regulating substrates that execute vision as natural law, eliminating fragile dependence on human heroics.",
-        "III. Strategic Velocity: The capacity to convert external disruption into systemic advantage through autonomous substrate recalibration.",
-        "IV. Moral Gravity: The weight and integrity that prevents institutional drift, ensuring intent is projected with absolute resonance.",
-        "V. Cultural Fidelity: The elimination of authority dilution, ensuring the vision at the operational edge is a high-fidelity mirror of the source.",
-        "The Yield: 30% Strategic Bandwidth Reclamation, Asymptotic Intent Fidelity, and the engineering of Institutional Permanence.",
-        "The Window for Architectural Transition: Strategic intent is currently being diluted by institutional noise. Reclaim the authority that structural entropy is absorbing before the next board cycle concludes."
+        "Sovereignty is not a goal; it is a state of architectural integrity. It is the quiet realization that you are no longer a slave to the tactical noise of your own creation. It is the restoration of your original vision, unclouded by the **Institutional Lag** that plagues the mediocre. This Brief is for the Principal who understands that true power is found in **Architecture**, not intervention.",
+        "We live in an era of **Cognitive Insolvency**. Most leaders are bankrupt, spending their mental energy on the tactical 'how' while their competitors build the future. This is a tragedy of design. It is a failure to respect the strategic bandwidth of the leader. The Sovereign Institution is the antidote.",
+        "A Sovereign Institution is a substrate that hard-codes intent into every logic gate. It is a 'heavy' institution that projects authority with absolute resonance. It is inclusive, resilient, and antifragile. It is the only way to scale impact in a world of infinite complexity. It is the move from 'Heroic Intervention' to **Systemic Inevitability**.",
+        "Think of the weight of your intent. If it is diluted by a broken substrate, it is worthless. But if it is projected through a high-fidelity architecture, it becomes a force of nature. You move from being a bottleneck to being a **Source**. You move from management to command. You move from the engine to the engineer.",
+        "This is the **Architect’s Mandate**. It is the soulful reclamation of your strategic sovereignty. It is the decision to build a legacy that lasts for generations. It is the only path for the elite Principal who refuses to be consumed by their own creation.",
+        "We invite you to join us. To audit your substrate, to engineer your logic gates, and to calibrate your institution. To step into the architect’s seat and finally, truly, preside. This is the yield of our work. This is the restoration of your peace. This is your sovereignty."
       ]
     };
     setActiveArticle(briefContent);
   };
 
   return (
-    <div className="min-h-screen selection:bg-[#b8860b] selection:text-white bg-[#f5f5f0]">
-      <div className="fixed top-0 left-0 right-0 z-[100]">
-        <Countdown />
-        <Header onAdminTrigger={() => setShowAdmin(true)} />
-      </div>
-      <main className="pt-28 sm:pt-32 md:pt-36">
-        <Hero onBriefClick={handleBriefClick} />
-        <InstitutionalMetrics />
-        <ScaleEvidence onBriefClick={handleBriefClick} />
-        <Problem />
-        <StrategicOutcomes />
-        <YieldStatement />
-        <Assessment onCtaClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })} />
-        <Program onBriefClick={handleBriefClick} />
-        <Methodology onBriefClick={handleBriefClick} />
-        <ImpactLedger />
-        <TrustProtocol />
-        <EliteReasoning />
-        <Insights onArticleClick={handleOpenArticle} />
-        <ThoughtLeadership onDispatchClick={(dispatch) => handleOpenArticle({
-          category: `Sovereign Dispatch | ${dispatch.id}`,
-          title: dispatch.title,
-          content: dispatch.content
-        })} />
-        <Blog onArticleClick={handleOpenArticle} />
-        <PrincipalDispatch />
-        <FAQ />
-        <Waitlist />
-      </main>
-      <Footer onLegalClick={handleLegalClick} />
-      
-      <ArticleView 
-        article={activeArticle} 
-        onClose={() => setActiveArticle(null)} 
-      />
+    <ErrorBoundary>
+      <div className="min-h-screen selection:bg-[#b8860b] selection:text-white bg-[#f5f5f0]">
+        <div className="fixed top-0 left-0 right-0 z-[100]">
+          <Countdown />
+          <Header onAdminTrigger={() => setShowAdmin(true)} />
+        </div>
+        <main className="pt-28 sm:pt-32 md:pt-36">
+          <Hero onBriefClick={handleBriefClick} />
+          <InstitutionalMetrics />
+          <ScaleEvidence onBriefClick={handleBriefClick} />
+          <Problem />
+          <StrategicOutcomes />
+          <YieldStatement />
+          <Assessment onCtaClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })} />
+          <Program onBriefClick={handleBriefClick} />
+          <Methodology onBriefClick={handleBriefClick} />
+          <ImpactLedger />
+          <TrustProtocol />
+          <EliteReasoning />
+          <Insights onArticleClick={handleOpenArticle} />
+          <ThoughtLeadership onDispatchClick={(dispatch) => handleOpenArticle({
+            category: `Sovereign Dispatch | ${dispatch.id}`,
+            title: dispatch.title,
+            content: dispatch.content
+          })} />
+          <Blog onArticleClick={handleOpenArticle} />
+          <PrincipalDispatch />
+          <FAQ />
+          <Waitlist />
+        </main>
+        <Footer onLegalClick={handleLegalClick} />
+        
+        <ArticleView 
+          article={activeArticle} 
+          onClose={() => setActiveArticle(null)} 
+        />
 
-      {showAdmin && (
-        <AdminDashboard onClose={() => setShowAdmin(false)} />
-      )}
-    </div>
+        {showAdmin && (
+          <AdminDashboard onClose={() => setShowAdmin(false)} />
+        )}
+      </div>
+    </ErrorBoundary>
   );
 };
 

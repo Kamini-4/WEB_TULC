@@ -90,8 +90,15 @@ function handleFirestoreError(error: unknown, operationType: OperationType, path
     operationType,
     path
   };
-  console.error('Firestore Error: ', JSON.stringify(errInfo));
-  throw new Error(JSON.stringify(errInfo));
+  const errorMessage = JSON.stringify(errInfo);
+  console.error('Firestore Error: ', errorMessage);
+  
+  // For read operations (LIST, GET), we log the error but don't throw to avoid crashing the UI
+  if (operationType === OperationType.LIST || operationType === OperationType.GET) {
+    return;
+  }
+  
+  throw new Error(errorMessage);
 }
 
 // Test connection

@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import Markdown from 'react-markdown';
 
 interface Article {
   id?: string;
@@ -56,11 +57,11 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
             <div className="w-16 h-[1px] bg-[#b8860b]"></div>
           </header>
 
-          <div className="prose prose-zinc lg:prose-xl">
+          <div className="prose prose-zinc lg:prose-xl max-w-none">
             {article.content.map((paragraph, idx) => (
-              <p key={idx} className="text-lg sm:text-xl text-zinc-700 leading-relaxed mb-6 sm:mb-8 italic font-light">
-                {paragraph}
-              </p>
+              <div key={idx} className="mb-6 sm:mb-8">
+                <Markdown>{paragraph}</Markdown>
+              </div>
             ))}
           </div>
 
