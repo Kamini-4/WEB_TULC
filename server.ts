@@ -41,12 +41,19 @@ async function startServer() {
 }
 
 function serveStatic(app: express.Express) {
-  const distPath = path.join(process.cwd(), 'dist');
+  const distPath = path.resolve(__dirname, 'dist');
+  console.log(`Serving static files from: ${distPath}`);
   app.use(express.static(distPath));
   
   // SPA fallback: serve index.html for all other routes
   app.get('*', (req, res) => {
-    res.sendFile(path.join(distPath, 'index.html'));
+    const indexPath = path.join(distPath, 'index.html');
+    res.sendFile(indexPath, (err) => {
+      if (err) {
+        console.error(`Error sending index.html from ${indexPath}:`, err);
+        res.status(404).send('Application is still building or files are missing. Please refresh in a few moments.');
+      }
+    });
   });
 }
 
