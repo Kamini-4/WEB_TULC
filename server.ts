@@ -7,34 +7,46 @@ const __dirname = path.dirname(__filename);
 
 async function startServer() {
   const app = express();
-  const PORT = process.env.PORT || 3000;
+  const PORT = Number(process.env.PORT) || 3000;
+  const isProd = process.env.NODE_ENV === 'production' || process.env.K_SERVICE !== undefined;
 
   // API routes can be added here
   app.get('/api/health', (req, res) => {
     res.json({ status: 'ok' });
   });
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (!isProd) {
     // Vite middleware for development
-    const { createServer: createViteServer } = await import('vite');
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: 'spa',
-    });
-    app.use(vite.middlewares);
+    console.log('Starting in DEVELOPMENT mode');
+    try {
+      const { createServer: createViteServer } = await import('vite');
+      const vite = await createViteServer({
+        server: { middlewareMode: true },
+        appType: 'spa',
+      });
+      app.use(vite.middlewares);
+    } catch (e) {
+      console.error('Vite failed to load, falling back to static serving', e);
+      serveStatic(app);
+    }
   } else {
     // Serve static files in production
-    const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
-    
-    // SPA fallback: serve index.html for all other routes
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
-    });
+    console.log('Starting in PRODUCTION mode');
+    serveStatic(app);
   }
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+function serveStatic(app: express.Express) {
+  const distPath = path.join(process.cwd(), 'dist');
+  app.use(express.static(distPath));
+  
+  // SPA fallback: serve index.html for all other routes
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(distPath, 'index.html'));
   });
 }
 
