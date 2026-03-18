@@ -35,3 +35,6 @@ steps:
 
 images:
   - 'gcr.io/$PROJECT_ID/theunboundedleadershipco'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
