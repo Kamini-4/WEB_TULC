@@ -13,7 +13,19 @@ async function startServer() {
 
   app.use(express.json());
 
-  console.log(`SERVER STARTING V3 - PORT: ${PORT} - IS_PROD: ${isProd}`);
+  console.log(`SERVER STARTING V4 - PORT: ${PORT} - IS_PROD: ${isProd}`);
+
+  // Diagnostic: Check if dist folder exists and list files
+  const distPath = path.join(process.cwd(), 'dist');
+  import('fs').then(fs => {
+    if (fs.existsSync(distPath)) {
+      console.log(`Diagnostic: dist folder found at ${distPath}`);
+      const files = fs.readdirSync(distPath);
+      console.log(`Diagnostic: Files in dist: ${files.join(', ')}`);
+    } else {
+      console.error(`Diagnostic: dist folder NOT FOUND at ${distPath}`);
+    }
+  }).catch(err => console.error('Diagnostic: Failed to run file check', err));
 
   // API routes
   app.get('/api/health', (req, res) => {
