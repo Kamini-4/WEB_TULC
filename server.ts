@@ -10,6 +10,8 @@ async function startServer() {
   const PORT = Number(process.env.PORT) || 3000;
   const isProd = process.env.NODE_ENV === 'production' || process.env.K_SERVICE !== undefined;
 
+  console.log(`SERVER STARTING V2 - PORT: ${PORT} - IS_PROD: ${isProd}`);
+
   // API routes can be added here
   app.get('/api/health', (req, res) => {
     res.json({ status: 'ok' });
@@ -41,7 +43,7 @@ async function startServer() {
 }
 
 function serveStatic(app: express.Express) {
-  const distPath = path.resolve(__dirname, 'dist');
+  const distPath = path.join(process.cwd(), 'dist');
   console.log(`Serving static files from: ${distPath}`);
   app.use(express.static(distPath));
   
