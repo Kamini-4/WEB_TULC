@@ -82,8 +82,23 @@ async function startServer() {
 }
 
 function serveStatic(app: express.Express) {
-  const distPath = path.join(process.cwd(), 'dist');
-  console.log(`Serving static files from: ${distPath}`);
+  // Use __dirname for more reliable path resolution in containers
+  const distPath = path.resolve(__dirname, 'dist');
+  console.log(`Diagnostic: Attempting to serve static files from: ${distPath}`);
+  
+  // Check if directory exists
+  import('fs').then(fs => {
+    if (fs.existsSync(distPath)) {
+      const files = fs.readdirSync(distPath);
+      console.log(`Diagnostic: Found ${files.length} files in dist: ${files.slice(0, 5).join(', ')}...`);
+    } else {
+      console.error(`Diagnostic: dist directory NOT FOUND at ${distPath}`);
+      // Try fallback to process.cwd()
+      const fallbackPath = path.join(process.cwd(), 'dist');
+      console.log(`Diagnostic: Trying fallback path: ${fallbackPath}`);
+    }
+  }).catch(err => console.error('Diagnostic: FS check failed', err));
+
   app.use(express.static(distPath));
   
   // SPA fallback: serve index.html for all other routes
@@ -92,7 +107,17 @@ function serveStatic(app: express.Express) {
     res.sendFile(indexPath, (err) => {
       if (err) {
         console.error(`Error sending index.html from ${indexPath}:`, err);
-        res.status(404).send('Application is still building or files are missing. Please refresh in a few moments.');
+        res.status(404).send(`
+          <html>
+            <body style="font-family: sans-serif; padding: 2rem; line-height: 1.5;">
+              <h1>Application Loading...</h1>
+              <p>The server is running, but the frontend files (dist/index.html) were not found at: <code>${indexPath}</code></p>
+              <p>Please check your Cloud Build logs to ensure the build step completed successfully.</p>
+              <hr/>
+              <p><small>Diagnostic: __dirname is ${__dirname}</small></p>
+            </body>
+          </html>
+        `);
       }
     });
   });
