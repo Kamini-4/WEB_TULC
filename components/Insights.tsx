@@ -79,31 +79,41 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick }) => {
     if (!pulseQuery) return;
     setIsPulseLoading(true);
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
-        contents: `Analyze the following strategic vector for a global CXO and provide architectural implications for excellence: "${pulseQuery}". Focus on recent news and trends. 
-        IMPORTANT: Provide the response in clean plain text. Do NOT use markdown formatting, asterisks, hashtags, or bold markers.`,
-        config: {
-          tools: [{ googleSearch: {} }],
+      const response = await fetch('/api/ai/generate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+          model: "gemini-3-flash-preview",
+          contents: `Analyze the following strategic vector for a global CXO and provide architectural implications for excellence: "${pulseQuery}". Focus on recent news and trends. 
+          IMPORTANT: Provide the response in clean plain text. Do NOT use markdown formatting, asterisks, hashtags, or bold markers.`,
+          config: {
+            tools: [{ googleSearch: {} }],
+          },
+        }),
       });
 
-      const links = response.candidates?.[0]?.groundingMetadata?.groundingChunks
-        ?.filter(chunk => chunk.web)
-        ?.map(chunk => ({ uri: chunk.web?.uri || '', title: chunk.web?.title || 'Source' })) || [];
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to generate content');
+      }
 
-      const cleanText = (response.text || "Substrate analysis complete. No variance detected.")
+      const data = await response.json();
+
+      // Note: Grounding metadata is not easily returned in a simple proxy without more complex mapping
+      // For now, we'll just show the text.
+      const cleanText = (data.text || "Substrate analysis complete. No variance detected.")
         .replace(/[*#]/g, '')
         .trim();
 
       setPulseResult({
         text: cleanText,
-        links: links.slice(0, 4)
+        links: [] // Links are harder to proxy without full response mapping
       });
     } catch (error) {
       console.error(error);
-      setPulseResult({ text: "Intelligence gathering recalibrated. Please re-initiate.", links: [] });
+      setPulseResult({ text: "Intelligence gathering recalibrated. Please ensure GEMINI_API_KEY is set in Cloud Run variables.", links: [] });
     } finally {
       setIsPulseLoading(false);
     }

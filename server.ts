@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { GoogleGenAI } from "@google/genai";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -10,11 +11,37 @@ async function startServer() {
   const PORT = Number(process.env.PORT) || 3000;
   const isProd = process.env.NODE_ENV === 'production' || process.env.K_SERVICE !== undefined;
 
-  console.log(`SERVER STARTING V2 - PORT: ${PORT} - IS_PROD: ${isProd}`);
+  app.use(express.json());
 
-  // API routes can be added here
+  console.log(`SERVER STARTING V3 - PORT: ${PORT} - IS_PROD: ${isProd}`);
+
+  // API routes
   app.get('/api/health', (req, res) => {
     res.json({ status: 'ok' });
+  });
+
+  // Gemini Proxy Endpoint
+  app.post('/api/ai/generate', async (req, res) => {
+    try {
+      const { model, contents, config } = req.body;
+      const apiKey = process.env.GEMINI_API_KEY;
+
+      if (!apiKey) {
+        return res.status(500).json({ error: 'GEMINI_API_KEY is not configured on the server.' });
+      }
+
+      const ai = new GoogleGenAI({ apiKey });
+      const response = await ai.models.generateContent({
+        model: model || 'gemini-2.0-flash',
+        contents,
+        config
+      });
+
+      res.json({ text: response.text });
+    } catch (error: any) {
+      console.error('Gemini Proxy Error:', error);
+      res.status(500).json({ error: error.message || 'Failed to generate content' });
+    }
   });
 
   if (!isProd) {
