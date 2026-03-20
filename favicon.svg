@@ -1,0 +1,26 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af37" />
+      <stop offset="50%" stop-color="#f9e27d" />
+      <stop offset="100%" stop-color="#b8860b" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Monogram TULC - Architectural Style -->
+  <!-- Top T bar with serifs -->
+  <path d="M30 25H70M30 25V30M70 25V30" stroke="url(#goldGradient)" stroke-width="4" stroke-linecap="square"/>
+  
+  <!-- The 'U' and 'C' interlocking curves -->
+  <path d="M38 35C28 35 28 65 38 65" stroke="url(#goldGradient)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M62 35C72 35 72 65 62 65" stroke="url(#goldGradient)" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Central Pillar (T and L stem) -->
+  <path d="M50 25V75" stroke="url(#goldGradient)" stroke-width="5"/>
+  
+  <!-- Bottom L base with serifs -->
+  <path d="M30 75H70M30 75V70M70 75V70" stroke="url(#goldGradient)" stroke-width="4" stroke-linecap="square"/>
+  
+  <!-- Decorative Center Accents -->
+  <path d="M45 45H55M45 55H55" stroke="url(#goldGradient)" stroke-width="2"/>
+</svg>
