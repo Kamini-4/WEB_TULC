@@ -26,6 +26,8 @@ import YieldStatement from './components/YieldStatement.tsx';
 import AdminDashboard from './components/AdminDashboard.tsx';
 import ThoughtLeadership from './components/ThoughtLeadership.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
+import FloatingCTA from './components/FloatingCTA.tsx';
+import Newsletter from './components/Newsletter.tsx';
 
 interface Article {
   id?: string;
@@ -43,6 +45,14 @@ const App: React.FC = () => {
   const [showAdmin, setShowAdmin] = useState(false);
 
   useEffect(() => {
+    // Handle /registry path for SEO and direct access
+    if (window.location.pathname === '/registry') {
+      const element = document.getElementById('registry');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
     const testConnection = async () => {
       const path = 'blog';
       try {
@@ -200,12 +210,17 @@ const App: React.FC = () => {
             content: dispatch.content
           })} />
           <Blog onArticleClick={handleOpenArticle} />
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-24">
+            <Newsletter />
+          </div>
           <PrincipalDispatch />
           <FAQ />
           <Waitlist />
         </main>
         <Footer onLegalClick={handleLegalClick} />
         
+        <FloatingCTA onAuditClick={() => document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' })} />
+
         <ArticleView 
           article={activeArticle} 
           onClose={() => setActiveArticle(null)} 

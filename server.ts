@@ -13,6 +13,36 @@ async function startServer() {
 
   app.use(express.json());
 
+  // SEO: Enforce non-www and remove trailing slashes
+  app.use((req, res, next) => {
+    const host = req.get('host');
+    let redirect = false;
+    let newUrl = `${req.protocol}://${host}${req.originalUrl}`;
+
+    // Enforce non-www
+    if (host && host.startsWith('www.')) {
+      const newHost = host.slice(4);
+      newUrl = `${req.protocol}://${newHost}${req.originalUrl}`;
+      redirect = true;
+    }
+
+    // Remove trailing slashes (except for root)
+    const urlParts = newUrl.split('?');
+    let pathPart = urlParts[0];
+    const queryPart = urlParts[1] ? `?${urlParts[1]}` : '';
+
+    if (pathPart.length > 1 && pathPart.endsWith('/')) {
+      pathPart = pathPart.slice(0, -1);
+      newUrl = pathPart + queryPart;
+      redirect = true;
+    }
+
+    if (redirect) {
+      return res.redirect(301, newUrl);
+    }
+    next();
+  });
+
   console.log(`SERVER STARTING V4 - PORT: ${PORT} - IS_PROD: ${isProd}`);
 
   // Diagnostic: Check if dist folder exists and list files

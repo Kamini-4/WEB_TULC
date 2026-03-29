@@ -99,6 +99,18 @@ const Waitlist: React.FC = () => {
         <h2 className="text-[#b8860b] text-[8px] sm:text-[10px] font-black uppercase mb-6 sm:mb-8 tracking-[0.3em]">The Sovereign Ledger</h2>
         <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 text-[#111111]">Privileged <span className="italic text-[#b8860b]">Intake Terminal.</span></h3>
         
+        {/* Social Proof Ticker */}
+        <div className="mb-12 overflow-hidden border-y border-zinc-200 py-4">
+          <div className="flex animate-marquee whitespace-nowrap gap-12 text-[8px] font-black uppercase tracking-[0.3em] text-zinc-400">
+            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b] rounded-full" /> RECENT INTAKE: CEO, GLOBAL LOGISTICS (LONDON)</span>
+            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b] rounded-full" /> RECENT INTAKE: PRINCIPAL, PRIVATE EQUITY (NYC)</span>
+            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b] rounded-full" /> RECENT INTAKE: FOUNDER, FINTECH UNICORN (SINGAPORE)</span>
+            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b] rounded-full" /> RECENT INTAKE: MANAGING DIRECTOR, INFRASTRUCTURE (DUBAI)</span>
+            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b] rounded-full" /> RECENT INTAKE: CEO, GLOBAL LOGISTICS (LONDON)</span>
+            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b] rounded-full" /> RECENT INTAKE: PRINCIPAL, PRIVATE EQUITY (NYC)</span>
+          </div>
+        </div>
+
         {isEncrypting && !submitted ? (
           <div className="bg-[#111111] p-8 sm:p-12 border border-[#b8860b]/30 text-left font-inter">
             <div className="flex items-center gap-4 mb-6 sm:mb-8">
