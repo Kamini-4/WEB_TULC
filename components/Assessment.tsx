@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { auth, db, signInWithGoogle } from '../src/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { SovereignDB } from '../lib/database.ts';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { motion, AnimatePresence } from 'motion/react';
 import { LucideIcon, Shield, Zap, Cpu, Layers, Heart, ArrowRight, Lock, Download, ChevronRight, CheckCircle2, AlertCircle, ExternalLink } from 'lucide-react';
@@ -153,22 +153,20 @@ const Assessment: React.FC = () => {
       const maxScore = QUESTIONS.length * 10;
       const percentage = (totalScore / maxScore) * 100;
       
-      await addDoc(collection(db, 'assessments'), {
-        userId: user?.uid,
-        email: user?.email,
-        context,
+      await SovereignDB.saveAssessment({
+        userId: user?.uid || '',
+        email: user?.email || '',
+        context: context!,
         answers: finalAnswers,
         totalScore,
-        percentage,
-        timestamp: serverTimestamp(),
-        type: 'assessment'
+        percentage
       });
 
       // Simulate cinematic calculation
       setTimeout(() => {
         setStep('dossier');
         setIsSubmitting(false);
-      }, 800);
+      }, 400);
     } catch (error) {
       console.error("Error saving assessment", error);
       setIsSubmitting(false);

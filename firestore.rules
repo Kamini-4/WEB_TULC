@@ -37,21 +37,25 @@ service cloud.firestore {
 
     // Leads Validation
     function isValidLead(data) {
-      return data.keys().hasAll(['name', 'email', 'organization', 'message', 'timestamp']) &&
+      return data.keys().hasAll(['name', 'email', 'organization', 'role', 'message', 'timestamp', 'type']) &&
              data.name is string && data.name.size() > 0 && data.name.size() < 100 &&
              isValidEmail(data.email) &&
              data.organization is string && data.organization.size() < 100 &&
+             data.role is string &&
              data.message is string && data.message.size() < 2000 &&
+             data.type == 'waitlist' &&
              (data.timestamp is number || data.timestamp is timestamp);
     }
 
     // Assessment Validation
     function isValidAssessment(data) {
-      return data.keys().hasAll(['email', 'context', 'answers', 'totalScore', 'timestamp']) &&
+      return data.keys().hasAll(['userId', 'email', 'context', 'answers', 'totalScore', 'percentage', 'timestamp', 'type']) &&
              isValidEmail(data.email) &&
-             data.context in ['tech', 'traditional', 'legacy'] &&
+             data.context in ['dynamic', 'established', 'generational'] &&
              data.answers is map &&
              data.totalScore is number &&
+             data.percentage is number &&
+             data.type == 'assessment' &&
              (data.timestamp is number || data.timestamp is timestamp);
     }
 

@@ -8,7 +8,8 @@ import {
   query, 
   orderBy, 
   onSnapshot,
-  getDocFromServer
+  getDocFromServer,
+  serverTimestamp
 } from 'firebase/firestore';
 import { db, auth } from '../src/firebase.ts';
 
@@ -24,12 +25,13 @@ export interface LeadEntry {
 
 export interface AssessmentEntry {
   id: string;
-  timestamp: number;
+  userId: string;
   email: string;
-  score: string;
-  analysis: string;
-  constraint: string;
-  leverage: string;
+  context: 'dynamic' | 'established' | 'generational';
+  answers: Record<number, number>;
+  totalScore: number;
+  percentage: number;
+  timestamp: number;
   type: 'assessment';
 }
 
@@ -119,7 +121,7 @@ export const SovereignDB = {
     try {
       const docRef = await addDoc(collection(db, path), {
         ...data,
-        timestamp: Date.now(),
+        timestamp: serverTimestamp(),
         type: 'waitlist'
       });
       return { id: docRef.id, ...data };
@@ -133,7 +135,7 @@ export const SovereignDB = {
     try {
       const docRef = await addDoc(collection(db, path), {
         ...data,
-        timestamp: Date.now(),
+        timestamp: serverTimestamp(),
         type: 'assessment'
       });
       return { id: docRef.id, ...data };

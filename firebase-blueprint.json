@@ -22,7 +22,7 @@
       "properties": {
         "userId": { "type": "string", "description": "Firebase Auth UID." },
         "email": { "type": "string", "format": "email", "description": "Email of the participant." },
-        "context": { "type": "string", "enum": ["tech", "traditional", "legacy"], "description": "Institutional context." },
+        "context": { "type": "string", "enum": ["dynamic", "established", "generational"], "description": "Institutional context." },
         "answers": { "type": "object", "description": "Map of question index to score (0, 5, 10)." },
         "totalScore": { "type": "number", "description": "Sum of all scores." },
         "percentage": { "type": "number", "description": "Maturity percentage." },
