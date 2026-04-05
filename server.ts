@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { GoogleGenAI } from "@google/genai";
 
@@ -9,23 +10,36 @@ const __dirname = path.dirname(__filename);
 async function startServer() {
   const app = express();
   const PORT = Number(process.env.PORT) || 3000;
-  const isProd = process.env.NODE_ENV === 'production' || process.env.K_SERVICE !== undefined;
+  const isProd = process.env.NODE_ENV === 'production';
+  const isAISPreview = process.env.K_SERVICE === undefined || process.env.DISABLE_HMR === 'true';
 
   app.use(express.json());
 
+  // Force development mode in AIS preview unless explicitly set to production
+  const useVite = !isProd && isAISPreview;
+
+  /*
   // SEO: Enforce non-www and remove trailing slashes
   app.use((req, res, next) => {
     const host = req.get('host');
     const pathName = req.path;
     const query = req.url.slice(req.path.length);
+    const protocol = req.get('x-forwarded-proto') || req.protocol;
     
     let redirect = false;
     let newHost = host;
     let newPath = pathName;
+    let newProtocol = protocol;
 
     // Enforce non-www
     if (host && host.startsWith('www.')) {
       newHost = host.slice(4);
+      redirect = true;
+    }
+
+    // Force HTTPS in production
+    if (isProd && protocol === 'http') {
+      newProtocol = 'https';
       redirect = true;
     }
 
@@ -36,11 +50,19 @@ async function startServer() {
     }
 
     if (redirect) {
-      const protocol = req.get('x-forwarded-proto') || req.protocol;
-      return res.redirect(301, `${protocol}://${newHost}${newPath}${query}`);
+      // Use 301 for permanent SEO redirects, but be careful with loops
+      // If we are already on the new host, path, and protocol, don't redirect
+      const currentUrl = `${protocol}://${host}${pathName}${query}`;
+      const targetUrl = `${newProtocol}://${newHost}${newPath}${query}`;
+      
+      if (currentUrl !== targetUrl) {
+        console.log(`REDIRECTING: ${currentUrl} -> ${targetUrl}`);
+        return res.redirect(301, targetUrl);
+      }
     }
     next();
   });
+  */
 
   console.log(`SERVER STARTING V4 - PORT: ${PORT} - IS_PROD: ${isProd}`);
 
@@ -85,9 +107,9 @@ async function startServer() {
     }
   });
 
-  if (!isProd) {
+  if (useVite) {
     // Vite middleware for development
-    console.log('Starting in DEVELOPMENT mode');
+    console.log('Starting in DEVELOPMENT mode (Vite Middleware)');
     try {
       const { createServer: createViteServer } = await import('vite');
       const vite = await createViteServer({
@@ -112,21 +134,14 @@ async function startServer() {
 
 function serveStatic(app: express.Express) {
   // Use __dirname for more reliable path resolution in containers
-  const distPath = path.resolve(__dirname, 'dist');
-  console.log(`Diagnostic: Attempting to serve static files from: ${distPath}`);
+  let distPath = path.resolve(__dirname, 'dist');
   
-  // Check if directory exists
-  import('fs').then(fs => {
-    if (fs.existsSync(distPath)) {
-      const files = fs.readdirSync(distPath);
-      console.log(`Diagnostic: Found ${files.length} files in dist: ${files.slice(0, 5).join(', ')}...`);
-    } else {
-      console.error(`Diagnostic: dist directory NOT FOUND at ${distPath}`);
-      // Try fallback to process.cwd()
-      const fallbackPath = path.join(process.cwd(), 'dist');
-      console.log(`Diagnostic: Trying fallback path: ${fallbackPath}`);
-    }
-  }).catch(err => console.error('Diagnostic: FS check failed', err));
+  // Fallback to process.cwd() if __dirname/dist doesn't exist
+  if (!fs.existsSync(distPath)) {
+    distPath = path.resolve(process.cwd(), 'dist');
+  }
+  
+  console.log(`Diagnostic: Serving static files from: ${distPath}`);
 
   app.use(express.static(distPath));
   
