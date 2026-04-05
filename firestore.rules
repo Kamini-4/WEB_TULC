@@ -10,7 +10,7 @@ service cloud.firestore {
     // Fields: name, email, organization, role, message, timestamp, type
     //
     // Collection: assessments
-    // Fields: email, score, analysis, constraint, leverage, timestamp, type
+    // Fields: userId, email, context, answers, totalScore, percentage, timestamp, type
     //
     // Collection: blog
     // Fields: category, date, title, excerpt, content, timestamp
@@ -42,15 +42,17 @@ service cloud.firestore {
              isValidEmail(data.email) &&
              data.organization is string && data.organization.size() < 100 &&
              data.message is string && data.message.size() < 2000 &&
-             data.timestamp is number;
+             (data.timestamp is number || data.timestamp is timestamp);
     }
 
     // Assessment Validation
     function isValidAssessment(data) {
-      return data.keys().hasAll(['email', 'score', 'timestamp']) &&
+      return data.keys().hasAll(['email', 'context', 'answers', 'totalScore', 'timestamp']) &&
              isValidEmail(data.email) &&
-             data.score is string &&
-             data.timestamp is number;
+             data.context in ['tech', 'traditional', 'legacy'] &&
+             data.answers is map &&
+             data.totalScore is number &&
+             (data.timestamp is number || data.timestamp is timestamp);
     }
 
     // Blog Validation

@@ -20,15 +20,16 @@
       "description": "A completed yield calibration assessment.",
       "type": "object",
       "properties": {
+        "userId": { "type": "string", "description": "Firebase Auth UID." },
         "email": { "type": "string", "format": "email", "description": "Email of the participant." },
-        "score": { "type": "string", "description": "Sovereign grade." },
-        "analysis": { "type": "string", "description": "Brief analysis." },
-        "constraint": { "type": "string", "description": "Primary constraint." },
-        "leverage": { "type": "string", "description": "Primary leverage." },
-        "timestamp": { "type": "number", "description": "Creation timestamp." },
+        "context": { "type": "string", "enum": ["tech", "traditional", "legacy"], "description": "Institutional context." },
+        "answers": { "type": "object", "description": "Map of question index to score (0, 5, 10)." },
+        "totalScore": { "type": "number", "description": "Sum of all scores." },
+        "percentage": { "type": "number", "description": "Maturity percentage." },
+        "timestamp": { "type": "string", "format": "date-time", "description": "Creation timestamp." },
         "type": { "type": "string", "enum": ["assessment"] }
       },
-      "required": ["email", "score", "timestamp"]
+      "required": ["email", "context", "answers", "totalScore", "timestamp"]
     },
     "BlogPost": {
       "title": "BlogPost",
