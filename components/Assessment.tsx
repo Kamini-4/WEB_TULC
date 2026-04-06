@@ -23,6 +23,12 @@ interface Question {
   options: Option[];
 }
 
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
+
 const QUESTIONS: Question[] = [
   {
     domain: "Political Capital & Influence",
@@ -100,6 +106,7 @@ const Assessment: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [authError, setAuthError] = useState<string | null>(null);
   const [isPaid, setIsPaid] = useState(false);
+  const [assessmentId, setAssessmentId] = useState<string | null>(null);
   const [dossierId] = useState(() => Math.floor(Math.random() * 100000).toString().padStart(6, '0'));
 
   const handleStart = () => {
@@ -113,6 +120,41 @@ const Assessment: React.FC = () => {
       return;
     }
     setStep('context');
+  };
+
+  const handleRazorpayPayment = () => {
+    if (!window.Razorpay) {
+      // Fallback to link if SDK fails to load
+      window.open('https://rzp.io/rzp/T7d50Uma', '_blank');
+      setIsPaid(true);
+      return;
+    }
+
+    const options = {
+      key: import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_test_your_key_id',
+      amount: 9900, // 99.00 INR
+      currency: "INR",
+      name: "The Unbounded Leadership Co.",
+      description: "Sovereign Protocol Access Verification",
+      image: "/monogram.jpeg",
+      handler: function (response: any) {
+        if (response.razorpay_payment_id) {
+          setIsPaid(true);
+          if (assessmentId) {
+            SovereignDB.updateAssessmentPayment(assessmentId);
+          }
+        }
+      },
+      prefill: {
+        name: identity.name,
+        email: identity.email,
+      },
+      theme: {
+        color: "#b8860b",
+      },
+    };
+    const rzp = new window.Razorpay(options);
+    rzp.open();
   };
 
   const handleContextSelect = (c: ContextType) => {
@@ -140,7 +182,7 @@ const Assessment: React.FC = () => {
       const maxScore = QUESTIONS.length * 10;
       const percentage = (totalScore / maxScore) * 100;
       
-      await SovereignDB.saveAssessment({
+      const result = await SovereignDB.saveAssessment({
         userId: 'anonymous-sovereign',
         name: identity.name,
         email: identity.email,
@@ -150,6 +192,10 @@ const Assessment: React.FC = () => {
         totalScore,
         percentage
       });
+
+      if (result?.id) {
+        setAssessmentId(result.id);
+      }
 
       // Simulate cinematic calculation
       setTimeout(() => {
@@ -499,7 +545,7 @@ const Assessment: React.FC = () => {
                       The truth is revealed. The solution is <span className="italic text-[#b8860b]">Architectural.</span>
                     </h5>
                     <p className="text-zinc-500 mb-12 text-lg font-light italic leading-relaxed">
-                      Your diagnostic confirms that you are currently the engine of your institution. To become the Architect, you must move beyond this taste of the protocol and secure the full substrate.
+                      Your diagnostic confirms that your current leadership substrate is optimized for **Heroic Intervention** rather than **Institutional Sovereignty**. To move beyond this diagnostic and secure the full protocol, you must initiate the final verification.
                     </p>
                     <div className="space-y-10">
                       {!isPaid ? (
@@ -507,14 +553,11 @@ const Assessment: React.FC = () => {
                           <Lock className="w-10 h-10 text-[#b8860b] mx-auto mb-6" />
                           <h5 className="text-xl font-bold mb-4 text-white uppercase tracking-widest">Protocol Access Locked</h5>
                           <p className="text-zinc-500 mb-10 italic font-light leading-relaxed">
-                            To maintain the integrity of the Sovereign Substrate, a one-time institutional verification fee is required to unlock the portal.
+                            To maintain the integrity of the Sovereign Substrate, a one-time institutional verification fee is required to unlock the full individual assessment and roadmap.
                           </p>
                           
                           <button 
-                            onClick={() => {
-                              window.open('https://rzp.io/rzp/T7d50Uma', '_blank');
-                              setIsPaid(true);
-                            }}
+                            onClick={handleRazorpayPayment}
                             className="group relative px-12 py-6 bg-[#b8860b] text-white text-[11px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all shadow-2xl flex items-center justify-center gap-4 mx-auto"
                           >
                             <span>Initiate Verification & Unlock Portal</span>
@@ -554,7 +597,7 @@ const Assessment: React.FC = () => {
                       )}
                     </div>
                     <div className="mt-12 text-[9px] uppercase text-zinc-600 tracking-[0.5em] font-black">
-                      Dispatching Verification to: {user?.email}
+                      Dispatching Verification to: {identity.email}
                     </div>
                   </div>
                 </div>

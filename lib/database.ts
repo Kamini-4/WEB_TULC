@@ -35,6 +35,7 @@ export interface AssessmentEntry {
   percentage: number;
   timestamp: number;
   type: 'assessment';
+  paid?: boolean;
 }
 
 export interface BlogEntry {
@@ -138,11 +139,24 @@ export const SovereignDB = {
       const docRef = await addDoc(collection(db, path), {
         ...data,
         timestamp: serverTimestamp(),
-        type: 'assessment'
+        type: 'assessment',
+        paid: false
       });
       return { id: docRef.id, ...data };
     } catch (error) {
       handleFirestoreError(error, OperationType.CREATE, path);
+    }
+  },
+
+  updateAssessmentPayment: async (id: string) => {
+    const path = 'assessments';
+    try {
+      const { updateDoc, doc } = await import('firebase/firestore');
+      await updateDoc(doc(db, path, id), {
+        paid: true
+      });
+    } catch (error) {
+      handleFirestoreError(error, OperationType.UPDATE, path);
     }
   },
 

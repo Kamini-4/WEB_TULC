@@ -175,9 +175,14 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                         </td>
                         <td className="px-6 py-6">
                           {entry.assessment ? (
-                            <div className="flex items-center gap-2">
-                              <span className="w-2 h-2 rounded-full bg-green-500" />
-                              <span className="text-[10px] font-bold text-[#111111] uppercase tracking-widest">{entry.assessment.totalScore}</span>
+                            <div className="flex flex-col gap-1">
+                              <div className="flex items-center gap-2">
+                                <span className="w-2 h-2 rounded-full bg-green-500" />
+                                <span className="text-[10px] font-bold text-[#111111] uppercase tracking-widest">{entry.assessment.totalScore}</span>
+                              </div>
+                              <div className={`text-[8px] font-black uppercase tracking-widest ${entry.assessment.paid ? 'text-green-600' : 'text-zinc-300'}`}>
+                                {entry.assessment.paid ? 'Paid' : 'Unpaid'}
+                              </div>
                             </div>
                           ) : (
                             <span className="text-[9px] font-bold text-zinc-300 uppercase tracking-widest italic">Pending</span>
