@@ -26,67 +26,67 @@ interface Question {
 
 const QUESTIONS: Question[] = [
   {
-    domain: "Cognitive Authority",
+    domain: "Political Capital & Influence",
     text: {
-      dynamic: "Does your strategic intent execute autonomously across the substrate?",
-      established: "Can your operations run at full capacity for 30 days without a single phone call to you?",
-      generational: "Is the family’s vision preserved in the estate’s management even when you are completely offline?"
+      dynamic: "Does your strategic intent command absolute compliance across the institutional substrate?",
+      established: "Can your governance protocols maintain order for 30 days without your direct intervention?",
+      generational: "Is the family’s political influence preserved in the estate’s management even when you are completely offline?"
     },
     options: [
-      { label: "Fragile", value: 0, description: "I am the single point of failure for all critical decisions." },
-      { label: "Resilient", value: 5, description: "Systems exist but require my frequent validation to proceed." },
-      { label: "Sovereign", value: 10, description: "Intent executes with absolute fidelity without my presence." }
+      { label: "Fragile", value: 0, description: "My authority is a single point of failure; without my presence, intent dissolves." },
+      { label: "Resilient", value: 5, description: "Power is distributed, but requires my frequent validation to prevent drift." },
+      { label: "Sovereign", value: 10, description: "Intent executes with absolute fidelity; authority is a structural property." }
     ]
   },
   {
-    domain: "Systemic Thinking",
+    domain: "Governance & Power Dynamics",
     text: {
-      dynamic: "Is success independent of 'heroic' interventions?",
-      established: "Is your profitability built into the process, or does it depend on you 'putting out fires' every day?",
+      dynamic: "Is institutional success independent of 'heroic' political maneuvers?",
+      established: "Is your authority built into the process, or does it depend on you 'negotiating' every day?",
       generational: "Is the continuity of the legacy protected by a governing structure, or does it rely on the strength of a single individual?"
     },
     options: [
-      { label: "Reactive", value: 0, description: "Success depends on my personal energy and daily 'heroics'." },
-      { label: "Procedural", value: 5, description: "We have playbooks, but they fail without constant oversight." },
-      { label: "Architectural", value: 10, description: "The result is a structural inevitability of the system design." }
+      { label: "Reactive", value: 0, description: "Success depends on my personal energy and daily 'political heroics'." },
+      { label: "Procedural", value: 5, description: "We have protocols, but they fail without constant oversight and lobbying." },
+      { label: "Architectural", value: 10, description: "The result is a structural inevitability of the governance design." }
     ]
   },
   {
-    domain: "Cultural Intelligence",
+    domain: "Institutional Alignment",
     text: {
-      dynamic: "Does vision carry absolute fidelity to the operational edge?",
-      established: "Do the people on the floor understand and execute your standards exactly as you would?",
+      dynamic: "Does your vision carry absolute fidelity to the furthest operational edge?",
+      established: "Do the stakeholders understand and execute your standards exactly as you would?",
       generational: "Are the family’s core values consistently upheld by every advisor and staff member in the inner circle?"
     },
     options: [
-      { label: "Diluted", value: 0, description: "The vision fractures as it moves away from my direct control." },
-      { label: "Aligned", value: 5, description: "The team understands the goal but lacks the 'soul' of the intent." },
-      { label: "Embodied", value: 10, description: "The culture executes the vision with 100% fidelity autonomously." }
+      { label: "Diluted", value: 0, description: "The vision fractures and loses its 'soul' as it moves away from my direct control." },
+      { label: "Aligned", value: 5, description: "The team understands the goal but lacks the 'political resonance' of the intent." },
+      { label: "Embodied", value: 10, description: "The institution executes the vision with 100% fidelity autonomously." }
     ]
   },
   {
-    domain: "Strategic Adaptability",
+    domain: "Strategic Maneuverability",
     text: {
-      dynamic: "Is your organizational substrate designed to convert external market disruption into a systemic competitive advantage?",
-      established: "Can your operations pivot to a new product line within a single quarter without manual intervention?",
+      dynamic: "Is your organizational substrate designed to convert external political disruption into a systemic advantage?",
+      established: "Can your operations pivot to a new strategic vector within a single quarter without manual intervention?",
       generational: "Is your estate's asset allocation designed to automatically hedge against global geopolitical volatility?"
     },
     options: [
-      { label: "Rigid", value: 0, description: "Change is slow, painful, and requires my constant pushing." },
-      { label: "Flexible", value: 5, description: "We can adapt, but it requires significant manual re-tooling." },
-      { label: "Antifragile", value: 10, description: "The substrate is designed to gain strength from disruption." }
+      { label: "Rigid", value: 0, description: "Change is slow, painful, and requires my constant political pushing." },
+      { label: "Flexible", value: 5, description: "We can adapt, but it requires significant manual re-tooling and consensus-building." },
+      { label: "Antifragile", value: 10, description: "The substrate is designed to gain strength and leverage from disruption." }
     ]
   },
   {
-    domain: "Moral & Emotional Gravity",
+    domain: "Sovereign Authority",
     text: {
       dynamic: "Does your authority compound exponentially as the organization scales, rather than fracturing under pressure?",
-      established: "Does your reputation for quality and reliability allow you to command a premium even in a commoditized market?",
+      established: "Does your reputation for excellence allow you to command a premium even in a contested market?",
       generational: "Is trust in your institution a structural inevitability, rather than a behavioral variable?"
     },
     options: [
-      { label: "Variable", value: 0, description: "Trust and authority depend on my current mood and behavior." },
-      { label: "Reputational", value: 5, description: "We have a good name, but it requires constant maintenance." },
+      { label: "Variable", value: 0, description: "Trust and authority depend on my current mood and personal behavior." },
+      { label: "Reputational", value: 5, description: "We have a good name, but it requires constant maintenance and PR." },
       { label: "Inevitable", value: 10, description: "Authority is a structural property of the institutional design." }
     ]
   }
@@ -133,7 +133,7 @@ const Assessment: React.FC = () => {
       } else if (error.code === 'auth/popup-closed-by-user') {
         message = "Verification was cancelled. Please try again.";
       } else if (error.code === 'auth/unauthorized-domain') {
-        message = "This domain is not authorized for verification. Please contact the administrator.";
+        message = "This domain is not authorized for verification. You must add this domain to the 'Authorized domains' list in your Firebase Console (Authentication > Settings).";
       }
       setAuthError(message);
     }
@@ -268,9 +268,17 @@ const Assessment: React.FC = () => {
               
               {authError && (
                 <div className="mt-4 p-4 bg-red-50 border border-red-100 text-red-600 text-[10px] font-bold uppercase tracking-widest leading-relaxed">
+                  <div className="flex items-center gap-2 mb-2">
+                    <AlertCircle className="w-4 h-4" />
+                    <span>Verification Error</span>
+                  </div>
                   {authError}
-                  <div className="mt-2 text-[8px] opacity-70">
-                    Note: If you see a "Google hasn't verified this app" screen, click "Advanced" and then "Go to [app name] (unsafe)" to proceed.
+                  <div className="mt-4 pt-4 border-t border-red-200 text-zinc-600 normal-case font-normal">
+                    <p className="mb-2"><strong>Important:</strong> If you see a "Google hasn't verified this app" screen:</p>
+                    <ol className="list-decimal ml-4 space-y-1">
+                      <li>Click <strong>"Advanced"</strong></li>
+                      <li>Click <strong>"Go to [app name] (unsafe)"</strong></li>
+                    </ol>
                   </div>
                 </div>
               )}
