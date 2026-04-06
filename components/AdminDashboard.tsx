@@ -125,46 +125,67 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-zinc-100">
-                  {data.leads.length === 0 ? (
-                    <tr>
-                      <td colSpan={5} className="px-6 py-12 text-center text-zinc-400 italic font-light">
-                        No Sovereign Entries Detected.
-                      </td>
-                    </tr>
-                  ) : (
-                    data.leads.map((lead) => {
-                      const assessment = data.assessments.find(a => a.email.toLowerCase() === lead.email.toLowerCase());
+                  {(() => {
+                    const allEmails = new Set([
+                      ...data.leads.map(l => l.email.toLowerCase()),
+                      ...data.assessments.map(a => a.email.toLowerCase())
+                    ]);
+                    
+                    const mergedData = Array.from(allEmails).map(email => {
+                      const lead = data.leads.find(l => l.email.toLowerCase() === email);
+                      const assessment = data.assessments.find(a => a.email.toLowerCase() === email);
+                      
+                      return {
+                        id: lead?.id || assessment?.id || email,
+                        timestamp: lead?.timestamp || assessment?.timestamp || Date.now(),
+                        name: lead?.name || assessment?.name || 'Unknown',
+                        email: email,
+                        organization: lead?.organization || assessment?.organization || 'Unknown',
+                        message: lead?.message || 'Assessment Only Entry',
+                        assessment: assessment
+                      };
+                    }).sort((a, b) => b.timestamp - a.timestamp);
+
+                    if (mergedData.length === 0) {
                       return (
-                        <tr key={lead.id} className="hover:bg-zinc-50 transition-colors group">
-                          <td className="px-6 py-6 text-xs text-zinc-500 font-mono">
-                            {new Date(lead.timestamp).toLocaleDateString()}
-                          </td>
-                          <td className="px-6 py-6">
-                            <div className="flex flex-col">
-                              <span className="text-sm font-bold text-[#111111]">{lead.name}</span>
-                              <span className="text-[10px] text-zinc-400 font-mono">{lead.email}</span>
-                            </div>
-                          </td>
-                          <td className="px-6 py-6 text-xs font-bold uppercase tracking-tight text-[#111111]">
-                            {lead.organization}
-                          </td>
-                          <td className="px-6 py-6">
-                            <p className="text-xs text-zinc-600 italic line-clamp-2 max-w-xs">{lead.message}</p>
-                          </td>
-                          <td className="px-6 py-6">
-                            {assessment ? (
-                              <div className="flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-green-500" />
-                                <span className="text-[10px] font-bold text-[#111111] uppercase tracking-widest">{assessment.totalScore}</span>
-                              </div>
-                            ) : (
-                              <span className="text-[9px] font-bold text-zinc-300 uppercase tracking-widest italic">Pending</span>
-                            )}
+                        <tr>
+                          <td colSpan={5} className="px-6 py-12 text-center text-zinc-400 italic font-light">
+                            No Sovereign Entries Detected.
                           </td>
                         </tr>
                       );
-                    })
-                  )}
+                    }
+
+                    return mergedData.map((entry) => (
+                      <tr key={entry.id} className="hover:bg-zinc-50 transition-colors group">
+                        <td className="px-6 py-6 text-xs text-zinc-500 font-mono">
+                          {new Date(entry.timestamp).toLocaleDateString()}
+                        </td>
+                        <td className="px-6 py-6">
+                          <div className="flex flex-col">
+                            <span className="text-sm font-bold text-[#111111]">{entry.name}</span>
+                            <span className="text-[10px] text-zinc-400 font-mono">{entry.email}</span>
+                          </div>
+                        </td>
+                        <td className="px-6 py-6 text-xs font-bold uppercase tracking-tight text-[#111111]">
+                          {entry.organization}
+                        </td>
+                        <td className="px-6 py-6">
+                          <p className="text-xs text-zinc-600 italic line-clamp-2 max-w-xs">{entry.message}</p>
+                        </td>
+                        <td className="px-6 py-6">
+                          {entry.assessment ? (
+                            <div className="flex items-center gap-2">
+                              <span className="w-2 h-2 rounded-full bg-green-500" />
+                              <span className="text-[10px] font-bold text-[#111111] uppercase tracking-widest">{entry.assessment.totalScore}</span>
+                            </div>
+                          ) : (
+                            <span className="text-[9px] font-bold text-zinc-300 uppercase tracking-widest italic">Pending</span>
+                          )}
+                        </td>
+                      </tr>
+                    ));
+                  })()}
                 </tbody>
               </table>
             </div>

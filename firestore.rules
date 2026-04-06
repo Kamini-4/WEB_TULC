@@ -49,8 +49,10 @@ service cloud.firestore {
 
     // Assessment Validation
     function isValidAssessment(data) {
-      return data.keys().hasAll(['userId', 'email', 'context', 'answers', 'totalScore', 'percentage', 'timestamp', 'type']) &&
+      return data.keys().hasAll(['userId', 'name', 'email', 'organization', 'context', 'answers', 'totalScore', 'percentage', 'timestamp', 'type']) &&
+             data.name is string && data.name.size() > 0 && data.name.size() < 100 &&
              isValidEmail(data.email) &&
+             data.organization is string && data.organization.size() < 100 &&
              data.context in ['dynamic', 'established', 'generational'] &&
              data.answers is map &&
              data.totalScore is number &&

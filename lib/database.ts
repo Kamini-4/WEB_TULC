@@ -26,7 +26,9 @@ export interface LeadEntry {
 export interface AssessmentEntry {
   id: string;
   userId: string;
+  name: string;
   email: string;
+  organization: string;
   context: 'dynamic' | 'established' | 'generational';
   answers: Record<number, number>;
   totalScore: number;

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { auth, db, signInWithGoogle } from '../src/firebase';
+import { db } from '../src/firebase';
 import { SovereignDB } from '../lib/database.ts';
-import { onAuthStateChanged, User } from 'firebase/auth';
 import { motion, AnimatePresence } from 'motion/react';
 import { LucideIcon, Shield, Zap, Cpu, Layers, Heart, ArrowRight, Lock, Download, ChevronRight, CheckCircle2, AlertCircle, ExternalLink } from 'lucide-react';
 
@@ -94,7 +93,7 @@ const QUESTIONS: Question[] = [
 
 const Assessment: React.FC = () => {
   const [step, setStep] = useState<Step>('intro');
-  const [user, setUser] = useState<User | null>(null);
+  const [identity, setIdentity] = useState({ name: '', email: '', organization: '' });
   const [context, setContext] = useState<ContextType | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
@@ -103,40 +102,17 @@ const Assessment: React.FC = () => {
   const [isPaid, setIsPaid] = useState(false);
   const [dossierId] = useState(() => Math.floor(Math.random() * 100000).toString().padStart(6, '0'));
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (u) => {
-      setUser(u);
-      if (u && step === 'auth') {
-        setStep('context');
-      }
-    });
-    return () => unsubscribe();
-  }, [step]);
-
   const handleStart = () => {
-    if (user) {
-      setStep('context');
-    } else {
-      setStep('auth');
-    }
+    setStep('auth');
   };
 
-  const handleGoogleSignIn = async () => {
-    setAuthError(null);
-    try {
-      await signInWithGoogle();
-    } catch (error: any) {
-      console.error("Sign in failed", error);
-      let message = "Verification failed. Please ensure popups are allowed and try again.";
-      if (error.code === 'auth/popup-blocked') {
-        message = "The verification popup was blocked. Please enable popups for this site.";
-      } else if (error.code === 'auth/popup-closed-by-user') {
-        message = "Verification was cancelled. Please try again.";
-      } else if (error.code === 'auth/unauthorized-domain') {
-        message = "This domain is not authorized for verification. You must add this domain to the 'Authorized domains' list in your Firebase Console (Authentication > Settings).";
-      }
-      setAuthError(message);
+  const handleIdentitySubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!identity.name || !identity.email || !identity.organization) {
+      setAuthError("All institutional identifiers are required for verification.");
+      return;
     }
+    setStep('context');
   };
 
   const handleContextSelect = (c: ContextType) => {
@@ -165,8 +141,10 @@ const Assessment: React.FC = () => {
       const percentage = (totalScore / maxScore) * 100;
       
       await SovereignDB.saveAssessment({
-        userId: user?.uid || '',
-        email: user?.email || '',
+        userId: 'anonymous-sovereign',
+        name: identity.name,
+        email: identity.email,
+        organization: identity.organization,
         context: context!,
         answers: finalAnswers,
         totalScore,
@@ -251,40 +229,69 @@ const Assessment: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 1.05 }}
-              className="bg-white p-12 shadow-2xl border border-zinc-100 text-center"
+              className="bg-white p-8 md:p-12 shadow-2xl border border-zinc-100 text-center max-w-2xl mx-auto"
             >
               <Shield className="w-12 h-12 text-[#b8860b] mx-auto mb-8" />
-              <h3 className="text-2xl font-bold mb-4 text-[#111111] uppercase tracking-wider">Identity Verification</h3>
+              <h3 className="text-2xl font-bold mb-4 text-[#111111] uppercase tracking-wider">Identity Protocol</h3>
               <p className="text-zinc-500 mb-10 italic font-light">
-                Access to the Sovereign Protocol requires institutional verification.
+                Access to the Sovereign Protocol requires institutional verification. Please provide your strategic identifiers.
               </p>
-              <button 
-                onClick={handleGoogleSignIn}
-                className="w-full py-5 border-2 border-zinc-100 flex items-center justify-center gap-4 hover:bg-zinc-50 transition-all mb-4 group"
-              >
-                <img src="https://www.google.com/favicon.ico" alt="Google" className="w-5 h-5" />
-                <span className="text-[11px] font-black uppercase tracking-widest text-zinc-600 group-hover:text-black">Verify with Google</span>
-              </button>
+              
+              <form onSubmit={handleIdentitySubmit} className="space-y-6 text-left">
+                <div>
+                  <label className="text-[9px] font-black uppercase text-zinc-400 tracking-[0.3em] block mb-2">Institutional Identity</label>
+                  <input 
+                    type="text"
+                    required
+                    placeholder="Full Name"
+                    value={identity.name}
+                    onChange={(e) => setIdentity({...identity, name: e.target.value})}
+                    className="w-full px-4 py-4 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] italic"
+                  />
+                </div>
+                <div>
+                  <label className="text-[9px] font-black uppercase text-zinc-400 tracking-[0.3em] block mb-2">Strategic Email</label>
+                  <input 
+                    type="email"
+                    required
+                    placeholder="Institutional Email"
+                    value={identity.email}
+                    onChange={(e) => setIdentity({...identity, email: e.target.value})}
+                    className="w-full px-4 py-4 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] italic"
+                  />
+                </div>
+                <div>
+                  <label className="text-[9px] font-black uppercase text-zinc-400 tracking-[0.3em] block mb-2">Organization</label>
+                  <input 
+                    type="text"
+                    required
+                    placeholder="Principal Institution"
+                    value={identity.organization}
+                    onChange={(e) => setIdentity({...identity, organization: e.target.value})}
+                    className="w-full px-4 py-4 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] italic"
+                  />
+                </div>
+
+                <button 
+                  type="submit"
+                  className="w-full py-6 bg-[#111111] text-white text-[11px] font-black uppercase tracking-[0.3em] hover:bg-[#b8860b] transition-all shadow-xl"
+                >
+                  Initiate Verification
+                </button>
+              </form>
               
               {authError && (
-                <div className="mt-4 p-4 bg-red-50 border border-red-100 text-red-600 text-[10px] font-bold uppercase tracking-widest leading-relaxed">
+                <div className="mt-6 p-4 bg-red-50 border border-red-100 text-red-600 text-[10px] font-bold uppercase tracking-widest leading-relaxed">
                   <div className="flex items-center gap-2 mb-2">
                     <AlertCircle className="w-4 h-4" />
                     <span>Verification Error</span>
                   </div>
                   {authError}
-                  <div className="mt-4 pt-4 border-t border-red-200 text-zinc-600 normal-case font-normal">
-                    <p className="mb-2"><strong>Important:</strong> If you see a "Google hasn't verified this app" screen:</p>
-                    <ol className="list-decimal ml-4 space-y-1">
-                      <li>Click <strong>"Advanced"</strong></li>
-                      <li>Click <strong>"Go to [app name] (unsafe)"</strong></li>
-                    </ol>
-                  </div>
                 </div>
               )}
 
-              <div className="text-[9px] uppercase text-zinc-400 tracking-widest mt-6">
-                Secure SSL Encryption Enabled
+              <div className="text-[9px] uppercase text-zinc-400 tracking-widest mt-8">
+                Zero Data Retention (ZDR) Mandate Active
               </div>
             </motion.div>
           )}
