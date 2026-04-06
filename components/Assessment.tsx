@@ -99,6 +99,7 @@ const Assessment: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
   const [isPaid, setIsPaid] = useState(false);
   const [dossierId] = useState(() => Math.floor(Math.random() * 100000).toString().padStart(6, '0'));
 
@@ -121,10 +122,20 @@ const Assessment: React.FC = () => {
   };
 
   const handleGoogleSignIn = async () => {
+    setAuthError(null);
     try {
       await signInWithGoogle();
-    } catch (error) {
+    } catch (error: any) {
       console.error("Sign in failed", error);
+      let message = "Verification failed. Please ensure popups are allowed and try again.";
+      if (error.code === 'auth/popup-blocked') {
+        message = "The verification popup was blocked. Please enable popups for this site.";
+      } else if (error.code === 'auth/popup-closed-by-user') {
+        message = "Verification was cancelled. Please try again.";
+      } else if (error.code === 'auth/unauthorized-domain') {
+        message = "This domain is not authorized for verification. Please contact the administrator.";
+      }
+      setAuthError(message);
     }
   };
 
@@ -254,6 +265,16 @@ const Assessment: React.FC = () => {
                 <img src="https://www.google.com/favicon.ico" alt="Google" className="w-5 h-5" />
                 <span className="text-[11px] font-black uppercase tracking-widest text-zinc-600 group-hover:text-black">Verify with Google</span>
               </button>
+              
+              {authError && (
+                <div className="mt-4 p-4 bg-red-50 border border-red-100 text-red-600 text-[10px] font-bold uppercase tracking-widest leading-relaxed">
+                  {authError}
+                  <div className="mt-2 text-[8px] opacity-70">
+                    Note: If you see a "Google hasn't verified this app" screen, click "Advanced" and then "Go to [app name] (unsafe)" to proceed.
+                  </div>
+                </div>
+              )}
+
               <div className="text-[9px] uppercase text-zinc-400 tracking-widest mt-6">
                 Secure SSL Encryption Enabled
               </div>
