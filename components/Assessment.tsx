@@ -90,7 +90,7 @@ const QUESTIONS: Question[] = [
       generational: "Is the institutional culture preserved across generations through structural design rather than oral tradition?"
     },
     options: [
-      { label: "Diluted", value: 0, description: "Culture fractures as it moves away from the direct control of the Principal." },
+      { label: "Diluted", value: 0, description: "Culture experiences operational drift as it moves away from the direct resonance of the Principal." },
       { label: "Aligned", value: 5, description: "The team understands the culture but lacks the 'resonance' of the original intent." },
       { label: "Embodied", value: 10, description: "Fidelity is a structural property; the culture executes itself autonomously." }
     ]
@@ -202,45 +202,45 @@ const Assessment: React.FC = () => {
   const getReportDetails = () => {
     const totalScore = Object.values(answers).reduce((a, b) => a + b, 0);
     
-    // Identify Strength and Fracture
+    // Identify Strength and Calibration Point
     const sortedScores = Object.entries(answers).sort(([, a], [, b]) => b - a);
     const strengthIndex = Number(sortedScores[0][0]);
-    const fractureIndex = Number(sortedScores[sortedScores.length - 1][0]);
+    const calibrationIndex = Number(sortedScores[sortedScores.length - 1][0]);
     
     const strengthDomain = QUESTIONS[strengthIndex].domain;
-    const fractureDomain = QUESTIONS[fractureIndex].domain;
+    const calibrationDomain = QUESTIONS[calibrationIndex].domain;
 
-    const insights: Record<string, { strength: string; fracture: string }> = {
+    const insights: Record<string, { strength: string; refinement: string }> = {
       "Cognitive Clarity": {
-        strength: "The organization possesses a rare degree of strategic alignment; intent is distilled with precision at the core.",
-        fracture: "Institutional intent is currently obscured by operational noise. 64% of strategic energy is lost in manual clarification cycles."
+        strength: "The organization demonstrates a profound capacity for strategic alignment; intent is distilled with exceptional precision at the core.",
+        refinement: "There is a significant opportunity to further distill institutional intent. Calibrating this substrate allows for the reclamation of up to 40% of strategic bandwidth currently utilized for operational clarification."
       },
       "Systemic Integrity": {
-        strength: "The institutional substrate demonstrates structural resilience, maintaining order through established protocols.",
-        fracture: "The organization is currently a collection of individual 'heroic' efforts. Without manual intervention, systemic order dissolves."
+        strength: "The institutional substrate demonstrates remarkable structural resilience, maintaining order through established protocols.",
+        refinement: "The organization is positioned to transition from manual oversight to architectural inevitability. This calibration ensures that systemic order becomes a structural property, independent of individual intervention."
       },
       "Strategic Velocity": {
-        strength: "The organization demonstrates high-velocity maneuverability, converting disruption into systemic leverage.",
-        fracture: "Institutional rigidity is creating a hard ceiling on growth. Decision-making is slowed by consensus-seeking noise, reducing velocity by 40%."
+        strength: "The organization demonstrates high-velocity maneuverability, effectively converting disruption into systemic leverage.",
+        refinement: "An opportunity exists to further enhance strategic velocity by refining decision-making protocols. This adjustment positions the institution to capture a significant competitive edge by reducing operational friction."
       },
       "Moral Gravity": {
         strength: "The ethical core of the institution commands absolute compliance, creating a structural inevitability of trust.",
-        fracture: "Trust is currently a behavioral variable rather than a structural property. Reputational maintenance is consuming 30% of leadership bandwidth."
+        refinement: "Trust is currently a foundational asset. By further embedding this moral gravity into the structural design, the organization can reduce the cognitive load of reputational maintenance by 30%."
       },
       "Cultural Fidelity": {
         strength: "The institutional 'soul' is embodied at the operational edge, ensuring high-fidelity execution of standards.",
-        fracture: "A significant 'fidelity gap' exists. The institutional culture fractures as it moves away from the center, leading to 22% operational drift."
+        refinement: "There is a unique opportunity to further enhance cultural resonance. Refining these protocols ensures that the institutional culture executes itself autonomously, eliminating the risk of operational drift."
       }
     };
 
     return {
       strength: insights[strengthDomain]?.strength || "The organization demonstrates foundational stability in its core protocols.",
-      fracture: insights[fractureDomain]?.fracture || "The institutional substrate is currently optimized for manual intervention, creating a hard ceiling on strategic scale.",
+      refinement: insights[calibrationDomain]?.refinement || "The institutional substrate is currently optimized for manual intervention, creating a hard ceiling on strategic scale.",
       strengthDomain,
-      fractureDomain,
-      urgency: totalScore < 30 
-        ? "CRITICAL: Statistical evidence suggests that 82% of institutions at this maturity level face systemic collapse within 18 months without architectural intervention."
-        : "URGENT: The organization is leaking cognitive equity at an accelerating rate. Evidence indicates that every 30 days of delay results in a 12% increase in systemic entropy."
+      calibrationDomain,
+      priority: totalScore < 30 
+        ? "IMMEDIATE CALIBRATION: The current institutional substrate is performing with resilience, yet evidence suggests that an immediate architectural refinement will unlock substantial strategic velocity and preserve long-term cognitive equity."
+        : "STRATEGIC PRIORITY: The organization is positioned for a significant leap in institutional permanence. Calibrating these untapped strategic reserves today ensures a compounding competitive edge over the next decade."
     };
   };
 
@@ -473,7 +473,7 @@ const Assessment: React.FC = () => {
                 />
               </div>
               <h3 className="text-xl font-bold mb-4 text-[#111111] uppercase tracking-[0.3em]">Architectural Audit in Progress</h3>
-              <p className="text-zinc-500 italic font-light animate-pulse">Mapping systemic constraints and authority leakage points...</p>
+              <p className="text-zinc-500 italic font-light animate-pulse">Calibrating systemic resonance and strategic bandwidth vectors...</p>
             </motion.div>
           )}
 
@@ -519,39 +519,69 @@ const Assessment: React.FC = () => {
                         "{getReportDetails().strength}"
                       </div>
                       
-                      <div className="text-[10px] uppercase font-black text-red-500/80 mb-6 tracking-[0.4em] flex items-center gap-4 mt-12">
-                        <div className="h-px w-8 bg-red-500/30" />
-                        The Fracture: {getReportDetails().fractureDomain}
+                      <div className="text-[10px] uppercase font-black text-[#b8860b]/60 mb-6 tracking-[0.4em] flex items-center gap-4 mt-12">
+                        <div className="h-px w-8 bg-[#b8860b]/20" />
+                        Strategic Calibration Point: {getReportDetails().calibrationDomain}
                       </div>
                       <div className="text-xl font-bold italic mb-6 text-white leading-tight">
-                        "{getReportDetails().fracture}"
+                        "{getReportDetails().refinement}"
                       </div>
                       <p className="text-zinc-400 text-lg font-light leading-relaxed italic border-l-2 border-[#b8860b]/20 pl-8">
-                        The diagnostic identifies this domain as the primary "Hole in the Wall." The institutional architecture is leaking **Cognitive Equity** through this specific logic gate, forcing the organization into a cycle of manual intervention to maintain stability.
+                        The diagnostic identifies this domain as the primary "Bandwidth Gateway." The institutional architecture possesses untapped strategic reserves that, when calibrated, allow the organization to reclaim cognitive equity and achieve a compounding competitive edge.
                       </p>
                     </section>
 
                     <section className="p-8 bg-[#b8860b]/5 border border-[#b8860b]/20">
-                      <div className="text-[10px] uppercase font-black text-[#b8860b] mb-4 tracking-[0.3em]">Strategic Urgency</div>
+                      <div className="text-[10px] uppercase font-black text-[#b8860b] mb-4 tracking-[0.3em]">Strategic Priority</div>
                       <p className="text-white font-bold italic text-lg leading-relaxed">
-                        {getReportDetails().urgency}
+                        {getReportDetails().priority}
                       </p>
                     </section>
 
+                    <section className="grid sm:grid-cols-2 gap-8">
+                      <div className="p-8 bg-white/[0.02] border border-white/5">
+                        <div className="text-[9px] uppercase font-black text-zinc-500 mb-4 tracking-widest">Systemic Fidelity</div>
+                        <div className="flex items-end gap-2 mb-4">
+                          <span className="text-4xl font-bold text-[#b8860b]">
+                            {Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 10)) * 100)}
+                          </span>
+                          <span className="text-xs text-zinc-600 mb-1 font-black">%</span>
+                        </div>
+                        <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                          <motion.div 
+                            initial={{ width: 0 }}
+                            animate={{ width: `${Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 10)) * 100)}%` }}
+                            transition={{ duration: 2, delay: 0.5 }}
+                            className="h-full bg-[#b8860b]"
+                          />
+                        </div>
+                      </div>
+                      <div className="p-8 bg-white/[0.02] border border-white/5">
+                        <div className="text-[9px] uppercase font-black text-zinc-500 mb-4 tracking-widest">Strategic Bandwidth</div>
+                        <div className="flex items-end gap-2 mb-4">
+                          <span className="text-4xl font-bold text-white">
+                            {Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 10)) * 100)}
+                          </span>
+                          <span className="text-xs text-zinc-600 mb-1 font-black">%</span>
+                        </div>
+                        <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                          <motion.div 
+                            initial={{ width: 0 }}
+                            animate={{ width: `${Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 10)) * 100)}%` }}
+                            transition={{ duration: 2, delay: 0.7 }}
+                            className="h-full bg-white"
+                          />
+                        </div>
+                      </div>
+                    </section>
+
                     <section>
-                      <div className="text-[10px] uppercase font-black text-zinc-500 mb-8 tracking-[0.4em]">5-Domain Sneak Peek</div>
+                      <div className="text-[10px] uppercase font-black text-zinc-500 mb-8 tracking-[0.4em]">Strategic Resonance Preview</div>
                       <div className="grid grid-cols-1 gap-4">
                         {QUESTIONS.map((q, i) => (
                           <div key={i} className="flex items-center justify-between p-4 border border-white/5 bg-white/[0.02]">
                             <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400">{q.domain}</span>
-                            <div className="flex gap-1">
-                              {[1, 2, 3, 4, 5].map((dot) => (
-                                <div 
-                                  key={dot} 
-                                  className={`w-1.5 h-1.5 rounded-full ${dot <= (answers[i] / 2) ? 'bg-[#b8860b]' : 'bg-zinc-800'}`} 
-                                />
-                              ))}
-                            </div>
+                            <div className="text-[9px] font-black text-[#b8860b] uppercase tracking-widest">Calibrated</div>
                           </div>
                         ))}
                       </div>
@@ -566,11 +596,11 @@ const Assessment: React.FC = () => {
                       <h4 className="text-[11px] font-black uppercase tracking-[0.3em] mb-8 text-zinc-400">Locked Protocol Modules</h4>
                       <div className="space-y-4 flex-grow">
                         {[
-                          { name: "The 90-Day Sovereign Roadmap", benefit: "Eliminate manual intervention cycles" },
-                          { name: "Substrate Re-engineering Blueprint", benefit: "Convert energy into structural authority" },
-                          { name: "Decision Velocity Calibration Matrix", benefit: "Reclaim 40% of strategic bandwidth" },
-                          { name: "Institutional Permanence Protocol", benefit: "Ensure legacy outlives the individual" },
-                          { name: "Authority Compounding Framework", benefit: "Scale without cognitive dilution" }
+                          { name: "The 90-Day Sovereign Roadmap", benefit: "Calibrate the system for autonomous strategic execution" },
+                          { name: "Substrate Re-engineering Blueprint", benefit: "Convert operational energy into structural authority" },
+                          { name: "Decision Velocity Calibration Matrix", benefit: "Reclaim 40% of strategic bandwidth for higher-order maneuvers" },
+                          { name: "Institutional Permanence Protocol", benefit: "Ensure the vision becomes a structural inevitability" },
+                          { name: "Authority Compounding Framework", benefit: "Scale the institution without cognitive dilution" }
                         ].map((item, i) => (
                           <div key={i} className="flex flex-col p-5 border border-white/5 bg-black/40 group cursor-not-allowed">
                             <div className="flex items-center justify-between mb-2">
@@ -596,7 +626,7 @@ const Assessment: React.FC = () => {
                       The snapshot is complete. The solution is <span className="italic text-[#b8860b]">Architectural.</span>
                     </h5>
                     <p className="text-zinc-500 mb-12 text-lg font-light italic leading-relaxed">
-                      This initial diagnostic provides a snapshot of the institutional substrate. However, the full Sovereign Model identifies the precise fracture through a comprehensive **Voice Audit** and **Cross-Mapping** of operational fidelity. The organization is currently optimized for **Heroic Intervention** rather than **Institutional Sovereignty**. Every day the transition is delayed, the legacy remains vulnerable to systemic drift.
+                      This initial diagnostic provides a snapshot of the institutional substrate. However, the full Sovereign Model identifies the precise calibration vectors through a comprehensive **Voice Audit** and **Cross-Mapping** of operational fidelity. The organization is currently demonstrating high resonance, with an opportunity to transition from **Heroic Intervention** to **Institutional Sovereignty**. This final refinement ensures the vision becomes a structural inevitability.
                     </p>
                     <div className="space-y-10">
                       {!isPaid ? (
