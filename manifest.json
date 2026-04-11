@@ -1,0 +1,21 @@
+{
+  "name": "The Unbounded Leadership Co.",
+  "short_name": "TULC",
+  "description": "Architectural interventions for elite leaders to reclaim strategic bandwidth and achieve institutional sovereignty.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f5f0",
+  "theme_color": "#b8860b",
+  "icons": [
+    {
+      "src": "/monogram.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/monogram.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
