@@ -3,60 +3,60 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Brain, Cpu, Zap, Shield, Heart } from 'lucide-react';
 
 interface Domain {
-  name: string;
-  frontDesc: string;
-  expectedYield: string;
-  unpaidTax: string;
-  symptom: string;
-  backTitle: string;
+  title: string;
+  subtitle: string;
+  benefit: string;
+  pain: string;
+  outcome: string;
+  vision: string;
 }
 
 const domains: Domain[] = [
   {
-    name: "Cognitive",
-    frontDesc: "The architecture of the Principal's mind.",
-    backTitle: "Cognitive Sovereignty",
-    expectedYield: "Absolute Strategic Bandwidth. Decision velocity that out-paces market volatility by 10x.",
-    unpaidTax: "Hero Fatigue Tax. The literal burning of your intellectual capital on trivial operational variances.",
-    symptom: "The Principal is the definitive bottleneck for every high-stakes decision in the enterprise."
+    title: "Cognitive Clarity",
+    subtitle: "(The CPU)",
+    benefit: "Elimination of 40% Cognitive Tax. Undistorted signal flow from intent to execution.",
+    pain: "Decision fatigue, tactical noise, calendar owned by Slack/email.",
+    outcome: "30–45% strategic bandwidth reclaimed in 90 days. Meetings shrink. You think at title altitude.",
+    vision: "Mental sovereignty. No more low-grade dread. The organization anticipates your intent before you speak it."
   },
   {
-    name: "Systemic",
-    frontDesc: "Structural order as an autonomous property.",
-    backTitle: "Systemic Integrity",
-    expectedYield: "Zero-Intervention Continuity. A foundation that functions with absolute fidelity in your absence.",
-    unpaidTax: "Intervention Debt. The compounded cost of constant firefighting and hero-led operations.",
-    symptom: "Significant operational degradation within 72 hours of the Principal's strategic withdrawal."
+    title: "Systemic Integrity",
+    subtitle: "(The Nervous System)",
+    benefit: "Zero intent dilution. No 15% loss per layer. Authority that never leaks.",
+    pain: "Vision corruption, constant checking, politics at the edge.",
+    outcome: "Near-absolute fidelity across 12 global hubs or one. Hybrid friction disappears.",
+    vision: "Institutional permanence. You can step away for weeks and the system still moves exactly as set."
   },
   {
-    name: "Strategic",
-    frontDesc: "Advantage through velocity and design.",
-    backTitle: "Strategic Velocity",
-    expectedYield: "Market Arbitrage. The ability to pivot the institutional vessel with zero structural friction.",
-    unpaidTax: "Lag Penalty. The invisible erosion of market cap due to rigid logic and reactive positioning.",
-    symptom: "Identifying profound market shifts only after competitors have already captured the alpha."
+    title: "Strategic Velocity",
+    subtitle: "(The Accelerator)",
+    benefit: "Removal of Inaction Tax. Decision-to-execution compressed.",
+    pain: "30-day delays = permanent market erosion. Innovation as campaign only.",
+    outcome: "3× decision velocity. Resources liberated for true bets.",
+    vision: "Anti-fragility. Change feels owned and inevitable. Strategy compounds instead of being defended."
   },
   {
-    name: "Moral",
-    frontDesc: "The gravity of institutional intent.",
-    backTitle: "Moral Gravity",
-    expectedYield: "Effortless Alignment. An ethical core so heavy it anchors the entire global workforce naturally.",
-    unpaidTax: "Compliance Friction. The massive overhead required to enforce standards that should be natural laws.",
-    symptom: "High attrition of Tier 1 talent and persistent deviations from core institutional standards."
+    title: "Moral Gravity",
+    subtitle: "(The Gravitational Center)",
+    benefit: "Non-negotiable ethical & purpose substrate. Moral authority that radiates.",
+    pain: "Polarization, performative purpose, constant scrutiny.",
+    outcome: "Difficult calls become clean and authoritative. Talent retention becomes structural.",
+    vision: "Legacy without loneliness. The system itself enforces moral consistency. Your name outlasts you."
   },
   {
-    name: "Cultural",
-    frontDesc: "Resonance from the source to the edge.",
-    backTitle: "Cultural Fidelity",
-    expectedYield: "Pure Intent Resonance. Brilliance executing itself at the periphery without supervision.",
-    unpaidTax: "Signal Dilution. The 80% loss of strategic fidelity as intent passes through organizational static.",
-    symptom: "Front-line decisions that fundamentally contradict boardroom strategy, requiring constant intervention."
+    title: "Cultural Fidelity",
+    subtitle: "(The DNA Reproducer)",
+    benefit: "Infinite resonance. Culture architected into autonomous governance.",
+    pain: "Hero-dependent culture, succession gaps, engagement managed by speeches.",
+    outcome: "Zero-hero dependence. Bench strength guaranteed. Next-gen leaders emerge ready.",
+    vision: "Sovereign displacement. You step out of the hero role and watch the empire run itself with greater clarity than when you carried it."
   }
 ];
 
 const FiveDomains: React.FC = () => {
   return (
-    <section className="py-32 bg-[#111111] overflow-hidden relative border-t border-white/5">
+    <section className="py-32 bg-[#0a0a0a] overflow-hidden relative border-t border-white/5">
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#b8860b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -68,7 +68,7 @@ const FiveDomains: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
           {domains.map((domain, idx) => (
             <DomainCard key={idx} domain={domain} index={idx} />
           ))}
@@ -92,7 +92,7 @@ const DomainCard: React.FC<{ domain: Domain; index: number }> = ({ domain, index
 
   return (
     <div 
-      className="relative h-[480px] w-full perspective-1000 cursor-pointer group"
+      className="relative h-[580px] w-full perspective-2000 cursor-pointer group"
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
       onClick={() => setIsFlipped(!isFlipped)}
@@ -100,20 +100,20 @@ const DomainCard: React.FC<{ domain: Domain; index: number }> = ({ domain, index
       <motion.div
         className="relative w-full h-full transition-all duration-700 preserve-3d"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
       >
         {/* Front Side */}
-        <div className="absolute inset-0 backface-hidden bg-[#111111] border border-white/5 p-10 flex flex-col items-center justify-between text-center group-hover:border-[#b8860b]/50 transition-all duration-500">
+        <div className="absolute inset-0 backface-hidden bg-[#111111] border border-white/5 p-8 flex flex-col items-center justify-between text-center group-hover:border-[#b8860b]/50 transition-all duration-700">
           <div className="text-[#b8860b]/10 text-7xl font-light italic font-serif">0{index + 1}</div>
-          <div className="flex flex-col items-center gap-2">
-            <h4 className="text-xl font-bold text-white uppercase tracking-[0.2em]">{domain.name}</h4>
-            <div className="w-8 h-px bg-[#b8860b]/30" />
-            <div className="text-[10px] text-[#b8860b] font-black uppercase tracking-widest mt-2 italic">Domain</div>
+          <div className="flex flex-col items-center gap-3">
+            <h4 className="text-lg md:text-xl font-bold text-white uppercase tracking-[0.2em] leading-tight px-4">{domain.title}</h4>
+            <div className="text-[10px] text-[#b8860b] font-black uppercase tracking-widest italic">{domain.subtitle}</div>
+            <div className="w-12 h-px bg-[#b8860b]/30 mt-2" />
           </div>
-          <p className="text-zinc-500 text-xs italic font-light leading-relaxed">
-            {domain.frontDesc}
+          <p className="text-zinc-500 text-[11px] italic font-light leading-relaxed px-2">
+            Analysis of {domain.title.toLowerCase()} and institutional alignment.
           </p>
-          <div className="bg-white/5 p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="bg-white/5 p-3 rounded-full opacity-30 group-hover:opacity-100 transition-opacity">
             <svg className="w-4 h-4 text-[#b8860b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
@@ -121,33 +121,42 @@ const DomainCard: React.FC<{ domain: Domain; index: number }> = ({ domain, index
         </div>
 
         {/* Back Side */}
-        <div className="absolute inset-0 backface-hidden bg-[#b8860b] p-10 flex flex-col justify-between text-white rotate-y-180 shadow-2xl">
-          <div className="space-y-6">
-            <div className="text-[10px] font-black uppercase tracking-[0.4em] mb-4 border-b border-white/20 pb-2">Institutional Yield</div>
-            <h4 className="text-2xl font-bold leading-tight uppercase tracking-wider font-serif italic">{domain.backTitle}</h4>
+        <div className="absolute inset-0 backface-hidden bg-[#b8860b] p-8 flex flex-col justify-between text-white rotate-y-180 shadow-2xl">
+          <div className="space-y-5 overflow-y-auto no-scrollbar">
+            <div className="text-[9px] font-black uppercase tracking-[0.4em] mb-2 border-b border-white/20 pb-2">Institutional Yield</div>
+            <h4 className="text-xl font-bold leading-tight uppercase tracking-wider font-serif italic mb-4">{domain.title}</h4>
             
             <div className="space-y-4">
               <div>
-                <span className="text-[9px] font-black uppercase tracking-widest text-black/40 block mb-1">Expected Yield</span>
-                <p className="text-xs leading-relaxed font-semibold">
-                  {domain.expectedYield}
+                <span className="text-[8px] font-black uppercase tracking-widest text-black/40 block mb-1">Immediate Benefit</span>
+                <p className="text-[11px] leading-relaxed font-bold">
+                  {domain.benefit}
                 </p>
               </div>
               
               <div className="w-full h-px bg-white/10" />
               
               <div>
-                <span className="text-[9px] font-black uppercase tracking-widest text-black/40 block mb-1">The Unpaid Tax</span>
-                <p className="text-xs leading-relaxed font-medium italic opacity-90">
-                  {domain.unpaidTax}
+                <span className="text-[8px] font-black uppercase tracking-widest text-black/40 block mb-1">The Unpaid Tax</span>
+                <p className="text-[11px] leading-relaxed font-semibold italic">
+                  {domain.pain}
+                </p>
+              </div>
+
+               <div className="w-full h-px bg-white/10" />
+              
+              <div>
+                <span className="text-[8px] font-black uppercase tracking-widest text-black/40 block mb-1">90-Day Outcome</span>
+                <p className="text-[11px] leading-relaxed font-bold">
+                  {domain.outcome}
                 </p>
               </div>
             </div>
           </div>
           
-          <div className="p-4 bg-black/10 border border-white/10">
-             <div className="text-[9px] font-black uppercase tracking-widest text-black/40 mb-2">Organizational Symptom:</div>
-             <div className="text-[11px] font-bold uppercase tracking-widest leading-relaxed text-black/80">{domain.symptom}</div>
+          <div className="mt-6 pt-6 border-t border-white/20">
+             <div className="text-[8px] font-black uppercase tracking-widest text-black/40 mb-2">Sovereignty Vision:</div>
+             <div className="text-[11px] font-bold uppercase tracking-widest leading-relaxed text-[#111111]">{domain.vision}</div>
           </div>
         </div>
       </motion.div>
