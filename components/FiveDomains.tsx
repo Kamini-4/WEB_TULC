@@ -4,72 +4,68 @@ import { Brain, Cpu, Zap, Shield, Heart } from 'lucide-react';
 
 interface Domain {
   name: string;
-  icon: any;
   frontDesc: string;
+  expectedYield: string;
+  unpaidTax: string;
+  symptom: string;
   backTitle: string;
-  backDesc: string;
-  metric: string;
-  failureState: string;
 }
 
 const domains: Domain[] = [
   {
     name: "Cognitive",
-    icon: Brain,
-    frontDesc: "Distillation of institutional intent.",
-    backTitle: "Cognitive Clarity",
-    backDesc: "Does the leadership possess absolute clarity, or is intent obscured by operational noise? Calibrating this substrate reclaims up to 40% of strategic bandwidth.",
-    metric: "40% Bandwidth Reclamation",
-    failureState: "Strategic Drift / Decision Fatigue"
+    frontDesc: "The architecture of the Principal's mind.",
+    backTitle: "Cognitive Sovereignty",
+    expectedYield: "Absolute Strategic Bandwidth. Decision velocity that out-paces market volatility by 10x.",
+    unpaidTax: "Hero Fatigue Tax. The literal burning of your intellectual capital on trivial operational variances.",
+    symptom: "The Principal is the definitive bottleneck for every high-stakes decision in the enterprise."
   },
   {
     name: "Systemic",
-    icon: Cpu,
-    frontDesc: "Structural order without intervention.",
+    frontDesc: "Structural order as an autonomous property.",
     backTitle: "Systemic Integrity",
-    backDesc: "Order as a structural property, not a behavioral choice. Systems designed to function for 30 days without principal oversight.",
-    metric: "Zero-Hero Dependence",
-    failureState: "Fragility / Crisis Management"
+    expectedYield: "Zero-Intervention Continuity. A foundation that functions with absolute fidelity in your absence.",
+    unpaidTax: "Intervention Debt. The compounded cost of constant firefighting and hero-led operations.",
+    symptom: "Significant operational degradation within 72 hours of the Principal's strategic withdrawal."
   },
   {
     name: "Strategic",
-    icon: Zap,
-    frontDesc: "Advantage through velocity.",
+    frontDesc: "Advantage through velocity and design.",
     backTitle: "Strategic Velocity",
-    backDesc: "The acceleration of strategic pivots through autonomous recalibration. Converting market disruption into systemic delta.",
-    metric: "3x Decision Velocity",
-    failureState: "Rigidity / Market Lag"
+    expectedYield: "Market Arbitrage. The ability to pivot the institutional vessel with zero structural friction.",
+    unpaidTax: "Lag Penalty. The invisible erosion of market cap due to rigid logic and reactive positioning.",
+    symptom: "Identifying profound market shifts only after competitors have already captured the alpha."
   },
   {
     name: "Moral",
-    icon: Shield,
-    frontDesc: "The core that commands compliance.",
+    frontDesc: "The gravity of institutional intent.",
     backTitle: "Moral Gravity",
-    backDesc: "An ethical core so heavy it attracts alignment naturally. Reputational maintenance becomes a structural inevitability.",
-    metric: "99% Intent Fidelity",
-    failureState: "Reputational Leakage / Ethical Drift"
+    expectedYield: "Effortless Alignment. An ethical core so heavy it anchors the entire global workforce naturally.",
+    unpaidTax: "Compliance Friction. The massive overhead required to enforce standards that should be natural laws.",
+    symptom: "High attrition of Tier 1 talent and persistent deviations from core institutional standards."
   },
   {
     name: "Cultural",
-    icon: Heart,
-    frontDesc: "The soul at the operational edge.",
+    frontDesc: "Resonance from the source to the edge.",
     backTitle: "Cultural Fidelity",
-    backDesc: "The institutional 'soul' carrying absolute fidelity to the furthest edge. Excellence executing itself without direct supervision.",
-    metric: "Asymptotic Resonance",
-    failureState: "Operational Noise / Value Dilution"
+    expectedYield: "Pure Intent Resonance. Brilliance executing itself at the periphery without supervision.",
+    unpaidTax: "Signal Dilution. The 80% loss of strategic fidelity as intent passes through organizational static.",
+    symptom: "Front-line decisions that fundamentally contradict boardroom strategy, requiring constant intervention."
   }
 ];
 
 const FiveDomains: React.FC = () => {
   return (
-    <section className="py-32 bg-[#111111] overflow-hidden relative">
+    <section className="py-32 bg-[#111111] overflow-hidden relative border-t border-white/5">
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#b8860b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-24">
           <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-6 tracking-[0.5em]">The 5 Sovereign Domains</h2>
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-8">Architecting <span className="italic text-[#b8860b]">Absolute Authority.</span></h3>
-          <div className="w-24 h-px bg-[#b8860b]/30 mx-auto" />
+          <p className="max-w-2xl mx-auto text-zinc-500 text-sm italic font-light leading-relaxed">
+            Excellence is not a habitual act, but a structural property of these five vertical domains.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -83,7 +79,7 @@ const FiveDomains: React.FC = () => {
              onClick={() => document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' })}
              className="px-12 py-6 border border-[#b8860b]/30 text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] hover:bg-[#b8860b] hover:text-white transition-all duration-700"
            >
-             Initiate Domain Audit
+             Initiate Institutional Audit
            </button>
         </div>
       </div>
@@ -96,7 +92,7 @@ const DomainCard: React.FC<{ domain: Domain; index: number }> = ({ domain, index
 
   return (
     <div 
-      className="relative h-[450px] w-full perspective-1000 cursor-pointer group"
+      className="relative h-[480px] w-full perspective-1000 cursor-pointer group"
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
       onClick={() => setIsFlipped(!isFlipped)}
@@ -107,39 +103,51 @@ const DomainCard: React.FC<{ domain: Domain; index: number }> = ({ domain, index
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
       >
         {/* Front Side */}
-        <div className="absolute inset-0 backface-hidden bg-[#1a1a1a] border border-white/5 p-10 flex flex-col items-center justify-between text-center group-hover:border-[#b8860b]/30 transition-colors">
-          <div className="text-[#b8860b]/20 text-6xl font-black italic">0{index + 1}</div>
-          <div className="flex flex-col items-center gap-6">
-            <domain.icon className="w-12 h-12 text-[#b8860b]" />
-            <h4 className="text-2xl font-bold text-white uppercase tracking-widest">{domain.name}</h4>
+        <div className="absolute inset-0 backface-hidden bg-[#111111] border border-white/5 p-10 flex flex-col items-center justify-between text-center group-hover:border-[#b8860b]/50 transition-all duration-500">
+          <div className="text-[#b8860b]/10 text-7xl font-light italic font-serif">0{index + 1}</div>
+          <div className="flex flex-col items-center gap-2">
+            <h4 className="text-xl font-bold text-white uppercase tracking-[0.2em]">{domain.name}</h4>
+            <div className="w-8 h-px bg-[#b8860b]/30" />
+            <div className="text-[10px] text-[#b8860b] font-black uppercase tracking-widest mt-2 italic">Domain</div>
           </div>
           <p className="text-zinc-500 text-xs italic font-light leading-relaxed">
             {domain.frontDesc}
           </p>
-          <div className="text-[9px] font-black uppercase text-[#b8860b] tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity">
-            Flip to Access ↓
+          <div className="bg-white/5 p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+            <svg className="w-4 h-4 text-[#b8860b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
           </div>
         </div>
 
         {/* Back Side */}
-        <div className="absolute inset-0 backface-hidden bg-[#b8860b] p-10 flex flex-col justify-between text-white rotate-y-180">
-          <div>
-            <div className="text-[10px] font-black uppercase tracking-[0.4em] mb-6 border-b border-white/20 pb-2">Diagnostic Data</div>
-            <h4 className="text-2xl font-bold mb-6 leading-tight uppercase tracking-wider">{domain.backTitle}</h4>
-            <p className="text-sm leading-relaxed font-medium italic mb-8">
-              {domain.backDesc}
-            </p>
+        <div className="absolute inset-0 backface-hidden bg-[#b8860b] p-10 flex flex-col justify-between text-white rotate-y-180 shadow-2xl">
+          <div className="space-y-6">
+            <div className="text-[10px] font-black uppercase tracking-[0.4em] mb-4 border-b border-white/20 pb-2">Institutional Yield</div>
+            <h4 className="text-2xl font-bold leading-tight uppercase tracking-wider font-serif italic">{domain.backTitle}</h4>
+            
+            <div className="space-y-4">
+              <div>
+                <span className="text-[9px] font-black uppercase tracking-widest text-black/40 block mb-1">Expected Yield</span>
+                <p className="text-xs leading-relaxed font-semibold">
+                  {domain.expectedYield}
+                </p>
+              </div>
+              
+              <div className="w-full h-px bg-white/10" />
+              
+              <div>
+                <span className="text-[9px] font-black uppercase tracking-widest text-black/40 block mb-1">The Unpaid Tax</span>
+                <p className="text-xs leading-relaxed font-medium italic opacity-90">
+                  {domain.unpaidTax}
+                </p>
+              </div>
+            </div>
           </div>
           
-          <div className="space-y-6">
-             <div>
-                <div className="text-[9px] font-black uppercase tracking-widest text-black/40 mb-2">Yield Vector:</div>
-                <div className="text-lg font-black uppercase tracking-widest">{domain.metric}</div>
-             </div>
-             <div>
-                <div className="text-[9px] font-black uppercase tracking-widest text-black/40 mb-2">Failure State:</div>
-                <div className="text-xs font-bold uppercase tracking-widest text-white/80">{domain.failureState}</div>
-             </div>
+          <div className="p-4 bg-black/10 border border-white/10">
+             <div className="text-[9px] font-black uppercase tracking-widest text-black/40 mb-2">Organizational Symptom:</div>
+             <div className="text-[11px] font-bold uppercase tracking-widest leading-relaxed text-black/80">{domain.symptom}</div>
           </div>
         </div>
       </motion.div>
