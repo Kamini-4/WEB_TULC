@@ -261,12 +261,12 @@ const Assessment: React.FC = () => {
               exit={{ opacity: 0, y: -20 }}
               className="text-center"
             >
-              <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-6 tracking-[0.4em]">The Yield Calibration</h2>
+              <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-6 tracking-[0.4em]">The Free Yield Calibration</h2>
               <h3 className="text-4xl sm:text-6xl font-bold mb-8 text-[#111111] leading-tight">
                 Architectural <span className="italic text-[#b8860b]">Maturity.</span>
               </h3>
               <p className="text-zinc-600 text-xl mb-12 font-light italic leading-relaxed max-w-2xl mx-auto">
-                A 5-domain diagnostic to map your institutional substrate. Identify the primary constraint preventing your transition from Hero to Architect.
+                A free 5-domain diagnostic to map your institutional substrate. Identify the primary constraint preventing your transition from Hero to Architect.
               </p>
               <div className="flex flex-col items-center gap-8">
                 <button 
@@ -494,10 +494,10 @@ const Assessment: React.FC = () => {
                   <div>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-2 h-2 bg-[#b8860b] animate-pulse" />
-                      <h3 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.5em]">Institutional Integrity Briefing</h3>
+                      <h3 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.5em]">Institutional Snapshot (Trailer)</h3>
                     </div>
                     <div className="text-3xl sm:text-4xl font-bold uppercase tracking-widest font-mono">
-                      Dossier <span className="text-[#b8860b]">#{dossierId}</span>
+                      Dossier <span className="text-[#b8860b]">{dossierId}</span>
                     </div>
                   </div>
                   <div className="flex flex-col items-end">
@@ -626,15 +626,15 @@ const Assessment: React.FC = () => {
                       The snapshot is complete. The solution is <span className="italic text-[#b8860b]">Architectural.</span>
                     </h5>
                     <p className="text-zinc-500 mb-12 text-lg font-light italic leading-relaxed">
-                      This initial diagnostic provides a snapshot of the institutional substrate. However, the full Sovereign Model identifies the precise calibration vectors through a comprehensive **Voice Audit** and **Cross-Mapping** of operational fidelity. The organization is currently demonstrating high resonance, with an opportunity to transition from **Heroic Intervention** to **Institutional Sovereignty**. This final refinement ensures the vision becomes a structural inevitability.
+                      This initial diagnostic is a Strategic Trailer—a snapshot of your current institutional substrate. The full Sovereign Model, reserved for paid Principals, identifies the precise calibration vectors through a comprehensive Voice Audit and Cross-Mapping of operational fidelity. Your organization is currently demonstrating architectural potential; the transition from Heroic Intervention to Institutional Sovereignty requires the full-fidelity recalibration found in the In-depth Assessment.
                     </p>
                     <div className="space-y-10">
                       {!isPaid ? (
                         <div className="bg-white/[0.03] border border-[#b8860b]/20 p-10 text-center">
                           <Lock className="w-10 h-10 text-[#b8860b] mx-auto mb-6" />
-                          <h5 className="text-xl font-bold mb-4 text-white uppercase tracking-widest">Protocol Access Locked</h5>
+                          <h5 className="text-xl font-bold mb-4 text-white uppercase tracking-widest">In-depth Protocol Access Locked</h5>
                           <p className="text-zinc-500 mb-10 italic font-light leading-relaxed">
-                            To maintain the integrity of the Sovereign Substrate, a one-time institutional verification fee is required to unlock the full **Indepth Assessment** and roadmap. This is the only path to institutional permanence.
+                            The dossier above is an Executive Preview. To maintain the integrity of the Sovereign Substrate, a one-time institutional verification fee is required to unlock the full In-depth Architectural Assessment and the Sovereign Roadmap. This payment redirects you via Razorpay to the secure Sovereign Portal app—the definitive environment for institutional permanence.
                           </p>
                           
                           <button 

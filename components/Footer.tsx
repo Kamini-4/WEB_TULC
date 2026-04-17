@@ -2,7 +2,7 @@
 import React from 'react';
 
 interface FooterProps {
-  onLegalClick: (type: 'disclosure' | 'terms') => void;
+  onLegalClick: (type: 'disclosure' | 'terms' | 'disclaimer') => void;
 }
 
 const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
@@ -102,6 +102,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
             <div className="flex flex-wrap justify-center gap-4 sm:gap-8 text-[7px] sm:text-[9px] uppercase text-white/10 font-black tracking-widest">
               <button onClick={() => onLegalClick('disclosure')} className="hover:text-white transition-colors cursor-pointer">Privileged Disclosure</button>
               <button onClick={() => onLegalClick('terms')} className="hover:text-white transition-colors cursor-pointer">Terms of Authority</button>
+              <button onClick={() => onLegalClick('disclaimer')} className="hover:text-white transition-colors cursor-pointer">Institutional Disclaimer</button>
             </div>
         </div>
 

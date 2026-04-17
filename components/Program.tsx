@@ -65,7 +65,7 @@ const Program: React.FC<ProgramProps> = ({ onBriefClick }) => {
             <div className="mt-12 p-10 bg-[#111111] text-white flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl">
               <div className="text-left">
                 <h4 className="text-xl font-bold mb-2">Initialize Total Architecture?</h4>
-                <p className="text-zinc-400 text-sm italic font-light">Available for Q1/Q2 2025 Board Intake.</p>
+                <p className="text-zinc-400 text-sm italic font-light">Available for Q3/Q4 2026 Board Intake.</p>
               </div>
               <button 
                 onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}

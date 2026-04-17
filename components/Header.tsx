@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
   onAdminTrigger?: () => void;
@@ -7,25 +8,39 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogoClick = (e: React.MouseEvent) => {
     if (e.altKey && onAdminTrigger) {
       onAdminTrigger();
     } else {
+      navigate('/');
       window.scrollTo({top: 0, behavior: 'smooth'});
     }
   };
 
   const navItems = [
-    { label: 'Briefings', id: 'thought-leadership' },
-    { label: 'Registry', id: 'registry' },
-    { label: 'Methodology', id: 'methodology' },
-    { label: 'Impact', id: 'impact-ledger' },
-    { label: 'About', id: 'principal' },
+    { label: 'About', path: '/about' },
+    { label: 'Methodology', path: '/methodology' },
+    { label: 'Registry', path: '/case-studies' },
+    { label: 'Library', path: '/library' },
+    { label: 'Portal', path: '/portal' },
   ];
 
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (path: string) => {
+    setIsMenuOpen(false);
+  };
+
+  const scrollToWaitlist = () => {
+    const el = document.getElementById('waitlist');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
     setIsMenuOpen(false);
   };
 
@@ -52,17 +67,18 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
         <nav className="flex items-center gap-3 sm:gap-4 md:gap-8">
           <div className="hidden md:flex items-center gap-6 lg:gap-10 mr-4">
             {navItems.map((item) => (
-              <button 
-                key={item.id}
-                onClick={() => scrollTo(item.id)}
-                className="text-[9px] font-black uppercase text-zinc-500 hover:text-[#b8860b] transition-colors tracking-widest"
+              <Link 
+                key={item.path}
+                to={item.path}
+                onClick={() => handleNavClick(item.path)}
+                className="text-[9px] font-black uppercase text-[#111111] hover:text-[#b8860b] transition-colors tracking-widest"
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </div>
           <button 
-            onClick={() => scrollTo('waitlist')}
+            onClick={scrollToWaitlist}
             className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 bg-[#111111] text-white hover:bg-black transition-all duration-500 shadow-xl text-[8px] sm:text-[10px] uppercase font-bold tracking-[0.2em] border border-white/10"
           >
             REQUEST ACCESS
@@ -82,19 +98,20 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[164px] sm:top-[130px] bg-[#f5f5f0] z-[90] p-8 animate-fade-in overflow-y-auto">
+        <div className="md:hidden fixed inset-0 top-[110px] bg-[#f5f5f0] z-[90] p-8 animate-fade-in overflow-y-auto">
           <div className="flex flex-col gap-8">
             {navItems.map((item) => (
-              <button 
-                key={item.id}
-                onClick={() => scrollTo(item.id)}
+              <Link 
+                key={item.path}
+                to={item.path}
+                onClick={() => setIsMenuOpen(false)}
                 className="text-xl font-bold text-[#111111] text-left uppercase tracking-widest border-b border-zinc-200 pb-4"
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
             <button 
-              onClick={() => scrollTo('waitlist')}
+              onClick={scrollToWaitlist}
               className="mt-4 py-5 bg-[#111111] text-white text-xs font-black uppercase tracking-widest"
             >
               REQUEST SOVEREIGN ACCESS

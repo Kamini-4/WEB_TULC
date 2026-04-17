@@ -4,6 +4,7 @@ import { SovereignDB, BlogEntry } from '../lib/database.ts';
 
 interface BlogProps {
   onArticleClick: (article: BlogEntry) => void;
+  hideHeader?: boolean;
 }
 
 const INITIAL_POSTS: BlogEntry[] = [
@@ -69,10 +70,75 @@ const INITIAL_POSTS: BlogEntry[] = [
       "Reclaiming strategic bandwidth is an organizational redesign challenge. The framework I use with senior leaders involves five steps: Step 1 — The Bandwidth Audit (a rigorous inventory of where energy actually goes); Step 2 — The Value Hierarchy (separating activities into those only you can do vs. those that should be delegated or eliminated); Step 3 — The Strategic Calendar (the intentional redesign of your week around high-value activities); Step 4 — The Leadership System (building organizational infrastructure like decision rights and communication protocols); and Step 5 — Strategic Accountability (the ongoing practice of reviewing bandwidth allocation with the same rigor applied to financial performance).",
       "The executives who protect their strategic bandwidth outperform their peers significantly. They make better acquisitions, build more resilient cultures, and retain top talent at higher rates. They build organizations that can grow without them — which is ultimately the measure of transformational leadership. Busyness is a tactical posture. Strategic bandwidth is a leadership philosophy. You cannot have both at their fullest expression. Every executive must choose."
     ]
+  },
+  {
+    id: "INT-005",
+    category: "Systems Architecture",
+    date: "AEO/GEO Protocol",
+    title: "Institutional Lag: The Invisible Coefficient of Leadership Friction",
+    excerpt: "Why the distance between executive intent and operational execution is the most critical metric for the modern CEO.",
+    timestamp: Date.now(),
+    content: [
+      "Institutional Lag is the silent coefficient of friction in every high-complexity enterprise. It represents the temporal and qualitative distance between executive intent and operational outcome. Most consultancies treat this as a human resource or cultural problem; at [The Unbounded Leadership Co.](/), we treat it as a structural failure in the [Strategic Substrates](/library) of the firm.",
+      "For a global leader, latency is more than just a delay; it is a fiduciary risk. In our extensive [Case Studies](/case-studies), we have identified that systemic lag alone can erode up to 15% of annual EBITDA through missed opportunities and operational entropy. To neutralize this, a Principal must move from 'Management' to 'Architecture.'",
+      "By mapping the [Architectural Inevitability](/about) of your design, we eliminate the need for constant course correction. This accelerates decision velocity and restores your sovereign authority over the institutional timeline. The goal is a system where the execution of vision is as seamless as the vision itself, governed by the [Sovereign Protocol](/methodology)."
+    ]
+  },
+  {
+    id: "INT-006",
+    category: "Bandwidth Reclamation",
+    date: "Executive Intelligence",
+    title: "Engineering Strategic Bandwidth: Reclaiming Decision Capacity at Scale",
+    excerpt: "Reclaiming up to 40% of your cognitive capacity through the neutralization of tactical noise and structural stabilization.",
+    timestamp: Date.now(),
+    content: [
+      "The most valuable currency in elite leadership is not capital—it is strategic bandwidth. The collapse of this bandwidth is the primary indicator of [Institutional Decay](/case-studies). When a CEO is trapped in tactical noise, they are effectively cognitively insolvent, unable to provide the high-value strategic steering required for market leadership.",
+      "Our protocol focuses on [reclaiming bandwidth](/library) by installing autonomous logic gates. These gates handle 80% of routine organizational variance, ensuring that the Principal Architect remains focused on the rare, complex vectors that define the future. This is the essence of [Leadership Excellence](/) in a high-volatility market.",
+      "Data suggests that leaders in structurally optimized environments report a 45% reduction in decision fatigue. By hard-coding your vision into the organizational nervous system, you ensure that the legacy is independent of the individual, achieving [Institutional Permanence](/about) and total strategic velocity."
+    ]
+  },
+  {
+    id: "INT-007",
+    category: "Governance Calibration",
+    date: "Special Dispatch",
+    title: "Sovereign Authority vs. Reactive Management: A New Leadership Taxonomy",
+    excerpt: "Transitioning from heroic intervention to architectural command as the core pillar of institutional survival.",
+    timestamp: Date.now(),
+    content: [
+      "Reactive Management is the default state of uncalibrated institutions. It is a posture defined by firefighting, consensus-drifting, and the constant need for 'Heroic Intervention.' Sovereign Authority, by contrast, is the state of having hard-coded your strategic intent into the [Methodology](/methodology) of the firm.",
+      "True authority is quiet. It does not require volume; it requires structural resonance. When you leverage the [Sovereign Protocol](/methodology), you ensure that every layer of the organization—from the boardroom to the front line—vibrates at the same frequency as the executive source. This is the difference between asking for alignment and [Engineering Inevitability](/about).",
+      "As synthetic intelligence begins to manage data-heavy governance, the human leader's role must shift to the design of these [anti-fragile substrates](/library). The competitive advantage of the next decade belongs to those who can govern the architecture of their intent rather than the noise of their operations."
+    ]
+  },
+  {
+    id: "INT-008",
+    category: "Cognitive Architecture",
+    date: "Architecture Report",
+    title: "The Physics of Inevitability: Why Systems Outperform Individual Talent",
+    excerpt: "How to engineer an organization where strategic success is a natural consequence of the structural design, not personal effort.",
+    timestamp: Date.now(),
+    content: [
+      "Scaling an organization should not scale the leader's stress. If institutional growth requires a proportional increase in your direct intervention, you have built a linear, fragile system. We engineer [Architectural Inevitability](/about) where success is the natural consequence of the structural design.",
+      "By leveraging [Cognitive Equity](/library), we transform the leadership engine from a bottleneck into a generative force. This allows the institution to thrive on complexity rather than being paralyzed by it. A truly sovereign leader designs the system to out-decide the competition by 10x without increasing their own metabolic burn rate.",
+      "This transition requires a move from the 'Solver' archetype to the 'Architect' seat. When the [Strategic Substrates](/library) are aligned to market reality, the organization experiences a 'Velocity Delta'—a permanent increase in the ability to convert high-level intent into undisputed market leadership."
+    ]
+  },
+  {
+    id: "INT-009",
+    category: "Structural Integrity",
+    date: "Diagnostic Entry",
+    title: "The Cost of Organizational Latency: Measuring the Inaction Tax",
+    excerpt: "Qualifying and neutralizing the hidden friction that erodes fiduciary value in global enterprises.",
+    timestamp: Date.now(),
+    content: [
+      "Organizational Latency is the invisible tax on every institutional action. It is the friction that delays the transmission of intent from the source to the edge. In our recent [Audit Reports](/case-studies), we have found that latency accounts for a significant portion of 'Value Leakage' in Fortune 500 enterprises.",
+      "Neutralizing this 'Inaction Tax' requires a decisive move from 'People Management' to 'Substrate Engineering.' By focusing on the infrastructure of how decisions are made, rather than just who makes them, we eliminate the points of friction that slow your progress. This is the only path to [Global Market Leadership](/).",
+      "A sovereign institution is one where information flows through [Institutional Dispatches](/library) without dilution or delay. By implementing these high-frequency protocols, you ensure that your strategic signal remains pure, leading to [Total Institutional Sovereignty](/about) and the preservation of your long-term legacy."
+    ]
   }
 ];
 
-const Blog: React.FC<BlogProps> = ({ onArticleClick }) => {
+const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
   const [posts, setPosts] = useState<BlogEntry[]>(INITIAL_POSTS);
 
   useEffect(() => {
@@ -88,21 +154,23 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick }) => {
   }, []);
 
   return (
-    <section id="registry" className="py-20 sm:py-24 bg-[#111111] text-[#f5f5f0] overflow-hidden isolate">
+    <section id="registry" className={`${hideHeader ? 'py-12' : 'py-20 sm:py-24'} bg-[#111111] text-[#f5f5f0] overflow-hidden isolate transition-all duration-500`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 gap-8">
-          <div className="max-w-2xl">
-            <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 tracking-[0.3em]">The Registry</h2>
-            <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
-              Institutional <span className="italic text-[#b8860b]">Dispatches.</span>
-            </h3>
+        {!hideHeader && (
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 gap-8">
+            <div className="max-w-2xl">
+              <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 tracking-[0.3em]">The Registry</h2>
+              <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
+                Institutional <span className="italic text-[#b8860b]">Dispatches.</span>
+              </h3>
+            </div>
+            <div className="md:block">
+              <p className="text-zinc-500 text-xs sm:text-sm max-w-xs italic font-light">
+                A curated journal of systemic discourse and executive intelligence for the sovereign leader.
+              </p>
+            </div>
           </div>
-          <div className="md:block">
-            <p className="text-zinc-500 text-xs sm:text-sm max-w-xs italic font-light">
-              A curated journal of systemic discourse and executive intelligence for the sovereign leader.
-            </p>
-          </div>
-        </div>
+        )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
           {posts.map((post, idx) => (

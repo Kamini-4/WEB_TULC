@@ -32,7 +32,7 @@ const TrustProtocol: React.FC = () => {
             "Data sovereignty is the bedrock of institutional authority. Systems are designed to amplify brilliance, not harvest it. Intellectual property remains with the sovereign, always."
           </p>
           <div className="mt-6 sm:mt-8 flex flex-wrap justify-center items-center gap-4 sm:gap-8">
-            <span className="text-[8px] sm:text-[9px] uppercase font-black text-[#b8860b] tracking-widest border border-[#b8860b]/30 px-3 sm:px-4 py-2">ISO/TULC-2025 COMPLIANT</span>
+            <span className="text-[8px] sm:text-[9px] uppercase font-black text-[#b8860b] tracking-widest border border-[#b8860b]/30 px-3 sm:px-4 py-2">ISO/TULC-2026 COMPLIANT</span>
             <span className="text-[8px] sm:text-[9px] uppercase font-black text-white/30 tracking-widest">AES-256 ENCRYPTED</span>
           </div>
         </div>

@@ -114,7 +114,7 @@ export default function SovereignVoice({ onClose }: SovereignVoiceProps) {
       audioContextRef.current = outputCtx;
 
       const sessionPromise = ai.live.connect({
-        model: 'gemini-2.5-flash-native-audio-preview-12-2025',
+        model: 'gemini-2.5-flash-native-audio-preview-04-2026',
         callbacks: {
           onopen: () => {
             setStatus('active');

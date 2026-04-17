@@ -11,6 +11,7 @@ interface Article {
 
 interface InsightsProps {
   onArticleClick: (article: Article) => void;
+  hideHeader?: boolean;
 }
 
 const articles: Article[] = [
@@ -20,10 +21,10 @@ const articles: Article[] = [
     excerpt: "Analyzing the transition points where institutional logic unlocks unprecedented organizational growth.",
     image: "https://picsum.photos/seed/unbounded-arch-1/1200/800?grayscale&blur=1",
     content: [
-      "Authority is the most potent lever in leadership. While charisma is essential for the 0-to-1 phase, architectural integrity becomes the dominant force in the scaling phase.",
-      "When an institution relies on the systems rather than the individual, it creates a 'Velocity Substrate.' Every decision is amplified by the collective architecture, creating a scale that challenges market paradigms exponentially.",
-      "True institutional legacy requires the transition from 'Charismatic Authority' to 'Architectural Sovereignty.' This means building foundations that operate with the same integrity and vision as the leader, but with autonomous momentum.",
-      "Our work at The Unbounded involves neutralizing friction by hard-coding vision into the leadership substrate. We don't remove the leader; we amplify them through systemic excellence."
+      "Authority is the most potent lever in [Leadership Excellence](/). While charisma is essential for the 0-to-1 phase, architectural integrity becomes the dominant force in the scaling phase.",
+      "When an institution relies on its [Sovereign Methodology](/methodology) rather than the individual, it creates a 'Velocity Substrate.' Every decision is amplified by the collective architecture, creating a scale that challenges market paradigms exponentially.",
+      "True institutional legacy requires the transition from 'Charismatic Authority' to 'Architectural Sovereignty.' This means building foundations that operate with the same integrity and vision as the leader, but with autonomous momentum, as explored in our [Library dispatches](/library).",
+      "Our work at The Unbounded involves neutralizing friction by hard-coding vision into the leadership substrate. We don't remove the leader; we amplify them through [systemic excellence](/about)."
     ]
   },
   {
@@ -32,9 +33,9 @@ const articles: Article[] = [
     excerpt: "How aligning mental models at the board level yields compounding institutional velocity.",
     image: "https://picsum.photos/seed/unbounded-arch-2/1200/800?grayscale&blur=1",
     content: [
-      "Strategic Substrates are the foundational logic layers of decision-making. High-velocity institutions recognize that short-term tactical wins are best served by long-term structural integrity.",
-      "In our deep-dive audits of global boards, we find that most 'breakthroughs' are simply the result of aligning mental models to market reality. A calibrated system is, by definition, an anti-fragile system.",
-      "To maximize velocity, leaders must engage in Cognitive Calibration. This is about identifying the specific logic levers that govern how you process opportunity and risk.",
+      "Strategic Substrates are the foundational logic layers of decision-making. High-velocity institutions recognize that short-term tactical wins are best served by long-term [Structural Integrity](/case-studies).",
+      "In our deep-dive [Institutional Audits](/library), we find that most 'breakthroughs' are simply the result of aligning mental models to market reality. A calibrated system is, by definition, an anti-fragile system.",
+      "To maximize velocity, leaders must engage in Cognitive Calibration. This is about identifying the specific logic levers that govern how you process opportunity and risk, as defined in our [Sovereign Protocol](/methodology).",
       "Once the substrate is aligned, the organization experiences a 'Velocity Delta'—a sudden, permanent increase in its ability to convert intent into market leadership."
     ]
   },
@@ -44,15 +45,15 @@ const articles: Article[] = [
     excerpt: "Transitioning from individual effort to systemic intelligence as the core competitive advantage.",
     image: "https://picsum.photos/seed/unbounded-arch-3/1200/800?grayscale&blur=1",
     content: [
-      "The age of AI demands a new kind of leader: the Sovereign Architect. As synthetic intelligence handles data-heavy governance, the human leader's role shifts to the design of anti-fragile substrates.",
-      "An anti-fragile system is one that doesn't just survive disruption but gains momentum from it. This requires a leadership architecture that can integrate AI-driven insights while maintaining human sovereign integrity.",
-      "The primary competitive advantage in 2025 and beyond will be the leadership architecture that can most effectively govern and amplify human and synthetic intelligence.",
-      "At The Unbounded, we prepare Tier 1 leaders for this transition, ensuring their institutional legacy is built on a substrate of systemic excellence."
+      "The age of AI demands a new kind of leader: the Sovereign Architect. As synthetic intelligence handles data-heavy governance, the human leader's role shifts to the design of [anti-fragile substrates](/library).",
+      "An anti-fragile system is one that doesn't just survive disruption but gains momentum from it. This requires a [Leadership Architecture](/about) that can integrate AI-driven insights while maintaining human sovereign integrity.",
+      "The primary competitive advantage in 2026 and beyond will be the leadership architecture that can most effectively govern and amplify human and synthetic intelligence.",
+      "At The Unbounded, we prepare Tier 1 leaders for this transition, ensuring their [institutional legacy](/library) is built on a substrate of systemic excellence."
     ]
   }
 ];
 
-const Insights: React.FC<InsightsProps> = ({ onArticleClick }) => {
+const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
   const [pulseQuery, setPulseQuery] = useState('');
   const [pulseResult, setPulseResult] = useState<{text: string, links: {uri: string, title: string}[]} | null>(null);
   const [isPulseLoading, setIsPulseLoading] = useState(false);
@@ -120,37 +121,39 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick }) => {
   };
 
   return (
-    <section id="insights" className="py-24 border-t border-zinc-200 bg-[#f5f5f0]">
+    <section id="insights" className={`${hideHeader ? 'py-12' : 'py-24'} border-t border-white/5 bg-[#0a0a0a] text-white transition-all duration-500`}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
-          <div className="max-w-xl">
-            <h2 className="text-[#b8860b] text-[10px] font-bold uppercase mb-4 tracking-widest">Intellectual Authority</h2>
-            <h3 className="text-3xl md:text-5xl font-bold leading-tight text-[#111111]">The Sovereign Library.</h3>
+        {!hideHeader && (
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
+            <div className="max-w-xl">
+              <h2 className="text-[#b8860b] text-[10px] font-bold uppercase mb-4 tracking-widest">Intellectual Authority</h2>
+              <h3 className="text-3xl md:text-5xl font-bold leading-tight">The Sovereign Library.</h3>
+            </div>
+            <div className="flex gap-4">
+               <button className="text-white text-[10px] font-bold uppercase border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all">
+                White Papers
+              </button>
+              <button className="text-[#b8860b] text-[10px] font-bold uppercase border border-[#b8860b]/30 px-6 py-3 hover:bg-[#b8860b] hover:text-white transition-all">
+                Institutional Reports
+              </button>
+               <button 
+                onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-6 py-3 bg-[#b8860b] text-white text-[10px] font-bold uppercase hover:bg-white hover:text-black transition-all shadow-lg"
+               >
+                Consult
+              </button>
+            </div>
           </div>
-          <div className="flex gap-4">
-             <button className="text-[#111111] text-[10px] font-bold uppercase border border-[#111111]/20 px-6 py-3 hover:bg-[#111111] hover:text-white transition-all">
-              White Papers
-            </button>
-            <button className="text-[#b8860b] text-[10px] font-bold uppercase border border-[#b8860b]/30 px-6 py-3 hover:bg-[#b8860b] hover:text-white transition-all">
-              Institutional Reports
-            </button>
-             <button 
-              onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-6 py-3 bg-[#111111] text-white text-[10px] font-bold uppercase hover:bg-black transition-all shadow-lg"
-             >
-              Consult
-            </button>
-          </div>
-        </div>
+        )}
 
-        <div className="grid md:grid-cols-3 gap-12 mb-20">
+        <div className={`grid md:grid-cols-3 gap-12 ${hideHeader ? 'mb-12' : 'mb-20'}`}>
           {articles.map((article, idx) => (
             <div key={idx} className="group cursor-pointer" onClick={() => onArticleClick(article)}>
-              <div className="mb-6 overflow-hidden bg-[#111111] aspect-[16/10] relative border border-zinc-200">
+              <div className="mb-6 overflow-hidden bg-[#111111] aspect-[16/10] relative border border-white/5">
                 <img 
                   src={article.image} 
                   alt={article.title} 
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
                   loading="lazy"
                   decoding="async"
                   referrerPolicy="no-referrer"
@@ -161,13 +164,13 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick }) => {
                 </div>
               </div>
               <div className="text-[#b8860b] text-[9px] uppercase font-black mb-3 tracking-widest">{article.category}</div>
-              <h4 className="text-xl font-bold text-[#111111] mb-3 group-hover:text-[#b8860b] transition-colors leading-snug">
+              <h4 className="text-xl font-bold text-white mb-3 group-hover:text-[#b8860b] transition-colors leading-snug">
                 {article.title}
               </h4>
               <p className="text-zinc-500 text-sm leading-relaxed mb-4 font-normal italic line-clamp-2">
                 {article.excerpt}
               </p>
-              <div className="w-8 h-px bg-zinc-300 group-hover:w-full group-hover:bg-[#b8860b] transition-all duration-700" />
+              <div className="w-8 h-px bg-white/10 group-hover:w-full group-hover:bg-[#b8860b] transition-all duration-700" />
             </div>
           ))}
         </div>
