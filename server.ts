@@ -18,8 +18,7 @@ async function startServer() {
   // Force development mode in AIS preview unless explicitly set to production
   const useVite = !isProd && isAISPreview;
 
-  /*
-  // SEO: Enforce non-www and remove trailing slashes
+  // SEO: Enforce HTTPS, non-www, and remove trailing slashes
   app.use((req, res, next) => {
     const host = req.get('host');
     const pathName = req.path;
@@ -31,40 +30,33 @@ async function startServer() {
     let newPath = pathName;
     let newProtocol = protocol;
 
-    // Enforce non-www
+    // Enforce non-www (Total Brand Authority)
     if (host && host.startsWith('www.')) {
       newHost = host.slice(4);
       redirect = true;
     }
 
-    // Force HTTPS in production
+    // Force HTTPS in production (Institutional Trust)
     if (isProd && protocol === 'http') {
       newProtocol = 'https';
       redirect = true;
     }
 
-    // Remove trailing slashes (except for root)
+    // Remove trailing slashes (except for root) to prevent duplicate content
     if (pathName.length > 1 && pathName.endsWith('/')) {
       newPath = pathName.slice(0, -1);
       redirect = true;
     }
 
     if (redirect) {
-      // Use 301 for permanent SEO redirects, but be careful with loops
-      // If we are already on the new host, path, and protocol, don't redirect
-      const currentUrl = `${protocol}://${host}${pathName}${query}`;
       const targetUrl = `${newProtocol}://${newHost}${newPath}${query}`;
-      
-      if (currentUrl !== targetUrl) {
-        console.log(`REDIRECTING: ${currentUrl} -> ${targetUrl}`);
-        return res.redirect(301, targetUrl);
-      }
+      console.log(`SEO REDIRECT: ${req.url} -> ${targetUrl}`);
+      return res.redirect(301, targetUrl);
     }
     next();
   });
-  */
 
-  console.log(`SERVER STARTING V4 - PORT: ${PORT} - IS_PROD: ${isProd}`);
+  console.log(`SERVER STARTING V5 - PORT: ${PORT} - IS_PROD: ${isProd}`);
 
   // Diagnostic: Check if dist folder exists and list files
   const distPath = path.join(process.cwd(), 'dist');
@@ -181,12 +173,18 @@ function serveStatic(app: express.Express) {
 
       if (url.includes('/library')) {
         hydratedHtml = hydratedHtml
-          .replace(/<title>.*?<\/title>/, '<title>The Registry | Unbounded Leadership Library</title>')
-          .replace(/<meta name="description" content=".*?"\/?>/, '<meta name="description" content="A curated archive of institutional dispatches and strategic intelligence for sovereign leaders.">');
+          .replace(/<title>.*?<\/title>/i, '<title>The Registry | Unbounded Leadership Registry & Executive Consultancy dispatches</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="A curated archive of leadership architecture dispatches and strategic intelligence for sovereign leaders.">')
+          .replace(/<meta name="keywords" content=".*?"\/?>/i, '<meta name="keywords" content="leadership library, executive consultancy dispatches, institutional dispatches, leadership research, CEO intelligence">');
       } else if (url.includes('/methodology')) {
         hydratedHtml = hydratedHtml
-          .replace(/<title>.*?<\/title>/, '<title>The Sovereign Methodology | Leadership Architecture</title>')
-          .replace(/<meta name="description" content=".*?"\/?>/, '<meta name="description" content="Our formulaic approach to institutional stability: Baseline Audit, Structural Transformation, and Sustained Sovereignty.">');
+          .replace(/<title>.*?<\/title>/i, '<title>The Sovereign Methodology | Architectural Leadership Consultancy</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Our formulaic approach to institutional stability: Baseline Audit, Structural Transformation, and Sustained Sovereignty.">')
+          .replace(/<meta name="keywords" content=".*?"\/?>/i, '<meta name="keywords" content="leadership methodology, consultancy framework, institutional transformation, sovereignty audit, leadership systems">');
+      } else if (url.includes('/about')) {
+        hydratedHtml = hydratedHtml
+          .replace(/<title>.*?<\/title>/i, '<title>About Us | The Premium Leadership Architecture Consultancy</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="We are the definitive leadership architecture consultancy for high-stakes principals.">');
       }
       
       res.send(hydratedHtml);
