@@ -83,6 +83,26 @@ async function startServer() {
     res.json({ status: 'ok' });
   });
 
+  // SEO: Robots.txt
+  app.get('/robots.txt', (req, res) => {
+    res.type('text/plain');
+    res.send(`User-agent: *\nAllow: /\nSitemap: ${req.protocol}://${req.get('host')}/sitemap.xml`);
+  });
+
+  // SEO: Sitemap.xml
+  app.get('/sitemap.xml', (req, res) => {
+    res.type('application/xml');
+    const host = `${req.protocol}://${req.get('host')}`;
+    res.send(`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>${host}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>${host}/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${host}/methodology</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${host}/library</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>${host}/case-studies</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>`);
+  });
+
   // Gemini Proxy Endpoint
   app.post('/api/ai/generate', async (req, res) => {
     try {
@@ -148,21 +168,28 @@ function serveStatic(app: express.Express) {
   // SPA fallback: serve index.html for all other routes
   app.get('*', (req, res) => {
     const indexPath = path.join(distPath, 'index.html');
-    res.sendFile(indexPath, (err) => {
+    
+    fs.readFile(indexPath, 'utf-8', (err, html) => {
       if (err) {
-        console.error(`Error sending index.html from ${indexPath}:`, err);
-        res.status(404).send(`
-          <html>
-            <body style="font-family: sans-serif; padding: 2rem; line-height: 1.5;">
-              <h1>Application Loading...</h1>
-              <p>The server is running, but the frontend files (dist/index.html) were not found at: <code>${indexPath}</code></p>
-              <p>Please check your Cloud Build logs to ensure the build step completed successfully.</p>
-              <hr/>
-              <p><small>Diagnostic: __dirname is ${__dirname}</small></p>
-            </body>
-          </html>
-        `);
+        console.error(`Error reading index.html from ${indexPath}:`, err);
+        return res.status(404).send('Application Loading Errors.');
       }
+
+      // Metadata Hydration: Inject dynamic meta tags based on the route
+      let hydratedHtml = html;
+      const url = req.path;
+
+      if (url.includes('/library')) {
+        hydratedHtml = hydratedHtml
+          .replace(/<title>.*?<\/title>/, '<title>The Registry | Unbounded Leadership Library</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/, '<meta name="description" content="A curated archive of institutional dispatches and strategic intelligence for sovereign leaders.">');
+      } else if (url.includes('/methodology')) {
+        hydratedHtml = hydratedHtml
+          .replace(/<title>.*?<\/title>/, '<title>The Sovereign Methodology | Leadership Architecture</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/, '<meta name="description" content="Our formulaic approach to institutional stability: Baseline Audit, Structural Transformation, and Sustained Sovereignty.">');
+      }
+      
+      res.send(hydratedHtml);
     });
   });
 }
