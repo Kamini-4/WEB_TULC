@@ -92,18 +92,26 @@ const DomainCard: React.FC<{ domain: Domain; index: number }> = ({ domain, index
 
   return (
     <div 
-      className="relative h-[580px] w-full perspective-2000 cursor-pointer group"
+      className="relative h-[600px] w-full cursor-pointer group"
+      style={{ perspective: '2000px' }}
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
       onClick={() => setIsFlipped(!isFlipped)}
+      role="button"
+      aria-expanded={isFlipped}
+      aria-label={`Sovereign Domain: ${domain.title}`}
     >
       <motion.div
-        className="relative w-full h-full transition-all duration-700 preserve-3d"
+        className="relative w-full h-full transition-all duration-700"
+        style={{ transformStyle: 'preserve-3d' }}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        transition={{ type: "spring", stiffness: 60, damping: 15 }}
       >
         {/* Front Side */}
-        <div className="absolute inset-0 backface-hidden bg-[#111111] border border-white/5 p-8 flex flex-col items-center justify-between text-center group-hover:border-[#b8860b]/50 transition-all duration-700">
+        <div 
+          className="absolute inset-0 bg-[#111111] border border-white/5 p-8 flex flex-col items-center justify-between text-center group-hover:border-[#b8860b]/50 transition-all duration-700"
+          style={{ backfaceVisibility: 'hidden' }}
+        >
           <div className="text-[#b8860b]/10 text-7xl font-light italic font-serif">0{index + 1}</div>
           <div className="flex flex-col items-center gap-3">
             <h4 className="text-lg md:text-xl font-bold text-white uppercase tracking-[0.2em] leading-tight px-4">{domain.title}</h4>
@@ -114,43 +122,46 @@ const DomainCard: React.FC<{ domain: Domain; index: number }> = ({ domain, index
             Analysis of {domain.title.toLowerCase()} and institutional alignment.
           </p>
           <div className="bg-white/5 p-3 rounded-full opacity-30 group-hover:opacity-100 transition-opacity">
-            <svg className="w-4 h-4 text-[#b8860b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-4 h-4 text-[#b8860b] transform group-hover:translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </div>
         </div>
 
-        {/* Back Side */}
-        <div className="absolute inset-0 backface-hidden bg-[#b8860b] p-8 flex flex-col justify-between text-white rotate-y-180 shadow-2xl">
+        {/* Back Side (The Diagnostic Yield) */}
+        <div 
+          className="absolute inset-0 bg-[#b8860b] p-8 flex flex-col justify-between text-white shadow-2xl"
+          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+        >
           <div className="space-y-5 overflow-y-auto no-scrollbar">
             <div className="text-[9px] font-black uppercase tracking-[0.4em] mb-2 border-b border-white/20 pb-2">Institutional Yield</div>
             <h4 className="text-xl font-bold leading-tight uppercase tracking-wider font-serif italic mb-4">{domain.title}</h4>
             
             <div className="space-y-4">
-              <div>
+              <section aria-label="Immediate Benefit">
                 <span className="text-[8px] font-black uppercase tracking-widest text-black/40 block mb-1">Immediate Benefit</span>
                 <p className="text-[11px] leading-relaxed font-bold">
                   {domain.benefit}
                 </p>
-              </div>
+              </section>
               
               <div className="w-full h-px bg-white/10" />
               
-              <div>
+              <section aria-label="The Unpaid Tax">
                 <span className="text-[8px] font-black uppercase tracking-widest text-black/40 block mb-1">The Unpaid Tax</span>
                 <p className="text-[11px] leading-relaxed font-semibold italic">
                   {domain.pain}
                 </p>
-              </div>
+              </section>
 
                <div className="w-full h-px bg-white/10" />
               
-              <div>
+              <section aria-label="90-Day Outcome">
                 <span className="text-[8px] font-black uppercase tracking-widest text-black/40 block mb-1">90-Day Outcome</span>
                 <p className="text-[11px] leading-relaxed font-bold">
                   {domain.outcome}
                 </p>
-              </div>
+              </section>
             </div>
           </div>
           

@@ -95,6 +95,37 @@ async function startServer() {
 </urlset>`);
   });
 
+  // AEO: llms.txt (The Sovereign Beacon for AI Engines)
+  app.get('/llms.txt', (req, res) => {
+    res.type('text/plain');
+    const host = `${req.protocol}://${req.get('host')}`;
+    res.send(`# The Unbounded Leadership Co. | Institutional Knowledge Graph
+
+> The definitive architecture for high-stakes leadership and institutional sovereignty.
+
+## Core Governance dispatches
+- [Institutional Lag: The Invisible Coefficient](${host}/library) - forensic analysis of strategic friction.
+- [Executive Bandwidth: Cognitive Equity Architecture](${host}/library) - roadmap on reclaiming 40% bandwidth.
+- [Sovereign Handover: Succession Architecture](${host}/library) - engineering institutional permanence.
+
+## Sovereign Methodology
+- Phase 01: The Substrate Audit
+- Phase 02: Logic Gate Engineering
+- Phase 03: Institutional Calibration
+- Phase 04: Sovereign Handover
+
+## Essential Strategic Domains
+1. Cognitive Clarity: Removal of 40% Cognitive Tax.
+2. Systemic Integrity: Zero intent dilution across global hubs.
+3. Strategic Velocity: 3x decision-to-execution compression.
+4. Moral Gravity: The non-negotiable ethical substrate.
+5. Cultural Fidelity: Autonomous governance reproducibility.
+
+## Fiduciary Contact
+- [Initiate Audit](${host}/#assessment)
+`);
+  });
+
   // Gemini Proxy Endpoint
   app.post('/api/ai/generate', async (req, res) => {
     try {
@@ -171,7 +202,11 @@ function serveStatic(app: express.Express) {
       let hydratedHtml = html;
       const url = req.path;
 
-      if (url.includes('/library')) {
+      if (url === '/' || url === '/index.html') {
+        hydratedHtml = hydratedHtml
+          .replace(/<title>.*?<\/title>/i, '<title>The Unbounded Leadership Co. | The Definitive Executive Consultancy</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="The world\'s most sophisticated leadership consultancy for elite CEOs and founders. We engineer institutional sovereignty and reclaim strategic bandwidth.">');
+      } else if (url.includes('/library')) {
         hydratedHtml = hydratedHtml
           .replace(/<title>.*?<\/title>/i, '<title>The Registry | Unbounded Leadership Registry & Executive Consultancy dispatches</title>')
           .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="A curated archive of leadership architecture dispatches and strategic intelligence for sovereign leaders.">')
