@@ -56,7 +56,7 @@ const domains: Domain[] = [
 
 const FiveDomains: React.FC = () => {
   return (
-    <section className="py-32 bg-[#0a0a0a] overflow-hidden relative border-t border-white/5">
+    <section id="domains" className="py-32 bg-[#0a0a0a] overflow-hidden relative border-t border-white/5">
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#b8860b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -105,7 +105,7 @@ const DomainCard: React.FC<{ domain: Domain; index: number }> = ({ domain, index
         className="relative w-full h-full transition-all duration-700"
         style={{ transformStyle: 'preserve-3d' }}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ type: "spring", stiffness: 60, damping: 15 }}
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
       >
         {/* Front Side */}
         <div 

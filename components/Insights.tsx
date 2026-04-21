@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { GoogleGenAI } from "@google/genai";
 
 interface Article {
+  id: string;
   category: string;
   title: string;
   excerpt: string;
@@ -16,6 +18,7 @@ interface InsightsProps {
 
 const articles: Article[] = [
   {
+    id: "INT-010",
     category: "Systems Design",
     title: "The Architecture of Authority: Why Systems Outperform Personal Brands",
     excerpt: "Analyzing the transition points where institutional logic unlocks unprecedented organizational growth.",
@@ -28,6 +31,7 @@ const articles: Article[] = [
     ]
   },
   {
+    id: "INT-011",
     category: "Cognitive Architecture",
     title: "Strategic Substrates: The Invisible Tax of Latent Inefficiency",
     excerpt: "How aligning mental models at the board level yields compounding institutional velocity.",
@@ -40,6 +44,7 @@ const articles: Article[] = [
     ]
   },
   {
+    id: "INT-012",
     category: "Future of Governance",
     title: "Sovereign Leadership: Designing for Anti-Fragility in the Age of AI",
     excerpt: "Transitioning from individual effort to systemic intelligence as the core competitive advantage.",
@@ -58,6 +63,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
   const [pulseResult, setPulseResult] = useState<{text: string, links: {uri: string, title: string}[]} | null>(null);
   const [isPulseLoading, setIsPulseLoading] = useState(false);
   const [hasApiKey, setHasApiKey] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const checkApiKey = async () => {
@@ -148,7 +154,10 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
 
         <div className={`grid md:grid-cols-3 gap-12 ${hideHeader ? 'mb-12' : 'mb-20'}`}>
           {articles.map((article, idx) => (
-            <div key={idx} className="group cursor-pointer" onClick={() => onArticleClick(article)}>
+            <div key={idx} className="group cursor-pointer" onClick={() => {
+              onArticleClick(article);
+              if (article.id) navigate(`/library/${article.id}`);
+            }}>
               <div className="mb-6 overflow-hidden bg-[#111111] aspect-[16/10] relative border border-white/5">
                 <img 
                   src={article.image} 

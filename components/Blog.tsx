@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SovereignDB, BlogEntry } from '../lib/database.ts';
 
 interface BlogProps {
@@ -169,6 +170,7 @@ const INITIAL_POSTS: BlogEntry[] = [
 
 const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
   const [posts, setPosts] = useState<BlogEntry[]>(INITIAL_POSTS);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsub = SovereignDB.subscribeToBlog((storedPosts) => {
@@ -205,7 +207,10 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
           {posts.map((post, idx) => (
             <div 
               key={idx} 
-              onClick={() => onArticleClick(post)}
+              onClick={() => {
+                onArticleClick(post);
+                if (post.id) navigate(`/library/${post.id}`);
+              }}
               className="registry-card group cursor-pointer flex flex-col h-full relative isolate p-2"
             >
               <div className="absolute top-0 left-0 text-[40px] md:text-[60px] font-bold text-white/[0.02] select-none pointer-events-none group-hover:text-[#b8860b]/[0.05] transition-colors duration-700 -z-10 translate-y-[-10%] md:translate-y-[-20%]">

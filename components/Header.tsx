@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 interface HeaderProps {
   onAdminTrigger?: () => void;
@@ -9,6 +9,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogoClick = (e: React.MouseEvent) => {
     if (e.altKey && onAdminTrigger) {
@@ -21,13 +22,23 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
 
   const navItems = [
     { label: 'About', path: '/about' },
+    { label: 'Domains', path: '/#domains' },
     { label: 'Methodology', path: '/methodology' },
-    { label: 'Registry', path: '/case-studies' },
-    { label: 'Library', path: '/library' },
+    { label: 'Registry', path: '/library' },
+    { label: 'Case Studies', path: '/#registry' },
     { label: 'Portal', path: '/portal' },
   ];
 
-  const handleNavClick = (path: string) => {
+  const handleNavClick = (path: string, e: React.MouseEvent) => {
+    if (path.startsWith('/#')) {
+      e.preventDefault();
+      const targetId = path.substring(2);
+      if (location.pathname === '/') {
+        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        navigate(`/${path.substring(1)}`);
+      }
+    }
     setIsMenuOpen(false);
   };
 
@@ -70,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
               <Link 
                 key={item.path}
                 to={item.path}
-                onClick={() => handleNavClick(item.path)}
+                onClick={(e) => handleNavClick(item.path, e)}
                 className="text-[9px] font-black uppercase text-[#111111] hover:text-[#b8860b] transition-colors tracking-widest"
               >
                 {item.label}
@@ -104,7 +115,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
               <Link 
                 key={item.path}
                 to={item.path}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => handleNavClick(item.path, e)}
                 className="text-xl font-bold text-[#111111] text-left uppercase tracking-widest border-b border-zinc-200 pb-4"
               >
                 {item.label}

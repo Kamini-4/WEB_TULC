@@ -85,6 +85,9 @@ async function startServer() {
   app.get('/sitemap.xml', (req, res) => {
     res.type('application/xml');
     const host = `${req.protocol}://${req.get('host')}`;
+    const articles = ['INT-001', 'INT-002', 'INT-004', 'INT-005', 'INT-010'];
+    const articleUrls = articles.map(id => `<url><loc>${host}/library/${id}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`).join('\n  ');
+    
     res.send(`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${host}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
@@ -92,6 +95,7 @@ async function startServer() {
   <url><loc>${host}/methodology</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>${host}/library</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>${host}/case-studies</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  ${articleUrls}
 </urlset>`);
   });
 
@@ -104,15 +108,17 @@ async function startServer() {
 > The definitive architecture for high-stakes leadership and institutional sovereignty.
 
 ## Core Governance dispatches
-- [Institutional Lag: The Invisible Coefficient](${host}/library) - forensic analysis of strategic friction.
-- [Executive Bandwidth: Cognitive Equity Architecture](${host}/library) - roadmap on reclaiming 40% bandwidth.
-- [Sovereign Handover: Succession Architecture](${host}/library) - engineering institutional permanence.
+- [Succession Architecture: Institutional Permanence](${host}/library/INT-001) - engineering handover sovereignty.
+- [The Cognitive Tax of Leadership](${host}/library/INT-002) - reclaiming 40% strategic bandwidth.
+- [Executive Bandwidth: Cognitive Equity Architecture](${host}/library/INT-004) - roadmap on reclaiming bandwidth.
+- [Institutional Lag: The Invisible Coefficient](${host}/library/INT-005) - forensic analysis of strategic friction.
+- [Architecture of Authority: Systemic Design](${host}/library/INT-010) - why systems outperform brands.
 
 ## Sovereign Methodology
-- Phase 01: The Substrate Audit
-- Phase 02: Logic Gate Engineering
-- Phase 03: Institutional Calibration
-- Phase 04: Sovereign Handover
+- Phase 01: The Substrate Audit [${host}/methodology]
+- Phase 02: Logic Gate Engineering [${host}/methodology]
+- Phase 03: Institutional Calibration [${host}/methodology]
+- Phase 04: Sovereign Handover [${host}/methodology]
 
 ## Essential Strategic Domains
 1. Cognitive Clarity: Removal of 40% Cognitive Tax.
@@ -202,7 +208,23 @@ function serveStatic(app: express.Express) {
       let hydratedHtml = html;
       const url = req.path;
 
-      if (url === '/' || url === '/index.html') {
+      // Institutional Article Registry (Server-side shadow for hydration)
+      const registry: Record<string, { title: string, description: string }> = {
+        'INT-001': { title: 'Succession Architecture | The Founder Dilemma', description: 'Architecting institutional permanence beyond the individual leader.' },
+        'INT-002': { title: 'The Cognitive Tax of Leadership', description: 'Reclaiming 40% bandwidth through bandwidth architecture.' },
+        'INT-004': { title: 'Executive Bandwidth: Reclaiming Currency', description: 'A definitive report on cognitive equity and decision architecture.' },
+        'INT-005': { title: 'Institutional Lag: The Invisible Coefficient', description: 'Forensic analysis of organizational friction and intent signal flow.' },
+        'INT-010': { title: 'Architecture of Authority | Institutional Design', description: 'Why systems outperform personal brands in global scaling.' }
+      };
+
+      const articleIdMatch = url.match(/\/library\/(INT-\d+)/);
+
+      if (articleIdMatch && registry[articleIdMatch[1]]) {
+        const metadata = registry[articleIdMatch[1]];
+        hydratedHtml = hydratedHtml
+          .replace(/<title>.*?<\/title>/i, `<title>${metadata.title} | The Unbounded Registry</title>`)
+          .replace(/<meta name="description" content=".*?"\/?>/i, `<meta name="description" content="${metadata.description}">`);
+      } else if (url === '/' || url === '/index.html') {
         hydratedHtml = hydratedHtml
           .replace(/<title>.*?<\/title>/i, '<title>The Unbounded Leadership Co. | The Definitive Executive Consultancy</title>')
           .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="The world\'s most sophisticated leadership consultancy for elite CEOs and founders. We engineer institutional sovereignty and reclaim strategic bandwidth.">');
