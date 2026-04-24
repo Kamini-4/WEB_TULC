@@ -70,12 +70,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
           </div>
         </div>
         
-        <div className="hidden lg:flex items-center gap-12 mr-auto ml-16">
-          <StatusIndicator label="Institutional Status" value="Online" active />
-          <StatusIndicator label="Resonance" value="Optimal" />
-        </div>
-
-        <nav className="flex items-center gap-3 sm:gap-4 md:gap-8">
+        <nav className="flex items-center gap-3 sm:gap-4 md:gap-8 ml-auto">
           <div className="hidden md:flex items-center gap-6 lg:gap-10 mr-4">
             {navItems.map((item) => (
               <Link 
