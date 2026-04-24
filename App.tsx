@@ -7,7 +7,6 @@ import Header from './components/Header.tsx';
 import Footer from './components/Footer.tsx';
 import Home from './src/pages/Home.tsx';
 import About from './src/pages/About.tsx';
-import CaseStudies from './src/pages/CaseStudies.tsx';
 import Library from './src/pages/Library.tsx';
 import MethodologyPage from './src/pages/MethodologyPage.tsx';
 import Portal from './src/pages/Portal.tsx';
@@ -236,7 +235,6 @@ const App: React.FC = () => {
         <Route path="/library/:articleId" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
         <Route path="/methodology" element={<MethodologyPage onBriefClick={handleBriefClick} />} />
         <Route path="/portal" element={<Portal />} />
-        <Route path="/registry" element={<CaseStudies />} />
       </Routes>
     );
   };

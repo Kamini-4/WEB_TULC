@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Share2, Link as LinkIcon, X, Check } from 'lucide-react';
+import { Linkedin } from './BrandIcons';
 import { GoogleGenAI } from "@google/genai";
 
 interface Article {
@@ -37,7 +39,7 @@ const articles: Article[] = [
     excerpt: "How aligning mental models at the board level yields compounding institutional velocity.",
     image: "https://picsum.photos/seed/unbounded-arch-2/1200/800?grayscale&blur=1",
     content: [
-      "Strategic Substrates are the foundational logic layers of decision-making. High-velocity institutions recognize that short-term tactical wins are best served by long-term [Structural Integrity](/case-studies).",
+      "Strategic Substrates are the foundational logic layers of decision-making. High-velocity institutions recognize that short-term tactical wins are best served by long-term [Structural Integrity](/library).",
       "In our deep-dive [Institutional Audits](/library), we find that most 'breakthroughs' are simply the result of aligning mental models to market reality. A calibrated system is, by definition, an anti-fragile system.",
       "To maximize velocity, leaders must engage in Cognitive Calibration. This is about identifying the specific logic levers that govern how you process opportunity and risk, as defined in our [Sovereign Protocol](/methodology).",
       "Once the substrate is aligned, the organization experiences a 'Velocity Delta'—a sudden, permanent increase in its ability to convert intent into market leadership."
@@ -63,7 +65,27 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
   const [pulseResult, setPulseResult] = useState<{text: string, links: {uri: string, title: string}[]} | null>(null);
   const [isPulseLoading, setIsPulseLoading] = useState(false);
   const [hasApiKey, setHasApiKey] = useState(true);
+  const [sharingId, setSharingId] = useState<string | null>(null);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   const navigate = useNavigate();
+
+  const handleShare = (e: React.MouseEvent, article: Article) => {
+    e.stopPropagation();
+    if (sharingId === article.id) {
+      setSharingId(null);
+    } else {
+      setSharingId(article.id);
+    }
+  };
+
+  const handleCopyLink = (e: React.MouseEvent, article: Article) => {
+    e.stopPropagation();
+    const url = `${window.location.origin}/library/${article.id}`;
+    navigator.clipboard.writeText(url);
+    setCopiedId(article.id);
+    setTimeout(() => setCopiedId(null), 2000);
+    setSharingId(null);
+  };
 
   useEffect(() => {
     const checkApiKey = async () => {
@@ -172,7 +194,46 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#111111] bg-white px-6 py-3 shadow-2xl">Access Briefing</span>
                 </div>
               </div>
-              <div className="text-[#b8860b] text-[9px] uppercase font-black mb-3 tracking-widest">{article.category}</div>
+              <div className="flex justify-between items-center mb-3">
+                <div className="text-[#b8860b] text-[9px] uppercase font-black tracking-widest">{article.category}</div>
+                <div className="relative">
+                  <button 
+                    onClick={(e) => handleShare(e, article)}
+                    className="p-1 text-zinc-500 hover:text-[#b8860b] transition-colors"
+                  >
+                    <Share2 size={12} />
+                  </button>
+                  {sharingId === article.id && (
+                    <div className="absolute right-0 top-6 bg-[#1a1a1a] border border-white/10 p-2 z-20 shadow-2xl flex flex-col gap-2 min-w-[100px] animate-fade-in">
+                      <button 
+                        onClick={(e) => handleCopyLink(e, article)}
+                        className="flex items-center gap-2 text-[9px] uppercase font-bold text-zinc-400 hover:text-white transition-colors p-1"
+                      >
+                        {copiedId === article.id ? <Check size={10} className="text-green-500" /> : <LinkIcon size={10} />}
+                        {copiedId === article.id ? 'Copied' : 'Copy Link'}
+                      </button>
+                      <a 
+                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.origin + '/library/' + article.id)}&text=${encodeURIComponent(article.title)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex items-center gap-2 text-[9px] uppercase font-bold text-zinc-400 hover:text-white transition-colors p-1"
+                      >
+                        <X size={10} /> X / Twitter
+                      </a>
+                      <a 
+                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.origin + '/library/' + article.id)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex items-center gap-2 text-[9px] uppercase font-bold text-zinc-400 hover:text-white transition-colors p-1"
+                      >
+                        <Linkedin size={10} /> LinkedIn
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
               <h4 className="text-xl font-bold text-white mb-3 group-hover:text-[#b8860b] transition-colors leading-snug">
                 {article.title}
               </h4>

@@ -1,6 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Share2, Link as LinkIcon, X, Check } from 'lucide-react';
+import { Linkedin } from './BrandIcons';
 import { SovereignDB, BlogEntry } from '../lib/database.ts';
 
 interface BlogProps {
@@ -27,7 +29,7 @@ const INITIAL_POSTS: BlogEntry[] = [
       "The $1B Erosion Case Study: We analyzed a high-profile tech merger where the departing CEO's 'Implicit Logic' was never mapped. The result was a 'Substrate Collapse' where execution velocity dropped by 60% in 12 months. This is the hidden cost of failing to treat succession as an architectural engineering challenge.",
       "Theoretical Basis: We utilize 'Agent-Structure Theory.' In most firms, the Agent (the leader) is the system. In a Sovereign Institution, the Structure (the architecture) is the system. By elevating the structure, we make the organization anti-fragile. It doesn't just 'survive' a transition; it thrives because the friction of the 'Hero Requirement' is removed.",
       "Engineering for Permanence: Your goal as a leader is to become strategically redundant. This sounds counter-intuitive to the vanity of management, but it is the ultimate expression of [Executive Excellence](/). A permanent institution is one that can out-decide its competition for 100 years because the architecture is self-correcting.",
-      "The Board's Role: The Board of Directors are the guardians of the substrate. Their fiduciary duty is to ensure the organization's architecture is robust enough to withstand the change of a Principal. We provide Boards with the audit tools required to measure [Substrate Health](/case-studies) and identify risks before a transition begins.",
+      "The Board's Role: The Board of Directors are the guardians of the substrate. Their fiduciary duty is to ensure the organization's architecture is robust enough to withstand the change of a Principal. We provide Boards with the audit tools required to measure [Substrate Health](/library) and identify risks before a transition begins.",
       "Strategic Bandwidth of the Successor: A new CEO should have 100% of their bandwidth available for strategic steering. If they spend their first 18 months navigating internal 'Execution Friction,' their strategic yield is effectively zero. Our interventions reclaim that bandwidth from Day 1, ensuring [Strategic Velocity](/methodology).",
       "The Infinite Game: Legacy is not about what you did; it's about what continues because of how you designed. By building a [Sovereign Infrastructure](/about), you ensure that your strategic intent continues to shape markets for decades. This is the only path to true institutional legacy in a high-volatility world.",
       "Fiduciary Duty of the Departing Principal: As you prepare to exit, your primary task is the removal of your own 'Heroic Trace.' You must leave behind a system that is cognitively insolvent without you, but structurally invincible. This is the 'Handover Invariant' that separates the legend from the operator.",
@@ -86,7 +88,7 @@ const INITIAL_POSTS: BlogEntry[] = [
       "Theoretical Framework: We draw from John Sweller's 'Cognitive Load Theory.' By minimizing the 'Extraneous Load' (the noise) and maximizing the 'Germane Load' (the strategy), we ensure that the CEO's metabolic burn rate is optimized for maximum impact. This is high-stakes [Performance Engineering](/methodology).",
       "The Bandwidth Audit: Our forensic audit doesn't look at your calendar; it looks at your 'Decision Log.' We track where your cognitive energy is spent and identify the specific 'Leaks'—the points where the organization is stealing your strategic edge. Neutralizing these leaks is the first step toward [Total Leadership Sovereignty](/).",
       "Fiduciary Stewardship: Protecting the CEO's strategic bandwidth is a fiduciary responsibility of the Board. A burnt-out leader is a risk to shareholder value. By stabilizing the [Sovereign Substrate](/library), we protect the institution's most critical decision engine.",
-      "Transitioning to Sovereign Architecture: This is the move from the 'Hero' seat to the 'Architect' seat. When the system handles the noise, you are free to design the future. This transition is permanent, sudden, and provides the only sustainable path to global market leadership and a [Lasting Legacy](/case-studies).",
+      "Transitioning to Sovereign Architecture: This is the move from the 'Hero' seat to the 'Architect' seat. When the system handles the noise, you are free to design the future. This transition is permanent, sudden, and provides the only sustainable path to global market leadership and a [Lasting Legacy](/library).",
       "Strategic Takeaway: Busyness is a tactical failure. Strategic Bandwidth is an architectural choice. You cannot scale an organization while your own mind is a bottleneck. It is time to architect your bandwidth for the next [Infinite Resonance](/about)."
     ]
   },
@@ -105,7 +107,7 @@ const INITIAL_POSTS: BlogEntry[] = [
       "The Metabolic Burn Rate of Indecision: For a CEO of a $500M enterprise, every week of strategic delay on a high-stakes pivot carries a measurable 'Inaction Tax.' This is the metabolic cost of maintaining the status quo while the market evolves. We have calculated that for Tier-1 organizations, this tax often exceeds the cost of a failed execution by a factor of 3:1.",
       "Identifying the 'Hero Bottleneck': A primary driver of lag is the 'Heroic Intervention' requirement. If the system stops moving when the CEO stops pushing, it is a fragile system. This structural fragility creates a permanent state of high institutional stress, where the leader's own [strategic bandwidth](/library) becomes the ultimate bottleneck for organizational scaling.",
       "From Solver to Architect: To neutralize lag, a Principal must move from 'Management' to 'Architecture.' Mapping the [Architectural Inevitability](/about) of your design allows the organization to move with autonomous momentum. The goal is a system where the execution of vision is as seamless as the vision itself, governed by the [Sovereign Protocol](/methodology).",
-      "The Physics of Execution: Velocity is defined as speed in a specific direction. Most organizations have speed (motion), but lack true Velocity. In our [Case Studies](/case-studies), we neutralize 'Institutional Lag' by recalibrating the organization's execution frequency. This ensures that the Principal Architect's signal remains pure from the boardroom to the front line.",
+      "The Physics of Execution: Velocity is defined as speed in a specific direction. Most organizations have speed (motion), but lack true Velocity. In our [Case Studies](/library), we neutralize 'Institutional Lag' by recalibrating the organization's execution frequency. This ensures that the Principal Architect's signal remains pure from the boardroom to the front line.",
       "The Sovereignty Coefficient: We measure institutional health using the Sovereignty Coefficient (S = I/L), where 'I' is Strategic Intent and 'L' is Institutional Lag. A high coefficient indicates a firm where the vision is hard-coded into the substrate, leading to undisputed market leadership and permanent [Institutional Sovereignty](/).",
       "Neutralizing Structural Interference: This requires a surgical audit of the firm's [Strategic Substrates](/library). We identify the specific logic levers that are out of phase with current market reality. By recalibrating these levers, we restore the leader's sovereign authority over the institutional timeline, achieving 2.8x strategic velocity and the effortless capture of market arbitrage.",
       "Cognitive Bandwidth Reclamation: As lag decreases, the leader's strategic bandwidth increases. By removing the need for constant 'tactical firefighting,' we reclaim up to 45% of the CEO's cognitive load. This bandwidth is the only real currency in elite leadership, allowing for the deep strategic thinking that shapes global markets.",
@@ -122,7 +124,7 @@ const INITIAL_POSTS: BlogEntry[] = [
     excerpt: "Reclaiming up to 40% of your cognitive capacity through the neutralization of tactical noise and structural stabilization.",
     timestamp: Date.now(),
     content: [
-      "The most valuable currency in elite leadership is not capital—it is strategic bandwidth. The collapse of this bandwidth is the primary indicator of [Institutional Decay](/case-studies). When a CEO is trapped in tactical noise, they are effectively cognitively insolvent, unable to provide the high-value strategic steering required for market leadership.",
+      "The most valuable currency in elite leadership is not capital—it is strategic bandwidth. The collapse of this bandwidth is the primary indicator of [Institutional Decay](/library). When a CEO is trapped in tactical noise, they are effectively cognitively insolvent, unable to provide the high-value strategic steering required for market leadership.",
       "Our protocol focuses on [reclaiming bandwidth](/library) by installing autonomous logic gates. These gates handle 80% of routine organizational variance, ensuring that the Principal Architect remains focused on the rare, complex vectors that define the future. This is the essence of [Leadership Excellence](/) in a high-volatility market.",
       "Data suggests that leaders in structurally optimized environments report a 45% reduction in decision fatigue. By hard-coding your vision into the organizational nervous system, you ensure that the legacy is independent of the individual, achieving [Institutional Permanence](/about) and total strategic velocity."
     ]
@@ -161,7 +163,7 @@ const INITIAL_POSTS: BlogEntry[] = [
     excerpt: "Qualifying and neutralizing the hidden friction that erodes fiduciary value in global enterprises.",
     timestamp: Date.now(),
     content: [
-      "Organizational Latency is the invisible tax on every institutional action. It is the friction that delays the transmission of intent from the source to the edge. In our recent [Audit Reports](/case-studies), we have found that latency accounts for a significant portion of 'Value Leakage' in Fortune 500 enterprises.",
+      "Organizational Latency is the invisible tax on every institutional action. It is the friction that delays the transmission of intent from the source to the edge. In our recent [Audit Reports](/library), we have found that latency accounts for a significant portion of 'Value Leakage' in Fortune 500 enterprises.",
       "Neutralizing this 'Inaction Tax' requires a decisive move from 'People Management' to 'Substrate Engineering.' By focusing on the infrastructure of how decisions are made, rather than just who makes them, we eliminate the points of friction that slow your progress. This is the only path to [Global Market Leadership](/).",
       "A sovereign institution is one where information flows through [Institutional Dispatches](/library) without dilution or delay. By implementing these high-frequency protocols, you ensure that your strategic signal remains pure, leading to [Total Institutional Sovereignty](/about) and the preservation of your long-term legacy."
     ]
@@ -170,7 +172,27 @@ const INITIAL_POSTS: BlogEntry[] = [
 
 const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
   const [posts, setPosts] = useState<BlogEntry[]>(INITIAL_POSTS);
+  const [sharingId, setSharingId] = useState<string | null>(null);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   const navigate = useNavigate();
+
+  const handleShare = (e: React.MouseEvent, post: BlogEntry) => {
+    e.stopPropagation();
+    if (sharingId === post.id) {
+      setSharingId(null);
+    } else {
+      setSharingId(post.id);
+    }
+  };
+
+  const handleCopyLink = (e: React.MouseEvent, post: BlogEntry) => {
+    e.stopPropagation();
+    const url = `${window.location.origin}/library/${post.id}`;
+    navigator.clipboard.writeText(url);
+    setCopiedId(post.id);
+    setTimeout(() => setCopiedId(null), 2000);
+    setSharingId(null);
+  };
 
   useEffect(() => {
     const unsub = SovereignDB.subscribeToBlog((storedPosts) => {
@@ -221,9 +243,48 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                 <span className="registry-category text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase tracking-widest">
                   {post.category}
                 </span>
-                <span className="text-zinc-600 text-[8px] sm:text-[9px] font-black uppercase tracking-widest">
-                  {post.date}
-                </span>
+                <div className="flex items-center gap-4">
+                  <span className="text-zinc-600 text-[8px] sm:text-[9px] font-black uppercase tracking-widest">
+                    {post.date}
+                  </span>
+                  <div className="relative">
+                    <button 
+                      onClick={(e) => handleShare(e, post)}
+                      className="p-1 text-zinc-600 hover:text-[#b8860b] transition-colors"
+                    >
+                      <Share2 size={12} />
+                    </button>
+                    {sharingId === post.id && (
+                      <div className="absolute right-0 top-6 bg-[#1a1a1a] border border-white/10 p-2 z-20 shadow-2xl flex flex-col gap-2 min-w-[100px] animate-fade-in text-left">
+                        <button 
+                          onClick={(e) => handleCopyLink(e, post)}
+                          className="flex items-center gap-2 text-[9px] uppercase font-bold text-zinc-400 hover:text-white transition-colors p-1 w-full"
+                        >
+                          {copiedId === post.id ? <Check size={10} className="text-green-500" /> : <LinkIcon size={10} />}
+                          {copiedId === post.id ? 'Copied' : 'Copy Link'}
+                        </button>
+                        <a 
+                          href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.origin + '/library/' + post.id)}&text=${encodeURIComponent(post.title)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="flex items-center gap-2 text-[9px] uppercase font-bold text-zinc-400 hover:text-white transition-colors p-1"
+                        >
+                          <X size={10} /> X / Twitter
+                        </a>
+                        <a 
+                          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.origin + '/library/' + post.id)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="flex items-center gap-2 text-[9px] uppercase font-bold text-zinc-400 hover:text-white transition-colors p-1"
+                        >
+                          <Linkedin size={10} /> LinkedIn
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
               
               <div className="registry-separator mb-4 sm:mb-6 relative z-10"></div>

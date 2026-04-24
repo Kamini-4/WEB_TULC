@@ -29,20 +29,35 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
     };
   }, []);
 
-  const handleAddPost = (e: React.FormEvent) => {
+  const handleAddPost = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newPost.title || !newPost.content) return;
     
-    SovereignDB.saveBlogPost({
+    const result = await SovereignDB.saveBlogPost({
       category: newPost.category || 'General',
       date: `Q${Math.floor(Math.random() * 4) + 1} ${new Date().getFullYear()}`,
       title: newPost.title,
       excerpt: newPost.excerpt,
       content: newPost.content.split('\n\n')
     });
+
+    if (result?.id) {
+      // Trigger IndexNow (Instant Discovery Protocol)
+      try {
+        const fullUrl = `${window.location.origin}/library/${result.id}`;
+        await fetch('/api/indexnow', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url: fullUrl })
+        });
+        console.log(`Institutional Signal Broadcast: ${fullUrl}`);
+      } catch (err) {
+        console.error("IndexNow broadcast failure:", err);
+      }
+    }
     
     setNewPost({ category: '', title: '', excerpt: '', content: '' });
-    alert("Dispatch successfully archived in the Registry.");
+    alert("Dispatch successfully archived in the Registry. Institutional engines notified via IndexNow.");
   };
 
   const handleDeletePost = (id: string) => {

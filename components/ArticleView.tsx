@@ -1,7 +1,9 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Markdown from 'react-markdown';
 import { Link } from 'react-router-dom';
+import { Share2, Link as LinkIcon, Mail, Check, X } from 'lucide-react';
+import { Linkedin } from './BrandIcons';
 
 interface Article {
   id?: string;
@@ -17,6 +19,8 @@ interface ArticleViewProps {
 }
 
 const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
+  const [copied, setCopied] = useState(false);
+
   useEffect(() => {
     if (article) {
       document.body.style.overflow = 'hidden';
@@ -27,6 +31,46 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
   }, [article]);
 
   if (!article) return null;
+
+  const shareUrl = window.location.origin + (article.id ? `/library/${article.id}` : '/library');
+  const shareTitle = `${article.title} | The Unbounded Leadership Co.`;
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(shareUrl);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const shareLinks = [
+    {
+      name: 'X',
+      icon: <X size={14} />,
+      url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}`,
+    },
+    {
+      name: 'LinkedIn',
+      icon: <Linkedin size={14} />,
+      url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+    },
+    {
+      name: 'Email',
+      icon: <Mail size={14} />,
+      url: `mailto:?subject=${encodeURIComponent(shareTitle)}&body=I thought you might find this interesting: ${encodeURIComponent(shareUrl)}`,
+    },
+  ];
+
+  const handleNativeShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: shareTitle,
+          url: shareUrl,
+        });
+      } catch (err) {
+        console.error('Error sharing:', err);
+      }
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-[110] flex items-center justify-center p-0 sm:p-4 md:p-10 animate-fade-in">
@@ -40,6 +84,28 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
             {article.id && <span className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-400">Dispatch {article.id}</span>}
           </div>
           <div className="flex items-center gap-4 sm:gap-6">
+            <div className="hidden sm:flex items-center gap-2 border-r border-zinc-200 pr-4 mr-2">
+              <span className="text-[8px] font-black uppercase text-zinc-400 tracking-widest">Share:</span>
+              {shareLinks.map((link) => (
+                <a 
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 text-zinc-400 hover:text-[#b8860b] transition-colors"
+                  title={`Share on ${link.name}`}
+                >
+                  {link.icon}
+                </a>
+              ))}
+              <button 
+                onClick={handleCopyLink}
+                className="p-2 text-zinc-400 hover:text-[#b8860b] transition-colors"
+                title="Copy Link"
+              >
+                {copied ? <Check size={14} className="text-green-600" /> : <LinkIcon size={14} />}
+              </button>
+            </div>
             <button 
               onClick={onClose}
               className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-500 hover:text-[#111111] transition-colors"
@@ -52,9 +118,17 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
         {/* Article Body */}
         <div className="px-6 sm:px-12 md:px-24 py-12 sm:py-16 md:py-24">
           <header className="mb-12 sm:mb-16">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#111111] leading-[1.1] mb-6 sm:mb-8">
-              {article.title}
-            </h1>
+            <div className="flex justify-between items-start mb-6 sm:mb-8">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#111111] leading-[1.1] flex-grow">
+                {article.title}
+              </h1>
+              <button 
+                onClick={handleNativeShare}
+                className="sm:hidden p-3 bg-white border border-zinc-200 rounded-full text-[#b8860b] shadow-sm ml-4"
+              >
+                <Share2 size={16} />
+              </button>
+            </div>
             <div className="w-16 h-[1px] bg-[#b8860b]"></div>
           </header>
 

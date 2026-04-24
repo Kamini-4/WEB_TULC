@@ -94,7 +94,6 @@ async function startServer() {
   <url><loc>${host}/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>${host}/methodology</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>${host}/library</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>${host}/case-studies</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   ${articleUrls}
 </urlset>`);
   });
@@ -130,6 +129,51 @@ async function startServer() {
 ## Fiduciary Contact
 - [Initiate Audit](${host}/#assessment)
 `);
+  });
+
+  // IndexNow Verification Key
+  app.get('/8c92a1b3d5e7f9024680acebdf135792.txt', (req, res) => {
+    res.type('text/plain');
+    res.send('8c92a1b3d5e7f9024680acebdf135792');
+  });
+
+  // IndexNow API Endpoint (Instant Institutional Discovery)
+  app.post('/api/indexnow', async (req, res) => {
+    try {
+      const { url } = req.body;
+      if (!url) return res.status(400).json({ error: 'URL is required' });
+
+      const host = req.get('host');
+      const protocol = req.get('x-forwarded-proto') || req.protocol;
+      const baseUrl = `${protocol}://${host}`;
+
+      const payload = {
+        host: host,
+        key: '8c92a1b3d5e7f9024680acebdf135792',
+        keyLocation: `${baseUrl}/8c92a1b3d5e7f9024680acebdf135792.txt`,
+        urlList: [url]
+      };
+
+      console.log(`INDEXNOW ATTEMPT: Submitting ${url} to search index...`);
+
+      // Ping Bing / Yandex / etc
+      const response = await fetch('https://www.bing.com/indexnow', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        const text = await response.text();
+        throw new Error(`IndexNow failed (${response.status}): ${text || response.statusText}`);
+      }
+
+      console.log(`INDEXNOW SUCCESS: ${url} submitted successfully.`);
+      res.json({ success: true });
+    } catch (error: any) {
+      console.error('IndexNow Error:', error);
+      res.status(500).json({ error: error.message });
+    }
   });
 
   // Gemini Proxy Endpoint

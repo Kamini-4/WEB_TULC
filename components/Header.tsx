@@ -24,7 +24,6 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
     { label: 'About', path: '/about' },
     { label: 'Methodology', path: '/methodology' },
     { label: 'Library', path: '/library' },
-    { label: 'Registry', path: '/registry' },
     { label: 'Portal', path: '/portal' },
   ];
 
