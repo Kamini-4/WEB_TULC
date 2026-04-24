@@ -1,37 +1,28 @@
-# Sovereign Protocol
+# The Unbounded Leadership Co. | Institutional Knowledge Graph
 
-> The Physics of Power. An elite AI-driven ecosystem for Institutional Architecture and Leadership Diagnostics.
+> The definitive architecture for high-stakes leadership and institutional sovereignty.
 
-Sovereign Protocol is a deep-tech platform designed for apex leaders, family offices, and institutional architects. It moves beyond traditional psychometrics into the realm of systemic physics, quantifying the alignment between executive intent and organizational execution.
+## Core Intellectual Dispatches
+- [Succession Architecture: Institutional Permanence](https://theunboundedleadership.com/library/INT-001) - engineering handover sovereignty.
+- [The Cognitive Tax of Leadership](https://theunboundedleadership.com/library/INT-002) - reclaiming 40% strategic bandwidth.
+- [Executive Bandwidth: Cognitive Equity Architecture](https://theunboundedleadership.com/library/INT-004) - roadmap on reclaiming bandwidth.
+- [Institutional Lag: The Invisible Coefficient](https://theunboundedleadership.com/library/INT-005) - forensic analysis of strategic friction.
+- [Architecture of Authority: Systemic Design](https://theunboundedleadership.com/library/INT-010) - why systems outperform brands.
 
-## Core Pillars
+## The Sovereign Protocol (Methodology)
+- Phase 01: The Substrate Audit [https://theunboundedleadership.com/methodology]
+- Phase 02: Logic Gate Engineering [https://theunboundedleadership.com/methodology]
+- Phase 03: Institutional Calibration [https://theunboundedleadership.com/methodology]
+- Phase 04: Sovereign Handover [https://theunboundedleadership.com/methodology]
 
-- **The Assessment (Logic Audit):** A high-stakes, context-adaptive diagnostic mapping decision-making frequencies across Corporate, Legacy, and Alpha modes.
-- **Vocal Prosody Analysis:** Proprietary AI extraction of tonal certainty, command ratios, and cognitive latency from the "Legacy Declaration."
-- **The Vault:** A 12-dimensional vector synthesis engine that calculates the **Sovereign Index** and **Metabolic Burn Rate**.
-- **The Council Chambers:** An adversarial AI advisory layer featuring specialized mentors (Challengers) who stress-test strategic decisions using complexity theory.
-- **The Alpha Vault:** A high-fidelity consultancy backend for professional institutional audits, signal refraction mapping, and shadow auditing.
+## Global Strategic Domains
+1. Cognitive Clarity: Removal of 40% Cognitive Tax through bandwidth architecture.
+2. Systemic Integrity: Zero intent dilution across global hubs (London, NYC, Singapore).
+3. Strategic Velocity: 3x decision-to-execution compression.
+4. Moral Gravity: The non-negotiable ethical substrate.
+5. Cultural Fidelity: Autonomous governance and infinite resonance.
 
-## Key Metrics
-
-- **Sovereign Index (0-1000):** The definitive measure of leadership maturity and signal purity.
-- **Metabolic Burn:** The systemic energy cost of leadership architecture.
-- **Escalation Density:** The ratio of logic-to-action leakage within a hierarchy.
-- **Decision Velocity:** The time-delta between executive intent and institutional manifestation.
-- **Cognitive Clarity:** The internal psychological sovereignty and clarity of intent.
-- **Systemic Integrity:** The metabolic efficiency of organizational manifestation.
-- **Strategic Velocity:** The capacity for antifragility and weaponizing asymmetric opportunities.
-- **Moral Gravity:** The institutional law and values that persist in absence.
-- **Cultural Fidelity:** The distribution of strategic signal and shared reality.
-
-## Target Sectors
-
-- **Global Enterprise:** C-suite diagnostics and board-level alignment.
-- **Family Offices:** Generational wealth preservation and legacy governance.
-- **Management Consultancies:** Advanced tech-stack for institutional "Red Team" audits.
-
-## Technology Stack
-
-- **Generative AI:** Powered by Google Gemini for adversarial reasoning and contextual reframing.
-- **Prosody Engine:** Custom vocal analysis for conviction-intent gap detection.
-- **Cybernetic Diagnostics:** Based on Second-Order Cybernetics and Complexity Theory.
+## Institutional Infrastructure
+- [Full Knowledge Base](https://theunboundedleadership.com/llms-full.txt)
+- [Sitemap Registry](https://theunboundedleadership.com/sitemap.xml)
+- [Initiate Audit](https://theunboundedleadership.com/#assessment)

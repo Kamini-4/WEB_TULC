@@ -106,27 +106,29 @@ async function startServer() {
 
 > The definitive architecture for high-stakes leadership and institutional sovereignty.
 
-## Core Governance dispatches
+## Core Intellectual Dispatches
 - [Succession Architecture: Institutional Permanence](${host}/library/INT-001) - engineering handover sovereignty.
 - [The Cognitive Tax of Leadership](${host}/library/INT-002) - reclaiming 40% strategic bandwidth.
 - [Executive Bandwidth: Cognitive Equity Architecture](${host}/library/INT-004) - roadmap on reclaiming bandwidth.
 - [Institutional Lag: The Invisible Coefficient](${host}/library/INT-005) - forensic analysis of strategic friction.
 - [Architecture of Authority: Systemic Design](${host}/library/INT-010) - why systems outperform brands.
 
-## Sovereign Methodology
+## The Sovereign Protocol (Methodology)
 - Phase 01: The Substrate Audit [${host}/methodology]
 - Phase 02: Logic Gate Engineering [${host}/methodology]
 - Phase 03: Institutional Calibration [${host}/methodology]
 - Phase 04: Sovereign Handover [${host}/methodology]
 
-## Essential Strategic Domains
-1. Cognitive Clarity: Removal of 40% Cognitive Tax.
-2. Systemic Integrity: Zero intent dilution across global hubs.
+## Global Strategic Domains
+1. Cognitive Clarity: Removal of 40% Cognitive Tax through bandwidth architecture.
+2. Systemic Integrity: Zero intent dilution across global hubs (London, NYC, Singapore).
 3. Strategic Velocity: 3x decision-to-execution compression.
 4. Moral Gravity: The non-negotiable ethical substrate.
-5. Cultural Fidelity: Autonomous governance reproducibility.
+5. Cultural Fidelity: Autonomous governance and infinite resonance.
 
-## Fiduciary Contact
+## Institutional Infrastructure
+- [Full Knowledge Base](${host}/llms-full.txt)
+- [Sitemap Registry](${host}/sitemap.xml)
 - [Initiate Audit](${host}/#assessment)
 `);
   });
@@ -265,27 +267,43 @@ function serveStatic(app: express.Express) {
 
       if (articleIdMatch && registry[articleIdMatch[1]]) {
         const metadata = registry[articleIdMatch[1]];
+        const schema = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": metadata.title,
+          "description": metadata.description,
+          "author": { "@type": "Organization", "name": "The Unbounded Leadership Co." },
+          "publisher": { "@type": "Organization", "name": "The Unbounded Leadership Co." }
+        });
         hydratedHtml = hydratedHtml
-          .replace(/<title>.*?<\/title>/i, `<title>${metadata.title} | The Unbounded Registry</title>`)
-          .replace(/<meta name="description" content=".*?"\/?>/i, `<meta name="description" content="${metadata.description}">`);
+          .replace(/<title>.*?<\/title>/i, `<title>${metadata.title} | Leadership Architecture Intelligence</title>`)
+          .replace(/<meta name="description" content=".*?"\/?>/i, `<meta name="description" content="${metadata.description} Intelligence on Institutional Sovereignty.">`)
+          .replace('</head>', `<script type="application/ld+json">${schema}</script></head>`);
       } else if (url === '/' || url === '/index.html') {
+        const schema = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "The Unbounded Leadership Co.",
+          "description": "Definitive leadership architecture for elite principals. Reclaim strategic bandwidth and achieve institutional sovereignty."
+        });
         hydratedHtml = hydratedHtml
-          .replace(/<title>.*?<\/title>/i, '<title>The Unbounded Leadership Co. | The Definitive Executive Consultancy</title>')
-          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="The world\'s most sophisticated leadership consultancy for elite CEOs and founders. We engineer institutional sovereignty and reclaim strategic bandwidth.">');
+          .replace(/<title>.*?<\/title>/i, '<title>The Unbounded Leadership Co. | Leadership Architecture & Institutional Sovereignty</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="The definitive leadership architecture consultancy for elite principals. We engineering institutional sovereignty and reclaim strategic bandwidth for global market leaders.">')
+          .replace('</head>', `<script type="application/ld+json">${schema}</script></head>`);
       } else if (url.includes('/library')) {
         hydratedHtml = hydratedHtml
-          .replace(/<title>.*?<\/title>/i, '<title>The Registry | Unbounded Leadership Registry & Executive Consultancy dispatches</title>')
-          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="A curated archive of leadership architecture dispatches and strategic intelligence for sovereign leaders.">')
-          .replace(/<meta name="keywords" content=".*?"\/?>/i, '<meta name="keywords" content="leadership library, executive consultancy dispatches, institutional dispatches, leadership research, CEO intelligence">');
+          .replace(/<title>.*?<\/title>/i, '<title>Intellectual Authority | Global Leadership Registry & Research Hub</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Our primary archive of leadership architecture dispatches and strategic intelligence for sovereign institutional leaders. Forensic insights on bandwidth and friction.">')
+          .replace(/<meta name="keywords" content=".*?"\/?>/i, '<meta name="keywords" content="leadership library, leadership architecture dispatches, institutional dispatches, leadership research, CEO intelligence hub">');
       } else if (url.includes('/methodology')) {
         hydratedHtml = hydratedHtml
-          .replace(/<title>.*?<\/title>/i, '<title>The Sovereign Methodology | Architectural Leadership Consultancy</title>')
-          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Our formulaic approach to institutional stability: Baseline Audit, Structural Transformation, and Sustained Sovereignty.">')
-          .replace(/<meta name="keywords" content=".*?"\/?>/i, '<meta name="keywords" content="leadership methodology, consultancy framework, institutional transformation, sovereignty audit, leadership systems">');
+          .replace(/<title>.*?<\/title>/i, '<title>The Sovereign Protocol | Engineering Institutional Velocity</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Our formulaic Sovereign Protocol for institutional stabilization: Baseline Audit, Structural Transformation, and Sustained Sovereignty. Anti-fragile substrate design.">')
+          .replace(/<meta name="keywords" content=".*?"\/?>/i, '<meta name="keywords" content="leadership protocol, architecture framework, institutional transformation hub, sovereignty audit methodology, leadership velocity systems">');
       } else if (url.includes('/about')) {
         hydratedHtml = hydratedHtml
-          .replace(/<title>.*?<\/title>/i, '<title>About Us | The Premium Leadership Architecture Consultancy</title>')
-          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="We are the definitive leadership architecture consultancy for high-stakes principals.">');
+          .replace(/<title>.*?<\/title>/i, '<title>The Unbounded Philosophy | Architectural Leadership Excellence</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="We are the definitive leadership architecture consultancy for high-stakes principals. We engineering institutional permanence through systemic excellence.">');
       }
       
       res.send(hydratedHtml);

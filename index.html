@@ -13,37 +13,95 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#b8860b">
     
+    <!-- Global Targeting -->
+    <link rel="alternate" hreflang="en-US" href="https://theunboundedleadership.com">
+    <link rel="alternate" hreflang="en-GB" href="https://theunboundedleadership.com">
+    <link rel="alternate" hreflang="en-SG" href="https://theunboundedleadership.com">
+    <link rel="alternate" hreflang="x-default" href="https://theunboundedleadership.com">
+
     <meta property="og:title" content="The Unbounded Leadership Co. | Premium Executive Consultancy">
     <meta property="og:description" content="Definitive leadership architecture for elite principals. Reclaim strategic bandwidth and achieve institutional sovereignty.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://theunboundedleadership.com">
     <meta property="og:image" content="https://theunboundedleadership.com/og-image.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="The Unbounded Leadership">
+    
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@UnboundedLead">
     <meta name="twitter:title" content="The Unbounded Leadership Co. | Premium Executive Consultancy">
     <meta name="twitter:description" content="Architecture for high-stakes leadership. Systemic Physics. Zero Institutional Lag.">
     
     <!-- Google Site Verification -->
     <meta name="google-site-verification" content="REPLACE_WITH_YOUR_VERIFICATION_CODE" />
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Structured Data (JSON-LD): Multi-Hub Entity Definition -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "The Unbounded Leadership Co.",
-      "alternateName": "TULC Leadership Consultancy",
-      "url": "https://theunboundedleadership.com",
-      "logo": "https://theunboundedleadership.com/monogram.jpeg",
-      "description": "The definitive executive consultancy for leadership architecture and institutional sovereignty.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Unbounded Leadership"
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "The Unbounded Leadership Co.",
+        "alternateName": "TULC Leadership",
+        "url": "https://theunboundedleadership.com",
+        "logo": "https://theunboundedleadership.com/monogram.jpeg",
+        "description": "Premium executive consultancy specializing in leadership architecture, institutional sovereignty, and cognitive bandwidth reclamation for Tier-1 principals.",
+        "sameAs": [
+          "https://www.linkedin.com/company/theunboundedleadership",
+          "https://twitter.com/UnboundedLead"
+        ],
+        "knowsAbout": ["Leadership Architecture", "Institutional sovereignty", "Strategic Bandwidth", "Succession Planning", "Cognitive Equity"],
+        "areaServed": ["United Kingdom", "United States", "Singapore", "Switzerland", "United Arab Emirates"]
       },
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "Global"
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Executive Consultancy",
+        "provider": {
+          "@type": "Organization",
+          "name": "The Unbounded Leadership Co."
+        },
+        "description": "Architectural interventions for elite leadership. We neutralize institutional lag and reclaim strategic bandwidth at the principal level.",
+        "areaServed": "Global"
+      },
+      {
+        "@context": "https://schema.org",
+        "@id": "https://theunboundedleadership.com/#london",
+        "@type": "LocalBusiness",
+        "name": "The Unbounded Leadership - London Hub",
+        "image": "https://theunboundedleadership.com/monogram.jpeg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "London",
+          "addressCountry": "UK"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@id": "https://theunboundedleadership.com/#newyork",
+        "@type": "LocalBusiness",
+        "name": "The Unbounded Leadership - New York Hub",
+        "image": "https://theunboundedleadership.com/monogram.jpeg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "New York City",
+          "addressRegion": "NY",
+          "addressCountry": "US"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@id": "https://theunboundedleadership.com/#singapore",
+        "@type": "LocalBusiness",
+        "name": "The Unbounded Leadership - Singapore Hub",
+        "image": "https://theunboundedleadership.com/monogram.jpeg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Singapore",
+          "addressCountry": "SG"
+        }
       }
-    }
+    ]
     </script>
     
     <!-- Google Analytics (GA4) -->
