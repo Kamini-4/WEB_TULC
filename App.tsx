@@ -232,7 +232,6 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home onBriefClick={handleBriefClick} onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
         <Route path="/about" element={<About />} />
-        <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/library" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
         <Route path="/library/:articleId" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
         <Route path="/methodology" element={<MethodologyPage onBriefClick={handleBriefClick} />} />

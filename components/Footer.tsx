@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface FooterProps {
   onLegalClick: (type: 'disclosure' | 'terms' | 'disclaimer') => void;
@@ -75,18 +76,18 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
           </div>
           
           <div>
-            <h5 className="text-white text-[9px] sm:text-[11px] uppercase font-black mb-6 sm:mb-8 tracking-widest">Architecture</h5>
+            <h5 className="text-white text-[9px] sm:text-[11px] uppercase font-black mb-6 sm:mb-8 tracking-widest">Philosophy</h5>
             <ul className="text-white/30 text-[9px] sm:text-[11px] uppercase space-y-3 sm:space-y-4 font-bold tracking-widest">
-              <li><a href="#program" className="hover:text-[#b8860b] transition-colors">Interventions</a></li>
-              <li><a href="#outcomes" className="hover:text-[#b8860b] transition-colors">Outcome Vectors</a></li>
+              <li><Link to="/about" className="hover:text-[#b8860b] transition-colors uppercase">About the Firm</Link></li>
+              <li><Link to="/methodology" className="hover:text-[#b8860b] transition-colors uppercase">Our Methodology</Link></li>
             </ul>
           </div>
           
           <div>
-            <h5 className="text-white text-[9px] sm:text-[11px] uppercase font-black mb-6 sm:mb-8 tracking-widest">Intellect</h5>
+            <h5 className="text-white text-[9px] sm:text-[11px] uppercase font-black mb-6 sm:mb-8 tracking-widest">Intelligence</h5>
             <ul className="text-white/30 text-[9px] sm:text-[11px] uppercase space-y-3 sm:space-y-4 font-bold tracking-widest">
-              <li><a href="#registry" className="hover:text-[#b8860b] transition-colors">Blogs</a></li>
-              <li><a href="#insights" className="hover:text-[#b8860b] transition-colors">Sovereign Library</a></li>
+              <li><Link to="/library" className="hover:text-[#b8860b] transition-colors uppercase">Sovereign Library</Link></li>
+              <li><Link to="/registry" className="hover:text-[#b8860b] transition-colors uppercase">The Registry</Link></li>
             </ul>
           </div>
         </div>

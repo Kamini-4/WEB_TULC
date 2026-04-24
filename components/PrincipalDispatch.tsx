@@ -8,7 +8,7 @@ const PrincipalDispatch: React.FC = () => {
         <div className="grid lg:grid-cols-12 gap-10 sm:gap-16 items-center">
           <div className="lg:col-span-5 relative w-full max-w-[450px] mx-auto lg:mx-0">
             <VideoPlayer 
-              videoUrl="https://drive.google.com/file/d/13LDfQSPKLsWh-e4UxV-fYq_SlKJdOMlV/view?usp=drivesdk" 
+              videoUrl="https://drive.google.com/file/d/1435SE1X1AMP7jWn7Dwcqx9JD1kHtov7w/view?usp=drive_link" 
               aspectRatio="portrait"
               title="Sovereign Briefing"
               className="shadow-2xl border border-white/10"

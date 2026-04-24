@@ -44,7 +44,10 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               <p className="text-zinc-500 italic font-light leading-relaxed mb-8 text-sm">
                 An in-depth 45-page exploration of institutional lag, cognitive insolvency, and the cybernetic transition from Charismatic to Architectural Authority.
               </p>
-              <button className="text-[9px] font-black uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all">
+              <button 
+                onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                className="text-[9px] font-black uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
+              >
                 Download Briefing
               </button>
             </div>
@@ -55,7 +58,10 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               <p className="text-zinc-500 italic font-light leading-relaxed mb-8 text-sm">
                 Quantifying the metabolic burn rate of leadership and the systemic return on architectural integrity.
               </p>
-              <button className="text-[9px] font-black uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all">
+              <button 
+                onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                className="text-[9px] font-black uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
+              >
                 Download Briefing
               </button>
             </div>

@@ -22,10 +22,9 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
 
   const navItems = [
     { label: 'About', path: '/about' },
-    { label: 'Domains', path: '/#domains' },
     { label: 'Methodology', path: '/methodology' },
-    { label: 'Registry', path: '/library' },
-    { label: 'Case Studies', path: '/#registry' },
+    { label: 'Library', path: '/library' },
+    { label: 'Registry', path: '/registry' },
     { label: 'Portal', path: '/portal' },
   ];
 

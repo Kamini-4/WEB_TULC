@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import Markdown from 'react-markdown';
+import { Link } from 'react-router-dom';
 
 interface Article {
   id?: string;
@@ -60,7 +61,19 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
           <div className="prose prose-zinc lg:prose-xl max-w-none">
             {article.content.map((paragraph, idx) => (
               <div key={idx} className="mb-6 sm:mb-8">
-                <Markdown>{paragraph}</Markdown>
+                <Markdown
+                  components={{
+                    a: ({ node, ...props }) => {
+                      const isInternal = props.href?.startsWith('/');
+                      if (isInternal) {
+                        return <Link to={props.href!} className="text-[#b8860b] hover:underline font-bold" onClick={onClose}>{props.children}</Link>;
+                      }
+                      return <a {...props} className="text-[#b8860b] hover:underline" target="_blank" rel="noopener noreferrer" />;
+                    },
+                  }}
+                >
+                  {paragraph}
+                </Markdown>
               </div>
             ))}
           </div>

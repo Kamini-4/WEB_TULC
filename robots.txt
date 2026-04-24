@@ -5,7 +5,6 @@ Disallow: /private
 Disallow: /api
 
 # Sitemaps
-Sitemap: https://ais-pre-j5wzb57ujxgdnmfgekov73-34410849697.asia-southeast1.run.app/sitemap.xml
 Sitemap: https://theunboundedleadership.com/sitemap.xml
 
 # Security

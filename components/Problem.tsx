@@ -34,7 +34,7 @@ const Problem: React.FC = () => {
               {/* High Fidelity Video Player - Lazy Loaded to prevent browser-specific audio noise */}
               <div className="mb-8 w-full max-w-[480px]">
                 <VideoPlayer 
-                  videoUrl="https://drive.google.com/file/d/13LDfQSPKLsWh-e4UxV-fYq_SlKJdOMlV/view?usp=drivesdk" 
+                  videoUrl="https://drive.google.com/file/d/1435SE1X1AMP7jWn7Dwcqx9JD1kHtov7w/view?usp=drive_link" 
                   aspectRatio="portrait"
                   title="Institutional Briefing"
                   className="shadow-2xl border border-[#b8860b]/30"
