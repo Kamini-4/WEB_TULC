@@ -102,10 +102,18 @@ const DomainCard: React.FC<{ domain: Domain; index: number }> = ({ domain, index
       aria-label={`Sovereign Domain: ${domain.title}`}
     >
       <motion.div
-        className="relative w-full h-full transition-all duration-700"
-        style={{ transformStyle: 'preserve-3d' }}
+        className="relative w-full h-full shadow-2xl"
+        style={{ 
+          transformStyle: 'preserve-3d',
+          willChange: 'transform'
+        }}
+        initial={false}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        transition={{ 
+          type: "tween", 
+          ease: [0.23, 1, 0.32, 1], // Custom cubic-bezier for strategic motion
+          duration: 0.8 
+        }}
       >
         {/* Front Side */}
         <div 
