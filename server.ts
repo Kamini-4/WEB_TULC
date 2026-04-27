@@ -186,11 +186,12 @@ async function startServer() {
       const resendKey = process.env.RESEND_API_KEY;
       const adminEmail = process.env.VITE_ADMIN_EMAIL || 'suchita135sancheti@gmail.com';
 
-      const subject = type === 'CALIBRATION_REQUEST' 
+      // 1. Admin Notification Payload
+      const adminSubject = type === 'CALIBRATION_REQUEST' 
         ? `[PRIORITY] Alignment Request: ${name}` 
         : `[LEAD] New Sovereign Entry: ${name}`;
 
-      const html = `
+      const adminHtml = `
         <div style="font-family: serif; color: #111; max-width: 600px; border-left: 4px solid #b8860b; padding: 20px;">
           <h2 style="text-transform: uppercase; font-size: 10px; letter-spacing: 0.3em; color: #b8860b;">Institutional Intake Terminal</h2>
           <h1 style="font-size: 24px;">New Lead Dispatch</h1>
@@ -207,28 +208,73 @@ async function startServer() {
         </div>
       `;
 
-      console.log(`EMAIL_DISPATCH: To ${adminEmail} from ${email}`);
+      // 2. User Acknowledgment Payload (The "Office of the Principal" Look)
+      let userSubject = "Institutional Acknowledgment | The Unbounded Leadership Co.";
+      let userMessage = "We have received your dispatch. Your request is currently being processed by the Office of the Principal.";
+      
+      if (type === 'CALIBRATION_REQUEST') {
+        userSubject = "Calibration Confirmed | Institutional Sovereignty Architecture";
+        userMessage = `Your request for a structural alignment on ${selected_date} at ${selected_time} has been logged. A senior strategist will review your organizational profile shortly.`;
+      } else if (type === 'WAITLIST_ENTRY') {
+        userSubject = "Terminal Access: Protocol Sequential | Waiting List Acknowledged";
+        userMessage = "You have been successfully added to our Sovereign Waiting List. Admission to the full Architectural Audit is strictly sequenced based on institutional readiness.";
+      } else if (type === 'ASSESSMENT_COMPLETED') {
+        userSubject = "Sovereign Audit Complete | Institutional Diagnostic Report";
+        userMessage = "Your institutional diagnostic data has been synthesized. Our team is reviewing your results to identify the primary friction points in your leadership architecture.";
+      }
+
+      const userHtml = `
+        <div style="font-family: 'Times New Roman', serif; color: #1a1a1a; max-width: 600px; margin: 0 auto; padding: 40px; border: 1px solid #eee; line-height: 1.6;">
+          <div style="text-align: center; margin-bottom: 40px;">
+            <div style="font-size: 14px; letter-spacing: 0.4em; text-transform: uppercase; color: #b8860b; border-bottom: 1px solid #b8860b; display: inline-block; padding-bottom: 5px; margin-bottom: 10px;">The Unbounded Leadership Co.</div>
+            <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #999;">Office of the Principal | Institutional Sovereignty</div>
+          </div>
+          
+          <p style="font-size: 16px; margin-bottom: 20px;">Dear ${name},</p>
+          
+          <p style="margin-bottom: 25px;">${userMessage}</p>
+          
+          <p style="margin-bottom: 25px;">At <strong>The Unbounded Leadership Co.</strong>, we understand that high-stakes leadership requires a substrate of absolute clarity. Your interest in our architecture indicates a commitment to reclaiming both bandwidth and institutional permanence.</p>
+          
+          <p style="margin-bottom: 25px;">Should your profile align with our current capacity for structural transformation, a representative will reach out to facilitate the next logic gate in our engagement protocol.</p>
+          
+          <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee;">
+            <p style="font-size: 14px; margin: 0;">Sincerely,</p>
+            <p style="font-size: 14px; font-weight: bold; margin: 5px 0 0 0; color: #b8860b;">The Office of the Principal</p>
+            <p style="font-size: 12px; color: #999; margin: 5px 0 0 0;">London • Singapore • New York</p>
+          </div>
+          
+          <div style="margin-top: 40px; font-size: 10px; color: #ccc; text-align: center; letter-spacing: 0.1em;">
+            CONFIDENTIALITY NOTICE: This dispatch is intended solely for the addressee and contains proprietary institutional intelligence.
+          </div>
+        </div>
+      `;
+
+      console.log(`EMAIL_DISPATCH_ORCHESTRATION: Initiating dual-delivery for ${email}`);
 
       if (resendKey) {
         const resend = new Resend(resendKey);
-        const { error } = await resend.emails.send({
+        
+        // Notify Admin
+        await resend.emails.send({
           from: 'The Unbounded Leadership Co. <concierge@theunboundedleadership.com>',
           to: [adminEmail],
           reply_to: email,
-          subject: subject,
-          html: html,
+          subject: adminSubject,
+          html: adminHtml,
         });
 
-        if (error) {
-          console.error('Resend Error:', error);
-          // Don't fail the request, just log it. The data is already in Firebase.
-        }
+        // Acknowledge User (The Premium Touch)
+        await resend.emails.send({
+          from: 'Office of the Principal <concierge@theunboundedleadership.com>',
+          to: [email],
+          subject: userSubject,
+          html: userHtml,
+        });
+
+        console.log(`EMAIL_DISPATCH_SUCCESS: Admin notified and User acknowledged.`);
       } else {
-        console.warn('RESEND_API_KEY not configured. Email logged to console but not transmitted.');
-        console.log('--- EMAIL CONTENT START ---');
-        console.log('Subject:', subject);
-        console.log('Body:', html);
-        console.log('--- EMAIL CONTENT END ---');
+        console.warn('RESEND_API_KEY NOT CONFIGURED.');
       }
 
       res.json({ success: true });
@@ -364,6 +410,15 @@ function serveStatic(app: express.Express) {
         hydratedHtml = hydratedHtml
           .replace(/<title>.*?<\/title>/i, '<title>The Unbounded Philosophy | Architectural Leadership Excellence</title>')
           .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="We are the definitive leadership architecture consultancy for high-stakes principals. We engineering institutional permanence through systemic excellence.">');
+      } else if (url.includes('/assessment')) {
+        hydratedHtml = hydratedHtml
+          .replace(/<title>.*?<\/title>/i, '<title>Institutional Diagnostic | The Sovereign Audit Audit</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Execute a high-fidelity audit of your leadership architecture. Identify cognitive tax, institutional lag, and substrate friction.">')
+          .replace(/<meta name="keywords" content=".*?"\/?>/i, '<meta name="keywords" content="leadership audit, institutional diagnostic, cognitive tax assessment, leadership friction analysis">');
+      } else if (url.includes('/contact')) {
+        hydratedHtml = hydratedHtml
+          .replace(/<title>.*?<\/title>/i, '<title>Initiate Handover | Office of the Principal</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Connect with The Unbounded Leadership Co. regarding institutional strategy, succession architecture, or high-stakes alignment.">');
       }
       
       res.send(hydratedHtml);

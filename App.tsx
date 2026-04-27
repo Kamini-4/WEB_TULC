@@ -9,6 +9,7 @@ import Home from './src/pages/Home.tsx';
 import About from './src/pages/About.tsx';
 import Library from './src/pages/Library.tsx';
 import MethodologyPage from './src/pages/MethodologyPage.tsx';
+import AssessmentPage from './src/pages/AssessmentPage.tsx';
 import Portal from './src/pages/Portal.tsx';
 import ArticleView from './components/ArticleView.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
@@ -234,6 +235,7 @@ const App: React.FC = () => {
         <Route path="/library" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
         <Route path="/library/:articleId" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
         <Route path="/methodology" element={<MethodologyPage onBriefClick={handleBriefClick} />} />
+        <Route path="/assessment" element={<AssessmentPage />} />
         <Route path="/portal" element={<Portal />} />
       </Routes>
     );
