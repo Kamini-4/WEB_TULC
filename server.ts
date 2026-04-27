@@ -212,7 +212,7 @@ async function startServer() {
       if (resendKey) {
         const resend = new Resend(resendKey);
         const { error } = await resend.emails.send({
-          from: 'TULC Intelligence <onboarding@resend.dev>',
+          from: 'The Unbounded Leadership Co. <concierge@theunboundedleadership.com>',
           to: [adminEmail],
           reply_to: email,
           subject: subject,
