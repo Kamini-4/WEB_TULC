@@ -341,6 +341,16 @@ async function startServer() {
     }
   });
 
+  // Sitemap
+  app.get('/sitemap.xml', (req, res) => {
+    const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
+    if (fs.existsSync(sitemapPath)) {
+      res.sendFile(sitemapPath);
+    } else {
+      res.status(404).send('Sitemap not found');
+    }
+  });
+
   if (useVite) {
     // Vite middleware for development
     console.log('Starting in DEVELOPMENT mode (Vite Middleware)');

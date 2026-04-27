@@ -1,17 +1,97 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useParams, useNavigate } from 'react-router-dom';
 import Insights from '../../components/Insights.tsx';
 import Blog from '../../components/Blog.tsx';
+
+// Collective Intelligence Database for SEO resolution
+const ALL_ARTICLES: any[] = [
+  // Insights
+  { id: "INT-010", title: "The Architecture of Authority", category: "Systems Design", excerpt: "Analyzing the transition points where institutional logic unlocks unprecedented organizational growth." },
+  { id: "INT-011", title: "Strategic Substrates", category: "Cognitive Architecture", excerpt: "How aligning mental models at the board level yields compounding institutional velocity." },
+  { id: "INT-012", title: "Sovereign Leadership", category: "Future of Governance", excerpt: "Transitioning from individual effort to systemic intelligence as the core competitive advantage." },
+  // Methodology Phases
+  { id: "PHASE-01", title: "The Substrate Audit", category: "Methodology Phase 01" },
+  { id: "PHASE-02", title: "Logic Gate Engineering", category: "Methodology Phase 02" },
+  { id: "PHASE-03", title: "Institutional Calibration", category: "Methodology Phase 03" },
+  { id: "PHASE-04", title: "Sovereign Handover", category: "Methodology Phase 04" }
+];
 
 interface LibraryProps {
   onArticleClick: (article: any) => void;
 }
 
 const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
+  const { articleId } = useParams<{ articleId: string }>();
+  const navigate = useNavigate();
+
+  // Detect and resolve article from URL on load
+  useEffect(() => {
+    if (articleId) {
+      // Find article based on ID
+      // This is a simplified resolution; ideally articles are shared via a service
+      // But for this project, standardizing IDs is key for SEO.
+      // We look in ALL_ARTICLES to find the metadata
+      const found = ALL_ARTICLES.find(a => a.id === articleId);
+      if (found) {
+        // Map back to the full article object (handled in App.tsx or sub-components)
+        // Since onArticleClick is passed from App.tsx, calling it with the ID
+        // will trigger handleOpenArticle in App.tsx
+        onArticleClick(found);
+      }
+    }
+  }, [articleId, onArticleClick]);
+
+  const handleDownload = (title: string, summary: string) => {
+    const printWindow = window.open('', '_blank');
+    if (printWindow) {
+      printWindow.document.write(`
+        <html>
+          <head>
+            <title>${title}</title>
+            <style>
+              body { font-family: 'Times New Roman', serif; padding: 50px; line-height: 1.6; color: #1a1a1a; }
+              .header { border-bottom: 2px solid #b8860b; padding-bottom: 20px; margin-bottom: 30px; }
+              .logo { font-size: 14px; letter-spacing: 0.4em; text-transform: uppercase; color: #b8860b; margin-bottom: 10px; }
+              .title { font-size: 32px; font-weight: bold; margin: 0; }
+              .summary { font-style: italic; font-size: 18px; color: #444; margin-bottom: 40px; }
+              .content { font-size: 16px; }
+              .footer { margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px; font-size: 10px; color: #999; text-align: center; }
+            </style>
+          </head>
+          <body>
+            <div class="header">
+              <div class="logo">The Unbounded Leadership Co.</div>
+              <h1 class="title">${title}</h1>
+            </div>
+            <div class="summary">${summary}</div>
+            <div class="content">
+              <p>This document is an executive summary of the proprietary architectural audit conducted by The Unbounded Leadership Co.</p>
+              <p>Our methodology focuses on the elimination of cognitive friction and the engineering of institutional permanence. By transitioning from heroic leadership to architectural governance, organizations can achieve a state of sovereign momentum.</p>
+              <p>For the full 45-page white paper and technical substrate analysis, please contact the Office of the Principal directly or authenticate via the Sovereign Portal.</p>
+            </div>
+            <div class="footer">
+              CONFIDENTIAL • PROPRIETARY INTELLIGENCE • LONDON • NEW YORK • SINGAPORE
+            </div>
+            <script>
+              window.onload = function() { window.print(); window.close(); }
+            </script>
+          </body>
+        </html>
+      `);
+      printWindow.document.close();
+    }
+  };
+
   return (
     <div className="bg-[#0a0a0a] min-h-screen pt-24 pb-24 text-white">
       <div className="max-w-7xl mx-auto px-6">
+        <nav className="flex items-center gap-2 text-[8px] uppercase tracking-[0.3em] font-black text-zinc-500 mb-8">
+          <a href="/" className="hover:text-[#b8860b] transition-colors">Home</a>
+          <span className="text-zinc-700">/</span>
+          <span className="text-[#b8860b]">Library</span>
+        </nav>
         <header className="mb-16">
           <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-6">Intellectual Authority</h2>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
@@ -45,7 +125,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 An in-depth 45-page exploration of institutional lag, cognitive insolvency, and the cybernetic transition from Charismatic to Architectural Authority.
               </p>
               <button 
-                onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => handleDownload('Sovereign Protocol: A Total Architectural Audit', 'An in-depth 45-page exploration of institutional lag, cognitive insolvency, and the cybernetic transition from Charismatic to Architectural Authority.')}
                 className="text-[9px] font-black uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
               >
                 Download Briefing
@@ -59,7 +139,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 Quantifying the metabolic burn rate of leadership and the systemic return on architectural integrity.
               </p>
               <button 
-                onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => handleDownload('Cognitive Equity: Reclaiming the Architect\'s Seat', 'Quantifying the metabolic burn rate of leadership and the systemic return on architectural integrity.')}
                 className="text-[9px] font-black uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
               >
                 Download Briefing
