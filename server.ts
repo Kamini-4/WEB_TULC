@@ -251,28 +251,61 @@ async function startServer() {
       `;
 
       console.log(`EMAIL_DISPATCH_ORCHESTRATION: Initiating dual-delivery for ${email}`);
+      console.log(`DEBUG: resendKey exists? ${!!resendKey}, adminEmail: ${adminEmail}`);
 
       if (resendKey) {
         const resend = new Resend(resendKey);
         
-        // Notify Admin
-        await resend.emails.send({
-          from: 'The Unbounded Leadership Co. <concierge@theunboundedleadership.com>',
-          to: [adminEmail],
-          reply_to: email,
-          subject: adminSubject,
-          html: adminHtml,
-        });
+        try {
+          const sender = 'concierge@theunboundedleadership.com';
+          const fallbackSender = 'onboarding@resend.dev';
 
-        // Acknowledge User (The Premium Touch)
-        await resend.emails.send({
-          from: 'Office of the Principal <concierge@theunboundedleadership.com>',
-          to: [email],
-          subject: userSubject,
-          html: userHtml,
-        });
+          // Notify Admin
+          console.log('Attempting Admin Notification...');
+          const adminResult = await resend.emails.send({
+            from: sender,
+            to: [adminEmail],
+            reply_to: email,
+            subject: adminSubject,
+            html: adminHtml,
+          }).catch(async (e) => {
+            console.warn('Primary sender failed for admin, attempting fallback...', e);
+            return await resend.emails.send({
+              from: fallbackSender,
+              to: [adminEmail],
+              reply_to: email,
+              subject: adminSubject,
+              html: adminHtml,
+            });
+          });
 
-        console.log(`EMAIL_DISPATCH_SUCCESS: Admin notified and User acknowledged.`);
+          if (adminResult.error) {
+            console.error('RESEND_ADMIN_ERROR:', JSON.stringify(adminResult.error));
+          } else {
+            console.log('RESEND_ADMIN_SUCCESS:', adminResult.data?.id);
+          }
+
+          // Acknowledge User (The Premium Touch)
+          console.log(`Attempting User Acknowledgment to: ${email}`);
+          const userResult = await resend.emails.send({
+            from: sender, // Use same simplified sender
+            to: [email],
+            subject: userSubject,
+            html: userHtml,
+          }).catch(e => {
+            console.error('USER_ACK_PROMISE_REJECTION:', e);
+            return { error: e };
+          });
+
+          if (userResult.error) {
+            console.error('RESEND_USER_ERROR:', JSON.stringify(userResult.error));
+          } else {
+            console.log('RESEND_USER_SUCCESS:', userResult.data?.id);
+          }
+
+        } catch (err) {
+          console.error('RESEND_FATAL_ERROR_IN_TRY_BLOCK:', err);
+        }
       } else {
         console.warn('RESEND_API_KEY NOT CONFIGURED.');
       }
