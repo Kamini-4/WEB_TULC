@@ -185,6 +185,10 @@ async function startServer() {
       const { name, email, organization, role, message, type, selected_date, selected_time } = req.body;
       const resendKey = process.env.RESEND_API_KEY;
       const adminEmail = process.env.VITE_ADMIN_EMAIL || 'suchita135sancheti@gmail.com';
+      const senderEmail = process.env.VITE_SENDER_EMAIL || 'concierge@theunboundedleadership.com';
+      const senderName = process.env.VITE_SENDER_NAME || 'The Unbounded Leadership Co.';
+      // Note: If the domain above is not verified in Resend, these will fail.
+      const sender = `${senderName} <${senderEmail}>`; 
 
       // 1. Admin Notification Payload
       const adminSubject = type === 'CALIBRATION_REQUEST' 
@@ -257,19 +261,18 @@ async function startServer() {
         const resend = new Resend(resendKey);
         
         try {
-          const sender = 'concierge@theunboundedleadership.com';
           const fallbackSender = 'onboarding@resend.dev';
 
           // Notify Admin
-          console.log('Attempting Admin Notification...');
+          console.log(`[MAIL] Attempting Admin Notification to ${adminEmail} from ${sender}...`);
           const adminResult = await resend.emails.send({
             from: sender,
             to: [adminEmail],
             reply_to: email,
             subject: adminSubject,
             html: adminHtml,
-          }).catch(async (e) => {
-            console.warn('Primary sender failed for admin, attempting fallback...', e);
+          }).catch(async (e: any) => {
+            console.warn('[MAIL] Primary sender failed for admin. Likely domain is not verified in Resend. Attempting fallback sender (onboarding@resend.dev)...', e.message);
             return await resend.emails.send({
               from: fallbackSender,
               to: [adminEmail],
@@ -280,34 +283,37 @@ async function startServer() {
           });
 
           if (adminResult.error) {
-            console.error('RESEND_ADMIN_ERROR:', JSON.stringify(adminResult.error));
+            console.error('[MAIL] ADMIN_DISPATCH_FAILED:', JSON.stringify(adminResult.error));
+            console.error('[MAIL] CONFIG_TIPS: If error 403, verify the "to" email is verified in Resend or domain is verified.');
           } else {
-            console.log('RESEND_ADMIN_SUCCESS:', adminResult.data?.id);
+            console.log('[MAIL] ADMIN_DISPATCH_SUCCESS:', adminResult.data?.id);
           }
 
           // Acknowledge User (The Premium Touch)
-          console.log(`Attempting User Acknowledgment to: ${email}`);
+          console.log(`[MAIL] Attempting User Acknowledgment to: ${email} from ${sender}...`);
           const userResult = await resend.emails.send({
-            from: sender, // Use same simplified sender
+            from: sender,
             to: [email],
+            reply_to: adminEmail,
             subject: userSubject,
             html: userHtml,
           }).catch(e => {
-            console.error('USER_ACK_PROMISE_REJECTION:', e);
+            console.error('[MAIL] USER_ACK_CRITICAL_FAILURE:', e);
+            console.error('[MAIL] CONFIG_TIPS: User emails CANNOT be sent using onboarding@resend.dev unless they are verified in your Resend account. You MUST verify the domain "theunboundedleadership.com" in Resend to send these emails.');
             return { error: e };
           });
 
           if (userResult.error) {
-            console.error('RESEND_USER_ERROR:', JSON.stringify(userResult.error));
+            console.error('[MAIL] USER_ACK_FAILED:', JSON.stringify(userResult.error));
           } else {
-            console.log('RESEND_USER_SUCCESS:', userResult.data?.id);
+            console.log('[MAIL] USER_ACK_SUCCESS:', userResult.data?.id);
           }
 
         } catch (err) {
-          console.error('RESEND_FATAL_ERROR_IN_TRY_BLOCK:', err);
+          console.error('[MAIL] UNCAUGHT_RESEND_ERROR:', err);
         }
       } else {
-        console.warn('RESEND_API_KEY NOT CONFIGURED.');
+        console.warn('[MAIL] SKIPPING: RESEND_API_KEY is not defined in environment.');
       }
 
       res.json({ success: true });
