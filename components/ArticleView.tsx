@@ -32,7 +32,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
 
   if (!article) return null;
 
-  const shareUrl = window.location.origin + (article.id ? `/library/${article.id}` : '/library');
+  const shareUrl = 'https://theunboundedleadership.com' + (article.id ? `/library/${article.id}` : '/library');
   const shareTitle = `${article.title} | The Unbounded Leadership Co.`;
 
   const handleCopyLink = () => {
