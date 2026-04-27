@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import emailjs from '@emailjs/browser';
 
 interface CalibrationSchedulerProps {
   onClose: () => void;
@@ -46,26 +45,18 @@ const CalibrationScheduler: React.FC<CalibrationSchedulerProps> = ({ onClose, le
     setIsSubmitting(true);
     
     try {
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-      if (serviceId && templateId && publicKey) {
-        await emailjs.send(
-          serviceId,
-          templateId,
-          {
-            from_name: leadData.name,
-            from_email: leadData.email,
-            organization: leadData.organization,
-            selected_date: selectedDate,
-            selected_time: selectedTime,
-            type: 'CALIBRATION_REQUEST',
-            to_email: import.meta.env.VITE_ADMIN_EMAIL || 'suchita135sancheti@gmail.com',
-          },
-          publicKey
-        );
-      }
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: leadData.name,
+          email: leadData.email,
+          organization: leadData.organization,
+          selected_date: selectedDate,
+          selected_time: selectedTime,
+          type: 'CALIBRATION_REQUEST'
+        })
+      });
       setStep('confirmation');
     } catch (error) {
       console.error("Scheduling Request Failed:", error);

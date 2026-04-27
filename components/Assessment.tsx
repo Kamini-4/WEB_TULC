@@ -172,6 +172,19 @@ const Assessment: React.FC = () => {
 
       if (result?.id) {
         setAssessmentId(result.id);
+        
+        // Notify Admin
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: identity.name,
+            email: identity.email,
+            organization: identity.organization,
+            message: `Free Assessment Completed. Total Score: ${totalScore}, Grade: ${getGrade()}`,
+            type: 'ASSESSMENT_COMPLETED'
+          })
+        }).catch(err => console.error("Assessment notify failed", err));
       }
 
       // Simulate cinematic calculation

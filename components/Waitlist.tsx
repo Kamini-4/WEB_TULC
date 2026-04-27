@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { SovereignDB } from '../lib/database.ts';
-import emailjs from '@emailjs/browser';
 
 const ledgerMessages = [
   "INITIALIZING_HANDSHAKE...",
@@ -40,26 +39,19 @@ const Waitlist: React.FC = () => {
     });
 
     try {
-      // Trigger Real-time Notification via EmailJS (Front-end Only)
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-      if (serviceId && templateId && publicKey) {
-        await emailjs.send(
-          serviceId,
-          templateId,
-          {
-            from_name: formData.name,
-            from_email: formData.email,
-            organization: formData.organization,
-            role: formData.role,
-            message: formData.message,
-            to_email: import.meta.env.VITE_ADMIN_EMAIL || 'suchita135sancheti@gmail.com',
-          },
-          publicKey
-        );
-      }
+      // Trigger Real-time Notification via Backend API
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          organization: formData.organization,
+          role: formData.role,
+          message: formData.message,
+          type: 'WAITLIST_ENTRY'
+        })
+      });
     } catch (error) {
       console.error("Notification Transmission Failed:", error);
     }

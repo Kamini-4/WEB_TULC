@@ -18,6 +18,20 @@ const Newsletter: React.FC = () => {
         role: 'Subscriber',
         message: 'Subscribed to Institutional Dispatches'
       });
+
+      // Notify Admin
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: 'Newsletter Subscriber',
+          email: email,
+          organization: 'N/A',
+          message: 'New Newsletter Subscription',
+          type: 'NEWSLETTER_SUBSCRIPTION'
+        })
+      });
+
       setStatus('success');
       setEmail('');
     } catch (error) {

@@ -3,6 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { GoogleGenAI } from "@google/genai";
+import { Resend } from 'resend';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -175,6 +176,65 @@ async function startServer() {
     } catch (error: any) {
       console.error('IndexNow Error:', error);
       res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Institutional Post Dispatch: Multi-Channel Notify (Resend Integration)
+  app.post('/api/contact', async (req, res) => {
+    try {
+      const { name, email, organization, role, message, type, selected_date, selected_time } = req.body;
+      const resendKey = process.env.RESEND_API_KEY;
+      const adminEmail = process.env.VITE_ADMIN_EMAIL || 'suchita135sancheti@gmail.com';
+
+      const subject = type === 'CALIBRATION_REQUEST' 
+        ? `[PRIORITY] Alignment Request: ${name}` 
+        : `[LEAD] New Sovereign Entry: ${name}`;
+
+      const html = `
+        <div style="font-family: serif; color: #111; max-width: 600px; border-left: 4px solid #b8860b; padding: 20px;">
+          <h2 style="text-transform: uppercase; font-size: 10px; letter-spacing: 0.3em; color: #b8860b;">Institutional Intake Terminal</h2>
+          <h1 style="font-size: 24px;">New Lead Dispatch</h1>
+          <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
+          <p><strong>Principal:</strong> ${name}</p>
+          <p><strong>Identity:</strong> ${email}</p>
+          <p><strong>Organization:</strong> ${organization}</p>
+          ${role ? `<p><strong>Role:</strong> ${role}</p>` : ''}
+          ${selected_date ? `<p><strong>Requested Window:</strong> ${selected_date} at ${selected_time}</p>` : ''}
+          <div style="margin-top: 20px; padding: 15px; background: #f9f9f9; font-style: italic;">
+            ${message || 'No message provided.'}
+          </div>
+          <p style="font-size: 10px; color: #999; margin-top: 30px; letter-spacing: 0.1em;">© 2026 The Unbounded Leadership Co. | Global Leadership Architecture</p>
+        </div>
+      `;
+
+      console.log(`EMAIL_DISPATCH: To ${adminEmail} from ${email}`);
+
+      if (resendKey) {
+        const resend = new Resend(resendKey);
+        const { error } = await resend.emails.send({
+          from: 'TULC Intelligence <onboarding@resend.dev>',
+          to: [adminEmail],
+          reply_to: email,
+          subject: subject,
+          html: html,
+        });
+
+        if (error) {
+          console.error('Resend Error:', error);
+          // Don't fail the request, just log it. The data is already in Firebase.
+        }
+      } else {
+        console.warn('RESEND_API_KEY not configured. Email logged to console but not transmitted.');
+        console.log('--- EMAIL CONTENT START ---');
+        console.log('Subject:', subject);
+        console.log('Body:', html);
+        console.log('--- EMAIL CONTENT END ---');
+      }
+
+      res.json({ success: true });
+    } catch (error: any) {
+      console.error('Contact API Error:', error);
+      res.status(500).json({ error: 'Internal Signal Failure' });
     }
   });
 

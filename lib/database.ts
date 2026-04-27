@@ -186,7 +186,12 @@ export const SovereignDB = {
     const path = 'leads';
     const q = query(collection(db, path), orderBy('timestamp', 'desc'));
     return onSnapshot(q, (snapshot) => {
-      const leads = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as LeadEntry));
+      const leads = snapshot.docs.map(doc => {
+        const data = doc.data();
+        // Convert Firestore Timestamp to number for consistent UI handling
+        const timestamp = data.timestamp?.toMillis ? data.timestamp.toMillis() : data.timestamp;
+        return { ...data, id: doc.id, timestamp } as LeadEntry;
+      });
       callback(leads);
     }, (error) => {
       handleFirestoreError(error, OperationType.LIST, path);
@@ -197,7 +202,11 @@ export const SovereignDB = {
     const path = 'assessments';
     const q = query(collection(db, path), orderBy('timestamp', 'desc'));
     return onSnapshot(q, (snapshot) => {
-      const assessments = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as AssessmentEntry));
+      const assessments = snapshot.docs.map(doc => {
+        const data = doc.data();
+        const timestamp = data.timestamp?.toMillis ? data.timestamp.toMillis() : data.timestamp;
+        return { ...data, id: doc.id, timestamp } as AssessmentEntry;
+      });
       callback(assessments);
     }, (error) => {
       handleFirestoreError(error, OperationType.LIST, path);
@@ -208,7 +217,11 @@ export const SovereignDB = {
     const path = 'blog';
     const q = query(collection(db, path), orderBy('timestamp', 'desc'));
     return onSnapshot(q, (snapshot) => {
-      const posts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as BlogEntry));
+      const posts = snapshot.docs.map(doc => {
+        const data = doc.data();
+        const timestamp = data.timestamp?.toMillis ? data.timestamp.toMillis() : data.timestamp;
+        return { ...data, id: doc.id, timestamp } as BlogEntry;
+      });
       callback(posts);
     }, (error) => {
       handleFirestoreError(error, OperationType.LIST, path);
@@ -219,18 +232,22 @@ export const SovereignDB = {
     const path = 'leads';
     try {
       const snapshot = await getDocs(collection(db, path));
-      const leads = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as LeadEntry));
+      const leads = snapshot.docs.map(doc => {
+        const data = doc.data();
+        const timestamp = data.timestamp?.toMillis ? data.timestamp.toMillis() : data.timestamp;
+        return { ...data, id: doc.id, timestamp } as LeadEntry;
+      });
       
       if (leads.length === 0) return null;
 
       const headers = ['ID', 'Timestamp', 'Name', 'Email', 'Organization', 'Message'];
       const rows = leads.map(l => [
         l.id,
-        new Date(l.timestamp).toISOString(),
+        l.timestamp ? new Date(l.timestamp).toISOString() : 'N/A',
         l.name,
         l.email,
         l.organization,
-        l.message.replace(/,/g, ';')
+        l.message ? l.message.replace(/,/g, ';') : ''
       ]);
 
       const csvContent = [headers, ...rows].map(e => e.join(",")).join("\n");
