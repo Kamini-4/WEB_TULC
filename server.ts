@@ -213,18 +213,22 @@ async function startServer() {
       `;
 
       // 2. User Acknowledgment Payload (The "Office of the Principal" Look)
-      let userSubject = "Institutional Acknowledgment | The Unbounded Leadership Co.";
-      let userMessage = "We have received your dispatch. Your request is currently being processed by the Office of the Principal.";
+      let userSubject = "Dispatch Acknowledged | Potential Strategic Yield: +40% Bandwidth";
+      let userHeadline = "Your institutional audit has been initiated.";
+      let userMessage = "Our methodology focuses on reclaiming 40% of your cognitive capacity—the direct path to doubling institutional yield and engineering permanent market leadership.";
       
       if (type === 'CALIBRATION_REQUEST') {
-        userSubject = "Calibration Confirmed | Institutional Sovereignty Architecture";
-        userMessage = `Your request for a structural alignment on ${selected_date} at ${selected_time} has been logged. A senior strategist will review your organizational profile shortly.`;
+        userSubject = "Calibration Confirmed | Strategic Yield Engineering Initiated";
+        userHeadline = "Your structural alignment session is confirmed.";
+        userMessage = `Your requested window on ${selected_date} at ${selected_time} is logged for architectural review. This calibration is the first step toward transforming your organization into a zero-latency engine that converts intent into revenue with absolute fidelity.`;
       } else if (type === 'WAITLIST_ENTRY') {
-        userSubject = "Terminal Access: Protocol Sequential | Waiting List Acknowledged";
-        userMessage = "You have been successfully added to our Sovereign Waiting List. Admission to the full Architectural Audit is strictly sequenced based on institutional readiness.";
+        userSubject = "Terminal Access Verified | Institutional Sovereignty Protocol";
+        userHeadline = "You are now eligible for structural transformation.";
+        userMessage = "You have been added to the Sovereign Waiting List. Admission is sequenced by institutional readiness, ensuring that we only engage when your organization is primed for a 2.5x increase in strategic velocity and undisputed market authority.";
       } else if (type === 'ASSESSMENT_COMPLETED') {
-        userSubject = "Sovereign Audit Complete | Institutional Diagnostic Report";
-        userMessage = "Your institutional diagnostic data has been synthesized. Our team is reviewing your results to identify the primary friction points in your leadership architecture.";
+        userSubject = "Audit Synthesized | Institutional Friction & Yield Potential Report";
+        userHeadline = "Your leadership architecture has been forensically analyzed.";
+        userMessage = "We have quantified your 'Cognitive Tax.' By neutralizing the tactical noise identified in your assessment, you are positioned to reclaim billions in 'Cognitive Equity' and shift from management to pure architectural command.";
       }
 
       const userHtml = `
@@ -234,13 +238,15 @@ async function startServer() {
             <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #999;">Office of the Principal | Institutional Sovereignty</div>
           </div>
           
-          <p style="font-size: 16px; margin-bottom: 20px;">Dear ${name},</p>
+          <h1 style="font-size: 22px; margin-bottom: 20px; font-weight: bold; color: #111;">${userHeadline}</h1>
           
-          <p style="margin-bottom: 25px;">${userMessage}</p>
+          <p style="font-size: 16px; margin-bottom: 25px;">Dear ${name},</p>
           
-          <p style="margin-bottom: 25px;">At <strong>The Unbounded Leadership Co.</strong>, we understand that high-stakes leadership requires a substrate of absolute clarity. Your interest in our architecture indicates a commitment to reclaiming both bandwidth and institutional permanence.</p>
+          <p style="margin-bottom: 25px; font-size: 18px; font-style: italic; color: #333;">${userMessage}</p>
           
-          <p style="margin-bottom: 25px;">Should your profile align with our current capacity for structural transformation, a representative will reach out to facilitate the next logic gate in our engagement protocol.</p>
+          <p style="margin-bottom: 25px;">At <strong>The Unbounded Leadership Co.</strong>, we recognize that high-stakes leadership is an engineering challenge. Our focus isn't just on incremental gains; it's on the complete removal of institutional friction so that every strategic move yields maximum market conversion and revenue growth.</p>
+          
+          <p style="margin-bottom: 25px;">A senior strategist is now reviewing your organizational telemetry. Should the audit reveal a substrate primed for transformation, we will facilitate the next logic gate in our engagement protocol.</p>
           
           <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee;">
             <p style="font-size: 14px; margin: 0;">Sincerely,</p>
@@ -249,7 +255,7 @@ async function startServer() {
           </div>
           
           <div style="margin-top: 40px; font-size: 10px; color: #ccc; text-align: center; letter-spacing: 0.1em;">
-            CONFIDENTIALITY NOTICE: This dispatch is intended solely for the addressee and contains proprietary institutional intelligence.
+            CONFIDENTIALITY NOTICE: This dispatch contains proprietary institutional intelligence and is intended strictly for ${email}.
           </div>
         </div>
       `;
@@ -264,7 +270,7 @@ async function startServer() {
           const fallbackSender = 'onboarding@resend.dev';
 
           // Notify Admin
-          console.log(`[MAIL] Attempting Admin Notification to ${adminEmail} from ${sender}...`);
+          console.log(`[MAIL] DISPATCH_SEQUENCE_START: Attempting Admin Notification to ${adminEmail} from ${sender}...`);
           const adminResult = await resend.emails.send({
             from: sender,
             to: [adminEmail],
@@ -272,7 +278,9 @@ async function startServer() {
             subject: adminSubject,
             html: adminHtml,
           }).catch(async (e: any) => {
-            console.warn('[MAIL] Primary sender failed for admin. Likely domain is not verified in Resend. Attempting fallback sender (onboarding@resend.dev)...', e.message);
+            const errorMsg = e.message || JSON.stringify(e);
+            console.warn(`[MAIL] PRIMARY_SENDER_FAILURE: Primary sender (${sender}) failed for admin. ${errorMsg}`);
+            console.warn('[MAIL] DIAGNOSTIC: This usually means "theunboundedleadership.com" is not verified in your Resend account. Attempting fallback sender (onboarding@resend.dev)...');
             return await resend.emails.send({
               from: fallbackSender,
               to: [adminEmail],
@@ -284,13 +292,13 @@ async function startServer() {
 
           if (adminResult.error) {
             console.error('[MAIL] ADMIN_DISPATCH_FAILED:', JSON.stringify(adminResult.error));
-            console.error('[MAIL] CONFIG_TIPS: If error 403, verify the "to" email is verified in Resend or domain is verified.');
+            console.error('[MAIL] RESOLUTION_STEPS: 1. Ensure RESEND_API_KEY is valid. 2. Verify that the recipient address (VITE_ADMIN_EMAIL) is permitted by your Resend plan (free tier only allows sending to your account email).');
           } else {
             console.log('[MAIL] ADMIN_DISPATCH_SUCCESS:', adminResult.data?.id);
           }
 
           // Acknowledge User (The Premium Touch)
-          console.log(`[MAIL] Attempting User Acknowledgment to: ${email} from ${sender}...`);
+          console.log(`[MAIL] DISPATCH_SEQUENCE_CONTINUE: Attempting User Acknowledgment to: ${email} from ${sender}...`);
           const userResult = await resend.emails.send({
             from: sender,
             to: [email],
@@ -298,13 +306,15 @@ async function startServer() {
             subject: userSubject,
             html: userHtml,
           }).catch(e => {
-            console.error('[MAIL] USER_ACK_CRITICAL_FAILURE:', e);
-            console.error('[MAIL] CONFIG_TIPS: User emails CANNOT be sent using onboarding@resend.dev unless they are verified in your Resend account. You MUST verify the domain "theunboundedleadership.com" in Resend to send these emails.');
+            const errorMsg = e.message || JSON.stringify(e);
+            console.error(`[MAIL] USER_ACK_CRITICAL_FAILURE: ${errorMsg}`);
+            console.error('[MAIL] DIAGNOSTIC: User emails CANNOT be sent using onboarding@resend.dev. You MUST verify the domain "theunboundedleadership.com" in your Resend dashboard to send these acknowledgments.');
             return { error: e };
           });
 
           if (userResult.error) {
             console.error('[MAIL] USER_ACK_FAILED:', JSON.stringify(userResult.error));
+            console.error('[MAIL] RESOLUTION_STEPS: High-stakes emails require a verified domain. Go to resend.com/domains to add and verify theunboundedleadership.com.');
           } else {
             console.log('[MAIL] USER_ACK_SUCCESS:', userResult.data?.id);
           }
