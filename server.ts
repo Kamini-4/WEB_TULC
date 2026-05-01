@@ -226,9 +226,36 @@ async function startServer() {
         userHeadline = "You are now eligible for structural transformation.";
         userMessage = "You have been added to the Sovereign Waiting List. Admission is sequenced by institutional readiness, ensuring that we only engage when your organization is primed for a 2.5x increase in strategic velocity and undisputed market authority.";
       } else if (type === 'ASSESSMENT_COMPLETED') {
-        userSubject = "Audit Synthesized | Institutional Friction & Yield Potential Report";
+        const { totalScore, domainScores } = req.body.assessmentData || { totalScore: 0, domainScores: [] };
+        userSubject = `Audit Synthesized | Score: ${totalScore}/25 | Strategic Yield Potential High`;
         userHeadline = "Your leadership architecture has been forensically analyzed.";
-        userMessage = "We have quantified your 'Cognitive Tax.' By neutralizing the tactical noise identified in your assessment, you are positioned to reclaim billions in 'Cognitive Equity' and shift from management to pure architectural command.";
+        
+        const domainContent: Record<string, string> = {
+          "Cognitive Clarity": "Clarity is the substrate of execution. By distilling strategic intent into unambiguous directives, you eliminate the 'Shadow Work' that currently consumes 40% of your leadership's bandwidth.",
+          "Systemic Integrity": "Integrity is structural, not behavioral. Designing systems that maintain order independent of individual effort ensures that your organization remains sovereign even during high-velocity pivots.",
+          "Strategic Velocity": "Velocity is the ultimate competitive hedge. Transforming your decision-making substrate into an antifragile engine allows you to convert external disruption into immediate revenue and market dominance.",
+          "Moral Gravity": "Gravity creates a structural inevitability of trust. When your ethical core is a fundamental property of your design, you reclaim the cognitive equity lost to constant reputational and behavioral maintenance.",
+          "Cultural Fidelity": "Fidelity ensures that your vision propagates to the furthest operational edge. High-fidelity culture eliminates operational drift, ensuring that every strategic move is executed with absolute precision."
+        };
+
+        const domainTable = domainScores.map((ds: any) => `
+          <div style="margin-bottom: 20px; padding: 15px; background: #fcfcfc; border: 1px solid #eee;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+              <span style="font-size: 10px; font-weight: bold; text-transform: uppercase; color: #b8860b;">${ds.domain}</span>
+              <span style="font-size: 10px; font-weight: bold; color: #111;">${ds.score}/5</span>
+            </div>
+            <p style="font-size: 12px; font-style: italic; color: #666; margin: 5px 0 0 0;">${domainContent[ds.domain] || ''}</p>
+          </div>
+        `).join('');
+
+        userMessage = `
+          We have quantified your 'Cognitive Tax.' By neutralizing the tactical noise identified in your assessment, you are positioned to reclaim billions in 'Cognitive Equity' and shift from management to pure architectural command.
+          <div style="margin-top: 30px;">
+            <h4 style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 15px;">Dossier Snapshot: Domain Calibration</h4>
+            ${domainTable}
+          </div>
+          <p style="margin-top: 30px; font-size: 14px; font-weight: bold;">Aggregate Fidelity: ${Math.round((totalScore / 25) * 100)}%</p>
+        `;
       }
 
       const userHtml = `
