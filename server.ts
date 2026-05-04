@@ -216,26 +216,35 @@ async function startServer() {
       let userSubject = "Dispatch Acknowledged | Potential Strategic Yield: +40% Bandwidth";
       let userHeadline = "Your institutional audit has been initiated.";
       let userMessage = "Our methodology focuses on reclaiming 40% of your cognitive capacity—the direct path to doubling institutional yield and engineering permanent market leadership.";
-      
+      let preheader = "Reclaim 40% of your strategic bandwidth and engineering permanent market leadership.";
+
       if (type === 'CALIBRATION_REQUEST') {
-        userSubject = "Calibration Confirmed | Strategic Yield Engineering Initiated";
-        userHeadline = "Your structural alignment session is confirmed.";
-        userMessage = `Your requested window on ${selected_date} at ${selected_time} is logged for architectural review. This calibration is the first step toward transforming your organization into a zero-latency engine that converts intent into revenue with absolute fidelity.`;
+        userSubject = `Strategic Yield Engineering: Access Request Logged for ${name}`;
+        userHeadline = "Reclaim your strategic bandwidth. Your alignment session request is logged.";
+        userMessage = `Your requested window on ${selected_date} at ${selected_time} is being processed for architectural review. This calibration is engineered to transform your organization into a zero-latency revenue engine, ensuring every strategic intent converts into market dominance with absolute fidelity.`;
+        preheader = "Your alignment session request is logged. Transform your organization into a zero-latency revenue engine.";
       } else if (type === 'WAITLIST_ENTRY') {
-        userSubject = "Terminal Access Verified | Institutional Sovereignty Protocol";
-        userHeadline = "You are now eligible for structural transformation.";
-        userMessage = "You have been added to the Sovereign Waiting List. Admission is sequenced by institutional readiness, ensuring that we only engage when your organization is primed for a 2.5x increase in strategic velocity and undisputed market authority.";
+        userSubject = "Protocol Verified | Position Secured for 2.5x Strategic Velocity";
+        userHeadline = "Your path to institutional sovereignty is now sequenced.";
+        userMessage = "You have been successfully added to the Sovereign Waiting List. This entry ensures that your organization is prioritized for a 2.5x increase in strategic velocity, repurposing lost cognitive equity into immediate revenue growth and undisputed authority.";
+        preheader = "Your position is secured for 2.5x strategic velocity. Reclaim your lost cognitive equity for revenue growth.";
+      } else if (type === 'NEWSLETTER_SUBSCRIPTION') {
+        userSubject = "Intelligence Feed Active | Engineering Institutional Permanence";
+        userHeadline = "Handshake confirmed. You are now receiving Institutional Dispatches.";
+        userMessage = "You have been registered for Sovereign Intelligence. These dispatches are designed to neutralize the 'Cognitive Tax' of leadership, providing the architectural blueprints required to achieve undisputed market authority and recursive revenue growth.";
+        preheader = "Secure your intelligence feed for engineering institutional permanence and revenue growth.";
       } else if (type === 'ASSESSMENT_COMPLETED') {
         const { totalScore, domainScores } = req.body.assessmentData || { totalScore: 0, domainScores: [] };
-        userSubject = `Audit Synthesized | Score: ${totalScore}/25 | Strategic Yield Potential High`;
-        userHeadline = "Your leadership architecture has been forensically analyzed.";
+        userSubject = `Audit Synthesized: ${totalScore}/25 | Reclaiming Billions in Cognitive Equity`;
+        userHeadline = "Your leadership architecture has been forensically analyzed for maximum yield.";
+        preheader = `Score: ${totalScore}/25. We have quantified your 'Cognitive Tax'—reclaim your strategic bandwidth for pure architectural command.`;
         
         const domainContent: Record<string, string> = {
-          "Cognitive Clarity": "Clarity is the substrate of execution. By distilling strategic intent into unambiguous directives, you eliminate the 'Shadow Work' that currently consumes 40% of your leadership's bandwidth.",
-          "Systemic Integrity": "Integrity is structural, not behavioral. Designing systems that maintain order independent of individual effort ensures that your organization remains sovereign even during high-velocity pivots.",
-          "Strategic Velocity": "Velocity is the ultimate competitive hedge. Transforming your decision-making substrate into an antifragile engine allows you to convert external disruption into immediate revenue and market dominance.",
-          "Moral Gravity": "Gravity creates a structural inevitability of trust. When your ethical core is a fundamental property of your design, you reclaim the cognitive equity lost to constant reputational and behavioral maintenance.",
-          "Cultural Fidelity": "Fidelity ensures that your vision propagates to the furthest operational edge. High-fidelity culture eliminates operational drift, ensuring that every strategic move is executed with absolute precision."
+          "Cognitive Clarity": "Neutralize the 'Cognitive Tax' consuming 40% of your bandwidth. Clarity is the primary substrate of execution and revenue generation.",
+          "Systemic Integrity": "Protect your focus through structural integrity. Systems that run independently of individual effort guarantee institutional sovereignty.",
+          "Strategic Velocity": "Compress the distance between intent and revenue. Antifragile substrates convert market disruption into immediate strategic leverage.",
+          "Moral Gravity": "The structural inevitability of trust. Eliminating reputational friction reclaims the cognitive equity lost to behavioral maintenance.",
+          "Cultural Fidelity": "Zero operational drift. Autonomous culture ensures every strategic move at the edge yields maximum market conversion."
         };
 
         const domainTable = domainScores.map((ds: any) => `
@@ -249,7 +258,7 @@ async function startServer() {
         `).join('');
 
         userMessage = `
-          We have quantified your 'Cognitive Tax.' By neutralizing the tactical noise identified in your assessment, you are positioned to reclaim billions in 'Cognitive Equity' and shift from management to pure architectural command.
+          We have quantified your 'Cognitive Tax.' By neutralizing the tactical noise identified in your assessment, you are positioned to shift from management to pure architectural command—the highest form of revenue-generating leadership.
           <div style="margin-top: 30px;">
             <h4 style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 15px;">Dossier Snapshot: Domain Calibration</h4>
             ${domainTable}
@@ -260,6 +269,11 @@ async function startServer() {
 
       const userHtml = `
         <div style="font-family: 'Times New Roman', serif; color: #1a1a1a; max-width: 600px; margin: 0 auto; padding: 40px; border: 1px solid #eee; line-height: 1.6;">
+          <!-- Preheader Text for AI Summaries -->
+          <div style="display: none; max-height: 0px; overflow: hidden;">
+            ${preheader}
+          </div>
+          
           <div style="text-align: center; margin-bottom: 40px;">
             <div style="font-size: 14px; letter-spacing: 0.4em; text-transform: uppercase; color: #b8860b; border-bottom: 1px solid #b8860b; display: inline-block; padding-bottom: 5px; margin-bottom: 10px;">The Unbounded Leadership Co.</div>
             <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #999;">Office of the Principal | Institutional Sovereignty</div>
@@ -297,51 +311,51 @@ async function startServer() {
           const fallbackSender = 'onboarding@resend.dev';
 
           // Notify Admin
-          console.log(`[MAIL] DISPATCH_SEQUENCE_START: Attempting Admin Notification to ${adminEmail} from ${sender}...`);
+          console.log(`[MAIL] DISPATCH_SEQUENCE_START: Admin: ${adminEmail} | From: ${sender}`);
           const adminResult = await resend.emails.send({
             from: sender,
             to: [adminEmail],
-            reply_to: email,
+            reply_to: [email],
             subject: adminSubject,
             html: adminHtml,
           }).catch(async (e: any) => {
             const errorMsg = e.message || JSON.stringify(e);
-            console.warn(`[MAIL] PRIMARY_SENDER_FAILURE: Primary sender (${sender}) failed for admin. ${errorMsg}`);
-            console.warn('[MAIL] DIAGNOSTIC: This usually means "theunboundedleadership.com" is not verified in your Resend account. Attempting fallback sender (onboarding@resend.dev)...');
+            console.error(`[MAIL] PRIMARY_SENDER_REJECTION: ${errorMsg}`);
+            
+            // Fallback for Admin only
+            console.log('[MAIL] FALLBACK_INITIATED: Attempting with onboarding@resend.dev...');
             return await resend.emails.send({
               from: fallbackSender,
               to: [adminEmail],
-              reply_to: email,
-              subject: adminSubject,
-              html: adminHtml,
+              reply_to: [email],
+              subject: `[FALLBACK-DISPATCH] ${adminSubject}`,
+              html: `<div style="background: #fff4f4; padding: 10px; border: 1px solid #fecaca; margin-bottom: 20px; font-size: 12px;"><strong>DIAGNOSTIC:</strong> Your primary sender domain is not verified. This mail was sent via fallback.</div>${adminHtml}`,
             });
           });
 
           if (adminResult.error) {
-            console.error('[MAIL] ADMIN_DISPATCH_FAILED:', JSON.stringify(adminResult.error));
-            console.error('[MAIL] RESOLUTION_STEPS: 1. Ensure RESEND_API_KEY is valid. 2. Verify that the recipient address (VITE_ADMIN_EMAIL) is permitted by your Resend plan (free tier only allows sending to your account email).');
+            console.error('[MAIL] ADMIN_DISPATCH_FINAL_FAILURE:', JSON.stringify(adminResult.error));
           } else {
             console.log('[MAIL] ADMIN_DISPATCH_SUCCESS:', adminResult.data?.id);
           }
 
-          // Acknowledge User (The Premium Touch)
-          console.log(`[MAIL] DISPATCH_SEQUENCE_CONTINUE: Attempting User Acknowledgment to: ${email} from ${sender}...`);
+          // Acknowledge User (Requires Verified Domain)
+          console.log(`[MAIL] DISPATCH_SEQUENCE_CONTINUE: User: ${email} | From: ${sender}`);
           const userResult = await resend.emails.send({
             from: sender,
             to: [email],
-            reply_to: adminEmail,
+            reply_to: [adminEmail],
             subject: userSubject,
             html: userHtml,
           }).catch(e => {
             const errorMsg = e.message || JSON.stringify(e);
             console.error(`[MAIL] USER_ACK_CRITICAL_FAILURE: ${errorMsg}`);
-            console.error('[MAIL] DIAGNOSTIC: User emails CANNOT be sent using onboarding@resend.dev. You MUST verify the domain "theunboundedleadership.com" in your Resend dashboard to send these acknowledgments.');
-            return { error: e };
+            return { error: { message: errorMsg, code: 'CRITICAL_CATCH' } };
           });
 
           if (userResult.error) {
             console.error('[MAIL] USER_ACK_FAILED:', JSON.stringify(userResult.error));
-            console.error('[MAIL] RESOLUTION_STEPS: High-stakes emails require a verified domain. Go to resend.com/domains to add and verify theunboundedleadership.com.');
+            console.error('[MAIL] ACTION_REQUIRED: You MUST verify "theunboundedleadership.com" in Resend to send to customers.');
           } else {
             console.log('[MAIL] USER_ACK_SUCCESS:', userResult.data?.id);
           }
