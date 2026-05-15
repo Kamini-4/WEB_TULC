@@ -67,10 +67,10 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
               </div>
               <div className="flex items-center gap-8">
                 <button 
-                  onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => window.open('https://rzp.io/rzp/8H0bV3bW', '_blank')}
                   className="px-10 py-5 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all shadow-[0_0_50px_rgba(184,134,11,0.2)]"
                 >
-                  Request Strategic Audit
+                  Secure Diagnostic Protocol
                 </button>
                 <div className="hidden sm:block">
                   <div className="text-[10px] font-black uppercase text-[#b8860b] tracking-widest mb-1">Fee Structure</div>
@@ -113,7 +113,7 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
               onClick={() => window.location.href = '/methodology'}
               className="px-8 py-4 border border-[#111111] text-[#111111] text-[9px] font-black uppercase tracking-widest hover:bg-[#111111] hover:text-white transition-all flex items-center gap-4"
             >
-              Full Methodology <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              Sovereign Protocol <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </button>
           </div>
           <div className="grid md:grid-cols-4 gap-8">
@@ -133,7 +133,7 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
         </div>
       </section>
 
-      <Assessment onCtaClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })} />
+      <Assessment />
       <ImpactLedger />
       <TrustProtocol />
       

@@ -142,7 +142,7 @@ const Assessment: React.FC = () => {
 
   const handleRazorpayPayment = () => {
     // Open the specific Razorpay payment link provided by the user
-    window.open('https://rzp.io/rzp/T7d50Uma', '_blank');
+    window.open('https://rzp.io/rzp/8H0bV3bW', '_blank');
     
     // In this architectural flow, we authorize the portal access upon initiation
     // to ensure the Principal is not blocked by latency.
@@ -319,12 +319,14 @@ const Assessment: React.FC = () => {
                 
                 <div className="flex flex-col items-center gap-2">
                   <div className="text-[9px] uppercase text-zinc-400 tracking-[0.5em] font-black">Already a Principal?</div>
-                  <Link 
-                    to="/portal" 
+                  <a 
+                    href="https://ai.studio/apps/bc205532-cdb0-43d3-a8fb-919809372614"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-[#b8860b] text-xs font-mono hover:underline tracking-widest flex items-center gap-2"
                   >
                     Enter The Sovereign Portal <ArrowRight className="w-3 h-3" />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -711,23 +713,27 @@ const Assessment: React.FC = () => {
                             <div className="text-xs text-zinc-400 italic">Access to the Indepth Assessment and Sovereign Portal is now authorized.</div>
                           </div>
 
-                          <Link 
-                            to="/portal"
+                          <a 
+                            href="https://ai.studio/apps/bc205532-cdb0-43d3-a8fb-919809372614"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="group relative px-12 py-10 bg-[#b8860b] text-white text-[13px] font-black uppercase tracking-[0.5em] hover:bg-white hover:text-black transition-all duration-500 shadow-[0_30px_60px_rgba(184,134,11,0.4)] flex items-center justify-center gap-8 mx-auto overflow-hidden no-underline border border-[#b8860b]"
                           >
                             <span className="relative z-10">Access Indepth Assessment</span>
                             <ArrowRight className="w-6 h-6 relative z-10 group-hover:translate-x-3 transition-transform" />
                             <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                          </Link>
+                          </a>
                           
                           <div className="flex flex-col items-center gap-3">
                             <div className="text-[10px] uppercase text-zinc-400 tracking-[0.6em] font-black">Institutional Access Node:</div>
-                            <Link 
-                              to="/portal" 
+                            <a 
+                              href="https://ai.studio/apps/bc205532-cdb0-43d3-a8fb-919809372614"
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className="text-[#b8860b] text-sm font-mono hover:underline tracking-[0.2em] bg-white/5 px-6 py-3 border border-white/10"
                             >
-                              theunboundedleadership.com/portal
-                            </Link>
+                              Sovereign Portal Authority
+                            </a>
                           </div>
                         </div>
                       )}

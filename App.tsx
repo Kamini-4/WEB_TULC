@@ -159,7 +159,7 @@ const App: React.FC = () => {
     
     const content: Record<string, Article> = {
       '01': {
-        category: "Methodology Phase 01",
+        category: "The Sovereign Protocol - Phase 01",
         title: "The Substrate Audit: Forensic Analysis of Institutional Lag",
         content: [
           "In Phase 01, we move beyond surface-level management consulting to perform a forensic audit of your organizational substrate. We are identifying the specific points of Institutional Lag—the invisible friction that turns strategic intent into operational entropy. This is not just about efficiency; it is about the preservation of your Strategic Sovereignty.",
@@ -171,7 +171,7 @@ const App: React.FC = () => {
         ]
       },
       '02': {
-        category: "Methodology Phase 02",
+        category: "The Sovereign Protocol - Phase 02",
         title: "Logic Gate Engineering: Hard-Coding Strategic Intent",
         content: [
           "Once the leaks are identified, we move to Logic Gate Engineering. This is the process of externalizing your unique strategic DNA and hard-coding it into the organizational substrate. We are building a high-fidelity proxy of your mind, ensuring the system executes with your precision, even in your absence.",
@@ -183,7 +183,7 @@ const App: React.FC = () => {
         ]
       },
       '03': {
-        category: "Methodology Phase 03",
+        category: "The Sovereign Protocol - Phase 03",
         title: "Institutional Calibration: Achieving Trust Resonance",
         content: [
           "With the logic gates engineered, we must ensure the entire system is in sync. This is Institutional Calibration. We are aligning every layer of the organization—from the boardroom to the front line—to vibrate at the same frequency as your core intent. We call this achieving Trust Resonance.",
@@ -195,7 +195,7 @@ const App: React.FC = () => {
         ]
       },
       '04': {
-        category: "Methodology Phase 04",
+        category: "The Sovereign Protocol - Phase 04",
         title: "Sovereign Handover: Transitioning to the Architect’s Seat",
         content: [
           "This is the culmination of the methodology: the Sovereign Handover. This is not about your departure; it is about your arrival in the role you were meant to play. You are transitioning from the 'Chief Problem Solver' to the Sovereign Architect. You are finally presiding over the institution.",

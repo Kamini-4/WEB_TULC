@@ -79,7 +79,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
             <h5 className="text-white text-[9px] sm:text-[11px] uppercase font-black mb-6 sm:mb-8 tracking-widest">Philosophy</h5>
             <ul className="text-white/30 text-[9px] sm:text-[11px] uppercase space-y-3 sm:space-y-4 font-bold tracking-widest">
               <li><Link to="/about" className="hover:text-[#b8860b] transition-colors uppercase">About the Firm</Link></li>
-              <li><Link to="/methodology" className="hover:text-[#b8860b] transition-colors uppercase">Our Methodology</Link></li>
+              <li><Link to="/methodology" className="hover:text-[#b8860b] transition-colors uppercase">Sovereign Protocol</Link></li>
             </ul>
           </div>
           

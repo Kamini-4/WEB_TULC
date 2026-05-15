@@ -22,13 +22,16 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
 
   const navItems = [
     { label: 'About', path: '/about' },
-    { label: 'Methodology', path: '/methodology' },
+    { label: 'Sovereign Protocol', path: '/methodology' },
     { label: 'Assessment', path: '/assessment' },
     { label: 'Library', path: '/library' },
-    { label: 'Portal', path: '/portal' },
+    { label: 'Portal', path: 'https://ai.studio/apps/bc205532-cdb0-43d3-a8fb-919809372614', external: true },
   ];
 
-  const handleNavClick = (path: string, e: React.MouseEvent) => {
+  const handleNavClick = (path: string, e: React.MouseEvent, external?: boolean) => {
+    if (external) {
+      return; // Let the Link or a tag handle it
+    }
     if (path.startsWith('/#')) {
       e.preventDefault();
       const targetId = path.substring(2);
@@ -72,14 +75,26 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
         <nav className="flex items-center gap-3 sm:gap-4 md:gap-8 ml-auto">
           <div className="hidden md:flex items-center gap-6 lg:gap-10 mr-4">
             {navItems.map((item) => (
-              <Link 
-                key={item.path}
-                to={item.path}
-                onClick={(e) => handleNavClick(item.path, e)}
-                className="text-[9px] font-black uppercase text-[#111111] hover:text-[#b8860b] transition-colors tracking-widest"
-              >
-                {item.label}
-              </Link>
+              item.external ? (
+                <a
+                  key={item.path}
+                  href={item.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[9px] font-black uppercase text-[#111111] hover:text-[#b8860b] transition-colors tracking-widest"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link 
+                  key={item.path}
+                  to={item.path}
+                  onClick={(e) => handleNavClick(item.path, e)}
+                  className="text-[9px] font-black uppercase text-[#111111] hover:text-[#b8860b] transition-colors tracking-widest"
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
           </div>
           <button 
@@ -106,14 +121,26 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
         <div className="md:hidden fixed inset-0 top-[110px] bg-[#f5f5f0] z-[90] p-8 animate-fade-in overflow-y-auto">
           <div className="flex flex-col gap-8">
             {navItems.map((item) => (
-              <Link 
-                key={item.path}
-                to={item.path}
-                onClick={(e) => handleNavClick(item.path, e)}
-                className="text-xl font-bold text-[#111111] text-left uppercase tracking-widest border-b border-zinc-200 pb-4"
-              >
-                {item.label}
-              </Link>
+              item.external ? (
+                <a
+                  key={item.path}
+                  href={item.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl font-bold text-[#111111] text-left uppercase tracking-widest border-b border-zinc-200 pb-4"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link 
+                  key={item.path}
+                  to={item.path}
+                  onClick={(e) => handleNavClick(item.path, e)}
+                  className="text-xl font-bold text-[#111111] text-left uppercase tracking-widest border-b border-zinc-200 pb-4"
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
             <button 
               onClick={scrollToWaitlist}

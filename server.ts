@@ -58,6 +58,14 @@ async function startServer() {
   });
 
   console.log(`SERVER STARTING V5 - PORT: ${PORT} - IS_PROD: ${isProd}`);
+  
+  // Environment Metadata Calibration
+  console.log('--- Institutional Environment Check ---');
+  console.log(`RESEND_API_KEY: ${process.env.RESEND_API_KEY ? 'CALIBRATED' : 'MISSING'}`);
+  console.log(`GEMINI_API_KEY: ${process.env.GEMINI_API_KEY ? 'CALIBRATED' : 'MISSING'}`);
+  console.log(`VITE_ADMIN_EMAIL: ${process.env.VITE_ADMIN_EMAIL || 'DEFAULT (suchita135sancheti@gmail.com)'}`);
+  console.log(`VITE_SENDER_EMAIL: ${process.env.VITE_SENDER_EMAIL || 'DEFAULT (concierge@theunboundedleadership.com)'}`);
+  console.log('----------------------------------------');
 
   // Diagnostic: Check if dist folder exists and list files
   const distPath = path.join(process.cwd(), 'dist');
@@ -328,18 +336,19 @@ async function startServer() {
             console.error(`[MAIL] PRIMARY_SENDER_REJECTION: ${errorMsg}`);
             
             // Fallback for Admin only
-            console.log('[MAIL] FALLBACK_INITIATED: Attempting with onboarding@resend.dev...');
+            console.log(`[MAIL] FALLBACK_INITIATED: Attempting with ${fallbackSender}...`);
             return await resend.emails.send({
               from: fallbackSender,
               to: [adminEmail],
               reply_to: [email],
-              subject: `[FALLBACK-DISPATCH] ${adminSubject}`,
-              html: `<div style="background: #fff4f4; padding: 10px; border: 1px solid #fecaca; margin-bottom: 20px; font-size: 12px;"><strong>DIAGNOSTIC:</strong> Your primary sender domain is not verified. This mail was sent via fallback.</div>${adminHtml}`,
+              subject: `[FALLBACK] ${adminSubject}`,
+              html: `<div style="background: #fff4f4; padding: 10px; border: 1px solid #fecaca; margin-bottom: 20px; font-size: 12px; font-family: sans-serif;"><strong>DIAGNOSTIC:</strong> Your primary sender domain "${senderEmail}" is not verified in Resend. This notification was sent via fallback. Verify your domain at <a href="https://resend.com/domains">resend.com/domains</a> to remove this warning.</div>${adminHtml}`,
             });
           });
 
           if (adminResult.error) {
             console.error('[MAIL] ADMIN_DISPATCH_FINAL_FAILURE:', JSON.stringify(adminResult.error));
+            console.error('[MAIL] Possible Causes: Invalid Resend Key, or the to-email is not the Resend account owner in sandbox mode.');
           } else {
             console.log('[MAIL] ADMIN_DISPATCH_SUCCESS:', adminResult.data?.id);
           }
@@ -360,7 +369,7 @@ async function startServer() {
 
           if (userResult.error) {
             console.error('[MAIL] USER_ACK_FAILED:', JSON.stringify(userResult.error));
-            console.error('[MAIL] ACTION_REQUIRED: You MUST verify "theunboundedleadership.com" in Resend to send to customers.');
+            console.error(`[MAIL] ACTION_REQUIRED: To send emails to "${email}", you MUST verify the domain "theunboundedleadership.com" in your Resend dashboard.`);
           } else {
             console.log('[MAIL] USER_ACK_SUCCESS:', userResult.data?.id);
           }
@@ -369,7 +378,8 @@ async function startServer() {
           console.error('[MAIL] UNCAUGHT_RESEND_ERROR:', err);
         }
       } else {
-        console.warn('[MAIL] SKIPPING: RESEND_API_KEY is not defined in environment.');
+        console.warn('[MAIL] SKIPPING EMAIL DISPATCH: RESEND_API_KEY is not defined in the environment variables.');
+        console.warn('[MAIL] Please add RESEND_API_KEY to your deployment environment or .env file.');
       }
 
       res.json({ success: true });

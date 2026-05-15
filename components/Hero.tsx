@@ -65,17 +65,17 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
             <div className="flex flex-col items-center gap-12 animate-fade-in">
               <div className="flex flex-wrap gap-6 justify-center">
                 <button 
-                  onClick={() => document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => window.open('https://rzp.io/rzp/8H0bV3bW', '_blank')}
                   className="px-12 py-6 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 shadow-2xl relative overflow-hidden group"
                 >
-                  <span className="relative z-10 font-bold">Start Free Assessment - Reclaim Your Bandwidth</span>
+                  <span className="relative z-10 font-bold">Secure Institutional Consult</span>
                   <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                 </button>
                 <button 
-                  onClick={onBriefClick}
+                  onClick={() => document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-12 py-6 border border-zinc-300 text-[#111111] text-[10px] font-black uppercase tracking-[0.3em] hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-500"
                 >
-                  Request Sovereignty Briefing
+                  Initiate Substrate Audit
                 </button>
               </div>
 
