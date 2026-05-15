@@ -3,62 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { Share2, Link as LinkIcon, X, Check } from 'lucide-react';
 import { Linkedin } from './BrandIcons';
 import { GoogleGenAI } from "@google/genai";
-
-interface Article {
-  id: string;
-  category: string;
-  title: string;
-  excerpt: string;
-  content: string[];
-  image: string;
-}
+import { INSTITUTIONAL_ARTICLES, Article } from '../src/lib/articles';
 
 interface InsightsProps {
   onArticleClick: (article: Article) => void;
   hideHeader?: boolean;
 }
 
-const articles: Article[] = [
-  {
-    id: "INT-010",
-    category: "Systems Design",
-    title: "The Architecture of Authority: Why Systems Outperform Personal Brands",
-    excerpt: "Analyzing the transition points where institutional logic unlocks unprecedented organizational growth.",
-    image: "https://picsum.photos/seed/unbounded-arch-1/1200/800?grayscale&blur=1",
-    content: [
-      "Authority is the most potent lever in leadership, yet it is often the most misunderstood. While charisma and personal brand are essential for the initial growth phase of any enterprise, architectural integrity becomes the dominant force in the quest for institutional permanence. A system designed around a 'Hero' is inherently limited by that hero's time, energy, and cognitive capacity.",
-      "When an organization relies on its 'Sovereign Methodology' rather than an individual leader, it creates what we call a 'Velocity Substrate.' In this environment, every decision is amplified by the collective architecture. This creates a scale that challenges existing market paradigms and allows the organization to move with a speed and precision that individual effort simply cannot match.",
-      "The true test of institutional legacy is the successful transition from 'Charismatic Authority' to 'Architectural Sovereignty.' This means building organizational foundations that operate with the same integrity and vision as the leader, but with autonomous momentum. Organizations that master this transition are better positioned to handle global volatility and out-decide their competition consistently.",
-      "Our work at The Unbounded focuses on neutralizing institutional friction by hard-coding vision into the leadership substrate. We don't aim to remove the leader, but rather to amplify their impact through systemic excellence. When the architecture itself embodies authority, the Principal is free to focus on the next level of global strategic innovation."
-    ]
-  },
-  {
-    id: "INT-011",
-    category: "Cognitive Architecture",
-    title: "Strategic Substrates: The Invisible Tax of Latent Inefficiency",
-    excerpt: "How aligning mental models at the board level yields compounding institutional velocity.",
-    image: "https://picsum.photos/seed/unbounded-arch-2/1200/800?grayscale&blur=1",
-    content: [
-      "Strategic Substrates represent the foundational logic layers of institutional decision-making. High-velocity organizations recognize that achieving significant tactical wins is best served by investing in long-term structural integrity. When these substrates are misaligned, the organization pays an 'Invisible Tax'—a compounding cost of latency and inefficiency that drains potential value.",
-      "During our thorough Institutional Audits, we consistently find that 'breakthrough' moments are rarely the result of a single brilliant idea. Instead, they are the natural outcome of aligning the collective mental models of the leadership team with current market reality. A calibrated system is, by definition, an anti-fragile system that thrives on complexity rather than being intimidated by it.",
-      "To maximize institutional velocity, leaders must prioritize 'Cognitive Calibration.' This involves identifying and refining the specific logic levers that govern how the organization identifies opportunity and processes risk. By resolving internal logic conflicts at the board level, you clear the path for rapid, decisive action throughout the entire firm.",
-      "Once the strategic substrate is correctly aligned, the organization experiences a permanent increase in its 'Velocity Delta.' This is the hallmark of leadership excellence: a state where the conversion of strategic intent into undisputed market leadership happens effortlessly and with high frequency."
-    ]
-  },
-  {
-    id: "INT-012",
-    category: "Future of Governance",
-    title: "Sovereign Leadership: Designing for Anti-Fragility in the Age of AI",
-    excerpt: "Transitioning from individual effort to systemic intelligence as the core competitive advantage.",
-    image: "https://picsum.photos/seed/unbounded-arch-3/1200/800?grayscale&blur=1",
-    content: [
-      "The rapid emergence of Generative AI is fundamentally shifting the requirements of elite leadership. In this new era, the most successful leaders will be 'Sovereign Architects.' As synthetic intelligence increasingly manages data-heavy governance and tactical execution, the human leader's primary value shifts to the design and oversight of anti-fragile organizational substrates.",
-      "An anti-fragile system does more than just survive disruption; it uses disorder to gain momentum. Building such a system requires a Leadership Architecture that can seamlessly integrate AI-driven strategic insights while strictly maintaining human sovereign integrity. The goal is to create a symbiotic relationship where technology amplifies human judgment without replacing the essential moral and strategic compass.",
-      "The primary competitive advantage for the next decade will belong to the leadership architectures that most effectively govern and amplify both human and synthetic intelligence. This shift requires a move away from traditional management models toward a governance structure that is defined by its ability to capitalize on systemic intelligence at every level.",
-      "At The Unbounded, we guide institutional leaders through this critical transition. We ensure that their institutional legacy is built on a substrate of systemic excellence that is ready for the future. By designing for anti-fragility today, you secure your organization's seat at the head of the market for the decades to come."
-    ]
-  }
-];
+const articles = INSTITUTIONAL_ARTICLES.filter(a => a.id.startsWith('INT-01'));
 
 const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
   const [pulseQuery, setPulseQuery] = useState('');

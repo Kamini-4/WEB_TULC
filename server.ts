@@ -233,6 +233,11 @@ async function startServer() {
         userHeadline = "Handshake confirmed. You are now receiving Institutional Dispatches.";
         userMessage = "You have been registered for Sovereign Intelligence. These dispatches are designed to neutralize the 'Cognitive Tax' of leadership, providing the architectural blueprints required to achieve undisputed market authority and recursive revenue growth.";
         preheader = "Secure your intelligence feed for engineering institutional permanence and revenue growth.";
+      } else if (type === 'SIGNUP_INITIATED') {
+        userSubject = "Access Authorized | Your Institutional Audit is Ready";
+        userHeadline = "Handshake Confirmed. Begin your baseline audit.";
+        userMessage = "You have successfully initiated the identity verification protocol. The Sovereign Baseline Audit is now active. Completing this forensic analysis will reveal your specific 'Cognitive Tax' and identify the primary architectural bottlenecks preventing global scale.";
+        preheader = "Your identity is verified. The Sovereign Baseline Audit is now active. Map your cognitive tax.";
       } else if (type === 'ASSESSMENT_COMPLETED') {
         const { totalScore, domainScores } = req.body.assessmentData || { totalScore: 0, domainScores: [] };
         userSubject = `Audit Synthesized: ${totalScore}/25 | Reclaiming Billions in Cognitive Equity`;

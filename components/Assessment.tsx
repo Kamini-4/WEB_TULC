@@ -114,12 +114,29 @@ const Assessment: React.FC = () => {
     setStep('auth');
   };
 
-  const handleIdentitySubmit = (e: React.FormEvent) => {
+  const handleIdentitySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!identity.name || !identity.email || !identity.organization) {
       setAuthError("All institutional identifiers are required for verification.");
       return;
     }
+
+    // Trigger Initial Engagement Email & Admin Notify
+    try {
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: identity.name,
+          email: identity.email,
+          organization: identity.organization,
+          type: 'SIGNUP_INITIATED'
+        })
+      });
+    } catch (e) {
+      console.error("Initial handshake failure:", e);
+    }
+
     setStep('context');
   };
 

@@ -1,22 +1,9 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Insights from '../../components/Insights.tsx';
 import Blog from '../../components/Blog.tsx';
-
-// Collective Intelligence Database for SEO resolution
-const ALL_ARTICLES: any[] = [
-  // Insights
-  { id: "INT-010", title: "The Architecture of Authority", category: "Systems Design", excerpt: "Analyzing the transition points where institutional logic unlocks unprecedented organizational growth." },
-  { id: "INT-011", title: "Strategic Substrates", category: "Cognitive Architecture", excerpt: "How aligning mental models at the board level yields compounding institutional velocity." },
-  { id: "INT-012", title: "Sovereign Leadership", category: "Future of Governance", excerpt: "Transitioning from individual effort to systemic intelligence as the core competitive advantage." },
-  // Methodology Phases
-  { id: "PHASE-01", title: "The Substrate Audit", category: "Methodology Phase 01" },
-  { id: "PHASE-02", title: "Logic Gate Engineering", category: "Methodology Phase 02" },
-  { id: "PHASE-03", title: "Institutional Calibration", category: "Methodology Phase 03" },
-  { id: "PHASE-04", title: "Sovereign Handover", category: "Methodology Phase 04" }
-];
 
 interface LibraryProps {
   onArticleClick: (article: any) => void;
@@ -24,24 +11,6 @@ interface LibraryProps {
 
 const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
   const { articleId } = useParams<{ articleId: string }>();
-  const navigate = useNavigate();
-
-  // Detect and resolve article from URL on load
-  useEffect(() => {
-    if (articleId) {
-      // Find article based on ID
-      // This is a simplified resolution; ideally articles are shared via a service
-      // But for this project, standardizing IDs is key for SEO.
-      // We look in ALL_ARTICLES to find the metadata
-      const found = ALL_ARTICLES.find(a => a.id === articleId);
-      if (found) {
-        // Map back to the full article object (handled in App.tsx or sub-components)
-        // Since onArticleClick is passed from App.tsx, calling it with the ID
-        // will trigger handleOpenArticle in App.tsx
-        onArticleClick(found);
-      }
-    }
-  }, [articleId, onArticleClick]);
 
   const handleDownload = (title: string, summary: string) => {
     const printWindow = window.open('', '_blank');
