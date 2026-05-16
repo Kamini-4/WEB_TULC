@@ -84,7 +84,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             subtitle="The Integration"
             action="Implementing autonomous governance substrates to ensure asymptotic intent fidelity."
             outcome="Total institutional permanence. Strategic outcomes become natural law."
-            image="https://images.unsplash.com/photo-1558444458-5af001291b21?auto=format&fit=crop&q=80&w=800"
+            image="https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('04')}
           />
         </div>

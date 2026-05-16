@@ -31,7 +31,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     category: "Cognitive Architecture",
     title: "Strategic Substrates: The Invisible Tax of Latent Inefficiency",
     excerpt: "How aligning mental models at the board level yields compounding institutional velocity.",
-    image: "https://images.unsplash.com/photo-1558444458-5af001291b21?auto=format&fit=crop&q=80&w=1200",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
     content: [
       "Strategic Substrates represent the foundational logic layers of institutional decision-making. High-velocity organizations recognize that achieving significant tactical wins is best served by investing in long-term structural integrity. When these substrates are misaligned, the organization pays an 'Invisible Tax'—a compounding cost of latency and inefficiency that drains potential value.",
       "During our thorough Institutional Audits, we consistently find that 'breakthrough' moments are rarely the result of a single brilliant idea. Instead, they are the natural outcome of aligning the collective mental models of the leadership team with current market reality. A calibrated system is, by definition, an anti-fragile system that thrives on complexity rather than being intimidated by it.",
@@ -44,7 +44,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     category: "Future of Governance",
     title: "Sovereign Leadership: Designing for Anti-Fragility in the Age of AI",
     excerpt: "Transitioning from individual effort to systemic intelligence as the core competitive advantage.",
-    image: "https://images.unsplash.com/photo-1549439602-43ebca2327af?auto=format&fit=crop&q=80&w=1200",
+    image: "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1200",
     content: [
       "The rapid emergence of Generative AI is fundamentally shifting the requirements of elite leadership. In this new era, the most successful leaders will be 'Sovereign Architects.' As synthetic intelligence increasingly manages data-heavy governance and tactical execution, the human leader's primary value shifts to the design and oversight of anti-fragile organizational substrates.",
       "An anti-fragile system does more than just survive disruption; it uses disorder to gain momentum. Building such a system requires a Leadership Architecture that can seamlessly integrate AI-driven strategic insights while strictly maintaining human sovereign integrity. The goal is to create a symbiotic relationship where technology amplifies human judgment without replacing the essential moral and strategic compass.",
