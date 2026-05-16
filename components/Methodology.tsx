@@ -21,11 +21,11 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
       </style>
       
       {/* Background Decorative Element */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none -z-10">
+      <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none -z-10 bg-black">
         <img 
-          src="https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1920" 
+          src="https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1920&sat=-100" 
           alt="Architectural Background" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover grayscale"
           loading="lazy"
           decoding="async"
           referrerPolicy="no-referrer"
@@ -57,7 +57,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             subtitle="The Diagnostic"
             action="Deployment of the Sovereign Assessment to map the vertical maturity of your institutional substrate."
             outcome="Identification of systemic constraints and authority leakage points."
-            image="https://images.unsplash.com/photo-1507679799987-c7077948a7eb?auto=format&fit=crop&q=80&w=800"
+            image="https://images.unsplash.com/photo-1507679799987-c7077948a7eb?auto=format&fit=crop&q=80&w=800&sat=-100"
             onBriefClick={() => onBriefClick('01')}
           />
           <PhaseCard 
@@ -66,7 +66,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             subtitle="The Synthesis"
             action="Generation of the Structural Integrity Report, isolating the Two Primary Domains for immediate calibration."
             outcome="A definitive architectural blueprint for bandwidth reclamation."
-            image="https://images.unsplash.com/photo-1518349619113-03114f06ac3a?auto=format&fit=crop&q=80&w=800"
+            image="https://images.unsplash.com/photo-1518349619113-03114f06ac3a?auto=format&fit=crop&q=80&w=800&sat=-100"
             onBriefClick={() => onBriefClick('02')}
           />
           <PhaseCard 
@@ -75,7 +75,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             subtitle="The Calibration"
             action="Bespoke re-engineering of leadership protocols tailored to your institutional requirements."
             outcome="Neutralization of systemic entropy and restoration of strategic velocity."
-            image="https://images.unsplash.com/photo-1504917595217-d4dc5f649e6b?auto=format&fit=crop&q=80&w=800"
+            image="https://images.unsplash.com/photo-1504917595217-d4dc5f649e6b?auto=format&fit=crop&q=80&w=800&sat=-100"
             onBriefClick={() => onBriefClick('03')}
           />
           <PhaseCard 
@@ -84,7 +84,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             subtitle="The Integration"
             action="Implementing autonomous governance substrates to ensure asymptotic intent fidelity."
             outcome="Total institutional permanence. Strategic outcomes become natural law."
-            image="https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=800"
+            image="https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=800&sat=-100"
             onBriefClick={() => onBriefClick('04')}
           />
         </div>

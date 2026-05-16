@@ -127,7 +127,7 @@ const Waitlist: React.FC = () => {
             </div>
             <h4 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white">Intake Initialized.</h4>
             <p className="text-zinc-300 text-base sm:text-lg font-light italic leading-relaxed max-w-lg mx-auto mb-8 sm:mb-10">
-              Your inquiry has been encrypted and placed in the Sovereign Ledger. A Principal Architect will review your substrate within one business cycle.
+              Your inquiry has been encrypted and placed in the Sovereign Ledger. Suchita Sancheti will personally review your substrate within one business cycle.
             </p>
             <button 
               onClick={() => {

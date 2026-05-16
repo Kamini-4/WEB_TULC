@@ -18,12 +18,12 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     category: "Systems Design",
     title: "The Architecture of Authority: Why Systems Outperform Personal Brands",
     excerpt: "Analyzing the transition points where institutional logic unlocks unprecedented organizational growth.",
-    image: "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1200",
+    image: "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1200&sat=-100",
     content: [
       "Authority is the most potent lever in leadership, yet it is often the most misunderstood. While charisma and personal brand are essential for the initial growth phase of any enterprise, architectural integrity becomes the dominant force in the quest for institutional permanence. A system designed around a 'Hero' is inherently limited by that hero's time, energy, and cognitive capacity.",
-      "When an organization relies on its 'Sovereign Methodology' rather than an individual leader, it creates what we call a 'Velocity Substrate.' In this environment, every decision is amplified by the collective architecture. This creates a scale that challenges existing market paradigms and allows the organization to move with a speed and precision that individual effort simply cannot match.",
-      "The true test of institutional legacy is the successful transition from 'Charismatic Authority' to 'Architectural Sovereignty.' This means building organizational foundations that operate with the same integrity and vision as the leader, but with autonomous momentum. Organizations that master this transition are better positioned to handle global volatility and out-decide their competition consistently.",
-      "Our work at The Unbounded focuses on neutralizing institutional friction by hard-coding vision into the leadership substrate. We don't aim to remove the leader, but rather to amplify their impact through systemic excellence. When the architecture itself embodies authority, the Principal is free to focus on the next level of global strategic innovation."
+      "As Suchita Sancheti, Principal Architect at TULC, often observes: 'The true measure of sovereignty is not how much you can control, but how much you can set in motion that functions perfectly in your absence.' When an organization relies on its 'Sovereign Methodology' rather than an individual leader, it creates what we call a 'Velocity Substrate.'",
+      "In this environment, every decision is amplified by the collective architecture. This creates a scale that challenges existing market paradigms and allows the organization to move with a speed and precision that individual effort simply cannot match. The test of institutional legacy is the successful transition from 'Charismatic Authority' to 'Architectural Sovereignty.'",
+      "Our work focuses on neutralizing institutional friction by hard-coding vision into the leadership substrate. We don't aim to remove the leader, but rather to amplify their impact through systemic excellence. When the architecture itself embodies authority, the Principal is free to focus on the next level of global strategic innovation."
     ]
   },
   {
@@ -31,7 +31,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     category: "Cognitive Architecture",
     title: "Strategic Substrates: The Invisible Tax of Latent Inefficiency",
     excerpt: "How aligning mental models at the board level yields compounding institutional velocity.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200&sat=-100",
     content: [
       "Strategic Substrates represent the foundational logic layers of institutional decision-making. High-velocity organizations recognize that achieving significant tactical wins is best served by investing in long-term structural integrity. When these substrates are misaligned, the organization pays an 'Invisible Tax'—a compounding cost of latency and inefficiency that drains potential value.",
       "During our thorough Institutional Audits, we consistently find that 'breakthrough' moments are rarely the result of a single brilliant idea. Instead, they are the natural outcome of aligning the collective mental models of the leadership team with current market reality. A calibrated system is, by definition, an anti-fragile system that thrives on complexity rather than being intimidated by it.",
@@ -44,7 +44,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     category: "Future of Governance",
     title: "Sovereign Leadership: Designing for Anti-Fragility in the Age of AI",
     excerpt: "Transitioning from individual effort to systemic intelligence as the core competitive advantage.",
-    image: "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1200",
+    image: "https://images.unsplash.com/photo-1558444458-5af001291b21?auto=format&fit=crop&q=80&w=1200&sat=-100",
     content: [
       "The rapid emergence of Generative AI is fundamentally shifting the requirements of elite leadership. In this new era, the most successful leaders will be 'Sovereign Architects.' As synthetic intelligence increasingly manages data-heavy governance and tactical execution, the human leader's primary value shifts to the design and oversight of anti-fragile organizational substrates.",
       "An anti-fragile system does more than just survive disruption; it uses disorder to gain momentum. Building such a system requires a Leadership Architecture that can seamlessly integrate AI-driven strategic insights while strictly maintaining human sovereign integrity. The goal is to create a symbiotic relationship where technology amplifies human judgment without replacing the essential moral and strategic compass.",

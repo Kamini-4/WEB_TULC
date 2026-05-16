@@ -13,9 +13,12 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
           {/* Tagline */}
-          <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            <span className="text-[#b8860b] text-[8px] sm:text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em]">The Institutional Standard for Sovereignty</span>
-            <div className="h-[1px] w-6 sm:w-10 bg-[#b8860b]/30"></div>
+          <div className="flex flex-col items-center justify-center gap-2 mb-6 sm:mb-8 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <span className="text-[#111111] text-[10px] sm:text-[12px] font-black uppercase tracking-[0.5em] mb-1">Suchita Sancheti</span>
+            <div className="flex items-center gap-3">
+              <span className="text-[#b8860b] text-[8px] sm:text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em]">The Institutional Standard for Sovereignty</span>
+              <div className="h-[1px] w-6 sm:w-10 bg-[#b8860b]/30"></div>
+            </div>
           </div>
 
           {/* Headline */}

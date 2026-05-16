@@ -14,7 +14,7 @@ const PrincipalDispatch: React.FC = () => {
               className="shadow-2xl border border-white/10"
             />
             <div className="absolute bottom-2 left-4 sm:bottom-4 sm:left-8 pointer-events-none z-10">
-              <div className="text-white text-xl sm:text-2xl font-bold mb-1 drop-shadow-lg">The Sovereign Briefing</div>
+              <div className="text-white text-xl sm:text-2xl font-bold mb-1 drop-shadow-lg">Suchita Sancheti</div>
               <div className="text-[#b8860b] text-[7px] sm:text-[9px] font-black uppercase tracking-[0.4em] drop-shadow-lg">Principal Architect</div>
             </div>
             {/* Decorative Frame */}
@@ -34,8 +34,12 @@ const PrincipalDispatch: React.FC = () => {
                   "Most leadership consultancies focus on behavior. We focus on Architecture. A leader is only as sovereign as the system they command."
                 </p>
                 <p>
-                  "My role as Principal Architect is not to 'coach' you, but to provide the surgical diagnostics required to re-engineer your organizational nervous system."
+                  "My role as Principal Architect is not to 'coach' you, but to provide the surgical diagnostics required to re-engineer your organizational nervous system. I am here to build something that outlasts the individual."
                 </p>
+                <div className="mt-8 flex items-center gap-4">
+                  <div className="w-8 h-px bg-[#b8860b]/30" />
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white">Suchita Sancheti</span>
+                </div>
               </div>
               
               <div className="pt-8 sm:pt-12 flex flex-wrap gap-6 sm:gap-8">

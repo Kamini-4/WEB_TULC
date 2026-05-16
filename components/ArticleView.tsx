@@ -11,6 +11,8 @@ interface Article {
   title: string;
   content: string[];
   date?: string;
+  image?: string;
+  timestamp?: number;
 }
 
 interface ArticleViewProps {
@@ -118,6 +120,15 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
         {/* Article Body */}
         <div className="px-6 sm:px-12 md:px-24 py-12 sm:py-16 md:py-24">
           <header className="mb-12 sm:mb-16">
+            {article.image && (
+              <div className="mb-12 aspect-[21/9] overflow-hidden border border-[#b8860b]/20">
+                <img 
+                  src={article.image} 
+                  alt={article.title} 
+                  className="w-full h-full object-cover grayscale opacity-90"
+                />
+              </div>
+            )}
             <div className="flex justify-between items-start mb-6 sm:mb-8">
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#111111] leading-[1.1] flex-grow">
                 {article.title}

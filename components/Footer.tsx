@@ -63,6 +63,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 sm:gap-16 mb-16 sm:mb-20 border-t border-white/5 pt-16 sm:pt-20">
           <div className="col-span-2">
             <div className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-white tracking-tighter">THE UNBOUNDED</div>
+            <div className="text-[#b8860b] text-[9px] sm:text-[10px] font-black uppercase tracking-[0.3em] mb-6">Suchita Sancheti | Principal Architect</div>
             <p className="text-white/60 text-[9px] sm:text-[11px] leading-relaxed max-w-xs uppercase font-black mb-6 sm:mb-8 tracking-widest">
               Re-architecting leadership operating systems for global institutional authority.
             </p>

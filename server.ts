@@ -289,7 +289,7 @@ async function startServer() {
           
           <div style="text-align: center; margin-bottom: 40px;">
             <div style="font-size: 14px; letter-spacing: 0.4em; text-transform: uppercase; color: #b8860b; border-bottom: 1px solid #b8860b; display: inline-block; padding-bottom: 5px; margin-bottom: 10px;">The Unbounded Leadership Co.</div>
-            <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #999;">Office of the Principal | Institutional Sovereignty</div>
+            <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #999;">Suchita Sancheti | Principal Architect</div>
           </div>
           
           <h1 style="font-size: 22px; margin-bottom: 20px; font-weight: bold; color: #111;">${userHeadline}</h1>
@@ -304,7 +304,8 @@ async function startServer() {
           
           <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee;">
             <p style="font-size: 14px; margin: 0;">Sincerely,</p>
-            <p style="font-size: 14px; font-weight: bold; margin: 5px 0 0 0; color: #b8860b;">The Office of the Principal</p>
+            <p style="font-size: 14px; font-weight: bold; margin: 5px 0 0 0; color: #b8860b;">Suchita Sancheti</p>
+            <p style="font-size: 12px; font-weight: bold; margin: 0; color: #999; text-transform: uppercase; letter-spacing: 0.1em;">Principal Architect</p>
             <p style="font-size: 12px; color: #999; margin: 5px 0 0 0;">London • Singapore • New York</p>
           </div>
           
@@ -532,8 +533,8 @@ function serveStatic(app: express.Express) {
           .replace(/<meta name="keywords" content=".*?"\/?>/i, '<meta name="keywords" content="leadership audit, institutional diagnostic, cognitive tax assessment, leadership friction analysis">');
       } else if (url.includes('/contact')) {
         hydratedHtml = hydratedHtml
-          .replace(/<title>.*?<\/title>/i, '<title>Initiate Handover | Office of the Principal</title>')
-          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Connect with The Unbounded Leadership Co. regarding institutional strategy, succession architecture, or high-stakes alignment.">');
+          .replace(/<title>.*?<\/title>/i, '<title>Initiate Handover | Office of Suchita Sancheti</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Connect with Suchita Sancheti regarding institutional strategy, succession architecture, or high-stakes alignment.">');
       }
       
       res.send(hydratedHtml);

@@ -46,7 +46,7 @@ const About: React.FC = () => {
             <div>
               <h4 className="text-[#b8860b] text-[10px] font-black uppercase tracking-widest mb-6">The Principal Architect</h4>
               <p className="text-zinc-600 leading-relaxed font-light italic">
-                Sovereign Protocol was forged in the high-stakes environments of global enterprise and private family offices. It represents a synthesis of Second-Order Cybernetics, Complexity Theory, and deep-tech AI reasoning.
+                Suchita Sancheti is the architect behind the Sovereign Protocol. Forged in the high-stakes environments of global enterprise and private family offices, her methodology represents a synthesis of Second-Order Cybernetics, Complexity Theory, and deep-tech AI reasoning.
               </p>
             </div>
             

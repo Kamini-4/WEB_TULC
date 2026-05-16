@@ -136,7 +136,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                 <img 
                   src={article.image} 
                   alt={article.title} 
-                  className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
                   loading="lazy"
                   decoding="async"
                   referrerPolicy="no-referrer"

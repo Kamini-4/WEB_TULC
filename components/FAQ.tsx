@@ -3,24 +3,36 @@ import React, { useState } from 'react';
 const FAQ: React.FC = () => {
   const faqs = [
     {
-      question: "How does the Sovereign Protocol facilitate institutional permanence during high-stakes CEO succession?",
-      answer: "Succession is often treated as a personnel transition. We treat it as a structural handoff. By stabilizing the leadership substrate before the change, we ensure that the new CEO inherits a calibrated operating system rather than a collection of tactical fractures, preserving institutional momentum and shareholder value."
+      question: "What is Intent Fragmentation?",
+      answer: "Intent Fragmentation is the structural loss of strategic fidelity as leadership directives pass through organisational layers. T.U.L.C. diagnostic data shows an average 60% fidelity loss within three management layers, producing measurable operational overspend and cultural misalignment."
     },
     {
-      question: "Is the TULC architectural intervention available for multi-national firms headquartered in London, New York, and Singapore?",
-      answer: "Yes. TULC operates as a global 'silent partner' for institutional-scale firms. Our methodology is designed for the complexity of multi-national operations, with onsite intensives available in London, New York, Singapore, and Dubai. We harmonize cross-border leadership substrates to ensure unshakeable resonance across all vertical domains."
+      question: "What is the Metabolic Tax?",
+      answer: "The Metabolic Tax is the quantifiable cost of institutional friction — the financial, operational, and cultural energy wasted when leadership intent is diluted before it reaches execution. T.U.L.C. measures it through structured Metabolic Decision Audits."
     },
     {
-      question: "What distinguishes TULC's structural recalibration from traditional executive coaching or Tier-1 management consulting?",
-      answer: "Executive coaching focuses on the individual; management consulting focuses on the strategy. TULC focuses on the architecture that connects them. We recalibrate the leadership operating system itself, ensuring that strategic intent is transmitted with asymptotic fidelity through the organizational substrate, rendering heroic human effort unnecessary."
+      question: "What is the Cognitive Shadow?",
+      answer: "The Cognitive Shadow is the gap between a leader's public strategic commitment and their private cognitive conviction. When this gap exists, the organisation transmits the doubt, not the strategy. It is the primary lead indicator of institutional drift."
     },
     {
-      question: "How is the yield of systemic velocity and strategic intent fidelity quantified for Board-level reporting?",
-      answer: "We quantify success through 'Decision Harmony' and 'Execution Yield.' Partners typically see a 45% gain in cognitive velocity and a significant reduction in the window between Board-level intent and market impact. These metrics provide the empirical evidence required for Board-grade review of architectural mastery."
+      question: "What is institutional permanence?",
+      answer: "Institutional permanence is the condition in which an organisation's decision logic, cultural heuristics, and leadership DNA operate with high fidelity independently of any individual's presence — persisting and scaling across leadership generations."
     },
     {
-      question: "How does the Zero Data Retention (ZDR) mandate protect privileged strategic substrates during a structural audit?",
-      answer: "Privacy is our primary constraint. The ZDR mandate ensures that all privileged strategic data—from relational audits to structural diagnostics—is processed within a secure, ephemeral environment. No data is retained post-intervention, ensuring that your institutional secrets remain your own while the architectural gains remain permanent."
+      question: "How is T.U.L.C. different from management consulting?",
+      answer: "Traditional consulting produces strategic recommendations. T.U.L.C. produces permanent institutional architecture — a codified, legally structured operating logic that remains in the organisation after the engagement concludes."
+    },
+    {
+      question: "How long does an engagement take?",
+      answer: "Foundational engagements typically span 12 to 24 months, calibrated to the specific fracture profile identified in Phase 01. Dynastic Window protocols involve longer-term retainer arrangements."
+    },
+    {
+      question: "What does the engagement investment cover?",
+      answer: "Every engagement includes hundreds of architect-directed hours targeted specifically at the fracture points identified in the Institutional Fracture Report. All sessions are led directly by a T.U.L.C. Strategic Architect, not delegated to junior consultants."
+    },
+    {
+      question: "Is T.U.L.C.'s methodology proprietary?",
+      answer: "Yes. The Metabolic Decision Models are under provisional patent. The Intent Fragmentation Map, Cognitive Shadow Diagnostics, and Dynastic Code Architecture are proprietary T.U.L.C. intellectual property. Clients receive their own institutional DNA as a codified, legally structured organisational asset."
     }
   ];
 
