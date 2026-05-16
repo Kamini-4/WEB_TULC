@@ -78,7 +78,7 @@ const Newsletter: React.FC = () => {
           </form>
         )}
         
-        <p className="mt-6 text-[9px] text-white/30 uppercase font-bold tracking-widest flex items-center gap-3">
+        <p className="mt-6 text-[9px] text-white/50 uppercase font-bold tracking-widest flex items-center gap-3">
           <span className="w-1 h-1 bg-[#b8860b] rounded-full" />
           Zero Data Retention Active
           <span className="w-1 h-1 bg-[#b8860b] rounded-full" />

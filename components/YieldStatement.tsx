@@ -38,20 +38,20 @@ const YieldStatement: React.FC = () => {
               <div className="text-[#b8860b] text-[9px] font-black uppercase tracking-[0.3em] mb-12">Yield Projection v1.0</div>
               <div className="space-y-12">
                 <div className="flex justify-between items-end border-b border-white/10 pb-6">
-                  <span className="text-white/40 text-[10px] uppercase font-bold tracking-widest">Current Entropy</span>
+                  <span className="text-white/60 text-[10px] uppercase font-bold tracking-widest">Current Entropy</span>
                   <span className="text-white text-2xl font-mono">High Variance</span>
                 </div>
                 <div className="flex justify-between items-end border-b border-white/10 pb-6">
-                  <span className="text-white/40 text-[10px] uppercase font-bold tracking-widest">Projected Stability</span>
+                  <span className="text-white/60 text-[10px] uppercase font-bold tracking-widest">Projected Stability</span>
                   <span className="text-[#b8860b] text-2xl font-mono">99.8% Fidelity</span>
                 </div>
                 <div className="flex justify-between items-end border-b border-white/10 pb-6">
-                  <span className="text-white/40 text-[10px] uppercase font-bold tracking-widest">Calibration Window</span>
+                  <span className="text-white/60 text-[10px] uppercase font-bold tracking-widest">Calibration Window</span>
                   <span className="text-white text-2xl font-mono">90 Days</span>
                 </div>
               </div>
               <div className="mt-16">
-                <p className="text-zinc-500 text-[10px] italic leading-relaxed mb-8">
+                <p className="text-zinc-700 text-[10px] italic leading-relaxed mb-8">
                   *Results are unique to each institutional substrate. TULC does not guarantee universal outcomes; we engineer specific structural inevitabilities.
                 </p>
                 <button 
@@ -74,7 +74,7 @@ const YieldPoint: React.FC<{ label: string; value: string; desc: string }> = ({ 
     <div className="text-2xl font-bold text-[#b8860b] min-w-[80px]">{value}</div>
     <div>
       <div className="text-sm font-bold text-[#111111] uppercase tracking-wider mb-1">{label}</div>
-      <div className="text-zinc-500 text-xs italic font-light leading-relaxed">{desc}</div>
+      <div className="text-zinc-600 text-xs italic font-light leading-relaxed">{desc}</div>
     </div>
   </div>
 );

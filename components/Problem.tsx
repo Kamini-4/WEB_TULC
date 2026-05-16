@@ -9,7 +9,7 @@ const VarianceItem: React.FC<{ num: string, title: string; desc: string }> = ({ 
         <h5 className="text-xl font-bold text-[#111111] group-hover:text-[#b8860b] transition-colors">{title}</h5>
         <span className="text-[#b8860b] text-[9px] font-black uppercase opacity-40 group-hover:opacity-100 transition-opacity tracking-widest">Risk Vector {num}</span>
       </div>
-      <p className="text-zinc-500 text-sm italic font-light leading-relaxed">{desc}</p>
+      <p className="text-zinc-700 text-sm italic font-light leading-relaxed">{desc}</p>
     </div>
   </div>
 );
@@ -59,7 +59,7 @@ const Problem: React.FC = () => {
           </div>
           
           <div className="space-y-6">
-            <h4 className="text-[9px] sm:text-[10px] font-black uppercase text-zinc-400 mb-4 sm:mb-6 tracking-widest">Evidence of Strategic Decay</h4>
+            <h4 className="text-[9px] sm:text-[10px] font-black uppercase text-zinc-600 mb-4 sm:mb-6 tracking-widest">Evidence of Strategic Decay</h4>
             <div className="grid grid-cols-1 gap-1">
               <VarianceItem 
                 num="01"
@@ -88,7 +88,7 @@ const Problem: React.FC = () => {
         <div className="flex flex-col md:flex-row items-stretch justify-between gap-8 sm:gap-12 border border-[#b8860b]/20 bg-white shadow-2xl overflow-hidden">
           <div className="flex-grow p-8 sm:p-12">
             <h4 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">You are one calibration away from total institutional fact.</h4>
-            <p className="text-zinc-500 text-base sm:text-lg italic font-light leading-relaxed">Stop managing the descent and start architecting the ascent. Reclaim the authority that structural noise is currently absorbing.</p>
+            <p className="text-zinc-700 text-base sm:text-lg italic font-light leading-relaxed">Stop managing the descent and start architecting the ascent. Reclaim the authority that structural noise is currently absorbing.</p>
           </div>
           <div className="bg-[#111111] p-8 sm:p-12 flex flex-col gap-4 items-center justify-center">
             <button 

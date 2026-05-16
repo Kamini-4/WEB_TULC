@@ -111,7 +111,7 @@ const Waitlist: React.FC = () => {
             </div>
             <div className="space-y-2 sm:space-y-3">
               {ledgerLog.map((log, idx) => (
-                <div key={idx} className="text-[9px] sm:text-[11px] uppercase font-bold text-white/40 animate-fade-in flex gap-3 sm:gap-4">
+                <div key={idx} className="text-[9px] sm:text-[11px] uppercase font-bold text-white/60 animate-fade-in flex gap-3 sm:gap-4">
                   <span className="text-[#b8860b] opacity-100">[{idx}]</span>
                   <span>{log}</span>
                 </div>
@@ -126,7 +126,7 @@ const Waitlist: React.FC = () => {
               </svg>
             </div>
             <h4 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white">Intake Initialized.</h4>
-            <p className="text-zinc-400 text-base sm:text-lg font-light italic leading-relaxed max-w-lg mx-auto mb-8 sm:mb-10">
+            <p className="text-zinc-300 text-base sm:text-lg font-light italic leading-relaxed max-w-lg mx-auto mb-8 sm:mb-10">
               Your inquiry has been encrypted and placed in the Sovereign Ledger. A Principal Architect will review your substrate within one business cycle.
             </p>
             <button 
@@ -136,7 +136,7 @@ const Waitlist: React.FC = () => {
                 setLedgerLog([]);
                 setFormData({ name: '', email: '', organization: '', role: '', message: '' });
               }}
-              className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-500 hover:text-white tracking-widest transition-all"
+              className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-400 hover:text-white tracking-widest transition-all"
             >
               Close Ledger Entry
             </button>

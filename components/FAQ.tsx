@@ -50,7 +50,7 @@ const FAQ: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-[#b8860b] text-[11px] font-black uppercase mb-4 tracking-[0.3em]">The Sovereignty Protocol</h2>
           <h3 className="text-4xl md:text-5xl font-bold text-[#111111] mb-4">Strategic <span className="italic text-[#b8860b]">Clarifications.</span></h3>
-          <p className="text-zinc-500 text-sm max-w-lg mx-auto italic">Addressing the structural refinements of institutional sovereignty and deliverability for global leadership.</p>
+          <p className="text-zinc-700 text-sm max-w-lg mx-auto italic">Addressing the structural refinements of institutional sovereignty and deliverability for global leadership.</p>
           <div className="w-12 h-[1px] bg-[#b8860b] mx-auto mt-6 opacity-30"></div>
         </div>
 
@@ -62,7 +62,7 @@ const FAQ: React.FC = () => {
         
         <div className="mt-16 p-10 border border-[#b8860b]/20 bg-white/40 text-center">
            <h4 className="text-xl font-bold mb-3">Seeking specific structural refinement?</h4>
-           <p className="text-zinc-500 text-sm italic mb-6">For high-resonance inquiries regarding institutional substrates in London, NYC, or Singapore, request a secure briefing.</p>
+           <p className="text-zinc-600 text-sm italic mb-6">For high-resonance inquiries regarding institutional substrates in London, NYC, or Singapore, request a secure briefing.</p>
            <button 
              onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
              className="px-10 py-4 bg-[#111111] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#b8860b] transition-all"

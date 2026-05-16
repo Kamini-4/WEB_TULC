@@ -35,22 +35,22 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
               <div className="flex flex-col items-center bg-[#111111] p-8 transition-colors hover:bg-zinc-900">
                 <span className="text-3xl font-bold text-white mb-1">30%</span>
                 <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-3">Strategic Bandwidth</span>
-                <p className="text-[10px] text-zinc-500 italic leading-relaxed max-w-[160px]">Reclaiming the capacity for high-stakes architectural thought.</p>
+                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Reclaiming the capacity for high-stakes architectural thought.</p>
               </div>
               <div className="flex flex-col items-center bg-[#111111] p-8 transition-colors hover:bg-zinc-900">
                 <span className="text-2xl font-bold text-white mb-1">Near-Absolute</span>
                 <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-3">Cognitive Reclamation</span>
-                <p className="text-[10px] text-zinc-500 italic leading-relaxed max-w-[160px]">Purging tactical noise to restore absolute decision velocity.</p>
+                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Purging tactical noise to restore absolute decision velocity.</p>
               </div>
               <div className="flex flex-col items-center bg-[#111111] p-8 transition-colors hover:bg-zinc-900">
                 <span className="text-2xl font-bold text-white mb-1">Asymptotic</span>
                 <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-3">Intent Fidelity</span>
-                <p className="text-[10px] text-zinc-500 italic leading-relaxed max-w-[160px]">Eliminating authority dilution across the organizational substrate.</p>
+                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Eliminating authority dilution across the organizational substrate.</p>
               </div>
               <div className="flex flex-col items-center bg-[#111111] p-8 transition-colors hover:bg-zinc-900">
                 <span className="text-3xl font-bold text-white mb-1">∞</span>
                 <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-3">Legacy Yield</span>
-                <p className="text-[10px] text-zinc-500 italic leading-relaxed max-w-[160px]">Engineering institutional permanence independent of presence.</p>
+                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Engineering institutional permanence independent of presence.</p>
               </div>
             </div>
 
@@ -84,7 +84,7 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
                 {['Cognitive', 'Systemic', 'Strategic', 'Moral', 'Cultural'].map((domain, i) => (
                   <div key={i} className="flex flex-col items-center gap-3">
                     <div className="w-full h-[1px] bg-zinc-300 group-hover:bg-[#b8860b]/50 transition-colors duration-700" />
-                    <span className="text-[7px] font-black uppercase tracking-[0.3em] text-zinc-400 group-hover:text-[#b8860b] transition-colors duration-700">{domain}</span>
+                    <span className="text-[7px] font-black uppercase tracking-[0.3em] text-zinc-600 group-hover:text-[#b8860b] transition-colors duration-700">{domain}</span>
                   </div>
                 ))}
               </div>

@@ -2,8 +2,10 @@
 import React from 'react';
 import Assessment from '../../components/Assessment.tsx';
 import { motion } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 
 const AssessmentPage: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -27,7 +29,10 @@ const AssessmentPage: React.FC = () => {
             if (waitlist) {
               waitlist.scrollIntoView({ behavior: 'smooth' });
             } else {
-              window.location.hash = 'waitlist';
+              navigate('/');
+              setTimeout(() => {
+                document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
             }
           }} />
         </div>

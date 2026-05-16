@@ -51,7 +51,7 @@ const Portal: React.FC = () => {
                 <div className="space-y-4 w-full max-w-xs">
                   <input type="password" placeholder="PRINCIPAL KEY" className="w-full bg-white/5 border border-white/20 p-4 text-white text-xs text-center tracking-[0.4em] focus:outline-none focus:border-[#b8860b]" />
                   <button className="w-full py-4 bg-white text-black text-[10px] font-black uppercase tracking-widest hover:bg-[#b8860b] hover:text-white transition-all">Authenticate</button>
-                  <Link to="/#waitlist" className="block w-full py-4 border border-white/10 text-zinc-500 text-[10px] font-black uppercase tracking-widest hover:bg-white/5 transition-all mt-4 no-underline">
+                  <Link to="/" className="block w-full py-4 border border-white/10 text-zinc-500 text-[10px] font-black uppercase tracking-widest hover:bg-white/5 transition-all mt-4 no-underline">
                     Apply for Access
                   </Link>
                 </div>

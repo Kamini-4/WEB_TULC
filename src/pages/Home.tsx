@@ -21,6 +21,8 @@ import FAQ from '../../components/FAQ.tsx';
 import Waitlist from '../../components/Waitlist.tsx';
 import Newsletter from '../../components/Newsletter.tsx';
 
+import StrategicMandates from '../../components/StrategicMandates.tsx';
+
 interface HomeProps {
   onBriefClick: (id?: string) => void;
   onArticleClick: (article: any) => void;
@@ -46,7 +48,7 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
                 Neutralize <span className="italic text-[#b8860b]">Risk.</span> <br />
                 Verify the <span className="italic font-light">Signal.</span>
               </h3>
-              <p className="text-zinc-400 text-xl leading-relaxed mb-12 italic font-light max-w-2xl">
+              <p className="text-zinc-200 text-xl leading-relaxed mb-12 italic font-light max-w-2xl">
                 For principals requiring architectural proof before full institutional integration. A 14-day high-fidelity diagnostic of your leadership substrate.
               </p>
               <div className="grid sm:grid-cols-2 gap-8 mb-12">
@@ -54,14 +56,14 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
                   <div className="w-6 h-px bg-[#b8860b] mt-3" />
                   <div>
                     <h4 className="font-bold text-sm uppercase tracking-widest mb-2">Cognitive Calibration</h4>
-                    <p className="text-xs text-zinc-500 italic">Mapping your personal decision frequency.</p>
+                    <p className="text-xs text-zinc-300 italic">Mapping your personal decision frequency.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-6 h-px bg-[#b8860b] mt-3" />
                   <div>
                     <h4 className="font-bold text-sm uppercase tracking-widest mb-2">Logic Leak Audit</h4>
-                    <p className="text-xs text-zinc-500 italic">Identifying the 30% bandwidth drain.</p>
+                    <p className="text-xs text-zinc-300 italic">Identifying the 30% bandwidth drain.</p>
                   </div>
                 </div>
               </div>
@@ -74,7 +76,7 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
                 </button>
                 <div className="hidden sm:block">
                   <div className="text-[10px] font-black uppercase text-[#b8860b] tracking-widest mb-1">Fee Structure</div>
-                  <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Fixed Delta-Based</div>
+                  <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Fixed Delta-Based</div>
                 </div>
               </div>
             </div>
@@ -86,7 +88,7 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
                 </div>
                 <h4 className="text-2xl font-bold italic mb-4">Phase 0.0</h4>
                 <div className="text-[9px] font-black uppercase tracking-[0.5em] text-[#b8860b] mb-8">Diagnostic Protocol</div>
-                <ul className="text-center space-y-3 text-zinc-500 text-xs italic font-light">
+                <ul className="text-center space-y-3 text-zinc-300 text-xs italic font-light">
                   <li>Institutional Telemetry Scan</li>
                   <li>Principal Logic Synthesis</li>
                   <li>Substrate Integrity Report</li>
@@ -100,6 +102,7 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
 
       <Problem />
       <YieldStatement />
+      <StrategicMandates />
       
       {/* Methodology Preview - Driving to sub-page */}
       <section className="py-32 bg-[#f5f5f0]">
@@ -126,7 +129,7 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
               <div key={pillar.id} className="p-8 bg-white border border-zinc-200 hover:border-[#b8860b] transition-all group">
                 <div className="text-[#b8860b] text-xl font-bold italic mb-6">{pillar.id}</div>
                 <h4 className="text-lg font-bold mb-4">{pillar.title}</h4>
-                <p className="text-zinc-500 text-sm italic font-light leading-relaxed">{pillar.desc}</p>
+                <p className="text-zinc-700 text-sm italic font-light leading-relaxed">{pillar.desc}</p>
               </div>
             ))}
           </div>

@@ -318,7 +318,7 @@ const Assessment: React.FC = () => {
                 </button>
                 
                 <div className="flex flex-col items-center gap-2">
-                  <div className="text-[9px] uppercase text-zinc-400 tracking-[0.5em] font-black">Already a Principal?</div>
+                  <div className="text-[9px] uppercase text-zinc-600 tracking-[0.5em] font-black">Already a Principal?</div>
                   <a 
                     href="https://ai.studio/apps/bc205532-cdb0-43d3-a8fb-919809372614"
                     target="_blank"
@@ -342,13 +342,13 @@ const Assessment: React.FC = () => {
             >
               <Shield className="w-12 h-12 text-[#b8860b] mx-auto mb-8" />
               <h3 className="text-2xl font-bold mb-4 text-[#111111] uppercase tracking-wider">Identity Protocol</h3>
-              <p className="text-zinc-500 mb-10 italic font-light">
+              <p className="text-zinc-700 mb-10 italic font-light">
                 Access to the Sovereign Protocol requires institutional verification. Please provide your strategic identifiers.
               </p>
               
               <form onSubmit={handleIdentitySubmit} className="space-y-6 text-left">
                 <div>
-                  <label className="text-[9px] font-black uppercase text-zinc-400 tracking-[0.3em] block mb-2">Institutional Identity</label>
+                  <label className="text-[9px] font-black uppercase text-zinc-600 tracking-[0.3em] block mb-2">Institutional Identity</label>
                   <input 
                     type="text"
                     required
@@ -359,7 +359,7 @@ const Assessment: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-[9px] font-black uppercase text-zinc-400 tracking-[0.3em] block mb-2">Strategic Email</label>
+                  <label className="text-[9px] font-black uppercase text-zinc-600 tracking-[0.3em] block mb-2">Strategic Email</label>
                   <input 
                     type="email"
                     required
@@ -370,7 +370,7 @@ const Assessment: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-[9px] font-black uppercase text-zinc-400 tracking-[0.3em] block mb-2">Organization</label>
+                  <label className="text-[9px] font-black uppercase text-zinc-600 tracking-[0.3em] block mb-2">Organization</label>
                   <input 
                     type="text"
                     required
@@ -399,7 +399,7 @@ const Assessment: React.FC = () => {
                 </div>
               )}
 
-              <div className="text-[9px] uppercase text-zinc-400 tracking-widest mt-8">
+              <div className="text-[9px] uppercase text-zinc-600 tracking-widest mt-8">
                 Zero Data Retention (ZDR) Mandate Active
               </div>
             </motion.div>
@@ -414,7 +414,7 @@ const Assessment: React.FC = () => {
               className="text-center max-w-5xl mx-auto"
             >
               <h3 className="text-2xl font-bold mb-4 text-[#111111] uppercase tracking-widest">Select Institutional Substrate</h3>
-              <p className="text-zinc-500 mb-12 italic font-light max-w-2xl mx-auto">
+              <p className="text-zinc-700 mb-12 italic font-light max-w-2xl mx-auto">
                 The diagnostic must be calibrated to your specific theater of operation. Select the substrate that most accurately reflects your current institutional complexity.
               </p>
               
@@ -451,7 +451,7 @@ const Assessment: React.FC = () => {
                     <item.icon className="w-10 h-10 text-zinc-300 group-hover:text-[#b8860b] mb-6 transition-colors" />
                     <span className="text-[10px] font-black uppercase tracking-widest text-[#111111] mb-2">{item.label}</span>
                     <span className="text-[8px] text-[#b8860b] uppercase tracking-widest font-black mb-4">{item.desc}</span>
-                    <p className="text-[10px] text-zinc-500 leading-relaxed font-light italic">
+                    <p className="text-[10px] text-zinc-600 leading-relaxed font-light italic">
                       {item.longDesc}
                     </p>
                   </button>
@@ -489,7 +489,7 @@ const Assessment: React.FC = () => {
                   >
                     <div>
                       <div className="text-[10px] font-black uppercase tracking-widest text-[#b8860b] mb-2">{opt.label}</div>
-                      <div className="text-zinc-500 font-light italic">{opt.description}</div>
+                      <div className="text-zinc-700 font-light italic">{opt.description}</div>
                     </div>
                     <ChevronRight className="w-5 h-5 text-zinc-300 group-hover:text-[#b8860b] transition-colors" />
                   </button>
@@ -542,7 +542,7 @@ const Assessment: React.FC = () => {
                     </div>
                   </div>
                   <div className="flex flex-col items-end">
-                    <div className="text-[9px] uppercase font-black text-zinc-500 mb-2 tracking-widest">Vertical Maturity Grade:</div>
+                    <div className="text-[9px] uppercase font-black text-zinc-700 mb-2 tracking-widest">Vertical Maturity Grade:</div>
                     <div className="px-8 py-4 bg-white text-black text-sm font-black uppercase tracking-[0.3em] shadow-[0_0_30px_rgba(255,255,255,0.1)]">
                       {getGrade()}
                     </div>
@@ -567,7 +567,7 @@ const Assessment: React.FC = () => {
                       <div className="text-xl font-bold italic mb-6 text-white leading-tight">
                         "{getReportDetails().refinement}"
                       </div>
-                      <p className="text-zinc-400 text-lg font-light leading-relaxed italic border-l-2 border-[#b8860b]/20 pl-8">
+                      <p className="text-zinc-600 text-lg font-light leading-relaxed italic border-l-2 border-[#b8860b]/20 pl-8">
                         Our forensic analysis indicates that while you possess foundational brilliance, your currently "Manual" intervention is reaching its strategic ceiling. The path to institutional sovereignty requires scaling this brilliance into a structural inevitability.
                       </p>
                     </section>
@@ -581,7 +581,7 @@ const Assessment: React.FC = () => {
 
                     <section className="grid sm:grid-cols-2 gap-8">
                       <div className="p-8 bg-white/[0.02] border border-white/5">
-                        <div className="text-[9px] uppercase font-black text-zinc-500 mb-4 tracking-widest">Aggregate Fidelity</div>
+                        <div className="text-[9px] uppercase font-black text-zinc-700 mb-4 tracking-widest">Aggregate Fidelity</div>
                         <div className="flex items-end gap-2 mb-4">
                           <span className="text-4xl font-bold text-[#b8860b]">
                             {Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 5)) * 100)}
@@ -598,7 +598,7 @@ const Assessment: React.FC = () => {
                         </div>
                       </div>
                       <div className="p-8 bg-white/[0.02] border border-white/5">
-                        <div className="text-[9px] uppercase font-black text-zinc-500 mb-4 tracking-widest">Cognitive Bandwidth</div>
+                        <div className="text-[9px] uppercase font-black text-zinc-700 mb-4 tracking-widest">Cognitive Bandwidth</div>
                         <div className="flex items-end gap-2 mb-4">
                           <span className="text-4xl font-bold text-white">
                             {Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 5)) * 100)}
@@ -617,13 +617,13 @@ const Assessment: React.FC = () => {
                     </section>
 
                     <section>
-                      <div className="text-[10px] uppercase font-black text-zinc-500 mb-8 tracking-[0.4em]">Vertical Domain Calibration (1-5 Scale)</div>
+                      <div className="text-[10px] uppercase font-black text-zinc-700 mb-8 tracking-[0.4em]">Vertical Domain Calibration (1-5 Scale)</div>
                       <div className="grid grid-cols-1 gap-6">
                         {QUESTIONS.map((q, i) => (
                           <div key={i} className="group">
                             <div className="flex items-center justify-between mb-3">
                               <div>
-                                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400 block mb-1">{q.domain}</span>
+                                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-600 block mb-1">{q.domain}</span>
                                 <span className="text-[9px] text-zinc-600 italic font-light">{getReportDetails().domainInsights[q.domain]?.definition}</span>
                               </div>
                               <div className="flex gap-1">
@@ -654,7 +654,7 @@ const Assessment: React.FC = () => {
                       <div className="absolute -top-3 -right-3">
                         <Lock className="w-8 h-8 text-[#b8860b] bg-[#111111] p-1.5 border border-[#b8860b]/30" />
                       </div>
-                      <h4 className="text-[11px] font-black uppercase tracking-[0.3em] mb-8 text-zinc-400">Locked Protocol Modules</h4>
+                      <h4 className="text-[11px] font-black uppercase tracking-[0.3em] mb-8 text-zinc-600">Locked Protocol Modules</h4>
                       <div className="space-y-4 flex-grow">
                         {[
                           { name: "The 90-Day Sovereign Roadmap", benefit: "Calibrate the system for autonomous strategic execution" },
@@ -665,7 +665,7 @@ const Assessment: React.FC = () => {
                         ].map((item, i) => (
                           <div key={i} className="flex flex-col p-5 border border-white/5 bg-black/40 group cursor-not-allowed">
                             <div className="flex items-center justify-between mb-2">
-                              <span className="text-xs text-zinc-400 font-medium tracking-wide">{item.name}</span>
+                              <span className="text-xs text-zinc-600 font-medium tracking-wide">{item.name}</span>
                               <div className="text-[8px] font-black text-[#b8860b]/40 uppercase tracking-widest">Encrypted</div>
                             </div>
                             <div className="text-[9px] text-zinc-600 italic">{item.benefit}</div>
@@ -673,7 +673,7 @@ const Assessment: React.FC = () => {
                         ))}
                       </div>
                       <div className="mt-10 pt-8 border-t border-white/5">
-                        <p className="text-[10px] text-zinc-500 leading-relaxed italic text-center">
+                        <p className="text-[10px] text-zinc-700 leading-relaxed italic text-center">
                           Full recalibration requires access to the Sovereign Substrate. These modules are reserved for verified Principals.
                         </p>
                       </div>
@@ -686,7 +686,7 @@ const Assessment: React.FC = () => {
                     <h5 className="text-2xl font-bold mb-6 text-white leading-tight">
                       The snapshot is complete. The solution is <span className="italic text-[#b8860b]">Architectural.</span>
                     </h5>
-                    <p className="text-zinc-500 mb-12 text-lg font-light italic leading-relaxed">
+                    <p className="text-zinc-700 mb-12 text-lg font-light italic leading-relaxed">
                       This initial diagnostic is a Strategic Trailer—a snapshot of your current institutional substrate. The full Sovereign Model, reserved for paid Principals, identifies the precise calibration vectors through a comprehensive Voice Audit and Cross-Mapping of operational fidelity. Your organization is currently demonstrating architectural potential; the transition from Heroic Intervention to Institutional Sovereignty requires the full-fidelity recalibration found in the In-depth Assessment.
                     </p>
                     <div className="space-y-10">
@@ -694,7 +694,7 @@ const Assessment: React.FC = () => {
                         <div className="bg-white/[0.03] border border-[#b8860b]/20 p-10 text-center">
                           <Lock className="w-10 h-10 text-[#b8860b] mx-auto mb-6" />
                           <h5 className="text-xl font-bold mb-4 text-white uppercase tracking-widest">In-depth Protocol Access Locked</h5>
-                          <p className="text-zinc-500 mb-10 italic font-light leading-relaxed">
+                          <p className="text-zinc-700 mb-10 italic font-light leading-relaxed">
                             The dossier above is an Executive Preview. To maintain the integrity of the Sovereign Substrate, a one-time institutional verification fee is required to unlock the full In-depth Architectural Assessment and the Sovereign Roadmap. This payment redirects you via Razorpay to the secure Sovereign Portal app—the definitive environment for institutional permanence.
                           </p>
                           

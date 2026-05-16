@@ -23,6 +23,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
   const navItems = [
     { label: 'About', path: '/about' },
     { label: 'Sovereign Protocol', path: '/methodology' },
+    { label: 'Mandates', path: '/#mandates' },
     { label: 'Assessment', path: '/assessment' },
     { label: 'Library', path: '/library' },
     { label: 'Portal', path: 'https://ai.studio/apps/bc205532-cdb0-43d3-a8fb-919809372614', external: true },

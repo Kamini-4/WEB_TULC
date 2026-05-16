@@ -63,7 +63,7 @@ const FiveDomains: React.FC = () => {
         <div className="text-center mb-24">
           <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-6 tracking-[0.5em]">The 5 Sovereign Domains</h2>
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-8">Architecting <span className="italic text-[#b8860b]">Absolute Authority.</span></h3>
-          <p className="max-w-2xl mx-auto text-zinc-500 text-sm italic font-light leading-relaxed">
+          <p className="max-w-2xl mx-auto text-zinc-700 text-sm italic font-light leading-relaxed">
             Excellence is not a habitual act, but a structural property of these five vertical domains.
           </p>
         </div>
@@ -126,7 +126,7 @@ const DomainCard: React.FC<{ domain: Domain; index: number }> = ({ domain, index
             <div className="text-[10px] text-[#b8860b] font-black uppercase tracking-widest italic">{domain.subtitle}</div>
             <div className="w-12 h-px bg-[#b8860b]/30 mt-2" />
           </div>
-          <p className="text-zinc-500 text-[11px] italic font-light leading-relaxed px-2">
+          <p className="text-zinc-600 text-[11px] italic font-light leading-relaxed px-2">
             Analysis of {domain.title.toLowerCase()} and institutional alignment.
           </p>
           <div className="bg-white/5 p-3 rounded-full opacity-30 group-hover:opacity-100 transition-opacity">

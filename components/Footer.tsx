@@ -20,7 +20,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
                 Leadership is not a performance. It is an <span className="italic text-[#b8860b]">Architectural Fact.</span>
               </p>
               <div className="h-[2px] w-24 sm:w-32 bg-[#b8860b]"></div>
-              <div className="space-y-6 sm:space-y-8 text-zinc-400 text-lg sm:text-xl md:text-2xl font-light italic leading-relaxed max-w-2xl">
+              <div className="space-y-6 sm:space-y-8 text-zinc-300 text-lg sm:text-xl md:text-2xl font-light italic leading-relaxed max-w-2xl">
                 <p>
                   Advice is secondary; the re-engineering of the physics of authority is primary. The Unbounded exists at the intersection of surgical precision and infinite potential.
                 </p>
@@ -63,7 +63,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 sm:gap-16 mb-16 sm:mb-20 border-t border-white/5 pt-16 sm:pt-20">
           <div className="col-span-2">
             <div className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-white tracking-tighter">THE UNBOUNDED</div>
-            <p className="text-white/40 text-[9px] sm:text-[11px] leading-relaxed max-w-xs uppercase font-black mb-6 sm:mb-8 tracking-widest">
+            <p className="text-white/60 text-[9px] sm:text-[11px] leading-relaxed max-w-xs uppercase font-black mb-6 sm:mb-8 tracking-widest">
               Re-architecting leadership operating systems for global institutional authority.
             </p>
             <div className="flex gap-4">
@@ -77,15 +77,16 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
           
           <div>
             <h5 className="text-white text-[9px] sm:text-[11px] uppercase font-black mb-6 sm:mb-8 tracking-widest">Philosophy</h5>
-            <ul className="text-white/30 text-[9px] sm:text-[11px] uppercase space-y-3 sm:space-y-4 font-bold tracking-widest">
+            <ul className="text-white/50 text-[9px] sm:text-[11px] uppercase space-y-3 sm:space-y-4 font-bold tracking-widest">
               <li><Link to="/about" className="hover:text-[#b8860b] transition-colors uppercase">About the Firm</Link></li>
               <li><Link to="/methodology" className="hover:text-[#b8860b] transition-colors uppercase">Sovereign Protocol</Link></li>
+              <li><Link to="/#mandates" className="hover:text-[#b8860b] transition-colors uppercase">Strategic Mandates</Link></li>
             </ul>
           </div>
           
           <div>
             <h5 className="text-white text-[9px] sm:text-[11px] uppercase font-black mb-6 sm:mb-8 tracking-widest">Intelligence</h5>
-            <ul className="text-white/30 text-[9px] sm:text-[11px] uppercase space-y-3 sm:space-y-4 font-bold tracking-widest">
+            <ul className="text-white/50 text-[9px] sm:text-[11px] uppercase space-y-3 sm:space-y-4 font-bold tracking-widest">
               <li><Link to="/library" className="hover:text-[#b8860b] transition-colors uppercase">Intellectual Authority</Link></li>
             </ul>
           </div>
