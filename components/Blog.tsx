@@ -83,6 +83,20 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                 {post.id}
               </div>
               
+              {post.image && (
+                <div className="mb-6 overflow-hidden bg-[#1a1a1a] aspect-[16/10] relative border border-white/5 group-hover:border-[#b8860b]/20 transition-all duration-700">
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="w-full h-full object-cover grayscale opacity-40 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-40" />
+                </div>
+              )}
+              
               <div className="flex justify-between items-center mb-4 sm:mb-6 relative z-10">
                 <span className="registry-category text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase tracking-widest">
                   {post.category}

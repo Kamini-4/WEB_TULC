@@ -99,6 +99,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     date: "Q1 2026",
     title: "The Founder's Dilemma: Architecting Institutional Permanence Beyond the Individual",
     excerpt: "Why 50% of CEO successions fail within 18 months and how you can build a leadership substrate that preserves legacy through systemic sovereignty.",
+    image: "https://images.unsplash.com/photo-1577086664693-894d8405334a?auto=format&fit=crop&q=80&w=1600",
     timestamp: 1709280000000,
     content: [
       "## The Institutional Crisis of Succession: Beyond the Heroic Founder",
@@ -122,6 +123,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     date: "Dispatch 08",
     title: "The Cognitive Tax of Leadership: Reclaiming 40% of Your Strategic Bandwidth",
     excerpt: "Executive burnout is an architectural design flaw, not a personal failure. Learn how to eliminate tactical noise and maximize your strategic yield.",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600",
     timestamp: 1709366400000,
     content: [
       "## Reclaiming the Executive Mind: Neutralizing the Cognitive Tax",
@@ -142,6 +144,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     date: "Special Report",
     title: "Bridging the Strategy-Execution Gap: A Fiduciary Guide to Board Alignment",
     excerpt: "Why 67% of well-formulated strategies fail and how to calibrate the gap between Board expectations and operational reality for 2.5x outperformance.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
     timestamp: 1709452800000,
     content: [
       "## The Strategy-Execution Chasm: A Governance Failure",
@@ -159,6 +162,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     date: "Dispatch 12",
     title: "Reclaiming Strategic Bandwidth: The Executive's Only Real Currency",
     excerpt: "Why busiest leaders are often strategically bankrupt — and how to architect your return to high-value command.",
+    image: "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600",
     timestamp: 1709539200000,
     content: [
       "## The Bankruptcy of the Busy: Reclaiming Strategic Capacity",
@@ -176,6 +180,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     date: "AEO/GEO Protocol",
     title: "Institutional Lag: The Invisible Coefficient of Leadership Friction",
     excerpt: "Why the distance between executive intent and operational execution is the most critical metric for the modern CEO.",
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1600",
     timestamp: 1709625600000,
     content: [
       "## The Architecture of Speed: Neutralizing Institutional Lag",
@@ -193,6 +198,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     date: "Executive Intelligence",
     title: "Engineering Strategic Bandwidth: Reclaiming Decision Capacity at Scale",
     excerpt: "Reclaiming up to 40% of your cognitive capacity by neutralizing tactical noise and stabilizing institutional logic.",
+    image: "https://images.unsplash.com/photo-1507537297325-5f9037f3796d?auto=format&fit=crop&q=80&w=1600",
     timestamp: 1709712000000,
     content: [
       "## The Engineering of Choice: Strategic Bandwidth Reclamation",
@@ -210,6 +216,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     date: "Special Dispatch",
     title: "Sovereign Authority vs. Reactive Management: A New Leadership Taxonomy",
     excerpt: "Transitioning from heroic intervention to architectural command as the core pillar of institutional survival.",
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1600",
     timestamp: 1709798400000,
     content: [
       "## From Solver to Architect: The Taxonomy of Sovereignty",
@@ -227,6 +234,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     date: "Architecture Report",
     title: "The Physics of Inevitability: Why Systems Outperform Individual Talent",
     excerpt: "How to engineer an organization where strategic success is a natural consequence of the structural design, not personal effort.",
+    image: "https://images.unsplash.com/photo-1508108712903-4947ef9b2ef7?auto=format&fit=crop&q=80&w=1600",
     timestamp: 1709884800000,
     content: [
       "## Engineering Inevitability: The Law of Structural Success",
@@ -244,6 +252,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     date: "Diagnostic Entry",
     title: "The Cost of Organizational Latency: Measuring the Inaction Tax",
     excerpt: "Qualifying and neutralizing the hidden friction that erodes fiduciary value in global enterprises.",
+    image: "https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&q=80&w=1600",
     timestamp: 1709971200000,
     content: [
       "## The Inaction Tax: Neutralizing Institutional Entropy",
