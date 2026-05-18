@@ -137,13 +137,18 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
         <div className="px-6 sm:px-12 md:px-24 py-12 sm:py-16 md:py-24">
           <header className="mb-12 sm:mb-16">
             {article.image && (
-              <div className="mb-12 aspect-[21/9] overflow-hidden border border-[#b8860b]/20">
+              <div className="mb-12 aspect-[21/9] overflow-hidden border border-[#b8860b]/20 shadow-2xl relative">
                 <img 
                   src={article.image} 
                   alt={article.title} 
-                  className="w-full h-full object-cover grayscale opacity-90"
+                  className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const img = e.currentTarget;
+                    img.src = "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600";
+                  }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#f5f5f0] via-transparent to-transparent opacity-20" />
               </div>
             )}
             <div className="flex justify-between items-start mb-6 sm:mb-8">

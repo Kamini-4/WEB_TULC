@@ -88,12 +88,12 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                   <img 
                     src={post.image} 
                     alt={post.title} 
-                    className="w-full h-full object-cover grayscale opacity-40 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
                     loading="lazy"
                     decoding="async"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-40" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-60" />
                 </div>
               )}
               
