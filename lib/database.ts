@@ -20,7 +20,7 @@ export interface LeadEntry {
   email: string;
   organization: string;
   message: string;
-  type: 'waitlist';
+  type: 'intake';
 }
 
 export interface AssessmentEntry {
@@ -125,7 +125,7 @@ export const SovereignDB = {
       const docRef = await addDoc(collection(db, path), {
         ...data,
         timestamp: serverTimestamp(),
-        type: 'waitlist'
+        type: 'intake'
       });
       return { id: docRef.id, ...data };
     } catch (error) {

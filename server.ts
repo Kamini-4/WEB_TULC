@@ -289,7 +289,7 @@ async function startServer() {
           
           <div style="text-align: center; margin-bottom: 40px;">
             <div style="font-size: 14px; letter-spacing: 0.4em; text-transform: uppercase; color: #b8860b; border-bottom: 1px solid #b8860b; display: inline-block; padding-bottom: 5px; margin-bottom: 10px;">The Unbounded Leadership Co.</div>
-            <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #999;">Suchita Sancheti | Principal Architect</div>
+            <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #999;">The Unbounded Leadership Co. | Office of the Principal</div>
           </div>
           
           <h1 style="font-size: 22px; margin-bottom: 20px; font-weight: bold; color: #111;">${userHeadline}</h1>
@@ -531,10 +531,10 @@ function serveStatic(app: express.Express) {
           .replace(/<title>.*?<\/title>/i, '<title>Institutional Diagnostic | The Sovereign Audit Audit</title>')
           .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Execute a high-fidelity audit of your leadership architecture. Identify cognitive tax, institutional lag, and substrate friction.">')
           .replace(/<meta name="keywords" content=".*?"\/?>/i, '<meta name="keywords" content="leadership audit, institutional diagnostic, cognitive tax assessment, leadership friction analysis">');
-      } else if (url.includes('/contact')) {
+      } else if (url.includes('/contact') || url.includes('/intake')) {
         hydratedHtml = hydratedHtml
-          .replace(/<title>.*?<\/title>/i, '<title>Initiate Handover | Office of Suchita Sancheti</title>')
-          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Connect with Suchita Sancheti regarding institutional strategy, succession architecture, or high-stakes alignment.">');
+          .replace(/<title>.*?<\/title>/i, '<title>Initiate Handover | The Unbounded Leadership Co.</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Connect with the Principal Architect regarding institutional strategy, succession architecture, or high-stakes alignment.">');
       }
       
       res.send(hydratedHtml);

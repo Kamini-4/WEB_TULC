@@ -76,7 +76,7 @@ const FAQ: React.FC = () => {
            <h4 className="text-xl font-bold mb-3">Seeking specific structural refinement?</h4>
            <p className="text-zinc-600 text-sm italic mb-6">For high-resonance inquiries regarding institutional substrates in London, NYC, or Singapore, request a secure briefing.</p>
            <button 
-             onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+             onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
              className="px-10 py-4 bg-[#111111] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#b8860b] transition-all"
            >
              Request Sovereign Access

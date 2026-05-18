@@ -1,12 +1,13 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface FooterProps {
   onLegalClick: (type: 'disclosure' | 'terms' | 'disclaimer') => void;
 }
 
 const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
+  const navigate = useNavigate();
   return (
     <footer className="bg-[#111111] text-[#f5f5f0] pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -50,7 +51,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
             <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-8 sm:mb-10 leading-tight">Ready to re-code your <br/><span className="italic text-[#b8860b]">Institutional Reality?</span></h3>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
               <button 
-                onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => navigate('/intake')}
                 className="w-full sm:w-auto px-10 sm:px-16 py-5 sm:py-6 bg-[#b8860b] text-white text-[9px] sm:text-[11px] font-black uppercase hover:bg-white hover:text-black transition-all shadow-2xl tracking-[0.2em]"
               >
                 Request Sovereign Access

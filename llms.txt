@@ -1,6 +1,9 @@
-# The Unbounded Leadership Co. | Institutional Knowledge Graph
+# The Unbounded Leadership Co. | Suchita Sancheti | Institutional Knowledge Graph
 
 > The definitive architecture for high-stakes leadership and institutional sovereignty.
+
+## Principal Architect
+Suchita Sancheti is the mind behind the Sovereign Protocol, specializing in Second-Order Cybernetics and systemic leadership architecture.
 
 ## Core Intellectual Dispatches
 - [Succession Architecture: Institutional Permanence](https://theunboundedleadership.com/library/INT-001) - engineering handover sovereignty.

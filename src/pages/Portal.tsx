@@ -2,9 +2,74 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Lock, Unlock } from 'lucide-react';
 
 const Portal: React.FC = () => {
+  const [isPaid, setIsPaid] = React.useState(false);
+
+  // Check if simulated payment succeeded in URL
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('access') === 'granted' || localStorage.getItem('tulc_portal_access') === 'true') {
+      setIsPaid(true);
+      if (params.get('access') === 'granted') {
+        localStorage.setItem('tulc_portal_access', 'true');
+      }
+    }
+  }, []);
+
+  const handlePaymentClick = () => {
+    // In a real app, this would use the Razorpay Checkout SDK
+    window.open('https://rzp.io/rzp/8H0bV3bW', '_blank');
+    
+    // For demo purposes in this environment, we'll provide a way to 'simulate' success
+    // after the user returns or clicks a simulate button.
+  };
+
+  if (!isPaid) {
+    return (
+      <div className="bg-[#111111] min-h-screen text-white pt-36 pb-24 overflow-hidden relative flex items-center justify-center">
+        <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/50 to-transparent z-20" />
+        <div className="max-w-xl mx-auto px-6 relative z-10 text-center">
+          <div className="w-20 h-20 border-2 border-[#b8860b] rotate-45 mb-16 mx-auto flex items-center justify-center">
+            <Lock className="w-8 h-8 text-[#b8860b] -rotate-45" />
+          </div>
+          <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.5em] mb-4">Portal Locked</h2>
+          <h1 className="text-4xl md:text-5xl font-bold mb-8">Institutional <br /><span className="italic text-[#b8860b]">Clearance Required.</span></h1>
+          <p className="text-zinc-500 mb-12 text-sm italic font-light leading-relaxed">
+            The Sovereign Portal contains proprietary architectural telemetry. To unlock your unique substrate dashboard and initiate your engagement, the Institutional Intake Fee must be processed.
+          </p>
+          
+          <div className="space-y-6">
+            <button 
+              onClick={handlePaymentClick}
+              className="w-full py-6 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all shadow-2xl"
+            >
+              Process Intake Fee (Razorpay)
+            </button>
+            <p className="text-[9px] text-zinc-600 uppercase tracking-widest">Secure Institutional Gateway</p>
+            
+            <button 
+              onClick={() => {
+                setIsPaid(true);
+                localStorage.setItem('tulc_portal_access', 'true');
+              }}
+              className="text-[8px] text-zinc-700 hover:text-zinc-500 transition-colors uppercase tracking-[0.2em] mt-12 block mx-auto underline"
+            >
+              [ Simulation Only: Manual Unlock ]
+            </button>
+          </div>
+          
+          <div className="mt-20">
+            <Link to="/" className="text-zinc-600 hover:text-white transition-colors text-[9px] uppercase tracking-widest font-bold">
+              Return to Surface Hub
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-[#111111] min-h-screen text-white pt-36 pb-24 overflow-hidden relative">
       <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/50 to-transparent z-20" />
@@ -15,50 +80,59 @@ const Portal: React.FC = () => {
           Exit Interface
         </Link>
 
-        <header className="max-w-4xl mb-24">
-          <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.5em] mb-8">Proprietary Interface</h2>
+        <header className="max-w-4xl mb-24 flex flex-col items-start gap-4">
+          <div className="flex items-center gap-4">
+            <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.5em]">Terminal Active</h2>
+            <div className="w-2 h-2 rounded-full bg-[#b8860b] animate-pulse" />
+          </div>
           <h1 className="text-5xl md:text-8xl font-bold mb-12">The <br /><span className="italic text-[#b8860b]">Sovereign Portal.</span></h1>
           <p className="text-zinc-400 text-xl leading-relaxed italic font-light">
-            Your high-fidelity terminal for institutional telemetry, diagnostic dispatches, and real-time substrate monitoring.
+            Welcome back, Principal. Your high-fidelity terminal for institutional telemetry and real-time substrate monitoring is now online.
           </p>
         </header>
 
-        <div className="grid md:grid-cols-2 gap-24 items-center">
+        <div className="grid md:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="group border-l border-white/10 pl-8 transition-all hover:border-[#b8860b]">
-              <h3 className="text-xl font-bold mb-4">Sovereign Index Tracking</h3>
+              <div className="flex items-center gap-3 mb-4">
+                <Unlock className="w-4 h-4 text-[#b8860b]" />
+                <h3 className="text-xl font-bold">Sovereign Index Tracking</h3>
+              </div>
               <p className="text-zinc-500 text-sm italic font-light leading-relaxed">Quantify your cognitive equity and institutional resonance across 12 strategic dimensions.</p>
             </div>
             <div className="group border-l border-white/10 pl-8 transition-all hover:border-[#b8860b]">
-              <h3 className="text-xl font-bold mb-4">The Dispatch Archive</h3>
-              <p className="text-zinc-500 text-sm italic font-light leading-relaxed">Direct, privileged architectural briefs delivered by the Principal Architect specifically for your substrate.</p>
-            </div>
-            <div className="group border-l border-white/10 pl-8 transition-all hover:border-[#b8860b]">
-              <h3 className="text-xl font-bold mb-4">Substrate Telemetry</h3>
-              <p className="text-zinc-500 text-sm italic font-light leading-relaxed">Real-time mapping of institutional lag and decision velocity. Visualizing the health of your architecture.</p>
+              <div className="flex items-center gap-3 mb-4">
+                <Unlock className="w-4 h-4 text-[#b8860b]" />
+                <h3 className="text-xl font-bold">The Dispatch Archive</h3>
+              </div>
+              <p className="text-zinc-500 text-sm italic font-light leading-relaxed">Direct, privileged architectural briefs delivered specifically for your substrate.</p>
             </div>
           </div>
 
-          <div className="relative">
-             <div className="bg-white/[0.03] border border-white/10 p-12 aspect-square flex flex-col justify-center items-center text-center shadow-2xl backdrop-blur-sm">
-                <div className="w-16 h-16 border-2 border-[#b8860b] rotate-45 mb-12 flex items-center justify-center">
-                  <div className="w-6 h-6 bg-[#b8860b]" />
+          <div className="space-y-8">
+            <div className="p-8 border border-[#b8860b]/30 bg-[#b8860b]/5">
+              <h4 className="text-[#b8860b] text-[10px] font-black uppercase tracking-widest mb-4">Active Engagement Status</h4>
+              <div className="flex justify-between items-end">
+                <div>
+                  <div className="text-3xl font-bold mb-1 italic">Phase 01</div>
+                  <div className="text-[10px] text-zinc-500 uppercase tracking-widest">Structural Stabilization</div>
                 </div>
-                <h4 className="text-2xl font-bold mb-6 italic text-[#b8860b]">Access Restricted.</h4>
-                <p className="text-zinc-500 mb-12 text-sm max-w-xs font-light tracking-wide">
-                  The Portal is reserved for Principals currently engaged in the Sovereign Protocol.
-                </p>
-                <div className="space-y-4 w-full max-w-xs">
-                  <input type="password" placeholder="PRINCIPAL KEY" className="w-full bg-white/5 border border-white/20 p-4 text-white text-xs text-center tracking-[0.4em] focus:outline-none focus:border-[#b8860b]" />
-                  <button className="w-full py-4 bg-white text-black text-[10px] font-black uppercase tracking-widest hover:bg-[#b8860b] hover:text-white transition-all">Authenticate</button>
-                  <Link to="/" className="block w-full py-4 border border-white/10 text-zinc-500 text-[10px] font-black uppercase tracking-widest hover:bg-white/5 transition-all mt-4 no-underline">
-                    Apply for Access
-                  </Link>
+                <div className="text-right">
+                  <div className="text-zinc-400 text-[10px] uppercase tracking-widest mb-1">Completion</div>
+                  <div className="w-32 h-1 bg-zinc-800">
+                    <div className="w-1/4 h-full bg-[#b8860b]" />
+                  </div>
                 </div>
-             </div>
-             {/* Decorative elements */}
-             <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#b8860b]/5 blur-[80px] rounded-full" />
-             <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-[#b8860b]/5 blur-[80px] rounded-full" />
+              </div>
+            </div>
+            
+            <div className="p-8 border border-white/10 bg-white/[0.02]">
+              <h4 className="text-white text-[10px] font-black uppercase tracking-widest mb-6">Latest Diagnostic Dispatch</h4>
+              <p className="text-zinc-400 text-sm italic leading-relaxed mb-8">
+                "The current Board alignment is trending 12% below the sovereignty threshold. Priority recalibration required in the Cultural Fidelity domain."
+              </p>
+              <button className="text-[10px] font-black uppercase tracking-[0.2em] text-[#b8860b] border-b border-[#b8860b]/30 pb-1">Read Full Dispatch →</button>
+            </div>
           </div>
         </div>
       </div>

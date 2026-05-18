@@ -26,10 +26,26 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
   useEffect(() => {
     if (article) {
       document.body.style.overflow = 'hidden';
+      // Update metadata for SEO/GEO discovery
+      const previousTitle = document.title;
+      const previousDesc = document.querySelector('meta[name="description"]')?.getAttribute('content');
+      
+      document.title = `${article.title} | Suchita Sancheti | TULC`;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', article.content[0].substring(0, 160) + '...');
+      }
+
+      return () => { 
+        document.body.style.overflow = 'unset'; 
+        document.title = previousTitle;
+        if (metaDesc && previousDesc) {
+          metaDesc.setAttribute('content', previousDesc);
+        }
+      };
     } else {
       document.body.style.overflow = 'unset';
     }
-    return () => { document.body.style.overflow = 'unset'; };
   }, [article]);
 
   if (!article) return null;
@@ -126,6 +142,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
                   src={article.image} 
                   alt={article.title} 
                   className="w-full h-full object-cover grayscale opacity-90"
+                  referrerPolicy="no-referrer"
                 />
               </div>
             )}
@@ -175,7 +192,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
                 <button 
                   onClick={() => {
                     onClose();
-                    document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' });
                   }}
                   className="w-full md:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-[#b8860b] text-white text-[9px] sm:text-[10px] font-bold uppercase hover:bg-[#111111] transition-all shadow-lg tracking-widest"
                 >

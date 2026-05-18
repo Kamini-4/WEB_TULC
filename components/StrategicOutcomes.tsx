@@ -38,7 +38,7 @@ const StrategicOutcomes: React.FC = () => {
              These are not improvements; they are engineered inevitabilities. To operate without these vectors is to accept a permanent tax on your leadership potential.
            </p>
            <button 
-             onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+             onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
              className="px-12 py-5 border border-[#b8860b] text-[#b8860b] text-[11px] font-black uppercase tracking-widest hover:bg-[#b8860b] hover:text-white transition-all shadow-2xl"
            >
              Secure Your Outcome Vector
@@ -58,7 +58,7 @@ const OutcomeCard: React.FC<{ vector: string; title: string; description: string
         {description}
       </p>
       <button 
-        onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
         className="text-[9px] font-black uppercase text-[#b8860b] border-b border-[#b8860b]/30 pb-1 hover:text-white hover:border-white transition-all tracking-widest"
       >
         Architect this Vector

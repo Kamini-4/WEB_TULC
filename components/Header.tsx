@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
     { label: 'Mandates', path: '/#mandates' },
     { label: 'Assessment', path: '/assessment' },
     { label: 'Library', path: '/library' },
-    { label: 'Portal', path: 'https://ai.studio/apps/bc205532-cdb0-43d3-a8fb-919809372614', external: true },
+    { label: 'Portal', path: '/portal' },
   ];
 
   const handleNavClick = (path: string, e: React.MouseEvent, external?: boolean) => {
@@ -46,15 +46,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
   };
 
   const scrollToWaitlist = () => {
-    const el = document.getElementById('waitlist');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/');
-      setTimeout(() => {
-        document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    }
+    navigate('/intake');
     setIsMenuOpen(false);
   };
 

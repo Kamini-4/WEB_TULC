@@ -19,7 +19,7 @@ const Program: React.FC<ProgramProps> = ({ onBriefClick }) => {
             </p>
             <div className="space-y-4">
               <button 
-                onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
                 className="w-full px-10 py-5 bg-[#111111] text-white text-[10px] font-black uppercase tracking-widest hover:bg-[#b8860b] transition-all shadow-xl"
               >
                 Request Access
@@ -68,7 +68,7 @@ const Program: React.FC<ProgramProps> = ({ onBriefClick }) => {
                 <p className="text-zinc-400 text-sm italic font-light">Available for Q3/Q4 2026 Board Intake.</p>
               </div>
               <button 
-                onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
                 className="px-12 py-5 bg-[#b8860b] text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all"
               >
                 Inquire Regarding Intake
@@ -103,7 +103,7 @@ const TimelineStep: React.FC<{ step: string; title: string; description: string;
           Request Syllabus
         </button>
         <button 
-          onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
           className="text-[9px] font-black uppercase text-zinc-400 tracking-widest px-6 py-3 hover:text-[#111111] transition-all"
         >
           View Outcome Review

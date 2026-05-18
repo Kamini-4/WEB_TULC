@@ -55,7 +55,7 @@ const YieldStatement: React.FC = () => {
                   *Results are unique to each institutional substrate. TULC does not guarantee universal outcomes; we engineer specific structural inevitabilities.
                 </p>
                 <button 
-                  onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
                   className="w-full py-5 bg-[#b8860b] text-white text-[11px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all"
                 >
                   Request Your Yield Projection

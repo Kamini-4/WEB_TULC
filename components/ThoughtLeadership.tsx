@@ -92,7 +92,7 @@ const ThoughtLeadership: React.FC<ThoughtLeadershipProps> = ({ onDispatchClick }
               </p>
             </div>
             <button 
-              onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-12 py-6 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 whitespace-nowrap"
             >
               Initiate Calibration

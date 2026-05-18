@@ -33,7 +33,7 @@ const EliteReasoning: React.FC = () => {
 
                 <div className="flex flex-wrap gap-4 pt-4">
                   <button 
-                    onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
                     className="px-10 py-5 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all shadow-xl"
                   >
                     Request Private Access
@@ -61,7 +61,7 @@ const EliteReasoning: React.FC = () => {
                     Review Excellence Standards →
                   </button>
                   <button 
-                    onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
                     className="text-[10px] font-black uppercase text-white/40 hover:text-[#b8860b] transition-all text-left tracking-widest block w-full"
                   >
                     Inquire Regarding Custom Calibration →

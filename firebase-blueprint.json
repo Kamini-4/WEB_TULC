@@ -2,7 +2,7 @@
   "entities": {
     "Lead": {
       "title": "Lead",
-      "description": "A potential client inquiry from the waitlist.",
+      "description": "A potential client inquiry from the intake terminal.",
       "type": "object",
       "properties": {
         "name": { "type": "string", "description": "Full name of the lead." },
@@ -11,7 +11,7 @@
         "role": { "type": "string", "description": "Institutional role." },
         "message": { "type": "string", "description": "Yield target or message." },
         "timestamp": { "type": "number", "description": "Creation timestamp." },
-        "type": { "type": "string", "enum": ["waitlist"] }
+        "type": { "type": "string", "enum": ["intake"] }
       },
       "required": ["name", "email", "organization", "message", "timestamp"]
     },
@@ -63,7 +63,7 @@
   "firestore": {
     "leads": {
       "schema": "Lead",
-      "description": "Collection of waitlist inquiries."
+      "description": "Collection of intake inquiries."
     },
     "assessments": {
       "schema": "Assessment",

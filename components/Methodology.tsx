@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface MethodologyProps {
   onBriefClick: (phaseId?: string) => void;
 }
 
 const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
+  const navigate = useNavigate();
   return (
     <section id="methodology" className="py-20 sm:py-24 md:py-32 bg-[#0a0a0a] text-white overflow-hidden relative isolate">
       <style>
@@ -23,7 +25,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
       {/* Background Decorative Element */}
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none -z-10 bg-black">
         <img 
-          src="https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1920&sat=-100" 
+          src="https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1920" 
           alt="Architectural Background" 
           className="w-full h-full object-cover grayscale"
           loading="lazy"
@@ -57,7 +59,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             subtitle="The Diagnostic"
             action="Deployment of the Sovereign Assessment to map the vertical maturity of your institutional substrate."
             outcome="Identification of systemic constraints and authority leakage points."
-            image="https://images.unsplash.com/photo-1507679799987-c7077948a7eb?auto=format&fit=crop&q=80&w=800&sat=-100"
+            image="https://images.unsplash.com/photo-1507679799987-c7077948a7eb?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('01')}
           />
           <PhaseCard 
@@ -66,7 +68,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             subtitle="The Synthesis"
             action="Generation of the Structural Integrity Report, isolating the Two Primary Domains for immediate calibration."
             outcome="A definitive architectural blueprint for bandwidth reclamation."
-            image="https://images.unsplash.com/photo-1518349619113-03114f06ac3a?auto=format&fit=crop&q=80&w=800&sat=-100"
+            image="https://images.unsplash.com/photo-1518349619113-03114f06ac3a?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('02')}
           />
           <PhaseCard 
@@ -75,7 +77,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             subtitle="The Calibration"
             action="Bespoke re-engineering of leadership protocols tailored to your institutional requirements."
             outcome="Neutralization of systemic entropy and restoration of strategic velocity."
-            image="https://images.unsplash.com/photo-1504917595217-d4dc5f649e6b?auto=format&fit=crop&q=80&w=800&sat=-100"
+            image="https://images.unsplash.com/photo-1504917595217-d4dc5f649e6b?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('03')}
           />
           <PhaseCard 
@@ -84,20 +86,20 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             subtitle="The Integration"
             action="Implementing autonomous governance substrates to ensure asymptotic intent fidelity."
             outcome="Total institutional permanence. Strategic outcomes become natural law."
-            image="https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=800&sat=-100"
+            image="https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('04')}
           />
         </div>
 
         <div className="mt-16 sm:mt-24 flex flex-wrap justify-center gap-4 sm:gap-8">
           <button 
-            onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => navigate('/intake')}
             className="px-8 sm:px-12 py-4 sm:py-6 border border-white/20 text-white text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-500"
           >
             Initiate Phase 01
           </button>
           <button 
-            onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => navigate('/intake')}
             className="px-8 sm:px-12 py-4 sm:py-6 bg-white text-black text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:bg-[#b8860b] hover:text-white transition-all duration-500 shadow-2xl animate-pulse-executive"
           >
             Secure Strategic Intake
@@ -122,7 +124,7 @@ const PhaseCard: React.FC<{
       <img 
         src={image} 
         alt={title} 
-        className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
+        className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000 grayscale"
         loading="lazy"
         decoding="async"
         referrerPolicy="no-referrer"

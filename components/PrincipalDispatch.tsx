@@ -14,8 +14,8 @@ const PrincipalDispatch: React.FC = () => {
               className="shadow-2xl border border-white/10"
             />
             <div className="absolute bottom-2 left-4 sm:bottom-4 sm:left-8 pointer-events-none z-10">
-              <div className="text-white text-xl sm:text-2xl font-bold mb-1 drop-shadow-lg">Suchita Sancheti</div>
-              <div className="text-[#b8860b] text-[7px] sm:text-[9px] font-black uppercase tracking-[0.4em] drop-shadow-lg">Principal Architect</div>
+              <div className="text-white text-xl sm:text-2xl font-bold mb-1 drop-shadow-lg">Principal Architect</div>
+              <div className="text-[#b8860b] text-[7px] sm:text-[9px] font-black uppercase tracking-[0.4em] drop-shadow-lg">TULC</div>
             </div>
             {/* Decorative Frame */}
             <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-16 h-16 sm:w-24 sm:h-24 border-t-2 border-l-2 border-[#b8860b]/30 -z-10" />
@@ -38,7 +38,7 @@ const PrincipalDispatch: React.FC = () => {
                 </p>
                 <div className="mt-8 flex items-center gap-4">
                   <div className="w-8 h-px bg-[#b8860b]/30" />
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white">Suchita Sancheti</span>
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#111111]">TULC Architecture</span>
                 </div>
               </div>
               

@@ -24,17 +24,7 @@ const AssessmentPage: React.FC = () => {
         </div>
         
         <div id="assessment">
-          <Assessment onCtaClick={() => {
-            const waitlist = document.getElementById('waitlist-footer');
-            if (waitlist) {
-              waitlist.scrollIntoView({ behavior: 'smooth' });
-            } else {
-              navigate('/');
-              setTimeout(() => {
-                document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
-              }, 100);
-            }
-          }} />
+          <Assessment onCtaClick={() => navigate('/intake')} />
         </div>
       </div>
     </motion.div>

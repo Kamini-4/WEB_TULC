@@ -43,7 +43,7 @@ service cloud.firestore {
              data.organization is string && data.organization.size() < 100 &&
              data.role is string &&
              data.message is string && data.message.size() < 2000 &&
-             data.type == 'waitlist' &&
+             data.type == 'intake' &&
              (data.timestamp is number || data.timestamp is timestamp);
     }
 

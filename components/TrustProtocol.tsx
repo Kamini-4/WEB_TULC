@@ -19,7 +19,7 @@ const TrustProtocol: React.FC = () => {
           />
           <ProtocolCard 
             title="The Principal Review" 
-            desc="TULC does not rely on black-box automation for critical decisions. Every diagnostic enquiry is personally reviewed by Suchita Sancheti, Principal Architect, to ensure near-absolute strategic fidelity."
+            desc="TULC does not rely on black-box automation for critical decisions. Every diagnostic enquiry is personally reviewed by the Principal Architect to ensure near-absolute strategic fidelity."
           />
           <ProtocolCard 
             title="Privileged Disclosure" 

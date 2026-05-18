@@ -3,5 +3,8 @@
   "description": "An elite institutional leadership consultancy platform focusing on re-architecting leadership operating systems for CXOs and boards.",
   "requestFramePermissions": [
     "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
   ]
 }

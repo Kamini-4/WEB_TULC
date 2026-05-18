@@ -117,7 +117,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                 Institutional Reports
               </button>
                <button 
-                onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
                 className="px-6 py-3 bg-[#b8860b] text-white text-[10px] font-bold uppercase hover:bg-white hover:text-black transition-all shadow-lg"
                >
                 Consult

@@ -49,7 +49,7 @@ const Waitlist: React.FC = () => {
           organization: formData.organization,
           role: formData.role,
           message: formData.message,
-          type: 'WAITLIST_ENTRY'
+          type: 'INTAKE_ENTRY'
         })
       });
     } catch (error) {
@@ -74,7 +74,7 @@ const Waitlist: React.FC = () => {
   }, [isEncrypting]);
 
   return (
-    <section id="waitlist" className="py-16 sm:py-24 bg-[#0a0a0a] text-white border-t border-white/10">
+    <section id="intake" className="py-16 sm:py-24 bg-[#0a0a0a] text-white border-t border-white/10">
       <style>
         {`
           @keyframes executivePulse {

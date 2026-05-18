@@ -19,7 +19,7 @@ const SocialProof: React.FC = () => {
             org="Global FinTech Holdings"
           />
           <TestimonialCard 
-            quote="Sancheti's methodology is surgical. We transitioned from fragile leader-dependence to robust institutional-resilience in 90 days. This is the new standard for board intervention."
+            quote="The TULC methodology is surgical. We transitioned from fragile leader-dependence to robust institutional-resilience in 90 days. This is the new standard for board intervention."
             author="Managing Director"
             org="Tier 1 Private Equity Firm"
           />
@@ -33,7 +33,7 @@ const SocialProof: React.FC = () => {
         <div className="flex flex-col items-center justify-center gap-8 text-center">
            <p className="text-zinc-500 text-sm italic font-light">Validation available upon request for verified Institutional Partners.</p>
            <button 
-             onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+             onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
              className="px-12 py-5 border border-[#b8860b] text-[#b8860b] text-[11px] font-black uppercase tracking-widest hover:bg-[#b8860b] hover:text-white transition-all"
            >
              Request Alumnus Reference

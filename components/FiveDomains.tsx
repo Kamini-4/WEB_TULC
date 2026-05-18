@@ -29,12 +29,12 @@ const domains: Domain[] = [
     vision: "Institutional permanence. You can step away for weeks and the system still moves exactly as set."
   },
   {
-    title: "Strategic Velocity",
-    subtitle: "(The Accelerator)",
-    benefit: "Removal of Inaction Tax. Decision-to-execution compressed.",
-    pain: "30-day delays = permanent market erosion. Innovation as campaign only.",
-    outcome: "3× decision velocity. Resources liberated for true bets.",
-    vision: "Anti-fragility. Change feels owned and inevitable. Strategy compounds instead of being defended."
+    title: "Asymptotic Intent Fidelity",
+    subtitle: "(The Logic Substrate)",
+    benefit: "Eliminating authority dilution across the organizational substrate. Zero-latency transmission of strategic mandate.",
+    pain: "15% fidelity loss per management layer. Strategic drift and operational misalignment.",
+    outcome: "Near-absolute parity between board-level intent and edge-level execution.",
+    vision: "Architectural infallibility. The organization becomes a high-fidelity mirror of the principal's mind."
   },
   {
     title: "Moral Gravity",

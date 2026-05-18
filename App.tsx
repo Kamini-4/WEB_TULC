@@ -10,6 +10,7 @@ import About from './src/pages/About.tsx';
 import Library from './src/pages/Library.tsx';
 import MethodologyPage from './src/pages/MethodologyPage.tsx';
 import AssessmentPage from './src/pages/AssessmentPage.tsx';
+import IntakePage from './src/pages/IntakePage.tsx';
 import Portal from './src/pages/Portal.tsx';
 import ArticleView from './components/ArticleView.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
@@ -88,7 +89,8 @@ const ArticleHandler: React.FC<{
 const App: React.FC = () => {
   const [activeArticle, setActiveArticle] = useState<Article | null>(null);
   const [showAdmin, setShowAdmin] = useState(false);
-  const [resolverKey, setResolverKey] = useState(0);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const testConnection = async () => {
@@ -154,9 +156,7 @@ const App: React.FC = () => {
     setActiveArticle(legalContent[type]);
   };
 
-  const handleBriefClick = (phaseId?: string) => {
-    const navigate = (path: string) => window.history.pushState({}, '', path); // Fallback for inside handlers if needed, though useNavigation is preferred
-    
+  const handleBriefClick = (phaseId?: string) => {    
     const content: Record<string, Article> = {
       '01': {
         category: "The Sovereign Protocol - Phase 01",
@@ -226,48 +226,46 @@ const App: React.FC = () => {
     }
   };
 
-  const ResolvedRoutes = () => {
-    const navigate = useNavigate();
-    return (
-      <Routes>
-        <Route path="/" element={<Home onBriefClick={handleBriefClick} onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/library" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
-        <Route path="/library/:articleId" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
-        <Route path="/methodology" element={<MethodologyPage onBriefClick={handleBriefClick} />} />
-        <Route path="/assessment" element={<AssessmentPage />} />
-        <Route path="/portal" element={<Portal />} />
-      </Routes>
-    );
-  };
-
   return (
-    <Router>
+    <ErrorBoundary>
       <ScrollToTop />
-      <ErrorBoundary>
-        <div className="min-h-screen selection:bg-[#b8860b] selection:text-white bg-[#f5f5f0]">
-          <div className="fixed top-0 left-0 right-0 z-[100]">
-            <Countdown />
-            <Header onAdminTrigger={() => setShowAdmin(true)} />
-          </div>
-          <main className="pt-28 sm:pt-32 md:pt-36">
-            <ResolvedRoutes />
-          </main>
-          <Footer onLegalClick={handleLegalClick} />
-          
-          <FloatingCTA onAuditClick={() => document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' })} />
-
-          <Routes>
-            <Route path="/library/:articleId" element={<ArticleHandler activeArticle={activeArticle} setActiveArticle={setActiveArticle} />} />
-            <Route path="*" element={<ArticleView article={activeArticle} onClose={() => setActiveArticle(null)} />} />
-          </Routes>
-
-          {showAdmin && (
-            <AdminDashboard onClose={() => setShowAdmin(false)} />
-          )}
+      <div className="min-h-screen selection:bg-[#b8860b] selection:text-white bg-[#f5f5f0]">
+        <div className="fixed top-0 left-0 right-0 z-[100]">
+          <Countdown />
+          <Header onAdminTrigger={() => setShowAdmin(true)} />
         </div>
-      </ErrorBoundary>
-    </Router>
+        <main className="pt-28 sm:pt-32 md:pt-36">
+          <Routes>
+            <Route path="/" element={<Home onBriefClick={handleBriefClick} onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/library" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
+            <Route path="/library/:articleId" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
+            <Route path="/methodology" element={<MethodologyPage onBriefClick={handleBriefClick} />} />
+            <Route path="/assessment" element={<AssessmentPage />} />
+            <Route path="/intake" element={<IntakePage />} />
+            <Route path="/portal" element={<Portal />} />
+          </Routes>
+        </main>
+        <Footer onLegalClick={handleLegalClick} />
+        
+        <FloatingCTA onAuditClick={() => {
+          if (location.pathname === '/assessment') {
+            document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            navigate('/assessment');
+          }
+        }} />
+
+        <Routes>
+          <Route path="/library/:articleId" element={<ArticleHandler activeArticle={activeArticle} setActiveArticle={setActiveArticle} />} />
+          <Route path="*" element={<ArticleView article={activeArticle} onClose={() => setActiveArticle(null)} />} />
+        </Routes>
+
+        {showAdmin && (
+          <AdminDashboard onClose={() => setShowAdmin(false)} />
+        )}
+      </div>
+    </ErrorBoundary>
   );
 };
 

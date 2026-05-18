@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface HeroProps {
   onBriefClick: (phaseId?: string) => void;
 }
 
 const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
+  const navigate = useNavigate();
   return (
     <section className="relative pt-12 pb-16 sm:pt-16 sm:pb-20 md:pt-24 md:pb-32 overflow-hidden bg-[#f5f5f0]">
       {/* Structural Accent - Subtle Pattern */}
@@ -14,7 +16,7 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
         <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
           {/* Tagline */}
           <div className="flex flex-col items-center justify-center gap-2 mb-6 sm:mb-8 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            <span className="text-[#111111] text-[10px] sm:text-[12px] font-black uppercase tracking-[0.5em] mb-1">Suchita Sancheti</span>
+            <span className="text-[#111111] text-[10px] sm:text-[12px] font-black uppercase tracking-[0.5em] mb-1">The Unbounded Leadership Co.</span>
             <div className="flex items-center gap-3">
               <span className="text-[#b8860b] text-[8px] sm:text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em]">The Institutional Standard for Sovereignty</span>
               <div className="h-[1px] w-6 sm:w-10 bg-[#b8860b]/30"></div>
@@ -68,14 +70,14 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
             <div className="flex flex-col items-center gap-12 animate-fade-in">
               <div className="flex flex-wrap gap-6 justify-center">
                 <button 
-                  onClick={() => window.open('https://rzp.io/rzp/8H0bV3bW', '_blank')}
+                  onClick={() => navigate('/intake')}
                   className="px-12 py-6 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 shadow-2xl relative overflow-hidden group"
                 >
                   <span className="relative z-10 font-bold">Secure Institutional Consult</span>
                   <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                 </button>
                 <button 
-                  onClick={() => document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => navigate('/assessment')}
                   className="px-12 py-6 border border-zinc-300 text-[#111111] text-[10px] font-black uppercase tracking-[0.3em] hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-500"
                 >
                   Initiate Substrate Audit

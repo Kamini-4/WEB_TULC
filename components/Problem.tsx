@@ -49,7 +49,7 @@ const Problem: React.FC = () => {
               </p>
               <div className="pt-4">
                 <button 
-                  onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-6 sm:px-8 py-4 bg-[#111111] text-white text-[9px] sm:text-[10px] font-bold uppercase hover:bg-black transition-all shadow-lg tracking-widest"
                 >
                   Secure Strategic Bandwidth
