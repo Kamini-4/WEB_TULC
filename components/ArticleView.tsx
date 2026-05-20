@@ -4,6 +4,7 @@ import Markdown from 'react-markdown';
 import { Link } from 'react-router-dom';
 import { Share2, Link as LinkIcon, Mail, Check, X } from 'lucide-react';
 import { Linkedin } from './BrandIcons';
+import { PermanentArtwork } from './PermanentArtwork';
 
 interface Article {
   id?: string;
@@ -22,6 +23,13 @@ interface ArticleViewProps {
 
 const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
   const [copied, setCopied] = useState(false);
+  const [imageFailed, setImageFailed] = useState(false);
+  const [prevArticleId, setPrevArticleId] = useState<string | undefined>(undefined);
+
+  if (article && article.id !== prevArticleId) {
+    setPrevArticleId(article.id);
+    setImageFailed(false);
+  }
 
   useEffect(() => {
     if (article) {
@@ -50,7 +58,8 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
 
   if (!article) return null;
 
-  const shareUrl = 'https://theunboundedleadership.com' + (article.id ? `/library/${article.id}` : '/library');
+  const baseShareUrl = typeof window !== 'undefined' ? window.location.origin : 'https://theunboundedleadership.com';
+  const shareUrl = baseShareUrl + (article.id ? `/library/${article.id}` : '/library');
   const shareTitle = `${article.title} | The Unbounded Leadership Co.`;
 
   const handleCopyLink = () => {
@@ -138,16 +147,17 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
           <header className="mb-12 sm:mb-16">
             {article.image && (
               <div className="mb-12 aspect-[21/9] overflow-hidden border border-[#b8860b]/20 shadow-2xl relative">
-                <img 
-                  src={article.image} 
-                  alt={article.title} 
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    const img = e.currentTarget;
-                    img.src = "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600";
-                  }}
-                />
+                {imageFailed ? (
+                  <PermanentArtwork id={article.id || "generic"} title={article.title} className="w-full h-full" />
+                ) : (
+                  <img 
+                    src={article.image} 
+                    alt={article.title} 
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                    onError={() => setImageFailed(true)}
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#f5f5f0] via-transparent to-transparent opacity-20" />
               </div>
             )}

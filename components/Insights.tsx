@@ -4,6 +4,7 @@ import { Share2, Link as LinkIcon, X, Check } from 'lucide-react';
 import { Linkedin } from './BrandIcons';
 import { GoogleGenAI } from "@google/genai";
 import { INSTITUTIONAL_ARTICLES, Article } from '../src/lib/articles';
+import { PermanentArtwork } from './PermanentArtwork';
 
 interface InsightsProps {
   onArticleClick: (article: Article) => void;
@@ -19,7 +20,10 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
   const [hasApiKey, setHasApiKey] = useState(true);
   const [sharingId, setSharingId] = useState<string | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
   const navigate = useNavigate();
+
+  const baseShareUrl = typeof window !== 'undefined' ? window.location.origin : 'https://theunboundedleadership.com';
 
   const handleShare = (e: React.MouseEvent, article: Article) => {
     e.stopPropagation();
@@ -32,7 +36,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
 
   const handleCopyLink = (e: React.MouseEvent, article: Article) => {
     e.stopPropagation();
-    const url = `https://theunboundedleadership.com/library/${article.id}`;
+    const url = `${baseShareUrl}/library/${article.id}`;
     navigator.clipboard.writeText(url);
     setCopiedId(article.id);
     setTimeout(() => setCopiedId(null), 2000);
@@ -133,14 +137,19 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
               if (article.id) navigate(`/library/${article.id}`);
             }}>
               <div className="mb-6 overflow-hidden bg-[#111111] aspect-[16/10] relative border border-white/5">
-                <img 
-                  src={article.image} 
-                  alt={article.title} 
-                  className="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
-                  referrerPolicy="no-referrer"
-                />
+                {failedImages[article.id] ? (
+                  <PermanentArtwork id={article.id} title={article.title} className="w-full h-full" />
+                ) : (
+                  <img 
+                    src={article.image} 
+                    alt={article.title} 
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                    referrerPolicy="no-referrer"
+                    onError={() => setFailedImages(prev => ({ ...prev, [article.id]: true }))}
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-40" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#111111] bg-white px-6 py-3 shadow-2xl">Access Briefing</span>
@@ -165,7 +174,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                         {copiedId === article.id ? 'Copied' : 'Copy Link'}
                       </button>
                       <a 
-                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent('https://theunboundedleadership.com/library/' + article.id)}&text=${encodeURIComponent(article.title)}`}
+                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`${baseShareUrl}/library/${article.id}`)}&text=${encodeURIComponent(article.title)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
@@ -174,7 +183,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                         <X size={10} /> X / Twitter
                       </a>
                       <a 
-                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://theunboundedleadership.com/library/' + article.id)}`}
+                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${baseShareUrl}/library/${article.id}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}

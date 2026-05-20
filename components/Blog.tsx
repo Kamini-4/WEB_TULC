@@ -5,6 +5,7 @@ import { Share2, Link as LinkIcon, X, Check } from 'lucide-react';
 import { Linkedin } from './BrandIcons';
 import { SovereignDB, BlogEntry } from '../lib/database.ts';
 import { INSTITUTIONAL_ARTICLES } from '../src/lib/articles';
+import { PermanentArtwork } from './PermanentArtwork';
 
 interface BlogProps {
   onArticleClick: (article: any) => void;
@@ -18,7 +19,10 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
   const [posts, setPosts] = useState<any[]>(INITIAL_POSTS);
   const [sharingId, setSharingId] = useState<string | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
   const navigate = useNavigate();
+
+  const baseShareUrl = typeof window !== 'undefined' ? window.location.origin : 'https://theunboundedleadership.com';
 
   const handleShare = (e: React.MouseEvent, post: any) => {
     e.stopPropagation();
@@ -31,7 +35,7 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
 
   const handleCopyLink = (e: React.MouseEvent, post: any) => {
     e.stopPropagation();
-    const url = `https://theunboundedleadership.com/library/${post.id}`;
+    const url = `${baseShareUrl}/library/${post.id}`;
     navigator.clipboard.writeText(url);
     setCopiedId(post.id);
     setTimeout(() => setCopiedId(null), 2000);
@@ -85,14 +89,19 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
               
               {post.image && (
                 <div className="mb-6 overflow-hidden bg-[#1a1a1a] aspect-[16/10] relative border border-white/5 group-hover:border-[#b8860b]/20 transition-all duration-700">
-                  <img 
-                    src={post.image} 
-                    alt={post.title} 
-                    className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
-                    loading="lazy"
-                    decoding="async"
-                    referrerPolicy="no-referrer"
-                  />
+                  {failedImages[post.id] ? (
+                    <PermanentArtwork id={post.id} title={post.title} className="w-full h-full" />
+                  ) : (
+                    <img 
+                      src={post.image} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                      onError={() => setFailedImages(prev => ({ ...prev, [post.id]: true }))}
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-60" />
                 </div>
               )}
@@ -122,7 +131,7 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                           {copiedId === post.id ? 'Copied' : 'Copy Link'}
                         </button>
                         <a 
-                          href={`https://twitter.com/intent/tweet?url=${encodeURIComponent('https://theunboundedleadership.com/library/' + post.id)}&text=${encodeURIComponent(post.title)}`}
+                          href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`${baseShareUrl}/library/${post.id}`)}&text=${encodeURIComponent(post.title)}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
@@ -131,7 +140,7 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                           <X size={10} /> X / Twitter
                         </a>
                         <a 
-                          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://theunboundedleadership.com/library/' + post.id)}`}
+                          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${baseShareUrl}/library/${post.id}`)}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
