@@ -36,6 +36,9 @@
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   },
+  "overrides": {
+    "node-domexception": "^1.0.0"
+  },
   "devDependencies": {
     "@eslint/js": "^9.10.0",
     "@types/express": "^5.0.6",
