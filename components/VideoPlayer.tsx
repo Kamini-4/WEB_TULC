@@ -110,6 +110,26 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
         {renderVideoContent()}
       </div>
 
+      {/* Fallback & Direct-Access Command Container */}
+      {videoUrl && (
+        <a
+          href={videoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute top-3 right-3 z-30 flex items-center gap-2 px-3 py-1.5 bg-black/85 hover:bg-[#b8860b] hover:text-black border border-[#b8860b]/40 hover:border-[#b8860b] text-white text-[9px] font-black uppercase tracking-[0.15em] transition-all shadow-xl rounded-sm group/btn"
+          title="Bypass iframe restriction: Open video directly on Google Drive"
+        >
+          <span>Direct Broadcast</span>
+          <svg 
+            className="w-2.5 h-2.5 fill-none stroke-current stroke-[2.5] transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" 
+            viewBox="0 0 24 24" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </a>
+      )}
+
       {/* Play Button Overlay - Hidden when playing */}
       <div 
         className={`absolute inset-0 z-20 group cursor-pointer overflow-hidden transition-all duration-700 ${isPlaying ? 'opacity-0 pointer-events-none scale-105' : 'opacity-100'}`}

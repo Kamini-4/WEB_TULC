@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import Methodology from '../../components/Methodology.tsx';
 import StrategicOutcomes from '../../components/StrategicOutcomes.tsx';
+import Newsletter from '../../components/Newsletter.tsx';
 
 interface MethodologyPageProps {
   onBriefClick: (id?: string) => void;
@@ -49,6 +49,13 @@ const MethodologyPage: React.FC<MethodologyPageProps> = ({ onBriefClick }) => {
                <p className="text-zinc-400 leading-relaxed italic font-light">The ultimate yield: decoupling your impact from your cognitive burn rate.</p>
              </div>
            </div>
+        </div>
+      </section>
+
+      {/* Strategic Newsletter Placement - Methodology Endpoint */}
+      <section className="py-20 bg-[#0a0a0a] text-white border-t border-white/5">
+        <div className="max-w-4xl mx-auto px-6">
+          <Newsletter />
         </div>
       </section>
     </div>

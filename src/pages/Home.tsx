@@ -101,6 +101,16 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
       </section>
 
       <Problem />
+      
+      {/* Strategic Newsletter Placement - Capture audience after introducing operational friction */}
+      <section className="bg-white py-16 scroll-mt-20">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="border border-zinc-200">
+            <Newsletter />
+          </div>
+        </div>
+      </section>
+
       <YieldStatement />
       <StrategicMandates />
       

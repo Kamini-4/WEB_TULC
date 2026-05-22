@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import Insights from '../../components/Insights.tsx';
 import Blog from '../../components/Blog.tsx';
 import { WHITE_PAPERS } from '../../data/whitepapers.ts';
+import Newsletter from '../../components/Newsletter.tsx';
 
 interface LibraryProps {
   onArticleClick: (article: any) => void;
@@ -601,6 +602,11 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               </button>
             </div>
           </div>
+        </div>
+
+        {/* Strategic Newsletter Placement - Library Terminal */}
+        <div className="mt-12 pt-16 border-t border-white/10 max-w-4xl mx-auto">
+          <Newsletter />
         </div>
       </div>
     </div>
