@@ -11,11 +11,11 @@ interface MethodologyPageProps {
 const MethodologyPage: React.FC<MethodologyPageProps> = ({ onBriefClick }) => {
   return (
     <div className="bg-[#0a0a0a] min-h-screen">
-      <section className="pt-36 pb-12 bg-[#0a0a0a] text-white">
+      <section className="pt-16 pb-8 bg-[#0a0a0a] text-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-8">Deep Dive</h2>
-          <h1 className="text-5xl md:text-7xl font-bold mb-12 leading-tight">Systemic <br /><span className="italic text-[#b8860b]">Physics.</span></h1>
-          <p className="max-w-3xl text-zinc-500 text-xl leading-relaxed italic font-light">
+          <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-4">Deep Dive</h2>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">Systemic <br /><span className="italic text-[#b8860b]">Physics.</span></h1>
+          <p className="max-w-3xl text-zinc-500 text-lg leading-relaxed italic font-light">
             Moving beyond psychometrics into the realm of architectural integrity. We analyze the forces that govern institutional growth.
           </p>
         </div>
@@ -28,7 +28,7 @@ const MethodologyPage: React.FC<MethodologyPageProps> = ({ onBriefClick }) => {
         <StrategicOutcomes />
       </div>
       
-      <section className="py-24 bg-[#0a0a0a] text-white border-t border-white/5">
+      <section className="py-12 bg-[#0a0a0a] text-white border-t border-white/5">
         <div className="max-w-4xl mx-auto px-6">
            <h3 className="text-3xl font-bold mb-12">The Four Pillars of <span className="italic text-[#b8860b]">Sovereign Integrity.</span></h3>
            <div className="grid gap-12">

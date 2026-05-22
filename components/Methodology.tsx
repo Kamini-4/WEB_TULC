@@ -8,7 +8,7 @@ interface MethodologyProps {
 const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
   const navigate = useNavigate();
   return (
-    <section id="methodology" className="py-20 sm:py-24 md:py-32 bg-[#0a0a0a] text-white overflow-hidden relative isolate">
+    <section id="methodology" className="py-10 sm:py-12 md:py-14 bg-[#0a0a0a] text-white overflow-hidden relative isolate">
       <style>
         {`
           @keyframes executivePulse {
@@ -119,7 +119,7 @@ const PhaseCard: React.FC<{
   image: string;
   onBriefClick: () => void;
 }> = ({ phase, title, subtitle, action, outcome, image, onBriefClick }) => (
-  <div className="bg-[#0a0a0a] p-12 lg:p-16 group relative overflow-hidden flex flex-col h-full hover:bg-[#111111] transition-all duration-700">
+  <div className="bg-[#0a0a0a] p-8 lg:p-10 group relative overflow-hidden flex flex-col h-full hover:bg-[#111111] transition-all duration-700">
     <div className="absolute top-0 right-0 w-full h-full opacity-0 group-hover:opacity-[0.05] transition-opacity duration-1000 -z-10">
       <img 
         src={image} 
@@ -131,7 +131,7 @@ const PhaseCard: React.FC<{
       />
     </div>
 
-    <div className="flex justify-between items-start mb-12 gap-4">
+    <div className="flex justify-between items-start mb-6 gap-4">
       <div className="flex flex-col">
         <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-2">Phase {phase}</span>
         <span className="text-white/30 text-[9px] uppercase font-bold tracking-widest">{subtitle}</span>
@@ -145,7 +145,7 @@ const PhaseCard: React.FC<{
       {title}
     </h4>
 
-    <div className="space-y-8 mb-12 flex-grow">
+    <div className="space-y-6 mb-8 flex-grow">
       <div>
         <div className="text-[9px] uppercase font-black text-[#b8860b] mb-3 tracking-widest opacity-60">The Action:</div>
         <p className="text-zinc-400 text-lg leading-relaxed italic font-light">

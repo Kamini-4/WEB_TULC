@@ -52,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
 
   return (
     <header className="relative z-[100] bg-[#f5f5f0] border-b border-zinc-200/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 md:h-24 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 md:h-18 flex items-center justify-between">
         <div 
           className="flex flex-col cursor-pointer group min-w-0 shrink-0" 
           onClick={handleLogoClick}
@@ -111,7 +111,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[110px] bg-[#f5f5f0] z-[90] p-8 animate-fade-in overflow-y-auto">
+        <div className="md:hidden fixed inset-0 top-[90px] bg-[#f5f5f0] z-[90] p-8 animate-fade-in overflow-y-auto">
           <div className="flex flex-col gap-8">
             {navItems.map((item) => (
               item.external ? (

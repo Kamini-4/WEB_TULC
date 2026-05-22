@@ -10,6 +10,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
   const [data, setData] = useState<{leads: LeadEntry[], assessments: AssessmentEntry[], blog: BlogEntry[]}>({ leads: [], assessments: [], blog: [] });
   const [activeTab, setActiveTab] = useState<'leads' | 'analytics' | 'registry'>('leads');
   const [newPost, setNewPost] = useState({ category: '', title: '', excerpt: '', content: '' });
+  const [recentlyAddedUrl, setRecentlyAddedUrl] = useState<string | null>(null);
 
   useEffect(() => {
     const unsubLeads = SovereignDB.subscribeToLeads((leads) => {
@@ -42,9 +43,10 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
     });
 
     if (result?.id) {
+      const fullUrl = `${window.location.origin}/library/${result.id}`;
+      setRecentlyAddedUrl(fullUrl);
       // Trigger IndexNow (Instant Discovery Protocol)
       try {
-        const fullUrl = `${window.location.origin}/library/${result.id}`;
         await fetch('/api/indexnow', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -57,7 +59,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
     }
     
     setNewPost({ category: '', title: '', excerpt: '', content: '' });
-    alert("Dispatch successfully archived in the Registry. Institutional engines notified via IndexNow.");
+    alert("Dispatch successfully archived in the Registry. Direct link is displayed in the panel.");
   };
 
   const handleDeletePost = (id: string) => {
@@ -226,6 +228,28 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
             <div className="lg:col-span-1">
               <div className="bg-white border border-zinc-200 p-8 shadow-xl sticky top-32">
                 <h3 className="text-sm font-black uppercase tracking-widest mb-6 border-b border-zinc-100 pb-4">New Dispatch</h3>
+                {recentlyAddedUrl && (
+                  <div id="new-post-success-banner" className="mb-6 p-4 bg-amber-50 border border-amber-200 text-xs text-amber-950 rounded space-y-2 animate-fadeIn">
+                    <div className="flex justify-between items-center font-bold">
+                      <span>✓ DISPATCH ARCHIVED</span>
+                      <button onClick={() => setRecentlyAddedUrl(null)} className="text-zinc-400 hover:text-zinc-600 font-bold text-lg leading-none">&times;</button>
+                    </div>
+                    <p className="text-[11px] text-zinc-600">The post is live and ready to share. Permanent address:</p>
+                    <div className="bg-white p-2 border border-zinc-200 rounded font-mono text-[10px] break-all flex justify-between items-center gap-2">
+                      <span className="truncate select-all text-zinc-700">{recentlyAddedUrl}</span>
+                      <button 
+                        type="button"
+                        onClick={() => {
+                          navigator.clipboard.writeText(recentlyAddedUrl);
+                          alert("Permanent URL copied to clipboard!");
+                        }}
+                        className="text-[#b8860b] hover:text-amber-800 font-bold uppercase shrink-0"
+                      >
+                        Copy
+                      </button>
+                    </div>
+                  </div>
+                )}
                 <form onSubmit={handleAddPost} className="space-y-4">
                   <div>
                     <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Category</label>
@@ -278,32 +302,51 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
             </div>
             
             <div className="lg:col-span-2 space-y-6">
-              <h3 className="text-sm font-black uppercase tracking-widest mb-6">Active Registry Entries</h3>
+              <h3 className="text-sm font-black uppercase tracking-widest mb-6 border-b border-zinc-100 pb-2">Active Registry Entries</h3>
               {data.blog.length === 0 ? (
                 <div className="p-12 border-2 border-dashed border-zinc-200 text-center text-zinc-400 italic">
                   No dispatches found in the registry.
                 </div>
               ) : (
                 <div className="space-y-4">
-                  {data.blog.map((post) => (
-                    <div key={post.id} className="bg-white border border-zinc-200 p-6 flex justify-between items-center group">
-                      <div>
-                        <div className="flex items-center gap-3 mb-1">
-                          <span className="text-[8px] font-black text-[#b8860b] uppercase tracking-widest">{post.category}</span>
-                          <span className="text-[8px] text-zinc-400 font-mono">{post.id}</span>
+                  {data.blog.map((post) => {
+                    const postUrl = `${window.location.origin}/library/${post.id}`;
+                    return (
+                      <div key={post.id} className="bg-white border border-zinc-200 p-6 flex justify-between items-center gap-4 group">
+                        <div className="flex-1 min-w-0 font-inter">
+                          <div className="flex items-center gap-3 mb-1">
+                            <span className="text-[8px] font-black text-[#b8860b] uppercase tracking-widest">{post.category}</span>
+                            <span className="text-[8px] text-zinc-400 font-mono">{post.id}</span>
+                          </div>
+                          <h4 className="text-sm font-bold text-[#111111] truncate">{post.title}</h4>
+                          <p className="text-xs text-zinc-500 italic mt-1 line-clamp-1">{post.excerpt}</p>
+                          <div className="mt-3 text-[10px] text-zinc-500 font-mono bg-zinc-50 p-2 border border-zinc-100 rounded flex justify-between items-center gap-2">
+                            <span className="truncate select-all pr-2 text-zinc-400">{postUrl}</span>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                navigator.clipboard.writeText(postUrl);
+                                alert("Dispatch address copied to clipboard.");
+                              }}
+                              className="text-[9px] font-black text-[#b8860b] hover:text-amber-800 transition-colors uppercase shrink-0"
+                            >
+                              Copy Link
+                            </button>
+                          </div>
                         </div>
-                        <h4 className="text-sm font-bold text-[#111111]">{post.title}</h4>
+                        <button 
+                          type="button"
+                          onClick={() => handleDeletePost(post.id)}
+                          className="p-2 text-zinc-300 hover:text-red-600 transition-colors shrink-0"
+                          title="Purge Dispatch"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                          </svg>
+                        </button>
                       </div>
-                      <button 
-                        onClick={() => handleDeletePost(post.id)}
-                        className="p-2 text-zinc-300 hover:text-red-600 transition-colors"
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
-                      </button>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               )}
             </div>

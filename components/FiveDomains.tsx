@@ -29,7 +29,7 @@ const domains: Domain[] = [
     vision: "Institutional permanence. You can step away for weeks and the system still moves exactly as set."
   },
   {
-    title: "Asymptotic Intent Fidelity",
+    title: "Strategic Velocity",
     subtitle: "(The Logic Substrate)",
     benefit: "Eliminating authority dilution across the organizational substrate. Zero-latency transmission of strategic mandate.",
     pain: "15% fidelity loss per management layer. Strategic drift and operational misalignment.",
@@ -56,13 +56,13 @@ const domains: Domain[] = [
 
 const FiveDomains: React.FC = () => {
   return (
-    <section id="domains" className="py-32 bg-[#0a0a0a] overflow-hidden relative border-t border-white/5">
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#b8860b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+    <section id="domains" className="py-16 md:py-20 bg-[#0a0a0a] overflow-hidden relative border-t border-white/5">
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#b8860b_1px, transparent 1px)', backgroundSize: '60px 60px' }} />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-24">
-          <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-6 tracking-[0.5em]">The 5 Sovereign Domains</h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-white mb-8">Architecting <span className="italic text-[#b8860b]">Absolute Authority.</span></h3>
+        <div className="text-center mb-12">
+          <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-4 tracking-[0.5em]">The 5 Sovereign Domains</h2>
+          <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Architecting <span className="italic text-[#b8860b]">Absolute Authority.</span></h3>
           <p className="max-w-2xl mx-auto text-zinc-700 text-sm italic font-light leading-relaxed">
             Excellence is not a habitual act, but a structural property of these five vertical domains.
           </p>
@@ -74,10 +74,10 @@ const FiveDomains: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-24 text-center">
+        <div className="mt-12 text-center">
            <button 
              onClick={() => document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' })}
-             className="px-12 py-6 border border-[#b8860b]/30 text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] hover:bg-[#b8860b] hover:text-white transition-all duration-700"
+             className="px-10 py-5 border border-[#b8860b]/30 text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] hover:bg-[#b8860b] hover:text-white transition-all duration-700"
            >
              Initiate Institutional Audit
            </button>
@@ -92,7 +92,7 @@ const DomainCard: React.FC<{ domain: Domain; index: number }> = ({ domain, index
 
   return (
     <div 
-      className="relative h-[600px] w-full cursor-pointer group"
+      className="relative h-[460px] md:h-[500px] w-full cursor-pointer group"
       style={{ perspective: '2000px' }}
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}

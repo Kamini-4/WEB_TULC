@@ -326,53 +326,65 @@ async function startServer() {
 
           // Notify Admin
           console.log(`[MAIL] DISPATCH_SEQUENCE_START: Admin: ${adminEmail} | From: ${sender}`);
-          const adminResult = await resend.emails.send({
-            from: sender,
-            to: [adminEmail],
-            reply_to: [email],
-            subject: adminSubject,
-            html: adminHtml,
-          }).catch(async (e: any) => {
-            const errorMsg = e.message || JSON.stringify(e);
-            console.error(`[MAIL] PRIMARY_SENDER_REJECTION: ${errorMsg}`);
-            
-            // Fallback for Admin only
-            console.log(`[MAIL] FALLBACK_INITIATED: Attempting with ${fallbackSender}...`);
-            return await resend.emails.send({
-              from: fallbackSender,
+          let adminResult: any;
+          try {
+            adminResult = await resend.emails.send({
+              from: sender,
               to: [adminEmail],
               reply_to: [email],
-              subject: `[FALLBACK] ${adminSubject}`,
-              html: `<div style="background: #fff4f4; padding: 10px; border: 1px solid #fecaca; margin-bottom: 20px; font-size: 12px; font-family: sans-serif;"><strong>DIAGNOSTIC:</strong> Your primary sender domain "${senderEmail}" is not verified in Resend. This notification was sent via fallback. Verify your domain at <a href="https://resend.com/domains">resend.com/domains</a> to remove this warning.</div>${adminHtml}`,
+              subject: adminSubject,
+              html: adminHtml,
             });
-          });
+          } catch (e: any) {
+            console.error(`[MAIL] PRIMARY_SENDER_EXCEPTION: ${e.message || e}`);
+            adminResult = { error: e };
+          }
 
-          if (adminResult.error) {
+          // If the primary send failed (either via returned error or threw exception), initiate fallback
+          if (adminResult?.error) {
+            console.log(`[MAIL] PRIMARY_SENDER_FAILURE: ${JSON.stringify(adminResult.error)}. FALLBACK_INITIATED: Attempting with ${fallbackSender}...`);
+            try {
+              adminResult = await resend.emails.send({
+                from: fallbackSender,
+                to: [adminEmail],
+                reply_to: [email],
+                subject: `[FALLBACK] ${adminSubject}`,
+                html: `<div style="background: #fff4f4; padding: 10px; border: 1px solid #fecaca; margin-bottom: 20px; font-size: 12px; font-family: sans-serif;"><strong>DIAGNOSTIC:</strong> Your primary sender domain "${senderEmail}" is not verified in Resend. This notification was sent via fallback. Verify your domain at <a href="https://resend.com/domains">resend.com/domains</a> to remove this warning.</div>${adminHtml}`,
+              });
+            } catch (fallbackEx: any) {
+              console.error(`[MAIL] FALLBACK_EXCEPTION: ${fallbackEx.message || fallbackEx}`);
+              adminResult = { error: fallbackEx };
+            }
+          }
+
+          if (adminResult?.error) {
             console.error('[MAIL] ADMIN_DISPATCH_FINAL_FAILURE:', JSON.stringify(adminResult.error));
-            console.error('[MAIL] Possible Causes: Invalid Resend Key, or the to-email is not the Resend account owner in sandbox mode.');
+            console.error('[MAIL] Possible Causes: Invalid Resend Key, or the owner email is not verified.');
           } else {
-            console.log('[MAIL] ADMIN_DISPATCH_SUCCESS:', adminResult.data?.id);
+            console.log('[MAIL] ADMIN_DISPATCH_SUCCESS:', adminResult?.data?.id);
           }
 
           // Acknowledge User (Requires Verified Domain)
           console.log(`[MAIL] DISPATCH_SEQUENCE_CONTINUE: User: ${email} | From: ${sender}`);
-          const userResult = await resend.emails.send({
-            from: sender,
-            to: [email],
-            reply_to: [adminEmail],
-            subject: userSubject,
-            html: userHtml,
-          }).catch(e => {
-            const errorMsg = e.message || JSON.stringify(e);
-            console.error(`[MAIL] USER_ACK_CRITICAL_FAILURE: ${errorMsg}`);
-            return { error: { message: errorMsg, code: 'CRITICAL_CATCH' } };
-          });
+          let userResult: any;
+          try {
+            userResult = await resend.emails.send({
+              from: sender,
+              to: [email],
+              reply_to: [adminEmail],
+              subject: userSubject,
+              html: userHtml,
+            });
+          } catch (e: any) {
+            console.error(`[MAIL] USER_ACK_EXCEPTION: ${e.message || e}`);
+            userResult = { error: e };
+          }
 
-          if (userResult.error) {
+          if (userResult?.error) {
             console.error('[MAIL] USER_ACK_FAILED:', JSON.stringify(userResult.error));
             console.error(`[MAIL] ACTION_REQUIRED: To send emails to "${email}", you MUST verify the domain "theunboundedleadership.com" in your Resend dashboard.`);
           } else {
-            console.log('[MAIL] USER_ACK_SUCCESS:', userResult.data?.id);
+            console.log('[MAIL] USER_ACK_SUCCESS:', userResult?.data?.id);
           }
 
         } catch (err) {
