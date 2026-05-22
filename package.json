@@ -37,7 +37,7 @@
     "vite": "^6.2.0"
   },
   "overrides": {
-    "node-domexception": "^1.0.0"
+    "node-domexception": "file:./local_packages/node-domexception"
   },
   "devDependencies": {
     "@eslint/js": "^9.10.0",

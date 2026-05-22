@@ -402,6 +402,133 @@ async function startServer() {
     }
   });
 
+  // Newsletter Broadcast Endpoint: Transmits premium alerts securely and with zero-cost architecture
+  app.post('/api/newsletter/send', async (req, res) => {
+    try {
+      const { subscribers, title, category, tagline, content, id, url } = req.body;
+      const resendKey = process.env.RESEND_API_KEY;
+
+      if (!resendKey) {
+        return res.status(500).json({ error: 'RESEND_API_KEY is not configured on the server.' });
+      }
+
+      if (!subscribers || !Array.isArray(subscribers) || subscribers.length === 0) {
+        return res.status(400).json({ error: 'Subscribers list is required and must not be empty.' });
+      }
+
+      const resend = new Resend(resendKey);
+      const adminEmail = process.env.VITE_ADMIN_EMAIL || 'suchita135sancheti@gmail.com';
+      const senderEmail = process.env.VITE_SENDER_EMAIL || 'concierge@theunboundedleadership.com';
+      const senderName = process.env.VITE_SENDER_NAME || 'The Unbounded Leadership Co.';
+      const sender = `${senderName} <${senderEmail}>`;
+
+      const formattedContent = content.map((paragraph: string) => `
+        <p style="font-size: 16px; line-height: 1.8; margin-bottom: 24px; color: #1a1a1a; font-family: 'Times New Roman', Times, serif;">
+          ${paragraph}
+        </p>
+      `).join('');
+
+      const newsletterHtml = `
+        <div style="font-family: 'Times New Roman', Georgia, serif; color: #1a1a1a; max-width: 600px; margin: 0 auto; padding: 40px; border: 1px solid #e5e5e0; background-color: #fafaf9; box-sizing: border-box;">
+          
+          <!-- Outer Header / Brand Signature -->
+          <div style="text-align: center; margin-bottom: 40px; border-bottom: 2px solid #b8860b; padding-bottom: 15px;">
+            <div style="font-size: 16px; letter-spacing: 0.35em; text-transform: uppercase; color: #111; font-weight: bold; margin-bottom: 5px;">
+              The Unbounded Leadership Co.
+            </div>
+            <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #7f7f75;">
+              Sovereign Intelligence Brief • Office of the Principal
+            </div>
+          </div>
+
+          <!-- Dispatch Metadata Track -->
+          <div style="font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.15em; color: #b8860b; margin-bottom: 25px; border-bottom: 1px solid #e5e5e0; padding-bottom: 8px; display: table; width: 100%;">
+            <div style="display: table-cell; text-align: left;">${category || 'INTELLIGENCE REPORT'}</div>
+            <div style="display: table-cell; text-align: right;">ID: ${id || 'DISPATCH'}</div>
+          </div>
+
+          <!-- Newsletter Headline -->
+          <h1 style="font-size: 26px; line-height: 1.3; font-weight: bold; color: #111; margin-bottom: 12px; margin-top: 0; font-family: 'Times New Roman', Georgia, serif;">
+            ${title}
+          </h1>
+
+          <!-- Tagline/Excerpt -->
+          ${tagline ? `
+            <p style="font-size: 17px; font-style: italic; color: #5c5c50; line-height: 1.5; margin-bottom: 35px; margin-top: 0;">
+              "${tagline}"
+            </p>
+          ` : ''}
+
+          <!-- Divider -->
+          <hr style="border: 0; border-top: 1px solid #e5e5e0; margin-bottom: 30px;" />
+
+          <!-- Main Article Body -->
+          <div style="margin-bottom: 40px;">
+            ${formattedContent}
+          </div>
+
+          <!-- Call To Action Direct Link -->
+          ${url ? `
+            <div style="margin: 40px 0; text-align: center;">
+              <a href="${url}" style="display: inline-block; padding: 14px 28px; background-color: #b8860b; color: #ffffff; text-decoration: none; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.2em; border-radius: 0; font-family: Arial, sans-serif; transition: background-color 0.3s ease;">
+                Read Full Entry Online
+              </a>
+            </div>
+          ` : ''}
+
+          <!-- Closing Signature -->
+          <div style="margin-top: 50px; padding-top: 25px; border-top: 1px solid #e5e5e0;">
+            <p style="font-size: 15px; margin: 0; font-family: 'Times New Roman', Georgia, serif;">Sincerely,</p>
+            <p style="font-size: 15px; font-weight: bold; margin: 6px 0 0 0; color: #b8860b; font-family: 'Times New Roman', Georgia, serif;">Suchita Sancheti</p>
+            <p style="font-size: 11px; font-weight: bold; margin: 0; color: #7f7f75; text-transform: uppercase; letter-spacing: 0.1em; font-family: Arial, sans-serif;">Principal Architect</p>
+            <p style="font-size: 11px; color: #a3a39e; margin: 3px 0 0 0; font-family: Arial, sans-serif;">London • Singapore • New York</p>
+          </div>
+
+          <!-- Ephemeral Footer Compliance -->
+          <div style="margin-top: 50px; font-size: 9px; color: #a3a39e; text-align: center; border-top: 1px solid #f2f2ee; padding-top: 15px; font-family: Arial, sans-serif; line-height: 1.4;">
+            <strong>PRIVILEGED DISCLOSURE NOTICE:</strong> This document contains proprietary insights engineered for sovereign leaders. To withdraw consent or modify your standing, reply to this email directly with <strong>UNSUBSCRIBE</strong>. <br />
+            © 2026 The Unbounded Leadership Co. All rights reserved. Registered work.
+          </div>
+
+        </div>
+      `;
+
+      console.log(`[NEWSLETTER] BROADCAST_START: Initiating send to ${subscribers.length} subscribers.`);
+      
+      const sendPromises = subscribers.map(async (email) => {
+        try {
+          return await resend.emails.send({
+            from: sender,
+            to: [email],
+            reply_to: [adminEmail],
+            subject: `Sovereign Digest: ${title}`,
+            html: newsletterHtml,
+          });
+        } catch (err: any) {
+          console.error(`[NEWSLETTER] FAILED_SEND to ${email}:`, err.message || err);
+          return { error: err, email };
+        }
+      });
+
+      const results = await Promise.all(sendPromises);
+      const successes = results.filter((r: any) => !r.error);
+      const failures = results.filter((r: any) => r.error);
+
+      console.log(`[NEWSLETTER] BROADCAST_SUMMARY: Sent: ${successes.length} | Failed: ${failures.length}`);
+
+      res.json({
+        success: true,
+        sentCount: successes.length,
+        failedCount: failures.length,
+        failures: failures.map((f: any) => ({ email: f.email, error: f.error?.message || String(f.error) }))
+      });
+
+    } catch (error: any) {
+      console.error('[NEWSLETTER] ENDPOINT_CRITICAL_FAILURE:', error);
+      res.status(500).json({ error: error.message || 'Briefing dispersal mechanism compromised.' });
+    }
+  });
+
   // Gemini Proxy Endpoint
   app.post('/api/ai/generate', async (req, res) => {
     try {
