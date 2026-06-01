@@ -12,6 +12,7 @@ import MethodologyPage from './src/pages/MethodologyPage.tsx';
 import AssessmentPage from './src/pages/AssessmentPage.tsx';
 import IntakePage from './src/pages/IntakePage.tsx';
 import Portal from './src/pages/Portal.tsx';
+import ServicesPage from './src/pages/ServicesPage.tsx';
 import ArticleView from './components/ArticleView.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import FloatingCTA from './components/FloatingCTA.tsx';
@@ -21,6 +22,7 @@ import { INSTITUTIONAL_ARTICLES, getArticleById } from './src/lib/articles.ts';
 
 interface Article {
   id?: string;
+  slug?: string;
   category: string;
   title: string;
   content: string[];
@@ -63,10 +65,10 @@ const ArticleHandler: React.FC<{
   const { articleId } = useParams();
 
   useEffect(() => {
-    if (articleId && (!activeArticle || activeArticle.id !== articleId)) {
+    if (articleId && (!activeArticle || (activeArticle.id !== articleId && activeArticle.slug !== articleId))) {
       const found = getArticleById(articleId);
       if (found) {
-        setActiveArticle(found);
+        setActiveArticle(found as any);
       }
     }
   }, [articleId, activeArticle, setActiveArticle]);
@@ -113,7 +115,9 @@ const App: React.FC = () => {
 
   const handleOpenArticle = (article: any, navigate: any) => {
     setActiveArticle(article);
-    if (article.id) {
+    if (article.slug) {
+      navigate(`/library/${article.slug}`);
+    } else if (article.id) {
       navigate(`/library/${article.id}`);
     }
   };
@@ -244,6 +248,7 @@ const App: React.FC = () => {
             <Route path="/assessment" element={<AssessmentPage />} />
             <Route path="/intake" element={<IntakePage />} />
             <Route path="/portal" element={<Portal />} />
+            <Route path="/services" element={<ServicesPage />} />
           </Routes>
         </main>
         <Footer onLegalClick={handleLegalClick} />

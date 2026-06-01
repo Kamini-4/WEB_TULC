@@ -35,7 +35,7 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
 
   const handleCopyLink = (e: React.MouseEvent, post: any) => {
     e.stopPropagation();
-    const url = `${baseShareUrl}/library/${post.id}`;
+    const url = `${baseShareUrl}/library/${post.slug || post.id}`;
     navigator.clipboard.writeText(url);
     setCopiedId(post.id);
     setTimeout(() => setCopiedId(null), 2000);
@@ -79,7 +79,11 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
               key={idx} 
               onClick={() => {
                 onArticleClick(post);
-                if (post.id) navigate(`/library/${post.id}`);
+                if (post.slug) {
+                  navigate(`/library/${post.slug}`);
+                } else if (post.id) {
+                  navigate(`/library/${post.id}`);
+                }
               }}
               className="registry-card group cursor-pointer flex flex-col h-full relative isolate p-2"
             >
@@ -131,7 +135,7 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                           {copiedId === post.id ? 'Copied' : 'Copy Link'}
                         </button>
                         <a 
-                          href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`${baseShareUrl}/library/${post.id}`)}&text=${encodeURIComponent(post.title)}`}
+                          href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`${baseShareUrl}/library/${post.slug || post.id}`)}&text=${encodeURIComponent(post.title)}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
@@ -140,7 +144,7 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                           <X size={10} /> X / Twitter
                         </a>
                         <a 
-                          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${baseShareUrl}/library/${post.id}`)}`}
+                          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${baseShareUrl}/library/${post.slug || post.id}`)}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}

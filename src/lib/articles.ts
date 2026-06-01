@@ -2,6 +2,7 @@
 // Institutional Knowledge Graph: Centralized Articles Registry
 export interface Article {
   id: string;
+  slug: string;
   category: string;
   title: string;
   excerpt: string;
@@ -15,6 +16,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
   // Insights Section
   {
     id: "INT-010",
+    slug: "architecture-of-authority",
     category: "Systems Design",
     title: "The Architecture of Authority: Why Systems Outperform Personal Brands",
     excerpt: "Analyzing the transition points where institutional logic unlocks unprecedented organizational growth and permanence through systemic design.",
@@ -42,6 +44,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
   },
   {
     id: "INT-011",
+    slug: "strategic-substrates",
     category: "Cognitive Architecture",
     title: "Strategic Substrates: The Invisible Tax of Latent Inefficiency",
     excerpt: "How aligning mental models at the board level yields compounding institutional velocity and neutralizes the hidden costs of leadership friction.",
@@ -68,6 +71,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
   },
   {
     id: "INT-012",
+    slug: "sovereign-leadership",
     category: "Future of Governance",
     title: "Sovereign Leadership: Designing for Anti-Fragility in the Age of AI",
     excerpt: "Transitioning from individual effort to systemic intelligence as the core competitive advantage in the era of cybernetic governance.",
@@ -95,6 +99,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
   // Registry (Blog) Section
   {
     id: "INT-001",
+    slug: "founders-dilemma",
     category: "Succession Architecture",
     date: "Q1 2026",
     title: "The Founder's Dilemma: Architecting Institutional Permanence Beyond the Individual",
@@ -119,6 +124,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
   },
   {
     id: "INT-002",
+    slug: "cognitive-tax-of-leadership",
     category: "Cognitive Efficiency",
     date: "Dispatch 08",
     title: "The Cognitive Tax of Leadership: Reclaiming 40% of Your Strategic Bandwidth",
@@ -140,6 +146,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
   },
   {
     id: "INT-003",
+    slug: "bridging-strategy-execution-gap",
     category: "Governance Calibration",
     date: "Special Report",
     title: "Bridging the Strategy-Execution Gap: A Fiduciary Guide to Board Alignment",
@@ -158,6 +165,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
   },
   {
     id: "INT-004",
+    slug: "reclaiming-strategic-bandwidth",
     category: "Executive Effectiveness",
     date: "Dispatch 12",
     title: "Reclaiming Strategic Bandwidth: The Executive's Only Real Currency",
@@ -176,6 +184,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
   },
   {
     id: "INT-005",
+    slug: "institutional-lag",
     category: "Systems Architecture",
     date: "AEO/GEO Protocol",
     title: "Institutional Lag: The Invisible Coefficient of Leadership Friction",
@@ -194,6 +203,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
   },
   {
     id: "INT-006",
+    slug: "engineering-strategic-bandwidth",
     category: "Bandwidth Reclamation",
     date: "Executive Intelligence",
     title: "Engineering Strategic Bandwidth: Reclaiming Decision Capacity at Scale",
@@ -212,6 +222,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
   },
   {
     id: "INT-007",
+    slug: "sovereign-authority-vs-reactive-management",
     category: "Governance Calibration",
     date: "Special Dispatch",
     title: "Sovereign Authority vs. Reactive Management: A New Leadership Taxonomy",
@@ -230,6 +241,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
   },
   {
     id: "INT-008",
+    slug: "physics-of-inevitability",
     category: "Cognitive Architecture",
     date: "Architecture Report",
     title: "The Physics of Inevitability: Why Systems Outperform Individual Talent",
@@ -248,6 +260,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
   },
   {
     id: "INT-009",
+    slug: "cost-of-organizational-latency",
     category: "Structural Integrity",
     date: "Diagnostic Entry",
     title: "The Cost of Organizational Latency: Measuring the Inaction Tax",
@@ -266,6 +279,8 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
   }
 ];
 
-export const getArticleById = (id: string): Article | undefined => {
-    return INSTITUTIONAL_ARTICLES.find(a => a.id === id);
+export const getArticleByIdOrSlug = (idOrSlug: string): Article | undefined => {
+    return INSTITUTIONAL_ARTICLES.find(a => a.id === idOrSlug || a.slug === idOrSlug);
 };
+
+export const getArticleById = getArticleByIdOrSlug;

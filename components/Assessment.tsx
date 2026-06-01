@@ -40,8 +40,8 @@ const QUESTIONS: Question[] = [
     },
     options: [
       { label: "Obscured", value: 1, description: "Intent is frequently lost in translation, requiring constant manual correction." },
-      { label: "Coherent", value: 3, description: "The vision is understood but lacks the sharp edge required for autonomous execution." },
-      { label: "Absolute", value: 5, description: "Clarity is a structural property; intent executes with 100% fidelity." }
+      { label: "Coherent", value: 2, description: "The vision is understood but lacks the sharp edge required for autonomous execution." },
+      { label: "Absolute", value: 3, description: "Clarity is a structural property; intent executes with 100% fidelity." }
     ]
   },
   {
@@ -53,8 +53,8 @@ const QUESTIONS: Question[] = [
     },
     options: [
       { label: "Fragile", value: 1, description: "The system is a collection of individual efforts; without 'heroes', it dissolves." },
-      { label: "Resilient", value: 3, description: "Protocols exist but require frequent validation to prevent systemic drift." },
-      { label: "Sovereign", value: 5, description: "Integrity is built into the design; order is a structural inevitability." }
+      { label: "Resilient", value: 2, description: "Protocols exist but require frequent validation to prevent systemic drift." },
+      { label: "Sovereign", value: 3, description: "Integrity is built into the design; order is a structural inevitability." }
     ]
   },
   {
@@ -66,8 +66,8 @@ const QUESTIONS: Question[] = [
     },
     options: [
       { label: "Rigid", value: 1, description: "Change is slow and requires significant political capital to initiate." },
-      { label: "Adaptive", value: 3, description: "The organization can pivot, but the process is manual and energy-intensive." },
-      { label: "Antifragile", value: 5, description: "Velocity is a structural property; the substrate gains strength from disruption." }
+      { label: "Adaptive", value: 2, description: "The organization can pivot, but the process is manual and energy-intensive." },
+      { label: "Antifragile", value: 3, description: "Velocity is a structural property; the substrate gains strength from disruption." }
     ]
   },
   {
@@ -79,8 +79,8 @@ const QUESTIONS: Question[] = [
     },
     options: [
       { label: "Variable", value: 1, description: "Ethics and trust are behavioral variables, dependent on current leadership." },
-      { label: "Principled", value: 3, description: "Values are documented but require constant oversight to ensure alignment." },
-      { label: "Gravitational", value: 5, description: "Moral gravity is a structural property; alignment is inevitable." }
+      { label: "Principled", value: 2, description: "Values are documented but require constant oversight to ensure alignment." },
+      { label: "Gravitational", value: 3, description: "Moral gravity is a structural property; alignment is inevitable." }
     ]
   },
   {
@@ -92,8 +92,8 @@ const QUESTIONS: Question[] = [
     },
     options: [
       { label: "Diluted", value: 1, description: "Culture experiences operational drift as it moves away from the direct resonance of the Principal." },
-      { label: "Aligned", value: 3, description: "The team understands the culture but lacks the 'resonance' of the original intent." },
-      { label: "Embodied", value: 5, description: "Fidelity is a structural property; the culture executes itself autonomously." }
+      { label: "Aligned", value: 2, description: "The team understands the culture but lacks the 'resonance' of the original intent." },
+      { label: "Embodied", value: 3, description: "Fidelity is a structural property; the culture executes itself autonomously." }
     ]
   }
 ];
@@ -174,7 +174,7 @@ const Assessment: React.FC = () => {
     
     try {
       const totalScoreValue = Object.values(finalAnswers).reduce((a, b) => a + b, 0);
-      const maxScore = QUESTIONS.length * 5;
+      const maxScore = QUESTIONS.length * 3;
       const percentage = (totalScoreValue / maxScore) * 100;
       
       const domainScores = QUESTIONS.map((q, i) => ({
@@ -205,7 +205,7 @@ const Assessment: React.FC = () => {
             name: identity.name,
             email: identity.email,
             organization: identity.organization,
-            message: `Free Assessment Completed. Total Score: ${totalScoreValue}/25. Domain Scores: ${domainScores.map(d => `${d.domain}: ${d.score}`).join(', ')}`,
+            message: `Free Assessment Completed. Total Score: ${totalScoreValue}/15. Domain Scores: ${domainScores.map(d => `${d.domain}: ${d.score}`).join(', ')}`,
             type: 'ASSESSMENT_COMPLETED',
             assessmentData: {
               totalScore: totalScoreValue,
@@ -228,9 +228,9 @@ const Assessment: React.FC = () => {
 
   const getGrade = () => {
     const totalScoreValue = Object.values(answers).reduce((a, b) => a + b, 0);
-    if (totalScoreValue >= 20) return 'Sovereign';
-    if (totalScoreValue >= 15) return 'Architectural';
-    if (totalScoreValue >= 10) return 'Systemic';
+    if (totalScoreValue >= 12) return 'Sovereign';
+    if (totalScoreValue >= 9) return 'Architectural';
+    if (totalScoreValue >= 6) return 'Systemic';
     return 'Manual';
   };
 
@@ -279,7 +279,7 @@ const Assessment: React.FC = () => {
       strengthDomain,
       calibrationDomain,
       domainInsights: insights,
-      priority: totalScoreValue < 15 
+      priority: totalScoreValue < 9 
         ? "IMMEDIATE CALIBRATION: Your current institutional substrate is performing with resilience. Scaling your existing strengths is the correct next move to unlock strategic velocity and preserve your leadership legacy."
         : "ARCHITECTURAL SCALE: You are positioned for institutional permanence. Challenging your organization to move beyond 'Heroic Management' into 'Pure Architecture' is the definitive next step for your legacy."
     };
@@ -584,14 +584,14 @@ const Assessment: React.FC = () => {
                         <div className="text-[9px] uppercase font-black text-zinc-700 mb-4 tracking-widest">Aggregate Fidelity</div>
                         <div className="flex items-end gap-2 mb-4">
                           <span className="text-4xl font-bold text-[#b8860b]">
-                            {Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 5)) * 100)}
+                            {Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 3)) * 100)}
                           </span>
                           <span className="text-xs text-zinc-600 mb-1 font-black">%</span>
                         </div>
                         <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
                           <motion.div 
                             initial={{ width: 0 }}
-                            animate={{ width: `${Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 5)) * 100)}%` }}
+                            animate={{ width: `${Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 3)) * 100)}%` }}
                             transition={{ duration: 2, delay: 0.5 }}
                             className="h-full bg-[#b8860b]"
                           />
@@ -601,14 +601,14 @@ const Assessment: React.FC = () => {
                         <div className="text-[9px] uppercase font-black text-zinc-700 mb-4 tracking-widest">Cognitive Bandwidth</div>
                         <div className="flex items-end gap-2 mb-4">
                           <span className="text-4xl font-bold text-white">
-                            {Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 5)) * 100)}
+                            {Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 3)) * 100)}
                           </span>
                           <span className="text-xs text-zinc-600 mb-1 font-black">%</span>
                         </div>
                         <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
                           <motion.div 
                             initial={{ width: 0 }}
-                            animate={{ width: `${Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 5)) * 100)}%` }}
+                            animate={{ width: `${Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 3)) * 100)}%` }}
                             transition={{ duration: 2, delay: 0.7 }}
                             className="h-full bg-white"
                           />
@@ -617,7 +617,7 @@ const Assessment: React.FC = () => {
                     </section>
 
                     <section>
-                      <div className="text-[10px] uppercase font-black text-zinc-700 mb-8 tracking-[0.4em]">Vertical Domain Calibration (1-5 Scale)</div>
+                      <div className="text-[10px] uppercase font-black text-zinc-700 mb-8 tracking-[0.4em]">Vertical Domain Calibration (1-3 Scale)</div>
                       <div className="grid grid-cols-1 gap-6">
                         {QUESTIONS.map((q, i) => (
                           <div key={i} className="group">
@@ -627,7 +627,7 @@ const Assessment: React.FC = () => {
                                 <span className="text-[9px] text-zinc-600 italic font-light">{getReportDetails().domainInsights[q.domain]?.definition}</span>
                               </div>
                               <div className="flex gap-1">
-                                {[1, 2, 3, 4, 5].map((star) => (
+                                {[1, 2, 3].map((star) => (
                                   <div 
                                     key={star} 
                                     className={`w-3 h-3 ${star <= (answers[i] || 1) ? 'bg-[#b8860b]' : 'bg-white/5'} transition-all`}
@@ -637,10 +637,10 @@ const Assessment: React.FC = () => {
                             </div>
                             <div className="h-[2px] w-full bg-white/5 relative overflow-hidden">
                               <motion.div 
-                                initial={{ width: 0 }}
-                                animate={{ width: `${((answers[i] || 1) / 5) * 100}%` }}
-                                transition={{ duration: 1, delay: 0.2 * i }}
-                                className="absolute top-0 left-0 h-full bg-[#b8860b]/40"
+                                  initial={{ width: 0 }}
+                                  animate={{ width: `${((answers[i] || 1) / 3) * 100}%` }}
+                                  transition={{ duration: 1, delay: 0.2 * i }}
+                                  className="absolute top-0 left-0 h-full bg-[#b8860b]/40"
                               />
                             </div>
                           </div>

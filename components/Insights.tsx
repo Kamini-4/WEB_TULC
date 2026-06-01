@@ -36,7 +36,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
 
   const handleCopyLink = (e: React.MouseEvent, article: Article) => {
     e.stopPropagation();
-    const url = `${baseShareUrl}/library/${article.id}`;
+    const url = `${baseShareUrl}/library/${article.slug || article.id}`;
     navigator.clipboard.writeText(url);
     setCopiedId(article.id);
     setTimeout(() => setCopiedId(null), 2000);
@@ -134,7 +134,11 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
           {articles.map((article, idx) => (
             <div key={idx} className="group cursor-pointer" onClick={() => {
               onArticleClick(article);
-              if (article.id) navigate(`/library/${article.id}`);
+              if (article.slug) {
+                navigate(`/library/${article.slug}`);
+              } else if (article.id) {
+                navigate(`/library/${article.id}`);
+              }
             }}>
               <div className="mb-6 overflow-hidden bg-[#111111] aspect-[16/10] relative border border-white/5">
                 {failedImages[article.id] ? (
@@ -174,7 +178,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                         {copiedId === article.id ? 'Copied' : 'Copy Link'}
                       </button>
                       <a 
-                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`${baseShareUrl}/library/${article.id}`)}&text=${encodeURIComponent(article.title)}`}
+                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`${baseShareUrl}/library/${article.slug || article.id}`)}&text=${encodeURIComponent(article.title)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
@@ -183,7 +187,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                         <X size={10} /> X / Twitter
                       </a>
                       <a 
-                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${baseShareUrl}/library/${article.id}`)}`}
+                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${baseShareUrl}/library/${article.slug || article.id}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}

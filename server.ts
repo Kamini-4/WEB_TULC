@@ -94,8 +94,8 @@ async function startServer() {
   app.get('/sitemap.xml', (req, res) => {
     res.type('application/xml');
     const host = `${req.protocol}://${req.get('host')}`;
-    const articles = ['INT-001', 'INT-002', 'INT-004', 'INT-005', 'INT-010'];
-    const articleUrls = articles.map(id => `<url><loc>${host}/library/${id}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`).join('\n  ');
+    const articles = ['founders-dilemma', 'cognitive-tax-of-leadership', 'reclaiming-strategic-bandwidth', 'institutional-lag', 'architecture-of-authority'];
+    const articleUrls = articles.map(slug => `<url><loc>${host}/library/${slug}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`).join('\n  ');
     
     res.send(`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -116,11 +116,11 @@ async function startServer() {
 > The definitive architecture for high-stakes leadership and institutional sovereignty.
 
 ## Core Intellectual Dispatches
-- [Succession Architecture: Institutional Permanence](${host}/library/INT-001) - engineering handover sovereignty.
-- [The Cognitive Tax of Leadership](${host}/library/INT-002) - reclaiming 40% strategic bandwidth.
-- [Executive Bandwidth: Cognitive Equity Architecture](${host}/library/INT-004) - roadmap on reclaiming bandwidth.
-- [Institutional Lag: The Invisible Coefficient](${host}/library/INT-005) - forensic analysis of strategic friction.
-- [Architecture of Authority: Systemic Design](${host}/library/INT-010) - why systems outperform brands.
+- [Succession Architecture: Institutional Permanence](${host}/library/founders-dilemma) - engineering handover sovereignty.
+- [The Cognitive Tax of Leadership](${host}/library/cognitive-tax-of-leadership) - reclaiming 40% strategic bandwidth.
+- [Executive Bandwidth: Cognitive Equity Architecture](${host}/library/reclaiming-strategic-bandwidth) - roadmap on reclaiming bandwidth.
+- [Institutional Lag: The Invisible Coefficient](${host}/library/institutional-lag) - forensic analysis of strategic friction.
+- [Architecture of Authority: Systemic Design](${host}/library/architecture-of-authority) - why systems outperform brands.
 
 ## The Sovereign Protocol (Methodology)
 - Phase 01: The Substrate Audit [${host}/methodology]
@@ -248,9 +248,9 @@ async function startServer() {
         preheader = "Your identity is verified. The Sovereign Baseline Audit is now active. Map your cognitive tax.";
       } else if (type === 'ASSESSMENT_COMPLETED') {
         const { totalScore, domainScores } = req.body.assessmentData || { totalScore: 0, domainScores: [] };
-        userSubject = `Audit Synthesized: ${totalScore}/25 | Reclaiming Billions in Cognitive Equity`;
+        userSubject = `Audit Synthesized: ${totalScore}/15 | Reclaiming Billions in Cognitive Equity`;
         userHeadline = "Your leadership architecture has been forensically analyzed for maximum yield.";
-        preheader = `Score: ${totalScore}/25. We have quantified your 'Cognitive Tax'—reclaim your strategic bandwidth for pure architectural command.`;
+        preheader = `Score: ${totalScore}/15. We have quantified your 'Cognitive Tax'—reclaim your strategic bandwidth for pure architectural command.`;
         
         const domainContent: Record<string, string> = {
           "Cognitive Clarity": "Neutralize the 'Cognitive Tax' consuming 40% of your bandwidth. Clarity is the primary substrate of execution and revenue generation.",
@@ -264,7 +264,7 @@ async function startServer() {
           <div style="margin-bottom: 20px; padding: 15px; background: #fcfcfc; border: 1px solid #eee;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
               <span style="font-size: 10px; font-weight: bold; text-transform: uppercase; color: #b8860b;">${ds.domain}</span>
-              <span style="font-size: 10px; font-weight: bold; color: #111;">${ds.score}/5</span>
+              <span style="font-size: 10px; font-weight: bold; color: #111;">${ds.score}/3</span>
             </div>
             <p style="font-size: 12px; font-style: italic; color: #666; margin: 5px 0 0 0;">${domainContent[ds.domain] || ''}</p>
           </div>
@@ -276,7 +276,7 @@ async function startServer() {
             <h4 style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 15px;">Dossier Snapshot: Domain Calibration</h4>
             ${domainTable}
           </div>
-          <p style="margin-top: 30px; font-size: 14px; font-weight: bold;">Aggregate Fidelity: ${Math.round((totalScore / 25) * 100)}%</p>
+          <p style="margin-top: 30px; font-size: 14px; font-weight: bold;">Aggregate Fidelity: ${Math.round((totalScore / 15) * 100)}%</p>
         `;
       }
 
@@ -617,17 +617,47 @@ function serveStatic(app: express.Express) {
 
       // Institutional Article Registry (Server-side shadow for hydration)
       const registry: Record<string, { title: string, description: string }> = {
+        'INT-010': { title: 'Architecture of Authority | Institutional Design', description: 'Why systems outperform personal brands in global scaling.' },
+        'architecture-of-authority': { title: 'Architecture of Authority | Institutional Design', description: 'Why systems outperform personal brands in global scaling.' },
+        
+        'INT-011': { title: 'Strategic Substrates | The Invisible Tax', description: 'How aligning mental models at the board level yields compounding institutional velocity.' },
+        'strategic-substrates': { title: 'Strategic Substrates | The Invisible Tax', description: 'How aligning mental models at the board level yields compounding institutional velocity.' },
+        
+        'INT-012': { title: 'Sovereign Leadership in the Cybernetic Era', description: 'Transitioning from individual effort to systemic intelligence in AI-Native governance.' },
+        'sovereign-leadership': { title: 'Sovereign Leadership in the Cybernetic Era', description: 'Transitioning from individual effort to systemic intelligence in AI-Native governance.' },
+        
         'INT-001': { title: 'Succession Architecture | The Founder Dilemma', description: 'Architecting institutional permanence beyond the individual leader.' },
+        'founders-dilemma': { title: 'Succession Architecture | The Founder Dilemma', description: 'Architecting institutional permanence beyond the individual leader.' },
+        
         'INT-002': { title: 'The Cognitive Tax of Leadership', description: 'Reclaiming 40% bandwidth through bandwidth architecture.' },
+        'cognitive-tax-of-leadership': { title: 'The Cognitive Tax of Leadership', description: 'Reclaiming 40% bandwidth through bandwidth architecture.' },
+        
+        'INT-003': { title: 'Bridging the Strategy-Execution Gap', description: 'Calibrating the gap between Board expectations and operational reality.' },
+        'bridging-strategy-execution-gap': { title: 'Bridging the Strategy-Execution Gap', description: 'Calibrating the gap between Board expectations and operational reality.' },
+        
         'INT-004': { title: 'Executive Bandwidth: Reclaiming Currency', description: 'A definitive report on cognitive equity and decision architecture.' },
+        'reclaiming-strategic-bandwidth': { title: 'Executive Bandwidth: Reclaiming Currency', description: 'A definitive report on cognitive equity and decision architecture.' },
+        
         'INT-005': { title: 'Institutional Lag: The Invisible Coefficient', description: 'Forensic analysis of organizational friction and intent signal flow.' },
-        'INT-010': { title: 'Architecture of Authority | Institutional Design', description: 'Why systems outperform personal brands in global scaling.' }
+        'institutional-lag': { title: 'Institutional Lag: The Invisible Coefficient', description: 'Forensic analysis of organizational friction and intent signal flow.' },
+        
+        'INT-006': { title: 'Engineering Strategic Bandwidth', description: 'Reclaiming up to 40% of cognitive capacity at scale.' },
+        'engineering-strategic-bandwidth': { title: 'Engineering Strategic Bandwidth', description: 'Reclaiming up to 40% of cognitive capacity at scale.' },
+        
+        'INT-007': { title: 'Sovereign Authority vs. Reactive Management', description: 'Transitioning from heroic intervention to architectural command.' },
+        'sovereign-authority-vs-reactive-management': { title: 'Sovereign Authority vs. Reactive Management', description: 'Transitioning from heroic intervention to architectural command.' },
+        
+        'INT-008': { title: 'The Physics of Inevitability', description: 'Why systems outperform individual talent in organizational design.' },
+        'physics-of-inevitability': { title: 'The Physics of Inevitability', description: 'Why systems outperform individual talent in organizational design.' },
+        
+        'INT-009': { title: 'The Cost of Organizational Latency', description: 'Measuring and neutralizing the inaction tax in global enterprises.' },
+        'cost-of-organizational-latency': { title: 'The Cost of Organizational Latency', description: 'Measuring and neutralizing the inaction tax in global enterprises.' }
       };
 
-      const articleIdMatch = url.match(/\/library\/(INT-\d+)/);
+      const articleMatch = url.match(/\/library\/([a-zA-Z0-9\-_]+)/);
 
-      if (articleIdMatch && registry[articleIdMatch[1]]) {
-        const metadata = registry[articleIdMatch[1]];
+      if (articleMatch && registry[articleMatch[1]]) {
+        const metadata = registry[articleMatch[1]];
         const schema = JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
