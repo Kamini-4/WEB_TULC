@@ -248,9 +248,9 @@ async function startServer() {
         preheader = "Your identity is verified. The Sovereign Baseline Audit is now active. Map your cognitive tax.";
       } else if (type === 'ASSESSMENT_COMPLETED') {
         const { totalScore, domainScores } = req.body.assessmentData || { totalScore: 0, domainScores: [] };
-        userSubject = `Audit Synthesized: ${totalScore}/15 | Reclaiming Billions in Cognitive Equity`;
+        userSubject = `Audit Synthesized: ${totalScore}/25 | Reclaiming Billions in Cognitive Equity`;
         userHeadline = "Your leadership architecture has been forensically analyzed for maximum yield.";
-        preheader = `Score: ${totalScore}/15. We have quantified your 'Cognitive Tax'—reclaim your strategic bandwidth for pure architectural command.`;
+        preheader = `Score: ${totalScore}/25. We have quantified your 'Cognitive Tax'—reclaim your strategic bandwidth for pure architectural command.`;
         
         const domainContent: Record<string, string> = {
           "Cognitive Clarity": "Neutralize the 'Cognitive Tax' consuming 40% of your bandwidth. Clarity is the primary substrate of execution and revenue generation.",
@@ -264,7 +264,7 @@ async function startServer() {
           <div style="margin-bottom: 20px; padding: 15px; background: #fcfcfc; border: 1px solid #eee;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
               <span style="font-size: 10px; font-weight: bold; text-transform: uppercase; color: #b8860b;">${ds.domain}</span>
-              <span style="font-size: 10px; font-weight: bold; color: #111;">${ds.score}/3</span>
+              <span style="font-size: 10px; font-weight: bold; color: #111;">${ds.score}/5</span>
             </div>
             <p style="font-size: 12px; font-style: italic; color: #666; margin: 5px 0 0 0;">${domainContent[ds.domain] || ''}</p>
           </div>
@@ -276,7 +276,7 @@ async function startServer() {
             <h4 style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 15px;">Dossier Snapshot: Domain Calibration</h4>
             ${domainTable}
           </div>
-          <p style="margin-top: 30px; font-size: 14px; font-weight: bold;">Aggregate Fidelity: ${Math.round((totalScore / 15) * 100)}%</p>
+          <p style="margin-top: 30px; font-size: 14px; font-weight: bold;">Aggregate Fidelity: ${Math.round((totalScore / 25) * 100)}%</p>
         `;
       }
 

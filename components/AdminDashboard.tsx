@@ -173,19 +173,19 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
 
   // Grade calculator helper
   const getEntryGrade = (score: number) => {
-    if (score >= 12) return { title: 'Sovereign', desc: 'Strategic Inevitability & Autonomous Integration' };
-    if (score >= 9) return { title: 'Architectural', desc: 'Systemic Continuity & Calibrated Structure' };
-    if (score >= 6) return { title: 'Systemic', desc: 'Resilient Capabilities with Local Oversight' };
+    if (score >= 20) return { title: 'Sovereign', desc: 'Strategic Inevitability & Autonomous Integration' };
+    if (score >= 15) return { title: 'Architectural', desc: 'Systemic Continuity & Calibrated Structure' };
+    if (score >= 10) return { title: 'Systemic', desc: 'Resilient Capabilities with Local Oversight' };
     return { title: 'Manual', desc: 'Heroic Firefighting & Fragile Core-Dependence' };
   };
 
   // Option Mapping helper matching QUESTIONS
   const optionDescriptions = [
-    { name: "Cognitive Clarity", index: 0, 1: "Obscured (Intent is lost in translation)", 2: "Coherent (Vision understood but lacks sharp edge)", 3: "Absolute (Clarity is a structural property)" },
-    { name: "Systemic Integrity", index: 1, 1: "Fragile (Hero-dependent, dissolves quickly)", 2: "Resilient (Protocols exist but require constant validation)", 3: "Sovereign (Integrity built in, order is inevitable)" },
-    { name: "Strategic Velocity", index: 2, 1: "Rigid (Slow to adapt, high energy consumed)", 2: "Adaptive (Can pivot but manual and energy intensive)", 3: "Antifragile (Velocity is built-in, gains from disruption)" },
-    { name: "Moral Gravity", index: 3, 1: "Variable (Ethics and trust depend on individual behaviors)", 2: "Principled (Values are documented but need oversight)", 3: "Gravitational (Moral alignment is inevitable and built-in)" },
-    { name: "Cultural Fidelity", index: 4, 1: "Diluted (Culture suffers from tier/edge drift)", 2: "Aligned (Team understands but lacks resonance of source)", 3: "Embodied (Fidelity is organic, culture executes autonomously)" }
+    { name: "Cognitive Clarity", index: 0, 1: "Obscured (Intent is lost in translation)", 3: "Coherent (Vision understood but lacks sharp edge)", 5: "Absolute (Clarity is a structural property)" },
+    { name: "Systemic Integrity", index: 1, 1: "Fragile (Hero-dependent, dissolves quickly)", 3: "Resilient (Protocols exist but require constant validation)", 5: "Sovereign (Integrity built in, order is inevitable)" },
+    { name: "Strategic Velocity", index: 2, 1: "Rigid (Slow to adapt, high energy consumed)", 3: "Adaptive (Can pivot but manual and energy intensive)", 5: "Antifragile (Velocity is built-in, gains from disruption)" },
+    { name: "Moral Gravity", index: 3, 1: "Variable (Ethics and trust depend on individual behaviors)", 3: "Principled (Values are documented but need oversight)", 5: "Gravitational (Moral alignment is inevitable and built-in)" },
+    { name: "Cultural Fidelity", index: 4, 1: "Diluted (Culture suffers from tier/edge drift)", 3: "Aligned (Team understands but lacks resonance of source)", 5: "Embodied (Fidelity is organic, culture executes autonomously)" }
   ];
 
   const handlePrintDossier = (entry: any) => {
@@ -247,7 +247,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
           <div class="score-card">
             <div class="meta-lbl">Systemic Alignment Score</div>
             <div style="display: flex; align-items: center; gap: 20px;">
-              <span class="score-num">${score} / 15</span>
+              <span class="score-num">${score} / 25</span>
               <div>
                 <div class="grade-title">Grade Alignment: ${grade.title}</div>
                 <div class="grade-desc">${grade.desc}</div>
@@ -259,12 +259,12 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
           ${optionDescriptions.map(block => {
             const domainScore = entry.assessment?.answers?.[block.index] || 1;
             const chosenText = (block as any)[domainScore] || 'Inquiry registered without answer';
-            const widthPct = (domainScore / 3) * 100;
+            const widthPct = (domainScore / 5) * 100;
             return `
               <div class="domain-row">
                 <div class="domain-name">${block.name}</div>
                 <div style="display: flex; flex-direction: column;">
-                  <span style="font-weight: bold; margin-bottom: 4px;">Score: ${domainScore} / 3</span>
+                  <span style="font-weight: bold; margin-bottom: 4px;">Score: ${domainScore} / 5</span>
                   <div class="domain-score-box">
                     <div class="domain-score-fill" style="width: ${widthPct}%;"></div>
                   </div>
@@ -485,7 +485,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                               <div className="flex items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                                 <span className="text-[10px] font-extrabold text-[#111111] uppercase tracking-widest">
-                                  {entry.assessment.totalScore} / 15
+                                  {entry.assessment.totalScore} / 25
                                 </span>
                               </div>
                               <div className={`text-[8px] font-black uppercase tracking-widest text-[#b8860b]`}>
@@ -843,10 +843,10 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                           <div key={domainMeta.index} className="border border-zinc-100 p-4 rounded-sm hover:border-[#b8860b]/30 transition-all bg-white shadow-xs">
                             <div className="flex justify-between items-center mb-1">
                               <span className="text-xs font-bold text-neutral-800">{domainMeta.name}</span>
-                              <span className="text-xs font-extrabold text-[#b8860b]">{scoreVal} / 3</span>
+                              <span className="text-xs font-extrabold text-[#b8860b]">{scoreVal} / 5</span>
                             </div>
                             <div className="w-full bg-zinc-100 h-1.5 rounded-full overflow-hidden mb-2">
-                              <div className="bg-[#b8860b] h-full rounded-full" style={{ width: `${(scoreVal / 3) * 100}%` }}></div>
+                              <div className="bg-[#b8860b] h-full rounded-full" style={{ width: `${(scoreVal / 5) * 100}%` }}></div>
                             </div>
                             <p className="text-[10px] text-zinc-500 italic">"{matchedDesc}"</p>
                           </div>

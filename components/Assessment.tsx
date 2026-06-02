@@ -3,7 +3,7 @@ import { db } from '../src/firebase';
 import { SovereignDB } from '../lib/database.ts';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { LucideIcon, Shield, Zap, Cpu, Layers, Heart, ArrowRight, Lock, Download, ChevronRight, CheckCircle2, AlertCircle, ExternalLink } from 'lucide-react';
+import { LucideIcon, Shield, Zap, Cpu, Layers, Heart, ArrowRight, Lock, Download, ChevronRight, CheckCircle2, AlertCircle, ExternalLink, AlertTriangle, TrendingDown } from 'lucide-react';
 
 type ContextType = 'dynamic' | 'established' | 'generational';
 type Step = 'intro' | 'auth' | 'context' | 'questions' | 'calculating' | 'dossier';
@@ -40,8 +40,8 @@ const QUESTIONS: Question[] = [
     },
     options: [
       { label: "Obscured", value: 1, description: "Intent is frequently lost in translation, requiring constant manual correction." },
-      { label: "Coherent", value: 2, description: "The vision is understood but lacks the sharp edge required for autonomous execution." },
-      { label: "Absolute", value: 3, description: "Clarity is a structural property; intent executes with 100% fidelity." }
+      { label: "Coherent", value: 3, description: "The vision is understood but lacks the sharp edge required for autonomous execution." },
+      { label: "Absolute", value: 5, description: "Clarity is a structural property; intent executes with 100% fidelity." }
     ]
   },
   {
@@ -53,8 +53,8 @@ const QUESTIONS: Question[] = [
     },
     options: [
       { label: "Fragile", value: 1, description: "The system is a collection of individual efforts; without 'heroes', it dissolves." },
-      { label: "Resilient", value: 2, description: "Protocols exist but require frequent validation to prevent systemic drift." },
-      { label: "Sovereign", value: 3, description: "Integrity is built into the design; order is a structural inevitability." }
+      { label: "Resilient", value: 3, description: "Protocols exist but require frequent validation to prevent systemic drift." },
+      { label: "Sovereign", value: 5, description: "Integrity is built into the design; order is a structural inevitability." }
     ]
   },
   {
@@ -66,8 +66,8 @@ const QUESTIONS: Question[] = [
     },
     options: [
       { label: "Rigid", value: 1, description: "Change is slow and requires significant political capital to initiate." },
-      { label: "Adaptive", value: 2, description: "The organization can pivot, but the process is manual and energy-intensive." },
-      { label: "Antifragile", value: 3, description: "Velocity is a structural property; the substrate gains strength from disruption." }
+      { label: "Adaptive", value: 3, description: "The organization can pivot, but the process is manual and energy-intensive." },
+      { label: "Antifragile", value: 5, description: "Velocity is a structural property; the substrate gains strength from disruption." }
     ]
   },
   {
@@ -79,8 +79,8 @@ const QUESTIONS: Question[] = [
     },
     options: [
       { label: "Variable", value: 1, description: "Ethics and trust are behavioral variables, dependent on current leadership." },
-      { label: "Principled", value: 2, description: "Values are documented but require constant oversight to ensure alignment." },
-      { label: "Gravitational", value: 3, description: "Moral gravity is a structural property; alignment is inevitable." }
+      { label: "Principled", value: 3, description: "Values are documented but require constant oversight to ensure alignment." },
+      { label: "Gravitational", value: 5, description: "Moral gravity is a structural property; alignment is inevitable." }
     ]
   },
   {
@@ -92,8 +92,8 @@ const QUESTIONS: Question[] = [
     },
     options: [
       { label: "Diluted", value: 1, description: "Culture experiences operational drift as it moves away from the direct resonance of the Principal." },
-      { label: "Aligned", value: 2, description: "The team understands the culture but lacks the 'resonance' of the original intent." },
-      { label: "Embodied", value: 3, description: "Fidelity is a structural property; the culture executes itself autonomously." }
+      { label: "Aligned", value: 3, description: "The team understands the culture but lacks the 'resonance' of the original intent." },
+      { label: "Embodied", value: 5, description: "Fidelity is a structural property; the culture executes itself autonomously." }
     ]
   }
 ];
@@ -174,7 +174,7 @@ const Assessment: React.FC = () => {
     
     try {
       const totalScoreValue = Object.values(finalAnswers).reduce((a, b) => a + b, 0);
-      const maxScore = QUESTIONS.length * 3;
+      const maxScore = QUESTIONS.length * 5;
       const percentage = (totalScoreValue / maxScore) * 100;
       
       const domainScores = QUESTIONS.map((q, i) => ({
@@ -205,7 +205,7 @@ const Assessment: React.FC = () => {
             name: identity.name,
             email: identity.email,
             organization: identity.organization,
-            message: `Free Assessment Completed. Total Score: ${totalScoreValue}/15. Domain Scores: ${domainScores.map(d => `${d.domain}: ${d.score}`).join(', ')}`,
+            message: `Free Assessment Completed. Total Score: ${totalScoreValue}/25. Domain Scores: ${domainScores.map(d => `${d.domain}: ${d.score}`).join(', ')}`,
             type: 'ASSESSMENT_COMPLETED',
             assessmentData: {
               totalScore: totalScoreValue,
@@ -228,9 +228,9 @@ const Assessment: React.FC = () => {
 
   const getGrade = () => {
     const totalScoreValue = Object.values(answers).reduce((a, b) => a + b, 0);
-    if (totalScoreValue >= 12) return 'Sovereign';
-    if (totalScoreValue >= 9) return 'Architectural';
-    if (totalScoreValue >= 6) return 'Systemic';
+    if (totalScoreValue >= 20) return 'Sovereign';
+    if (totalScoreValue >= 15) return 'Architectural';
+    if (totalScoreValue >= 10) return 'Systemic';
     return 'Manual';
   };
 
@@ -245,43 +245,88 @@ const Assessment: React.FC = () => {
     const strengthDomain = QUESTIONS[strengthIndex].domain;
     const calibrationDomain = QUESTIONS[calibrationIndex].domain;
 
-    const insights: Record<string, { definition: string; strength: string; refinement: string }> = {
+    const insights: Record<string, { 
+      definition: string; 
+      strength: string; 
+      refinement: string;
+      symptoms: string[];
+      impact: string;
+      prescription: string;
+    }> = {
       "Cognitive Clarity": {
-        definition: "The ability of leadership to distill strategic intent into ambiguous logic and high-fidelity output.",
-        strength: "Your organization demonstrates a profound capacity for strategic alignment; intent is distilled with exceptional precision at the core. Your team feels seen through the clarity of your vision.",
-        refinement: "There is a significant opportunity to further distill institutional intent. Calibrating this substrate allows for the reclamation of up to 40% of strategic bandwidth currently utilized for operational clarification."
+        definition: "The exactness through which leadership's foundational intent is externalized, translated, and locked down into absolute operational parameters.",
+        strength: "Your core vision holds high cohesive potential. You possess a unique capability to formulate complex operational thoughts; however, without systematic compilation, this clarity is currently relying heavily on your active physical communication, leading to fatigue.",
+        refinement: "Your current Clarity mechanism operates with high manual drift. Intent is frequently re-explained, creating an alignment tax. By automating your executive briefings and compiling decision parameters into unchangeable protocol gates, you reclaim up to 40% of standard meeting schedules and prevent high-level strategic dilution.",
+        symptoms: [
+          "Leadership spending more than 15 hours weekly on manual alignment check-ins",
+          "Delayed project executions because key stakeholders 'need to hear it from the Principal directly'",
+          "Ambiguities in strategic mandates leading to wasted team bandwidth and speculative execution paths"
+        ],
+        impact: "Severe Strategic Friction. Your organization is paying a hidden 'clarification tax' which acts as a permanent handbrake on capital deployment. The opportunity cost is estimated to be 15-20% of your operational run-rate.",
+        prescription: "Deploy the Substrate Diagnostic Protocol (Phase 0.0) immediately. We will forensically capture your unique mental models, map your core decision-making vectors, and translate them into standard-operating algorithms, allowing your executive layer to execute your intent autonomously."
       },
       "Systemic Integrity": {
-        definition: "The structural resilience of protocols to maintain institutional order independent of behavioral variables.",
-        strength: "The institutional substrate demonstrates remarkable structural resilience. Your people are valued because the systems you've built protect their focus and energy.",
-        refinement: "The organization is positioned to transition from manual oversight to architectural inevitability. This calibration ensures that systemic order becomes a structural property, independent of individual intervention."
+        definition: "The structural self-regulation of your firm's protocols—ensuring that business processes keep running smoothly regardless of human behavior or individual heroics.",
+        strength: "You have spent immense capital developing initial protocols, and your team is highly loyal. They execute with deep dedication to hold the system together, demonstrating a strong organizational backbone.",
+        refinement: "Your systems are currently 'hero-dependent.' If 2-3 key players leave, the operating speed would collapse. The transition to absolute structural integrity requires hard-coding procedures into automated software workflows and algorithmic safeguards that execute by default.",
+        symptoms: [
+          "Crises and strategic variances requiring direct escalation to the executive team",
+          "High friction in onboarding and delegation because tasks are poorly structured and rely heavily on personal intuition",
+          "Friction in handoffs between departments resulting in variable and unpredictable results"
+        ],
+        impact: "Continuous Operational Exposure. Since stability is maintained through the sheer force of will of key individuals, the architecture suffers from structural fatigue. Scale is mathematically capped at your leaders' stress limits.",
+        prescription: "Integrate Phase 01 of the Sovereign Protocol. We will replace fragile manual oversight channels with self-maintaining operational containers. This eliminates hero-dependency and hard-codes your standard operating logic into the very substrate of the company."
       },
       "Strategic Velocity": {
-        definition: "The rate at which an organization converts strategic intent into revenue and market permanence.",
-        strength: "You possess a high-velocity maneuverability. This inherent speed is a testament to the trust you've fostered within your ranks.",
-        refinement: "An opportunity exists to further enhance strategic velocity by refining decision-making protocols. This adjustment positions the institution to capture a significant competitive edge by reducing operational friction."
+        definition: "The conversion index—measuring how fast your organization can pivot capital, human resources, and execution lines to exploit market gaps.",
+        strength: "Your firm demonstrates high localized reaction speeds. When a target is selected, your leadership can move rapidly because of close alignment.",
+        refinement: "Your strategic velocity is powered by high emotional energy and frequent coordination, rather than being built into your structural design. True swiftness should require zero mental friction. By standardizing decision criteria, you can accelerate execution by up to 3.5x.",
+        symptoms: [
+          "Capital reallocation opportunities remaining static for months due to internal consensus-seeking delays",
+          "More than 3 coordination layers required to execute a tactical pivot",
+          "Competitive response latency exceeding standard market windows"
+        ],
+        impact: "Capital Latency Tax. Delayed reactions to dynamic environments bleed strategic equity. For an institutional scale firm, a 30-day bottleneck in strategic execution can erode market value and destroy permanent first-mover advantage.",
+        prescription: "Inject our Decision Velocity Calibration Matrix. Through the In-depth Assessment, we build dedicated, pre-authorized 'autonomous maneuver parameters' for your leaders. They execute high-priority decisions instantly within pre-calibrated guardrails, bypassing unnecessary board cycles."
       },
       "Moral Gravity": {
-        definition: "The ethical weight of an institution that leads to the structural inevitability of trust.",
-        strength: "The ethical core of your institution commands absolute compliance. This gravity makes your leadership undisputed and your legacy safe.",
-        refinement: "Trust is currently a foundational asset. By further embedding this moral gravity into the structural design, the organization can reduce the cognitive load of reputational maintenance by 30%."
+        definition: "The structural resonance of ethics, core values, and corporate trust—transforming voluntary alignment into an inevitable operating reality.",
+        strength: "Your organization is deeply values-driven and anchored in trust. This creates a solid reputation that attracts premium partners and exceptional talent.",
+        refinement: "While values are written down, compliance is currently monitored behaviorally rather than topologically. To turn values from dynamic variables to absolute structural rules, we must embed your ethical guardrails directly into your team incentive structures and delegation protocols.",
+        symptoms: [
+          "Minor compliance or value variances requiring top-level behavioral interventions",
+          "Variable external relationship fidelity because values are defined but not locked into systemic client delivery gates",
+          "Decision-making at the edge that occasionally sacrifices long-term trust for short-term convenience"
+        ],
+        impact: "Reputational Exposure and Elevated Coordination Cost. When values rely purely on individual compliance, you pay an continuous 'assessment fee' of time and anxiety to monitor behavioral alignment.",
+        prescription: "Audit and embed unchangeable reputational metrics. Through our Annual Retainer or complete Sovereign Protocol, we align incentives, strategic limits, and operational dispatches into a single ecosystem where non-aligned action is structurally impossible."
       },
       "Cultural Fidelity": {
-        definition: "The recursive accuracy of institutional values as they propagate to the operational edge.",
-        strength: "The institutional 'soul' is embodied at the operational edge. Your values are not just posters; they are the lived reality of every stakeholder.",
-        refinement: "There is a unique opportunity to further enhance cultural resonance. Refining these protocols ensures that the institutional culture executes itself autonomously, eliminating the risk of operational drift."
+        definition: "The exact replication index of your founder's original culture and intensity as they cascade down to the newest hire.",
+        strength: "The original spark of your founding vision remains highly respected. Your core team and old guards hold the cultural flame with great pride.",
+        refinement: "Cultural values are experiencing 'edge drift' as the company scales. The brand's message is diluted before reaching raw execution lines. Preserving this requires automating feedback loops and building high-frequency rituals that reinforce your culture programmatically.",
+        symptoms: [
+          "A noticeable disconnect in passion and alignment between core leadership and entry-level employees",
+          "Core strategic mandates and brand dispatches losing their urgency as they travel through the ranks",
+          "Hiring new team members is a gamble, requiring months to determine if they truly understand the company's identity"
+        ],
+        impact: "Severe Brand Erosion. Culture drift directly degrades customer experiences and dilutes operational standards. When the principal's original energy cannot cascade programmatically, standard execution declines toward market mediocrity.",
+        prescription: "Implement our Cultural Resonance Cascades. We code your core values into employee journey maps, programmatic performance calibrations, and cultural protocols. This ensures that every worker executes with the precise fidelity of the original principal."
       }
     };
 
     return {
       strength: insights[strengthDomain]?.strength || "The organization demonstrates foundational stability in its core protocols.",
       refinement: insights[calibrationDomain]?.refinement || "The institutional substrate is currently optimized for manual intervention, creating a hard ceiling on strategic scale.",
+      symptoms: insights[calibrationDomain]?.symptoms || [],
+      impact: insights[calibrationDomain]?.impact || "",
+      prescription: insights[calibrationDomain]?.prescription || "",
       strengthDomain,
       calibrationDomain,
       domainInsights: insights,
-      priority: totalScoreValue < 9 
-        ? "IMMEDIATE CALIBRATION: Your current institutional substrate is performing with resilience. Scaling your existing strengths is the correct next move to unlock strategic velocity and preserve your leadership legacy."
-        : "ARCHITECTURAL SCALE: You are positioned for institutional permanence. Challenging your organization to move beyond 'Heroic Management' into 'Pure Architecture' is the definitive next step for your legacy."
+      priority: totalScoreValue < 15 
+        ? "IMMEDIATE CALIBRATION REQUIRED: Your current institutional substrate is performing with some localized resilience but is bleeding strategic bandwidth. Scaling your existing strengths while building autonomous logic gates is the correct next move to unlock strategic velocity and preserve your leadership legacy."
+        : "ARCHITECTURAL SCALE SECURED: You are positioned beautifully for institutional permanence. Challenging your organization to move beyond 'Heroic Management' into 'Pure Architecture' is the definitive next step to insulate your brand and scale your genius."
     };
   };
 
@@ -567,9 +612,44 @@ const Assessment: React.FC = () => {
                       <div className="text-xl font-bold italic mb-6 text-white leading-tight">
                         "{getReportDetails().refinement}"
                       </div>
-                      <p className="text-zinc-600 text-lg font-light leading-relaxed italic border-l-2 border-[#b8860b]/20 pl-8">
+                      <p className="text-zinc-600 text-lg font-light leading-relaxed italic border-l-2 border-[#b8860b]/20 pl-8 mb-8">
                         Our forensic analysis indicates that while you possess foundational brilliance, your currently "Manual" intervention is reaching its strategic ceiling. The path to institutional sovereignty requires scaling this brilliance into a structural inevitability.
                       </p>
+
+                      {/* Forensic Symptoms */}
+                      <div className="border border-white/5 bg-white/[0.01] p-6 mb-8 rounded-xs">
+                        <span className="text-[9px] uppercase font-black text-red-400 tracking-widest block mb-4 flex items-center gap-2">
+                          <AlertTriangle className="w-4 h-4 text-red-400" /> Forensic Friction Indicators (Detected)
+                        </span>
+                        <ul className="space-y-4">
+                          {getReportDetails().symptoms.map((symptom, sIdx) => (
+                            <li key={sIdx} className="flex gap-3 text-xs text-zinc-400 italic font-light leading-relaxed">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] mt-1.5 shrink-0" />
+                              <span>{symptom}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Estimated Strategic Impact */}
+                      <div className="border border-white/5 bg-white/[0.01] p-6 mb-8 rounded-xs">
+                        <span className="text-[9px] uppercase font-black text-[#b8860b] tracking-widest block mb-2 flex items-center gap-2">
+                          <TrendingDown className="w-4 h-4 text-[#b8860b]" /> Organizational & Capital Exposure
+                        </span>
+                        <p className="text-xs text-zinc-300 italic leading-relaxed font-light">
+                          {getReportDetails().impact}
+                        </p>
+                      </div>
+
+                      {/* Primary Strategic Prescription */}
+                      <div className="border border-[#b8860b]/20 bg-[#b8860b]/5 p-6 mb-12 rounded-xs">
+                        <span className="text-[9px] uppercase font-black text-white tracking-widest block mb-2 flex items-center gap-2">
+                          <Zap className="w-4 h-4 text-[#b8860b]" /> Sovereignty Prescription Protocol
+                        </span>
+                        <p className="text-xs text-[#b8860b] italic leading-relaxed font-semibold">
+                          {getReportDetails().prescription}
+                        </p>
+                      </div>
                     </section>
 
                     <section className="p-8 bg-[#b8860b]/5 border border-[#b8860b]/20">
@@ -584,14 +664,14 @@ const Assessment: React.FC = () => {
                         <div className="text-[9px] uppercase font-black text-zinc-700 mb-4 tracking-widest">Aggregate Fidelity</div>
                         <div className="flex items-end gap-2 mb-4">
                           <span className="text-4xl font-bold text-[#b8860b]">
-                            {Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 3)) * 100)}
+                            {Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 5)) * 100)}
                           </span>
                           <span className="text-xs text-zinc-600 mb-1 font-black">%</span>
                         </div>
                         <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
                           <motion.div 
                             initial={{ width: 0 }}
-                            animate={{ width: `${Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 3)) * 100)}%` }}
+                            animate={{ width: `${Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 5)) * 100)}%` }}
                             transition={{ duration: 2, delay: 0.5 }}
                             className="h-full bg-[#b8860b]"
                           />
@@ -601,14 +681,14 @@ const Assessment: React.FC = () => {
                         <div className="text-[9px] uppercase font-black text-zinc-700 mb-4 tracking-widest">Cognitive Bandwidth</div>
                         <div className="flex items-end gap-2 mb-4">
                           <span className="text-4xl font-bold text-white">
-                            {Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 3)) * 100)}
+                            {Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 5)) * 100)}
                           </span>
                           <span className="text-xs text-zinc-600 mb-1 font-black">%</span>
                         </div>
                         <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
                           <motion.div 
                             initial={{ width: 0 }}
-                            animate={{ width: `${Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 3)) * 100)}%` }}
+                            animate={{ width: `${Math.round((Object.values(answers).reduce((a, b) => a + b, 0) / (QUESTIONS.length * 5)) * 100)}%` }}
                             transition={{ duration: 2, delay: 0.7 }}
                             className="h-full bg-white"
                           />
@@ -617,7 +697,7 @@ const Assessment: React.FC = () => {
                     </section>
 
                     <section>
-                      <div className="text-[10px] uppercase font-black text-zinc-700 mb-8 tracking-[0.4em]">Vertical Domain Calibration (1-3 Scale)</div>
+                      <div className="text-[10px] uppercase font-black text-zinc-700 mb-8 tracking-[0.4em]">Vertical Domain Calibration (1-5 Scale)</div>
                       <div className="grid grid-cols-1 gap-6">
                         {QUESTIONS.map((q, i) => (
                           <div key={i} className="group">
@@ -627,7 +707,7 @@ const Assessment: React.FC = () => {
                                 <span className="text-[9px] text-zinc-600 italic font-light">{getReportDetails().domainInsights[q.domain]?.definition}</span>
                               </div>
                               <div className="flex gap-1">
-                                {[1, 2, 3].map((star) => (
+                                {[1, 2, 3, 4, 5].map((star) => (
                                   <div 
                                     key={star} 
                                     className={`w-3 h-3 ${star <= (answers[i] || 1) ? 'bg-[#b8860b]' : 'bg-white/5'} transition-all`}
@@ -638,7 +718,7 @@ const Assessment: React.FC = () => {
                             <div className="h-[2px] w-full bg-white/5 relative overflow-hidden">
                               <motion.div 
                                   initial={{ width: 0 }}
-                                  animate={{ width: `${((answers[i] || 1) / 3) * 100}%` }}
+                                  animate={{ width: `${((answers[i] || 1) / 5) * 100}%` }}
                                   transition={{ duration: 1, delay: 0.2 * i }}
                                   className="absolute top-0 left-0 h-full bg-[#b8860b]/40"
                               />
