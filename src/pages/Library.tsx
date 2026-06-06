@@ -13,6 +13,7 @@ interface LibraryProps {
 
 const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
   const { articleId } = useParams<{ articleId: string }>();
+  const [activePaperKey, setActivePaperKey] = React.useState<'sovereign_protocol' | 'cognitive_equity' | null>(null);
 
   const handleDownload = (wpKey: 'sovereign_protocol' | 'cognitive_equity') => {
     const paper = WHITE_PAPERS[wpKey];
@@ -580,12 +581,20 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               <p className="text-zinc-500 italic font-light leading-relaxed mb-8 text-sm">
                 An in-depth 45-page exploration of institutional lag, cognitive insolvency, and the cybernetic transition from Charismatic to Architectural Authority.
               </p>
-              <button 
-                onClick={() => handleDownload('sovereign_protocol')}
-                className="text-[9px] font-black uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
-              >
-                Download Briefing
-              </button>
+              <div className="flex flex-wrap gap-4">
+                <button 
+                  onClick={() => setActivePaperKey('sovereign_protocol')}
+                  className="text-[9px] font-black uppercase tracking-widest bg-[#b8860b] text-white px-6 py-3 hover:bg-white hover:text-black transition-all shadow-md"
+                >
+                  Read Online
+                </button>
+                <button 
+                  onClick={() => handleDownload('sovereign_protocol')}
+                  className="text-[9px] font-black uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
+                >
+                  Print / Save PDF
+                </button>
+              </div>
             </div>
 
             <div className="group bg-white/5 p-10 border border-white/10 hover:border-[#b8860b]/30 transition-all duration-700">
@@ -594,12 +603,20 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               <p className="text-zinc-500 italic font-light leading-relaxed mb-8 text-sm">
                 Quantifying the metabolic burn rate of leadership and the systemic return on architectural integrity.
               </p>
-              <button 
-                onClick={() => handleDownload('cognitive_equity')}
-                className="text-[9px] font-black uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
-              >
-                Download Briefing
-              </button>
+              <div className="flex flex-wrap gap-4">
+                <button 
+                  onClick={() => setActivePaperKey('cognitive_equity')}
+                  className="text-[9px] font-black uppercase tracking-widest bg-[#b8860b] text-white px-6 py-3 hover:bg-white hover:text-black transition-all shadow-md"
+                >
+                  Read Online
+                </button>
+                <button 
+                  onClick={() => handleDownload('cognitive_equity')}
+                  className="text-[9px] font-black uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
+                >
+                  Print / Save PDF
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -608,6 +625,166 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
         <div className="mt-12 pt-16 border-t border-white/10 max-w-4xl mx-auto">
           <Newsletter />
         </div>
+
+        {/* Immersive Online White Paper Reader */}
+        {activePaperKey && WHITE_PAPERS[activePaperKey] && (() => {
+          const paper = WHITE_PAPERS[activePaperKey];
+          return (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#050505]/95 backdrop-blur-md animate-fade-in">
+              <div className="bg-[#111111] border border-white/10 max-w-4xl w-full h-[88vh] flex flex-col relative shadow-2xl rounded-sm overflow-hidden">
+                {/* Control Header Bar */}
+                <div className="flex justify-between items-center px-6 py-4 bg-black/40 border-b border-white/10 select-none">
+                  <div className="flex items-center gap-3">
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#b8860b] bg-[#b8860b]/10 px-2 py-1 rounded-sm">
+                      {paper.category}
+                    </span>
+                    <span className="text-zinc-500 text-[10px] font-mono tracking-widest hidden sm:inline">
+                      SECURE DOCUMENT ARCHIVE // VERIFIED
+                    </span>
+                  </div>
+                  <button 
+                    onClick={() => setActivePaperKey(null)}
+                    className="text-zinc-400 hover:text-white text-xs font-mono uppercase tracking-widest flex items-center gap-2 border border-white/10 px-3 py-1 hover:border-white/20 transition-all"
+                  >
+                    Close Terminal <span>✕</span>
+                  </button>
+                </div>
+
+                {/* Sub-Header Actions */}
+                <div className="flex justify-between items-center px-8 py-3 bg-zinc-900/30 border-b border-white/5 select-none text-left">
+                  <span className="text-zinc-500 text-[9px] font-mono">
+                    REGISTRY ID: TULC-WP-{activePaperKey === 'sovereign_protocol' ? '01-ALPHA' : '02-BETA'}
+                  </span>
+                  <button
+                    onClick={() => handleDownload(activePaperKey)}
+                    className="text-[9px] font-bold uppercase tracking-widest text-[#b8860b] hover:text-white transition-colors bg-white/5 hover:bg-[#b8860b] px-4 py-1.5 border border-[#b8860b]/30 rounded-sm"
+                  >
+                    Print or Download PDF
+                  </button>
+                </div>
+
+                {/* Scrollable White Paper Content Panel */}
+                <div className="flex-1 overflow-y-auto px-6 md:px-16 py-12 text-zinc-100 selection:bg-[#b8860b]/30 text-left">
+                  <div className="max-w-2xl mx-auto space-y-10">
+                    {/* Document Header block */}
+                    <div className="text-center pb-8 border-b border-zinc-800/60 select-none">
+                      <div className="text-[#b8860b] text-[9px] font-black tracking-[0.4em] uppercase mb-4">
+                        THE UNBOUNDED LEADERSHIP CO. TECHNICAL BRIEFING
+                      </div>
+                      <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight font-serif mb-4">
+                        {paper.title}
+                      </h1>
+                      <p className="text-zinc-400 text-sm md:text-base italic leading-relaxed font-serif max-w-lg mx-auto">
+                        {paper.subtitle}
+                      </p>
+                      
+                      <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-zinc-900/50 max-w-sm mx-auto text-left font-mono">
+                        <div>
+                          <div className="text-zinc-600 text-[8px] uppercase tracking-widest">Architect</div>
+                          <div className="text-zinc-300 text-[9px] font-bold">{paper.author}</div>
+                        </div>
+                        <div>
+                          <div className="text-zinc-600 text-[8px] uppercase tracking-widest">Released</div>
+                          <div className="text-zinc-300 text-[9px] font-bold">{paper.date}</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Editorial Content sections */}
+                    <div className="space-y-12">
+                      {paper.sections.map((sec, sIdx) => (
+                        <section key={sIdx} className="space-y-4">
+                          <h2 className="text-lg md:text-xl font-bold font-sans text-[#b8860b] mb-4 uppercase tracking-widest border-l-2 border-[#b8860b] pl-3 text-left">
+                            {sec.title}
+                          </h2>
+                          {sec.paragraphs.map((p, pIdx) => (
+                            <p key={pIdx} className="text-zinc-300 font-serif text-base md:text-lg leading-relaxed font-light text-justify">
+                              {p}
+                            </p>
+                          ))}
+                        </section>
+                      ))}
+                    </div>
+
+                    {/* Exhibits/Tables inside the document */}
+                    {paper.exhibits && paper.exhibits.map((ex, eIdx) => (
+                      <div key={eIdx} className="my-10 p-6 bg-black/40 border border-white/5 rounded-sm overflow-hidden">
+                        <div className="text-[#b8860b] text-[8px] font-black tracking-wider uppercase mb-4 font-sans text-center">
+                          {ex.title}
+                        </div>
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-left font-sans text-[11px] sm:text-xs">
+                            <thead>
+                              <tr className="border-b border-zinc-800 text-zinc-500 uppercase tracking-wider">
+                                {ex.headers.map((h, hIdx) => (
+                                  <th key={hIdx} className="pb-3 px-3 font-semibold">{h}</th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-zinc-900/30">
+                              {ex.rows.map((row, rIdx) => (
+                                <tr key={rIdx} className="hover:bg-white/[0.01]">
+                                  <td className="py-3 px-3 font-bold text-zinc-300">{row[0]}</td>
+                                  <td className="py-3 px-3 text-zinc-400">{row[1]}</td>
+                                  {row[2] && <td className="py-3 px-3 text-[#b8860b] font-bold font-mono">{row[2]}</td>}
+                                  {row[3] && <td className="py-3 px-3 text-zinc-400">{row[3]}</td>}
+                                  {row[4] && <td className="py-3 px-3 text-amber-500 font-bold font-mono">{row[4]}</td>}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    ))}
+
+                    {/* Official Document Seal Footer */}
+                    <div className="border-t border-zinc-800/80 pt-8 mt-12 text-center select-none">
+                      <div className="inline-block border border-white/10 px-6 py-4 bg-zinc-950/40 rounded-sm text-left max-w-sm mx-auto">
+                        <div className="flex justify-between items-center gap-6 mb-3">
+                          <div className="text-zinc-500 text-[7px] font-bold uppercase tracking-widest">Registry Document Status</div>
+                          <div className="bg-emerald-500/10 text-emerald-400 text-[7px] font-bold px-1.5 py-0.5 rounded-sm uppercase tracking-wider border border-emerald-500/20">
+                            Verified Ledger
+                          </div>
+                        </div>
+                        <div className="text-[10px] font-serif italic text-zinc-400 leading-relaxed">
+                          "This sovereign asset is admission-verified and logged under registration key TULC-WP-{activePaperKey === 'sovereign_protocol' ? '01-ALPHA' : '02-BETA'}."
+                        </div>
+                        <div className="mt-4 pt-3 border-t border-zinc-900 flex justify-between items-end">
+                          <div>
+                            <div className="text-[7px] text-zinc-600 uppercase font-mono">Signatory</div>
+                            <div className="text-[9px] font-bold text-[#b8860b]">Suchita Sancheti</div>
+                          </div>
+                          <div className="text-[9px] font-mono text-zinc-500 font-black">
+                            LEVEL: ASYMPTOTIC
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer Controls */}
+                <div className="flex justify-between items-center px-6 py-4 bg-black/40 border-t border-white/10 select-none">
+                  <button 
+                    onClick={() => setActivePaperKey(null)}
+                    className="text-zinc-500 hover:text-white text-[10px] font-bold uppercase tracking-widest border border-white/10 hover:border-white/20 px-4 py-2 transition-all rounded-sm"
+                  >
+                    Dismiss Document
+                  </button>
+                  <p className="text-[8px] font-mono text-zinc-600 hidden md:block">
+                    CONFIDENTIALITY INTEGRITY ACCESSIBILITY PROTOCOLS ACTIVE
+                  </p>
+                  <button 
+                    onClick={() => handleDownload(activePaperKey)}
+                    className="bg-[#b8860b] text-white hover:bg-white hover:text-black text-[10px] font-bold uppercase tracking-widest px-6 py-2 transition-all rounded-sm shadow-md"
+                  >
+                    Print & Save Briefing
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        })()}
       </div>
     </div>
   );

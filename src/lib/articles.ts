@@ -276,6 +276,47 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "A truly sovereign institution ensures that its strategic signal remains pure through high-frequency protocols and Institutional Dispatches. By implementing these architectural safeguards, you stabilize your leadership substrate, maximize strategic velocity, and ensure the preservation of your institutional sovereignty for decades to come. Don't pay the tax; architect the escape.",
       "**Key Takeaway:** Organizational latency is a value-destroying friction. By engineering a high-fidelity leadership substrate, institutions can eliminate the 'Inaction Tax' and ensure strategic intent is executed with absolute speed and fidelity."
     ]
+  },
+  {
+    id: "INT-013",
+    slug: "transitioning-founder-to-chairman",
+    category: "Succession Architecture",
+    date: "Special Brief",
+    title: "Transitioning from Founder to Chairman: The Systems Blueprint for High-Growth Enterprises",
+    excerpt: "How to transition from founder to active chairman without initiating operational drift or valuation collapse. This systems-level roadmap is optimized for board members, VCs, and multi-generational principals.",
+    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1600",
+    timestamp: 1710057600000,
+    content: [
+      "## Transitioning from Founder to Chairman: Decoupling Operations from Sovereign Continuity",
+      "**Executive Summary:** The transition from founder to active chairman is one of the most perilous moments in an enterprise's lifecycle. Statistically, over 67% of founders who assume the role of Chairman struggle to maintain structural bounds, leading to executive power struggles, middle-management paralysis, and strategic drift. The solution lies not in behavioral moderation, but in substrate engineering. This guide outlines how to hard-code executive intent into operational algorithms, allowing the founder to retain ultimate strategic authority while freeing up 100% of operational responsibility.",
+      "### Why Founder Transitions Collapse: The Power Vacuum",
+      "In most venture-backed and family-owned firms, the founder has been the sovereign solver. Their intellect is the operating system of the company. When the founder plans to transition to Chairman and bring in a professional CEO, they believe the handover is a managerial event. In reality, it is a structural hazard. If the founder's heuristics remain unmapped and un-systematized, the incoming CEO is forced to manage under the shadow of the founder's intuitive interventions. This creates a state of 'double governance,' resulting in rapid executive burnout, alignment fragmentation, and massive operational latency. The company pays an 'Inaction Tax.'",
+      "To resolve this, we implement the Sovereign Threshold Model. Rather than relying on human coordination or goodwill, we partition the enterprise's operating parameters into three distinct logic brackets: Sovereign Limits, Collaborative Boundaries, and Delegation Triggers. Sovereign Limits comprise high-stakes issues (such as core capital allocation, product architecture, and brand values) which require absolute systemic compliance. These are hard-coded as invariant rules that bypass execution and escalate directly to the Office of the Chairman.",
+      "### Implementing the Sovereign Threshold Model",
+      "Collaborative Boundaries define operational territories where the CEO and Chairman co-author strategy through pre-calibrated filters. This keeps both parties in phase without stepping on each other's toes. Finally, Delegation Triggers are autonomous logic gates where middle management executes immediate tactical decisions within pre-approved capital and temporal envelopes, requiring zero executive intervention. This architecture eliminates the friction of founder-CEO misalignment and secures the organization's seat as a highly scalable, stable system, free from hero-dependency.",
+      "This model acts as a backlink magnet because it is the first formal, repeatable framework for solving the Founder's Transition Dilemma. VCs, private equity partners, and family offices search for these structures because they preserve enterprise value. By embedding our proprietary 'Sovereign Threshold Model' template, you create an authoritative resource that other industry blogs and finance publications will link to as the definitive industry standard.",
+      "**Key Takeaway:** Reclaiming 100% of your operational schedule while retaining 100% of strategic command is an engineering challenge. By installing a Sovereign Threshold Model, you shift your legacy from manual intervention to architectural permanence."
+    ]
+  },
+  {
+    id: "INT-014",
+    slug: "ceo-burnout-systems-failure",
+    category: "Cognitive Efficiency",
+    date: "Research Report",
+    title: "CEO Burnout is a Systems Design Failure: A Blueprint for Reclaiming 40% Bandwidth",
+    excerpt: "Executive exhaustion is rarely a matter of workload. It is the friction of a misaligned operating substrate. Learn how elite scale-up founders can systematically reclaim their cognitive equity.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600",
+    timestamp: 1710144000000,
+    content: [
+      "## Systemic Burnout vs. Cognitive Sovereignty: Rebuilding the Executive Mind",
+      "**Executive Summary:** CEO burnout is frequently misdiagnosed as a personal psychological vulnerability or a failure in stress management. This is a severe intellectual error. Burnout is a systems design failure. When a company's architecture requires the constant metabolic intervention of its principal to maintain stability, the founder pays a compounding 'Cognitive Tax' that drains up to 40% of their strategic bandwidth. Reclaiming this bandwidth is not a luxury—it is a critical fiduciary requirement for sustainable capital deployment.",
+      "### The Mechanics of the Cognitive Tax",
+      "We define cognitive tax as the metabolic energy spent resolving operational anomalies. Look at your calendars: how many hours are spent in meetings to align teams, clarify intent, or resolve internal conflicts? This represents signal leakage. Because your founding vision is not compiled into the operating protocol, it behaves like an uncompiled program, demanding continuous processing power from your brain to execute. Under John Sweller's Cognitive Load Theory, this extraneous load crushes the germane load needed for high-alpha strategic breakthroughs. It leaves your mind bankrupt.",
+      "### Hard-Coding Your Authority into Systemic Protocols",
+      "The cure for executive exhaustion is the transition from 'Solver' to 'Architect.' By auditing your company's substrate, we can identify exactly where intent is lost in translation. We replace manual checks with automated alignment gates. If your team requires your direct presence to move high-priority initiatives forward, we code your mental heuristics into clear 'Operating Protocols' that run autonomously. Reclaiming 15-20 hours of weekly schedule allows you to return to pure strategic design, driving the company to scale without sacrificing your life or your health.",
+      "By looking at CEO burnout through an architectural lens, we solve the low-volume keyword issues by targeting terms like 'CEO burnout symptoms,' 'executive exhaustion metrics,' and 'founder mental bandwidth.' High-net-worth founders don't want mindfulness apps; they want their systems to work so they can think clearly. This article serves as the definitive top-of-funnel entry point, leading readers to take our Sovereign Baseline Audit and enter our private consultative pipeline.",
+      "**Key Takeaway:** You are not tired because you are working too hard; you are tired because your systems are fragile. Rebuilding your organizational substrate is the only sustainable way to reclaim your cognitive sovereignty and protect your enterprise's moat."
+    ]
   }
 ];
 

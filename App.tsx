@@ -113,6 +113,87 @@ const App: React.FC = () => {
     testConnection();
   }, []);
 
+  // Dynamic SEO & Open Graph Metadata Calibration Engine
+  useEffect(() => {
+    let title = "The Unbounded Leadership Co. | Suchita Sancheti | Office of the Principal Architect";
+    let description = "Architectural interventions for elite founder-led enterprises. Reclaim 40% strategic bandwidth and engineer absolute organizational sovereignty.";
+    let image = "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600";
+    let url = `https://theunboundedleadership.com${location.pathname}`;
+
+    if (activeArticle) {
+      title = `${activeArticle.title} | The Unbounded Leadership Co.`;
+      const plainContent = activeArticle.content && activeArticle.content[0] ? activeArticle.content[0].replace(/[#*`_]/g, '') : '';
+      description = activeArticle.excerpt || plainContent || description;
+      image = activeArticle.image || image;
+      url = `https://theunboundedleadership.com/library/${activeArticle.slug || activeArticle.id}`;
+    } else {
+      switch (location.pathname) {
+        case '/':
+          title = "The Unbounded Leadership Co. | Suchita Sancheti | Office of the Principal Architect";
+          description = "Architectural interventions for elite founder-led enterprises. Reclaim 40% strategic bandwidth and engineer absolute organizational sovereignty under Suchita Sancheti.";
+          image = "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600";
+          break;
+        case '/about':
+          title = "Our Sovereignty Covenant | The Unbounded Leadership Co.";
+          description = "We work with the world's most consequential founders to architect the structural conditions for absolute leadership sovereignty under Suchita Sancheti.";
+          image = "https://images.unsplash.com/photo-1486444038473-ac89ae3f74f8?auto=format&fit=crop&q=80&w=1600";
+          break;
+        case '/services':
+          title = "Sovereign Integration Services | Strategic Architecture";
+          description = "Explore our target consulting engagement protocols: Substrate Auditing, Logic Gate Engineering, and Sovereign Handover.";
+          image = "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600";
+          break;
+        case '/methodology':
+          title = "The Physics of Scale | Our Core Leadership Methodology";
+          description = "Align human ambition with enduring organizational architecture. Reclaim 40% of cognitive capacity and neutralize institutional lag.";
+          image = "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1600";
+          break;
+        case '/assessment':
+          title = "The Sovereign Yield Calibration | Strategic Substrate Diagnostic";
+          description = "Complete the definitive 5-domain diagnostic to benchmark cognitive tax, institutional lag, and organizational sovereignty.";
+          image = "https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&q=80&w=1600";
+          break;
+        case '/library':
+          title = "The Registry of Institutional Dispatches | Sovereign Library";
+          description = "A curated archive of strategic essays, research briefings, and whitepapers on systems design and executive performance.";
+          image = "https://images.unsplash.com/photo-1507537297325-5f9037f3796d?auto=format&fit=crop&q=80&w=1600";
+          break;
+        default:
+          if (location.pathname.startsWith('/library/')) {
+            title = "Registry Dispatch | The Unbounded Leadership Co.";
+          }
+          break;
+      }
+    }
+
+    // Apply SEO Calibration safely in viewport
+    document.title = title;
+    
+    const descMeta = document.querySelector('meta[name="description"]');
+    if (descMeta) descMeta.setAttribute("content", description);
+    
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute("content", title);
+    
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute("content", description);
+    
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute("content", url);
+    
+    const ogImage = document.querySelector('meta[property="og:image"]');
+    if (ogImage) ogImage.setAttribute("content", image);
+    
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", url);
+
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) twitterTitle.setAttribute("content", title);
+
+    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDesc) twitterDesc.setAttribute("content", description);
+  }, [location.pathname, activeArticle]);
+
   const handleOpenArticle = (article: any, navigate: any) => {
     setActiveArticle(article);
     if (article.slug) {

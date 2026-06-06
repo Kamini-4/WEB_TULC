@@ -230,7 +230,7 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             <text x="570" y="390" fill={gold} fontSize="9" fontFamily="monospace" textAnchor="middle" className="font-bold">40% COGNITIVE BANDWIDTH RECLAIMED</text>
 
             <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">COGNITIVE LOAD: PROTOCOL COMPRESSED</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">YIELD PERFORMANCE COEFFICIENT: MAXIMUM [INT-002]</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">THE COGNITIVE TAX OF LEADERSHIP</text>
           </svg>
         );
 
@@ -533,7 +533,7 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             <circle cx="400" cy="250" r="5" fill={gold} filter="url(#generic-glow)" />
             
             <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">SOVEREIGN SYSTEM ARCHITECTURE // V4.0</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">REGISTRY ID: {id || "TULC_CENTRAL_DB"}</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">SYSTEMIC INTEL: {title ? title.toUpperCase() : (id || "TULC_CENTRAL_DB")}</text>
             <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">COEFFICIENT OF INEVITABILITY: CALIBRATED</text>
           </svg>
         );
