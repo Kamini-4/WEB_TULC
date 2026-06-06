@@ -3,12 +3,24 @@ import React, { useState } from 'react';
 const FAQ: React.FC = () => {
   const faqs = [
     {
+      question: "Who is Suchita Sancheti?",
+      answer: "Suchita Sancheti is the Principal Architect of The Unbounded Leadership Co. She is a pioneer in modern succession architecture and second-order cybernetics, designing systems-level transitions and sovereign frameworks for high-growth enterprises, elite venture capitalists, and multi-generational family offices."
+    },
+    {
       question: "What is Intent Fragmentation?",
       answer: "Intent Fragmentation is the structural loss of strategic fidelity as leadership directives pass through organisational layers. T.U.L.C. diagnostic data shows an average 60% fidelity loss within three management layers, producing measurable operational overspend and cultural misalignment."
     },
     {
-      question: "What is the Metabolic Tax?",
-      answer: "The Metabolic Tax is the quantifiable cost of institutional friction — the financial, operational, and cultural energy wasted when leadership intent is diluted before it reaches execution. T.U.L.C. measures it through structured Metabolic Decision Audits."
+      question: "What is the Sovereign Threshold Model?",
+      answer: "Developed by Suchita Sancheti, the Sovereign Threshold Model is a proprietary system that decouples corporate operations from active strategic command. It partitions enterprise governance into Sovereign Limits, Collaborative Boundaries, and Delegation Triggers, allowing founders or retiring CEOs to step into the Chairman role with zero operational leak or value dilution."
+    },
+    {
+      question: "What is the Cognitive Tax of Leadership?",
+      answer: "The Cognitive Tax is the metabolic and mental exhaustion spent resolving repeating operational anomalies. When strategic intent is not compiled into the company's operating substrate, founders pay a 'Cognitive Tax' that consumes up to 40% of their strategic capacity. T.U.L.C. resolves this through engineered automation of alignment gates."
+    },
+    {
+      question: "What is the role of Second-Order Cybernetics in corporate design?",
+      answer: "Second-order cybernetics is the science of self-regulating systems that observe themselves. In corporate design, Suchita Sancheti applies this to transition organizations from hero-driven problem-solving to architectural inevitability—ensuring the corporate operating system regulates and scales its own performance."
     },
     {
       question: "What is the Cognitive Shadow?",
@@ -28,11 +40,11 @@ const FAQ: React.FC = () => {
     },
     {
       question: "What does the engagement investment cover?",
-      answer: "Every engagement includes hundreds of architect-directed hours targeted specifically at the fracture points identified in the Institutional Fracture Report. All sessions are led directly by a T.U.L.C. Strategic Architect, not delegated to junior consultants."
+      answer: "Every engagement includes hundreds of architect-directed hours targeted specifically at the fracture points identified in the Institutional Fracture Report. All sessions are led directly by Suchita Sancheti and T.U.L.C. Strategic Architects, not delegated to junior consultants."
     },
     {
       question: "Is T.U.L.C.'s methodology proprietary?",
-      answer: "Yes. The Metabolic Decision Models are under provisional patent. The Intent Fragmentation Map, Cognitive Shadow Diagnostics, and Dynastic Code Architecture are proprietary T.U.L.C. intellectual property. Clients receive their own institutional DNA as a codified, legally structured organisational asset."
+      answer: "Yes. The Sovereign Threshold Model, Intent Fragmentation Map, Cognitive Shadow Diagnostics, and Dynastic Code Architecture are proprietary T.U.L.C. intellectual property. Clients receive their own institutional DNA as a codified, legally structured organisational asset."
     }
   ];
 
