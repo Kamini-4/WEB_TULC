@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { db } from '../src/firebase';
 import { SovereignDB } from '../lib/database.ts';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Shield, Zap, Layers, ArrowRight, Lock, Download, ChevronRight, AlertCircle, ExternalLink, AlertTriangle, TrendingDown } from 'lucide-react';
+import { Shield, Zap, Layers, ArrowRight, Lock, Download, ChevronRight, AlertCircle, ExternalLink, AlertTriangle, TrendingDown, Check, Copy } from 'lucide-react';
 
 type ContextType = 'dynamic' | 'established' | 'generational';
 type Step = 'intro' | 'auth' | 'context' | 'questions' | 'calculating' | 'dossier';
@@ -162,7 +162,7 @@ const Assessment: React.FC = () => {
   const [authError, setAuthError] = useState<string | null>(null);
   const [isPaid, setIsPaid] = useState(false);
   const [assessmentId, setAssessmentId] = useState<string | null>(null);
-  const [dossierId] = useState(() => Math.floor(Math.random() * 100000).toString().padStart(6, '0'));
+  const [dossierId, setDossierId] = useState(() => Math.floor(Math.random() * 100000).toString().padStart(6, '0'));
 
   // Playbook Interactive Add-on State
   const [showPlaybookOnboard, setShowPlaybookOnboard] = useState(false);
@@ -173,6 +173,133 @@ const Assessment: React.FC = () => {
     focusBottleneck: '',
     keyRiskLevel: ''
   });
+
+  // Anticheat Shuffled Questions & Options
+  interface ShuffledQuestion {
+    text: {
+      dynamic: string;
+      established: string;
+      generational: string;
+    };
+    shuffledOptions: { option: Option; originalIdx: number }[];
+  }
+  const [shuffledQuestions, setShuffledQuestions] = useState<ShuffledQuestion[]>([]);
+
+  // Simple clean array shuffler (Fisher-Yates) Code
+  const shuffleArray = <T,>(array: T[]): T[] => {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  };
+
+  // State Recovery Engine
+  const [restoredSession, setRestoredSession] = useState<any>(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('TULC_ASSESSMENT_SESSION');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (parsed && parsed.step && parsed.step !== 'intro') {
+          setRestoredSession(parsed);
+        }
+      } catch (e) {
+        console.error("Failed to recover TULC session", e);
+      }
+    }
+  }, []);
+
+  // Save session state reactively
+  useEffect(() => {
+    if (step !== 'intro') {
+      const sessionData = {
+        identity,
+        context,
+        currentQuestion,
+        answers,
+        step,
+        assessmentId,
+        dossierId,
+        playbookAnswers,
+        playbookSubmitted,
+        showPlaybookOnboard,
+        isPaid
+      };
+      localStorage.setItem('TULC_ASSESSMENT_SESSION', JSON.stringify(sessionData));
+    }
+  }, [identity, context, currentQuestion, answers, step, assessmentId, dossierId, playbookAnswers, playbookSubmitted, showPlaybookOnboard, isPaid]);
+
+  const handleResume = () => {
+    if (restoredSession) {
+      setIdentity(restoredSession.identity || { name: '', email: '', organization: '' });
+      setContext(restoredSession.context || null);
+      setCurrentQuestion(restoredSession.currentQuestion || 0);
+      setAnswers(restoredSession.answers || {});
+      setStep(restoredSession.step || 'intro');
+      setAssessmentId(restoredSession.assessmentId || null);
+      if (restoredSession.dossierId) {
+        setDossierId(restoredSession.dossierId);
+      }
+      setPlaybookAnswers(restoredSession.playbookAnswers || { handoverHorizon: '', focusBottleneck: '', keyRiskLevel: '' });
+      setPlaybookSubmitted(restoredSession.playbookSubmitted || false);
+      setShowPlaybookOnboard(restoredSession.showPlaybookOnboard || false);
+      setIsPaid(restoredSession.isPaid || false);
+
+      // Re-trigger dynamic question shuffling so we have options present if we resumed to questions
+      if (restoredSession.context && restoredSession.step === 'questions') {
+        const shuffled = QUESTIONS.map(q => {
+          const optsWithIdx = q.options.map((option, originalIdx) => ({ option, originalIdx }));
+          return {
+            text: q.text,
+            shuffledOptions: shuffleArray(optsWithIdx)
+          };
+        });
+        setShuffledQuestions(shuffled);
+      }
+    }
+    setRestoredSession(null);
+  };
+
+  const handleReset = () => {
+    localStorage.removeItem('TULC_ASSESSMENT_SESSION');
+    setRestoredSession(null);
+    setStep('intro');
+  };
+
+  // VIP Invoice Fallback
+  const [showVIPInvoicePanel, setShowVIPInvoicePanel] = useState(false);
+  const [vipInvoiceInputs, setVipInvoiceInputs] = useState({ phone: '', mode: 'Email', comments: '' });
+  const [vipInvoiceSuccess, setVipInvoiceSuccess] = useState(false);
+  const [isSubmittingVIPWire, setIsSubmittingVIPWire] = useState(false);
+
+  // Copy Badge Embed Code state
+  const [badgeCopySuccess, setBadgeCopySuccess] = useState(false);
+
+  const handleVIPInvoiceSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmittingVIPWire(true);
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: identity.name,
+          email: identity.email,
+          organization: identity.organization,
+          message: `VIP MANUAL INVOICE DRIVEN HANDSHAKE REQUESTED // Phone: ${vipInvoiceInputs.phone}, Delivery Mode: ${vipInvoiceInputs.mode}, Executive Request Comments: ${vipInvoiceInputs.comments}`,
+          type: 'VIP_WIRE_REQUESTED'
+        })
+      });
+      setVipInvoiceSuccess(true);
+    } catch (e) {
+      console.error("VIP Invoice request failure:", e);
+    } finally {
+      setIsSubmittingVIPWire(false);
+    }
+  };
 
   const handleStart = () => {
     setStep('auth');
@@ -213,6 +340,14 @@ const Assessment: React.FC = () => {
 
   const handleContextSelect = (c: ContextType) => {
     setContext(c);
+    const shuffled = QUESTIONS.map(q => {
+      const optsWithIdx = q.options.map((option, originalIdx) => ({ option, originalIdx }));
+      return {
+        text: q.text,
+        shuffledOptions: shuffleArray(optsWithIdx)
+      };
+    });
+    setShuffledQuestions(shuffled);
     setStep('questions');
   };
 
@@ -478,6 +613,33 @@ const Assessment: React.FC = () => {
               <p className="text-zinc-600 text-xl mb-12 font-light italic leading-relaxed max-w-2xl mx-auto">
                 A free 5-domain diagnostic to map your institutional substrate. Identify the primary constraints preventing your transition from Hero to Architect.
               </p>
+
+              {restoredSession && (
+                <div className="mb-10 max-w-lg mx-auto bg-[#fafafa] border border-zinc-200/60 p-6 shadow-md text-left relative overflow-hidden">
+                  <div className="absolute top-0 left-0 h-full w-1 bg-[#b8860b]" />
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-[#b8860b] mb-2 flex items-center gap-2">
+                    <Shield className="w-3.5 h-3.5 text-[#b8860b]" /> Active Protocol State Found
+                  </h4>
+                  <p className="text-zinc-600 text-[11px] font-light leading-relaxed mb-4 italic">
+                    We detected an incomplete yield calibration session for <strong className="font-medium text-black">{restoredSession.identity?.name || 'an Executive'}</strong> at <strong className="font-medium text-black">{restoredSession.identity?.organization}</strong>. Reconnect immediately to resume protocol mapping.
+                  </p>
+                  <div className="flex gap-4">
+                    <button
+                      onClick={handleResume}
+                      className="px-4 py-2.5 bg-[#111111] text-white hover:bg-[#b8860b] text-[9px] font-bold uppercase tracking-wider transition-all shadow-sm"
+                    >
+                      Resume Protocol
+                    </button>
+                    <button
+                      onClick={handleReset}
+                      className="px-4 py-2.5 bg-transparent border border-zinc-300 hover:border-red-600 hover:text-red-600 text-zinc-500 text-[9px] font-bold uppercase tracking-wider transition-all"
+                    >
+                      Discard Session
+                    </button>
+                  </div>
+                </div>
+              )}
+
               <div className="flex flex-col items-center gap-8">
                 <button 
                   onClick={handleStart}
@@ -646,23 +808,39 @@ const Assessment: React.FC = () => {
               </div>
 
               <h4 className="text-2xl sm:text-3xl font-bold mb-12 text-[#111111] leading-tight italic font-serif">
-                "{QUESTIONS[currentQuestion].text[context!]}"
+                "{shuffledQuestions[currentQuestion] ? shuffledQuestions[currentQuestion].text[context!] : QUESTIONS[currentQuestion].text[context!]}"
               </h4>
 
               <div className="space-y-4">
-                {QUESTIONS[currentQuestion].options.map((opt, optIdx) => (
-                  <button 
-                    key={optIdx}
-                    onClick={() => handleAnswer(optIdx)}
-                    className="w-full p-8 border border-zinc-100 hover:border-[#b8860b] hover:bg-zinc-50 transition-all text-left group flex justify-between items-center"
-                  >
-                    <div>
-                      <div className="text-[10px] font-black uppercase tracking-widest text-[#b8860b] mb-2">{opt.label}</div>
-                      <div className="text-zinc-700 font-light italic text-xs sm:text-sm">{opt.description}</div>
-                    </div>
-                    <ChevronRight className="w-5 h-5 text-zinc-300 group-hover:text-[#b8860b] shrink-0 ml-4 transition-colors" />
-                  </button>
-                ))}
+                {shuffledQuestions[currentQuestion] ? (
+                  shuffledQuestions[currentQuestion].shuffledOptions.map((item, optIdx) => (
+                    <button 
+                      key={optIdx}
+                      onClick={() => handleAnswer(item.originalIdx)}
+                      className="w-full p-8 border border-zinc-100 hover:border-[#b8860b] hover:bg-zinc-50 transition-all text-left group flex justify-between items-center"
+                    >
+                      <div>
+                        <div className="text-[10px] font-black uppercase tracking-widest text-[#b8860b] mb-2">{item.option.label}</div>
+                        <div className="text-zinc-700 font-light italic text-xs sm:text-sm">{item.option.description}</div>
+                      </div>
+                      <ChevronRight className="w-5 h-5 text-zinc-300 group-hover:text-[#b8860b] shrink-0 ml-4 transition-colors" />
+                    </button>
+                  ))
+                ) : (
+                  QUESTIONS[currentQuestion].options.map((opt, optIdx) => (
+                    <button 
+                      key={optIdx}
+                      onClick={() => handleAnswer(optIdx)}
+                      className="w-full p-8 border border-zinc-100 hover:border-[#b8860b] hover:bg-zinc-50 transition-all text-left group flex justify-between items-center"
+                    >
+                      <div>
+                        <div className="text-[10px] font-black uppercase tracking-widest text-[#b8860b] mb-2">{opt.label}</div>
+                        <div className="text-zinc-700 font-light italic text-xs sm:text-sm">{opt.description}</div>
+                      </div>
+                      <ChevronRight className="w-5 h-5 text-zinc-300 group-hover:text-[#b8860b] shrink-0 ml-4 transition-colors" />
+                    </button>
+                  ))
+                )}
               </div>
             </motion.div>
           )}
@@ -1230,6 +1408,92 @@ const Assessment: React.FC = () => {
                               <span>Initiate Verification & Unlock Indepth Assessment</span>
                               <ExternalLink className="w-4 h-4" />
                             </button>
+
+                            {/* VIP Invoice Fallback Option */}
+                            <div className="mt-8 pt-8 border-t border-white/5">
+                              {!showVIPInvoicePanel ? (
+                                <button
+                                  onClick={() => setShowVIPInvoicePanel(true)}
+                                  className="text-zinc-400 hover:text-white text-[10px] font-semibold uppercase tracking-widest underline decoration-zinc-500 hover:decoration-white transition-all font-mono"
+                                >
+                                  Prefer Invoice Handshake / Offline Ledger? Request VIP Invoice Protocol
+                                </button>
+                              ) : (
+                                <motion.div 
+                                  initial={{ opacity: 0, y: 10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  className="mt-6 max-w-md mx-auto p-6 bg-black/60 border border-zinc-800 text-left"
+                                >
+                                  <h6 className="text-[10px] font-black uppercase text-[#b8860b] tracking-widest mb-2 font-mono flex items-center gap-2">
+                                    <Shield className="w-3.5 h-3.5 text-[#b8860b]" /> Offline Sovereign Wire Request
+                                  </h6>
+                                  <p className="text-[11px] text-zinc-400 font-light italic leading-relaxed mb-4 font-serif">
+                                    Should your corporate treasury govern strict transactional card limits or prefer a direct wire invoice, register your details. Our office will establish a secure settlement handshake within 4 hours.
+                                  </p>
+                                  
+                                  {!vipInvoiceSuccess ? (
+                                    <form onSubmit={handleVIPInvoiceSubmit} className="space-y-4">
+                                      <div>
+                                        <label className="text-[8px] font-black uppercase text-zinc-500 tracking-wider block mb-1 font-mono">Strategic Phone / Direct Wire Coordinate</label>
+                                        <input
+                                          type="text"
+                                          placeholder="+1 (555) 0192 / WhatsApp Coordinate"
+                                          value={vipInvoiceInputs.phone}
+                                          onChange={(e) => setVipInvoiceInputs({ ...vipInvoiceInputs, phone: e.target.value })}
+                                          className="w-full px-3 py-2 bg-zinc-900 border border-zinc-800 text-white text-xs italic font-serif focus:outline-none focus:border-[#b8860b]"
+                                        />
+                                      </div>
+                                      <div>
+                                        <label className="text-[8px] font-black uppercase text-zinc-500 tracking-wider block mb-1 font-mono">Preferred Secure delivery mode</label>
+                                        <select
+                                          value={vipInvoiceInputs.mode}
+                                          onChange={(e) => setVipInvoiceInputs({ ...vipInvoiceInputs, mode: e.target.value })}
+                                          className="w-full px-3 py-2 bg-zinc-900 border border-zinc-800 text-white text-xs italic font-serif focus:outline-none focus:border-[#b8860b]"
+                                        >
+                                          <option value="Email">Secure Corporate Email</option>
+                                          <option value="WhatsApp">Direct WhatsApp Dispatch</option>
+                                          <option value="Signal">Private Signal Protocol</option>
+                                        </select>
+                                      </div>
+                                      <div>
+                                        <label className="text-[8px] font-black uppercase text-zinc-500 tracking-wider block mb-1 font-mono">Special ledger Comments</label>
+                                        <textarea
+                                          placeholder="e.g. Requires corporate cost center PO references..."
+                                          value={vipInvoiceInputs.comments}
+                                          onChange={(e) => setVipInvoiceInputs({ ...vipInvoiceInputs, comments: e.target.value })}
+                                          className="w-full px-3 py-2 bg-zinc-900 border border-zinc-800 text-white text-xs italic font-serif focus:outline-none focus:border-[#b8860b] h-16 resize-none"
+                                        />
+                                      </div>
+                                      
+                                      <div className="flex gap-2">
+                                        <button
+                                          type="submit"
+                                          disabled={isSubmittingVIPWire}
+                                          className="flex-1 py-3 bg-[#b8860b] hover:bg-white hover:text-black font-mono font-bold uppercase text-[9px] tracking-wider text-white transition-all disabled:opacity-50"
+                                        >
+                                          {isSubmittingVIPWire ? "Registering..." : "Transmit Private Wire Request"}
+                                        </button>
+                                        <button
+                                          type="button"
+                                          onClick={() => setShowVIPInvoicePanel(false)}
+                                          className="px-3 py-3 border border-zinc-800 hover:border-zinc-600 font-mono text-[9px] text-zinc-400 hover:text-white uppercase tracking-wider transition-all"
+                                        >
+                                          Cancel
+                                        </button>
+                                      </div>
+                                    </form>
+                                  ) : (
+                                    <div className="p-4 bg-[#b8860b]/10 border border-[#b8860b]/20 text-center">
+                                      <Check className="w-6 h-6 text-[#b8860b] mx-auto mb-2" />
+                                      <span className="text-[9px] font-mono uppercase text-white font-bold tracking-widest block mb-1">Invoice Protocol Calibrated</span>
+                                      <p className="text-[10px] text-zinc-400 italic font-serif">
+                                        Suchita&apos;s architectural office is compiling your coordinates. An invoice ledger packet will reach your terminal shortly. Thank you.
+                                      </p>
+                                    </div>
+                                  )}
+                                </motion.div>
+                              )}
+                            </div>
                           </div>
                         ) : (
                           <div className="space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-1000">
@@ -1265,6 +1529,74 @@ const Assessment: React.FC = () => {
                       </div>
                       <div className="mt-12 text-[9px] uppercase text-zinc-600 tracking-[0.5em] font-black font-mono">
                         Dispatching Verification to: {identity.email}
+                      </div>
+
+                      {/* Sovereign Calibration badge widget area */}
+                      <div className="mt-16 pt-12 border-t border-white/5 text-center">
+                        <div className="max-w-xl mx-auto">
+                          <span className="text-[8px] uppercase font-black text-[#b8860b] tracking-[0.4em] block mb-4 font-mono">
+                            INSTITUTIONAL CALIBRATION VERIFICATION BADGE
+                          </span>
+                          <h6 className="text-[14px] font-bold text-white mb-3 font-serif">
+                            Affirm Your Sovereign Calibrated Status
+                          </h6>
+                          <p className="text-zinc-500 text-xs italic font-serif font-light mb-8 leading-relaxed max-w-md mx-auto text-left">
+                            High-governance firms receive our calibrated seal of alignment. Embed this dynamic high-fidelity SVG badge onto your global corporate trust page or investor relations terminal. Each embed directly links to our root registry, building undisputed brand recognition and viral link authority.
+                          </p>
+                          
+                          <div className="flex flex-col md:flex-row items-center gap-8 justify-center bg-black/30 border border-white/5 p-8 rounded-sm">
+                            {/* SVG Badge rendering */}
+                            <div className="shrink-0">
+                              <svg width="120" height="120" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto filter drop-shadow-[0_10px_20px_rgba(184,134,11,0.15)]">
+                                <circle cx="100" cy="100" r="94" stroke="#b8860b" strokeWidth="2" strokeDasharray="4 2" />
+                                <circle cx="100" cy="100" r="88" stroke="#1f1f1f" strokeWidth="1" />
+                                <circle cx="100" cy="100" r="82" stroke="#b8860b" strokeWidth="1" opacity="0.4" />
+                                <circle cx="100" cy="100" r="76" fill="#111111" />
+                                <path d="M100 45 L113 75 L145 75 L119 94 L130 125 L100 105 L70 125 L81 94 L55 75 L87 75 Z" fill="#b8860b" fillOpacity="0.15" stroke="#b8860b" strokeWidth="1.5" />
+                                <path d="M100 55 L109 78 L133 78 L114 92 L121 115 L100 101 L79 115 L86 92 L67 78 L91 78 Z" fill="#b8860b" />
+                                <path d="M60 100 A40 40 0 0 0 140 100" stroke="#b8860b" strokeWidth="1" strokeDasharray="3 3" opacity="0.5" />
+                                <defs>
+                                  <path id="badgeTextPath" d="M35,100 a65,65 0 1,1 130,0 a65,65 0 1,1 -130,0" />
+                                </defs>
+                                <text fill="#999" fontSize="9" fontWeight="bold" letterSpacing="0.2em" fontFamily="monospace">
+                                  <textPath href="#badgeTextPath" startOffset="0%">
+                                    • THE UNBOUNDED LEADERSHIP CO. • SYSTEMIC SOVEREIGNTY CALIBRATED
+                                  </textPath>
+                                </text>
+                              </svg>
+                            </div>
+                            
+                            {/* Embed Code output */}
+                            <div className="w-full text-left font-mono">
+                              <span className="text-[8px] font-bold text-zinc-500 uppercase tracking-widest block mb-2">SECURE EMBED CODE (IFRAME HTML)</span>
+                              <div className="relative">
+                                <textarea
+                                  readOnly
+                                  value={`<div style="text-align: center; margin: 20px 0;"><a href="https://theunboundedleadership.com" target="_blank" style="text-decoration: none;"><img src="https://theunboundedleadership.com/assets/badges/calibrated.svg" alt="The Unbounded Leadership Co. | Sovereign Sovereignty Calibration Seal" width="180" height="180" style="border: none;" /></a></div>`}
+                                  className="w-full h-24 bg-zinc-950 border border-zinc-200 p-3 rounded-xs text-[9px] text-zinc-400 select-all focus:outline-none focus:border-[#b8860b] leading-relaxed resize-none cursor-text scrollbar-thin overflow-auto"
+                                />
+                                <button
+                                  onClick={() => {
+                                    navigator.clipboard.writeText(`<div style="text-align: center; margin: 20px 0;"><a href="https://theunboundedleadership.com" target="_blank" style="text-decoration: none;"><img src="https://theunboundedleadership.com/assets/badges/calibrated.svg" alt="The Unbounded Leadership Co. | Sovereign Sovereignty Calibration Seal" width="180" height="180" style="border: none;" /></a></div>`);
+                                    setBadgeCopySuccess(true);
+                                    setTimeout(() => setBadgeCopySuccess(false), 2000);
+                                  }}
+                                  className="absolute bottom-2 right-2 p-1.5 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-400 hover:text-white rounded-xs transition-colors"
+                                  title="Copy code to clipboard"
+                                >
+                                  {badgeCopySuccess ? (
+                                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                                  ) : (
+                                    <Copy className="w-3.5 h-3.5" />
+                                  )}
+                                </button>
+                              </div>
+                              <span className="text-[8px] text-zinc-600 block mt-2">
+                                Copy and paste this snippet to secure backlinks between your server node and our high-authority directory.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

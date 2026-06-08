@@ -148,6 +148,29 @@ async function startServer() {
     res.send('8c92a1b3d5e7f9024680acebdf135792');
   });
 
+  // Dynamic Backlink SVG Badge Endpoint
+  app.get('/assets/badges/calibrated.svg', (req, res) => {
+    res.type('image/svg+xml');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.send(`<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="94" stroke="#b8860b" stroke-width="2" stroke-dasharray="4 2" />
+  <circle cx="100" cy="100" r="88" stroke="#1f1f1f" stroke-width="1" />
+  <circle cx="100" cy="100" r="82" stroke="#b8860b" stroke-width="1" opacity="0.4" />
+  <circle cx="100" cy="100" r="76" fill="#111111" />
+  <path d="M100 45 L113 75 L145 75 L119 94 L130 125 L100 105 L70 125 L81 94 L55 75 L87 75 Z" fill="#b8860b" fill-opacity="0.15" stroke="#b8860b" stroke-width="1.5" />
+  <path d="M100 55 L109 78 L133 78 L114 92 L121 115 L100 101 L79 115 L86 92 L67 78 L91 78 Z" fill="#b8860b" />
+  <path d="M60 100 A40 40 0 0 0 140 100" stroke="#b8860b" stroke-width="1" stroke-dasharray="3 3" opacity="0.5" />
+  <defs>
+    <path id="badgeTextPath" d="M35,100 a65,65 0 1,1 130,0 a65,65 0 1,1 -130,0" />
+  </defs>
+  <text fill="#999" font-size="9" font-weight="bold" letter-spacing="0.2em" font-family="monospace">
+    <textPath href="#badgeTextPath" startOffset="0%">
+      • THE UNBOUNDED LEADERSHIP CO. • SYSTEMIC SOVEREIGNTY CALIBRATED
+    </textPath>
+  </text>
+</svg>`);
+  });
+
   // IndexNow API Endpoint (Instant Institutional Discovery)
   app.post('/api/indexnow', async (req, res) => {
     try {

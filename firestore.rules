@@ -87,7 +87,8 @@ service cloud.firestore {
 
     match /assessments/{assessmentId} {
       allow create: if isValidAssessment(request.resource.data);
-      allow read, update, delete: if isAdmin();
+      allow get, update: if true;
+      allow list, delete: if isAdmin();
     }
 
     match /blog/{postId} {
