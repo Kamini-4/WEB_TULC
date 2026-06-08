@@ -590,7 +590,7 @@ const Assessment: React.FC = () => {
   };
 
   return (
-    <section id="assessment" className="py-24 bg-[#f5f5f0] min-h-[800px] flex flex-col justify-center relative overflow-hidden">
+    <section id="assessment" className="py-12 md:py-16 bg-[#f5f5f0] scroll-mt-28 md:scroll-mt-32 min-h-[650px] flex flex-col justify-center relative overflow-hidden">
       {/* Background Decorative Element */}
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(#b8860b_1px,transparent_1px)] [background-size:40px_40px]"></div>
