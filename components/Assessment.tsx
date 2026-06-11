@@ -163,6 +163,7 @@ const Assessment: React.FC = () => {
   const [isPaid, setIsPaid] = useState(false);
   const [assessmentId, setAssessmentId] = useState<string | null>(null);
   const [dossierId, setDossierId] = useState(() => Math.floor(Math.random() * 100000).toString().padStart(6, '0'));
+  const [dossierPage, setDossierPage] = useState<number>(1);
 
   // Playbook Interactive Add-on State
   const [showPlaybookOnboard, setShowPlaybookOnboard] = useState(false);

@@ -576,6 +576,85 @@ async function startServer() {
     }
   });
 
+  // High-Yield Executive Outreach Copilot Endpoint
+  app.post('/api/outreach/generate', async (req, res) => {
+    try {
+      const { 
+        targetName, 
+        targetTitle, 
+        targetCompany, 
+        targetEmail, 
+        theme, 
+        tone,
+        linkedinUrl,
+        companyWebsiteUrl,
+        pastedContext,
+        enableSearchGrounding,
+        embedResearch
+      } = req.body;
+      const apiKey = process.env.GEMINI_API_KEY;
+
+      if (!apiKey) {
+        return res.status(500).json({ error: 'GEMINI_API_KEY is not configured on the server.' });
+      }
+
+      const ai = new GoogleGenAI({ apiKey });
+      const prompt = `You are a world-class institutional growth advisor and lead strategist for "The Unbounded Leadership Co.", a high-end Swiss-style leadership architecture consultancy run by Principal Architect Suchita Sancheti.
+Our consultancy specializes in helping CEOs, Founders, and elite executive teams reclaim up to 40% of their "cognitive bandwidth" and transition from heroic firefighting ("Hero") to systemic continuity ("Architect").
+
+Your goal is to engineer a bespoke, highly sophisticated "Cold Dispatch" (outbound email) to trigger an immediate diagnostic conversation.
+
+Target Profile Details:
+- Name: ${targetName || 'Sovereign Leader'}
+- Title: ${targetTitle || 'Chief Executive Officer'}
+- Company: ${targetCompany || 'Elite Institution'}
+- Target Email Address: ${targetEmail || 'N/A'}
+- Selected Bottleneck Focus Theme: ${theme || 'Cognitive Over-Taxation & Bandwidth Drift'}
+- Desired Style Tone: ${tone || 'Sovereign Academic'}
+
+Target Research & Personalization Inputs:
+${linkedinUrl ? `- Target LinkedIn/Profile URL: ${linkedinUrl}` : ''}
+${companyWebsiteUrl ? `- Company Website URL: ${companyWebsiteUrl}` : ''}
+${pastedContext ? `- Raw Copy-Pasted Target Profile Bio or Webpage Context:\n"""\n${pastedContext}\n"""` : ''}
+- Embed Founder/Company Research Facts: ${embedResearch ? 'YES' : 'NO'}
+
+Strategic Instruction for Personalization:
+1. If LinkedIn URL, Website URL or Raw Copied bio is provided, you must prioritize aligning your pitch to these specific company and personal facts.
+2. If Google Search Grounding is active, search for recent news, funding, key products, or personal perspectives regarding ${targetName} at ${targetCompany}. Use these exact insights to anchor your email.
+3. ${embedResearch ? `CRITICAL PERSONALIZATION MANDATE: You MUST explicitly weave and embed specific, real-world verified facts about ${targetName} or ${targetCompany} directly into the paragraphs of the email body. For example: reference a recent product launch, a podcast comment, an article they wrote, their historic career background, or a specific scaling milestone. The draft must show meticulous homework, proving Suchita Sancheti did authentic high-individual research before reaching out.` : 'Anchor your hook into general institutional context.'}
+4. Anchor your hook into their actual context (e.g., "Given your recent scaling thresholds at ${targetCompany} following your new products" or "I noticed your perspective on..."). Avoid generic flattery. Keep it intellectually honest and elite.
+5. The letter must address them as an equal or peer analyst. Position our 4-minute "Institutional Diagnostic" as the ultimate diagnostic protocol. The subject line must be elegant and high-stakes.
+
+Return EXACTLY a JSON object matching this schema (with no enclosing markdown wrapper block):
+{
+  "brief": "A 1-sentence strategic analysis explaining why this specific executive at this company faces the targeted bottleneck dynamically referencing your findings.",
+  "subject": "A compelling, high-stakes subject line designed to achieve high open rates with global elite principals.",
+  "body": "The complete, highly personalized outbound email body, structured beautifully with clean paragraph breaks, starting with a respectful greeting (Dear [Name] or appropriate) and ending with a signature from Suchita Sancheti, Principal Architect of The Unbounded Leadership Co."
+}`;
+
+      const config: any = {
+        responseMimeType: "application/json"
+      };
+
+      // Enable real-time Google search grounding if checked
+      if (enableSearchGrounding) {
+        config.tools = [{ googleSearch: {} }];
+      }
+
+      const response = await ai.models.generateContent({
+        model: "gemini-3.5-flash",
+        contents: prompt,
+        config: config
+      });
+
+      const responseText = response.text || '{}';
+      res.json(JSON.parse(responseText.trim()));
+    } catch (error: any) {
+      console.error('Outreach Research Generation Error:', error);
+      res.status(500).json({ error: error.message || 'Failed to generate outreach intelligence' });
+    }
+  });
+
   // Sitemap
   app.get('/sitemap.xml', (req, res) => {
     const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');

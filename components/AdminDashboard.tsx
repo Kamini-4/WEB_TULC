@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SovereignDB, LeadEntry, AssessmentEntry, BlogEntry } from '../lib/database.ts';
+import { auth, signInWithGoogle } from '../src/firebase.ts';
 import { DISPATCH_TOPICS } from '../data/thoughtLeadershipContent.ts';
 import { 
   Shield, 
@@ -17,7 +18,8 @@ import {
   User, 
   Activity, 
   Fingerprint, 
-  Briefcase 
+  Briefcase,
+  Check
 } from 'lucide-react';
 
 interface AdminDashboardProps {
@@ -26,10 +28,181 @@ interface AdminDashboardProps {
 
 const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
   const [data, setData] = useState<{leads: LeadEntry[], assessments: AssessmentEntry[], blog: BlogEntry[]}>({ leads: [], assessments: [], blog: [] });
-  const [activeTab, setActiveTab] = useState<'leads' | 'analytics' | 'registry'>('leads');
+  const [activeTab, setActiveTab] = useState<'leads' | 'analytics' | 'registry' | 'outreach'>('leads');
   const [newPost, setNewPost] = useState({ category: '', title: '', excerpt: '', content: '' });
   const [recentlyAddedUrl, setRecentlyAddedUrl] = useState<string | null>(null);
   const [isBroadcasting, setIsBroadcasting] = useState<string | null>(null);
+
+  // Executive Outreach Copilot State
+  const [outreachForm, setOutreachForm] = useState({
+    targetName: '',
+    targetTitle: 'Chief Executive Officer',
+    targetCompany: '',
+    targetEmail: '',
+    theme: 'Cognitive Tax over leadership (reclaiming 40% bandwidth)',
+    tone: 'Sovereign Academic & Inevitable',
+    linkedinUrl: '',
+    companyWebsiteUrl: '',
+    pastedContext: '',
+    enableSearchGrounding: true,
+    embedResearch: true
+  });
+  const [activeOutreachId, setActiveOutreachId] = useState<string | null>(null);
+  const [isGeneratingOutreach, setIsGeneratingOutreach] = useState(false);
+  const [generatedOutreach, setGeneratedOutreach] = useState<{
+    brief: string;
+    subject: string;
+    body: string;
+  } | null>(null);
+  const [outreachHistory, setOutreachHistory] = useState<Array<{
+    id: string;
+    timestamp: number;
+    targetName: string;
+    targetTitle: string;
+    targetCompany: string;
+    targetEmail: string;
+    theme: string;
+    subject: string;
+    body: string;
+    status: 'Draft' | 'Sent' | 'Engaged';
+  }>>(() => {
+    try {
+      const saved = localStorage.getItem('tulc_outreach_history');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const saveOutreachHistory = (newHistory: typeof outreachHistory) => {
+    setOutreachHistory(newHistory);
+    try {
+      localStorage.setItem('tulc_outreach_history', JSON.stringify(newHistory));
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleGenerateOutreach = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsGeneratingOutreach(true);
+    setGeneratedOutreach(null);
+
+    try {
+      const response = await fetch('/api/outreach/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(outreachForm)
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Failed to generate');
+      
+      setGeneratedOutreach(data);
+      const newId = `OUT-${Math.floor(Math.random() * 900000 + 100000)}`;
+      setActiveOutreachId(newId);
+
+      const newEntry = {
+        id: newId,
+        timestamp: Date.now(),
+        targetName: outreachForm.targetName || 'Sovereign Leader',
+        targetTitle: outreachForm.targetTitle || 'Chief Executive',
+        targetCompany: outreachForm.targetCompany || 'Elite Institution',
+        targetEmail: outreachForm.targetEmail,
+        theme: outreachForm.theme,
+        subject: data.subject,
+        body: data.body,
+        status: 'Draft' as const
+      };
+      saveOutreachHistory([newEntry, ...outreachHistory]);
+
+    } catch (err: any) {
+      alert(`Outreach synthesis failed: ${err.message || err}`);
+    } finally {
+      setIsGeneratingOutreach(false);
+    }
+  };
+
+  const handleStartManualDraft = () => {
+    const newId = `OUT-${Math.floor(Math.random() * 900000 + 100000)}`;
+    setActiveOutreachId(newId);
+    
+    const initialSubject = outreachForm.targetCompany 
+      ? `Strategic Performance Inquiry // ${outreachForm.targetCompany}` 
+      : "Strategic Growth Inquiry";
+      
+    const initialBody = `Dear ${outreachForm.targetName || 'Principal'},\n\nI have been observing your progress at ${outreachForm.targetCompany || 'your institution'} as you navigate current scaling thresholds. The strategic friction inherent to rapid execution can often result in significant cognitive tax.\n\nLet us benchmark your institutional substrate under active pressure protocols.\n\nWith respect,\n\nSuchita Sancheti\nPrincipal Architect\nThe Unbounded Leadership Co.`;
+
+    setGeneratedOutreach({
+      brief: "Custom manual alignment draft designed exclusively by Suchita Sancheti.",
+      subject: initialSubject,
+      body: initialBody
+    });
+
+    const newEntry = {
+      id: newId,
+      timestamp: Date.now(),
+      targetName: outreachForm.targetName || 'Sovereign Leader',
+      targetTitle: outreachForm.targetTitle || 'Chief Executive',
+      targetCompany: outreachForm.targetCompany || 'Elite Institution',
+      targetEmail: outreachForm.targetEmail,
+      theme: 'Custom Outbound Correspondence',
+      subject: initialSubject,
+      body: initialBody,
+      status: 'Draft' as const
+    };
+    saveOutreachHistory([newEntry, ...outreachHistory]);
+  };
+
+  const handleUpdateDraft = () => {
+    if (!generatedOutreach) return;
+    
+    let currentId = activeOutreachId;
+    let updatedHistory = [...outreachHistory];
+    
+    if (currentId) {
+      const index = updatedHistory.findIndex(h => h.id === currentId);
+      if (index !== -1) {
+        updatedHistory[index] = {
+          ...updatedHistory[index],
+          subject: generatedOutreach.subject,
+          body: generatedOutreach.body,
+          targetName: outreachForm.targetName || updatedHistory[index].targetName,
+          targetTitle: outreachForm.targetTitle || updatedHistory[index].targetTitle,
+          targetCompany: outreachForm.targetCompany || updatedHistory[index].targetCompany,
+          targetEmail: outreachForm.targetEmail || updatedHistory[index].targetEmail,
+        };
+      } else {
+        currentId = null;
+      }
+    }
+    
+    if (!currentId) {
+      const newId = `OUT-${Math.floor(Math.random() * 900000 + 100000)}`;
+      setActiveOutreachId(newId);
+      const newEntry = {
+        id: newId,
+        timestamp: Date.now(),
+        targetName: outreachForm.targetName || 'Sovereign Leader',
+        targetTitle: outreachForm.targetTitle || 'Chief Executive',
+        targetCompany: outreachForm.targetCompany || 'Elite Institution',
+        targetEmail: outreachForm.targetEmail,
+        theme: 'Custom Outbound Correspondence',
+        subject: generatedOutreach.subject,
+        body: generatedOutreach.body,
+        status: 'Draft' as const
+      };
+      updatedHistory = [newEntry, ...updatedHistory];
+    }
+    
+    saveOutreachHistory(updatedHistory);
+    alert('Outreach draft saved & archived successfully in Registry!');
+  };
+
+  const handleLaunchMailto = (subject: string, body: string, email?: string) => {
+    const to = email || '';
+    const mailtoUrl = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoUrl, '_blank');
+  };
 
   // Authentication & Passkey State
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
@@ -37,6 +210,18 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
   });
   const [passkeyInput, setPasskeyInput] = useState('');
   const [authError, setAuthError] = useState<string | null>(null);
+  const [firebaseUser, setFirebaseUser] = useState<any>(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setFirebaseUser(user);
+      if (user && user.email === 'suchita135sancheti@gmail.com') {
+        setIsAuthenticated(true);
+        sessionStorage.setItem('tulc_sovereign_auth', 'true');
+      }
+    });
+    return unsubscribe;
+  }, []);
   
   // Selected Lead Report state
   const [selectedEntry, setSelectedEntry] = useState<any>(null);
@@ -110,12 +295,20 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
   };
 
   useEffect(() => {
-    const unsubLeads = SovereignDB.subscribeToLeads((leads) => {
-      setData(prev => ({ ...prev, leads }));
-    });
-    const unsubAssessments = SovereignDB.subscribeToAssessments((assessments) => {
-      setData(prev => ({ ...prev, assessments }));
-    });
+    if (!isAuthenticated) return;
+
+    let unsubLeads = () => {};
+    let unsubAssessments = () => {};
+
+    if (firebaseUser) {
+      unsubLeads = SovereignDB.subscribeToLeads((leads) => {
+        setData(prev => ({ ...prev, leads }));
+      });
+      unsubAssessments = SovereignDB.subscribeToAssessments((assessments) => {
+        setData(prev => ({ ...prev, assessments }));
+      });
+    }
+
     const unsubBlog = SovereignDB.subscribeToBlog((blog) => {
       setData(prev => ({ ...prev, blog }));
     });
@@ -125,7 +318,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
       unsubAssessments();
       unsubBlog();
     };
-  }, []);
+  }, [isAuthenticated, firebaseUser]);
 
   const handleAddPost = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -340,6 +533,30 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
             >
               Verify Credentials
             </button>
+
+            <div className="flex items-center my-4">
+              <div className="flex-grow border-t border-zinc-800"></div>
+              <span className="px-3 text-[9px] text-zinc-500 font-mono uppercase tracking-widest">OR</span>
+              <div className="flex-grow border-t border-zinc-800"></div>
+            </div>
+
+            <button
+              type="button"
+              onClick={async () => {
+                try {
+                  const u = await signInWithGoogle();
+                  if (u) {
+                    setIsAuthenticated(true);
+                    sessionStorage.setItem('tulc_sovereign_auth', 'true');
+                  }
+                } catch (err: any) {
+                  setAuthError(`Google Authentication failed: ${err.message || err}`);
+                }
+              }}
+              className="w-full py-4 bg-transparent hover:bg-white/10 border border-zinc-700 text-white font-bold text-[10px] uppercase tracking-widest transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <Fingerprint className="w-4 h-4 text-[#b8860b]" /> Sign In with Google Admin
+            </button>
           </form>
 
           <div className="mt-6 text-center relative z-10">
@@ -384,6 +601,12 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
             >
               Telemetry
             </button>
+            <button 
+              onClick={() => setActiveTab('outreach')}
+              className={`text-[10px] font-bold uppercase tracking-widest px-4 py-2 ${activeTab === 'outreach' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
+            >
+              Executive Outbound
+            </button>
           </div>
         </div>
         <div className="flex items-center gap-4">
@@ -410,6 +633,30 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               <StatCard label="Completed Diagnostics" value={data.assessments.length.toString()} />
               <StatCard label="Average System Resonance" value={`${data.assessments.length > 0 ? Math.floor(data.assessments.reduce((acc, current) => acc + current.totalScore, 0) / data.assessments.length * 4) : 74}%`} />
             </div>
+
+            {!firebaseUser && (
+              <div className="bg-amber-50/40 border border-amber-300/60 p-6 rounded-sm flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs font-inter text-[#4d3c0c]">
+                <div>
+                  <h4 className="font-extrabold uppercase tracking-widest text-[#b8860b]">🔐 Client Registry Secure Encryption Gate</h4>
+                  <p className="text-zinc-600 mt-1 max-w-2xl leading-relaxed">
+                    Client leads and diagnostic dossiers are cryptographically shielded. To initiate a secure decryption sync, please authenticate via your Google Admin account.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    try {
+                      await signInWithGoogle();
+                    } catch (err: any) {
+                      alert(`Google Admin login failed: ${err.message || err}`);
+                    }
+                  }}
+                  className="px-5 py-3 bg-[#b8860b] hover:bg-amber-600 text-white font-black text-[10px] uppercase tracking-widest transition-all rounded-sm flex items-center justify-center gap-2 cursor-pointer shrink-0"
+                >
+                  <Fingerprint className="w-4 h-4" /> Authenticate Google Admin
+                </button>
+              </div>
+            )}
 
             <div className="bg-white border border-zinc-200 shadow-xl overflow-hidden rounded-sm">
               <div className="p-6 bg-zinc-50 border-b border-zinc-200 flex justify-between items-center">
@@ -755,6 +1002,399 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
              <Activity className="w-12 h-12 text-zinc-300 mx-auto mb-4 animate-pulse" />
              <h3 className="text-zinc-400 font-black uppercase tracking-[0.5em] text-sm">Analytics Engine Idle</h3>
              <p className="text-zinc-400 text-xs italic mt-2">Sovereign telemetry requires active calibration nodes to generate resonance scores.</p>
+          </div>
+        )}
+
+        {activeTab === 'outreach' && (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 animate-fade-in font-inter text-neutral-900">
+            {/* Target Settings form */}
+            <div className="lg:col-span-1">
+              <div className="bg-white border border-zinc-200 p-8 shadow-xl rounded-sm sticky top-32">
+                <div className="flex items-center gap-3 border-b border-zinc-100 pb-4 mb-6">
+                  <Mail className="w-5 h-5 text-[#b8860b]" />
+                  <div>
+                    <h3 className="text-sm font-black uppercase tracking-widest text-zinc-900">Outbound Intelligence</h3>
+                    <p className="text-[10px] text-zinc-400 font-mono">Calibrated Sovereign Pitch Builder</p>
+                  </div>
+                </div>
+
+                <form onSubmit={handleGenerateOutreach} className="space-y-4">
+                  <div>
+                    <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Target Executive Name</label>
+                    <input 
+                      type="text" 
+                      required
+                      value={outreachForm.targetName}
+                      onChange={(e) => setOutreachForm({...outreachForm, targetName: e.target.value})}
+                      className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] text-zinc-900"
+                      placeholder="e.g. Johnathan Vance"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Executive Title</label>
+                      <input 
+                        type="text" 
+                        required
+                        value={outreachForm.targetTitle}
+                        onChange={(e) => setOutreachForm({...outreachForm, targetTitle: e.target.value})}
+                        className="w-full px-3 py-3 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] text-zinc-900"
+                        placeholder="e.g. Chief Executive"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Company Name</label>
+                      <input 
+                        type="text" 
+                        required
+                        value={outreachForm.targetCompany}
+                        onChange={(e) => setOutreachForm({...outreachForm, targetCompany: e.target.value})}
+                        className="w-full px-3 py-3 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] text-zinc-900"
+                        placeholder="e.g. Apex Holdings"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Direct Email (Optional)</label>
+                    <input 
+                      type="email"
+                      value={outreachForm.targetEmail}
+                      onChange={(e) => setOutreachForm({...outreachForm, targetEmail: e.target.value})}
+                      className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] text-zinc-900"
+                      placeholder="e.g. j.vance@apexholdings.com"
+                    />
+                  </div>
+
+                  {/* High-End Swiss Style Pre-Research Hub */}
+                  <div className="p-4 bg-zinc-50 border border-zinc-200 rounded-xs space-y-4">
+                    <div className="flex items-center gap-2 border-b border-zinc-200 pb-2">
+                      <span className="text-[10px] font-black text-[#b8860b] uppercase tracking-widest block">
+                        🔍 Target Pre-Research Intelligence
+                      </span>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label className="text-[8px] font-bold uppercase text-zinc-400 tracking-widest block mb-1">Company Website URL</label>
+                        <input 
+                          type="url"
+                          value={outreachForm.companyWebsiteUrl}
+                          onChange={(e) => setOutreachForm({...outreachForm, companyWebsiteUrl: e.target.value})}
+                          className="w-full px-3 py-2.5 bg-white border border-zinc-200 text-[10px] focus:outline-none focus:border-[#b8860b] text-zinc-900"
+                          placeholder="e.g. https://apex.com"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-[8px] font-bold uppercase text-zinc-400 tracking-widest block mb-1">LinkedIn / Profile URL</label>
+                        <input 
+                          type="url"
+                          value={outreachForm.linkedinUrl}
+                          onChange={(e) => setOutreachForm({...outreachForm, linkedinUrl: e.target.value})}
+                          className="w-full px-3 py-2.5 bg-white border border-zinc-200 text-[10px] focus:outline-none focus:border-[#b8860b] text-zinc-900"
+                          placeholder="e.g. linkedin.com/in/jvance"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between items-center mb-1">
+                        <label className="text-[8px] font-bold uppercase text-zinc-400 tracking-widest block">📋 Copied Bio, Recent Post, or Homepage text</label>
+                        <span className="text-[8px] text-zinc-400 font-mono lowercase">Free Tier Precision</span>
+                      </div>
+                      <textarea
+                        rows={3}
+                        value={outreachForm.pastedContext}
+                        onChange={(e) => setOutreachForm({...outreachForm, pastedContext: e.target.value})}
+                        className="w-full px-3 py-2 bg-white border border-zinc-200 text-[10px] focus:outline-none focus:border-[#b8860b] text-zinc-900 leading-relaxed font-sans"
+                        placeholder="Paste text copy here. The AI will read this exact biography or company message to extract highly personalized friction hooks instantly."
+                      />
+                    </div>
+
+                    <div className="space-y-2 pt-1 border-t border-zinc-200">
+                      <div className="flex items-center gap-2">
+                        <input 
+                          type="checkbox"
+                          id="enableSearchGrounding"
+                          checked={outreachForm.enableSearchGrounding}
+                          onChange={(e) => setOutreachForm({...outreachForm, enableSearchGrounding: e.target.checked})}
+                          className="w-3.5 h-3.5 text-[#b8860b] border-zinc-350 rounded focus:ring-0 accent-[#b8860b] cursor-pointer"
+                        />
+                        <label htmlFor="enableSearchGrounding" className="text-[8px] font-bold text-zinc-500 uppercase tracking-widest cursor-pointer select-none">
+                          Enable Real-Time Google Search Grounding
+                        </label>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <input 
+                          type="checkbox"
+                          id="embedResearch"
+                          checked={outreachForm.embedResearch}
+                          onChange={(e) => setOutreachForm({...outreachForm, embedResearch: e.target.checked})}
+                          className="w-3.5 h-3.5 text-[#b8860b] border-zinc-350 rounded focus:ring-0 accent-[#b8860b] cursor-pointer"
+                        />
+                        <label htmlFor="embedResearch" className="text-[8px] font-bold text-[#b8860b] uppercase tracking-widest cursor-pointer select-none flex items-center gap-1">
+                          ✨ Embed Specific Founder / Company Facts inside Draft
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Friction Point / Theme Focus</label>
+                    <select
+                      value={outreachForm.theme}
+                      onChange={(e) => setOutreachForm({...outreachForm, theme: e.target.value})}
+                      className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] text-zinc-950"
+                    >
+                      <option>Cognitive Tax over leadership (reclaiming 40% bandwidth)</option>
+                      <option>Succession Architecture & handovers of enterprise perpetuity</option>
+                      <option>Reducing Institutional Lag and executive intent conversion gaps</option>
+                      <option>Protecting operational edge focus and scaling sovereign culture</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Pitch Style Tone</label>
+                    <select
+                      value={outreachForm.tone}
+                      onChange={(e) => setOutreachForm({...outreachForm, tone: e.target.value})}
+                      className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] text-zinc-950"
+                    >
+                      <option>Sovereign Academic & Inevitable</option>
+                      <option>Formal Swiss Concierge</option>
+                      <option>Direct, Provocative & Metric-Driven</option>
+                      <option>Discreet Family Office Style</option>
+                    </select>
+                  </div>
+
+                  <button 
+                    type="submit"
+                    disabled={isGeneratingOutreach}
+                    className="w-full py-4 bg-[#b8860b] hover:bg-[#a07409] text-white text-[10px] font-black uppercase tracking-widest transition-all rounded-sm flex justify-center items-center gap-2 cursor-pointer"
+                  >
+                    {isGeneratingOutreach ? (
+                      <>
+                        <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                        Synthesizing Strategic Dispatch...
+                      </>
+                    ) : (
+                      'Assemble Expert Outbound Pitch'
+                    )}
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            {/* Generated results & history list */}
+            <div className="lg:col-span-2 space-y-8">
+              
+              {/* Active generation showcase */}
+              <div className="bg-white border border-zinc-200 p-8 shadow-xl rounded-sm">
+                <div className="flex justify-between items-center border-b border-zinc-100 pb-4 mb-6">
+                  <div>
+                    <h3 className="text-sm font-black uppercase tracking-widest text-zinc-900">Sovereign Dispatch Preview Stationery</h3>
+                    <p className="text-[10px] text-zinc-400 font-mono">Highly personalized alignment pitch crafted by TULC Copilot</p>
+                  </div>
+                  <span className="px-3 py-1 bg-zinc-100 border border-zinc-200 text-[8px] font-mono font-black text-zinc-500 uppercase tracking-widest">
+                    Internal Workspace Draft
+                  </span>
+                </div>
+
+                {generatedOutreach ? (
+                  <div className="space-y-6 animate-fade-in text-neutral-900">
+                    {/* Analyst Strategic Brief and Active Draft Info */}
+                    <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between p-4 bg-zinc-50 border border-zinc-200 rounded text-xs leading-relaxed text-zinc-800">
+                      <div>
+                        <span className="text-[9px] font-black text-[#b8860b] uppercase tracking-widest block mb-1">Active Ledger Document ID:</span>
+                        <code className="text-[10px] font-mono text-zinc-600 bg-zinc-100 px-1 rounded">{activeOutreachId || "Unsaved Draft"}</code>
+                        <span className="text-zinc-600 block mt-1">"{generatedOutreach.brief}"</span>
+                      </div>
+                      
+                      {activeOutreachId && (
+                        <div className="flex items-center gap-2 shrink-0 bg-white border border-zinc-200 px-3 py-1.5 rounded shadow-sm">
+                          <span className="text-[8px] font-black uppercase text-zinc-400 tracking-wider">Status:</span>
+                          <div className="flex gap-1">
+                            {(['Draft', 'Sent', 'Engaged'] as const).map((stage) => {
+                              const isCurrent = outreachHistory.find(h => h.id === activeOutreachId)?.status === stage;
+                              return (
+                                <button
+                                  key={stage}
+                                  type="button"
+                                  onClick={() => {
+                                    const updated = outreachHistory.map(h => 
+                                      h.id === activeOutreachId ? { ...h, status: stage } : h
+                                    );
+                                    saveOutreachHistory(updated);
+                                  }}
+                                  className={`text-[8px] font-black px-2 py-0.5 rounded border transition-all cursor-pointer ${
+                                    isCurrent 
+                                      ? 'bg-amber-150 text-[#b8860b] border-[#b8860b] font-extrabold' 
+                                      : 'bg-transparent text-zinc-400 border-zinc-100 hover:text-zinc-600'
+                                  }`}
+                                >
+                                  {stage}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Copyable & editable fields */}
+                    <div className="space-y-4">
+                      <div>
+                        <div className="flex justify-between items-center mb-1">
+                          <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest">Email Subject Line (Fully Editable)</label>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              navigator.clipboard.writeText(generatedOutreach.subject);
+                              alert('Subject line copied to clipboard!');
+                            }}
+                            className="text-[9px] font-black text-[#b8860b] hover:underline uppercase"
+                          >
+                            Copy Subject
+                          </button>
+                        </div>
+                        <input 
+                          type="text"
+                          value={generatedOutreach.subject}
+                          onChange={(e) => setGeneratedOutreach({...generatedOutreach, subject: e.target.value})}
+                          className="w-full px-4 py-3 bg-[#fdfdfb] border border-zinc-300 text-xs focus:outline-none focus:border-[#b8860b] font-serif font-bold text-zinc-900 shadow-inner"
+                          placeholder="Strategic Subject Line..."
+                        />
+                      </div>
+
+                      <div>
+                        <div className="flex justify-between items-center mb-1">
+                          <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest">Letter Body Content (Type or Edit Freely)</label>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              navigator.clipboard.writeText(generatedOutreach.body);
+                              alert('Dynamic body copy copied to clipboard!');
+                            }}
+                            className="text-[9px] font-black text-[#b8860b] hover:underline uppercase"
+                          >
+                            Copy Letter Text
+                          </button>
+                        </div>
+                        <textarea
+                          rows={14}
+                          value={generatedOutreach.body}
+                          onChange={(e) => setGeneratedOutreach({...generatedOutreach, body: e.target.value})}
+                          className="w-full px-5 py-4 bg-[#fdfdfb] border border-zinc-300 text-xs focus:outline-none focus:border-[#b8860b] font-serif text-zinc-800 leading-relaxed rounded-xs shadow-inner"
+                          placeholder="Type your strategic outbound letter content here..."
+                        />
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <button
+                        type="button"
+                        onClick={handleUpdateDraft}
+                        className="flex-1 py-4 bg-[#b8860b] hover:bg-[#a07409] text-white text-[10px] font-black uppercase tracking-widest transition-all rounded-sm flex justify-center items-center gap-2 cursor-pointer"
+                      >
+                        <Check className="w-4 h-4" /> Approve & Save Draft Variations
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleLaunchMailto(generatedOutreach.subject, generatedOutreach.body, outreachForm.targetEmail)}
+                        className="flex-1 py-4 bg-[#111111] hover:bg-black text-white text-[10px] font-black uppercase tracking-widest transition-all rounded-sm flex justify-center items-center gap-2 cursor-pointer"
+                      >
+                        <ExternalLink className="w-4 h-4" /> Launch Live Native Mail Client
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="p-16 text-center border-2 border-dashed border-zinc-200 rounded-sm bg-zinc-50 flex flex-col items-center justify-center">
+                    <Mail className="w-12 h-12 text-zinc-300 mb-4 animate-pulse" />
+                    <h3 className="text-zinc-400 font-black uppercase tracking-[0.3em] text-xs">Construct Sovereign Correspondence</h3>
+                    <p className="text-zinc-400 text-[11px] italic mt-2 max-w-md mx-auto mb-6">
+                      Fill out target metrics on the left, or skip the AI and immediately formulate a manual customized letter template to suit your strict stylistic specifications.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={handleStartManualDraft}
+                      className="px-6 py-3 bg-[#111111] hover:bg-black text-white text-[9px] font-black uppercase tracking-widest transition-all rounded-sm flex items-center gap-2 cursor-pointer"
+                    >
+                      📝 Begin Blank Custom Draft
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* Outreach history CRM registry */}
+              <div className="bg-white border border-zinc-200 p-8 shadow-xl rounded-sm">
+                <div className="flex justify-between items-center border-b border-zinc-100 pb-4 mb-4">
+                  <div>
+                    <h3 className="text-sm font-black uppercase tracking-widest text-[#111111]">Outreach Target Registry Ledger</h3>
+                    <p className="text-[10px] text-zinc-400 font-mono mt-1">Sovereign outbound dispatch audit log</p>
+                  </div>
+                  <span className="bg-amber-50 border border-amber-200 px-3 py-1 rounded text-[10px] font-black uppercase font-mono text-[#b8860b]">
+                    Saved Drafts: {outreachHistory.length}
+                  </span>
+                </div>
+
+                {outreachHistory.length === 0 ? (
+                  <p className="text-xs text-zinc-400 italic text-[#777]">No historical target dispatches logged. Completed syntheses appear here automatically.</p>
+                ) : (
+                  <div className="divide-y divide-zinc-100 max-h-80 overflow-y-auto">
+                    {outreachHistory.map((item) => (
+                      <div key={item.id} className="py-4 flex justify-between items-start gap-4 group hover:bg-zinc-50/50 px-2 rounded transition-colors text-neutral-800">
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-3 mb-1">
+                            <span className="text-[8px] font-mono text-[#b8860b] font-black uppercase tracking-wider">{item.targetCompany}</span>
+                            <span className="text-[8px] text-zinc-400 font-mono">{new Date(item.timestamp).toLocaleDateString()}</span>
+                          </div>
+                          <h4 className="text-xs font-bold text-zinc-900">{item.targetName} — <span className="text-zinc-500 font-normal italic">{item.targetTitle}</span></h4>
+                          <p className="text-[10px] text-zinc-400 truncate mt-0.5">Subject: {item.subject}</p>
+                        </div>
+                        <div className="flex items-center gap-2 self-center">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setOutreachForm({
+                                targetName: item.targetName,
+                                targetTitle: item.targetTitle,
+                                targetCompany: item.targetCompany,
+                                targetEmail: item.targetEmail || '',
+                                theme: item.theme,
+                                tone: 'Sovereign Academic & Inevitable'
+                              });
+                              setGeneratedOutreach({
+                                brief: `Restored historical outbound draft for ${item.targetName} at ${item.targetCompany}.`,
+                                subject: item.subject,
+                                body: item.body
+                              });
+                              setActiveOutreachId(item.id);
+                            }}
+                            className="px-3 py-1.5 border border-zinc-200 hover:border-[#b8860b] hover:text-[#b8860b] font-bold text-[8px] uppercase tracking-wider transition-all cursor-pointer"
+                          >
+                            Restore Draft
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (window.confirm('Are you sure you want to remove this record?')) {
+                                saveOutreachHistory(outreachHistory.filter(h => h.id !== item.id));
+                              }
+                            }}
+                            className="p-1 px-2 text-zinc-300 hover:text-red-600 transition-colors cursor-pointer"
+                          >
+                            &times;
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+            </div>
           </div>
         )}
       </div>
