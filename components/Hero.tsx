@@ -18,7 +18,7 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
           <div className="flex flex-col items-center justify-center gap-1.5 mb-4 sm:mb-5 animate-fade-in" style={{ animationDelay: '0.1s' }}>
             <span className="text-[#111111] text-[10px] sm:text-[11px] font-black uppercase tracking-[0.5em] mb-1">The Unbounded Leadership Co.</span>
             <div className="flex items-center gap-3">
-              <span className="text-[#b8860b] text-[8px] sm:text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em]">The Institutional Standard for Sovereignty</span>
+              <span className="text-[#b8860b] text-[8px] sm:text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em]">The Structural Standard for Enterprise Alignment</span>
               <div className="h-[1px] w-6 sm:w-10 bg-[#b8860b]/30"></div>
             </div>
           </div>
@@ -26,43 +26,43 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
           {/* Headline */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-[#111111] leading-[1.05] tracking-tight mb-5 sm:mb-6 animate-fade-in text-center" style={{ animationDelay: '0.2s' }}>
             Architecting the <br className="hidden sm:block" />
-            <span className="italic text-[#b8860b]">Inevitable.</span>
+            <span className="italic text-[#b8860b]">Scalable Enterprise.</span>
           </h1>
 
           {/* The Soul / Integrative Statement */}
-          <div className="max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <p className="text-base md:text-lg text-zinc-800 font-medium italic leading-relaxed mb-6 md:mb-8 text-center px-4">
-              We work with the world's most consequential founders to architect the structural conditions for absolute organizational sovereignty. By recalibrating human ambition with enduring organizational architecture across five vertical domains—<span className="text-[#111111] font-bold not-italic">Cognitive Clarity</span>, <span className="text-[#111111] font-bold not-italic">Systemic Integrity</span>, <span className="text-[#111111] font-bold not-italic">Strategic Velocity</span>, <span className="text-[#111111] font-bold not-italic">Moral Gravity</span>, and <span className="text-[#111111] font-bold not-italic">Cultural Fidelity</span>—we ensure what you build today <span className="text-[#b8860b] font-bold not-italic">commands the future</span> long after you have conquered it.
+          <div className="max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <p className="text-base sm:text-lg md:text-xl text-zinc-800 font-medium italic leading-relaxed mb-8 text-center px-4">
+              For high-growth founders, VCs, and enterprise leaders seeking to eliminate decision bottlenecks, reduce human alignment friction, and reclaim 40% of their strategic bandwidth. We design the self-cohering operational substrate that ensures delegated actions execute with <span className="text-[#b8860b] font-extrabold not-italic">100% of your strategic intent</span>, saving organizations crores in coordination and latency costs.
             </p>
 
             {/* Yields Visualization - High Attention Black Block */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-800 mb-8 md:mb-10 border border-zinc-800 shadow-2xl overflow-hidden">
               <div className="flex flex-col items-center bg-[#111111] p-5 transition-colors hover:bg-zinc-900">
-                <span className="text-2xl font-bold text-white mb-1">30%</span>
-                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2">Strategic Bandwidth</span>
-                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Reclaiming the capacity for high-stakes architectural thought.</p>
+                <span className="text-2xl font-bold text-white mb-1">30%+</span>
+                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2">Bandwidth Reclaimed</span>
+                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Reclaiming high-impact hours from low-value operational reviews.</p>
               </div>
               <div className="flex flex-col items-center bg-[#111111] p-5 transition-colors hover:bg-zinc-900">
-                <span className="text-xl font-bold text-white mb-1">Near-Absolute</span>
-                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2">Cognitive Reclamation</span>
-                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Purging tactical noise to restore absolute decision velocity.</p>
+                <span className="text-xl font-bold text-white mb-1">40% Less Delay</span>
+                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2">Decision Velocity</span>
+                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Reducing administrative drag to accelerate market responsiveness.</p>
               </div>
               <div className="flex flex-col items-center bg-[#111111] p-5 transition-colors hover:bg-zinc-900">
-                <span className="text-xl font-bold text-white mb-1">Asymptotic</span>
-                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2">Intent Fidelity</span>
-                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Eliminating authority dilution across the organizational substrate.</p>
+                <span className="text-xl font-bold text-white mb-1">100% Parity</span>
+                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2">Strategic Intent</span>
+                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Ensuring delegated actions execute with reliable, standard alignment.</p>
               </div>
               <div className="flex flex-col items-center bg-[#111111] p-5 transition-colors hover:bg-zinc-900">
-                <span className="text-2xl font-bold text-white mb-1">∞</span>
-                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2">Legacy Yield</span>
-                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Engineering institutional permanence independent of presence.</p>
+                <span className="text-2xl font-bold text-white mb-1">Active</span>
+                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2">Business Continuity</span>
+                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Establishing repeatable workflows independent of individual presence.</p>
               </div>
             </div>
 
             {/* Legacy Risk Statement (Suggestion 2) */}
             <div className="mb-6 md:mb-8 px-6 py-3.5 border-l-2 border-[#b8860b] bg-white/50 backdrop-blur-sm inline-block text-left max-w-2xl">
               <p className="text-xs text-zinc-600 font-medium italic leading-relaxed">
-                Strategic intent is currently being diluted by institutional noise. Reclaim the authority that structural entropy is absorbing before the next board cycle concludes.
+                Organizational performance suffers when strategic alignment is diluted across management layers. Secure your operation against coordination drag and administrative bottlenecks before your next scaling phase.
               </p>
             </div>
 
@@ -73,14 +73,14 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
                   onClick={() => navigate('/intake')}
                   className="px-8 py-4 sm:px-10 sm:py-5 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 shadow-2xl relative overflow-hidden group"
                 >
-                  <span className="relative z-10 font-bold">Secure Institutional Consult</span>
+                  <span className="relative z-10 font-bold">Secure Enterprise Consult</span>
                   <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                 </button>
                 <button 
                   onClick={() => navigate('/assessment')}
                   className="px-8 py-4 sm:px-10 sm:py-5 border border-zinc-300 text-[#111111] text-[10px] font-black uppercase tracking-[0.3em] hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-500"
                 >
-                  Initiate Substrate Audit
+                  Initiate Strategic Alignment Audit
                 </button>
               </div>
 
@@ -99,13 +99,13 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
 
         {/* Floating accent */}
         <div className="absolute bottom-[-80px] right-6 hidden xl:block opacity-[0.02]">
-           <span className="text-[120px] font-black italic tracking-tighter select-none">Sovereignty</span>
+           <span className="text-[120px] font-black italic tracking-tighter select-none">Alignment</span>
         </div>
       </div>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-20">
-        <span className="text-[7px] font-black uppercase tracking-[0.4em] rotate-90 mb-3">RECLAIM</span>
+        <span className="text-[7px] font-black uppercase tracking-[0.4em] rotate-90 mb-3">ALIGN</span>
         <div className="w-[1px] h-10 bg-[#b8860b]" />
       </div>
     </section>

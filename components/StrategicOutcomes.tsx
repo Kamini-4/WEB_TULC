@@ -7,7 +7,7 @@ const StrategicOutcomes: React.FC = () => {
         <div className="text-center mb-24">
           <h2 className="text-[#b8860b] text-[11px] font-black uppercase mb-8 tracking-[0.4em]">The Standard of Excellence</h2>
           <h3 className="text-4xl md:text-6xl font-medium leading-[1.15] text-white max-w-4xl mx-auto">
-            Reclaiming the <span className="italic text-[#b8860b]">Sovereign Yield.</span>
+            Reclaiming the <span className="italic text-[#b8860b]">Strategic Yield.</span>
           </h3>
           <div className="w-24 h-[1px] bg-[#b8860b] mx-auto mt-16 opacity-30"></div>
         </div>
@@ -15,20 +15,20 @@ const StrategicOutcomes: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16 mb-24">
           <OutcomeCard 
             vector="01"
-            title="Authority Reclamation"
-            description="Re-wiring teams to process systemic risk without your constant intervention. Reclaim the 40% of strategic velocity currently lost to noise—achieving Board-grade clarity and unimpeded execution."
+            title="Authority Delegation"
+            description="Re-wiring teams to coordinate and resolve systemic risks without your constant physical presence. Reclaim the 40% of strategic velocity currently lost to alignment drift—achieving board-grade clarity and unimpeded execution."
             kpi="40% Bandwidth Reclamation"
           />
           <OutcomeCard 
             vector="02"
-            title="Institutional Autopilot"
-            description="Eliminating fragile dependence on human heroics. Evolving into a sovereign entity that executes your vision as a natural law, ensuring Zero-hero dependence and operational resilience."
+            title="Operational Autopilot"
+            description="Eliminating fragile dependence on individual heroics. Evolving into an aligned, scalable corporate framework that executes your strategic vision as standard operating procedure."
             kpi="90-Day Permanence Cycle"
           />
           <OutcomeCard 
             vector="03"
-            title="Architectural Command"
-            description="Shift from individual exhaustion to substrate-driven dominance. Triple your strategic yield through absolute structural design and Succession readiness."
+            title="Strategic Alignment"
+            description="Shift from constant operational fires to design-driven growth. Speed up of strategic feedback loops through validated alignment metrics and governance standards."
             kpi="3x Strategic Velocity"
           />
         </div>

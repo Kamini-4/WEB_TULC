@@ -27,8 +27,8 @@ const SERVICES_SPECTRUM: Service[] = [
     subtitle: 'Forensic Cognitive Leak Audit',
     duration: '14-Day Engagement',
     description: 'For principals requiring architectural proof before full institutional integration. A high-fidelity telemetry scan mapping your personal decision frequency and identifying the 30% bandwidth drain.',
-    price: 'Upon Request',
-    billingDetail: 'Fixed Intake Fee / Tailored according to organization scope',
+    price: '₹1,50,000 INR',
+    billingDetail: 'Fixed investment. Complete 14-day fully-compiled telemetry & profile dossier',
     features: [
       'Comprehensive Relational Infrastructure Audit',
       'Personal Cognitive Bandwidth Allocation Map',
@@ -45,11 +45,11 @@ const SERVICES_SPECTRUM: Service[] = [
     id: 'sovereign_protocol',
     badge: 'Phase 01-04',
     title: 'The Sovereign Protocol',
-    subtitle: 'Full-Scale Operating System recalibration',
-    duration: '6–9 Month Intervention',
+    subtitle: 'Full-Scale Operating System Recalibration',
+    duration: '6-Week Architecture Setup',
     description: 'A complete, modular overhaul of your leadership operating system. We externalize your unique strategic DNA and hard-code it into autonomous logic gates to achieve unshakeable institutional permanence.',
-    price: 'Bespoke Pricing',
-    billingDetail: 'Based on scale, typically from $250k',
+    price: '₹12,50,000 INR',
+    billingDetail: 'Transparent flat fee. Includes 6-week architecture configuration + 3 months implementation guardrails',
     features: [
       'Onsite Intensives & Off-site Board Calibration Labs',
       'Implementation of 12+ Custom Logic-Gates',
@@ -65,10 +65,10 @@ const SERVICES_SPECTRUM: Service[] = [
     badge: 'Retainer',
     title: 'Sovereign Board Oversight',
     subtitle: 'Fiduciary Safeguard & Resonance Preservation',
-    duration: 'Annual Retainer',
+    duration: 'Ongoing Retainer',
     description: 'Continuous high-frequency monitoring and ongoing strategic alignment verification. Ideal for holding companies, multi-brand founders, or boards seeking to insulate institutional value and de-risk succession.',
-    price: 'Upon Request',
-    billingDetail: 'Tailored monthly or annual billing',
+    price: '₹2,40,000 / Qtr',
+    billingDetail: 'Billed quarterly. Ongoing strategic alignment audits and live executive feedback loops',
     features: [
       'Bi-annual Substrate Integrity Re-auditing',
       'Priority Shadow Metric Dashboards',
@@ -84,7 +84,7 @@ const SERVICES_SPECTRUM: Service[] = [
 const ServicesPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedService, setSelectedService] = useState<string>('diagnostic');
-  const [revenue, setRevenue] = useState<number>(500); // in millions
+  const [revenue, setRevenue] = useState<number>(500); // in Crores
   const [headcount, setHeadcount] = useState<number>(10); // number of direct reports
   const [meetingHours, setMeetingHours] = useState<number>(25); // meetings per week
 
@@ -94,18 +94,22 @@ const ServicesPage: React.FC = () => {
 
   // Calculate estimated Cognitive Tax based on sliders
   const cognitiveTaxCost = useMemo(() => {
-    // Basic conceptual math for opportunity cost of leadership friction
-    const executiveHourValue = (revenue * 1000) / 2000; // estimated output value per hour
+    // Basic conceptual math for opportunity cost of leadership friction in INR Rupees
+    // revenue is Cr, so revenue * 10,000,000 Rupees
+    const executiveHourValue = (revenue * 10000000) / 2000; // estimated output value per hour
     const weeklyLostHours = meetingHours * 0.4; // 40% estimated meeting waste / cognitive tax
     const annualLostOpportunityValue = executiveHourValue * weeklyLostHours * 48; // 48 active weeks
     return Math.round(annualLostOpportunityValue);
   }, [revenue, meetingHours]);
 
   const formatCurrency = (val: number) => {
-    if (val >= 1000) {
-      return `$${(val / 1000).toFixed(1)}M`;
+    if (val >= 10000000) {
+      return `₹${(val / 10000000).toFixed(2)} Crores`;
     }
-    return `$${val.toLocaleString()}k`;
+    if (val >= 100000) {
+      return `₹${(val / 100000).toFixed(1)} Lakhs`;
+    }
+    return `₹${val.toLocaleString('en-IN')}`;
   };
 
   const handleCtaClick = (service: Service) => {
@@ -234,7 +238,7 @@ const ServicesPage: React.FC = () => {
                 <div>
                   <div className="flex justify-between items-center mb-3 text-xs uppercase tracking-widest text-zinc-300">
                     <span className="flex items-center gap-2"><Building className="w-3.5 h-3.5 text-zinc-500" /> Annual Org Revenue</span>
-                    <span className="font-bold text-[#b8860b]">${revenue}M</span>
+                    <span className="font-bold text-[#b8860b]">₹{revenue} Cr</span>
                   </div>
                   <input 
                     type="range" 
@@ -245,8 +249,8 @@ const ServicesPage: React.FC = () => {
                     className="w-full accent-[#b8860b] bg-zinc-800 h-1 rounded-lg cursor-pointer"
                   />
                   <div className="flex justify-between text-[9px] text-zinc-500 mt-1 uppercase tracking-widest">
-                    <span>$10M</span>
-                    <span>$2B+</span>
+                    <span>₹10 Cr</span>
+                    <span>₹2,000 Cr+</span>
                   </div>
                 </div>
 

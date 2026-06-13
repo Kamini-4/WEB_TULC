@@ -6,28 +6,28 @@ const YieldStatement: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-6 tracking-[0.4em]">The Institutional Yield Statement</h2>
+            <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-6 tracking-[0.4em]">The Operational Yield Statement</h2>
             <h3 className="text-3xl md:text-5xl font-bold text-[#111111] leading-tight mb-8">
-              Quantifying the <span className="italic text-[#b8860b]">Physics of Command.</span>
+              Quantifying the <span className="italic text-[#b8860b]">Value of Alignment.</span>
             </h3>
             <p className="text-zinc-600 text-lg md:text-xl font-light italic leading-relaxed mb-10">
-              We do not provide "advice." We provide the structural conditions that make strategic outcomes inevitable. The Yield Statement is the definitive record of reclaimed authority and systemic velocity.
+              We do not provide standard coaching or consulting. We engineer the structural and operational frameworks that ensure reliable, high-fidelity strategic execution.
             </p>
             <div className="space-y-6">
               <YieldPoint 
                 label="Strategic Bandwidth Reclamation" 
                 value="30-45%" 
-                desc="The immediate restoration of cognitive capacity for high-stakes architectural thought."
+                desc="The recovery of active leadership hours to focus on growth and capital allocation."
               />
               <YieldPoint 
-                label="Intent Fidelity" 
-                value="Asymptotic" 
-                desc="The elimination of authority dilution as vision moves from the Board to the operational edge."
+                label="Strategic Intent Fidelity" 
+                value="99.8%" 
+                desc="The elimination of alignment decay as strategy moves from leadership to front-line execution layers."
               />
               <YieldPoint 
                 label="Decision Velocity Gain" 
                 value="3x" 
-                desc="The acceleration of strategic pivots through autonomous substrate recalibration."
+                desc="The acceleration of strategic response times through standardized operational guardrails."
               />
             </div>
           </div>
@@ -38,7 +38,7 @@ const YieldStatement: React.FC = () => {
               <div className="text-[#b8860b] text-[9px] font-black uppercase tracking-[0.3em] mb-12">Yield Projection v1.0</div>
               <div className="space-y-12">
                 <div className="flex justify-between items-end border-b border-white/10 pb-6">
-                  <span className="text-white/60 text-[10px] uppercase font-bold tracking-widest">Current Entropy</span>
+                  <span className="text-white/60 text-[10px] uppercase font-bold tracking-widest">Coordination Friction</span>
                   <span className="text-white text-2xl font-mono">High Variance</span>
                 </div>
                 <div className="flex justify-between items-end border-b border-white/10 pb-6">
@@ -52,7 +52,7 @@ const YieldStatement: React.FC = () => {
               </div>
               <div className="mt-16">
                 <p className="text-zinc-700 text-[10px] italic leading-relaxed mb-8">
-                  *Results are unique to each institutional substrate. TULC does not guarantee universal outcomes; we engineer specific structural inevitabilities.
+                  *Projections are dependent on organization scale, headcount, and specific active strategic alignment gaps.
                 </p>
                 <button 
                   onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}

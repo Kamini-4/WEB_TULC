@@ -11,12 +11,12 @@ const ThoughtLeadership: React.FC<ThoughtLeadershipProps> = ({ onDispatchClick }
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row justify-between items-start mb-24 gap-12">
           <div className="max-w-3xl">
-            <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-8 tracking-[0.5em]">The Sovereign Briefings</h2>
+            <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-8 tracking-[0.5em]">The Strategic Briefings</h2>
             <h3 className="text-5xl md:text-7xl font-bold text-[#111111] leading-[0.9] tracking-tighter">
               Privileged <span className="italic text-[#b8860b]">Insights.</span>
             </h3>
             <p className="mt-10 text-zinc-500 text-xl italic font-light leading-relaxed max-w-2xl">
-              A high-signal briefing series engineered to move the Principal from institutional entropy to absolute sovereignty.
+              A high-signal briefing series engineered to help organization leaders resolve coordination friction and establish scalable governance.
             </p>
           </div>
           <div className="flex flex-col gap-6 w-full lg:w-auto">
@@ -78,7 +78,7 @@ const ThoughtLeadership: React.FC<ThoughtLeadershipProps> = ({ onDispatchClick }
 
         <div className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-12">
           <EditorialStat label="Briefing Depth" value="5 Dispatches" />
-          <EditorialStat label="Strategic Focus" value="Substrate Integrity" />
+          <EditorialStat label="Strategic Focus" value="Structural Integrity" />
           <EditorialStat label="Target Audience" value="Principals & Boards" />
         </div>
 

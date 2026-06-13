@@ -14,9 +14,9 @@ const MethodologyPage: React.FC<MethodologyPageProps> = ({ onBriefClick }) => {
       <section className="pt-16 pb-8 bg-[#0a0a0a] text-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-4">Deep Dive</h2>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">Systemic <br /><span className="italic text-[#b8860b]">Physics.</span></h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">Systemic <br /><span className="italic text-[#b8860b]">Alignment.</span></h1>
           <p className="max-w-3xl text-zinc-500 text-lg leading-relaxed italic font-light">
-            Moving beyond psychometrics into the realm of architectural integrity. We analyze the forces that govern institutional growth.
+            Moving beyond superficial coaching into the realm of structural alignment. We analyze the forces that govern scalable enterprise growth.
           </p>
         </div>
       </section>
@@ -30,23 +30,23 @@ const MethodologyPage: React.FC<MethodologyPageProps> = ({ onBriefClick }) => {
       
       <section className="py-12 bg-[#0a0a0a] text-white border-t border-white/5">
         <div className="max-w-4xl mx-auto px-6">
-           <h3 className="text-3xl font-bold mb-12">The Four Pillars of <span className="italic text-[#b8860b]">Sovereign Integrity.</span></h3>
+           <h3 className="text-3xl font-bold mb-12">The Four Pillars of <span className="italic text-[#b8860b]">Enterprise Alignment.</span></h3>
            <div className="grid gap-12">
              <div className="border-l-2 border-[#b8860b] pl-8">
-               <h4 className="text-xl font-bold mb-4">01. Substrate Density</h4>
-               <p className="text-zinc-400 leading-relaxed italic font-light">The ability of the foundation to carry strategic weight without structural variance.</p>
+               <h4 className="text-xl font-bold mb-4">01. Structural Foundation</h4>
+               <p className="text-zinc-400 leading-relaxed italic font-light">The capacity of the operational foundation to support scaling volume without performance drift.</p>
              </div>
              <div className="border-l-2 border-[#b8860b] pl-8">
                <h4 className="text-xl font-bold mb-4">02. Decision Velocity</h4>
-               <p className="text-zinc-400 leading-relaxed italic font-light">The speed at which strategic intent is converted into market delta.</p>
+               <p className="text-zinc-400 leading-relaxed italic font-light">The speed at which strategic intent is converted into market response.</p>
              </div>
              <div className="border-l-2 border-[#b8860b] pl-8">
-               <h4 className="text-xl font-bold mb-4">03. Trust Resonance</h4>
-               <p className="text-zinc-400 leading-relaxed italic font-light">The alignment of relational infrastructure with architectural command.</p>
+               <h4 className="text-xl font-bold mb-4">03. Operational Alignment</h4>
+               <p className="text-zinc-400 leading-relaxed italic font-light">The direct alignment of team execution layers with leadership's core strategic vision.</p>
              </div>
              <div className="border-l-2 border-[#b8860b] pl-8">
-               <h4 className="text-xl font-bold mb-4">04. Sovereign Peace</h4>
-               <p className="text-zinc-400 leading-relaxed italic font-light">The ultimate yield: decoupling your impact from your cognitive burn rate.</p>
+               <h4 className="text-xl font-bold mb-4">04. Strategic Continuity</h4>
+               <p className="text-zinc-400 leading-relaxed italic font-light">The ultimate yield: decoupling your enterprise's scaling capacity from day-to-day individual oversight.</p>
              </div>
            </div>
         </div>

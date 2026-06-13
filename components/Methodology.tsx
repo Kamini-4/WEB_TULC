@@ -37,9 +37,9 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 sm:mb-24 gap-8">
           <div className="max-w-2xl">
-            <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 tracking-[0.3em] sm:tracking-[0.4em]">The Sovereign Protocol</h2>
+            <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 tracking-[0.3em] sm:tracking-[0.4em]">The Strategic Alignment Protocol</h2>
             <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
-              The Architecture of <span className="italic text-[#b8860b]">Inevitability.</span>
+              The Architecture of <span className="italic text-[#b8860b]">Scalability.</span>
             </h3>
           </div>
           <div className="pb-2 w-full md:w-auto">
@@ -57,8 +57,8 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             phase="01"
             title="Yield Calibration"
             subtitle="The Diagnostic"
-            action="Deployment of the Sovereign Assessment to map the vertical maturity of your institutional substrate."
-            outcome="Identification of systemic constraints and authority leakage points."
+            action="Deployment of the Alignment Assessment to map the operational execution maturity of your organization."
+            outcome="Identification of systemic constraints and coordination leakage points."
             image="https://images.unsplash.com/photo-1507679799987-c7077948a7eb?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('01')}
           />
@@ -66,8 +66,8 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             phase="02"
             title="Strategic Domain Mapping"
             subtitle="The Synthesis"
-            action="Generation of the Structural Integrity Report, isolating the Two Primary Domains for immediate calibration."
-            outcome="A definitive architectural blueprint for bandwidth reclamation."
+            action="Generation of the Structural Alignment Report, isolating the two primary dimensions for immediate calibration."
+            outcome="A definitive operational blueprint for executive bandwidth reclamation."
             image="https://images.unsplash.com/photo-1518349619113-03114f06ac3a?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('02')}
           />
@@ -75,17 +75,17 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             phase="03"
             title="Architectural Intervention"
             subtitle="The Calibration"
-            action="Bespoke re-engineering of leadership protocols tailored to your institutional requirements."
-            outcome="Neutralization of systemic entropy and restoration of strategic velocity."
+            action="Tailored implementation of leadership protocols configured for your organization's specific requirements."
+            outcome="Elimination of coordination friction and acceleration of strategic response rates."
             image="https://images.unsplash.com/photo-1504917595217-d4dc5f649e6b?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('03')}
           />
           <PhaseCard 
             phase="04"
-            title="Sovereign Integration"
+            title="Strategic Integration"
             subtitle="The Integration"
-            action="Implementing autonomous governance substrates to ensure asymptotic intent fidelity."
-            outcome="Total institutional permanence. Strategic outcomes become natural law."
+            action="Implementing validated governance structures to guarantee high strategic intent fidelity."
+            outcome="Long-term operational resilience. Strategic decisions translate into reliable team performance."
             image="https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('04')}
           />
