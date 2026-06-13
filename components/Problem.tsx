@@ -49,36 +49,6 @@ const Problem: React.FC = () => {
                 "To lead through force is to accept friction. To lead through architecture is to achieve effortless alignment."
               </p>
 
-              <div className="p-6 bg-white border border-zinc-200 shadow-md relative overflow-hidden my-6">
-                <div className="absolute top-0 left-0 w-1 bg-[#b8860b] h-full" />
-                <h4 className="text-[10px] font-black uppercase text-[#b8860b] tracking-[0.2em] mb-4 font-mono">Structural Signal & Diagnostic Vectors</h4>
-                <p className="text-zinc-600 text-xs italic font-light leading-relaxed mb-4">
-                  As organizational complexity scales, traditional governance models break down. Relying on constant manual meetings and status reporting results in immediate structural friction. We measure this breakdown through five critical diagnostic dimensions:
-                </p>
-                <div className="grid grid-cols-1 gap-y-4 text-xs font-light">
-                  <div className="border-t border-zinc-100 pt-3">
-                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">Intent & Dilution</span>
-                    <p className="text-zinc-500 italic leading-normal text-[11px]">The automatic degradation of strategic clarity as direction moves through hierarchical layers, resulting in teams executing diluted, low-fidelity approximations of your original vision.</p>
-                  </div>
-                  <div className="border-t border-zinc-100 pt-3">
-                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">The Cognitive Tax</span>
-                    <p className="text-zinc-500 italic leading-normal text-[11px]">The heavy mental and creative depletion paid by elite leadership when forced to step out of high-stakes vision planning to manually resolve ongoing organizational misalignments.</p>
-                  </div>
-                  <div className="border-t border-zinc-100 pt-3">
-                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">The Inaction Tax</span>
-                    <p className="text-zinc-500 italic leading-normal text-[11px]">The heavy, compound organizational cost of delayed alignment, frozen priorities, and systemic indecisiveness that slows down high-stakes response cycles.</p>
-                  </div>
-                  <div className="border-t border-zinc-100 pt-3">
-                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">The Structural Signal</span>
-                    <p className="text-zinc-500 italic leading-normal text-[11px]">The fidelity index of how purely and rapidly your strategic commands flow across the organization, independent of manual oversight or personal follow-ups.</p>
-                  </div>
-                  <div className="border-t border-zinc-100 pt-3">
-                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">Our Diagnostic Vector</span>
-                    <p className="text-zinc-500 italic leading-normal text-[11px]">The precise analytical framework used to trace operational friction back to systemic architectural defects, bypassing symptoms to re-code the baseline performance structure.</p>
-                  </div>
-                </div>
-              </div>
-
               <div className="pt-4">
                 <button 
                   onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
