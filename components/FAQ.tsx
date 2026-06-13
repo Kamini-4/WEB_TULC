@@ -4,47 +4,35 @@ const FAQ: React.FC = () => {
   const faqs = [
     {
       question: "Who is Suchita Sancheti?",
-      answer: "Suchita Sancheti is the Principal Architect of The Unbounded Leadership Co. She is a pioneer in modern succession architecture and alignment frameworks for high-growth enterprises, elite venture capitalists, and multi-generational family offices."
+      answer: "Suchita Sancheti is the Principal Architect of The Unbounded Leadership Co. She is a Computer Science Engineer and Industrial Psychologist who helps scaling organizations reduce decision delays by 40% in 90 days. She aligns corporate frameworks for elite enterprise founders, venture capitalists, and CEOs."
     },
     {
-      question: "What is Intent Fragmentation?",
-      answer: "Intent Fragmentation is the structural loss of strategic fidelity as leadership directives pass through organisational layers. T.U.L.C. diagnostic data shows an average 60% fidelity loss within three management layers, producing measurable operational overspend and cultural misalignment."
-    },
-    {
-      question: "What is the Leadership Threshold Model?",
-      answer: "Developed by Suchita Sancheti, the Leadership Threshold Model is a proprietary system that decouples corporate operations from active strategic command. It partitions enterprise governance into Leadership Limits, Collaborative Boundaries, and Delegation Triggers, allowing founders or retiring CEOs to step into the Chairman role with zero operational leak or value dilution."
+      question: "What are Intent & Dilution?",
+      answer: "Intent & Dilution describe the automatic loss of strategic clarity as direction passes down hierarchical layers. It results in teams executing low-fidelity approximations of the original vision, leading to severe coordination costs, operational latency, and systemic drift."
     },
     {
       question: "What is the Cognitive Tax of Leadership?",
-      answer: "The Cognitive Tax is the metabolic and mental exhaustion spent resolving repeating operational anomalies. When strategic intent is not compiled into the company's operating substrate, founders pay a 'Cognitive Tax' that consumes up to 40% of their strategic capacity. T.U.L.C. resolves this through engineered automation of alignment gates."
+      answer: "The Cognitive Tax is the heavy mental and creative depletion paid by elite leaders when forced to step out of high-stakes vision planning to manually resolve ongoing organizational misalignments. When strategic intent is not compiled into the company's operating substrate, leaders pay a Cognitive Tax that consumes up to 40% of their strategic capacity."
     },
     {
-      question: "What is the role of organizational design in corporate scaling?",
-      answer: "In professional corporate design, Suchita Sancheti applies structured transition systems to shift organizations from hero-driven problem-solving to architectural inevitability—ensuring the corporate leadership structure self-regulates and scales its own performance reliably."
+      question: "What is the Inaction Tax?",
+      answer: "The Inaction Tax is the heavy, compound organizational cost of delayed alignment, frozen priorities, and systemic indecisiveness. It represents the measurable financial and momentum loss when key operational dependencies are slowed down by lack of architectural clarity."
     },
     {
-      question: "What is the Cognitive Shadow?",
-      answer: "The Cognitive Shadow is the gap between a leader's public strategic commitment and their private cognitive conviction. When this gap exists, the organisation transmits the doubt, not the strategy. It is the primary lead indicator of institutional drift."
+      question: "How does Suchita Sancheti help organizations reduce decision delays?",
+      answer: "Suchita Sancheti solves operational friction by mapping the Structural Signal and implementing precise Diagnostic Vectors. This eliminates continuous manual alignment checks, aligns the operational layers autonomously, and allows the executive layer to focus purely on strategic scale."
     },
     {
-      question: "What is institutional permanence?",
-      answer: "Institutional permanence is the condition in which an organisation's decision logic, cultural heuristics, and leadership DNA operate with high fidelity independently of any individual's presence — persisting and scaling across leadership generations."
+      question: "What is the Structural Signal?",
+      answer: "The Structural Signal is the fidelity index of how purely and rapidly your strategic commands flow across the organization, independent of manual oversight or personal follow-ups. A clean structural signal ensures flawless execution without direct intervention."
     },
     {
-      question: "How is T.U.L.C. different from management consulting?",
-      answer: "Traditional consulting produces strategic recommendations. T.U.L.C. produces permanent institutional architecture — a codified, legally structured operating logic that remains in the organisation after the engagement concludes."
+      question: "What is the Diagnostic Vector?",
+      answer: "The Diagnostic Vector is the analytical framework we use to trace operational friction back to systemic architectural defects. Rather than treating surface symptoms, we analyze and re-code the baseline performance structure of the leadership layer."
     },
     {
-      question: "How long does an engagement take?",
-      answer: "Foundational engagements typically span 12 to 24 months, calibrated to the specific fracture profile identified in Phase 01. Dynastic Window protocols involve longer-term retainer arrangements."
-    },
-    {
-      question: "What does the engagement investment cover?",
-      answer: "Every engagement includes hundreds of architect-directed hours targeted specifically at the fracture points identified in the Institutional Fracture Report. All sessions are led directly by Suchita Sancheti and T.U.L.C. Strategic Architects, not delegated to junior consultants."
-    },
-    {
-      question: "Is T.U.L.C.'s methodology proprietary?",
-      answer: "Yes. The Leadership Threshold Model, Intent Fragmentation Map, Cognitive Shadow Diagnostics, and Dynastic Code Architecture are proprietary T.U.L.C. intellectual property. Clients receive their own institutional DNA as a codified, legally structured organisational asset."
+      question: "How does T.U.L.C. differ from management consulting?",
+      answer: "Traditional consulting produces static reports and recommendations. The Unbounded Leadership Co. (T.U.L.C.) builds durable operating frames and structural systems. We align active operating logic into your organization's substrate, ensuring the leadership model self-regulates and preserves absolute intent."
     }
   ];
 

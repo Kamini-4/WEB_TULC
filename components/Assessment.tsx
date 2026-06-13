@@ -1754,7 +1754,7 @@ const Assessment: React.FC = () => {
                                             <Check className="w-4 h-4 text-[#b8860b] mx-auto mb-1" />
                                             <span className="text-[8px] font-mono uppercase text-white font-bold tracking-wider block">Wire Handshake Initiated</span>
                                             <p className="text-[9px] text-zinc-400 italic">
-                                              Kamini Agnihotri (Assistant to Suchita Sancheti) is compiling details. A premium wire invoice will reach you within 4 hours.
+                                              Kamini Agnihotri (Operations & Client Relations Coordinator) is compiling details. A premium wire invoice will reach you within 4 hours.
                                             </p>
                                           </div>
                                         )}

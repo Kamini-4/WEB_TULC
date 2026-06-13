@@ -138,7 +138,7 @@ const About: React.FC = () => {
               </p>
             </div>
 
-            {/* Virtual Assistant Profile Block within the Office of the Principal */}
+            {/* Staff Profile Block within the Office of the Principal */}
             <div className="bg-white p-8 border border-zinc-200 shadow-sm space-y-4">
               <div className="flex items-center gap-4 border-b border-zinc-100 pb-4">
                 <div className="w-12 h-12 bg-[#111] border border-[#b8860b] flex items-center justify-center rounded-xs shrink-0 font-serif text-white font-bold">
@@ -147,11 +147,11 @@ const About: React.FC = () => {
                 <div>
                   <h4 className="text-[#b8860b] text-[8px] font-black uppercase tracking-[0.3em]">Office of the Principal Architect</h4>
                   <p className="text-base font-semibold text-[#111111] font-serif">Kamini Agnihotri</p>
-                  <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Virtual Assistant & Operations Coordinator</p>
+                  <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Operations & Client Relations Coordinator</p>
                 </div>
               </div>
               <p className="text-zinc-600 leading-relaxed font-light italic text-xs">
-                As the executive virtual assistant to Suchita Sancheti, Kamini Agnihotri intercepts and coordinates absolute structural flow, managing client scheduling, secure communications, administrative protocols, and accounting dispatches.
+                Within the Office of the Principal, Kamini Agnihotri manages operational flow, coordinating client scheduling, secure communications, administrative protocols, and accounts.
               </p>
             </div>
           </div>

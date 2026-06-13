@@ -22,9 +22,10 @@ const Problem: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 sm:gap-24 items-start mb-16 sm:mb-20">
           <div>
-            <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 tracking-[0.3em]">The Inaction Tax</h2>
+            <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 tracking-[0.3em]">The Governance Threshold</h2>
             <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.1] mb-8 sm:mb-10 text-[#111111]">
-              The Silent Dilution of <span className="italic text-[#b8860b]">Your Authority.</span>
+              Why Traditional Governance <br />
+              <span className="italic text-[#b8860b]">Fails as Complexity Scales.</span>
             </h3>
             <div className="space-y-6 sm:space-y-8 text-zinc-600 text-lg sm:text-xl leading-relaxed italic font-light">
               <p>
@@ -50,30 +51,30 @@ const Problem: React.FC = () => {
 
               <div className="p-6 bg-white border border-zinc-200 shadow-md relative overflow-hidden my-6">
                 <div className="absolute top-0 left-0 w-1 bg-[#b8860b] h-full" />
-                <h4 className="text-[10px] font-black uppercase text-[#b8860b] tracking-[0.2em] mb-4 font-mono">Structural Signal Diagnostic Vector</h4>
+                <h4 className="text-[10px] font-black uppercase text-[#b8860b] tracking-[0.2em] mb-4 font-mono">Structural Signal & Diagnostic Vectors</h4>
                 <p className="text-zinc-600 text-xs italic font-light leading-relaxed mb-4">
-                  When raw strategic velocity is bogged down by operational details, your leadership substrate undergoes a <strong className="text-[#111111] font-semibold">silent dilution of authority</strong>. The system operates on friction rather than logic:
+                  As organizational complexity scales, traditional governance models break down. Relying on constant manual meetings and status reporting results in immediate structural friction. We measure this breakdown through five critical diagnostic dimensions:
                 </p>
                 <div className="grid grid-cols-1 gap-y-4 text-xs font-light">
                   <div className="border-t border-zinc-100 pt-3">
-                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">Intent Dilution & Cognitive Tax</span>
-                    <p className="text-zinc-500 italic leading-normal text-[11px]">The slow leak of intent across hierarchical nodes, depleting the Principal's high-stakes creative bandwidth.</p>
+                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">Intent & Dilution</span>
+                    <p className="text-zinc-500 italic leading-normal text-[11px]">The automatic degradation of strategic clarity as direction moves through hierarchical layers, resulting in teams executing diluted, low-fidelity approximations of your original vision.</p>
+                  </div>
+                  <div className="border-t border-zinc-100 pt-3">
+                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">The Cognitive Tax</span>
+                    <p className="text-zinc-500 italic leading-normal text-[11px]">The heavy mental and creative depletion paid by elite leadership when forced to step out of high-stakes vision planning to manually resolve ongoing organizational misalignments.</p>
                   </div>
                   <div className="border-t border-zinc-100 pt-3">
                     <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">The Inaction Tax</span>
-                    <p className="text-zinc-500 italic leading-normal text-[11px]">The severe price paid for delayed alignment of key operational dependencies.</p>
+                    <p className="text-zinc-500 italic leading-normal text-[11px]">The heavy, compound organizational cost of delayed alignment, frozen priorities, and systemic indecisiveness that slows down high-stakes response cycles.</p>
                   </div>
                   <div className="border-t border-zinc-100 pt-3">
-                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">Strategic Newsletter</span>
-                    <p className="text-zinc-500 italic leading-normal text-[11px]">A high-fidelity structured update framework that ensures zero strategic delay and total vision integrity.</p>
+                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">The Structural Signal</span>
+                    <p className="text-zinc-500 italic leading-normal text-[11px]">The fidelity index of how purely and rapidly your strategic commands flow across the organization, independent of manual oversight or personal follow-ups.</p>
                   </div>
                   <div className="border-t border-zinc-100 pt-3">
-                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">Operational Friction & System Inertia</span>
-                    <p className="text-zinc-500 italic leading-normal text-[11px]">The mental insolvency of Tier 1 leaders trying to govern via direct daily intervention rather than architecture.</p>
-                  </div>
-                  <div className="border-t border-zinc-100 pt-3">
-                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">Role Dislocation & Strategic Dilution</span>
-                    <p className="text-zinc-500 italic leading-normal text-[11px]">The unintended transfer of corporate momentum to broken mechanics, diluting absolute leadership value.</p>
+                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">Our Diagnostic Vector</span>
+                    <p className="text-zinc-500 italic leading-normal text-[11px]">The precise analytical framework used to trace operational friction back to systemic architectural defects, bypassing symptoms to re-code the baseline performance structure.</p>
                   </div>
                 </div>
               </div>
