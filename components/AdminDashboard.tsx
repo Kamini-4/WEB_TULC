@@ -215,7 +215,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setFirebaseUser(user);
-      if (user && user.email === 'suchita135sancheti@gmail.com') {
+      if (user && (user.email === 'suchita135sancheti@gmail.com' || user.email === 'kaminiagnihotri249@gmail.com')) {
         setIsAuthenticated(true);
         sessionStorage.setItem('tulc_sovereign_auth', 'true');
       }

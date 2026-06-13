@@ -127,7 +127,7 @@ const Waitlist: React.FC = () => {
             </div>
             <h4 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white">Intake Initialized.</h4>
             <p className="text-zinc-300 text-base sm:text-lg font-light italic leading-relaxed max-w-lg mx-auto mb-8 sm:mb-10">
-              Your inquiry has been encrypted and placed in the Sovereign Ledger. Suchita Sancheti will personally review your substrate within one business cycle.
+              Your inquiry has been encrypted and placed in the Aligned Ledger. Suchita Sancheti will personally review your substrate within one business cycle.
             </p>
             <button 
               onClick={() => {
@@ -142,91 +142,124 @@ const Waitlist: React.FC = () => {
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="text-left space-y-6 sm:space-y-8 bg-white/5 p-8 sm:p-10 md:p-16 border border-white/10 shadow-2xl relative backdrop-blur-md">
-            <div className="absolute top-0 right-0 p-4 sm:p-8">
-              <span className="text-[7px] sm:text-[9px] uppercase font-black text-white/20 tracking-widest">FORM: TULC-SR-01</span>
-            </div>
-            
-            <div className="grid sm:grid-cols-2 gap-6 sm:gap-10">
-              <div className="space-y-1 sm:space-y-2">
-                <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Full Name</label>
-                <input 
-                  required
-                  type="text" 
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full bg-transparent border-b border-white/10 py-2 sm:py-3 text-white focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
-                />
+          <div className="space-y-12">
+            {/* Direct Channel Booking Option */}
+            <div className="bg-[#111111] p-6 sm:p-10 border border-[#b8860b]/30 text-left relative shadow-2xl overflow-hidden group">
+              <div className="absolute top-0 right-0 p-3 bg-[#b8860b]/10 text-[#b8860b] text-[8px] font-black uppercase tracking-widest">
+                DIRECT SECURE CHANNEL
               </div>
-              <div className="space-y-1 sm:space-y-2">
-                <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Work Email</label>
-                <input 
-                  required
-                  type="email" 
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="w-full bg-transparent border-b border-white/10 py-2 sm:py-3 text-white focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
-                />
+              <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div>
+                  <span className="text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase tracking-[0.3em] block mb-2">INTEGRATE OPERATIONS & LEADERSHIP</span>
+                  <h4 className="text-xl sm:text-2xl font-bold text-white mb-2">Direct Calibration Booking</h4>
+                  <p className="text-zinc-400 text-xs sm:text-sm italic font-light leading-relaxed max-w-xl">
+                    Skip standard queue review mechanisms. Consult Suchita Sancheti's calendar directly to reserve a private briefing segment and diagnose your firm's operational substrates immediately.
+                  </p>
+                </div>
+                <a 
+                  href="https://calendly.com/d/d3jb-kpx-r6q" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="shrink-0 px-6 py-4 bg-[#b8860b] text-white text-[9px] font-black uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 shadow-lg text-center cursor-pointer inline-block font-bold"
+                >
+                  Book Direct Segment
+                </a>
               </div>
             </div>
-            
-            <div className="grid sm:grid-cols-2 gap-6 sm:gap-10">
-              <div className="space-y-1 sm:space-y-2">
-                <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Organization Name</label>
-                <input 
-                  required
-                  type="text" 
-                  value={formData.organization}
-                  onChange={(e) => setFormData({...formData, organization: e.target.value})}
-                  className="w-full bg-transparent border-b border-white/10 py-2 sm:py-3 text-white focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
-                />
-              </div>
-              <div className="space-y-1 sm:space-y-2">
-                <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Institutional Role</label>
-                <input 
-                  required
-                  type="text" 
-                  value={formData.role}
-                  onChange={(e) => setFormData({...formData, role: e.target.value})}
-                  placeholder="e.g. CEO, Principal Architect"
-                  className="w-full bg-transparent border-b border-white/10 py-2 sm:py-3 text-white focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
-                />
-              </div>
+
+            {/* Separator / Alternative Option */}
+            <div className="flex items-center gap-4 py-2">
+              <div className="h-[1px] flex-1 bg-white/10" />
+              <span className="text-[9px] font-black uppercase tracking-[0.3em] text-zinc-500">OR SUBMIT MANUAL LEDGER INQUIRY</span>
+              <div className="h-[1px] flex-1 bg-white/10" />
             </div>
-            
-            <div className="space-y-1 sm:space-y-2">
-              <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Institutional Yield Target</label>
-              <textarea 
-                required
-                rows={4}
-                value={formData.message}
-                onChange={(e) => setFormData({...formData, message: e.target.value})}
-                placeholder="Briefly define the primary bottleneck in your current leadership substrate..."
-                className="w-full bg-white/5 border border-white/10 p-4 sm:p-6 text-white focus:outline-none focus:border-[#b8860b] transition-colors resize-none font-medium italic text-base sm:text-lg leading-relaxed"
-              />
-            </div>
-            
-            <div className="pt-4 sm:pt-6">
-              <button 
-                type="submit"
-                className="w-full py-4 sm:py-6 bg-[#b8860b] text-white text-[9px] sm:text-[11px] font-bold uppercase hover:bg-white hover:text-black transition-all shadow-2xl tracking-[0.2em] sm:tracking-[0.3em] animate-pulse-executive-dark"
-              >
-                Transmit to Sovereign Ledger
-              </button>
+
+            <form onSubmit={handleSubmit} className="text-left space-y-6 sm:space-y-8 bg-white/5 p-8 sm:p-10 md:p-16 border border-white/10 shadow-2xl relative backdrop-blur-md">
+              <div className="absolute top-0 right-0 p-4 sm:p-8">
+                <span className="text-[7px] sm:text-[9px] uppercase font-black text-white/20 tracking-widest">FORM: TULC-SR-01</span>
+              </div>
               
-              <div className="mt-6 sm:mt-8 flex flex-wrap justify-center items-center gap-4 sm:gap-6 opacity-40">
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-zinc-400" />
-                  <span className="text-[7px] sm:text-[8px] uppercase font-black tracking-widest text-white">End-to-End Encrypted</span>
+              <div className="grid sm:grid-cols-2 gap-6 sm:gap-10">
+                <div className="space-y-1 sm:space-y-2">
+                  <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Full Name</label>
+                  <input 
+                    required
+                    type="text" 
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    className="w-full bg-transparent border-b border-white/10 py-2 sm:py-3 text-white focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
+                  />
                 </div>
-                <div className="hidden sm:block w-px h-3 bg-white/10" />
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-zinc-400" />
-                  <span className="text-[7px] sm:text-[8px] uppercase font-black tracking-widest text-white">Zero Data Retention Active</span>
+                <div className="space-y-1 sm:space-y-2">
+                  <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Work Email</label>
+                  <input 
+                    required
+                    type="email" 
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    className="w-full bg-transparent border-b border-white/10 py-2 sm:py-3 text-white focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
+                  />
                 </div>
               </div>
-            </div>
-          </form>
+              
+              <div className="grid sm:grid-cols-2 gap-6 sm:gap-10">
+                <div className="space-y-1 sm:space-y-2">
+                  <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Organization Name</label>
+                  <input 
+                    required
+                    type="text" 
+                    value={formData.organization}
+                    onChange={(e) => setFormData({...formData, organization: e.target.value})}
+                    className="w-full bg-transparent border-b border-white/10 py-2 sm:py-3 text-white focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
+                  />
+                </div>
+                <div className="space-y-1 sm:space-y-2">
+                  <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Institutional Role</label>
+                  <input 
+                    required
+                    type="text" 
+                    value={formData.role}
+                    onChange={(e) => setFormData({...formData, role: e.target.value})}
+                    placeholder="e.g. CEO, Principal Architect"
+                    className="w-full bg-transparent border-b border-white/10 py-2 sm:py-3 text-white focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
+                  />
+                </div>
+              </div>
+              
+              <div className="space-y-1 sm:space-y-2">
+                <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Institutional Yield Target</label>
+                <textarea 
+                  required
+                  rows={4}
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  placeholder="Briefly define the primary bottleneck in your current leadership substrate..."
+                  className="w-full bg-white/5 border border-white/10 p-4 sm:p-6 text-white focus:outline-none focus:border-[#b8860b] transition-colors resize-none font-medium italic text-base sm:text-lg leading-relaxed"
+                />
+              </div>
+              
+              <div className="pt-4 sm:pt-6">
+                <button 
+                  type="submit"
+                  className="w-full py-4 sm:py-6 bg-[#b8860b] text-white text-[9px] sm:text-[11px] font-bold uppercase hover:bg-white hover:text-black transition-all shadow-2xl tracking-[0.2em] sm:tracking-[0.3em] animate-pulse-executive-dark"
+                >
+                  Transmit to Sovereign Ledger
+                </button>
+                
+                <div className="mt-6 sm:mt-8 flex flex-wrap justify-center items-center gap-4 sm:gap-6 opacity-40">
+                  <div className="flex items-center gap-2">
+                    <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-zinc-400" />
+                    <span className="text-[7px] sm:text-[8px] uppercase font-black tracking-widest text-white">End-to-End Encrypted</span>
+                  </div>
+                  <div className="hidden sm:block w-px h-3 bg-white/10" />
+                  <div className="flex items-center gap-2">
+                    <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-zinc-400" />
+                    <span className="text-[7px] sm:text-[8px] uppercase font-black tracking-widest text-white">Zero Data Retention Active</span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         )}
       </div>
     </section>

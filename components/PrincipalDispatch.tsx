@@ -10,7 +10,7 @@ const PrincipalDispatch: React.FC = () => {
             <VideoPlayer 
               videoUrl="https://drive.google.com/file/d/1435SE1X1AMP7jWn7Dwcqx9JD1kHtov7w/view?usp=drive_link" 
               aspectRatio="portrait"
-              title="Sovereign Briefing"
+              title="Strategic Briefing"
               className="shadow-2xl border border-white/10"
             />
             <div className="absolute bottom-2 left-4 sm:bottom-4 sm:left-8 pointer-events-none z-10">
@@ -26,15 +26,15 @@ const PrincipalDispatch: React.FC = () => {
             <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-6 sm:mb-8 tracking-[0.4em] sm:tracking-[0.5em]">Principal Dispatch</h2>
             <div className="space-y-6 sm:space-y-10">
               <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#111111] leading-tight">
-                Advice is secondary; the <span className="italic text-[#b8860b]">Physics of Authority</span> is primary.
+                Strategy is secondary; <span className="italic text-[#b8860b]">Organizational Integrity</span> is primary.
               </h3>
               <div className="h-[2px] w-24 sm:w-32 bg-[#b8860b]"></div>
               <div className="space-y-6 sm:space-y-8 text-zinc-600 text-lg sm:text-xl md:text-2xl font-light italic leading-relaxed">
                 <p>
-                  "Most leadership consultancies focus on behavior. We focus on Architecture. A leader is only as sovereign as the system they command."
+                  "Most advisories focus on mentoring people. We focus on engineering the system. A leader's decision is only as effective as the structure that carries it."
                 </p>
                 <p>
-                  "My role as Principal Architect is not to 'coach' you, but to provide the surgical diagnostics required to re-engineer your organizational nervous system. I am here to build something that outlasts the individual."
+                  "Our mission is to install structural guardrails that guarantee flawless execution at every level, freeing you to lead without constant personal intervention."
                 </p>
                 <div className="mt-8 flex items-center gap-4">
                   <div className="w-8 h-px bg-[#b8860b]/30" />
@@ -45,7 +45,7 @@ const PrincipalDispatch: React.FC = () => {
               <div className="pt-8 sm:pt-12 flex flex-wrap gap-6 sm:gap-8">
                 <div className="flex flex-col">
                   <span className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-400 mb-1 sm:mb-2 tracking-widest">Current Focus</span>
-                  <span className="text-xs sm:text-sm font-bold text-[#111111] uppercase tracking-wider">Institutional Recalibration</span>
+                  <span className="text-xs sm:text-sm font-bold text-[#111111] uppercase tracking-wider">Strategic Recalibration</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-400 mb-1 sm:mb-2 tracking-widest">Availability</span>

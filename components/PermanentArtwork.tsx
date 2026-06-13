@@ -430,7 +430,7 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
           </svg>
         );
 
-      case 'INT-008': // The Physics of Inevitability
+      case 'INT-008': // The Dynamics of Inevitability
         return (
           <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             {renderDefs('008')}
@@ -459,7 +459,7 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             </g>
 
             <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">STRUCTURAL EFFICIENCY COEFFICIENT: INEVITABLE</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">THE PHYSICS OF INEVITABILITY ARCHITECTURE [INT-008]</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">THE DYNAMICS OF INEVITABILITY ARCHITECTURE [INT-008]</text>
             <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">SYSTEMS DOMINATE TALENT // TULC DISPATCH</text>
           </svg>
         );

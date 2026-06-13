@@ -24,11 +24,11 @@ const Problem: React.FC = () => {
           <div>
             <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 tracking-[0.3em]">The Inaction Tax</h2>
             <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.1] mb-8 sm:mb-10 text-[#111111]">
-              The Invisible Erosion of <span className="italic text-[#b8860b]">Your Authority.</span>
+              The Silent Dilution of <span className="italic text-[#b8860b]">Your Authority.</span>
             </h3>
             <div className="space-y-6 sm:space-y-8 text-zinc-600 text-lg sm:text-xl leading-relaxed italic font-light">
               <p>
-                Every hour spent managing tactical friction is brilliance <span className="text-[#111111] font-bold underline decoration-[#b8860b]/30 decoration-2 underline-offset-8">stolen from your legacy</span>. This isn't just an inefficiency; it is a betrayal of the vision you are meant to build. Reclaim <span className="text-[#111111] font-bold not-italic">Board-level command</span> and <span className="text-[#111111] font-bold not-italic">strategic bandwidth</span> today.
+                Every hour spent managing tactical friction is brilliance <span className="text-[#111111] font-bold underline decoration-[#b8860b]/30 decoration-2 underline-offset-8">stolen from your legacy</span>. This isn't just an inefficiency; it is a betrayal of the vision you are meant to build. Reclaim <span className="text-[#111111] font-bold not-italic">Board-level focus</span> and <span className="text-[#111111] font-bold not-italic">strategic bandwidth</span> today.
               </p>
               
               {/* High Fidelity Video Player - Lazy Loaded to prevent browser-specific audio noise */}
@@ -45,8 +45,39 @@ const Problem: React.FC = () => {
               </div>
 
               <p className="text-[#b8860b] font-bold text-xl sm:text-2xl border-l-4 border-[#b8860b] pl-6 sm:pl-8 py-2">
-                "To lead through force is to accept friction. To lead through architecture is to command reality."
+                "To lead through force is to accept friction. To lead through architecture is to achieve effortless alignment."
               </p>
+
+              <div className="p-6 bg-white border border-zinc-200 shadow-md relative overflow-hidden my-6">
+                <div className="absolute top-0 left-0 w-1 bg-[#b8860b] h-full" />
+                <h4 className="text-[10px] font-black uppercase text-[#b8860b] tracking-[0.2em] mb-4 font-mono">Structural Signal Diagnostic Vector</h4>
+                <p className="text-zinc-600 text-xs italic font-light leading-relaxed mb-4">
+                  When raw strategic velocity is bogged down by operational details, your leadership substrate undergoes a <strong className="text-[#111111] font-semibold">silent dilution of authority</strong>. The system operates on friction rather than logic:
+                </p>
+                <div className="grid grid-cols-1 gap-y-4 text-xs font-light">
+                  <div className="border-t border-zinc-100 pt-3">
+                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">Intent Dilution & Cognitive Tax</span>
+                    <p className="text-zinc-500 italic leading-normal text-[11px]">The slow leak of intent across hierarchical nodes, depleting the Principal's high-stakes creative bandwidth.</p>
+                  </div>
+                  <div className="border-t border-zinc-100 pt-3">
+                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">The Inaction Tax</span>
+                    <p className="text-zinc-500 italic leading-normal text-[11px]">The severe price paid for delayed alignment of key operational dependencies.</p>
+                  </div>
+                  <div className="border-t border-zinc-100 pt-3">
+                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">Strategic Newsletter</span>
+                    <p className="text-zinc-500 italic leading-normal text-[11px]">A high-fidelity structured update framework that ensures zero strategic delay and total vision integrity.</p>
+                  </div>
+                  <div className="border-t border-zinc-100 pt-3">
+                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">Operational Friction & System Inertia</span>
+                    <p className="text-zinc-500 italic leading-normal text-[11px]">The mental insolvency of Tier 1 leaders trying to govern via direct daily intervention rather than architecture.</p>
+                  </div>
+                  <div className="border-t border-zinc-100 pt-3">
+                    <span className="font-mono text-[9px] font-bold text-[#111111] uppercase tracking-wider block mb-1">Role Dislocation & Strategic Dilution</span>
+                    <p className="text-zinc-500 italic leading-normal text-[11px]">The unintended transfer of corporate momentum to broken mechanics, diluting absolute leadership value.</p>
+                  </div>
+                </div>
+              </div>
+
               <div className="pt-4">
                 <button 
                   onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
@@ -63,23 +94,23 @@ const Problem: React.FC = () => {
             <div className="grid grid-cols-1 gap-1">
               <VarianceItem 
                 num="01"
-                title="Sovereign Displacement" 
-                desc="The slow transfer of your command to the mechanics of a broken system." 
+                title="Role Dislocation" 
+                desc="The slow transfer of your executive focus to the upkeep of uncalibrated systems." 
               />
               <VarianceItem 
                 num="02"
-                title="Vision Corruption" 
-                desc="The dilution of your intent as it filters through uncalibrated organizational layers." 
+                title="Strategic Dilution" 
+                desc="The loss of executive clarity as intent travels through complex operational layers." 
               />
               <VarianceItem 
                 num="03"
-                title="Heroic Exhaustion" 
-                desc="Your elite focus being drained by operational gravity rather than strategic design." 
+                title="Executive Fatigue" 
+                desc="Foundational leadership energy being consumed by reactive fixes rather than forward creation." 
               />
               <VarianceItem 
                 num="04"
-                title="Legacy Friction" 
-                desc="The unobserved detachment from absolute authority that signals the beginning of stagnation." 
+                title="System Inertia" 
+                desc="The hidden resistance inside aging structures that slows decision-to-execution speeds." 
               />
             </div>
           </div>

@@ -35,9 +35,9 @@ const Portal: React.FC = () => {
             <Lock className="w-8 h-8 text-[#b8860b] -rotate-45" />
           </div>
           <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.5em] mb-4">Portal Locked</h2>
-          <h1 className="text-4xl md:text-5xl font-bold mb-8">Institutional <br /><span className="italic text-[#b8860b]">Clearance Required.</span></h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-8">Corporate <br /><span className="italic text-[#b8860b]">Clearance Required.</span></h1>
           <p className="text-zinc-500 mb-12 text-sm italic font-light leading-relaxed">
-            The Sovereign Portal contains proprietary architectural telemetry. To unlock your unique substrate dashboard and initiate your engagement, the Institutional Intake Fee must be processed.
+            The Client Portal contains proprietary alignment analysis. To unlock your unique performance dashboard and initiate your evaluation, the Enterprise Intake Fee must be processed.
           </p>
           
           <div className="space-y-6">
@@ -45,9 +45,9 @@ const Portal: React.FC = () => {
               onClick={handlePaymentClick}
               className="w-full py-6 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all shadow-2xl"
             >
-              Process Intake Fee (Razorpay)
+              Process Engagement Fee (Razorpay)
             </button>
-            <p className="text-[9px] text-zinc-600 uppercase tracking-widest">Secure Institutional Gateway</p>
+            <p className="text-[9px] text-zinc-600 uppercase tracking-widest">Secure Enterprise Gateway</p>
             
             <button 
               onClick={() => {
@@ -85,9 +85,9 @@ const Portal: React.FC = () => {
             <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.5em]">Terminal Active</h2>
             <div className="w-2 h-2 rounded-full bg-[#b8860b] animate-pulse" />
           </div>
-          <h1 className="text-5xl md:text-8xl font-bold mb-12">The <br /><span className="italic text-[#b8860b]">Sovereign Portal.</span></h1>
+          <h1 className="text-5xl md:text-8xl font-bold mb-12">The <br /><span className="italic text-[#b8860b]">Client Portal.</span></h1>
           <p className="text-zinc-400 text-xl leading-relaxed italic font-light">
-            Welcome back, Principal. Your high-fidelity terminal for institutional telemetry and real-time substrate monitoring is now online.
+            Welcome back. Your client dashboard for operational alignment metrics and real-time strategic monitoring is now online.
           </p>
         </header>
 
@@ -96,16 +96,16 @@ const Portal: React.FC = () => {
             <div className="group border-l border-white/10 pl-8 transition-all hover:border-[#b8860b]">
               <div className="flex items-center gap-3 mb-4">
                 <Unlock className="w-4 h-4 text-[#b8860b]" />
-                <h3 className="text-xl font-bold">Sovereign Index Tracking</h3>
+                <h3 className="text-xl font-bold">Alignment Index Tracking</h3>
               </div>
-              <p className="text-zinc-500 text-sm italic font-light leading-relaxed">Quantify your cognitive equity and institutional resonance across 12 strategic dimensions.</p>
+              <p className="text-zinc-500 text-sm italic font-light leading-relaxed">Quantify your organizational scaling potential and operational alignment across 12 strategic dimensions.</p>
             </div>
             <div className="group border-l border-white/10 pl-8 transition-all hover:border-[#b8860b]">
               <div className="flex items-center gap-3 mb-4">
                 <Unlock className="w-4 h-4 text-[#b8860b]" />
                 <h3 className="text-xl font-bold">The Dispatch Archive</h3>
               </div>
-              <p className="text-zinc-500 text-sm italic font-light leading-relaxed">Direct, privileged architectural briefs delivered specifically for your substrate.</p>
+              <p className="text-zinc-500 text-sm italic font-light leading-relaxed">Direct, detailed operational optimization analyses customized for your organization.</p>
             </div>
           </div>
 
@@ -129,7 +129,7 @@ const Portal: React.FC = () => {
             <div className="p-8 border border-white/10 bg-white/[0.02]">
               <h4 className="text-white text-[10px] font-black uppercase tracking-widest mb-6">Latest Diagnostic Dispatch</h4>
               <p className="text-zinc-400 text-sm italic leading-relaxed mb-8">
-                "The current Board alignment is trending 12% below the sovereignty threshold. Priority recalibration required in the Cultural Fidelity domain."
+                "The current leadership alignment is trending 12% below target standards. Operational adjustment is recommended in the Organizational Design domain."
               </p>
               <button className="text-[10px] font-black uppercase tracking-[0.2em] text-[#b8860b] border-b border-[#b8860b]/30 pb-1">Read Full Dispatch →</button>
             </div>

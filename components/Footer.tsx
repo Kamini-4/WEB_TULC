@@ -24,7 +24,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
               <div className="h-[2px] w-24 sm:w-32 bg-[#b8860b]"></div>
               <div className="space-y-6 sm:space-y-8 text-zinc-300 text-lg sm:text-xl md:text-2xl font-light italic leading-relaxed max-w-2xl">
                 <p>
-                  Advice is secondary; the re-engineering of the physics of structural design is primary. The Unbounded exists to establish operational integrity across scaling layers.
+                  Advice is secondary; the engineering of aligned leadership systems is primary. The Unbounded exists to establish operational integrity across scaling layers.
                 </p>
               </div>
             </div>
@@ -71,9 +71,9 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
             </p>
             <div className="flex flex-col gap-3 font-mono text-[10px] text-zinc-400">
               <span className="text-[8px] font-black uppercase text-zinc-650 tracking-widest block mb-1">Direct Paths</span>
-              <a href="https://www.linkedin.com/in/suchita-sancheti" target="_blank" rel="noopener noreferrer" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2.5">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2.5">
                 <Linkedin className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
-                <span>linkedin.com/in/suchita-sancheti</span>
+                <span>linkedin.com/company/theunboundedleadership</span>
               </a>
               <a href="https://www.instagram.com/transformingleadership" target="_blank" rel="noopener noreferrer" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2.5">
                 <Instagram className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
@@ -81,9 +81,13 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
               </a>
               <a href="mailto:suchita135sancheti@gmail.com" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2.5">
                 <Mail className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
-                <span>suchita135sancheti@gmail.com</span>
+                <span>Principal: suchita135sancheti@gmail.com</span>
               </a>
-              <a href="https://wa.me/919325346704" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 text-zinc-350 transition-colors flex items-center gap-2.5">
+              <a href="mailto:kaminiagnihotri249@gmail.com" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2.5">
+                <Mail className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
+                <span>Assistant: kaminiagnihotri249@gmail.com</span>
+              </a>
+              <a href="https://wa.me/919325346704" target="_blank" rel="noopener noreferrer" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2.5">
                 <Phone className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                 <span>WhatsApp: +91 9325346704</span>
               </a>

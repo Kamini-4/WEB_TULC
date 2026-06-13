@@ -1,6 +1,6 @@
-# Sovereign Protocol & Leadership Architecture - Full Registry
+# Aligned Protocol & Leadership Architecture - Full Registry
 
-> The Physics of Power. An elite AI-driven ecosystem for Institutional Architecture and Sovereign Diagnostics.
+> The Physics of Power. An elite AI-driven ecosystem for Institutional Architecture and Systemic Diagnostics.
 
 ## Overview
 
@@ -20,8 +20,8 @@ Proprietary methodology to reclaim up to 45% of cognitive load through the remov
 - **Decision Architecture:** The delta between "Institutional Decree" and "Organizational Friction."
 - **Institutional Lag:** Identifying the micro-pauses that reveal internal dissonance or systemic hesitation.
 
-### 3. The Sovereign Vault
-A 12-dimensional vector synthesis engine that calculates the **Sovereign Index** and **Metabolic Burn Rate** of the institution.
+### 3. The Systemic Vault
+A 12-dimensional vector synthesis engine that calculates the **Systemic Index** and **Metabolic Burn Rate** of the institution.
 - **12D Vector Analysis:** Mapping choices across a 12-dimensional vector space to analyze the "Shadow Impact" of every decision.
 - **Metabolic Burn:** Quantifying the systemic energy cost of leadership architecture.
 
@@ -37,7 +37,7 @@ A curated registry of intelligence focusing on signal refraction mapping, shadow
 
 ## Key Performance Indicators (KPIs)
 
-- **Sovereign Index (0-1000):** The definitive measure of leadership maturity and signal purity.
+- **Systemic Index (0-1000):** The definitive measure of leadership maturity and signal purity.
 - **Metabolic Burn Rate:** The systemic energy cost of leadership architecture.
 - **Escalation Density (ED):** The ratio of logic-to-action leakage within a hierarchy.
 - **Decision Velocity (DLV):** The time-delta between executive intent and institutional manifestation.
@@ -47,7 +47,7 @@ A curated registry of intelligence focusing on signal refraction mapping, shadow
 
 - **London Hub:** Focus on Global Markets and Fiduciary Stewardship.
 - **New York Hub:** Focus on Strategic Velocity and Growth Architecture.
-- **Singapore Hub:** Focus on Legacy Resilience and Asian Market Sovereignty.
+- **Singapore Hub:** Focus on Legacy Resilience and Asian Market Alignment.
 
 ## Technology Substrate
 

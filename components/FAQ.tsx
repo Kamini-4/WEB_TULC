@@ -4,23 +4,23 @@ const FAQ: React.FC = () => {
   const faqs = [
     {
       question: "Who is Suchita Sancheti?",
-      answer: "Suchita Sancheti is the Principal Architect of The Unbounded Leadership Co. She is a pioneer in modern succession architecture and second-order cybernetics, designing systems-level transitions and sovereign frameworks for high-growth enterprises, elite venture capitalists, and multi-generational family offices."
+      answer: "Suchita Sancheti is the Principal Architect of The Unbounded Leadership Co. She is a pioneer in modern succession architecture and alignment frameworks for high-growth enterprises, elite venture capitalists, and multi-generational family offices."
     },
     {
       question: "What is Intent Fragmentation?",
       answer: "Intent Fragmentation is the structural loss of strategic fidelity as leadership directives pass through organisational layers. T.U.L.C. diagnostic data shows an average 60% fidelity loss within three management layers, producing measurable operational overspend and cultural misalignment."
     },
     {
-      question: "What is the Sovereign Threshold Model?",
-      answer: "Developed by Suchita Sancheti, the Sovereign Threshold Model is a proprietary system that decouples corporate operations from active strategic command. It partitions enterprise governance into Sovereign Limits, Collaborative Boundaries, and Delegation Triggers, allowing founders or retiring CEOs to step into the Chairman role with zero operational leak or value dilution."
+      question: "What is the Leadership Threshold Model?",
+      answer: "Developed by Suchita Sancheti, the Leadership Threshold Model is a proprietary system that decouples corporate operations from active strategic command. It partitions enterprise governance into Leadership Limits, Collaborative Boundaries, and Delegation Triggers, allowing founders or retiring CEOs to step into the Chairman role with zero operational leak or value dilution."
     },
     {
       question: "What is the Cognitive Tax of Leadership?",
       answer: "The Cognitive Tax is the metabolic and mental exhaustion spent resolving repeating operational anomalies. When strategic intent is not compiled into the company's operating substrate, founders pay a 'Cognitive Tax' that consumes up to 40% of their strategic capacity. T.U.L.C. resolves this through engineered automation of alignment gates."
     },
     {
-      question: "What is the role of Second-Order Cybernetics in corporate design?",
-      answer: "Second-order cybernetics is the science of self-regulating systems that observe themselves. In corporate design, Suchita Sancheti applies this to transition organizations from hero-driven problem-solving to architectural inevitability—ensuring the corporate operating system regulates and scales its own performance."
+      question: "What is the role of organizational design in corporate scaling?",
+      answer: "In professional corporate design, Suchita Sancheti applies structured transition systems to shift organizations from hero-driven problem-solving to architectural inevitability—ensuring the corporate leadership structure self-regulates and scales its own performance reliably."
     },
     {
       question: "What is the Cognitive Shadow?",
@@ -44,7 +44,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "Is T.U.L.C.'s methodology proprietary?",
-      answer: "Yes. The Sovereign Threshold Model, Intent Fragmentation Map, Cognitive Shadow Diagnostics, and Dynastic Code Architecture are proprietary T.U.L.C. intellectual property. Clients receive their own institutional DNA as a codified, legally structured organisational asset."
+      answer: "Yes. The Leadership Threshold Model, Intent Fragmentation Map, Cognitive Shadow Diagnostics, and Dynastic Code Architecture are proprietary T.U.L.C. intellectual property. Clients receive their own institutional DNA as a codified, legally structured organisational asset."
     }
   ];
 
@@ -72,9 +72,9 @@ const FAQ: React.FC = () => {
       
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-[#b8860b] text-[11px] font-black uppercase mb-4 tracking-[0.3em]">The Sovereignty Protocol</h2>
+          <h2 className="text-[#b8860b] text-[11px] font-black uppercase mb-4 tracking-[0.3em]">The Alignment Protocol</h2>
           <h3 className="text-4xl md:text-5xl font-bold text-[#111111] mb-4">Strategic <span className="italic text-[#b8860b]">Clarifications.</span></h3>
-          <p className="text-zinc-700 text-sm max-w-lg mx-auto italic">Addressing the structural refinements of institutional sovereignty and deliverability for global leadership.</p>
+          <p className="text-zinc-700 text-sm max-w-lg mx-auto italic">Addressing the structural refinements of institutional alignment and deliverability for global leadership.</p>
           <div className="w-12 h-[1px] bg-[#b8860b] mx-auto mt-6 opacity-30"></div>
         </div>
 
@@ -91,7 +91,7 @@ const FAQ: React.FC = () => {
              onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
              className="px-10 py-4 bg-[#111111] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#b8860b] transition-all"
            >
-             Request Sovereign Access
+             Request Strategic Access
            </button>
         </div>
       </div>

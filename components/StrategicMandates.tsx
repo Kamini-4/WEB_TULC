@@ -16,33 +16,33 @@ const mandates: Mandate[] = [
   {
     id: '01',
     label: 'Architecture',
-    title: 'Institutional Architecture',
-    description: 'A comprehensive structural overhaul of the organizational substrate. We move the institution from Heroic Intervention to Architectural Command.',
-    deliverables: ['Logic Gate Map', 'Sovereignty Blueprint', 'Institutional Calibration'],
+    title: 'Alignment Architecture',
+    description: 'A comprehensive structural optimization of organizational design. We realign operational structures to ensure that executive directives translate precisely to the execution edge without dilution.',
+    deliverables: ['Alignment Diagnostics', 'Structure Auditing', 'Scaling Framework'],
     icon: <Layers className="w-5 h-5" />
   },
   {
     id: '02',
-    label: 'Cognitive',
-    title: 'Cognitive Equity Protocol',
-    description: 'Precision engineering of the Principal\'s cognitive environment. Reclaiming 30-40% of strategic bandwidth through externalized decision logic.',
-    deliverables: ['Bandwidth Forensic Audit', 'Proxy Logic Engine', 'Focus Sovereignty'],
+    label: 'Focus',
+    title: 'Executive Bandwidth Optimization',
+    description: 'Optimization of leadership time allocation. Reclaiming 30-40% of critical executive hours by streamlining delegated decision channels and administrative workflows.',
+    deliverables: ['Bandwidth Evaluation', 'Delegation Alignment', 'Focus Management'],
     icon: <Zap className="w-5 h-5" />
   },
   {
     id: '03',
     label: 'Council',
-    title: 'Discrete Strategic Council',
-    description: 'Ongoing high-fidelity advisory for pivotal decision-making. We serve as the "Architectural Echo" for the Principal\'s most critical moves.',
-    deliverables: ['Real-time Strategy Refinement', 'Blind Spot Neutralization', 'Outcome Simulation'],
+    title: 'Strategic Alignment Council',
+    description: 'Objective, ongoing advisory for enterprise board members and scaling leadership teams. We serve as an external partner to maintain structural integrity across growth phases.',
+    deliverables: ['Strategic Alignment Reviews', 'Organizational Friction Audits', 'Governance Optimization'],
     icon: <Shield className="w-5 h-5" />
   },
   {
     id: '04',
-    label: 'Dispatch',
-    title: 'Institutional Dispatch',
-    description: 'Rapid, high-stakes intervention for moments of extreme organizational shift. Specialized for M&A, leadership pivots, and systemic crises.',
-    deliverables: ['72-Hour Rapid Audit', 'Intervention Logic', 'Stabilization Protocol'],
+    label: 'Velocity',
+    title: 'Execution Velocity',
+    description: 'Rapid diagnostic and structural interventions to eliminate coordination lag, double decision-to-execution frequency, and elevate operational responsive structures.',
+    deliverables: ['72-Hour Diagnostic', 'Change Management Roadmap', 'Velocity Optimization Plan'],
     icon: <Target className="w-5 h-5" />
   }
 ];
@@ -59,15 +59,15 @@ const StrategicMandates: React.FC = () => {
             </div>
             <h2 className="text-4xl md:text-7xl font-light leading-[1.1] text-[#111111]">
               The Mandates of <br />
-              <span className="italic font-medium text-[#b8860b]">Institutional Sovereignty.</span>
+              <span className="italic font-medium text-[#b8860b]">Enterprise Alignment.</span>
             </h2>
           </div>
           <div className="md:text-right">
             <p className="text-zinc-700 italic max-w-sm ml-auto mb-8 font-light leading-relaxed">
-              We do not provide "consulting." We provide architectural interventions designed to hard-code stability into your hierarchy.
+              We provide tailored operational assessments and structural alignment frameworks that secure scale and resolve administrative drag.
             </p>
             <div className="text-[10px] font-black uppercase tracking-widest text-zinc-600">
-              Select a track to initiate calibration
+              Select an engagement track to evaluate operational alignment
             </div>
           </div>
         </div>
@@ -116,9 +116,9 @@ const StrategicMandates: React.FC = () => {
         <div className="mt-24 p-12 bg-[#111111] text-white flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden group">
           <div className="absolute inset-0 bg-[#b8860b] translate-y-full group-hover:translate-y-0 transition-transform duration-1000 opacity-5" />
           <div className="max-w-2xl relative z-10">
-            <h4 className="text-2xl md:text-3xl font-bold italic mb-4">Gated: Tactical Mandate Blueprints</h4>
+            <h4 className="text-2xl md:text-3xl font-bold italic mb-4">Secure Access: Strategic Alignment Blueprints</h4>
             <p className="text-zinc-200 text-sm italic font-light leading-relaxed">
-              For active clients and vetted prospects. Access the high-fidelity blueprints for institutional overhaul, fee structures, and outcome guarantees.
+              For active enterprise clients and vetted board members. Access the alignment assessment frameworks, corporate case studies, and engagement scopes.
             </p>
           </div>
           <a 
@@ -127,7 +127,7 @@ const StrategicMandates: React.FC = () => {
             rel="noopener noreferrer"
             className="px-10 py-5 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all shadow-xl relative z-10"
           >
-            Access Sovereign Portal
+            Access Client Portal
           </a>
         </div>
       </div>

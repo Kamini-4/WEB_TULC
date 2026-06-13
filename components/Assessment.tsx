@@ -612,7 +612,7 @@ const Assessment: React.FC = () => {
   const getGrade = () => {
     const domainScores = computeDomainScores(answers);
     const totalScoreValue = domainScores.reduce((a, b) => a + b.score, 0);
-    if (totalScoreValue >= 22) return 'Sovereign';
+    if (totalScoreValue >= 22) return 'Strategic';
     if (totalScoreValue >= 17) return 'Architectural';
     if (totalScoreValue >= 11) return 'Systemic';
     return 'Manual';
@@ -645,7 +645,7 @@ const Assessment: React.FC = () => {
         strength: "Your organization demonstrates exceptional capability in long-term visioning and raw strategic intent. You possess a unique creative compass to see major market developments before they happen.",
         refinement: "However, this vision operates with a high 'manual confirmation tax'. Every strategic move requires your direct verbal approval, meaning scale is permanently bottlenecked by your personal physical stamina.",
         urgency: "Why Now: As market windows contract, relying on manual translation drains 40% of your executive capacity, leaving you vulnerable to swift competitors who build and execute standardized operations.",
-        objection: "Addressing 'I don't have time to document this': Sovereign distillation does not require writing tedious corporate wikis. It means automating your core decision algorithms once, so you never have to re-explain yourself.",
+        objection: "Addressing 'I don't have time to document this': Structured distillation does not require writing tedious corporate wikis. It means automating your core decision algorithms once, so you never have to re-explain yourself.",
         benefit: "Your Benefit: Reclaim 15+ hours weekly instantly, allowing you to focus on high-leverage compound moves instead of repetitive tactical alignment.",
         symptoms: [
           "Leadership spending more than 15 hours weekly on manual alignment check-ins",
@@ -653,14 +653,14 @@ const Assessment: React.FC = () => {
           "Ambiguities in strategic mandates leading to wasted team bandwidth and speculative execution paths"
         ],
         impact: "Severe Strategic Friction. Your organization is paying a hidden 'clarification tax' which acts as a permanent handbrake on capital deployment. The opportunity cost is estimated to be 15-20% of your operational run-rate.",
-        prescription: "Deploy the Substrate Diagnostic Protocol (Phase 0.0) immediately. We will forensically capture your unique mental models, map your core decision-making vectors, and translate them into standard-operating algorithms, allowing your executive layer to execute your intent autonomously."
+        prescription: "Deploy the Diagnostic Alignment Protocol immediately. We will systematically capture your unique mental models, map your core decision-making vectors, and translate them into standard-operating algorithms, allowing your executive layer to execute your intent autonomously."
       },
       "Systemic Integrity": {
         definition: "The structural self-regulation of your firm's protocols—ensuring that business processes keep running smoothly regardless of human behavior or individual heroics.",
         strength: "Your leadership has spent immense personal equity building deep loyalty within the team. The business processes are kept alive because key heroes consistently step up.",
         refinement: "However, this makes your operation 'hero-dependent'. If even 2 crucial leaders are suddenly unavailable, operations would experience severe strain, creating extreme key-person risk.",
         urgency: "Why Now: Scale is mathematically capped by your team's exhaustion threshold. Running an enterprise on sheer willpower leads to systemic fatigue and inevitable talent turnover at critical junctures.",
-        objection: "Addressing 'My organization is too dynamic for rigid software protocols': Sovereign architecture is not bureaucratic micromanagement; it is cybernetic regulation. It replaces rigid managers with flexible self-correcting containers.",
+        objection: "Addressing 'My organization is too dynamic for rigid software protocols': Strategic architecture is not bureaucratic micromanagement; it is structured alignment. It replaces rigid managers with flexible self-correcting containers.",
         benefit: "Your Benefit: Fully stress-tested operations that can run autonomously for 30 consecutive days, protecting equity value and ensuring absolute asset security.",
         symptoms: [
           "Crises and strategic variances requiring direct escalation to the executive team",
@@ -668,22 +668,22 @@ const Assessment: React.FC = () => {
           "Friction in handoffs between departments resulting in variable and unpredictable results"
         ],
         impact: "Continuous Operational Exposure. Since stability is maintained through the sheer force of will of key individuals, the architecture suffers from structural fatigue. Scale is mathematically capped at your leaders' stress limits.",
-        prescription: "Integrate Phase 01 of the Sovereign Protocol. We will replace fragile manual oversight channels with self-maintaining operational containers. This eliminates hero-dependency and hard-codes your standard operating logic into the very substrate of the company."
+        prescription: "Integrate Phase 01 of the Strategic Alignment Protocol. We will replace fragile manual oversight channels with self-maintaining operational structures. This eliminates hero-dependency and builds your standard operating logic into the firm."
       },
       "Strategic Velocity": {
         definition: "The conversion index—measuring how fast your organization can pivot capital, human resources, and execution lines to exploit market gaps.",
         strength: "You possess high localized reaction speeds. When a major crisis occurs, your core circle reacts with massive emotional focus and quick, decisive adjustments.",
         refinement: "However, this reaction speed is manual and highly draining. True corporate velocity should exist as a default structural state, rather than being triggered by adrenaline-fueled panic.",
         urgency: "Why Now: In volatile markets, delayed responses are directly penalized by capital decay. A single bottlenecked board cycle or delayed delegation window can cost millions in lost momentum.",
-        objection: "Addressing 'Moving fast compromises risk protection': We do not advocate for reckless execution. We construct pre-authorized 'autonomous maneuver parameters' where safety boundaries are hard-coded.",
+        objection: "Addressing 'Moving fast compromises risk protection': We do not advocate for reckless execution. We construct pre-authorized 'operational parameters' where safety boundaries are defined.",
         benefit: "Your Benefit: Accelerate implementation index by up to 3.5x, transforming market uncertainty into an active weapon to capture first-mover market share.",
         symptoms: [
           "Capital reallocation opportunities remaining static for months due to internal consensus-seeking delays",
           "More than 3 coordination layers required to execute a tactical pivot",
           "Competitive response latency exceeding standard market windows"
         ],
-        impact: "Capital Latency Tax. Delayed reactions to dynamic environments bleed strategic equity. For an institutional scale firm, a 30-day bottleneck in strategic execution can erode market value and destroy permanent first-mover advantage.",
-        prescription: "Inject our Decision Velocity Calibration Matrix. Through the In-depth Assessment, we build dedicated, pre-authorized 'autonomous maneuver parameters' for your leaders. They execute high-priority decisions instantly within pre-calibrated guardrails, bypassing unnecessary board cycles."
+        impact: "Capital Latency Tax. Delayed reactions to dynamic environments bleed strategic equity. For an enterprise scale firm, a 30-day bottleneck in strategic execution can erode market value and destroy permanent first-mover advantage.",
+        prescription: "Inject our Decision Velocity Calibration Matrix. Through the In-depth Assessment, we build dedicated, pre-authorized 'operational parameters' for your leaders. They execute high-priority decisions instantly within pre-calibrated guardrails, bypassing unnecessary board cycles."
       },
       "Moral Gravity": {
         definition: "The structural resonance of ethics, core values, and corporate trust—transforming voluntary alignment into an inevitable operating reality.",
@@ -698,7 +698,7 @@ const Assessment: React.FC = () => {
           "Decision-making at the edge that occasionally sacrifices long-term trust for short-term convenience"
         ],
         impact: "Reputational Exposure and Elevated Coordination Cost. When values rely purely on individual compliance, you pay an continuous 'assessment fee' of time and anxiety to monitor behavioral alignment.",
-        prescription: "Audit and embed unchangeable reputational metrics. Through our Annual Retainer or complete Sovereign Protocol, we align incentives, strategic limits, and operational dispatches into a single ecosystem where non-aligned action is structurally impossible."
+        prescription: "Audit and embed unchangeable reputational metrics. Through our Annual Retainer or complete Strategic Alignment Protocol, we align incentives, strategic limits, and operational dispatches into a single ecosystem where non-aligned action is structurally impossible."
       },
       "Cultural Fidelity": {
         definition: "The exact replication index of your founder's original culture and intensity as they cascade down to the newest hire.",
@@ -804,7 +804,7 @@ const Assessment: React.FC = () => {
                     rel="noopener noreferrer"
                     className="text-[#b8860b] text-xs font-mono hover:underline tracking-widest flex items-center gap-2"
                   >
-                    Enter The Sovereign Portal <ArrowRight className="w-3 h-3" />
+                    Enter The Executive Portal <ArrowRight className="w-3 h-3" />
                   </a>
                 </div>
               </div>
@@ -822,7 +822,7 @@ const Assessment: React.FC = () => {
               <Shield className="w-12 h-12 text-[#b8860b] mx-auto mb-8" />
               <h3 className="text-2xl font-bold mb-4 text-[#111111] uppercase tracking-wider">Identity Protocol</h3>
               <p className="text-zinc-700 mb-10 italic font-light">
-                Access to the Sovereign Protocol requires institutional verification. Please provide your strategic identifiers.
+                Access to the Alignment Protocol requires institutional verification. Please provide your strategic identifiers.
               </p>
               
               <form onSubmit={handleIdentitySubmit} className="space-y-6 text-left">
@@ -897,11 +897,11 @@ const Assessment: React.FC = () => {
                 Vocal Substrate Calibration
               </h3>
               <div className="text-[#b8860b] text-[9px] font-black uppercase tracking-[0.3em] mb-6">
-                Proprietary Real-Time Cross-Mapping USP
+                Proprietary Real-Time Voice Alignment Diagnostic
               </div>
               
               <p className="text-zinc-700 text-sm italic font-light leading-relaxed mb-6">
-                Our proprietary system cross-maps your written responses with real-time vocal frequency, micro-hesitation latency, and cognitive stress indexes. Tested and validated across <strong>nine elite industrial principals on four organization tiers</strong> to ensure absolute alignment certainty.
+                Our proprietary system analyzes your responses along with core vocal frequency, semantic delay, and alignment markers. Tested and validated across <strong>nine elite industrial principals on four organization tiers</strong> to ensure absolute alignment certainty.
               </p>
 
               <div className="bg-black text-white p-6 rounded-xs border border-[#b8860b]/20 mb-6 text-left relative overflow-hidden">
@@ -966,7 +966,7 @@ const Assessment: React.FC = () => {
                     <div className="grid grid-cols-3 gap-2 py-2 border-y border-white/5 text-[8px] uppercase tracking-widest text-[#b8860b]/60 text-center">
                       <div>
                         <span>vocal stress coeff</span>
-                        <span className="block text-white font-bold mt-0.5">1.02x (Sovereign)</span>
+                        <span className="block text-white font-bold mt-0.5">1.02x (Aligned)</span>
                       </div>
                       <div>
                         <span>cognitive speed latency</span>
@@ -1170,7 +1170,7 @@ const Assessment: React.FC = () => {
                 strength: "You have built exemplary core loyalty and dedication across your executive circle. The company thrives on a foundational tier of exceptionally gifted and supportive leaders.",
                 refinement: "To ensure this premium talent pool is never overdrawn, we will construct organizational self-regulation, ensuring delivery matches top standards during peak demands.",
                 urgency: "Why Now: Infinite corporate longevity is realized when talented operators run within highly supportive, self-cohering structural systems.",
-                objection: "Sovereign Framework: Structured systems do not imply rigid bureaucracy. They represent flexible, self-correcting containers that support organic growth and transition.",
+                objection: "Strategic Alignment Framework: Structured systems do not imply rigid bureaucracy. They represent flexible, self-correcting containers that support organic growth and transition.",
                 benefit: "Systemic Protection: Stress-test operations to run autonomously for consecutive cycles, preserving brand equity and intellectual assets.",
                 symptoms: [
                   "Elite team members routinely logging extra operational focus during peak high-stakes sprints.",
@@ -1271,10 +1271,10 @@ const Assessment: React.FC = () => {
                               The Unbounded Leadership Co. // Office of Suchita Sancheti
                             </span>
                             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-3 leading-tight">
-                              CONFIDENTIAL SOVEREIGN DOSSIER
+                              CONFIDENTIAL STRATEGIC DOSSIER
                             </h2>
                             <p className="text-sm sm:text-base text-zinc-400 max-w-xl mx-auto italic font-light leading-relaxed mt-4">
-                              A bespoke cybernetic analysis tracking cognitive tax, institutional lag, and substrate sovereignty calibrated for elite enterprise operations.
+                              A bespoke alignment analysis tracking cognitive tax, coordination lag, and strategic organizational integrity calibrated for elite enterprise operations.
                             </p>
                           </div>
                           <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/5 text-left max-w-2xl mx-auto w-full text-[11px] font-mono text-zinc-400">
@@ -1379,7 +1379,7 @@ const Assessment: React.FC = () => {
                       )}
 
                       {dossierPage === 5 && (
-                        /* PAGE 5: SOVEREIGN RECALIBRATION RESPONSE (Objections and Benefits) */
+                        /* PAGE 5: STRATEGIC RECALIBRATION RESPONSE (Objections and Benefits) */
                         <div className="space-y-4 py-2 text-left">
                           <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#b8860b] font-mono block">
                             Module 04 // Dynamic Recalibration Strategy
@@ -1486,7 +1486,7 @@ const Assessment: React.FC = () => {
                                 </div>
                               </div>
                               <p className="text-[8px] italic text-zinc-500 leading-relaxed font-sans mt-2 border-t border-white/5 pt-2">
-                                *Cross-mapping algorithm indicates exceptional alignment parity between written decision nodes and baseline throat stress micro-vibrations, validating lack of conceptual strain.
+                                *Systemic analysis indicates exceptional alignment parity between written decision nodes and baseline throat stress micro-vibrations, validating lack of conceptual strain.
                               </p>
                             </div>
                           </div>
@@ -1509,7 +1509,7 @@ const Assessment: React.FC = () => {
                                 Dynamic Value Add-On Protocol
                               </span>
                               <h4 className="text-lg font-bold text-white leading-tight">
-                                Sovereignty Micro-Playbook Calibrator
+                                Alignment Micro-Playbook Calibrator
                               </h4>
                             </div>
                             {playbookSubmitted && (
@@ -1661,7 +1661,7 @@ const Assessment: React.FC = () => {
                           <div className="border-b border-white/10 pb-3 flex justify-between items-center">
                             <div>
                               <span className="text-[8px] uppercase font-mono font-bold text-[#b8860b] tracking-[0.3em] block">
-                                Sovereign Substrate Verification Portal
+                                Strategic Alignment Verification Portal
                               </span>
                               <h4 className="text-lg font-bold text-white leading-tight">
                                 Unlock Complete In-depth Assess & Roadmap
@@ -1674,11 +1674,11 @@ const Assessment: React.FC = () => {
                               <span className="text-[8px] font-black uppercase text-[#b8860b] tracking-wider block">Locked Systems Modules</span>
                               <div className="space-y-1 text-[10px] text-zinc-450 italic">
                                 <div className="flex justify-between border-b border-white/5 py-1">
-                                  <span className="text-zinc-400">90-Day Sovereign Roadmap</span>
+                                  <span className="text-zinc-400">90-Day Strategic Roadmap</span>
                                   <span className="text-[#b8860b]/70 font-semibold">[Locked]</span>
                                 </div>
                                 <div className="flex justify-between border-b border-white/5 py-1">
-                                  <span className="text-zinc-400">Substrate Re-engineering</span>
+                                  <span className="text-zinc-400">Structural Alignment Plan</span>
                                   <span className="text-[#b8860b]/70 font-semibold">[Locked]</span>
                                 </div>
                                 <div className="flex justify-between py-1">
@@ -1692,7 +1692,7 @@ const Assessment: React.FC = () => {
                               {!isPaid ? (
                                 <div className="space-y-3">
                                   <p className="text-xs text-zinc-400 font-light leading-relaxed italic">
-                                    The dossier is a Strategic Preview. The full Sovereign Model, reserved for verified Principals, unlocks the deep Architectural Assessment and custom Sovereign Roadmap via secure Razorpay checkout.
+                                    The dossier is a Strategic Preview. The full Strategic Alignment Model, reserved for verified leaders, unlocks the deep Architectural Assessment and custom Alignment Roadmap via secure Razorpay checkout.
                                   </p>
                                   
                                   <button 
@@ -1754,7 +1754,7 @@ const Assessment: React.FC = () => {
                                             <Check className="w-4 h-4 text-[#b8860b] mx-auto mb-1" />
                                             <span className="text-[8px] font-mono uppercase text-white font-bold tracking-wider block">Wire Handshake Initiated</span>
                                             <p className="text-[9px] text-zinc-400 italic">
-                                              Suchita&apos;s office is compiling details. A premium wire invoice will reach you within 4 hours.
+                                              Kamini Agnihotri (Assistant to Suchita Sancheti) is compiling details. A premium wire invoice will reach you within 4 hours.
                                             </p>
                                           </div>
                                         )}
@@ -1766,7 +1766,7 @@ const Assessment: React.FC = () => {
                                 <div className="space-y-3 animate-fade-in text-center py-2">
                                   <div className="p-3 bg-[#b8860b]/10 border border-[#b8860b]/30">
                                     <div className="text-[9px] uppercase text-[#b8860b] tracking-wider font-mono font-bold">Authority Calibrated & Certified</div>
-                                    <p className="text-xs text-zinc-400 italic font-light mt-1">Sovereign Portal assessment is fully unlocked on your client terminal node.</p>
+                                    <p className="text-xs text-zinc-400 italic font-light mt-1">Alignment Portal assessment is fully unlocked on your client terminal node.</p>
                                   </div>
 
                                   <a 
@@ -1836,7 +1836,7 @@ const Assessment: React.FC = () => {
                           </svg>
                         </div>
                         <div className="w-full text-left font-mono">
-                          <span className="text-[7px] font-bold text-zinc-500 uppercase tracking-widest block mb-1">HTML EMBED (SOVEREIGN SEAL)</span>
+                          <span className="text-[7px] font-bold text-zinc-500 uppercase tracking-widest block mb-1">HTML EMBED (ALIGNMENT SEAL)</span>
                           <textarea
                             readOnly
                             value={`<div style="text-align: center;"><a href="https://theunboundedleadership.com" target="_blank"><img src="https://theunboundedleadership.com/assets/badges/calibrated.svg" alt="The Unbounded Leadership Co. | Calibration Seal" width="120" height="120" style="border: none;" /></a></div>`}

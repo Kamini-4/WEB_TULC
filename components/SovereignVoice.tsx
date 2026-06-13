@@ -177,7 +177,7 @@ export default function SovereignVoice({ onClose }: SovereignVoiceProps) {
         config: {
           responseModalities: [Modality.AUDIO],
           speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Charon' } } },
-          systemInstruction: 'You are the Sovereign Leadership Architect. Your voice is the frequency of institutional command. Provide surgical, elite diagnostic audits. You do not offer advice; you offer structural re-coding. Speak with absolute gravitas. Focus on: Resonance, Calibration, Substrate, and Velocity.',
+          systemInstruction: 'You are the Sovereign Leadership Architect. Your voice is the frequency of institutional alignment. Provide surgical, elite diagnostic audits. You do not offer advice; you offer structural re-coding. Speak with absolute gravitas. Focus on: Resonance, Calibration, Substrate, and Velocity.',
           outputAudioTranscription: {},
         }
       });

@@ -18,7 +18,7 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
     yield: "Credibility & Scale",
     content: [
       "In the physics of scale, 100% fidelity is a mathematical impossibility. Organizational entropy—the natural tendency toward disorder—ensures that every layer of management, every communication channel, and every decision gate introduces a degree of noise.",
-      "The Sovereign Leader does not chase 100%. They chase the asymptote. They build systems that approach perfection so closely that the remaining variance is statistically insignificant to the strategic outcome.",
+      "The Aligned Leader does not chase 100%. They chase the asymptote. They build systems that approach perfection so closely that the remaining variance is statistically insignificant to the strategic outcome.",
       "When you stop trying to 'fix' people and start 'calibrating' the substrate, you move from a state of constant intervention to a state of systemic inevitability. This is the victory of the architect over the solver.",
       "Strategic Takeaway: Stop managing individuals; start engineering the logic gates that govern their behavior. The goal is not to eliminate human error, but to render it irrelevant to the institutional outcome."
     ]
@@ -68,13 +68,13 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-05",
     category: "Operational Logic",
-    title: "Sovereign Substrates",
+    title: "Aligned Substrates",
     tagline: "Moving from human-dependent heroics to system-dependent execution.",
     focus: "Operational Logic",
     yield: "Anti-Fragility",
     content: [
       "A system that requires a hero to function is, by definition, a fragile system. If your organization depends on the 'extraordinary effort' of key individuals to hit targets, you are operating on a high-risk substrate.",
-      "The Sovereign Leader builds 'Anti-Fragile Substrates.' These are systems where outcomes are a natural law of the design. They don't require heroic intervention because the logic of the system makes failure structurally difficult.",
+      "The Aligned Leader builds 'Anti-Fragile Substrates.' These are systems where outcomes are a natural law of the design. They don't require heroic intervention because the logic of the system makes failure structurally difficult.",
       "We move from 'Management' to 'Architecture.' When the substrate is calibrated, execution becomes autonomous. The leader is then free to preside over the institution rather than manage the team.",
       "The Shift: Stop rewarding heroics; start rewarding the engineering that makes heroics unnecessary. This is the path to unshakeable scale."
     ]
@@ -95,16 +95,16 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   },
   {
     id: "DISPATCH-07",
-    category: "Data Sovereignty",
+    category: "Data Integrity",
     title: "Zero Data Retention",
     tagline: "Why strategic privacy is the ultimate competitive moat.",
-    focus: "Data Sovereignty",
+    focus: "Data Integrity",
     yield: "Strategic Invisibility",
     content: [
-      "In the age of surveillance capitalism, data is not just information—it is institutional power. For the Sovereign Leader, the most valuable data is the 'Strategic Substrate'—the logic and relational maps that define your competitive edge.",
+      "In the age of surveillance capitalism, data is not just information—it is institutional power. For the Aligned Leader, the most valuable data is the 'Strategic Substrate'—the logic and relational maps that define your competitive edge.",
       "We operate under a 'Zero Data Retention' (ZDR) mandate. We believe that your strategic secrets should remain exclusively yours. Our diagnostic systems are ephemeral; they process brilliance and then vanish.",
       "This 'Strategic Invisibility' is your ultimate moat. If your competitors cannot see your substrate, they cannot replicate your moves. Privacy is not just a legal requirement; it is a strategic advantage.",
-      "The Protocol: Protect your institutional 'nervous system' with the same intensity you protect your capital. Sovereignty begins with data control."
+      "The Protocol: Protect your institutional 'nervous system' with the same intensity you protect your capital. Strategic control begins with data alignment."
     ]
   },
   {
@@ -187,7 +187,7 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
     content: [
       "Bandwidth is not found; it is reclaimed. The 'Cognitive Reclamation' protocol is a 90-day architectural intervention designed to purge tactical noise and restore strategic clarity.",
       "Phase 01: The Tactical Audit. Identifying every decision and variance that currently requires your intervention. Phase 02: Substrate Engineering. Building the logic gates that allow the system to handle these variances autonomously.",
-      "Phase 03: Sovereign Integration. Transitioning from intervention to oversight. By the end of day 90, you will have reclaimed 30% of your strategic bandwidth.",
+      "Phase 03: Alignment Integration. Transitioning from intervention to oversight. By the end of day 90, you will have reclaimed 30% of your strategic bandwidth.",
       "The Promise: This is not a 'productivity hack.' It is a structural recalibration of your leadership operating system. Reclaim your clarity; architect your future."
     ]
   },
@@ -208,12 +208,12 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-15",
     category: "Performance Metrics",
-    title: "The Sovereign Ledger",
+    title: "The Alignment Ledger",
     tagline: "Measuring the yield of architectural recalibration.",
     focus: "Performance Metrics",
     yield: "Empirical Evidence",
     content: [
-      "The Sovereign Ledger is the definitive record of institutional yield. It moves beyond 'Soft' metrics to provide empirical evidence of reclaimed authority and systemic velocity.",
+      "The Alignment Ledger is the definitive record of institutional yield. It moves beyond 'Soft' metrics to provide empirical evidence of reclaimed authority and systemic velocity.",
       "We measure 'Decision Harmony,' 'Execution Yield,' and 'Bandwidth Reclamation.' These metrics provide the Board with the data required to evaluate the structural integrity of the leadership substrate.",
       "Architectural recalibration is not an expense; it is a high-yield investment in institutional permanence. The Ledger provides the proof of the return.",
       "The Final Word: Strategic intent is only as valuable as the system's ability to execute it. Measure your yield; secure your legacy."

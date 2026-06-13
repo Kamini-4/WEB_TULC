@@ -31,7 +31,7 @@ const InstitutionalMetrics: React.FC = () => {
             onClick={() => document.getElementById('scale-evidence')?.scrollIntoView({ behavior: 'smooth' })}
             className="text-[8px] sm:text-[10px] font-black uppercase text-[#b8860b] tracking-[0.2em] sm:tracking-[0.3em] hover:text-white transition-colors flex items-center gap-2 sm:gap-3 group"
           >
-            Examine the Physics of Scale <span className="group-hover:translate-x-2 transition-transform">→</span>
+            Examine the Dynamics of Scale <span className="group-hover:translate-x-2 transition-transform">→</span>
           </button>
         </div>
       </div>

@@ -13,12 +13,12 @@ interface LibraryProps {
 
 const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
   const { articleId } = useParams<{ articleId: string }>();
-  const [activePaperKey, setActivePaperKey] = React.useState<'sovereign_protocol' | 'cognitive_equity' | null>(null);
+  const [activePaperKey, setActivePaperKey] = React.useState<'alignment_protocol' | 'cognitive_equity' | null>(null);
 
-  const handleDownload = (wpKey: 'sovereign_protocol' | 'cognitive_equity') => {
+  const handleDownload = (wpKey: 'alignment_protocol' | 'cognitive_equity') => {
     const paper = WHITE_PAPERS[wpKey];
     if (!paper) {
-      alert("Sovereign Document unavailable. Archive synchronization in progress.");
+      alert("Requested Document unavailable. Archive synchronization in progress.");
       return;
     }
 
@@ -433,13 +433,13 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               <div>
                 <div class="running-footer">
                   THE UNBOUNDED LEADERSHIP CO. • CONFIDENTIAL PRIVILEGED DISCLOSURE<br/>
-                  DUPLICATION OR TRANSMISSIONS INFRINGE UPON ESTABLISHED COGNITIVE PATENTS.
+                  DUPLICATION OR TRANSMISSIONS INFRINGE UPON ESTABLISHED INTELLECTUAL PROPERTY AND METHODOLOGY DESIGN RIGHTS.
                 </div>
                 <div class="page-number">II</div>
               </div>
             </div>
             
-            <!-- Page 3: Sovereign Metrics & Protocols • Sections 3, 4 & Exhibits -->
+            <!-- Page 3: Dynamic Metrics & Protocols • Sections 3, 4 & Exhibits -->
             <div class="page">
               <div>
                 <div class="running-header">
@@ -491,11 +491,11 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               </div>
             </div>
             
-            <!-- Page 4: Sovereign Registry Admission & Registry Authentication -->
+            <!-- Page 4: Systemic Registry Admission & Registry Authentication -->
             <div class="page">
               <div class="cert-border">
                 <div>
-                  <div class="cert-title">Sovereign Registry Certificate</div>
+                  <div class="cert-title">Systemic Registry Certificate</div>
                   <div style="font-family: 'Inter', sans-serif; font-size: 8px; font-weight: 900; letter-spacing: 0.3em; text-transform: uppercase; color: #777766; margin-top: 5px;">
                     Admission Ledger Verification & Intellectual Asset Protection
                   </div>
@@ -506,13 +506,13 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 </div>
                 
                 <div class="cert-body">
-                  "This document certifies that the accompanying architectural parameters have been verified and logged inside the sovereign registry. The recipient is granted a single-user, non-transferable, licensed viewing of high-stakes leadership frameworks mapped by The Unbounded Leadership Co. Any systemic execution outside the licensed perimeter falls under the second-order cybernetic compliance protocol."
+                  "This document certifies that the accompanying architectural parameters have been verified and logged inside the systemic registry. The recipient is granted a single-user, non-transferable, licensed viewing of high-stakes leadership frameworks mapped by The Unbounded Leadership Co. Any systemic execution outside the licensed perimeter falls under the second-order cybernetic compliance protocol."
                 </div>
                 
                 <div class="cert-meta">
                   <div class="cert-meta-item">
                     <div class="cert-meta-label">Registry ID</div>
-                    <div class="cert-meta-value">TULC-WP-${wpKey === 'sovereign_protocol' ? '01-ALPHA' : '02-BETA'}</div>
+                    <div class="cert-meta-value">TULC-WP-${wpKey === 'alignment_protocol' ? '01-ALPHA' : '02-BETA'}</div>
                   </div>
                   <div class="cert-meta-item">
                     <div class="cert-meta-label">Fidelity Level</div>
@@ -552,11 +552,11 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
         <header className="mb-16">
           <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-6">Intellectual Authority</h2>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            The Sovereign <br />
+            The Strategic <br />
             <span className="italic text-[#b8860b]">Library.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-zinc-500 text-base italic font-light leading-relaxed">
-            A centralized repository of institutional intelligence, strategic substrates, and real-time leadership telemetry.
+            A centralized repository of institutional intelligence, strategic alignment, and real-time leadership telemetry.
           </p>
           <div className="w-16 h-[2px] bg-[#b8860b] mt-8" />
         </header>
@@ -576,20 +576,20 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
           <h3 className="text-[10px] font-black uppercase text-zinc-400 tracking-[0.2em] mb-10 border-b border-white/10 pb-4">Architectural White Papers</h3>
           <div className="grid lg:grid-cols-2 gap-10">
             <div className="group bg-white/5 p-10 border border-white/10 hover:border-[#b8860b]/30 transition-all duration-700">
-              <span className="text-[#b8860b] text-[8px] uppercase font-black tracking-widest block mb-3">Physics of Power</span>
-              <h4 className="text-2xl font-bold text-white mb-5 group-hover:text-[#b8860b] transition-colors">Sovereign Protocol: A Total Architectural Audit</h4>
+              <span className="text-[#b8860b] text-[8px] uppercase font-black tracking-widest block mb-3">Dynamics of Alignment</span>
+              <h4 className="text-2xl font-bold text-white mb-5 group-hover:text-[#b8860b] transition-colors">Strategic Alignment Protocol: A Total Architectural Audit</h4>
               <p className="text-zinc-500 italic font-light leading-relaxed mb-8 text-sm">
-                An in-depth 45-page exploration of institutional lag, cognitive insolvency, and the cybernetic transition from Charismatic to Architectural Authority.
+                An in-depth 45-page exploration of coordination lag, strategic dilution, and the transition from individual dependence to organizational alignment.
               </p>
               <div className="flex flex-wrap gap-4">
                 <button 
-                  onClick={() => setActivePaperKey('sovereign_protocol')}
+                  onClick={() => setActivePaperKey('alignment_protocol')}
                   className="text-[9px] font-black uppercase tracking-widest bg-[#b8860b] text-white px-6 py-3 hover:bg-white hover:text-black transition-all shadow-md"
                 >
                   Read Online
                 </button>
                 <button 
-                  onClick={() => handleDownload('sovereign_protocol')}
+                  onClick={() => handleDownload('alignment_protocol')}
                   className="text-[9px] font-black uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
                 >
                   Print / Save PDF
@@ -653,7 +653,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 {/* Sub-Header Actions */}
                 <div className="flex justify-between items-center px-8 py-3 bg-zinc-900/30 border-b border-white/5 select-none text-left">
                   <span className="text-zinc-500 text-[9px] font-mono">
-                    REGISTRY ID: TULC-WP-{activePaperKey === 'sovereign_protocol' ? '01-ALPHA' : '02-BETA'}
+                    REGISTRY ID: TULC-WP-{activePaperKey === 'alignment_protocol' ? '01-ALPHA' : '02-BETA'}
                   </span>
                   <button
                     onClick={() => handleDownload(activePaperKey)}
@@ -747,7 +747,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                           </div>
                         </div>
                         <div className="text-[10px] font-serif italic text-zinc-400 leading-relaxed">
-                          "This sovereign asset is admission-verified and logged under registration key TULC-WP-{activePaperKey === 'sovereign_protocol' ? '01-ALPHA' : '02-BETA'}."
+                          "This systemic asset is admission-verified and logged under registration key TULC-WP-{activePaperKey === 'alignment_protocol' ? '01-ALPHA' : '02-BETA'}."
                         </div>
                         <div className="mt-4 pt-3 border-t border-zinc-900 flex justify-between items-end">
                           <div>

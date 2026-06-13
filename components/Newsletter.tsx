@@ -46,9 +46,9 @@ const Newsletter: React.FC = () => {
       <div className="absolute top-0 right-0 w-32 h-32 bg-[#b8860b]/5 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-[#b8860b]/10 transition-all duration-700" />
       
       <div className="relative z-10">
-        <h3 className="text-[#b8860b] text-[8px] sm:text-[10px] font-black uppercase tracking-[0.4em] mb-4">Institutional Dispatches</h3>
+        <h3 className="text-[#b8860b] text-[8px] sm:text-[10px] font-black uppercase tracking-[0.4em] mb-4">The Newsletter</h3>
         <h4 className="text-xl sm:text-2xl font-bold text-white mb-6 leading-tight">
-          Receive the <span className="italic text-[#b8860b]">Sovereign Intelligence</span> brief directly to your terminal.
+          Receive the <span className="italic text-[#b8860b]">Strategic Alignment Newsletter</span> directly to your inbox.
         </h4>
         
         {status === 'success' ? (

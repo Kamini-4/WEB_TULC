@@ -120,21 +120,21 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div className="max-w-2xl">
               <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-8">The Architecture</h2>
-              <h3 className="text-4xl md:text-6xl font-bold leading-tight">Systemic Physics. <br /><span className="italic text-[#b8860b]">Zero Institutional Lag.</span></h3>
+              <h3 className="text-4xl md:text-6xl font-bold leading-tight">Systemic Alignment. <br /><span className="italic text-[#b8860b]">Zero Coordination Lag.</span></h3>
             </div>
             <button 
               onClick={() => window.location.href = '/methodology'}
               className="px-8 py-4 border border-[#111111] text-[#111111] text-[9px] font-black uppercase tracking-widest hover:bg-[#111111] hover:text-white transition-all flex items-center gap-4"
             >
-              Sovereign Protocol <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              Alignment Protocol <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </button>
           </div>
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { id: '01', title: 'The Substrate Audit', desc: 'Identifying hidden friction in your command layer.' },
-              { id: '02', title: 'Logic Engineering', desc: 'Externalizing your intent into autonomous gates.' },
-              { id: '03', title: 'Institutional Calibration', desc: 'Aligning the organization to your frequency.' },
-              { id: '04', title: 'Sovereign Handover', desc: 'Presiding as Architect, not Chief Problem Solver.' }
+              { id: '01', title: 'The Alignment Audit', desc: 'Identifying structural friction in your leadership layer.' },
+              { id: '02', title: 'Process Optimization', desc: 'Translating your strategic intent into clear operational channels.' },
+              { id: '03', title: 'Organizational Alignment', desc: 'Aligning the team to your core scaling targets.' },
+              { id: '04', title: 'Delegated Alignment', desc: 'Leading as an Architect, rather than a reactive solver.' }
             ].map((pillar) => (
               <div key={pillar.id} className="p-8 bg-white border border-zinc-200 hover:border-[#b8860b] transition-all group">
                 <div className="text-[#b8860b] text-xl font-bold italic mb-6">{pillar.id}</div>

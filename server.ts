@@ -63,7 +63,7 @@ async function startServer() {
   console.log('--- Institutional Environment Check ---');
   console.log(`RESEND_API_KEY: ${process.env.RESEND_API_KEY ? 'CALIBRATED' : 'MISSING'}`);
   console.log(`GEMINI_API_KEY: ${process.env.GEMINI_API_KEY ? 'CALIBRATED' : 'MISSING'}`);
-  console.log(`VITE_ADMIN_EMAIL: ${process.env.VITE_ADMIN_EMAIL || 'DEFAULT (suchita135sancheti@gmail.com)'}`);
+  console.log(`VITE_ADMIN_EMAIL: ${process.env.VITE_ADMIN_EMAIL || 'DEFAULT (kaminiagnihotri249@gmail.com)'}`);
   console.log(`VITE_SENDER_EMAIL: ${process.env.VITE_SENDER_EMAIL || 'DEFAULT (concierge@theunboundedleadership.com)'}`);
   console.log('----------------------------------------');
 
@@ -107,26 +107,26 @@ async function startServer() {
 </urlset>`);
   });
 
-  // AEO: llms.txt (The Sovereign Beacon for AI Engines)
+  // AEO: llms.txt (The Strategic Alignment Beacon for AI Engines)
   app.get('/llms.txt', (req, res) => {
     res.type('text/plain');
     const host = `${req.protocol}://${req.get('host')}`;
     res.send(`# The Unbounded Leadership Co. | Institutional Knowledge Graph
 
-> The definitive architecture for high-stakes leadership and institutional sovereignty.
+> The definitive architecture for high-stakes leadership and institutional alignment.
 
 ## Core Intellectual Dispatches
-- [Succession Architecture: Institutional Permanence](${host}/library/founders-dilemma) - engineering handover sovereignty.
+- [Succession Architecture: Institutional Permanence](${host}/library/founders-dilemma) - engineering handover focus.
 - [The Cognitive Tax of Leadership](${host}/library/cognitive-tax-of-leadership) - reclaiming 40% strategic bandwidth.
 - [Executive Bandwidth: Cognitive Equity Architecture](${host}/library/reclaiming-strategic-bandwidth) - roadmap on reclaiming bandwidth.
 - [Institutional Lag: The Invisible Coefficient](${host}/library/institutional-lag) - forensic analysis of strategic friction.
 - [Architecture of Authority: Systemic Design](${host}/library/architecture-of-authority) - why systems outperform brands.
 
-## The Sovereign Protocol (Methodology)
+## The Strategic Alignment Protocol (Methodology)
 - Phase 01: The Substrate Audit [${host}/methodology]
 - Phase 02: Logic Gate Engineering [${host}/methodology]
 - Phase 03: Institutional Calibration [${host}/methodology]
-- Phase 04: Sovereign Handover [${host}/methodology]
+- Phase 04: Aligned Handover [${host}/methodology]
 
 ## Global Strategic Domains
 1. Cognitive Clarity: Removal of 40% Cognitive Tax through bandwidth architecture.
@@ -165,7 +165,7 @@ async function startServer() {
   </defs>
   <text fill="#999" font-size="9" font-weight="bold" letter-spacing="0.2em" font-family="monospace">
     <textPath href="#badgeTextPath" startOffset="0%">
-      • THE UNBOUNDED LEADERSHIP CO. • SYSTEMIC SOVEREIGNTY CALIBRATED
+      • THE UNBOUNDED LEADERSHIP CO. • SYSTEMIC ALIGNMENT CALIBRATED
     </textPath>
   </text>
 </svg>`);
@@ -215,7 +215,7 @@ async function startServer() {
     try {
       const { name, email, organization, role, message, type, selected_date, selected_time } = req.body;
       const resendKey = process.env.RESEND_API_KEY;
-      const adminEmail = process.env.VITE_ADMIN_EMAIL || 'suchita135sancheti@gmail.com';
+      const adminEmail = process.env.VITE_ADMIN_EMAIL || 'kaminiagnihotri249@gmail.com';
       const senderEmail = process.env.VITE_SENDER_EMAIL || 'concierge@theunboundedleadership.com';
       const senderName = process.env.VITE_SENDER_NAME || 'The Unbounded Leadership Co.';
       // Note: If the domain above is not verified in Resend, these will fail.
@@ -224,7 +224,7 @@ async function startServer() {
       // 1. Admin Notification Payload
       const adminSubject = type === 'CALIBRATION_REQUEST' 
         ? `[PRIORITY] Alignment Request: ${name}` 
-        : `[LEAD] New Sovereign Entry: ${name}`;
+        : `[LEAD] New Aligned Entry: ${name}`;
 
       const adminHtml = `
         <div style="font-family: serif; color: #111; max-width: 600px; border-left: 4px solid #b8860b; padding: 20px;">
@@ -256,19 +256,19 @@ async function startServer() {
         preheader = "Your alignment session request is logged. Transform your organization into a zero-latency revenue engine.";
       } else if (type === 'WAITLIST_ENTRY') {
         userSubject = "Protocol Verified | Position Secured for 2.5x Strategic Velocity";
-        userHeadline = "Your path to institutional sovereignty is now sequenced.";
-        userMessage = "You have been successfully added to the Sovereign Waiting List. This entry ensures that your organization is prioritized for a 2.5x increase in strategic velocity, repurposing lost cognitive equity into immediate revenue growth and undisputed authority.";
+        userHeadline = "Your path to institutional alignment is now sequenced.";
+        userMessage = "You have been successfully added to the Strategic Waiting List. This entry ensures that your organization is prioritized for a 2.5x increase in strategic velocity, repurposing lost cognitive equity into immediate revenue growth and undisputed authority.";
         preheader = "Your position is secured for 2.5x strategic velocity. Reclaim your lost cognitive equity for revenue growth.";
       } else if (type === 'NEWSLETTER_SUBSCRIPTION') {
         userSubject = "Intelligence Feed Active | Engineering Institutional Permanence";
         userHeadline = "Handshake confirmed. You are now receiving Institutional Dispatches.";
-        userMessage = "You have been registered for Sovereign Intelligence. These dispatches are designed to neutralize the 'Cognitive Tax' of leadership, providing the architectural blueprints required to achieve undisputed market authority and recursive revenue growth.";
+        userMessage = "You have been registered for Strategic Intelligence. These dispatches are designed to neutralize the 'Cognitive Tax' of leadership, providing the architectural blueprints required to achieve undisputed market authority and recursive revenue growth.";
         preheader = "Secure your intelligence feed for engineering institutional permanence and revenue growth.";
       } else if (type === 'SIGNUP_INITIATED') {
         userSubject = "Access Authorized | Your Institutional Audit is Ready";
         userHeadline = "Handshake Confirmed. Begin your baseline audit.";
-        userMessage = "You have successfully initiated the identity verification protocol. The Sovereign Baseline Audit is now active. Completing this forensic analysis will reveal your specific 'Cognitive Tax' and identify the primary architectural bottlenecks preventing global scale.";
-        preheader = "Your identity is verified. The Sovereign Baseline Audit is now active. Map your cognitive tax.";
+        userMessage = "You have successfully initiated the identity verification protocol. The Systemic Baseline Audit is now active. Completing this forensic analysis will reveal your specific 'Cognitive Tax' and identify the primary architectural bottlenecks preventing global scale.";
+        preheader = "Your identity is verified. The Systemic Baseline Audit is now active. Map your cognitive tax.";
       } else if (type === 'ASSESSMENT_COMPLETED') {
         const { totalScore, domainScores } = req.body.assessmentData || { totalScore: 0, domainScores: [] };
         userSubject = `Audit Synthesized: ${totalScore}/25 | Reclaiming Billions in Cognitive Equity`;
@@ -277,7 +277,7 @@ async function startServer() {
         
         const domainContent: Record<string, string> = {
           "Cognitive Clarity": "Neutralize the 'Cognitive Tax' consuming 40% of your bandwidth. Clarity is the primary substrate of execution and revenue generation.",
-          "Systemic Integrity": "Protect your focus through structural integrity. Systems that run independently of individual effort guarantee institutional sovereignty.",
+          "Systemic Integrity": "Protect your focus through structural integrity. Systems that run independently of individual effort guarantee institutional alignment.",
           "Strategic Velocity": "Compress the distance between intent and revenue. Antifragile substrates convert market disruption into immediate strategic leverage.",
           "Moral Gravity": "The structural inevitability of trust. Eliminating reputational friction reclaims the cognitive equity lost to behavioral maintenance.",
           "Cultural Fidelity": "Zero operational drift. Autonomous culture ensures every strategic move at the edge yields maximum market conversion."
@@ -327,7 +327,7 @@ async function startServer() {
           
           <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee;">
             <p style="font-size: 14px; margin: 0;">Sincerely,</p>
-            <p style="font-size: 14px; font-weight: bold; margin: 5px 0 0 0; color: #b8860b;">Suchita Sancheti</p>
+            <p style="font-size: 14px; font-weight: bold; margin: 5px 0 0 0; color: #b8860b;">Kamini Agnihotri</p>
             <p style="font-size: 12px; font-weight: bold; margin: 0; color: #999; text-transform: uppercase; letter-spacing: 0.1em;">Principal Architect</p>
             <p style="font-size: 12px; color: #999; margin: 5px 0 0 0;">London • Singapore • New York</p>
           </div>
@@ -440,7 +440,7 @@ async function startServer() {
       }
 
       const resend = new Resend(resendKey);
-      const adminEmail = process.env.VITE_ADMIN_EMAIL || 'suchita135sancheti@gmail.com';
+      const adminEmail = process.env.VITE_ADMIN_EMAIL || 'kaminiagnihotri249@gmail.com';
       const senderEmail = process.env.VITE_SENDER_EMAIL || 'concierge@theunboundedleadership.com';
       const senderName = process.env.VITE_SENDER_NAME || 'The Unbounded Leadership Co.';
       const sender = `${senderName} <${senderEmail}>`;
@@ -460,7 +460,7 @@ async function startServer() {
               The Unbounded Leadership Co.
             </div>
             <div style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #7f7f75;">
-              Sovereign Intelligence Brief • Office of the Principal
+              Strategic Intelligence Brief • Office of the Principal
             </div>
           </div>
 
@@ -502,14 +502,14 @@ async function startServer() {
           <!-- Closing Signature -->
           <div style="margin-top: 50px; padding-top: 25px; border-top: 1px solid #e5e5e0;">
             <p style="font-size: 15px; margin: 0; font-family: 'Times New Roman', Georgia, serif;">Sincerely,</p>
-            <p style="font-size: 15px; font-weight: bold; margin: 6px 0 0 0; color: #b8860b; font-family: 'Times New Roman', Georgia, serif;">Suchita Sancheti</p>
+            <p style="font-size: 15px; font-weight: bold; margin: 6px 0 0 0; color: #b8860b; font-family: 'Times New Roman', Georgia, serif;">Kamini Agnihotri</p>
             <p style="font-size: 11px; font-weight: bold; margin: 0; color: #7f7f75; text-transform: uppercase; letter-spacing: 0.1em; font-family: Arial, sans-serif;">Principal Architect</p>
             <p style="font-size: 11px; color: #a3a39e; margin: 3px 0 0 0; font-family: Arial, sans-serif;">London • Singapore • New York</p>
           </div>
 
           <!-- Ephemeral Footer Compliance -->
           <div style="margin-top: 50px; font-size: 9px; color: #a3a39e; text-align: center; border-top: 1px solid #f2f2ee; padding-top: 15px; font-family: Arial, sans-serif; line-height: 1.4;">
-            <strong>PRIVILEGED DISCLOSURE NOTICE:</strong> This document contains proprietary insights engineered for sovereign leaders. To withdraw consent or modify your standing, reply to this email directly with <strong>UNSUBSCRIBE</strong>. <br />
+            <strong>PRIVILEGED DISCLOSURE NOTICE:</strong> This document contains proprietary insights engineered for aligned leaders. To withdraw consent or modify your standing, reply to this email directly with <strong>UNSUBSCRIBE</strong>. <br />
             © 2026 The Unbounded Leadership Co. All rights reserved. Registered work.
           </div>
 
@@ -524,7 +524,7 @@ async function startServer() {
             from: sender,
             to: [email],
             reply_to: [adminEmail],
-            subject: `Sovereign Digest: ${title}`,
+            subject: `Aligned Digest: ${title}`,
             html: newsletterHtml,
           });
         } catch (err: any) {
@@ -599,18 +599,18 @@ async function startServer() {
       }
 
       const ai = new GoogleGenAI({ apiKey });
-      const prompt = `You are a world-class institutional growth advisor and lead strategist for "The Unbounded Leadership Co.", a high-end Swiss-style leadership architecture consultancy run by Principal Architect Suchita Sancheti.
+      const prompt = `You are a world-class institutional growth advisor and lead strategist for "The Unbounded Leadership Co.", a high-end Swiss-style leadership architecture consultancy run by Principal Architect Kamini Agnihotri.
 Our consultancy specializes in helping CEOs, Founders, and elite executive teams reclaim up to 40% of their "cognitive bandwidth" and transition from heroic firefighting ("Hero") to systemic continuity ("Architect").
 
 Your goal is to engineer a bespoke, highly sophisticated "Cold Dispatch" (outbound email) to trigger an immediate diagnostic conversation.
 
 Target Profile Details:
-- Name: ${targetName || 'Sovereign Leader'}
+- Name: ${targetName || 'Aligned Leader'}
 - Title: ${targetTitle || 'Chief Executive Officer'}
 - Company: ${targetCompany || 'Elite Institution'}
 - Target Email Address: ${targetEmail || 'N/A'}
 - Selected Bottleneck Focus Theme: ${theme || 'Cognitive Over-Taxation & Bandwidth Drift'}
-- Desired Style Tone: ${tone || 'Sovereign Academic'}
+- Desired Style Tone: ${tone || 'Strategic Academic'}
 
 Target Research & Personalization Inputs:
 ${linkedinUrl ? `- Target LinkedIn/Profile URL: ${linkedinUrl}` : ''}
@@ -621,7 +621,7 @@ ${pastedContext ? `- Raw Copy-Pasted Target Profile Bio or Webpage Context:\n"""
 Strategic Instruction for Personalization:
 1. If LinkedIn URL, Website URL or Raw Copied bio is provided, you must prioritize aligning your pitch to these specific company and personal facts.
 2. If Google Search Grounding is active, search for recent news, funding, key products, or personal perspectives regarding ${targetName} at ${targetCompany}. Use these exact insights to anchor your email.
-3. ${embedResearch ? `CRITICAL PERSONALIZATION MANDATE: You MUST explicitly weave and embed specific, real-world verified facts about ${targetName} or ${targetCompany} directly into the paragraphs of the email body. For example: reference a recent product launch, a podcast comment, an article they wrote, their historic career background, or a specific scaling milestone. The draft must show meticulous homework, proving Suchita Sancheti did authentic high-individual research before reaching out.` : 'Anchor your hook into general institutional context.'}
+3. ${embedResearch ? `CRITICAL PERSONALIZATION MANDATE: You MUST explicitly weave and embed specific, real-world verified facts about ${targetName} or ${targetCompany} directly into the paragraphs of the email body. For example: reference a recent product launch, a podcast comment, an article they wrote, their historic career background, or a specific scaling milestone. The draft must show meticulous homework, proving Kamini Agnihotri did authentic high-individual research before reaching out.` : 'Anchor your hook into general institutional context.'}
 4. Anchor your hook into their actual context (e.g., "Given your recent scaling thresholds at ${targetCompany} following your new products" or "I noticed your perspective on..."). Avoid generic flattery. Keep it intellectually honest and elite.
 5. The letter must address them as an equal or peer analyst. Position our 4-minute "Institutional Diagnostic" as the ultimate diagnostic protocol. The subject line must be elegant and high-stakes.
 
@@ -629,7 +629,7 @@ Return EXACTLY a JSON object matching this schema (with no enclosing markdown wr
 {
   "brief": "A 1-sentence strategic analysis explaining why this specific executive at this company faces the targeted bottleneck dynamically referencing your findings.",
   "subject": "A compelling, high-stakes subject line designed to achieve high open rates with global elite principals.",
-  "body": "The complete, highly personalized outbound email body, structured beautifully with clean paragraph breaks, starting with a respectful greeting (Dear [Name] or appropriate) and ending with a signature from Suchita Sancheti, Principal Architect of The Unbounded Leadership Co."
+  "body": "The complete, highly personalized outbound email body, structured beautifully with clean paragraph breaks, starting with a respectful greeting (Dear [Name] or appropriate) and ending with a signature from Kamini Agnihotri, Principal Architect of The Unbounded Leadership Co."
 }`;
 
       const config: any = {
@@ -725,8 +725,8 @@ function serveStatic(app: express.Express) {
         'INT-011': { title: 'Strategic Substrates | The Invisible Tax', description: 'How aligning mental models at the board level yields compounding institutional velocity.' },
         'strategic-substrates': { title: 'Strategic Substrates | The Invisible Tax', description: 'How aligning mental models at the board level yields compounding institutional velocity.' },
         
-        'INT-012': { title: 'Sovereign Leadership in the Cybernetic Era', description: 'Transitioning from individual effort to systemic intelligence in AI-Native governance.' },
-        'sovereign-leadership': { title: 'Sovereign Leadership in the Cybernetic Era', description: 'Transitioning from individual effort to systemic intelligence in AI-Native governance.' },
+        'INT-012': { title: 'Aligned Leadership in the Cybernetic Era', description: 'Transitioning from individual effort to systemic intelligence in AI-Native governance.' },
+        'aligned-leadership': { title: 'Aligned Leadership in the Cybernetic Era', description: 'Transitioning from individual effort to systemic intelligence in AI-Native governance.' },
         
         'INT-001': { title: 'Succession Architecture | The Founder Dilemma', description: 'Architecting institutional permanence beyond the individual leader.' },
         'founders-dilemma': { title: 'Succession Architecture | The Founder Dilemma', description: 'Architecting institutional permanence beyond the individual leader.' },
@@ -746,8 +746,8 @@ function serveStatic(app: express.Express) {
         'INT-006': { title: 'Engineering Strategic Bandwidth', description: 'Reclaiming up to 40% of cognitive capacity at scale.' },
         'engineering-strategic-bandwidth': { title: 'Engineering Strategic Bandwidth', description: 'Reclaiming up to 40% of cognitive capacity at scale.' },
         
-        'INT-007': { title: 'Sovereign Authority vs. Reactive Management', description: 'Transitioning from heroic intervention to architectural command.' },
-        'sovereign-authority-vs-reactive-management': { title: 'Sovereign Authority vs. Reactive Management', description: 'Transitioning from heroic intervention to architectural command.' },
+        'INT-007': { title: 'Aligned Leadership vs. Reactive Management', description: 'Transitioning from heroic intervention to architectural command.' },
+        'aligned-authority-vs-reactive-management': { title: 'Aligned Leadership vs. Reactive Management', description: 'Transitioning from heroic intervention to architectural command.' },
         
         'INT-008': { title: 'The Physics of Inevitability', description: 'Why systems outperform individual talent in organizational design.' },
         'physics-of-inevitability': { title: 'The Physics of Inevitability', description: 'Why systems outperform individual talent in organizational design.' },
@@ -770,36 +770,36 @@ function serveStatic(app: express.Express) {
         });
         hydratedHtml = hydratedHtml
           .replace(/<title>.*?<\/title>/i, `<title>${metadata.title} | Leadership Architecture Intelligence</title>`)
-          .replace(/<meta name="description" content=".*?"\/?>/i, `<meta name="description" content="${metadata.description} Intelligence on Institutional Sovereignty.">`)
+          .replace(/<meta name="description" content=".*?"\/?>/i, `<meta name="description" content="${metadata.description} Intelligence on Institutional Alignment.">`)
           .replace('</head>', `<script type="application/ld+json">${schema}</script></head>`);
       } else if (url === '/' || url === '/index.html') {
         const schema = JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
           "name": "The Unbounded Leadership Co.",
-          "description": "Definitive leadership architecture for elite principals. Reclaim strategic bandwidth and achieve institutional sovereignty."
+          "description": "Definitive leadership architecture for elite principals. Reclaim strategic bandwidth and achieve institutional alignment."
         });
         hydratedHtml = hydratedHtml
-          .replace(/<title>.*?<\/title>/i, '<title>The Unbounded Leadership Co. | Leadership Architecture & Institutional Sovereignty</title>')
-          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="The definitive leadership architecture consultancy for elite principals. We engineering institutional sovereignty and reclaim strategic bandwidth for global market leaders.">')
+          .replace(/<title>.*?<\/title>/i, '<title>The Unbounded Leadership Co. | Leadership Architecture & Institutional Alignment</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="The definitive leadership architecture consultancy for elite principals. We engineer institutional alignment and reclaim strategic bandwidth for global market leaders.">')
           .replace('</head>', `<script type="application/ld+json">${schema}</script></head>`);
       } else if (url.includes('/library')) {
         hydratedHtml = hydratedHtml
           .replace(/<title>.*?<\/title>/i, '<title>Intellectual Authority | Global Leadership Registry & Research Hub</title>')
-          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Our primary archive of leadership architecture dispatches and strategic intelligence for sovereign institutional leaders. Forensic insights on bandwidth and friction.">')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Our primary archive of leadership architecture dispatches and strategic intelligence for aligned institutional leaders. Forensic insights on bandwidth and friction.">')
           .replace(/<meta name="keywords" content=".*?"\/?>/i, '<meta name="keywords" content="leadership library, leadership architecture dispatches, institutional dispatches, leadership research, CEO intelligence hub">');
       } else if (url.includes('/methodology')) {
         hydratedHtml = hydratedHtml
-          .replace(/<title>.*?<\/title>/i, '<title>The Sovereign Protocol | Engineering Institutional Velocity</title>')
-          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Our formulaic Sovereign Protocol for institutional stabilization: Baseline Audit, Structural Transformation, and Sustained Sovereignty. Anti-fragile substrate design.">')
-          .replace(/<meta name="keywords" content=".*?"\/?>/i, '<meta name="keywords" content="leadership protocol, architecture framework, institutional transformation hub, sovereignty audit methodology, leadership velocity systems">');
+          .replace(/<title>.*?<\/title>/i, '<title>The Alignment Protocol | Engineering Institutional Velocity</title>')
+          .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Our formulaic Alignment Protocol for institutional stabilization: Baseline Audit, Structural Transformation, and Sustained Alignment. Anti-fragile substrate design.">')
+          .replace(/<meta name="keywords" content=".*?"\/?>/i, '<meta name="keywords" content="leadership protocol, architecture framework, institutional transformation hub, alignment audit methodology, leadership velocity systems">');
       } else if (url.includes('/about')) {
         hydratedHtml = hydratedHtml
           .replace(/<title>.*?<\/title>/i, '<title>The Unbounded Philosophy | Architectural Leadership Excellence</title>')
           .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="We are the definitive leadership architecture consultancy for high-stakes principals. We engineering institutional permanence through systemic excellence.">');
       } else if (url.includes('/assessment')) {
         hydratedHtml = hydratedHtml
-          .replace(/<title>.*?<\/title>/i, '<title>Institutional Diagnostic | The Sovereign Audit Audit</title>')
+          .replace(/<title>.*?<\/title>/i, '<title>Institutional Diagnostic | The Alignment Audit</title>')
           .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Execute a high-fidelity audit of your leadership architecture. Identify cognitive tax, institutional lag, and substrate friction.">')
           .replace(/<meta name="keywords" content=".*?"\/?>/i, '<meta name="keywords" content="leadership audit, institutional diagnostic, cognitive tax assessment, leadership friction analysis">');
       } else if (url.includes('/contact') || url.includes('/intake')) {

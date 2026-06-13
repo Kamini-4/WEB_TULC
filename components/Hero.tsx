@@ -24,38 +24,38 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-[#111111] leading-[1.05] tracking-tight mb-5 sm:mb-6 animate-fade-in text-center" style={{ animationDelay: '0.2s' }}>
-            Architecting the <br className="hidden sm:block" />
-            <span className="italic text-[#b8860b]">Scalable Enterprise.</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.2] tracking-tight mb-5 sm:mb-6 animate-fade-in text-center" style={{ animationDelay: '0.2s' }}>
+            <span className="text-[#111111]">Lead Through </span>
+            <span className="text-[#b8860b] italic">Architecture.</span>
           </h1>
 
           {/* The Soul / Integrative Statement */}
           <div className="max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <p className="text-base sm:text-lg md:text-xl text-zinc-800 font-medium italic leading-relaxed mb-8 text-center px-4">
-              For high-growth founders, VCs, and enterprise leaders seeking to eliminate decision bottlenecks, reduce human alignment friction, and reclaim 40% of their strategic bandwidth. We design the self-cohering operational substrate that ensures delegated actions execute with <span className="text-[#b8860b] font-extrabold not-italic">100% of your strategic intent</span>, saving organizations crores in coordination and latency costs.
+              For high-growth founders, VCs, and enterprise leaders seeking to eliminate decision bottlenecks, reduce human alignment friction, and reclaim 40% of their strategic bandwidth. We design the self-cohering operating frameworks that ensure delegated actions execute with <span className="text-[#b8860b] font-extrabold not-italic">uncompromised strategic precision</span>, saving organizations crores in coordination and latency costs.
             </p>
 
             {/* Yields Visualization - High Attention Black Block */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-800 mb-8 md:mb-10 border border-zinc-800 shadow-2xl overflow-hidden">
               <div className="flex flex-col items-center bg-[#111111] p-5 transition-colors hover:bg-zinc-900">
                 <span className="text-2xl font-bold text-white mb-1">30%+</span>
-                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2">Bandwidth Reclaimed</span>
-                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Reclaiming high-impact hours from low-value operational reviews.</p>
+                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2 text-center">Strategic Bandwidth Reclamation</span>
+                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px] text-center">Reclaiming high-impact hours from low-value operational reviews.</p>
               </div>
               <div className="flex flex-col items-center bg-[#111111] p-5 transition-colors hover:bg-zinc-900">
                 <span className="text-xl font-bold text-white mb-1">40% Less Delay</span>
-                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2">Decision Velocity</span>
-                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Reducing administrative drag to accelerate market responsiveness.</p>
+                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2 text-center">Decision Velocity Gain</span>
+                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px] text-center">Reducing administrative drag to accelerate market responsiveness.</p>
               </div>
               <div className="flex flex-col items-center bg-[#111111] p-5 transition-colors hover:bg-zinc-900">
                 <span className="text-xl font-bold text-white mb-1">100% Parity</span>
-                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2">Strategic Intent</span>
-                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Ensuring delegated actions execute with reliable, standard alignment.</p>
+                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2 text-center">Strategic Precision</span>
+                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px] text-center">Ensuring delegated actions execute with reliable, standard alignment.</p>
               </div>
               <div className="flex flex-col items-center bg-[#111111] p-5 transition-colors hover:bg-zinc-900">
                 <span className="text-2xl font-bold text-white mb-1">Active</span>
-                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2">Business Continuity</span>
-                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px]">Establishing repeatable workflows independent of individual presence.</p>
+                <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-2 text-center">Business Continuity</span>
+                <p className="text-[10px] text-zinc-300 italic leading-relaxed max-w-[160px] text-center">Establishing repeatable workflows independent of individual presence.</p>
               </div>
             </div>
 
@@ -69,13 +69,15 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
             {/* CTAs (Suggestion 1) */}
             <div className="flex flex-col items-center gap-8 animate-fade-in">
               <div className="flex flex-wrap gap-4 justify-center">
-                <button 
-                  onClick={() => navigate('/intake')}
-                  className="px-8 py-4 sm:px-10 sm:py-5 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 shadow-2xl relative overflow-hidden group"
+                <a 
+                  href="https://calendly.com/d/d3jb-kpx-r6q"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 sm:px-10 sm:py-5 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 shadow-2xl relative overflow-hidden group inline-block cursor-pointer text-center"
                 >
                   <span className="relative z-10 font-bold">Secure Enterprise Consult</span>
                   <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                </button>
+                </a>
                 <button 
                   onClick={() => navigate('/assessment')}
                   className="px-8 py-4 sm:px-10 sm:py-5 border border-zinc-300 text-[#111111] text-[10px] font-black uppercase tracking-[0.3em] hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-500"

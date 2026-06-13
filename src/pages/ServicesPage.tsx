@@ -33,7 +33,7 @@ const SERVICES_SPECTRUM: Service[] = [
       'Comprehensive Relational Infrastructure Audit',
       'Personal Cognitive Bandwidth Allocation Map',
       'Forensic Identification of 3 Primary Logic Leaks',
-      'Sovereignty Telemetry Dossier & System Recommendations',
+      'Alignment Telemetry Dossier & System Recommendations',
       'Direct Pathway to Phase 01 Engagement'
     ],
     ctaText: 'Initiate Diagnostic Checkout',
@@ -42,9 +42,9 @@ const SERVICES_SPECTRUM: Service[] = [
     isPopular: true
   },
   {
-    id: 'sovereign_protocol',
+    id: 'alignment_protocol',
     badge: 'Phase 01-04',
-    title: 'The Sovereign Protocol',
+    title: 'The Strategic Alignment Protocol',
     subtitle: 'Full-Scale Operating System Recalibration',
     duration: '6-Week Architecture Setup',
     description: 'A complete, modular overhaul of your leadership operating system. We externalize your unique strategic DNA and hard-code it into autonomous logic gates to achieve unshakeable institutional permanence.',
@@ -63,7 +63,7 @@ const SERVICES_SPECTRUM: Service[] = [
   {
     id: 'board_oversight',
     badge: 'Retainer',
-    title: 'Sovereign Board Oversight',
+    title: 'Strategic Board Oversight',
     subtitle: 'Fiduciary Safeguard & Resonance Preservation',
     duration: 'Ongoing Retainer',
     description: 'Continuous high-frequency monitoring and ongoing strategic alignment verification. Ideal for holding companies, multi-brand founders, or boards seeking to insulate institutional value and de-risk succession.',
@@ -133,7 +133,7 @@ const ServicesPage: React.FC = () => {
         
         {/* Header Section */}
         <div className="mb-20 text-center max-w-4xl mx-auto">
-          <h2 className="text-[#b8860b] text-xs font-black uppercase tracking-[0.4em] mb-4">The Sovereign Spectrum</h2>
+          <h2 className="text-[#b8860b] text-xs font-black uppercase tracking-[0.4em] mb-4">The Alignment Spectrum</h2>
           <h1 className="text-4xl md:text-7xl font-bold mb-8 leading-tight">
             Institutional <span className="text-[#b8860b] italic">Services.</span>
           </h1>
@@ -223,7 +223,7 @@ const ServicesPage: React.FC = () => {
             <div className="lg:col-span-6 space-y-8">
               <div className="inline-flex items-center gap-3 bg-[#b8860b]/10 text-[#b8860b] px-4 py-2 rounded-xs border border-[#b8860b]/20">
                 <Calculator className="w-4 h-4" />
-                <span className="text-[10px] uppercase font-black tracking-widest">Sovereignty Estimator</span>
+                <span className="text-[10px] uppercase font-black tracking-widest">Alignment Estimator</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-bold leading-tight">
                 Quantify Your <br />
