@@ -135,7 +135,7 @@ const App: React.FC = () => {
           break;
         case '/about':
           title = "Our Alignment Covenant | The Unbounded Leadership Co.";
-          description = "We work with the world's most consequential founders to architect the structural conditions for absolute leadership alignment under Suchita Sancheti.";
+          description = "We work with the world's most consequential founders to architect the structural conditions for absolute organizational sovereignty under Suchita Sancheti.";
           image = "https://images.unsplash.com/photo-1486444038473-ac89ae3f74f8?auto=format&fit=crop&q=80&w=1600";
           break;
         case '/services':

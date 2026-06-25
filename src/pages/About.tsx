@@ -225,7 +225,7 @@ const About: React.FC = () => {
                 <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] block">VISION</span>
               </div>
               <p className="text-[#f5f5f0] text-lg md:text-xl leading-relaxed font-light italic border-l border-[#b8860b]/40 pl-6 mb-8">
-                To integrate elite human ambition with enduring organizational architecture — ensuring your vision remains pure at the operational edge.
+                "To align human ambition with enduring organizational architecture — so that power, scale, and perpetuity compound as one, and what the world's greatest founders build today commands the future long after they have conquered it."
               </p>
             </div>
             <div className="mt-8 pt-6 border-t border-white/5 relative z-10">
@@ -250,10 +250,7 @@ const About: React.FC = () => {
                 <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] block">MISSION</span>
               </div>
               <p className="text-white text-lg md:text-xl leading-relaxed font-light italic border-l border-[#b8860b]/40 pl-6 mb-6">
-                <strong>We work with the world's most consequential founders</strong> to architect the structural conditions for absolute leadership alignment.
-              </p>
-              <p className="text-zinc-300 text-sm md:text-base leading-relaxed font-light italic pl-6">
-                Across five foundational domains of systemic alignment, we streamline operational dependency, reduce coordination lag, and build the structural infrastructure that allows an enterprise to grow, scale, and perform reliably — with or without the founder's daily manual intervention.
+                "We work with the world's most consequential founders to architect the structural conditions for absolute organizational sovereignty. Across five foundational domains of systemic alignment, we dismantle operational dependency, dissolve leadership entropy, and engineer the precise infrastructure that allows an empire to grow, scale, and compound — with or without its founder at the helm."
               </p>
             </div>
             <div className="mt-8 pt-6 border-t border-white/5 relative z-10">

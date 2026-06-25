@@ -27,8 +27,8 @@ const SERVICES_SPECTRUM: Service[] = [
     subtitle: 'Forensic Cognitive Leak Audit',
     duration: '14-Day Engagement',
     description: 'For principals requiring architectural proof before full institutional integration. A high-fidelity telemetry scan mapping your personal decision frequency and identifying the 30% bandwidth drain.',
-    price: '₹1,50,000 INR',
-    billingDetail: 'Fixed investment. Complete 14-day fully-compiled telemetry & profile dossier',
+    price: 'Upon Request',
+    billingDetail: 'Bespoke investment tailored to organizational scale.',
     features: [
       'Comprehensive Relational Infrastructure Audit',
       'Personal Cognitive Bandwidth Allocation Map',
@@ -36,9 +36,8 @@ const SERVICES_SPECTRUM: Service[] = [
       'Alignment Telemetry Dossier & System Recommendations',
       'Direct Pathway to Phase 01 Engagement'
     ],
-    ctaText: 'Initiate Diagnostic Checkout',
-    ctaAction: 'payment',
-    paymentUrl: 'https://rzp.io/rzp/8H0bV3bW',
+    ctaText: 'Request Diagnostic Audit',
+    ctaAction: 'intake',
     isPopular: true
   },
   {
@@ -48,8 +47,8 @@ const SERVICES_SPECTRUM: Service[] = [
     subtitle: 'Full-Scale Operating System Recalibration',
     duration: '6-Week Architecture Setup',
     description: 'A complete, modular overhaul of your leadership operating system. We externalize your unique strategic DNA and hard-code it into autonomous logic gates to achieve unshakeable institutional permanence.',
-    price: '₹12,50,000 INR',
-    billingDetail: 'Transparent flat fee. Includes 6-week architecture configuration + 3 months implementation guardrails',
+    price: 'Upon Request',
+    billingDetail: 'Bespoke institutional architecture pricing.',
     features: [
       'Onsite Intensives & Off-site Board Calibration Labs',
       'Implementation of 12+ Custom Logic-Gates',
@@ -67,8 +66,8 @@ const SERVICES_SPECTRUM: Service[] = [
     subtitle: 'Fiduciary Safeguard & Resonance Preservation',
     duration: 'Ongoing Retainer',
     description: 'Continuous high-frequency monitoring and ongoing strategic alignment verification. Ideal for holding companies, multi-brand founders, or boards seeking to insulate institutional value and de-risk succession.',
-    price: '₹2,40,000 / Qtr',
-    billingDetail: 'Billed quarterly. Ongoing strategic alignment audits and live executive feedback loops',
+    price: 'Upon Request',
+    billingDetail: 'Retainer structured upon institutional complexity.',
     features: [
       'Bi-annual Substrate Integrity Re-auditing',
       'Priority Shadow Metric Dashboards',
@@ -113,13 +112,7 @@ const ServicesPage: React.FC = () => {
   };
 
   const handleCtaClick = (service: Service) => {
-    if (service.ctaAction === 'payment') {
-      window.open(service.paymentUrl || 'https://rzp.io/rzp/8H0bV3bW', '_blank');
-      // Set local storage indicator so they can unlock portals
-      localStorage.setItem('tulc_portal_access', 'true');
-    } else {
-      navigate('/intake');
-    }
+    navigate('/intake');
   };
 
   return (
@@ -331,13 +324,13 @@ const ServicesPage: React.FC = () => {
                 <div className="mt-12 p-6 bg-[#b8860b]/5 border border-[#b8860b]/20 flex flex-col sm:flex-row items-center gap-6 justify-between">
                   <div>
                     <h4 className="text-sm font-bold text-white uppercase tracking-widest mb-1">Audit Your Substrate</h4>
-                    <p className="text-[10px] text-zinc-400 italic">Initiate your Phase 0.0 Diagnostic to engineer absolute performance.</p>
+                    <p className="text-[10px] text-zinc-400 italic">Request your Phase 0.0 Diagnostic to engineer absolute performance.</p>
                   </div>
                   <button 
-                    onClick={() => window.open('https://rzp.io/rzp/8H0bV3bW', '_blank')}
+                    onClick={() => navigate('/intake')}
                     className="px-8 py-3.5 bg-[#b8860b] text-white hover:bg-white hover:text-black text-[9px] font-black uppercase tracking-widest transition-all shrink-0"
                   >
-                    Initiate Audit
+                    Request Audit
                   </button>
                 </div>
               </div>

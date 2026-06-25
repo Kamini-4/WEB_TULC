@@ -1,10 +1,11 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Lock, Unlock } from 'lucide-react';
 
 const Portal: React.FC = () => {
+  const navigate = useNavigate();
   const [isPaid, setIsPaid] = React.useState(false);
 
   // Check if simulated payment succeeded in URL
@@ -18,14 +19,6 @@ const Portal: React.FC = () => {
     }
   }, []);
 
-  const handlePaymentClick = () => {
-    // In a real app, this would use the Razorpay Checkout SDK
-    window.open('https://rzp.io/rzp/8H0bV3bW', '_blank');
-    
-    // For demo purposes in this environment, we'll provide a way to 'simulate' success
-    // after the user returns or clicks a simulate button.
-  };
-
   if (!isPaid) {
     return (
       <div className="bg-[#111111] min-h-screen text-white pt-36 pb-24 overflow-hidden relative flex items-center justify-center">
@@ -37,17 +30,17 @@ const Portal: React.FC = () => {
           <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.5em] mb-4">Portal Locked</h2>
           <h1 className="text-4xl md:text-5xl font-bold mb-8">Corporate <br /><span className="italic text-[#b8860b]">Clearance Required.</span></h1>
           <p className="text-zinc-500 mb-12 text-sm italic font-light leading-relaxed">
-            The Client Portal contains proprietary alignment analysis. To unlock your unique performance dashboard and initiate your evaluation, the Enterprise Intake Fee must be processed.
+            The Client Portal contains proprietary alignment analysis. To unlock your unique performance dashboard and initiate your evaluation, please request access credentials.
           </p>
           
           <div className="space-y-6">
             <button 
-              onClick={handlePaymentClick}
+              onClick={() => navigate('/intake')}
               className="w-full py-6 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all shadow-2xl"
             >
-              Process Engagement Fee (Razorpay)
+              Request Access Credentials
             </button>
-            <p className="text-[9px] text-zinc-600 uppercase tracking-widest">Secure Enterprise Gateway</p>
+            <p className="text-[9px] text-zinc-600 uppercase tracking-widest">Fiduciary Clearance System</p>
             
             <button 
               onClick={() => {

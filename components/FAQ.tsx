@@ -1,42 +1,35 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 
 const FAQ: React.FC = () => {
   const faqs = [
     {
       question: "Who is Suchita Sancheti?",
-      answer: "Suchita Sancheti is the Principal Architect of The Unbounded Leadership Co. She is a Computer Science Engineer and Industrial Psychologist who helps scaling organizations reduce decision delays by 40% in 90 days. She aligns corporate frameworks for elite enterprise founders, venture capitalists, and CEOs."
+      answer: "Suchita Sancheti is an elite enterprise architect, computer science engineer, and industrial psychologist. She serves as the Principal of The Unbounded Leadership Co., partnering with global founders, venture capitalists, and CEOs to align corporate frameworks and reduce decision delays by 40% in 90 days."
     },
     {
-      question: "What are Intent & Dilution?",
-      answer: "Intent & Dilution describe the automatic loss of strategic clarity as direction passes down hierarchical layers. It results in teams executing low-fidelity approximations of the original vision, leading to severe coordination costs, operational latency, and systemic drift."
+      question: "What is Intent Dilution?",
+      answer: "Intent dilution is the structural degradation of strategic clarity as direction propagates down hierarchical layers. This systematic decay forces teams to execute low-fidelity approximations of the original vision, creating severe coordination drag and operational latency."
     },
     {
-      question: "What is the Cognitive Tax of Leadership?",
-      answer: "The Cognitive Tax is the heavy mental and creative depletion paid by elite leaders when forced to step out of high-stakes vision planning to manually resolve ongoing organizational misalignments. When strategic intent is not compiled into the company's operating substrate, leaders pay a Cognitive Tax that consumes up to 40% of their strategic capacity."
+      question: "What is the Cognitive Tax?",
+      answer: "The cognitive tax is the compound mental exhaustion and creative depletion paid by elite leadership when forced to step out of high-stakes long-term vision planning to resolve ongoing operational misalignments."
     },
     {
       question: "What is the Inaction Tax?",
-      answer: "The Inaction Tax is the heavy, compound organizational cost of delayed alignment, frozen priorities, and systemic indecisiveness. It represents the measurable financial and momentum loss when key operational dependencies are slowed down by lack of architectural clarity."
+      answer: "The inaction tax is the compound opportunity cost, delayed strategic alignment, frozen initiatives, and systemic indecision that occurs when scaling organizations lack durable, self-regulating operating structures."
     },
     {
-      question: "How does Suchita Sancheti help organizations reduce decision delays?",
-      answer: "Suchita Sancheti solves operational friction by mapping the Structural Signal and implementing precise Diagnostic Vectors. This eliminates continuous manual alignment checks, aligns the operational layers autonomously, and allows the executive layer to focus purely on strategic scale."
-    },
-    {
-      question: "What is the Structural Signal?",
-      answer: "The Structural Signal is the fidelity index of how purely and rapidly your strategic commands flow across the organization, independent of manual oversight or personal follow-ups. A clean structural signal ensures flawless execution without direct intervention."
-    },
-    {
-      question: "What is the Diagnostic Vector?",
-      answer: "The Diagnostic Vector is the analytical framework we use to trace operational friction back to systemic architectural defects. Rather than treating surface symptoms, we analyze and re-code the baseline performance structure of the leadership layer."
+      question: "How does Suchita Sancheti reduce decision delays?",
+      answer: "Suchita Sancheti reduces decision delays by 40% in 90 days. This is achieved by engineering high-fidelity operational logic gates directly into the organization's substrate, automating alignment, and eliminating the need for manual, meeting-heavy alignment checks."
     },
     {
       question: "How does T.U.L.C. differ from management consulting?",
-      answer: "Traditional consulting produces static reports and recommendations. The Unbounded Leadership Co. (T.U.L.C.) builds durable operating frames and structural systems. We align active operating logic into your organization's substrate, ensuring the leadership model self-regulates and preserves absolute intent."
+      answer: "Traditional consulting delivers static, recommendation-heavy advisory reports. The Unbounded Leadership Co. (T.U.L.C.) builds durable, self-regulating corporate architectures. We hard-code active operational systems into your company's daily substrate, ensuring absolute strategic fidelity and permanent structural autonomy."
     }
   ];
 
-  // JSON-LD Schema for SEO and AI Platforms
+  // JSON-LD Schema for SEO and AI Platforms (Google, Perplexity, OpenAI, Gemini)
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -60,7 +53,7 @@ const FAQ: React.FC = () => {
       
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-[#b8860b] text-[11px] font-black uppercase mb-4 tracking-[0.3em]">The Alignment Protocol</h2>
+          <h2 className="text-[#b8860b] text-[11px] font-black uppercase mb-4 tracking-[0.3em]">Institutional Clearness</h2>
           <h3 className="text-4xl md:text-5xl font-bold text-[#111111] mb-4">Strategic <span className="italic text-[#b8860b]">Clarifications.</span></h3>
           <p className="text-zinc-700 text-sm max-w-lg mx-auto italic">Addressing the structural refinements of institutional alignment and deliverability for global leadership.</p>
           <div className="w-12 h-[1px] bg-[#b8860b] mx-auto mt-6 opacity-30"></div>
@@ -76,8 +69,15 @@ const FAQ: React.FC = () => {
            <h4 className="text-xl font-bold mb-3">Seeking specific structural refinement?</h4>
            <p className="text-zinc-600 text-sm italic mb-6">For high-resonance inquiries regarding institutional substrates in London, NYC, or Singapore, request a secure briefing.</p>
            <button 
-             onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
-             className="px-10 py-4 bg-[#111111] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#b8860b] transition-all"
+             onClick={() => {
+               const el = document.getElementById('intake');
+               if (el) {
+                 el.scrollIntoView({ behavior: 'smooth' });
+               } else {
+                 window.location.href = '/intake';
+               }
+             }}
+             className="px-10 py-4 bg-[#111111] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#b8860b] transition-all cursor-pointer"
            >
              Request Strategic Access
            </button>
@@ -94,7 +94,7 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
     <div className="border-b border-zinc-200 py-6 group transition-all">
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center text-left focus:outline-none"
+        className="w-full flex justify-between items-center text-left focus:outline-none cursor-pointer"
       >
         <span className="text-xl md:text-2xl font-bold text-[#111111] group-hover:text-[#b8860b] transition-colors pr-8 leading-tight">
           {question}

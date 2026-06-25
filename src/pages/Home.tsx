@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Hero from '../../components/Hero.tsx';
 import InstitutionalMetrics from '../../components/InstitutionalMetrics.tsx';
 import Problem from '../../components/Problem.tsx';
@@ -29,6 +30,7 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
+  const navigate = useNavigate();
   return (
     <>
       <Hero onBriefClick={onBriefClick} />
@@ -69,14 +71,14 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
               </div>
               <div className="flex items-center gap-8">
                 <button 
-                  onClick={() => window.open('https://rzp.io/rzp/8H0bV3bW', '_blank')}
+                  onClick={() => navigate('/intake')}
                   className="px-10 py-5 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all shadow-[0_0_50px_rgba(184,134,11,0.2)]"
                 >
-                  Secure Diagnostic Protocol
+                  Inquire for Diagnostic Audit
                 </button>
                 <div className="hidden sm:block">
-                  <div className="text-[10px] font-black uppercase text-[#b8860b] tracking-widest mb-1">Fee Structure</div>
-                  <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Fixed Delta-Based</div>
+                  <div className="text-[10px] font-black uppercase text-[#b8860b] tracking-widest mb-1">Pricing Model</div>
+                  <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Upon Request</div>
                 </div>
               </div>
             </div>
