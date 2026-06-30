@@ -13,10 +13,6 @@ const PrincipalDispatch: React.FC = () => {
               title="Strategic Briefing"
               className="shadow-2xl border border-white/10"
             />
-            <div className="absolute bottom-2 left-4 sm:bottom-4 sm:left-8 pointer-events-none z-10">
-              <div className="text-white text-xl sm:text-2xl font-bold mb-1 drop-shadow-lg">Principal Architect</div>
-              <div className="text-[#b8860b] text-[7px] sm:text-[9px] font-black uppercase tracking-[0.4em] drop-shadow-lg">TULC</div>
-            </div>
             {/* Decorative Frame */}
             <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-16 h-16 sm:w-24 sm:h-24 border-t-2 border-l-2 border-[#b8860b]/30 -z-10" />
             <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-16 h-16 sm:w-24 sm:h-24 border-b-2 border-r-2 border-[#b8860b]/30 -z-10" />

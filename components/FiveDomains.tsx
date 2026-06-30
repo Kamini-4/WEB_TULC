@@ -55,22 +55,72 @@ const domains: Domain[] = [
 ];
 
 const FiveDomains: React.FC = () => {
+  const [activeIdx, setActiveIdx] = useState<number>(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
+
+  React.useEffect(() => {
+    if (!isAutoPlaying) return;
+    const interval = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % domains.length);
+    }, 4500); // 4.5 seconds per card
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
   return (
-    <section id="domains" className="py-16 md:py-20 bg-[#0a0a0a] overflow-hidden relative border-t border-white/5">
+    <section 
+      id="domains" 
+      className="py-16 md:py-20 bg-[#0a0a0a] overflow-hidden relative border-t border-white/5"
+      onMouseEnter={() => setIsAutoPlaying(false)}
+      onMouseLeave={() => setIsAutoPlaying(true)}
+    >
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#b8860b_1px, transparent 1px)', backgroundSize: '60px 60px' }} />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-4 tracking-[0.5em]">The 5 Sovereign Domains</h2>
           <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Systemic Alignment <span className="italic text-[#b8860b]">At Scale.</span></h3>
-          <p className="max-w-2xl mx-auto text-zinc-400 text-sm italic font-light leading-relaxed">
+          <p className="max-w-2xl mx-auto text-zinc-400 text-sm italic font-light leading-relaxed mb-4">
             Strategic performance is a direct result of clear structural design across five fundamental operational dimensions.
           </p>
+          {/* Diagnostic Auto-Scan Status Bar */}
+          <div className="flex justify-center items-center gap-2 mt-6">
+            {domains.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setActiveIdx(idx);
+                  setIsAutoPlaying(false);
+                }}
+                className={`h-1.5 transition-all duration-500 rounded-full ${idx === activeIdx ? 'w-8 bg-[#b8860b]' : 'w-2 bg-zinc-700 hover:bg-zinc-500'}`}
+                aria-label={`Go to domain ${idx + 1}`}
+              />
+            ))}
+            <span className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest ml-2 flex items-center gap-1.5">
+              <span className={`w-1.5 h-1.5 rounded-full ${isAutoPlaying ? 'bg-[#b8860b] animate-pulse' : 'bg-zinc-600'}`} />
+              {isAutoPlaying ? "AUTO-SCAN ENGAGED" : "SCAN PAUSED"}
+            </span>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
           {domains.map((domain, idx) => (
-            <DomainCard key={idx} domain={domain} index={idx} />
+            <DomainCard 
+              key={idx} 
+              domain={domain} 
+              index={idx} 
+              isFlipped={activeIdx === idx}
+              onMouseEnter={() => {
+                setActiveIdx(idx);
+                setIsAutoPlaying(false);
+              }}
+              onMouseLeave={() => {
+                // Keep current selected card visible
+              }}
+              onClick={() => {
+                setActiveIdx(idx);
+                setIsAutoPlaying(false);
+              }}
+            />
           ))}
         </div>
 
@@ -87,16 +137,22 @@ const FiveDomains: React.FC = () => {
   );
 };
 
-const DomainCard: React.FC<{ domain: Domain; index: number }> = ({ domain, index }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
+const DomainCard: React.FC<{ 
+  domain: Domain; 
+  index: number; 
+  isFlipped: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+  onClick: () => void;
+}> = ({ domain, index, isFlipped, onMouseEnter, onMouseLeave, onClick }) => {
 
   return (
     <div 
       className="relative h-[460px] md:h-[500px] w-full cursor-pointer group"
       style={{ perspective: '2000px' }}
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
-      onClick={() => setIsFlipped(!isFlipped)}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onClick={onClick}
       role="button"
       aria-expanded={isFlipped}
       aria-label={`Sovereign Domain: ${domain.title}`}
@@ -161,8 +217,8 @@ const DomainCard: React.FC<{ domain: Domain; index: number }> = ({ domain, index
                   {domain.pain}
                 </p>
               </section>
-
-               <div className="w-full h-px bg-white/10" />
+              
+              <div className="w-full h-px bg-white/10" />
               
               <section aria-label="Expected Benchmark Outcome">
                 <span className="text-[8px] font-black uppercase tracking-widest text-emerald-400 block mb-1">Expected Benchmark Outcome</span>

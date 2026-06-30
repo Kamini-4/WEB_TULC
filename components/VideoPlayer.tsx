@@ -113,9 +113,11 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
             <span className="text-[8px] sm:text-[9px] font-black text-[#b8860b] uppercase tracking-[0.3em] bg-black/60 px-2.5 py-1 border border-[#b8860b]/30">
               HIGH FIDELITY BROADCAST
             </span>
-            <span className="text-[7px] sm:text-[8px] font-mono text-zinc-500 uppercase tracking-widest">
-              STATUS: VALIDATED SECURE
-            </span>
+            {!videoUrl && (
+              <span className="text-[7px] sm:text-[8px] font-mono text-zinc-500 uppercase tracking-widest">
+                STATUS: VALIDATED SECURE
+              </span>
+            )}
           </div>
 
           {/* Center Play Circle */}
