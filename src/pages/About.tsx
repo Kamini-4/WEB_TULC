@@ -4,8 +4,43 @@ import { Mail, Phone, Instagram, Linkedin } from '../../components/BrandIcons.ts
 import PrincipalDispatch from '../../components/PrincipalDispatch.tsx';
 
 const About: React.FC = () => {
+  // JSON-LD structured data for GEO/AEO/SEO index optimization
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Suchita Sancheti",
+      "jobTitle": "Principal Architect & Founder",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "The Unbounded Leadership Co."
+      },
+      "description": "Enterprise architect, computer science engineer, and industrial psychologist reducing corporate decision delays by 40% in 90 days for global CEOs and founders.",
+      "knowsAbout": [
+        "Enterprise Architecture",
+        "Industrial Psychology",
+        "SAP Consulting",
+        "Cognitive Bandwidth Optimization",
+        "Executive Alignment",
+        "Strategic Intent Architecture"
+      ],
+      "url": "https://theunboundedleadership.com/about",
+      "sameAs": [
+        "https://www.linkedin.com/company/theunboundedleadership",
+        "https://www.instagram.com/transformingleadership"
+      ]
+    }
+  };
+
   return (
     <div className="bg-[#f5f5f0] min-h-screen pt-20 pb-20">
+      {/* Structured Schema Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="max-w-7xl mx-auto px-6">
         
         {/* HERO TITLE BLOCK */}
@@ -49,13 +84,13 @@ const About: React.FC = () => {
           {/* Portrait Photo & Credentials (Left columns) */}
           <div className="md:col-span-5 space-y-8">
             <div className="flex flex-col items-center bg-white p-8 border border-zinc-200/80 shadow-md">
-              {/* Portrait Image */}
-              <div className="shrink-0 w-full max-w-[280px] sm:max-w-[320px] aspect-[3/4] bg-[#111] border-2 border-[#b8860b] relative rounded-xs overflow-hidden shadow-lg group transition-all duration-500 hover:shadow-[#b8860b]/25 mb-6">
+              {/* Portrait Image - Perfect Full-Picture Frame */}
+              <div className="shrink-0 w-full max-w-[340px] aspect-[4/5] bg-zinc-900 border-2 border-[#b8860b] relative rounded-xs overflow-hidden shadow-xl group transition-all duration-500 hover:shadow-[#b8860b]/30 mb-6 flex items-center justify-center">
                 <img 
                   src="https://lh3.googleusercontent.com/d/196xWITxhSq__hUWKTPIB6GxNZGiaQWlw" 
                   alt="Suchita Sancheti" 
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-center transition-all duration-700 hover:scale-105 ease-out"
+                  className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105 ease-out"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     const fb = document.getElementById('ss-logo-fb-about');
@@ -105,23 +140,23 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          {/* Biography Narrative (Right columns) */}
+          {/* Biography Narrative (Right columns) - Harvey Specter Style */}
           <div className="md:col-span-7 space-y-10">
             <div className="space-y-6 text-[#111111]">
-              <p className="text-2xl text-zinc-800 leading-relaxed font-light italic">
-                The Unbounded Leadership Co. (TULC) is not a conventional consultancy. It is a structural engineering firm for leadership architecture. We exist to solve the singular failure mode of scaling enterprises: <strong>Strategic Attrition.</strong>
+              <p className="text-2xl text-zinc-800 leading-relaxed font-semibold italic text-[#b8860b]">
+                "I don't consult. I recalibrate. Traditional consulting firms give you advice you file away in a drawer. I engineer high-fidelity systems that make operational failure mathematically impossible."
               </p>
               
               <div className="h-[1px] w-20 bg-[#b8860b]/30" />
 
               <p className="text-zinc-700 leading-relaxed font-light italic text-base">
-                Forged at the intersection of high-stakes technology paradigms and human behavioral mechanics, Suchita Sancheti represents a unique synthesis. As a <strong>Computer Science Engineer</strong> and <strong>Industrial Psychologist</strong>, she treats human coordination errors as systemic alignment anomalies.
+                People play the game of business. Suchita Sancheti designs the board. As an elite <strong>Computer Science Engineer</strong> and <strong>Industrial Psychologist</strong>, she treats organizational drift not as a human flaw, but as a severe systemic alignment failure. If your scaling company is losing its edge, you don't need a cheerleader—you need an architect.
               </p>
               <p className="text-zinc-700 leading-relaxed font-light italic text-base">
-                Combining extensive experience as an <strong>SAP Consultant</strong> aligning complex global structures, and a <strong>Handwriting Analyst</strong> assessing the deep, sub-verbal integrity profiles of elite candidates, she designs the structural conditions for absolute leadership synergy. 
+                With a deep operational background as an <strong>SAP Systems Consultant</strong> orchestrating international architectures, and a <strong>Handwriting Analyst</strong> dissecting the underlying, subconscious integrity matrices of senior executives, she brings a legendary, unshakeable standard of clarity to global boardrooms. She cuts through noise to lay down structural logic.
               </p>
-              <p className="text-zinc-700 leading-relaxed font-light italic text-base border-l-2 border-[#b8860b] pl-6 py-1">
-                Her proprietary diagnostics analyze leadership performance trends, vocal frequency metrics, and operational lag. This customized system has been validated and benchmarked with elite corporate leaders across multiple operational tiers to successfully isolate decision latency, reclaim executive energy, and eliminate cognitive tax.
+              <p className="text-zinc-700 leading-relaxed font-medium italic text-base border-l-2 border-[#b8860b] pl-6 py-2 bg-white/40">
+                "If you are managing the descent of a high-stakes enterprise rather than architecting its dominance, you are paying a voluntary tax on your own legacy. In 90 days, we don't just optimize your leadership operating system. We make your strategic intent an inevitable force."
               </p>
             </div>
 

@@ -16,8 +16,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   className = ''
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [useIframeFallback, setUseIframeFallback] = useState(false);
-  const videoRef = React.useRef<HTMLVideoElement>(null);
 
   // Extract Drive ID if present
   const getDriveId = (url: string) => {
@@ -26,45 +24,15 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   };
 
   const driveId = videoUrl ? getDriveId(videoUrl) : null;
-
-  // Handle video play when isPlaying changes
-  React.useEffect(() => {
-    if (isPlaying && videoRef.current) {
-      videoRef.current.play().catch(err => console.error("Video play failed:", err));
-    }
-  }, [isPlaying]);
-  
   const aspectClass = aspectRatio === 'portrait' ? 'aspect-[9/16] min-h-[400px] sm:min-h-0' : 'aspect-video';
 
-  const renderVideoContent = () => {
+  const renderActiveVideo = () => {
     // Handle Google Drive specifically
     if (driveId) {
-      if (!useIframeFallback) {
-        return (
-          <video
-            ref={videoRef}
-            src={`https://docs.google.com/uc?export=download&id=${driveId}`}
-            controls={isPlaying}
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover contrast-[1.01] brightness-[1.01]"
-            style={{ 
-              imageRendering: '-webkit-optimize-contrast',
-              backfaceVisibility: 'hidden',
-              WebkitBackfaceVisibility: 'hidden'
-            }}
-            onError={() => {
-              console.warn("Direct Google Drive stream failed, falling back to iframe preview.");
-              setUseIframeFallback(true);
-            }}
-          />
-        );
-      }
-
       return (
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <div className="absolute inset-0 w-full h-full overflow-hidden bg-black">
           <iframe
-            src={`https://drive.google.com/file/d/${driveId}/preview`}
+            src={`https://drive.google.com/file/d/${driveId}/preview?autoplay=1`}
             width="100%"
             height="100%"
             allow="autoplay; encrypted-media"
@@ -76,28 +44,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
               border: 'none'
             }}
           ></iframe>
-          {/* Protective overlay to prevent interaction with Drive UI elements if they peek through */}
-          {!isPlaying && <div className="absolute inset-0 z-30 bg-transparent" />}
         </div>
-      );
-    }
-
-    // Handle Raw Video URL
-    if (videoUrl) {
-      return (
-        <video
-          ref={videoRef}
-          src={videoUrl}
-          controls={isPlaying}
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover contrast-[1.01] brightness-[1.01]"
-          style={{ 
-            imageRendering: '-webkit-optimize-contrast',
-            backfaceVisibility: 'hidden',
-            WebkitBackfaceVisibility: 'hidden'
-          }}
-        />
       );
     }
 
@@ -107,7 +54,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
         <iframe
           width="100%"
           height="100%"
-          src={`https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0&vq=hd1080&iv_load_policy=3&hd=1&autohide=1${isPlaying ? '&autoplay=1' : ''}`}
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0&vq=hd1080&iv_load_policy=3&hd=1&autohide=1`}
           title={title}
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -123,23 +70,86 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
       );
     }
 
+    // Fallback direct raw video URL
+    if (videoUrl) {
+      return (
+        <video
+          src={videoUrl}
+          controls
+          autoPlay
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover contrast-[1.01] brightness-[1.01]"
+          style={{ 
+            imageRendering: '-webkit-optimize-contrast',
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden'
+          }}
+        />
+      );
+    }
+
     return null;
   };
 
   return (
-    <div className={`relative w-full ${aspectClass} bg-black shadow-2xl overflow-hidden ${className} transform-gpu`}>
-      {/* Video Content Layer - Always visible to act as thumbnail */}
-      <div className="absolute inset-0 z-10">
-        {renderVideoContent()}
-      </div>
+    <div className={`relative w-full ${aspectClass} bg-zinc-950 shadow-2xl overflow-hidden ${className} transform-gpu`}>
+      {isPlaying ? (
+        // Play State: Render direct, interactive video/iframe element with zero overlay interference
+        <div className="absolute inset-0 z-10">
+          {renderActiveVideo()}
+        </div>
+      ) : (
+        // Poster / Standby State: Premium, elegant, high-contrast poster card matching the brand
+        <div 
+          onClick={() => setIsPlaying(true)}
+          className="absolute inset-0 z-20 flex flex-col justify-between p-6 cursor-pointer bg-[#111111] border border-zinc-800 hover:border-[#b8860b]/50 group transition-all duration-500"
+        >
+          {/* Subtle noise grid or ambient glow */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/80 pointer-events-none z-0" />
+          <div className="absolute inset-0 bg-radial-gradient from-[#b8860b]/5 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0" />
 
-      {/* Fallback & Direct-Access Command Container */}
+          {/* Top Badge Info */}
+          <div className="relative z-10 flex justify-between items-center w-full">
+            <span className="text-[8px] sm:text-[9px] font-black text-[#b8860b] uppercase tracking-[0.3em] bg-black/60 px-2.5 py-1 border border-[#b8860b]/30">
+              HIGH FIDELITY BROADCAST
+            </span>
+            <span className="text-[7px] sm:text-[8px] font-mono text-zinc-500 uppercase tracking-widest">
+              STATUS: VALIDATED SECURE
+            </span>
+          </div>
+
+          {/* Center Play Circle */}
+          <div className="relative z-10 flex flex-col items-center justify-center self-center my-auto transition-transform duration-500 group-hover:scale-105">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#b8860b] text-white rounded-full flex items-center justify-center shadow-2xl border border-white/15 group-hover:bg-[#d49f1c] group-hover:shadow-[#b8860b]/30 transition-all duration-300">
+              <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white fill-current translate-x-0.5" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+            <span className="text-[#b8860b] text-[9px] sm:text-[10px] font-black uppercase tracking-[0.25em] mt-4 opacity-70 group-hover:opacity-100 transition-opacity">
+              INITIATE SYSTEM BRIEFING
+            </span>
+          </div>
+
+          {/* Bottom Title Info */}
+          <div className="relative z-10 w-full text-left">
+            <h4 className="text-white text-base sm:text-lg font-bold tracking-wide font-serif mb-1 group-hover:text-[#b8860b] transition-colors">
+              {title}
+            </h4>
+            <p className="text-zinc-500 text-[8px] sm:text-[9px] font-mono uppercase tracking-[0.2em]">
+              OFFICE OF THE PRINCIPAL ARCHITECT • TULC
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Direct Bypass Access Button */}
       {videoUrl && (
         <a
           href={videoUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute top-3 right-3 z-30 flex items-center gap-2 px-3 py-1.5 bg-black/85 hover:bg-[#b8860b] hover:text-black border border-[#b8860b]/40 hover:border-[#b8860b] text-white text-[9px] font-black uppercase tracking-[0.15em] transition-all shadow-xl rounded-sm group/btn"
+          onClick={(e) => e.stopPropagation()}
+          className="absolute top-3 right-3 z-30 flex items-center gap-2 px-3 py-1.5 bg-black/90 hover:bg-[#b8860b] hover:text-black border border-zinc-800 hover:border-[#b8860b] text-white text-[8px] sm:text-[9px] font-black uppercase tracking-[0.15em] transition-all shadow-xl rounded-sm group/btn"
           title="Bypass iframe restriction: Open video directly on Google Drive"
         >
           <span>Direct Broadcast</span>
@@ -152,21 +162,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
           </svg>
         </a>
       )}
-
-      {/* Play Button Overlay - Hidden when playing */}
-      <div 
-        className={`absolute inset-0 z-20 group cursor-pointer overflow-hidden transition-all duration-700 ${isPlaying ? 'opacity-0 pointer-events-none scale-105' : 'opacity-100'}`}
-        onClick={() => setIsPlaying(true)}
-      >
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#b8860b] rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
-            <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white fill-current" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </div>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-      </div>
     </div>
   );
 };
