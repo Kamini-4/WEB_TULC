@@ -190,7 +190,11 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                         href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${baseShareUrl}/library/${article.slug || article.id}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          const shareUrl = `${baseShareUrl}/library/${article.slug || article.id}`;
+                          navigator.clipboard.writeText(shareUrl).catch((err) => console.error(err));
+                        }}
                         className="flex items-center gap-2 text-[9px] uppercase font-bold text-zinc-400 hover:text-white transition-colors p-1"
                       >
                         <Linkedin size={10} /> LinkedIn

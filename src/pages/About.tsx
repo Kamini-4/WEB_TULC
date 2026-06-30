@@ -50,12 +50,12 @@ const About: React.FC = () => {
           <div className="md:col-span-5 space-y-8">
             <div className="flex flex-col items-center bg-white p-8 border border-zinc-200/80 shadow-md">
               {/* Portrait Image */}
-              <div className="shrink-0 w-48 h-72 sm:w-56 sm:h-84 bg-[#111] border-2 border-[#b8860b] relative rounded-xs overflow-hidden shadow-lg group transition-all duration-500 hover:shadow-[#b8860b]/25 mb-6">
+              <div className="shrink-0 w-full max-w-[280px] sm:max-w-[320px] aspect-[3/4] bg-[#111] border-2 border-[#b8860b] relative rounded-xs overflow-hidden shadow-lg group transition-all duration-500 hover:shadow-[#b8860b]/25 mb-6">
                 <img 
                   src="https://lh3.googleusercontent.com/d/196xWITxhSq__hUWKTPIB6GxNZGiaQWlw" 
                   alt="Suchita Sancheti" 
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-center grayscale contrast-[1.10] hover:grayscale-0 transition-all duration-700 hover:scale-105 ease-out"
+                  className="w-full h-full object-cover object-center transition-all duration-700 hover:scale-105 ease-out"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     const fb = document.getElementById('ss-logo-fb-about');

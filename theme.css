@@ -12,6 +12,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  font-family: 'Playfair Display', Georgia, serif !important;
+}
+
 body {
   background-color: var(--beige);
   color: var(--black);

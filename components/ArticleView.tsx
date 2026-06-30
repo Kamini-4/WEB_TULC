@@ -119,6 +119,11 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => {
+                    if (link.name === 'LinkedIn') {
+                      navigator.clipboard.writeText(shareUrl).catch((err) => console.error(err));
+                    }
+                  }}
                   className="p-2 text-zinc-400 hover:text-[#b8860b] transition-colors"
                   title={`Share on ${link.name}`}
                 >

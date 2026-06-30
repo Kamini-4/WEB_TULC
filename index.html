@@ -127,7 +127,7 @@
     <link rel="alternate" type="text/plain" title="LLM Briefing" href="/llms.txt">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap">
     <style>
         @charset "UTF-8";
         @import url("reset.css");
@@ -135,6 +135,10 @@
 
         body {
             font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        * {
+            font-family: 'Playfair Display', Georgia, serif !important;
         }
 
         /* Institutional Grain Texture */
@@ -163,9 +167,9 @@
         theme: {
           extend: {
             fontFamily: {
-              sans: ['"Playfair Display"', 'Georgia', 'serif'],
-              serif: ['Georgia', '"Playfair Display"', 'serif'],
-              mono: ['Georgia', '"Playfair Display"', 'serif']
+              sans: ['"Playfair Display"', 'serif'],
+              serif: ['"Playfair Display"', 'serif'],
+              mono: ['"Playfair Display"', 'serif']
             }
           }
         }

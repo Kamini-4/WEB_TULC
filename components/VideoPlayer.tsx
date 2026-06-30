@@ -16,6 +16,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   className = ''
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [useIframeFallback, setUseIframeFallback] = useState(false);
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
   // Extract Drive ID if present
@@ -38,6 +39,28 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   const renderVideoContent = () => {
     // Handle Google Drive specifically
     if (driveId) {
+      if (!useIframeFallback) {
+        return (
+          <video
+            ref={videoRef}
+            src={`https://docs.google.com/uc?export=download&id=${driveId}`}
+            controls={isPlaying}
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover contrast-[1.01] brightness-[1.01]"
+            style={{ 
+              imageRendering: '-webkit-optimize-contrast',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden'
+            }}
+            onError={() => {
+              console.warn("Direct Google Drive stream failed, falling back to iframe preview.");
+              setUseIframeFallback(true);
+            }}
+          />
+        );
+      }
+
       return (
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <iframe

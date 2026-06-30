@@ -23,59 +23,59 @@ const SERVICES_SPECTRUM: Service[] = [
   {
     id: 'diagnostic',
     badge: 'Phase 0.0',
-    title: 'Substrate Diagnostic Protocol',
-    subtitle: 'Forensic Cognitive Leak Audit',
-    duration: '14-Day Engagement',
-    description: 'For principals requiring architectural proof before full institutional integration. A high-fidelity telemetry scan mapping your personal decision frequency and identifying the 30% bandwidth drain.',
+    title: 'Substrate Diagnostic Audit',
+    subtitle: 'Why: To Stop the Silent Hemorrhaging of Your Creative Energy',
+    duration: '14-Day Deep Engagement',
+    description: 'We care too much to let you guess where your power is leaking. This forensic audit maps your personal decision frequency, identifying exactly where operational friction is stealing your strategic peace. Stop paying the hidden Cognitive Tax today.',
     price: 'Upon Request',
-    billingDetail: 'Bespoke investment tailored to organizational scale.',
+    billingDetail: 'Exclusively structured for founders requiring immediate clarity.',
     features: [
-      'Comprehensive Relational Infrastructure Audit',
-      'Personal Cognitive Bandwidth Allocation Map',
-      'Forensic Identification of 3 Primary Logic Leaks',
-      'Alignment Telemetry Dossier & System Recommendations',
-      'Direct Pathway to Phase 01 Engagement'
+      'Pinpoint exactly where your original strategic intent gets diluted',
+      'Receive a custom-mapped Personal Cognitive Bandwidth Blueprint',
+      'Expose the 3 primary operational leakages draining your executive focus',
+      'A personal, private feedback briefing with Principal Suchita Sancheti',
+      'Full credit applied directly to full-scale protocol integration'
     ],
-    ctaText: 'Request Diagnostic Audit',
+    ctaText: 'Reclaim Your Sanity Now',
     ctaAction: 'intake',
     isPopular: true
   },
   {
     id: 'alignment_protocol',
     badge: 'Phase 01-04',
-    title: 'The Strategic Alignment Protocol',
-    subtitle: 'Full-Scale Operating System Recalibration',
+    title: 'Strategic Alignment Protocol',
+    subtitle: 'Why: To Turn Your Vision Into an Inevitable, Self-Governing Force',
     duration: '6-Week Architecture Setup',
-    description: 'A complete, modular overhaul of your leadership operating system. We externalize your unique strategic DNA and hard-code it into autonomous logic gates to achieve unshakeable institutional permanence.',
+    description: 'Our core architectural intervention. We do not write standard recommendation reports; we hard-code your strategic DNA into self-regulating logic gates. We protect your legacy, so you can step out of the daily firefighter loop and return to pure, uninhibited vision.',
     price: 'Upon Request',
-    billingDetail: 'Bespoke institutional architecture pricing.',
+    billingDetail: 'A permanent operational vaccine. Only 1 opening remaining this quarter.',
     features: [
-      'Onsite Intensives & Off-site Board Calibration Labs',
-      'Implementation of 12+ Custom Logic-Gates',
-      'Cultural Fidelity Self-Regulation Workflows',
-      'Total Restructuring of Relational Hierarchy',
-      'Reclamation of up to 40% Strategic Bandwidth'
+      'Establish absolute alignment fidelity down to your frontline teams',
+      'Install 12+ customized logic gates to automate daily decision-making',
+      'Reclaim up to 40% of your strategic time in the first 90 days',
+      'Eradicate the constant meeting-tax and alignment drag forever',
+      'Unshakeable organizational permanence that runs autonomously'
     ],
-    ctaText: 'Request Board-Level Intake',
+    ctaText: 'Secure Final Q2 Allocation',
     ctaAction: 'intake'
   },
   {
     id: 'board_oversight',
     badge: 'Retainer',
-    title: 'Strategic Board Oversight',
-    subtitle: 'Fiduciary Safeguard & Resonance Preservation',
-    duration: 'Ongoing Retainer',
-    description: 'Continuous high-frequency monitoring and ongoing strategic alignment verification. Ideal for holding companies, multi-brand founders, or boards seeking to insulate institutional value and de-risk succession.',
+    title: 'Resonance Safeguard Retainer',
+    subtitle: 'Why: Because True Permanence Requires Vigilant Stewardship',
+    duration: 'Ongoing Strategic Partnership',
+    description: 'We walk with you as long-term guardians of your strategic peace. Continuous shadow metrics, drift detection, and immediate intervention structures designed to defend your mental bandwidth against future organizational decay.',
     price: 'Upon Request',
-    billingDetail: 'Retainer structured upon institutional complexity.',
+    billingDetail: 'Bespoke ongoing stewardship pricing. Subject to rigorous intake vetting.',
     features: [
-      'Bi-annual Substrate Integrity Re-auditing',
-      'Priority Shadow Metric Dashboards',
-      'Emergency Organizational Intervention Gating',
-      'Relational Friction & Drift Indicators',
-      'Fiduciary Autonomy Advisory Desk'
+      'Bi-annual corporate substrate integrity re-audits',
+      'Priority access to Suchita Sancheti for high-stakes decisions',
+      'Continuous structural health metrics & early drift alerts',
+      'De-risk succession planning and insulate enterprise value',
+      'Total cognitive insulation from operational noise'
     ],
-    ctaText: 'Access Advisory Intake',
+    ctaText: 'Apply for Partnership Intake',
     ctaAction: 'intake'
   }
 ];
@@ -134,6 +134,54 @@ const ServicesPage: React.FC = () => {
           <p className="text-xl text-zinc-600 font-light italic leading-relaxed">
             Every operational bottleneck is a design flaw. Our service engagements are engineered to isolate, neutralize, and restructure your leadership operating systems.
           </p>
+        </div>
+
+        {/* Start With Why / Sinek & Psychological Care Section */}
+        <div className="mb-20 max-w-5xl mx-auto bg-white border border-zinc-200/80 p-8 md:p-12 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-2.5 h-full bg-[#b8860b]" />
+          <div className="space-y-6">
+            <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] block">Our Foundation: Start with Why</span>
+            
+            <h3 className="text-3xl md:text-4xl font-bold text-zinc-900 leading-tight">
+              We believe your brilliance is too precious to be consumed by tactical noise.
+            </h3>
+            
+            <p className="text-zinc-600 text-base leading-relaxed italic font-light">
+              <strong>Why we do what we do:</strong> The traditional corporate world measures success by endurance—how much fire you can fight, how much fatigue you can carry. We reject this. We exist because we care deeply about the human behind the title. We believe that elite leadership is not a test of survival, but an art of pure creative transmission. Our entire architecture is built to protect your peace of mind, restore your strategic bandwidth, and ensure your original vision propagates with absolute fidelity.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8 pt-8 border-t border-zinc-100">
+              <div className="space-y-4">
+                <h4 className="text-sm font-bold text-[#b8860b] uppercase tracking-wider">What You Lose Every Day Without Us:</h4>
+                <ul className="space-y-3 text-xs text-zinc-600 italic font-light">
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-700 font-bold text-sm leading-none">•</span>
+                    <span><strong>Loss of Legacy Bandwidth:</strong> Up to 40% of your days are consumed correcting alignment errors rather than inventing your organization's future.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-700 font-bold text-sm leading-none">•</span>
+                    <span><strong>Intent Dilution Tax:</strong> Your direct reports execute a lower-fidelity version of your strategic vision. The signal decays down the ranks.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-700 font-bold text-sm leading-none">•</span>
+                    <span><strong>Decision Fatigue & Burnout:</strong> Compounding psychological exhaustion that slowly drains your personal creative engine.</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="space-y-4">
+                <h4 className="text-sm font-bold text-[#b8860b] uppercase tracking-wider">The Risk of the Status Quo:</h4>
+                <p className="text-xs text-zinc-600 italic font-light leading-relaxed mb-2">
+                  To delay calibration is not a passive choice; it is an active decision to continue leaking up to 40% of your organizational efficiency. Every week of hesitation is another week you pay the compound Inaction Tax.
+                </p>
+                <div className="p-4 bg-zinc-50 border border-zinc-200/60 rounded-xs">
+                  <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider mb-1">Exclusive Capacity Threshold:</p>
+                  <p className="text-xs text-[#b8860b] italic font-semibold">
+                    Suchita Sancheti accepts only <strong className="font-extrabold text-[#b8860b]">3 active corporate calibrations per quarter</strong>. Currently, 2 slots are occupied. Only 1 remains.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Pricing Matrix / Buying Menus */}
