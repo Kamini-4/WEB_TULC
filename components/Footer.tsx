@@ -79,17 +79,9 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
                 <Instagram className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
                 <span>instagram.com/transformingleadership</span>
               </a>
-              <a href="mailto:suchita135sancheti@gmail.com" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2.5">
-                <Mail className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
-                <span>Principal: suchita135sancheti@gmail.com</span>
-              </a>
               <a href="mailto:kaminiagnihotri249@gmail.com" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2.5">
                 <Mail className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
-                <span>Assistant: Kamini Agnihotri (kaminiagnihotri249@gmail.com)</span>
-              </a>
-              <a href="https://wa.me/919325346704" target="_blank" rel="noopener noreferrer" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2.5">
-                <Phone className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                <span>WhatsApp: +91 9325346704</span>
+                <span>Assistant: kaminiagnihotri249@gmail.com</span>
               </a>
             </div>
           </div>

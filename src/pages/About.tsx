@@ -83,7 +83,7 @@ const About: React.FC = () => {
           <div className="relative z-10 text-center max-w-3xl mx-auto">
             <span className="text-[#b8860b] text-[9px] font-black tracking-[0.4em] uppercase block mb-3">Core Performance Mandate</span>
             <p className="text-[#f5f5f0] text-2xl md:text-4xl leading-snug font-serif font-light italic mb-2">
-              "I help organizations reduce decision delays by <span className="text-[#b8860b] font-bold not-italic font-sans">40%</span> in <span className="text-[#b8860b] font-bold not-italic font-sans">90 days</span>."
+              "You help organizations reduce decision delays by <span className="text-[#b8860b] font-bold not-italic font-sans">40%</span> in <span className="text-[#b8860b] font-bold not-italic font-sans">90 days</span>."
             </p>
             <div className="h-px w-24 bg-[#b8860b]/50 mx-auto mt-6 mb-4"></div>
             <p className="text-zinc-400 text-xs tracking-wider uppercase font-mono">
@@ -101,17 +101,29 @@ const About: React.FC = () => {
               {/* Portrait Image - Perfect Full-Picture Frame */}
               <div className="shrink-0 w-full max-w-[340px] aspect-[4/5] bg-zinc-900 border-2 border-[#b8860b] relative rounded-xs overflow-hidden shadow-xl group transition-all duration-500 hover:shadow-[#b8860b]/30 mb-6 flex items-center justify-center">
                 <img 
-                  src="/suchita_portrait.jpg" 
+                  src="/Suchita.jpeg" 
                   alt="Suchita Sancheti" 
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-105 ease-out"
                   onError={(e) => {
                     const currentSrc = e.currentTarget.getAttribute('src');
-                    if (currentSrc === '/suchita_portrait.jpg') {
+                    if (currentSrc === '/Suchita.jpeg') {
+                      e.currentTarget.setAttribute('src', '/suchita_portrait.jpg');
+                    } else if (currentSrc === '/suchita_portrait.jpg') {
                       e.currentTarget.setAttribute('src', '/suchita_portrait.png');
                     } else if (currentSrc === '/suchita_portrait.png') {
                       e.currentTarget.setAttribute('src', '/suchita_portrait.webp');
                     } else if (currentSrc === '/suchita_portrait.webp') {
+                      e.currentTarget.setAttribute('src', '/suchita_portrait.jpeg');
+                    } else if (currentSrc === '/suchita_portrait.jpeg') {
+                      e.currentTarget.setAttribute('src', '/suchita_portrait.JPG');
+                    } else if (currentSrc === '/suchita_portrait.JPG') {
+                      e.currentTarget.setAttribute('src', '/suchita_portrait.PNG');
+                    } else if (currentSrc === '/suchita_portrait.PNG') {
+                      e.currentTarget.setAttribute('src', '/suchita_portrait.JPEG');
+                    } else if (currentSrc === '/suchita_portrait.JPEG') {
+                      e.currentTarget.setAttribute('src', '/suchita_portrait.WEBP');
+                    } else if (currentSrc === '/suchita_portrait.WEBP') {
                       e.currentTarget.setAttribute('src', 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000');
                     } else {
                       e.currentTarget.style.display = 'none';
@@ -167,7 +179,7 @@ const About: React.FC = () => {
           <div className="md:col-span-7 space-y-10">
             <div className="space-y-6 text-[#111111]">
               <p className="text-2xl text-zinc-800 leading-relaxed font-semibold italic text-[#b8860b]">
-                "I don't consult. I recalibrate. Traditional consulting firms give you advice you file away in a drawer. I engineer high-fidelity systems that make operational failure mathematically impossible."
+                "You don't consult. You recalibrate. Traditional consulting firms give advice to file away in a drawer. You engineer high-fidelity systems that make operational failure mathematically impossible."
               </p>
               
               <div className="h-[1px] w-20 bg-[#b8860b]/30" />
@@ -204,12 +216,12 @@ const About: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-[#b8860b] text-[8px] font-black uppercase tracking-[0.3em]">Office of the Principal Architect</h4>
-                  <p className="text-base font-semibold text-[#111111] font-serif">Kamini Agnihotri (kaminiagnihotri249@gmail.com)</p>
+                  <p className="text-base font-semibold text-[#111111] font-serif font-medium">Kamini Agnihotri — kaminiagnihotri249@gmail.com</p>
                   <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Operations & Client Relations Coordinator</p>
                 </div>
               </div>
               <p className="text-zinc-600 leading-relaxed font-light italic text-xs">
-                Within the Office of the Principal, Kamini Agnihotri (kaminiagnihotri249@gmail.com) manages operational flow, coordinating client scheduling, secure communications, administrative protocols, and accounts.
+                Within the Office of the Principal, Kamini Agnihotri, reached directly at kaminiagnihotri249@gmail.com, manages operational flow, coordinating client scheduling, secure communications, administrative protocols, and accounts.
               </p>
             </div>
           </div>
@@ -242,27 +254,11 @@ const About: React.FC = () => {
               <span className="truncate">@transformingleadership</span>
             </a>
             <a 
-              href="mailto:suchita135sancheti@gmail.com" 
-              className="hover:text-white transition-all flex items-center gap-3 border border-white/5 p-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors font-sans font-medium"
-            >
-              <Mail className="w-4 h-4 text-[#b8860b] shrink-0" />
-              <span className="truncate">Principal: suchita135sancheti@gmail.com</span>
-            </a>
-            <a 
               href="mailto:kaminiagnihotri249@gmail.com" 
               className="hover:text-white transition-all flex items-center gap-3 border border-white/5 p-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors font-sans font-medium"
             >
               <Mail className="w-4 h-4 text-[#b8860b] shrink-0" />
-              <span className="truncate">Assistant: Kamini Agnihotri (kaminiagnihotri249@gmail.com)</span>
-            </a>
-            <a 
-              href="https://wa.me/919325346704" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-white transition-all flex items-center gap-3 border border-white/5 p-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors sm:col-span-2 lg:col-span-1"
-            >
-              <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span className="truncate font-sans font-medium">Call / WhatsApp: +91 9325346704</span>
+              <span className="truncate">Assistant: kaminiagnihotri249@gmail.com</span>
             </a>
           </div>
         </div>
