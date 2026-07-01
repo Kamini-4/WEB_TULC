@@ -17,9 +17,10 @@ const Hero: React.FC<HeroProps> = ({ onBriefClick }) => {
           {/* Tagline */}
           <div className="flex flex-col items-center justify-center gap-1.5 mb-4 sm:mb-5 animate-fade-in" style={{ animationDelay: '0.1s' }}>
             <span className="text-[#111111] text-[10px] sm:text-[11px] font-black uppercase tracking-[0.5em] mb-1">The Unbounded Leadership Co.</span>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-3">
               <span className="text-[#b8860b] text-[8px] sm:text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em]">The Structural Standard for Enterprise Alignment</span>
               <div className="h-[1px] w-6 sm:w-10 bg-[#b8860b]/30"></div>
+              <span className="text-[7px] bg-[#b8860b]/10 text-[#b8860b] px-1.5 py-0.5 border border-[#b8860b]/20 font-black uppercase tracking-widest">Patent Pending</span>
             </div>
           </div>
 

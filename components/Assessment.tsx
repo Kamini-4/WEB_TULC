@@ -4,6 +4,7 @@ import { SovereignDB } from '../lib/database.ts';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Shield, Zap, Layers, ArrowRight, Lock, Download, ChevronRight, AlertCircle, ExternalLink, AlertTriangle, TrendingDown, Check, Copy, Mic, Volume2 } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 type ContextType = 'dynamic' | 'established' | 'generational';
 type Step = 'intro' | 'auth' | 'voice' | 'context' | 'questions' | 'calculating' | 'dossier';
@@ -1256,12 +1257,9 @@ const Assessment: React.FC = () => {
                         /* PAGE 1: COVER PAGE */
                         <div className="flex flex-col justify-center text-center py-6 px-4 space-y-6">
                           <div className="flex justify-center">
-                            <Shield className="w-14 h-14 text-[#b8860b] animate-pulse" />
+                            <BrandLogo size="md" variant="full" theme="dark" className="border-none bg-transparent shadow-none" />
                           </div>
                           <div>
-                            <span className="text-[10px] tracking-[0.4em] font-black uppercase text-[#b8860b] font-mono">
-                              The Unbounded Leadership Co. // Office of Suchita Sancheti
-                            </span>
                             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-3 leading-tight">
                               CONFIDENTIAL STRATEGIC DOSSIER
                             </h2>
@@ -1717,7 +1715,7 @@ const Assessment: React.FC = () => {
                                         <Check className="w-4 h-4 text-[#b8860b] mx-auto mb-1" />
                                         <span className="text-[8px] font-mono uppercase text-white font-bold tracking-wider block">Inquiry Submitted</span>
                                         <p className="text-[9px] text-zinc-400 italic">
-                                          Your request has been registered. Kamini Agnihotri (Operations & Client Relations Coordinator) is compiling details. A customized alignment brief and pricing proposal will reach you within 4 hours.
+                                          Your request has been registered. Kamini Agnihotri (Operations & Client Relations Coordinator, kaminiagnihotri249@gmail.com) is compiling details. A customized alignment brief and pricing proposal will reach you within 4 hours.
                                         </p>
                                         <button
                                           type="button"

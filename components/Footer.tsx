@@ -85,7 +85,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
               </a>
               <a href="mailto:kaminiagnihotri249@gmail.com" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2.5">
                 <Mail className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
-                <span>Assistant: kaminiagnihotri249@gmail.com</span>
+                <span>Assistant: Kamini Agnihotri (kaminiagnihotri249@gmail.com)</span>
               </a>
               <a href="https://wa.me/919325346704" target="_blank" rel="noopener noreferrer" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2.5">
                 <Phone className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
@@ -117,7 +117,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
               <p className="text-[#b8860b] text-[9px] sm:text-[11px] uppercase font-black tracking-[0.2em] mb-3 sm:mb-4">
                 "Apply → Yield Calibration → Scalable Performance."
               </p>
-              <div className="text-white/20 text-[8px] sm:text-[10px] uppercase font-bold">© {new Date().getFullYear()} THE UNBOUNDED LEADERSHIP CO.</div>
+              <div className="text-white/20 text-[8px] sm:text-[10px] uppercase font-bold">© {new Date().getFullYear()} THE UNBOUNDED LEADERSHIP CO. • PROVISIONAL PATENT PENDING</div>
             </div>
             
             <div className="flex flex-wrap justify-center gap-4 sm:gap-8 text-[7px] sm:text-[9px] uppercase text-white/10 font-black tracking-widest">

@@ -77,7 +77,10 @@ const FiveDomains: React.FC = () => {
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-4 tracking-[0.5em]">The 5 Sovereign Domains</h2>
+          <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-4 tracking-[0.5em] flex flex-wrap items-center justify-center gap-2">
+            <span>The 5 Sovereign Domains</span>
+            <span className="text-[7px] bg-[#b8860b]/10 text-[#b8860b] px-1.5 py-0.5 border border-[#b8860b]/30 normal-case tracking-normal">Provisional Patent Filed</span>
+          </h2>
           <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Systemic Alignment <span className="italic text-[#b8860b]">At Scale.</span></h3>
           <p className="max-w-2xl mx-auto text-zinc-400 text-sm italic font-light leading-relaxed mb-4">
             Strategic performance is a direct result of clear structural design across five fundamental operational dimensions.

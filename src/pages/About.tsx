@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, Instagram, Linkedin } from '../../components/BrandIcons.tsx';
 import PrincipalDispatch from '../../components/PrincipalDispatch.tsx';
+import BrandLogo from '../../components/BrandLogo.tsx';
 
 const About: React.FC = () => {
   // JSON-LD structured data for GEO/AEO/SEO index optimization
@@ -43,20 +44,33 @@ const About: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* HERO TITLE BLOCK */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mb-12"
-        >
-          <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-4">The Principal Architect</h2>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#111111] mb-6 leading-tight">
-            Suchita Sancheti <br />
-            <span className="italic text-[#b8860b]">Enterprise Alignment.</span>
-          </h1>
-          <div className="w-16 h-[2px] bg-[#111111]" />
-        </motion.div>
+        {/* HERO TITLE & BRAND LOGO BLOCK */}
+        <div className="grid md:grid-cols-12 gap-8 items-center mb-12">
+          {/* HERO TITLE BLOCK */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="md:col-span-7 space-y-4"
+          >
+            <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em]">The Principal Architect</h2>
+            <h1 className="text-4xl md:text-5xl font-bold text-[#111111] leading-tight">
+              Suchita Sancheti <br />
+              <span className="italic text-[#b8860b]">Enterprise Alignment.</span>
+            </h1>
+            <div className="w-16 h-[2px] bg-[#111111] mt-4" />
+          </motion.div>
+
+          {/* BRAND LOGO CARD */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="md:col-span-5 flex justify-center md:justify-end"
+          >
+            <BrandLogo size="md" variant="full" theme="dark" className="w-full" />
+          </motion.div>
+        </div>
 
         {/* 40% RECOVERY HIGHLIGHT BANNER - PLACED PROMINENTLY AT TOP */}
         <motion.div
@@ -87,14 +101,23 @@ const About: React.FC = () => {
               {/* Portrait Image - Perfect Full-Picture Frame */}
               <div className="shrink-0 w-full max-w-[340px] aspect-[4/5] bg-zinc-900 border-2 border-[#b8860b] relative rounded-xs overflow-hidden shadow-xl group transition-all duration-500 hover:shadow-[#b8860b]/30 mb-6 flex items-center justify-center">
                 <img 
-                  src="https://lh3.googleusercontent.com/d/196xWITxhSq__hUWKTPIB6GxNZGiaQWlw" 
+                  src="/suchita_portrait.jpg" 
                   alt="Suchita Sancheti" 
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105 ease-out"
+                  className="w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-105 ease-out"
                   onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const fb = document.getElementById('ss-logo-fb-about');
-                    if (fb) fb.classList.remove('hidden');
+                    const currentSrc = e.currentTarget.getAttribute('src');
+                    if (currentSrc === '/suchita_portrait.jpg') {
+                      e.currentTarget.setAttribute('src', '/suchita_portrait.png');
+                    } else if (currentSrc === '/suchita_portrait.png') {
+                      e.currentTarget.setAttribute('src', '/suchita_portrait.webp');
+                    } else if (currentSrc === '/suchita_portrait.webp') {
+                      e.currentTarget.setAttribute('src', 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000');
+                    } else {
+                      e.currentTarget.style.display = 'none';
+                      const fb = document.getElementById('ss-logo-fb-about');
+                      if (fb) fb.classList.remove('hidden');
+                    }
                   }}
                 />
                 <div id="ss-logo-fb-about" className="hidden absolute inset-0 flex flex-col items-center justify-center bg-zinc-950">
@@ -169,7 +192,7 @@ const About: React.FC = () => {
                 Most governance frameworks treat delegation as a simple task-assignment problem. We treat it as a systemic alignment problem. Even when authority is formally transferred, the strategic reasoning structure remains locked inside the founder's head, causing up to a 15% strategic dilution per organizational layer.
               </p>
               <p className="text-zinc-600 leading-relaxed font-light italic text-sm">
-                TULC maps these hidden alignment leaks and implements strategic intent into your enterprise's architecture, creating a self-cohering, high-frequent execution structure that gains velocity even in your absence.
+                TULC maps these hidden alignment leaks and implements strategic intent into your enterprise's architecture—utilizing our proprietary, provisional-patent-filed Strategic Alignment Protocol™—creating a self-cohering, high-frequent execution structure that gains velocity even in your absence.
               </p>
             </div>
 
@@ -181,12 +204,12 @@ const About: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-[#b8860b] text-[8px] font-black uppercase tracking-[0.3em]">Office of the Principal Architect</h4>
-                  <p className="text-base font-semibold text-[#111111] font-serif">Kamini Agnihotri</p>
+                  <p className="text-base font-semibold text-[#111111] font-serif">Kamini Agnihotri (kaminiagnihotri249@gmail.com)</p>
                   <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Operations & Client Relations Coordinator</p>
                 </div>
               </div>
               <p className="text-zinc-600 leading-relaxed font-light italic text-xs">
-                Within the Office of the Principal, Kamini Agnihotri manages operational flow, coordinating client scheduling, secure communications, administrative protocols, and accounts.
+                Within the Office of the Principal, Kamini Agnihotri (kaminiagnihotri249@gmail.com) manages operational flow, coordinating client scheduling, secure communications, administrative protocols, and accounts.
               </p>
             </div>
           </div>
@@ -230,7 +253,7 @@ const About: React.FC = () => {
               className="hover:text-white transition-all flex items-center gap-3 border border-white/5 p-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors font-sans font-medium"
             >
               <Mail className="w-4 h-4 text-[#b8860b] shrink-0" />
-              <span className="truncate">Assistant: kaminiagnihotri249@gmail.com</span>
+              <span className="truncate">Assistant: Kamini Agnihotri (kaminiagnihotri249@gmail.com)</span>
             </a>
             <a 
               href="https://wa.me/919325346704" 

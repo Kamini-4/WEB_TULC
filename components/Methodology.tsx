@@ -37,7 +37,10 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 sm:mb-24 gap-8">
           <div className="max-w-2xl">
-            <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 tracking-[0.3em] sm:tracking-[0.4em]">The Strategic Alignment Protocol</h2>
+            <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 tracking-[0.3em] sm:tracking-[0.4em] flex flex-wrap items-center gap-2">
+              <span>The Strategic Alignment Protocol</span>
+              <span className="text-[7px] bg-[#b8860b]/10 text-[#b8860b] px-1.5 py-0.5 border border-[#b8860b]/30 normal-case tracking-normal">Patent Pending</span>
+            </h2>
             <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
               The Architecture of <span className="italic text-[#b8860b]">Scalability.</span>
             </h3>

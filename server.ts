@@ -327,7 +327,7 @@ async function startServer() {
           
           <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee;">
             <p style="font-size: 14px; margin: 0;">Sincerely,</p>
-            <p style="font-size: 14px; font-weight: bold; margin: 5px 0 0 0; color: #b8860b;">Kamini Agnihotri</p>
+            <p style="font-size: 14px; font-weight: bold; margin: 5px 0 0 0; color: #b8860b;">Kamini Agnihotri (kaminiagnihotri249@gmail.com)</p>
             <p style="font-size: 12px; font-weight: bold; margin: 0; color: #999; text-transform: uppercase; letter-spacing: 0.1em;">Principal Architect</p>
             <p style="font-size: 12px; color: #999; margin: 5px 0 0 0;">London • Singapore • New York</p>
           </div>
@@ -502,7 +502,7 @@ async function startServer() {
           <!-- Closing Signature -->
           <div style="margin-top: 50px; padding-top: 25px; border-top: 1px solid #e5e5e0;">
             <p style="font-size: 15px; margin: 0; font-family: 'Times New Roman', Georgia, serif;">Sincerely,</p>
-            <p style="font-size: 15px; font-weight: bold; margin: 6px 0 0 0; color: #b8860b; font-family: 'Times New Roman', Georgia, serif;">Kamini Agnihotri</p>
+            <p style="font-size: 15px; font-weight: bold; margin: 6px 0 0 0; color: #b8860b; font-family: 'Times New Roman', Georgia, serif;">Kamini Agnihotri (kaminiagnihotri249@gmail.com)</p>
             <p style="font-size: 11px; font-weight: bold; margin: 0; color: #7f7f75; text-transform: uppercase; letter-spacing: 0.1em; font-family: Arial, sans-serif;">Principal Architect</p>
             <p style="font-size: 11px; color: #a3a39e; margin: 3px 0 0 0; font-family: Arial, sans-serif;">London • Singapore • New York</p>
           </div>
@@ -599,7 +599,7 @@ async function startServer() {
       }
 
       const ai = new GoogleGenAI({ apiKey });
-      const prompt = `You are a world-class institutional growth advisor and lead strategist for "The Unbounded Leadership Co.", a high-end Swiss-style leadership architecture consultancy run by Principal Architect Kamini Agnihotri.
+      const prompt = `You are a world-class institutional growth advisor and lead strategist for "The Unbounded Leadership Co.", a high-end Swiss-style leadership architecture consultancy run by Principal Architect Kamini Agnihotri (kaminiagnihotri249@gmail.com).
 Our consultancy specializes in helping CEOs, Founders, and elite executive teams reclaim up to 40% of their "cognitive bandwidth" and transition from heroic firefighting ("Hero") to systemic continuity ("Architect").
 
 Your goal is to engineer a bespoke, highly sophisticated "Cold Dispatch" (outbound email) to trigger an immediate diagnostic conversation.
@@ -621,7 +621,7 @@ ${pastedContext ? `- Raw Copy-Pasted Target Profile Bio or Webpage Context:\n"""
 Strategic Instruction for Personalization:
 1. If LinkedIn URL, Website URL or Raw Copied bio is provided, you must prioritize aligning your pitch to these specific company and personal facts.
 2. If Google Search Grounding is active, search for recent news, funding, key products, or personal perspectives regarding ${targetName} at ${targetCompany}. Use these exact insights to anchor your email.
-3. ${embedResearch ? `CRITICAL PERSONALIZATION MANDATE: You MUST explicitly weave and embed specific, real-world verified facts about ${targetName} or ${targetCompany} directly into the paragraphs of the email body. For example: reference a recent product launch, a podcast comment, an article they wrote, their historic career background, or a specific scaling milestone. The draft must show meticulous homework, proving Kamini Agnihotri did authentic high-individual research before reaching out.` : 'Anchor your hook into general institutional context.'}
+3. ${embedResearch ? `CRITICAL PERSONALIZATION MANDATE: You MUST explicitly weave and embed specific, real-world verified facts about ${targetName} or ${targetCompany} directly into the paragraphs of the email body. For example: reference a recent product launch, a podcast comment, an article they wrote, their historic career background, or a specific scaling milestone. The draft must show meticulous homework, proving Kamini Agnihotri (kaminiagnihotri249@gmail.com) did authentic high-individual research before reaching out.` : 'Anchor your hook into general institutional context.'}
 4. Anchor your hook into their actual context (e.g., "Given your recent scaling thresholds at ${targetCompany} following your new products" or "I noticed your perspective on..."). Avoid generic flattery. Keep it intellectually honest and elite.
 5. The letter must address them as an equal or peer analyst. Position our 4-minute "Institutional Diagnostic" as the ultimate diagnostic protocol. The subject line must be elegant and high-stakes.
 
@@ -629,7 +629,7 @@ Return EXACTLY a JSON object matching this schema (with no enclosing markdown wr
 {
   "brief": "A 1-sentence strategic analysis explaining why this specific executive at this company faces the targeted bottleneck dynamically referencing your findings.",
   "subject": "A compelling, high-stakes subject line designed to achieve high open rates with global elite principals.",
-  "body": "The complete, highly personalized outbound email body, structured beautifully with clean paragraph breaks, starting with a respectful greeting (Dear [Name] or appropriate) and ending with a signature from Kamini Agnihotri, Principal Architect of The Unbounded Leadership Co."
+  "body": "The complete, highly personalized outbound email body, structured beautifully with clean paragraph breaks, starting with a respectful greeting (Dear [Name] or appropriate) and ending with a signature from Kamini Agnihotri (kaminiagnihotri249@gmail.com), Principal Architect of The Unbounded Leadership Co."
 }`;
 
       const config: any = {

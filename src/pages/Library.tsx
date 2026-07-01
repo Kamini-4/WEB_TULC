@@ -394,7 +394,33 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
             <div class="page">
               <div class="cover-container">
                 <div class="cover-top">
-                  <div class="cover-brand">The Unbounded Leadership Co.</div>
+                  <div style="margin-bottom: 25px; display: flex; justify-content: center;">
+                    <svg viewBox="0 0 500 240" style="width: 250px; height: auto;" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="gold-grad-print" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#8a640f" />
+                          <stop offset="30%" stop-color="#d1b46a" />
+                          <stop offset="50%" stop-color="#f3e5ab" />
+                          <stop offset="70%" stop-color="#d1b46a" />
+                          <stop offset="100%" stop-color="#8a640f" />
+                        </linearGradient>
+                      </defs>
+                      <g>
+                        <!-- Monogram TUC -->
+                        <path d="M 215 35 L 215 80 C 215 105, 230 115, 250 115 C 270 115, 285 105, 285 80 L 285 35 L 297 35 L 297 80 C 297 112, 275 126, 250 126 C 225 126, 203 112, 203 80 L 203 35 Z" fill="url(#gold-grad-print)" />
+                        <path d="M 190 25 L 310 25 L 310 35 L 256 35 L 256 112 L 244 112 L 244 35 L 190 35 Z" fill="url(#gold-grad-print)" />
+                        <path d="M 285 55 C 295 55, 305 62, 308 72 L 318 67 C 314 52, 300 43, 285 43 C 255 43, 240 65, 240 85 C 240 105, 255 127, 285 127 C 300 127, 314 118, 318 103 L 308 98 C 305 108, 295 115, 285 105 C 265 105, 252 90, 252 85 C 252 70, 265 55, 285 55 Z" fill="url(#gold-grad-print)" />
+                        <path d="M 195 118 L 305 118 L 295 124 L 205 124 Z" fill="url(#gold-grad-print)" />
+                      </g>
+                      
+                      <!-- Text -->
+                      <text x="250" y="165" text-anchor="middle" fill="url(#gold-grad-print)" font-size="28" font-weight="bold" letter-spacing="0.16em" font-family="'Cinzel', 'Playfair Display', serif">THE UNBOUNDED</text>
+                      <line x1="85" y1="185" x2="185" y2="185" stroke="url(#gold-grad-print)" stroke-width="1.2" />
+                      <text x="250" y="190" text-anchor="middle" fill="url(#gold-grad-print)" font-size="14" font-weight="900" letter-spacing="0.32em" font-family="'Inter', sans-serif">LEADERSHIP CO.</text>
+                      <line x1="315" y1="185" x2="415" y2="185" stroke="url(#gold-grad-print)" stroke-width="1.2" />
+                      <text x="250" y="215" text-anchor="middle" fill="#8a640f" font-size="10.5" letter-spacing="0.06em" font-family="'Inter', sans-serif" font-weight="300" font-style="italic">Elevating Cultures, Transforming Leadership</text>
+                    </svg>
+                  </div>
                   <div class="cover-category">${paper.category}</div>
                   <h1 class="cover-title">${paper.title}</h1>
                   <p class="cover-subtitle">"${paper.subtitle}"</p>
