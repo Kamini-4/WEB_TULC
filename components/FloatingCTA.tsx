@@ -26,7 +26,7 @@ const FloatingCTA: React.FC<FloatingCTAProps> = ({ onAuditClick }) => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 50, scale: 0.9 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="fixed bottom-8 right-8 z-50 hidden md:block"
+          className="fixed bottom-[100px] right-8 z-50 hidden md:block"
         >
           <button
             onClick={onAuditClick}

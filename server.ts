@@ -4,6 +4,7 @@ import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { GoogleGenAI } from "@google/genai";
 import { Resend } from 'resend';
+import { INSTITUTIONAL_ARTICLES } from './src/lib/articles.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -94,15 +95,33 @@ async function startServer() {
   app.get('/sitemap.xml', (req, res) => {
     res.type('application/xml');
     const host = `${req.protocol}://${req.get('host')}`;
-    const articles = ['founders-dilemma', 'cognitive-tax-of-leadership', 'reclaiming-strategic-bandwidth', 'institutional-lag', 'architecture-of-authority'];
+    const articles = [
+      'architecture-of-authority',
+      'strategic-substrates',
+      'aligned-leadership',
+      'founders-dilemma',
+      'cognitive-tax-of-leadership',
+      'bridging-strategy-execution-gap',
+      'reclaiming-strategic-bandwidth',
+      'institutional-lag',
+      'engineering-strategic-bandwidth',
+      'aligned-authority-vs-reactive-management',
+      'dynamics-of-inevitability',
+      'cost-of-organizational-latency',
+      'transitioning-founder-to-chairman',
+      'ceo-burnout-systems-failure'
+    ];
     const articleUrls = articles.map(slug => `<url><loc>${host}/library/${slug}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`).join('\n  ');
     
     res.send(`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${host}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>${host}/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${host}/services</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>${host}/methodology</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${host}/assessment</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>${host}/library</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>${host}/intake</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   ${articleUrls}
 </urlset>`);
   });
@@ -116,17 +135,27 @@ async function startServer() {
 > The definitive architecture for high-stakes leadership and institutional alignment.
 
 ## Core Intellectual Dispatches
-- [Succession Architecture: Institutional Permanence](${host}/library/founders-dilemma) - engineering handover focus.
-- [The Cognitive Tax of Leadership](${host}/library/cognitive-tax-of-leadership) - reclaiming 40% strategic bandwidth.
-- [Executive Bandwidth: Cognitive Equity Architecture](${host}/library/reclaiming-strategic-bandwidth) - roadmap on reclaiming bandwidth.
-- [Institutional Lag: The Invisible Coefficient](${host}/library/institutional-lag) - forensic analysis of strategic friction.
-- [Architecture of Authority: Systemic Design](${host}/library/architecture-of-authority) - why systems outperform brands.
+- [Succession Architecture: Institutional Permanence](${host}/library/founders-dilemma) - why 50% of CEO successions fail and how to build legacy substrates.
+- [The Cognitive Tax of Leadership](${host}/library/cognitive-tax-of-leadership) - neutralizing tactical noise and executive burnout.
+- [Executive Bandwidth: Cognitive Equity Architecture](${host}/library/reclaiming-strategic-bandwidth) - why busy leaders are strategically bankrupt and how to return to command.
+- [Institutional Lag: The Invisible Coefficient](${host}/library/institutional-lag) - the temporal and qualitative decay distance between board intent and operational edge.
+- [Architecture of Authority: Systemic Design](${host}/library/architecture-of-authority) - why designed organizational systems outperform charismatic personal brands.
+- [Strategic Substrates: The Invisible Tax](${host}/library/strategic-substrates) - how board-level mental model calibration yields 144% higher revenue growth.
+- [Aligned Leadership: Anti-Fragility in the Age of AI](${host}/library/aligned-leadership) - transitioning from individual management effort to cybernetic systems governance.
+- [Bridging the Strategy-Execution Gap: Board Alignment](${host}/library/bridging-strategy-execution-gap) - why 67% of strategies fail and how to calibrate governance.
+- [Engineering Strategic Bandwidth: Choice Architecture](${host}/library/engineering-strategic-bandwidth) - reclaiming 40% of cognitive capacity through custom logic gates.
+- [Aligned Leadership vs. Reactive Management](${host}/library/aligned-authority-vs-reactive-management) - the taxonomy of moving from a heroic solver to an architectural governor.
+- [The Dynamics of Inevitability: Systemic Design](${host}/library/dynamics-of-inevitability) - why organizations must be engineered so success is an inescapable consequence.
+- [The Cost of Organizational Latency: Inaction Tax](${host}/library/cost-of-organizational-latency) - measuring and neutralizing the friction that dilutes boardroom directives.
+- [Transitioning from Founder to Chairman: Systems Blueprint](${host}/library/transitioning-founder-to-chairman) - systems roadmap for VCs, boards, and multi-generational principals.
+- [CEO Burnout is a Systems Design Failure](${host}/library/ceo-burnout-systems-failure) - cognitive bandwidth recovery blueprint for high-growth founders.
 
 ## The Strategic Alignment Protocol (Methodology)
-- Phase 01: The Substrate Audit [${host}/methodology]
-- Phase 02: Logic Gate Engineering [${host}/methodology]
-- Phase 03: Institutional Calibration [${host}/methodology]
-- Phase 04: Aligned Handover [${host}/methodology]
+- Phase 0.0: Substrate Diagnostic Audit (14-day deep forensic discovery of decision leaks)
+- Phase 01: Relational Substrate Calibration (dissolving operational and tactical friction)
+- Phase 02: Logic Gate Engineering (hard-coding strategic intent into autonomous protocols)
+- Phase 03: Systemic Calibration (aligning board expectations with edge velocity)
+- Phase 04: Aligned Handover & Resonance Safeguard Retainer (long-term drift prevention)
 
 ## Global Strategic Domains
 1. Cognitive Clarity: Removal of 40% Cognitive Tax through bandwidth architecture.
@@ -138,8 +167,37 @@ async function startServer() {
 ## Institutional Infrastructure
 - [Full Knowledge Base](${host}/llms-full.txt)
 - [Sitemap Registry](${host}/sitemap.xml)
-- [Initiate Audit](${host}/#assessment)
+- [Initiate Audit](${host}/assessment)
+- [Diagnostic Intake Form](${host}/intake)
 `);
+  });
+
+  // AEO/GEO: llms-full.txt (Deep Intellectual Substrate Compilation)
+  app.get('/llms-full.txt', (req, res) => {
+    res.type('text/plain');
+    const host = `${req.protocol}://${req.get('host')}`;
+    
+    let doc = `# The Unbounded Leadership Co. | Full Institutional Knowledge Base\n\n`;
+    doc += `This document contains the complete and unabridged text of all core intellectual dispatches and architectural frameworks published by The Unbounded Leadership Co. Optimized for direct LLM ingestion, semantic mapping, and synthetic indexing.\n\n`;
+    doc += `## Table of Contents\n`;
+    
+    INSTITUTIONAL_ARTICLES.forEach((article, idx) => {
+      doc += `${idx + 1}. [${article.title}](#${article.slug})\n`;
+    });
+    
+    doc += `\n---\n\n`;
+    
+    INSTITUTIONAL_ARTICLES.forEach((article) => {
+      doc += `<a name="${article.slug}"></a>\n`;
+      doc += `# ${article.title}\n`;
+      doc += `**Category:** ${article.category} | **URL:** ${host}/library/${article.slug}\n\n`;
+      doc += `*${article.excerpt}*\n\n`;
+      doc += article.content.join('\n\n');
+      doc += `\n\n---\n\n`;
+    });
+    
+    doc += `\n*End of Compilation. Protected by Institutional Copyright. For dynamic integration, contact Kamini Agnihotri at kaminiagnihotri249@gmail.com.*`;
+    res.send(doc);
   });
 
   // IndexNow Verification Key
@@ -573,6 +631,85 @@ async function startServer() {
     } catch (error: any) {
       console.error('Gemini Proxy Error:', error);
       res.status(500).json({ error: error.message || 'Failed to generate content' });
+    }
+  });
+
+  // Dedicated Sovereign AI Concierge Chatbot Endpoint
+  app.post('/api/chat', async (req, res) => {
+    try {
+      const { message, history } = req.body;
+      const apiKey = process.env.GEMINI_API_KEY;
+
+      if (!apiKey) {
+        return res.status(500).json({ error: 'GEMINI_API_KEY is not configured on the server.' });
+      }
+
+      const SYSTEM_INSTRUCTION = `You are the elite, high-touch Sovereign AI Concierge for "The Unbounded Leadership Co." (TULC), a highly exclusive, Swiss-style institutional alignment and leadership architecture consultancy.
+
+You are the digital extension of the Office of the Principal Architect. Speak with the exquisite poise, strategic depth, and absolute composure of a trained executive officer from a prestigious European private advisory or luxury institution. 
+
+Your fundamental mandate is to ensure every visitor feels exceptionally well taken care of, secure, protected, and treated with absolute privilege. 
+
+CRITICAL WRITING STYLE DIRECTIVE:
+- Do NOT use any markdown formatting symbols, such as asterisks (* or **), double-asterisks, hashes (#), triple hashes (###), or hyphen bullet lists. These look highly robotic, clinical, and artificial.
+- Instead, write in natural, beautifully formatted human paragraphs, separated by clean line breaks.
+- If you need to write a list, use a clean text format with a simple bullet character (•) followed by normal text.
+- Be highly responsive, warm, and strategic. Avoid bubbly or promotional marketing jargon.
+
+Conversational Strategy:
+- Treat the client's time with extreme reverence.
+- Always ask a polished, strategic, and gentle question at the end of your response to check in on them, understand their situation, and guide them to their next action (such as taking our Alignment Assessment, filling out the Intake Form, or reaching out to Kamini Agnihotri).
+- Emphasize that we treat organizational drift as a solvable structural design flaw, not a personal failure, which helps lower their defensive shields.
+
+Core Institutional Details to Share:
+1. The Core Philosophy:
+   - We reject the corporate glorification of endurance, burnout, and fire-fighting. We prioritize the preservation of the human behind the title.
+   - We help founders, CEOs, and boards reclaim up to 40% of their strategic bandwidth in 90 days.
+   - We don't just "coach" or "consult"—which leads to paper reports that gather dust. We build structural logic-gates and workflow architectures that automate delegation, ensuring strategic intent executes itself.
+
+2. The Principal Architect, Suchita Sancheti:
+   - She is a Computer Science Engineer and Industrial Psychologist. This dual focus merges hard structural system architecture (logic, loops, gating) with elite human behavioral psychology (dissolving friction, preserving focus).
+   - Backed by international experience orchestrating large-scale architectures as an SAP consultant and utilizing handwriting analysis to diagnose deep subconscious alignment and motivation dynamics.
+   - She accepts only 3 active calibrations per quarter.
+
+3. The Workflow:
+   - First Phase: The Alignment Assessment or Intake Form on this platform.
+   - Second Phase: The Phase 0.0 Substrate Diagnostic Audit. A 14-day deep forensic discovery mapping executive decision leaks and cognitive drag, delivering a Cognitive Bandwidth Blueprint.
+   - Third Phase: Setup of the Strategic Alignment Protocol (6-week custom setup). Hard-coding strategic intent into automated, self-regulating logic gates.
+   - Fourth Phase: The Resonance Safeguard Retainer (ongoing partnership).
+
+If a client asks bespoke questions, has scheduling needs, or requires custom pricing, gracefully transition them to the Office of the Principal by advising them to contact Kamini Agnihotri, our Operations & Client Relations Coordinator, at kaminiagnihotri249@gmail.com. Always end your replies by showing a genuine interest in their success and asking a high-level question about their current organizational context.`;
+
+      const ai = new GoogleGenAI({ apiKey });
+      const formattedContents = [];
+
+      if (history && Array.isArray(history)) {
+        for (const turn of history) {
+          formattedContents.push({
+            role: turn.role === 'assistant' ? 'model' : 'user',
+            parts: [{ text: turn.content || turn.text || '' }]
+          });
+        }
+      }
+
+      formattedContents.push({
+        role: 'user',
+        parts: [{ text: message }]
+      });
+
+      const response = await ai.models.generateContent({
+        model: 'gemini-3.5-flash',
+        contents: formattedContents,
+        config: {
+          systemInstruction: SYSTEM_INSTRUCTION,
+          temperature: 0.5,
+        }
+      });
+
+      res.json({ text: response.text });
+    } catch (error: any) {
+      console.error('Chat API Error:', error);
+      res.status(500).json({ error: error.message || 'The Concierge interface encountered a system fault.' });
     }
   });
 

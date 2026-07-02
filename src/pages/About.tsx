@@ -138,60 +138,60 @@ const About: React.FC = () => {
                 </div>
               </div>
 
-              {/* Credentials Sub-block */}
+              {/* Credentials Sub-block - Rephrased as "How I Help You" */}
               <div className="text-center w-full">
-                <h3 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] mb-3">Principal Credentials</h3>
+                <h3 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] mb-3">How I Help You Calibrate</h3>
                 <div className="space-y-2 text-zinc-800 font-serif text-sm">
-                  <div className="py-2.5 border-y border-zinc-100 flex justify-between items-center px-2">
-                    <span className="text-zinc-500 text-xs font-sans font-medium uppercase tracking-wider text-left">Academic Paradigm</span>
-                    <span className="font-semibold text-zinc-900 text-right">Computer Science Engineer</span>
+                  <div className="py-2.5 border-y border-zinc-100 flex flex-col items-start px-2 text-left">
+                    <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase tracking-wider mb-1">Systems Logic (Computer Science Engineer)</span>
+                    <span className="font-medium text-zinc-900 text-xs italic">"I map your corporate workflows as precise, high-frequency logic gates—turning vague tasks into absolute, self-executing system actions."</span>
                   </div>
-                  <div className="py-2.5 border-b border-zinc-100 flex justify-between items-center px-2">
-                    <span className="text-zinc-500 text-xs font-sans font-medium uppercase tracking-wider text-left">Behavioral Blueprint</span>
-                    <span className="font-semibold text-zinc-900 text-right">Industrial Psychologist</span>
+                  <div className="py-2.5 border-b border-zinc-100 flex flex-col items-start px-2 text-left">
+                    <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase tracking-wider mb-1">Human Alignment (Industrial Psychologist)</span>
+                    <span className="font-medium text-zinc-900 text-xs italic">"I pinpoint and dissolve the invisible cognitive bottlenecks, coordination friction, and alignment drag that exhaust your executive team."</span>
                   </div>
-                  <div className="py-2.5 border-b border-zinc-100 flex justify-between items-center px-2">
-                    <span className="text-zinc-500 text-xs font-sans font-medium uppercase tracking-wider text-left">Systems Alignment</span>
-                    <span className="font-semibold text-zinc-900 text-right">SAP Consultant</span>
+                  <div className="py-2.5 border-b border-zinc-100 flex flex-col items-start px-2 text-left">
+                    <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase tracking-wider mb-1">Enterprise Scale (SAP Consultant)</span>
+                    <span className="font-medium text-zinc-900 text-xs italic">"I build unshakeable, enterprise-grade architecture that ensures your strategic vision propagates to the frontline with absolute, zero-dilution fidelity."</span>
                   </div>
-                  <div className="py-2.5 border-b border-zinc-100 flex justify-between items-center px-2">
-                    <span className="text-zinc-500 text-xs font-sans font-medium uppercase tracking-wider text-left">Sub-verbal Audits</span>
-                    <span className="font-semibold text-zinc-900 text-right">Handwriting Analyst</span>
+                  <div className="py-2.5 border-b border-zinc-100 flex flex-col items-start px-2 text-left">
+                    <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase tracking-wider mb-1">Sub-Verbal Profiling (Handwriting Analyst)</span>
+                    <span className="font-medium text-zinc-900 text-xs italic">"I run rapid, non-disruptive behavioral audits to uncover underlying motivators and verify deep alignment among your key directors."</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Scale stats */}
+            {/* Client-Centric Impact Stats */}
             <div className="grid grid-cols-2 gap-8 bg-white p-6 border border-zinc-200 shadow-sm text-center">
               <div>
-                <div className="text-4xl font-bold text-[#111111] mb-2">$10B+</div>
-                <div className="text-[10px] font-black uppercase text-zinc-400 tracking-widest">AUM Influenced</div>
+                <div className="text-4xl font-extrabold text-[#b8860b] mb-2">40%</div>
+                <div className="text-[10px] font-black uppercase text-zinc-400 tracking-widest">Bandwidth Recovered</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-[#111111] mb-2">50+</div>
-                <div className="text-[10px] font-black uppercase text-zinc-400 tracking-widest">Global Board Audits</div>
+                <div className="text-4xl font-extrabold text-[#b8860b] mb-2">0%</div>
+                <div className="text-[10px] font-black uppercase text-zinc-400 tracking-widest">Alignment Dilution</div>
               </div>
             </div>
           </div>
 
-          {/* Biography Narrative (Right columns) - Harvey Specter Style */}
+          {/* Biography Narrative - Customer-Centric Positioning */}
           <div className="md:col-span-7 space-y-10">
             <div className="space-y-6 text-[#111111]">
               <p className="text-2xl text-zinc-800 leading-relaxed font-semibold italic text-[#b8860b]">
-                "You don't consult. You recalibrate. Traditional consulting firms give advice to file away in a drawer. You engineer high-fidelity systems that make operational failure mathematically impossible."
+                "You do not need advice to file away in a drawer. You need a system that makes strategic misalignment and operational drag mathematically impossible."
               </p>
               
               <div className="h-[1px] w-20 bg-[#b8860b]/30" />
 
               <p className="text-zinc-700 leading-relaxed font-light italic text-base">
-                People play the game of business. Suchita Sancheti designs the board. As an elite <strong>Computer Science Engineer</strong> and <strong>Industrial Psychologist</strong>, she treats organizational drift not as a human flaw, but as a severe systemic alignment failure. If your scaling company is losing its edge, you don't need a cheerleader—you need an architect.
+                If your scaling company is losing its edge, you don't need a cheerleader—you need a systems architect. Suchita Sancheti treats organizational bottlenecks not as a human failing, but as a structural design flaw. She doesn't just evaluate your leaders; she recalibrates your entire leadership operating system to run autonomously.
               </p>
               <p className="text-zinc-700 leading-relaxed font-light italic text-base">
-                With a deep operational background as an <strong>SAP Systems Consultant</strong> orchestrating international architectures, and a <strong>Handwriting Analyst</strong> dissecting the underlying, subconscious integrity matrices of senior executives, she brings a legendary, unshakeable standard of clarity to global boardrooms. She cuts through noise to lay down structural logic.
+                By combining elite systems logic with behavioral psychology, she helps you design high-fidelity delegation structures. She bridges the gap between your strategic intent and executive execution, so your direct reports operate at the exact frequency of your mind—leaving you completely insulated from tactical firefighting.
               </p>
               <p className="text-zinc-700 leading-relaxed font-medium italic text-base border-l-2 border-[#b8860b] pl-6 py-2 bg-white/40">
-                "If you are managing the descent of a high-stakes enterprise rather than architecting its dominance, you are paying a voluntary tax on your own legacy. In 90 days, we don't just optimize your leadership operating system. We make your strategic intent an inevitable force."
+                "If you are spending more than 15% of your week resolving coordination errors rather than compounding your next strategic advantage, you are paying a voluntary tax on your own legacy. My job is to reclaim your peace of mind and make your strategic intent an inevitable force."
               </p>
             </div>
 

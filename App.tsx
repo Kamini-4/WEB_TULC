@@ -18,6 +18,7 @@ import ErrorBoundary from './components/ErrorBoundary.tsx';
 import FloatingCTA from './components/FloatingCTA.tsx';
 import AdminDashboard from './components/AdminDashboard.tsx';
 import Countdown from './components/Countdown.tsx';
+import Chatbot from './components/Chatbot.tsx';
 import { INSTITUTIONAL_ARTICLES, getArticleById } from './src/lib/articles.ts';
 
 interface Article {
@@ -91,6 +92,7 @@ const ArticleHandler: React.FC<{
 const App: React.FC = () => {
   const [activeArticle, setActiveArticle] = useState<Article | null>(null);
   const [showAdmin, setShowAdmin] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -334,13 +336,17 @@ const App: React.FC = () => {
         </main>
         <Footer onLegalClick={handleLegalClick} />
         
-        <FloatingCTA onAuditClick={() => {
-          if (location.pathname === '/assessment') {
-            document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' });
-          } else {
-            navigate('/assessment');
-          }
-        }} />
+        {!isChatOpen && (
+          <FloatingCTA onAuditClick={() => {
+            if (location.pathname === '/assessment') {
+              document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' });
+            } else {
+              navigate('/assessment');
+            }
+          }} />
+        )}
+
+        <Chatbot isOpen={isChatOpen} setIsOpen={setIsChatOpen} />
 
         <Routes>
           <Route path="/library/:articleId" element={<ArticleHandler activeArticle={activeArticle} setActiveArticle={setActiveArticle} />} />
