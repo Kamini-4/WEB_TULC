@@ -2,6 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Hero from '../../components/Hero.tsx';
+import WhoWeBuildFor from '../../components/WhoWeBuildFor.tsx';
 import InstitutionalMetrics from '../../components/InstitutionalMetrics.tsx';
 import Problem from '../../components/Problem.tsx';
 import Assessment from '../../components/Assessment.tsx';
@@ -34,6 +35,7 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
   return (
     <>
       <Hero onBriefClick={onBriefClick} />
+      <WhoWeBuildFor />
       <PrincipalDispatch />
       <FiveDomains />
       <InstitutionalMetrics />
