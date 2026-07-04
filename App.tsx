@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { doc, getDocFromServer } from 'firebase/firestore';
 import { db } from './src/firebase.ts';
 import Header from './components/Header.tsx';
 import Footer from './components/Footer.tsx';
@@ -95,25 +94,6 @@ const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
-  useEffect(() => {
-    const testConnection = async () => {
-      const path = 'blog';
-      try {
-        await getDocFromServer(doc(db, path, '_health_check_'));
-        console.log("Firestore connection successful.");
-      } catch (error: any) {
-        if (error.message?.includes('offline')) {
-          console.error("Firestore is offline. Please check your Firebase configuration.");
-        } else if (error.code === 'permission-denied') {
-          console.log("Firestore connection successful (reached backend).");
-        } else {
-          console.error("Firestore connection test error:", error);
-        }
-      }
-    };
-    testConnection();
-  }, []);
 
   // Dynamic SEO & Open Graph Metadata Calibration Engine
   useEffect(() => {
