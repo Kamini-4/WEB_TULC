@@ -2,35 +2,51 @@
 
 > The Physics of Power. An elite AI-driven ecosystem for Institutional Architecture and Systemic Diagnostics.
 
-## Overview
+## Leadership & Administration
 
-The Unbounded Leadership Co., founded by Suchita Sancheti, is a deep-tech consultancy designed for apex principals, family offices, and institutional architects. We move beyond traditional management theory into the realm of **Institutional Physics**, quantifying the alignment between executive intent and organizational execution.
+- **Founder & Principal Architect:** Suchita Sancheti (Computer Science Engineer & Industrial Psychologist) merges structural software engineering logic with advanced human behavioral dynamics.
+- **Operations & Client Relations Coordinator:** Kamini Agnihotri (kaminiagnihotri249@gmail.com) coordinates scheduling, onboarding dockets, and strategic briefs.
 
-## Core Pillars of Institutional Architecture
+## Core Offerings & Methodologies
 
-### 1. The Substrate Audit (Logic Mapping)
-A high-stakes, context-adaptive diagnostic mapping decision-making frequencies across Corporate, Legacy, and Alpha modes.
-- **Corporate mode:** Focused on market agility, executive conviction, and team autonomy within high-velocity environments.
-- **Legacy mode:** Focused on stewardship, generational resilience, and family office governance.
-- **Alpha mode:** The raw, unfiltered cybernetic logic of power and systemic physics.
+### 1. Phase 0.0: Substrate Diagnostic Audit
+A 14-day intensive, context-adaptive forensic diagnostic mapping decision-making frequencies across Corporate, Legacy, and Alpha modes.
+- **Cognitive Tax Computation:** Measures and quantifies the hidden financial and creative opportunity cost of leadership friction and administrative bottlenecks.
+- **Cognitive Bandwidth Blueprint:** Delivers a forensic mapping of the leader's cognitive bandwidth and identifies the three primary operational leakage points.
+- **Alignment Modes:** Analyzes executive decision channels:
+  - *Corporate Mode:* High-velocity market agility, executive conviction, and team autonomy.
+  - *Legacy Mode:* Generational stewardship, governance structures, and family office continuity.
+  - *Alpha Mode:* Cybernetic logic of power, authority vectors, and systemic physics.
 
-### 2. Strategic Bandwidth Reconstruction
-Proprietary methodology to reclaim up to 45% of cognitive load through the removal of tactical noise and the installation of autonomous logic gates.
+### 2. The Strategic Alignment Protocol (Phases 01-04)
+A 6-week custom setup that replaces fragile manual oversight with automated, self-regulating logic gates.
+- **Phase 01: Yield Calibration:** Deployment of the proprietary Alignment Assessment to audit the firm's execution maturity.
+- **Phase 02: Strategic Domain Mapping:** Synthesis of a Structural Alignment Report, isolating the key dimensions for immediate calibration.
+- **Phase 03: Architectural Intervention:** Bespoke setup and configuration of leadership protocols, establishing localized autonomy.
+- **Phase 04: Strategic Integration:** Ongoing validation and governance structure installation to lock in high strategic intent fidelity.
+
+### 3. The Resonance Safeguard Retainer (Stewardship)
+Bespoke, ongoing strategic partnership serving as the Board-level and founder-level guardian of strategic peace. Provides bi-annual integrity audits, drift detection metrics, and prioritized access to the Principal.
+
+## Core Pillars of Leadership Architecture
+
+### 1. Strategic Bandwidth Reconstruction
+Proprietary methodology to reclaim up to 40% of cognitive load through the removal of tactical noise and the installation of autonomous logic gates.
 - **Cognitive Clarity:** Measuring the absolute authority in your decision frequency.
 - **Decision Architecture:** The delta between "Institutional Decree" and "Organizational Friction."
 - **Institutional Lag:** Identifying the micro-pauses that reveal internal dissonance or systemic hesitation.
 
-### 3. The Systemic Vault
+### 2. The Systemic Vault
 A 12-dimensional vector synthesis engine that calculates the **Systemic Index** and **Metabolic Burn Rate** of the institution.
 - **12D Vector Analysis:** Mapping choices across a 12-dimensional vector space to analyze the "Shadow Impact" of every decision.
 - **Metabolic Burn:** Quantifying the systemic energy cost of leadership architecture.
 
-### 4. The Council of Architects
+### 3. The Council of Architects
 An adversarial AI advisory layer featuring specialized mentors who stress-test strategic decisions using complexity theory and first-principles reasoning.
 - **Domain Specialization:** Advisors for Cognitive Clarity, Systemic Integrity, Strategic Velocity, Moral Gravity, and Cultural Fidelity.
 - **The Challenger Protocol:** AI mentors programmed to hunt for logical fallacies and authority leakage.
 
-### 5. Institutional Dispatches (The Library)
+### 4. Institutional Dispatches (The Library)
 A curated registry of intelligence focusing on signal refraction mapping, shadow auditing, and architectural inevitability.
 - **Shadow Audits:** Identifying signal refraction between the Apex Leader and the Inner Circle.
 - **Institutional Ghosts:** Identifying unintended "Positive Echoes" or "Negative Drags" generated by the leader’s primary virtues.
