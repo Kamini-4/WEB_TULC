@@ -798,68 +798,68 @@ const Assessment: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 1.05 }}
-              className="bg-white p-8 md:p-12 shadow-2xl border border-zinc-100 text-center max-w-2xl mx-auto"
+              className="bg-white p-5 sm:p-6 md:p-10 shadow-2xl border border-zinc-100 text-center max-w-xl mx-auto"
             >
-              <Shield className="w-12 h-12 text-[#b8860b] mx-auto mb-8" />
-              <h3 className="text-2xl font-bold mb-4 text-[#111111] uppercase tracking-wider">Identity Protocol</h3>
-              <p className="text-zinc-700 mb-10 italic font-light">
+              <Shield className="w-8 h-8 text-[#b8860b] mx-auto mb-3" />
+              <h3 className="text-xl sm:text-2xl font-bold mb-1 text-[#111111] uppercase tracking-wider">Identity Protocol</h3>
+              <p className="text-zinc-700 text-xs sm:text-sm mb-4 italic font-light">
                 Access to the Alignment Protocol requires institutional verification. Please provide your strategic identifiers.
               </p>
               
-              <form onSubmit={handleIdentitySubmit} className="space-y-6 text-left">
+              <form onSubmit={handleIdentitySubmit} className="space-y-3 sm:space-y-4 text-left">
                 <div>
-                  <label className="text-[9px] font-black uppercase text-zinc-600 tracking-[0.3em] block mb-2 font-sans">Institutional Identity</label>
+                  <label className="text-[9px] font-black uppercase text-zinc-600 tracking-[0.3em] block mb-1 font-sans">Institutional Identity</label>
                   <input 
                     type="text"
                     required
                     placeholder="Full Name"
                     value={identity.name}
                     onChange={(e) => setIdentity({...identity, name: e.target.value})}
-                    className="w-full px-4 py-4 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] italic"
+                    className="w-full px-3.5 py-2.5 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] italic rounded-xs"
                   />
                 </div>
                 <div>
-                  <label className="text-[9px] font-black uppercase text-zinc-600 tracking-[0.3em] block mb-2 font-sans">Strategic Email</label>
+                  <label className="text-[9px] font-black uppercase text-zinc-600 tracking-[0.3em] block mb-1 font-sans">Strategic Email</label>
                   <input 
                     type="email"
                     required
                     placeholder="Institutional Email"
                     value={identity.email}
                     onChange={(e) => setIdentity({...identity, email: e.target.value})}
-                    className="w-full px-4 py-4 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] italic"
+                    className="w-full px-3.5 py-2.5 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] italic rounded-xs"
                   />
                 </div>
                 <div>
-                  <label className="text-[9px] font-black uppercase text-zinc-600 tracking-[0.3em] block mb-2 font-sans">Organization</label>
+                  <label className="text-[9px] font-black uppercase text-zinc-600 tracking-[0.3em] block mb-1 font-sans">Organization</label>
                   <input 
                     type="text"
                     required
                     placeholder="Principal Institution"
                     value={identity.organization}
                     onChange={(e) => setIdentity({...identity, organization: e.target.value})}
-                    className="w-full px-4 py-4 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] italic"
+                    className="w-full px-3.5 py-2.5 bg-zinc-50 border border-zinc-200 text-xs focus:outline-none focus:border-[#b8860b] italic rounded-xs"
                   />
                 </div>
 
                 <button 
                   type="submit"
-                  className="w-full py-6 bg-[#111111] text-white text-[11px] font-black uppercase tracking-[0.3em] hover:bg-[#b8860b] transition-all shadow-xl"
+                  className="w-full py-3.5 bg-[#111111] text-white text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] hover:bg-[#b8860b] transition-all shadow-lg rounded-xs"
                 >
                   Initiate Verification
                 </button>
               </form>
               
               {authError && (
-                <div className="mt-6 p-4 bg-red-50 border border-red-100 text-red-600 text-[10px] font-bold uppercase tracking-widest leading-relaxed">
-                  <div className="flex items-center gap-2 mb-2">
-                    <AlertCircle className="w-4 h-4" />
+                <div className="mt-4 p-3 bg-red-50 border border-red-100 text-red-600 text-[10px] font-bold uppercase tracking-widest leading-relaxed">
+                  <div className="flex items-center gap-2 mb-1">
+                    <AlertCircle className="w-3.5 h-3.5" />
                     <span>Verification Error</span>
                   </div>
                   {authError}
                 </div>
               )}
 
-              <div className="text-[9px] uppercase text-zinc-600 tracking-widest mt-8">
+              <div className="text-[8px] uppercase text-zinc-500 tracking-widest mt-4">
                 Zero Data Retention (ZDR) Mandate Active
               </div>
             </motion.div>
@@ -871,21 +871,21 @@ const Assessment: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 1.05 }}
-              className="bg-white p-8 md:p-12 shadow-2xl border border-zinc-100 text-center max-w-2xl mx-auto"
+              className="bg-white p-5 sm:p-6 md:p-10 shadow-2xl border border-zinc-100 text-center max-w-xl mx-auto"
             >
-              <Mic className="w-12 h-12 text-[#b8860b] mx-auto mb-6 animate-pulse" />
-              <h3 className="text-2xl font-bold mb-2 text-[#111111] uppercase tracking-wider font-sans">
+              <Mic className="w-8 h-8 text-[#b8860b] mx-auto mb-2 animate-pulse" />
+              <h3 className="text-xl sm:text-2xl font-bold mb-1 text-[#111111] uppercase tracking-wider font-sans">
                 Vocal Substrate Calibration
               </h3>
-              <div className="text-[#b8860b] text-[9px] font-black uppercase tracking-[0.3em] mb-6">
+              <div className="text-[#b8860b] text-[9px] font-black uppercase tracking-[0.3em] mb-3">
                 Proprietary Real-Time Voice Alignment Diagnostic
               </div>
               
-              <p className="text-zinc-700 text-sm italic font-light leading-relaxed mb-6">
-                Our proprietary system analyzes your responses along with core vocal frequency, semantic delay, and alignment markers. Tested and validated across <strong>nine elite industrial principals on four organization tiers</strong> to ensure absolute alignment certainty.
+              <p className="text-zinc-700 text-xs sm:text-sm italic font-light leading-relaxed mb-4">
+                Our proprietary system analyzes your responses along with core vocal frequency, semantic delay, and alignment markers to ensure absolute alignment certainty.
               </p>
 
-              <div className="bg-black text-white p-6 rounded-xs border border-[#b8860b]/20 mb-6 text-left relative overflow-hidden">
+              <div className="bg-black text-white p-4 rounded-xs border border-[#b8860b]/20 mb-4 text-left relative overflow-hidden">
                 <div className="absolute top-2 right-2 flex items-center gap-1">
                   <span className={`w-1.5 h-1.5 rounded-full ${micState === 'calibrating' ? 'bg-[#b8860b] animate-ping' : micState === 'completed' ? 'bg-green-500' : 'bg-red-500'}`} />
                   <span className="text-[7px] font-mono text-zinc-500 uppercase tracking-widest">
@@ -893,36 +893,36 @@ const Assessment: React.FC = () => {
                   </span>
                 </div>
 
-                <div className="font-mono text-[9px] text-[#b8860b] uppercase tracking-widest mb-3">
+                <div className="font-mono text-[8px] text-[#b8860b] uppercase tracking-widest mb-2">
                   Volatile Cryptographic Ledger Matrix
                 </div>
 
                 <canvas 
                   ref={voiceCanvasRef} 
                   width="500" 
-                  height="120" 
-                  className="w-full h-24 bg-zinc-950 border border-zinc-900 rounded-sm mb-4"
+                  height="80" 
+                  className="w-full h-16 sm:h-20 bg-zinc-950 border border-zinc-900 rounded-sm mb-3"
                 />
 
                 {micState === 'idle' && (
                   <button
                     type="button"
                     onClick={startVoiceCalibration}
-                    className="w-full py-3 bg-[#b8860b] hover:bg-white hover:text-black font-bold uppercase tracking-wider text-[9px] transition-all font-mono text-center block text-white"
+                    className="w-full py-2.5 bg-[#b8860b] hover:bg-white hover:text-black font-bold uppercase tracking-wider text-[8px] sm:text-[9px] transition-all font-mono text-center block text-white"
                   >
                     Allow Microphone & Initiate Baseline Calibration
                   </button>
                 )}
 
                 {micState === 'calibrating' && (
-                  <div className="space-y-2 animate-fade-in text-center">
-                    <p className="text-[10px] text-[#b8860b] italic leading-relaxed font-sans text-center bg-white/5 py-2.5 px-3 rounded border border-white/5 font-semibold">
+                  <div className="space-y-1.5 animate-fade-in text-center">
+                    <p className="text-[9px] sm:text-[10px] text-[#b8860b] italic leading-relaxed font-sans text-center bg-white/5 py-2 px-3 rounded border border-white/5 font-semibold">
                       Please read this phrase out loud into your mic:<br />
-                      <span className="text-white not-italic font-bold block mt-1">
+                      <span className="text-white not-italic font-bold block mt-0.5">
                         &ldquo;I am here to calibrate my cognitive alignment and eliminate decision latency.&rdquo;
                       </span>
                     </p>
-                    <div className="grid grid-cols-3 gap-2 pt-2 border-t border-white/5 text-[8px] uppercase tracking-widest text-[#b8860b]/60 text-center">
+                    <div className="grid grid-cols-3 gap-1.5 pt-2 border-t border-white/5 text-[7px] uppercase tracking-widest text-[#b8860b]/60 text-center">
                       <div>
                         <span>vocal stress coeff</span>
                         <span className="block text-white font-bold mt-0.5">Calculating...</span>
@@ -940,11 +940,11 @@ const Assessment: React.FC = () => {
                 )}
 
                 {micState === 'completed' && (
-                  <div className="space-y-3 animate-fade-in text-center">
-                    <p className="text-xs text-green-500 font-semibold italic">
+                  <div className="space-y-2.5 animate-fade-in text-center">
+                    <p className="text-[11px] text-green-500 font-semibold italic">
                       ✓ Calibration Complete. Real-Time Vocal Footprint registered successfully.
                     </p>
-                    <div className="grid grid-cols-3 gap-2 py-2 border-y border-white/5 text-[8px] uppercase tracking-widest text-[#b8860b]/60 text-center">
+                    <div className="grid grid-cols-3 gap-1.5 py-1.5 border-y border-white/5 text-[7px] uppercase tracking-widest text-[#b8860b]/60 text-center">
                       <div>
                         <span>vocal stress coeff</span>
                         <span className="block text-white font-bold mt-0.5">1.02x (Aligned)</span>
@@ -969,7 +969,7 @@ const Assessment: React.FC = () => {
                           cancelAnimationFrame(voiceAnimationRef.current);
                         }
                       }}
-                      className="w-full py-3 border border-white/10 hover:border-[#b8860b] hover:text-[#b8860b] text-white font-bold uppercase tracking-wider text-[9px] transition-all font-mono"
+                      className="w-full py-2 border border-white/10 hover:border-[#b8860b] hover:text-[#b8860b] text-white font-bold uppercase tracking-wider text-[8px] sm:text-[9px] transition-all font-mono"
                     >
                       Lock Calibrated Baseline & Enter Substrate Selection →
                     </button>
@@ -977,8 +977,8 @@ const Assessment: React.FC = () => {
                 )}
               </div>
 
-              <div className="text-[8px] uppercase text-zinc-650 tracking-widest leading-relaxed">
-                Notice: All spoken data is processed in real-time inside your browser using secure sandboxed buffers. Zero audio is stored or leaves the terminal node.
+              <div className="text-[8px] uppercase text-zinc-500 tracking-widest leading-normal">
+                Notice: All spoken data is processed in real-time inside your browser using secure sandboxed buffers. Zero audio leaves the node.
               </div>
             </motion.div>
           )}
@@ -991,12 +991,12 @@ const Assessment: React.FC = () => {
               exit={{ opacity: 0, x: -20 }}
               className="text-center max-w-5xl mx-auto"
             >
-              <h3 className="text-2xl font-bold mb-4 text-[#111111] uppercase tracking-widest font-mono">Select Institutional Substrate</h3>
-              <p className="text-zinc-700 mb-12 italic font-light max-w-2xl mx-auto">
+              <h3 className="text-xl sm:text-2xl font-bold mb-2 text-[#111111] uppercase tracking-wider">Select Institutional Substrate</h3>
+              <p className="text-zinc-700 mb-6 italic font-light text-xs sm:text-sm max-w-2xl mx-auto">
                 The diagnostic must be calibrated to your specific theater of operation. Select the substrate that most accurately reflects your current institutional complexity.
               </p>
               
-              <div className="grid sm:grid-cols-3 gap-6">
+              <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
                 {[
                   { 
                     id: 'dynamic', 
@@ -1023,13 +1023,13 @@ const Assessment: React.FC = () => {
                   <button 
                     key={item.id}
                     onClick={() => handleContextSelect(item.id as ContextType)}
-                    className="bg-white p-10 border border-zinc-100 hover:border-[#b8860b] hover:shadow-2xl transition-all group flex flex-col items-center text-center relative overflow-hidden h-full"
+                    className="bg-white p-5 sm:p-6 md:p-8 border border-zinc-100 hover:border-[#b8860b] hover:shadow-xl transition-all group flex flex-col items-center text-center relative overflow-hidden h-full rounded-xs"
                   >
                     <div className="absolute top-0 left-0 w-full h-1 bg-zinc-100 group-hover:bg-[#b8860b] transition-colors" />
-                    <item.icon className="w-10 h-10 text-zinc-300 group-hover:text-[#b8860b] mb-6 transition-colors" />
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#111111] mb-2">{item.label}</span>
-                    <span className="text-[8px] text-[#b8860b] uppercase tracking-widest font-black mb-4">{item.desc}</span>
-                    <p className="text-[10px] text-zinc-600 leading-relaxed font-light italic">
+                    <item.icon className="w-7 h-7 text-zinc-300 group-hover:text-[#b8860b] mb-3 sm:mb-4 transition-colors" />
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#111111] mb-1">{item.label}</span>
+                    <span className="text-[8px] text-[#b8860b] uppercase tracking-widest font-black mb-2">{item.desc}</span>
+                    <p className="text-[9px] sm:text-[10px] text-zinc-600 leading-relaxed font-light italic">
                       {item.longDesc}
                     </p>
                   </button>
@@ -1043,9 +1043,9 @@ const Assessment: React.FC = () => {
               key="questions"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-white p-12 shadow-2xl border border-zinc-100"
+              className="bg-white p-4 sm:p-6 md:p-10 shadow-2xl border border-zinc-100 max-w-3xl mx-auto rounded-xs"
             >
-              <div className="flex justify-between items-center mb-12 select-none">
+              <div className="flex justify-between items-center mb-6 md:mb-8 select-none">
                 <div className="flex flex-col text-left">
                   <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em]">Integrated Calibration {String(currentQuestion + 1).padStart(2, '0')}/10</span>
                   <div className="flex items-center gap-1.5 mt-1">
@@ -1055,28 +1055,28 @@ const Assessment: React.FC = () => {
                 </div>
                 <div className="flex gap-1">
                   {QUESTIONS.map((_, i) => (
-                    <div key={i} className={`h-1 w-4 sm:w-5 ${i <= currentQuestion ? 'bg-[#b8860b]' : 'bg-zinc-100'} transition-colors`} />
+                    <div key={i} className={`h-1 w-3 sm:w-4 ${i <= currentQuestion ? 'bg-[#b8860b]' : 'bg-zinc-100'} transition-colors`} />
                   ))}
                 </div>
               </div>
 
-              <h4 className="text-2xl sm:text-3xl font-bold mb-12 text-[#111111] leading-tight italic font-serif">
+              <h4 className="text-lg sm:text-xl md:text-2xl font-bold mb-6 md:mb-8 text-[#111111] leading-tight italic font-serif">
                 "{shuffledQuestions[currentQuestion] ? shuffledQuestions[currentQuestion].text[context!] : QUESTIONS[currentQuestion].text[context!]}"
               </h4>
 
-              <div className="space-y-4">
+              <div className="space-y-2 sm:space-y-3">
                 {shuffledQuestions[currentQuestion] ? (
                   shuffledQuestions[currentQuestion].shuffledOptions.map((item, optIdx) => (
                     <button 
                       key={optIdx}
                       onClick={() => handleAnswer(item.originalIdx)}
-                      className="w-full p-8 border border-zinc-100 hover:border-[#b8860b] hover:bg-zinc-50 transition-all text-left group flex justify-between items-center"
+                      className="w-full p-4 sm:p-5 md:p-6 border border-zinc-100 hover:border-[#b8860b] hover:bg-zinc-50 transition-all text-left group flex justify-between items-center rounded-xs"
                     >
                       <div>
-                        <div className="text-[10px] font-black uppercase tracking-widest text-[#b8860b] mb-2">{item.option.label}</div>
+                        <div className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-[#b8860b] mb-1">{item.option.label}</div>
                         <div className="text-zinc-700 font-light italic text-xs sm:text-sm">{item.option.description}</div>
                       </div>
-                      <ChevronRight className="w-5 h-5 text-zinc-300 group-hover:text-[#b8860b] shrink-0 ml-4 transition-colors" />
+                      <ChevronRight className="w-4 h-4 text-zinc-300 group-hover:text-[#b8860b] shrink-0 ml-4 transition-colors" />
                     </button>
                   ))
                 ) : (
@@ -1084,13 +1084,13 @@ const Assessment: React.FC = () => {
                     <button 
                       key={optIdx}
                       onClick={() => handleAnswer(optIdx)}
-                      className="w-full p-8 border border-zinc-100 hover:border-[#b8860b] hover:bg-zinc-50 transition-all text-left group flex justify-between items-center"
+                      className="w-full p-4 sm:p-5 md:p-6 border border-zinc-100 hover:border-[#b8860b] hover:bg-zinc-50 transition-all text-left group flex justify-between items-center rounded-xs"
                     >
                       <div>
-                        <div className="text-[10px] font-black uppercase tracking-widest text-[#b8860b] mb-2">{opt.label}</div>
+                        <div className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-[#b8860b] mb-1">{opt.label}</div>
                         <div className="text-zinc-700 font-light italic text-xs sm:text-sm">{opt.description}</div>
                       </div>
-                      <ChevronRight className="w-5 h-5 text-zinc-300 group-hover:text-[#b8860b] shrink-0 ml-4 transition-colors" />
+                      <ChevronRight className="w-4 h-4 text-zinc-300 group-hover:text-[#b8860b] shrink-0 ml-4 transition-colors" />
                     </button>
                   ))
                 )}
