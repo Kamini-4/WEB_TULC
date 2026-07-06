@@ -21,7 +21,7 @@ const Portal: React.FC = () => {
 
   if (!isPaid) {
     return (
-      <div className="bg-[#111111] min-h-screen text-white pt-36 pb-24 overflow-hidden relative flex items-center justify-center">
+      <div className="bg-[#111111] min-h-screen text-white pt-12 md:pt-24 pb-24 overflow-hidden relative flex items-center justify-center">
         <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/50 to-transparent z-20" />
         <div className="max-w-xl mx-auto px-6 relative z-10 text-center">
           <div className="w-20 h-20 border-2 border-[#b8860b] rotate-45 mb-16 mx-auto flex items-center justify-center">
@@ -64,7 +64,7 @@ const Portal: React.FC = () => {
   }
 
   return (
-    <div className="bg-[#111111] min-h-screen text-white pt-36 pb-24 overflow-hidden relative">
+    <div className="bg-[#111111] min-h-screen text-white pt-12 md:pt-24 pb-24 overflow-hidden relative">
       <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/50 to-transparent z-20" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">

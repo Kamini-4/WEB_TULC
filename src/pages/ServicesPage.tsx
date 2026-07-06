@@ -120,7 +120,7 @@ const ServicesPage: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="bg-[#f5f5f0] min-h-screen pt-12 pb-24"
+      className="bg-[#f5f5f0] min-h-screen pt-4 md:pt-12 pb-24"
     >
       <div className="max-w-7xl mx-auto px-6">
         

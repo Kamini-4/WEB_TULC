@@ -35,7 +35,7 @@ const About: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#f5f5f0] min-h-screen pt-20 pb-20">
+    <div className="bg-[#f5f5f0] min-h-screen pt-6 md:pt-16 pb-20">
       {/* Structured Schema Data */}
       <script
         type="application/ld+json"

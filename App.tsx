@@ -301,7 +301,7 @@ const App: React.FC = () => {
           <Countdown />
           <Header onAdminTrigger={() => setShowAdmin(true)} />
         </div>
-        <main className="pt-20 sm:pt-24 md:pt-28">
+        <main className="pt-32 sm:pt-36 md:pt-40">
           <Routes>
             <Route path="/" element={<Home onBriefClick={handleBriefClick} onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
             <Route path="/about" element={<About />} />

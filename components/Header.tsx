@@ -112,7 +112,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[90px] bg-[#f5f5f0] z-[90] p-8 animate-fade-in overflow-y-auto">
+        <div className="md:hidden fixed inset-0 top-[124px] sm:top-[124px] bg-[#f5f5f0] z-[90] p-8 animate-fade-in overflow-y-auto">
           <div className="flex flex-col gap-8">
             {navItems.map((item) => (
               item.external ? (

@@ -418,16 +418,12 @@ const Assessment: React.FC = () => {
     e.preventDefault();
     setIsSubmittingVIPWire(true);
     try {
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: identity.name,
-          email: identity.email,
-          organization: identity.organization,
-          message: `VIP MANUAL INVOICE DRIVEN HANDSHAKE REQUESTED // Phone: ${vipInvoiceInputs.phone}, Delivery Mode: ${vipInvoiceInputs.mode}, Executive Request Comments: ${vipInvoiceInputs.comments}`,
-          type: 'VIP_WIRE_REQUESTED'
-        })
+      await SovereignDB.sendContactEmail({
+        name: identity.name,
+        email: identity.email,
+        organization: identity.organization,
+        message: `VIP MANUAL INVOICE DRIVEN HANDSHAKE REQUESTED // Phone: ${vipInvoiceInputs.phone}, Delivery Mode: ${vipInvoiceInputs.mode}, Executive Request Comments: ${vipInvoiceInputs.comments}`,
+        type: 'VIP_WIRE_REQUESTED'
       });
       setVipInvoiceSuccess(true);
     } catch (e) {
@@ -449,15 +445,11 @@ const Assessment: React.FC = () => {
     }
 
     try {
-      fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: identity.name,
-          email: identity.email,
-          organization: identity.organization,
-          type: 'SIGNUP_INITIATED'
-        })
+      SovereignDB.sendContactEmail({
+        name: identity.name,
+        email: identity.email,
+        organization: identity.organization,
+        type: 'SIGNUP_INITIATED'
       });
     } catch (e) {
       console.error("Initial handshake failure:", e);
@@ -575,20 +567,16 @@ const Assessment: React.FC = () => {
       if (result?.id) {
         setAssessmentId(result.id);
         
-        await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: identity.name,
-            email: identity.email,
-            organization: identity.organization,
-            message: `Free Assessment Completed. Total Score: ${totalScoreValue}/25. Domain Scores: ${domainScores.map(d => `${d.domain}: ${d.score}`).join(', ')}`,
-            type: 'ASSESSMENT_COMPLETED',
-            assessmentData: {
-              totalScore: totalScoreValue,
-              domainScores: domainScores.map(d => ({ domain: d.domain, score: d.score }))
-            }
-          })
+        await SovereignDB.sendContactEmail({
+          name: identity.name,
+          email: identity.email,
+          organization: identity.organization,
+          message: `Free Assessment Completed. Total Score: ${totalScoreValue}/25. Domain Scores: ${domainScores.map(d => `${d.domain}: ${d.score}`).join(', ')}`,
+          type: 'ASSESSMENT_COMPLETED',
+          assessmentData: {
+            totalScore: totalScoreValue,
+            domainScores: domainScores.map(d => ({ domain: d.domain, score: d.score }))
+          }
         }).catch(err => console.error("Assessment notify failed", err));
       }
 
@@ -1583,17 +1571,13 @@ const Assessment: React.FC = () => {
                                     }
                                     setIsGeneratingPlaybook(true);
                                     try {
-                                      await fetch('/api/contact', {
-                                        method: 'POST',
-                                        headers: { 'Content-Type': 'application/json' },
-                                        body: JSON.stringify({
-                                          name: identity.name,
-                                          email: identity.email,
-                                          organization: identity.organization,
-                                          message: `Playbook Gated Profile Configured // Horizon: ${playbookAnswers.handoverHorizon}, Bottleneck: ${playbookAnswers.focusBottleneck}, Key Risk: ${playbookAnswers.keyRiskLevel}`,
-                                          type: 'PLAYBOOK_CONFIGURED',
-                                          playbookData: playbookAnswers
-                                        })
+                                      await SovereignDB.sendContactEmail({
+                                        name: identity.name,
+                                        email: identity.email,
+                                        organization: identity.organization,
+                                        message: `Playbook Gated Profile Configured // Horizon: ${playbookAnswers.handoverHorizon}, Bottleneck: ${playbookAnswers.focusBottleneck}, Key Risk: ${playbookAnswers.keyRiskLevel}`,
+                                        type: 'PLAYBOOK_CONFIGURED',
+                                        playbookData: playbookAnswers
                                       });
                                     } catch (e) {
                                       console.error("Could not register rich lead metrics:", e);

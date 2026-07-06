@@ -19,17 +19,13 @@ const Newsletter: React.FC = () => {
         message: 'Subscribed to Institutional Dispatches'
       });
 
-      // Notify Admin
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: 'Newsletter Subscriber',
-          email: email,
-          organization: 'N/A',
-          message: 'New Newsletter Subscription',
-          type: 'NEWSLETTER_SUBSCRIPTION'
-        })
+      // Notify Admin and log email status
+      await SovereignDB.sendContactEmail({
+        name: 'Newsletter Subscriber',
+        email: email,
+        organization: 'N/A',
+        message: 'New Newsletter Subscription',
+        type: 'NEWSLETTER_SUBSCRIPTION'
       });
 
       setStatus('success');

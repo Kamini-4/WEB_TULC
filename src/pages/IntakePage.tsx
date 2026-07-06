@@ -13,7 +13,7 @@ const IntakePage: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="bg-[#ecece4] min-h-screen pt-24 pb-12"
+      className="bg-[#ecece4] min-h-screen pt-6 md:pt-16 pb-12"
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-16 text-center max-w-4xl mx-auto">

@@ -568,7 +568,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
   };
 
   return (
-    <div className="bg-[#0a0a0a] min-h-screen pt-24 pb-24 text-white">
+    <div className="bg-[#0a0a0a] min-h-screen pt-6 md:pt-16 pb-24 text-white">
       <div className="max-w-7xl mx-auto px-6">
         <nav className="flex items-center gap-2 text-[8px] uppercase tracking-[0.3em] font-black text-zinc-500 mb-8">
           <a href="/" className="hover:text-[#b8860b] transition-colors">Home</a>

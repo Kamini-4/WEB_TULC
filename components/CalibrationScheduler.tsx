@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { SovereignDB } from '../lib/database';
 
 interface CalibrationSchedulerProps {
   onClose: () => void;
@@ -45,17 +46,13 @@ const CalibrationScheduler: React.FC<CalibrationSchedulerProps> = ({ onClose, le
     setIsSubmitting(true);
     
     try {
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: leadData.name,
-          email: leadData.email,
-          organization: leadData.organization,
-          selected_date: selectedDate,
-          selected_time: selectedTime,
-          type: 'CALIBRATION_REQUEST'
-        })
+      await SovereignDB.sendContactEmail({
+        name: leadData.name,
+        email: leadData.email,
+        organization: leadData.organization,
+        selected_date: selectedDate,
+        selected_time: selectedTime,
+        type: 'CALIBRATION_REQUEST'
       });
       setStep('confirmation');
     } catch (error) {

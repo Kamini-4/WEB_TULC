@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SovereignDB, LeadEntry, AssessmentEntry, BlogEntry } from '../lib/database.ts';
+import { SovereignDB, LeadEntry, AssessmentEntry, BlogEntry, EmailLogEntry } from '../lib/database.ts';
 import { auth, signInWithGoogle } from '../src/firebase.ts';
 import { DISPATCH_TOPICS } from '../data/thoughtLeadershipContent.ts';
 import { 
@@ -27,8 +27,8 @@ interface AdminDashboardProps {
 }
 
 const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
-  const [data, setData] = useState<{leads: LeadEntry[], assessments: AssessmentEntry[], blog: BlogEntry[]}>({ leads: [], assessments: [], blog: [] });
-  const [activeTab, setActiveTab] = useState<'leads' | 'analytics' | 'registry' | 'outreach'>('leads');
+  const [data, setData] = useState<{leads: LeadEntry[], assessments: AssessmentEntry[], blog: BlogEntry[], emailLogs: EmailLogEntry[]}>({ leads: [], assessments: [], blog: [], emailLogs: [] });
+  const [activeTab, setActiveTab] = useState<'leads' | 'analytics' | 'registry' | 'outreach' | 'email_logs'>('leads');
   const [newPost, setNewPost] = useState({ category: '', title: '', excerpt: '', content: '' });
   const [recentlyAddedUrl, setRecentlyAddedUrl] = useState<string | null>(null);
   const [isBroadcasting, setIsBroadcasting] = useState<string | null>(null);
@@ -278,6 +278,26 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
 
       const result = await response.json();
       if (response.ok && result.success) {
+        // Save database log for each recipient in the broadcast
+        if (result.results && Array.isArray(result.results)) {
+          for (const item of result.results) {
+            try {
+              await SovereignDB.saveEmailLog({
+                type: 'newsletter_broadcast',
+                recipient: item.recipient,
+                sender: item.sender || 'concierge@theunboundedleadership.com',
+                subject: item.subject,
+                status: item.success ? 'sent' : 'failed',
+                error: item.error || null,
+                resendId: item.id || null,
+                metadata: { articleId: article.id, articleTitle: article.title }
+              });
+            } catch (logErr) {
+              console.error("Failed to save newsletter log entry:", logErr);
+            }
+          }
+        }
+
         alert(
           `TRANSMISSION DISPATCHED SUCCESSFULLY:\n\n` +
           `Successfully routed to ${result.sentCount} active subscribers.\n` +
@@ -299,6 +319,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
 
     let unsubLeads = () => {};
     let unsubAssessments = () => {};
+    let unsubEmailLogs = () => {};
 
     if (firebaseUser) {
       unsubLeads = SovereignDB.subscribeToLeads((leads) => {
@@ -306,6 +327,9 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
       });
       unsubAssessments = SovereignDB.subscribeToAssessments((assessments) => {
         setData(prev => ({ ...prev, assessments }));
+      });
+      unsubEmailLogs = SovereignDB.subscribeToEmailLogs((emailLogs) => {
+        setData(prev => ({ ...prev, emailLogs }));
       });
     }
 
@@ -316,6 +340,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
     return () => {
       unsubLeads();
       unsubAssessments();
+      unsubEmailLogs();
       unsubBlog();
     };
   }, [isAuthenticated, firebaseUser]);
@@ -632,6 +657,12 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               className={`text-[10px] font-bold uppercase tracking-widest px-4 py-2 ${activeTab === 'outreach' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
             >
               Executive Outbound
+            </button>
+            <button 
+              onClick={() => setActiveTab('email_logs')}
+              className={`text-[10px] font-bold uppercase tracking-widest px-4 py-2 ${activeTab === 'email_logs' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
+            >
+              Email Tracker
             </button>
           </div>
         </div>
@@ -1420,6 +1451,119 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                 )}
               </div>
 
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'email_logs' && (
+          <div className="space-y-8 animate-fade-in text-neutral-900 font-inter">
+            {/* Summary Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white border border-zinc-200 p-6 shadow-sm rounded-sm flex flex-col justify-between">
+                <div>
+                  <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-[0.3em] block mb-2">Total Transmissions Attempted</span>
+                  <span className="text-4xl font-bold font-mono text-[#111111]">{data.emailLogs.length}</span>
+                </div>
+                <div className="text-[10px] text-zinc-400 mt-2 font-mono">Telemetry of all outbound traffic</div>
+              </div>
+              <div className="bg-white border border-zinc-200 p-6 shadow-sm rounded-sm flex flex-col justify-between">
+                <div>
+                  <span className="text-[9px] font-black uppercase text-green-700 tracking-[0.3em] block mb-2">Clear & Delivered Routes</span>
+                  <span className="text-4xl font-bold font-mono text-green-700">
+                    {data.emailLogs.filter(l => l.status === 'sent').length}
+                  </span>
+                </div>
+                <div className="text-[10px] text-zinc-500 mt-2 font-mono">
+                  Success Rate: {data.emailLogs.length > 0 ? Math.round((data.emailLogs.filter(l => l.status === 'sent').length / data.emailLogs.length) * 100) : 0}%
+                </div>
+              </div>
+              <div className="bg-white border border-zinc-200 p-6 shadow-sm rounded-sm flex flex-col justify-between bg-rose-50/10">
+                <div>
+                  <span className="text-[9px] font-black uppercase text-rose-700 tracking-[0.3em] block mb-2">Delivery Blockages</span>
+                  <span className="text-4xl font-bold font-mono text-rose-700">
+                    {data.emailLogs.filter(l => l.status === 'failed').length}
+                  </span>
+                </div>
+                <div className="text-[10px] text-zinc-500 mt-2 font-mono">Action required for failed nodes</div>
+              </div>
+            </div>
+
+            {/* Diagnostic Alert Advice */}
+            <div className="bg-zinc-50 border border-zinc-200 p-6 rounded-sm text-xs text-zinc-600 space-y-2">
+              <h4 className="font-bold text-[#b8860b] uppercase tracking-wider text-[10px]">RECIPIENT & DOMAIN VERIFICATION GUIDE:</h4>
+              <p>
+                1. <strong>Free-tier constraint:</strong> If you are using Resend's free tier, you can only send emails to the address you signed up with (the verified owner email <strong>suchita135sancheti@gmail.com</strong>) unless you verify your domain.
+              </p>
+              <p>
+                2. <strong>Domain Configuration:</strong> To send emails to external clients, verify your domain (e.g. <code>theunboundedleadership.com</code>) under the "Domains" tab in your Resend Dashboard. Once active, set <code>VITE_SENDER_EMAIL</code> and <code>VITE_ADMIN_EMAIL</code> to matching addresses.
+              </p>
+            </div>
+
+            {/* Log List View */}
+            <div className="bg-white border border-zinc-200 rounded-sm shadow-sm">
+              <div className="p-6 border-b border-zinc-100">
+                <h3 className="text-xs font-black uppercase tracking-widest text-[#111111]">Outbound Logs</h3>
+                <p className="text-[10px] text-zinc-400 font-mono mt-0.5">Real-time delivery registry & status checks</p>
+              </div>
+
+              {data.emailLogs.length === 0 ? (
+                <div className="p-12 text-center text-zinc-400 italic text-xs">
+                  No outbound email log nodes generated yet. Execute waitlist or assessments to trigger traffic.
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-xs text-zinc-600 font-inter">
+                    <thead className="bg-zinc-50 text-[9px] font-black uppercase tracking-wider text-zinc-400 border-b border-zinc-200">
+                      <tr>
+                        <th className="px-6 py-4">Status</th>
+                        <th className="px-6 py-4">Timestamp</th>
+                        <th className="px-6 py-4">Dispatch Class</th>
+                        <th className="px-6 py-4">Recipient</th>
+                        <th className="px-6 py-4">Subject</th>
+                        <th className="px-6 py-4">Diagnostics</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-zinc-100">
+                      {data.emailLogs.map((log) => (
+                        <tr key={log.id} className="hover:bg-zinc-50/50 transition-colors">
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider border ${
+                              log.status === 'sent' 
+                                ? 'bg-green-50 text-green-700 border-green-200/50' 
+                                : 'bg-rose-50 text-rose-700 border-rose-200/50'
+                            }`}>
+                              {log.status}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-zinc-400 font-mono text-[10px]">
+                            {log.timestamp ? new Date(log.timestamp).toLocaleTimeString() + ' ' + new Date(log.timestamp).toLocaleDateString() : 'N/A'}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap font-mono text-[10px]">
+                            <span className="text-zinc-500 uppercase tracking-wide">
+                              {log.type.replace('_', ' ')}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap font-medium text-zinc-900 font-mono text-[10px]">
+                            {log.recipient}
+                          </td>
+                          <td className="px-6 py-4 font-mono text-[10px] max-w-xs truncate">
+                            {log.subject}
+                          </td>
+                          <td className="px-6 py-4 text-[10px] font-mono">
+                            {log.status === 'sent' ? (
+                              <span className="text-zinc-400">ID: {log.resendId || 'N/A'}</span>
+                            ) : (
+                              <span className="text-rose-600 block max-w-sm overflow-hidden text-ellipsis whitespace-nowrap" title={log.error || ''}>
+                                {log.error || 'Unknown Error'}
+                              </span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </div>
           </div>
         )}

@@ -48,6 +48,19 @@ export interface BlogEntry {
   timestamp: number;
 }
 
+export interface EmailLogEntry {
+  id: string;
+  timestamp: number;
+  type: 'contact_admin' | 'contact_user' | 'newsletter_broadcast';
+  recipient: string;
+  sender: string;
+  subject: string;
+  status: 'sent' | 'failed';
+  error: string | null;
+  resendId: string | null;
+  metadata?: Record<string, any>;
+}
+
 enum OperationType {
   CREATE = 'create',
   UPDATE = 'update',
@@ -249,6 +262,88 @@ export const SovereignDB = {
       document.body.removeChild(link);
     } catch (error) {
       handleFirestoreError(error, OperationType.GET, path);
+    }
+  },
+
+  saveEmailLog: async (data: Omit<EmailLogEntry, 'id' | 'timestamp'>) => {
+    const path = 'email_logs';
+    try {
+      const docRef = await addDoc(collection(db, path), {
+        ...data,
+        timestamp: serverTimestamp()
+      });
+      return { id: docRef.id, ...data };
+    } catch (error) {
+      handleFirestoreError(error, OperationType.CREATE, path);
+    }
+  },
+
+  subscribeToEmailLogs: (callback: (logs: EmailLogEntry[]) => void) => {
+    const path = 'email_logs';
+    const q = query(collection(db, path), orderBy('timestamp', 'desc'));
+    return onSnapshot(q, (snapshot) => {
+      const logs = snapshot.docs.map(doc => {
+        const data = doc.data();
+        const timestamp = data.timestamp?.toMillis ? data.timestamp.toMillis() : data.timestamp;
+        return { ...data, id: doc.id, timestamp } as EmailLogEntry;
+      });
+      callback(logs);
+    }, (error) => {
+      handleFirestoreError(error, OperationType.LIST, path);
+    });
+  },
+
+  sendContactEmail: async (payload: any) => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
+      
+      // Save logs of emails attempted
+      if (result) {
+        if (result.adminEmail) {
+          await SovereignDB.saveEmailLog({
+            type: 'contact_admin',
+            recipient: result.adminEmail.recipient,
+            sender: result.adminEmail.sender || 'concierge@theunboundedleadership.com',
+            subject: result.adminEmail.subject,
+            status: result.adminEmail.success ? 'sent' : 'failed',
+            error: result.adminEmail.error || null,
+            resendId: result.adminEmail.id || null,
+            metadata: { name: payload.name || 'N/A', organization: payload.organization || 'N/A', type: payload.type }
+          });
+        }
+        if (result.userEmail) {
+          await SovereignDB.saveEmailLog({
+            type: 'contact_user',
+            recipient: result.userEmail.recipient,
+            sender: result.userEmail.sender || 'concierge@theunboundedleadership.com',
+            subject: result.userEmail.subject,
+            status: result.userEmail.success ? 'sent' : 'failed',
+            error: result.userEmail.error || null,
+            resendId: result.userEmail.id || null,
+            metadata: { name: payload.name || 'N/A', organization: payload.organization || 'N/A', type: payload.type }
+          });
+        }
+      }
+      return result;
+    } catch (error) {
+      console.error('sendContactEmail error:', error);
+      // Log failure to send contact email
+      await SovereignDB.saveEmailLog({
+        type: 'contact_admin',
+        recipient: payload.email || 'unknown',
+        sender: 'concierge@theunboundedleadership.com',
+        subject: `Form Submission: ${payload.type || 'Intake'}`,
+        status: 'failed',
+        error: error instanceof Error ? error.message : String(error),
+        resendId: null,
+        metadata: { name: payload.name || 'N/A', organization: payload.organization || 'N/A', type: payload.type }
+      });
+      throw error;
     }
   }
 };

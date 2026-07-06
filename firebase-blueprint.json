@@ -58,6 +58,23 @@
         "sent": { "type": "boolean" }
       },
       "required": ["email", "name", "type", "scheduledFor", "sent"]
+    },
+    "EmailLog": {
+      "title": "EmailLog",
+      "description": "A record of an outbound email dispatch, tracking successful delivery and detailed failure diagnostics.",
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["contact_admin", "contact_user", "newsletter_broadcast"] },
+        "recipient": { "type": "string", "format": "email" },
+        "sender": { "type": "string" },
+        "subject": { "type": "string" },
+        "status": { "type": "string", "enum": ["sent", "failed"] },
+        "error": { "type": "string" },
+        "resendId": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "metadata": { "type": "object" }
+      },
+      "required": ["type", "recipient", "sender", "subject", "status", "timestamp"]
     }
   },
   "firestore": {
@@ -76,6 +93,10 @@
     "reminders": {
       "schema": "Reminder",
       "description": "Collection of scheduled email reminders."
+    },
+    "email_logs": {
+      "schema": "EmailLog",
+      "description": "Collection of sent and failed email outbound logs for administrative auditing."
     }
   }
 }

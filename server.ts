@@ -399,6 +399,9 @@ async function startServer() {
       console.log(`EMAIL_DISPATCH_ORCHESTRATION: Initiating dual-delivery for ${email}`);
       console.log(`DEBUG: resendKey exists? ${!!resendKey}, adminEmail: ${adminEmail}`);
 
+      let adminResult: any = null;
+      let userResult: any = null;
+
       if (resendKey) {
         const resend = new Resend(resendKey);
         
@@ -407,7 +410,6 @@ async function startServer() {
 
           // Notify Admin
           console.log(`[MAIL] DISPATCH_SEQUENCE_START: Admin: ${adminEmail} | From: ${sender}`);
-          let adminResult: any;
           try {
             adminResult = await resend.emails.send({
               from: sender,
@@ -447,7 +449,6 @@ async function startServer() {
 
           // Acknowledge User (Requires Verified Domain)
           console.log(`[MAIL] DISPATCH_SEQUENCE_CONTINUE: User: ${email} | From: ${sender}`);
-          let userResult: any;
           try {
             userResult = await resend.emails.send({
               from: sender,
@@ -476,7 +477,39 @@ async function startServer() {
         console.warn('[MAIL] Please add RESEND_API_KEY to your deployment environment or .env file.');
       }
 
-      res.json({ success: true });
+      res.json({ 
+        success: true,
+        adminEmail: resendKey ? {
+          recipient: adminEmail,
+          sender: sender,
+          subject: adminSubject,
+          success: adminResult && !adminResult.error,
+          error: adminResult?.error ? (adminResult.error.message || JSON.stringify(adminResult.error)) : (adminResult ? null : "Not attempted"),
+          id: adminResult?.data?.id || null
+        } : {
+          recipient: adminEmail,
+          sender: sender,
+          subject: adminSubject,
+          success: false,
+          error: 'RESEND_API_KEY is missing from server environment',
+          id: null
+        },
+        userEmail: resendKey ? {
+          recipient: email,
+          sender: sender,
+          subject: userSubject,
+          success: userResult && !userResult.error,
+          error: userResult?.error ? (userResult.error.message || JSON.stringify(userResult.error)) : (userResult ? null : "Not attempted"),
+          id: userResult?.data?.id || null
+        } : {
+          recipient: email,
+          sender: sender,
+          subject: userSubject,
+          success: false,
+          error: 'RESEND_API_KEY is missing from server environment',
+          id: null
+        }
+      });
     } catch (error: any) {
       console.error('Contact API Error:', error);
       res.status(500).json({ error: 'Internal Signal Failure' });
@@ -601,6 +634,17 @@ async function startServer() {
         success: true,
         sentCount: successes.length,
         failedCount: failures.length,
+        results: results.map((r: any, idx) => {
+          const email = subscribers[idx];
+          return {
+            recipient: email,
+            sender: sender,
+            subject: `Aligned Digest: ${title}`,
+            success: !r.error,
+            error: r.error ? (r.error.message || String(r.error)) : null,
+            id: r.data?.id || null
+          };
+        }),
         failures: failures.map((f: any) => ({ email: f.email, error: f.error?.message || String(f.error) }))
       });
 

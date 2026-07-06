@@ -11,7 +11,7 @@ interface MethodologyPageProps {
 const MethodologyPage: React.FC<MethodologyPageProps> = ({ onBriefClick }) => {
   return (
     <div className="bg-[#0a0a0a] min-h-screen">
-      <section className="pt-16 pb-8 bg-[#0a0a0a] text-white">
+      <section className="pt-6 md:pt-12 pb-8 bg-[#0a0a0a] text-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-4">Deep Dive</h2>
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">Systemic <br /><span className="italic text-[#b8860b]">Alignment.</span></h1>

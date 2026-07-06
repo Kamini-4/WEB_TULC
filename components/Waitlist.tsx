@@ -39,18 +39,14 @@ const Waitlist: React.FC = () => {
     });
 
     try {
-      // Trigger Real-time Notification via Backend API
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          organization: formData.organization,
-          role: formData.role,
-          message: formData.message,
-          type: 'INTAKE_ENTRY'
-        })
+      // Trigger Real-time Notification via Backend API and log email status
+      await SovereignDB.sendContactEmail({
+        name: formData.name,
+        email: formData.email,
+        organization: formData.organization,
+        role: formData.role,
+        message: formData.message,
+        type: 'INTAKE_ENTRY'
       });
     } catch (error) {
       console.error("Notification Transmission Failed:", error);

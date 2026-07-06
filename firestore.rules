@@ -79,6 +79,17 @@ service cloud.firestore {
              data.sent is bool;
     }
 
+    // Email Logs Validation
+    function isValidEmailLog(data) {
+      return data.keys().hasAll(['type', 'recipient', 'sender', 'subject', 'status', 'timestamp']) &&
+             data.type in ['contact_admin', 'contact_user', 'newsletter_broadcast'] &&
+             data.recipient is string && data.recipient.size() < 300 &&
+             data.sender is string && data.sender.size() < 300 &&
+             data.subject is string && data.subject.size() < 1000 &&
+             data.status in ['sent', 'failed'] &&
+             (data.timestamp is number || data.timestamp is timestamp);
+    }
+
     // Rules
     match /leads/{leadId} {
       allow create: if isValidLead(request.resource.data);
@@ -98,6 +109,11 @@ service cloud.firestore {
 
     match /reminders/{reminderId} {
       allow read, create, update, delete: if isAdmin() && isValidReminder(request.resource.data);
+    }
+
+    match /email_logs/{logId} {
+      allow create: if isValidEmailLog(request.resource.data);
+      allow read, update, delete: if isAdmin();
     }
 
     match /users/{userId} {

@@ -113,7 +113,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen: propIsOpen, setIsOpen: propSe
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-50">
+    <div className="fixed bottom-6 right-4 sm:bottom-8 sm:right-6 md:right-8 md:bottom-8 z-50">
       <AnimatePresence>
         {/* Chat window */}
         {isOpen && (
@@ -122,7 +122,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen: propIsOpen, setIsOpen: propSe
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.95 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="mb-4 w-[360px] sm:w-[420px] max-h-[600px] h-[80vh] bg-[#fdfdfc] border border-[#b8860b]/40 shadow-2xl flex flex-col rounded-sm overflow-hidden text-left"
+            className="mb-4 w-[calc(100vw-2rem)] sm:w-[420px] max-w-[420px] max-h-[600px] h-[80vh] bg-[#fdfdfc] border border-[#b8860b]/40 shadow-2xl flex flex-col rounded-sm overflow-hidden text-left"
           >
             {/* Header */}
             <div className="bg-[#111111] text-white p-4 border-b border-[#b8860b]/30 flex justify-between items-center relative">
