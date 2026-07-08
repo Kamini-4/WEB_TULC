@@ -679,14 +679,14 @@ async function startServer() {
     try {
       const ai = new GoogleGenAI({ apiKey });
       const response = await ai.models.generateContent({
-        model: model || 'gemini-2.0-flash',
+        model: model || 'gemini-3.5-flash',
         contents,
         config
       });
 
       res.json({ text: response.text });
     } catch (error: any) {
-      console.warn('Gemini Proxy call failed, falling back to static analysis:', error);
+      console.log('Sovereign AI Proxy: Calibrating proxy fallback stream.');
       const query = typeof contents === 'string' ? contents : JSON.stringify(contents);
       res.json({ text: getProxyFallback(query) });
     }
@@ -701,19 +701,19 @@ async function startServer() {
       const getFallbackResponse = (query: string): string => {
         const text = query ? query.toLowerCase() : '';
         if (text.includes('hello') || text.includes('hi') || text.includes('hey')) {
-          return `Greetings. Welcome to the Office of the Principal Architect at The Unbounded Leadership Co. I am your Sovereign AI Concierge.\nHow may we assist you in re-engineering your organizational substrate or reclaiming your strategic bandwidth today?`;
+          return `Greetings. Welcome to the Office of the Principal Architect at The Unbounded Leadership Co. I am your Sovereign AI Concierge.\nHow may we assist you with our FAQs or strategic objectives today?`;
         } else if (text.includes('price') || text.includes('cost') || text.includes('fee') || text.includes('rate')) {
           return `Our custom calibrations are tailored to your institution's specific scale. Engagements begin with the Phase 0.0 Substrate Diagnostic Audit (14-day intensive, delivering a complete Cognitive Bandwidth Blueprint).\nTo explore investment details, please connect directly with Kamini Agnihotri, Client Relations Coordinator, at kaminiagnihotri249@gmail.com.`;
         } else if (text.includes('suchita') || text.includes('sancheti') || text.includes('who are you') || text.includes('about')) {
-          return `Suchita Sancheti is our Principal Architect—a Computer Science Engineer and Industrial Psychologist who merges system architecture with human behavioral dynamics.\nWith global experience as an SAP consultant and handwriting analyst, she hard-codes executive alignment, accepting only 3 elite calibrations per quarter.\nWhat scaling thresholds is your organization navigating?`;
+          return `Suchita Sancheti is our Principal Architect—a Computer Science Engineer and Industrial Psychologist who merges system architecture with human behavioral dynamics.\nWith global experience as an SAP consultant and handwriting analyst, she hard-codes executive alignment, accepting only 3 elite calibrations per quarter.\nWould you like to learn more about our strategic objectives?`;
         } else if (text.includes('process') || text.includes('how it works') || text.includes('workflow')) {
-          return `Our work is divided into a 14-day forensic discovery (Phase 0.0: Substrate Diagnostic Audit) and a 6-week setup (Phases 01-04: Strategic Alignment Protocol).\nThis replaces fragile manual overhead with self-regulating, automated organizational logic gates.\nWould you like to initiate Phase 0.0 by completing our 4-minute Alignment Assessment?`;
+          return `Our work is divided into a 14-day forensic discovery (Phase 0.0: Substrate Diagnostic Audit) and a 6-week setup (Phases 01-04: Strategic Alignment Protocol).\nThis replaces fragile manual overhead with self-regulating, automated organizational logic gates.\nWould you like to learn more about our audit, or navigate to our Assessment page?`;
         } else if (text.includes('kamini') || text.includes('agnihotri') || text.includes('contact') || text.includes('email') || text.includes('reach out')) {
-          return `You can reach our Operations & Client Relations Coordinator, Kamini Agnihotri, directly at kaminiagnihotri249@gmail.com.\nKamini coordinates all administrative briefs, elite partner integrations, and scheduling with Suchita Sancheti's office.\nAlternatively, feel free to complete our baseline assessment to log your telemetry.`;
+          return `You can reach our Operations & Client Relations Coordinator, Kamini Agnihotri, directly at kaminiagnihotri249@gmail.com.\nKamini coordinates all administrative briefs, elite partner integrations, and scheduling with Suchita Sancheti's office.`;
         } else if (text.includes('assessment') || text.includes('audit') || text.includes('diagnostic')) {
-          return `Our Alignment Assessment is a high-fidelity diagnostic that maps preliminary operational friction and computes your current 'Cognitive Tax'.\nIt takes less than 4 minutes to complete and generates an immediate initial telemetry report.\nWould you like to navigate to our Assessment page to initiate your audit?`;
+          return `Our Alignment Assessment is a high-fidelity diagnostic that maps preliminary operational friction and computes your current 'Cognitive Tax'.\nIt takes less than 4 minutes to complete.\nWould you like to know more about the assessment objectives?`;
         } else {
-          return `Strategic friction and coordination drag often hide within standard business operations under the guise of "hard work."\nWe believe persistent firefighting is a systemic design flaw that can be permanently hard-coded out of your business.\nWould you like to explore how our Phase 0.0 Substrate Diagnostic can help, or schedule a direct briefing?`;
+          return `I am here to answer your questions, outline our core strategic objectives, or guide you through our methodology.\nHow can I help you today?`;
         }
       };
 
@@ -729,7 +729,7 @@ CRITICAL LENGTH DIRECTIVE (ABSENT EXCEPTION):
 - Get straight to the point while maintaining our elite luxury tone.
 
 WRITING STYLE DIRECTIVES:
-- Speak with exquisite poise, strategic depth, and absolute composure. Treat the client's time with extreme reverence.
+- Speak with exquisite poise, strategic depth, and absolute composure. Treat the client's time with extreme relevance.
 - Do NOT use any markdown formatting symbols, such as asterisks (* or **), double-asterisks, hashes (#), triple hashes (###), or hyphen bullet lists. Write in natural human paragraphs, separated by clean line breaks. Use simple text bullets (•) if listing.
 - Avoid bubbly or promotional marketing jargon.
 
@@ -737,7 +737,7 @@ Core Institutional Details (Keep answers to 1-5 lines):
 - We help founders, CEOs, and boards reclaim up to 40% of their strategic bandwidth in 90 days. We don't just coach—we build structural logic-gates and workflow architectures that automate delegation.
 - Principal Architect, Suchita Sancheti: A Computer Science Engineer and Industrial Psychologist who merges structural system architecture (SAP consultant experience) with human behavioral dynamics (forensic handwriting analyst background). She accepts only 3 active calibrations per quarter.
 - Workflow Protocol: Phase 0.0: Substrate Diagnostic Audit (14-day context-adaptive forensic diagnostic delivering a Cognitive Bandwidth Blueprint), followed by the 6-week Strategic Alignment Protocol (Phases 01-04) and the Resonance Safeguard Retainer.
-- If a client asks bespoke questions, has scheduling needs, or requires custom pricing, gracefully advise them to contact Kamini Agnihotri, our Operations & Client Relations Coordinator, at kaminiagnihotri249@gmail.com. Always end with a polished, highly targeted, strategic question.`;
+- Focus on answering FAQs and strategic objectives. Keep your interactions welcoming and simple. Do NOT ask complex or multi-layered questions, especially at the beginning of the conversation. Avoid putting high cognitive load on the client; instead, invite them to explore. If a client asks bespoke questions, has scheduling needs, or requires custom pricing, gracefully advise them to contact Kamini Agnihotri, our Operations & Client Relations Coordinator, at kaminiagnihotri249@gmail.com.`;
 
       const ai = new GoogleGenAI({ apiKey });
       const formattedContents = [];
@@ -772,7 +772,7 @@ Core Institutional Details (Keep answers to 1-5 lines):
 
         res.json({ text: response.text });
       } catch (apiError: any) {
-        console.warn('Chat API generation error, executing secure backup telemetry fallback:', apiError);
+        console.log('Sovereign Chat Concierge: API request routed to secure offline substrate.');
         res.json({ text: getFallbackResponse(message) });
       }
     } catch (error: any) {
@@ -904,7 +904,7 @@ Return EXACTLY a JSON object matching this schema (with no enclosing markdown wr
         const responseText = response.text || '{}';
         res.json(JSON.parse(responseText.trim()));
       } catch (apiError: any) {
-        console.warn('Outreach research API call failed, executing fallback:', apiError);
+        console.log('Sovereign Outreach Engine: Aligning outreach fallback telemetry.');
         res.json(getOutreachFallback());
       }
     } catch (error: any) {

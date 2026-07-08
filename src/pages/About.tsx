@@ -88,7 +88,7 @@ const About: React.FC = () => {
           <div className="relative z-10 text-center max-w-3xl mx-auto">
             <span className="text-[#b8860b] text-[9px] font-black tracking-[0.4em] uppercase block mb-3">Core Performance Mandate</span>
             <p className="text-[#f5f5f0] text-2xl md:text-3xl leading-snug font-serif font-light italic mb-2">
-              "We Help organizations reduce decision delays by <span className="text-[#b8860b] font-bold not-italic font-sans">40%</span> in <span className="text-[#b8860b] font-bold not-italic font-sans">90 days</span> without compromising strategic precision, without endless personal intervention, and without coordination drag."
+              "We Help organizations reduce decision delays by <span className="text-[#b8860b] font-bold not-italic font-sans">40%</span> in <span className="text-[#b8860b] font-bold not-italic font-sans">90 days</span> without compromising strategic precision, endless personal intervention, or coordination drag."
             </p>
             <div className="h-px w-24 bg-[#b8860b]/50 mx-auto mt-6 mb-4"></div>
             <p className="text-zinc-400 text-xs tracking-wider uppercase font-mono">

@@ -36,7 +36,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen: propIsOpen, setIsOpen: propSe
   const [history, setHistory] = useState<Message[]>([
     {
       role: 'assistant',
-      content: 'Welcome to The Unbounded Leadership Co. I am the Sovereign AI Concierge, here to ensure your inquiry is received with the utmost care, absolute discretion, and strategic clarity.\n\nOur mission is to help elite founders and executives reclaim their strategic bandwidth and eliminate organizational misalignment. I can guide you through our specific 4-step workflow, outline the details of our Phase 0.0 Diagnostic Audit, or connect you with Suchita Sancheti\'s office.\n\nTo help me best serve you today, may I ask: what is the single greatest bottleneck currently consuming your time or diluting your team\'s alignment?',
+      content: 'Welcome to The Unbounded Leadership Co. I am the Sovereign AI Concierge, here to answer your questions, outline our core strategic objectives, or guide you through our methodology.\n\nHow can I assist you with your leadership alignment today?',
       timestamp: new Date(),
     }
   ]);

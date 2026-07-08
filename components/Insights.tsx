@@ -70,7 +70,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          model: "gemini-3-flash-preview",
+          model: "gemini-3.5-flash",
           contents: `Analyze the following strategic vector for a global CXO and provide architectural implications for excellence: "${pulseQuery}". Focus on recent news and trends. 
           IMPORTANT: Provide the response in clean plain text. Do NOT use markdown formatting, asterisks, hashtags, or bold markers.`,
           config: {
