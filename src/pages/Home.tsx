@@ -22,6 +22,7 @@ import ThoughtLeadership from '../../components/ThoughtLeadership.tsx';
 import FAQ from '../../components/FAQ.tsx';
 import Waitlist from '../../components/Waitlist.tsx';
 import Newsletter from '../../components/Newsletter.tsx';
+import { motion } from 'motion/react';
 
 import StrategicMandates from '../../components/StrategicMandates.tsx';
 
@@ -33,7 +34,11 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
   const navigate = useNavigate();
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
       <Hero onBriefClick={onBriefClick} />
       <WhoWeBuildFor />
       <PrincipalDispatch />
@@ -160,7 +165,7 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
       </div>
       <FAQ />
       <Waitlist />
-    </>
+    </motion.div>
   );
 };
 

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useParams } from 'react-router-dom';
 import Insights from '../../components/Insights.tsx';
 import Blog from '../../components/Blog.tsx';
@@ -568,7 +568,12 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
   };
 
   return (
-    <div className="bg-[#0a0a0a] min-h-screen pt-6 md:pt-16 pb-24 text-white">
+    <motion.div 
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="bg-[#0a0a0a] min-h-screen pt-6 md:pt-16 pb-24 text-white"
+    >
       <div className="max-w-7xl mx-auto px-6">
         <nav className="flex items-center gap-2 text-[8px] uppercase tracking-[0.3em] font-black text-zinc-500 mb-8">
           <a href="/" className="hover:text-[#b8860b] transition-colors">Home</a>
@@ -812,7 +817,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
           );
         })()}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

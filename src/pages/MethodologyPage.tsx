@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Methodology from '../../components/Methodology.tsx';
 import StrategicOutcomes from '../../components/StrategicOutcomes.tsx';
 import Newsletter from '../../components/Newsletter.tsx';
@@ -10,7 +10,12 @@ interface MethodologyPageProps {
 
 const MethodologyPage: React.FC<MethodologyPageProps> = ({ onBriefClick }) => {
   return (
-    <div className="bg-[#0a0a0a] min-h-screen">
+    <motion.div 
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="bg-[#0a0a0a] min-h-screen"
+    >
       <section className="pt-6 md:pt-12 pb-8 bg-[#0a0a0a] text-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-4">Deep Dive</h2>
@@ -58,7 +63,7 @@ const MethodologyPage: React.FC<MethodologyPageProps> = ({ onBriefClick }) => {
           <Newsletter />
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 };
 

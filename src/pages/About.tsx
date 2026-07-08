@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Mail, Phone, Instagram, Linkedin } from '../../components/BrandIcons.tsx';
 import PrincipalDispatch from '../../components/PrincipalDispatch.tsx';
 import BrandLogo from '../../components/BrandLogo.tsx';
@@ -35,7 +35,12 @@ const About: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#f5f5f0] min-h-screen pt-6 md:pt-16 pb-20">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className="bg-[#f5f5f0] min-h-screen pt-6 md:pt-16 pb-20"
+    >
       {/* Structured Schema Data */}
       <script
         type="application/ld+json"
@@ -82,8 +87,8 @@ const About: React.FC = () => {
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#b8860b]/10 to-transparent pointer-events-none" />
           <div className="relative z-10 text-center max-w-3xl mx-auto">
             <span className="text-[#b8860b] text-[9px] font-black tracking-[0.4em] uppercase block mb-3">Core Performance Mandate</span>
-            <p className="text-[#f5f5f0] text-2xl md:text-4xl leading-snug font-serif font-light italic mb-2">
-              "You help organizations reduce decision delays by <span className="text-[#b8860b] font-bold not-italic font-sans">40%</span> in <span className="text-[#b8860b] font-bold not-italic font-sans">90 days</span>."
+            <p className="text-[#f5f5f0] text-2xl md:text-3xl leading-snug font-serif font-light italic mb-2">
+              "We Help organizations reduce decision delays by <span className="text-[#b8860b] font-bold not-italic font-sans">40%</span> in <span className="text-[#b8860b] font-bold not-italic font-sans">90 days</span> without compromising strategic precision, without endless personal intervention, and without coordination drag."
             </p>
             <div className="h-px w-24 bg-[#b8860b]/50 mx-auto mt-6 mb-4"></div>
             <p className="text-zinc-400 text-xs tracking-wider uppercase font-mono">
@@ -331,7 +336,7 @@ const About: React.FC = () => {
         </div>
 
       </div>
-    </div>
+    </motion.div>
   );
 };
 

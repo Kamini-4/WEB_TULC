@@ -1,5 +1,6 @@
 import React from 'react';
 import { Target, Users, Shield, ArrowUpRight } from 'lucide-react';
+import { motion } from 'motion/react';
 
 const WhoWeBuildFor: React.FC = () => {
   const profiles = [
@@ -26,27 +27,71 @@ const WhoWeBuildFor: React.FC = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1]
+      }
+    }
+  };
+
   return (
     <section id="who-is-this-for" className="py-24 md:py-32 bg-white relative overflow-hidden border-b border-zinc-200/50">
       <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, #b8860b 1px, transparent 0)`, backgroundSize: '32px 32px' }} />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="max-w-3xl mb-16 md:mb-24">
-          <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] block mb-4">Target Alignment Profiles</span>
-          <h2 className="text-4xl md:text-6xl font-bold text-zinc-950 leading-tight tracking-tight mb-6">
+        <motion.div 
+          className="max-w-3xl mb-16 md:mb-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-10%" }}
+          variants={containerVariants}
+        >
+          <motion.span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] block mb-4" variants={itemVariants}>
+            Target Alignment Profiles
+          </motion.span>
+          <motion.h2 className="text-4xl md:text-6xl font-bold text-zinc-950 leading-tight tracking-tight mb-6" variants={itemVariants}>
             Built for those who lead by <span className="italic font-light">design</span>, not by <span className="italic text-[#b8860b] font-medium">reaction.</span>
-          </h2>
-          <div className="h-[2px] w-20 bg-[#b8860b] mb-6"></div>
-          <p className="text-zinc-600 text-base md:text-lg italic font-light leading-relaxed">
+          </motion.h2>
+          <motion.div className="h-[2px] w-20 bg-[#b8860b] mb-6" variants={itemVariants} />
+          <motion.p className="text-zinc-600 text-base md:text-lg italic font-light leading-relaxed" variants={itemVariants}>
             The Unbounded Leadership methodology is exclusive to high-leverage decision-makers who recognize that their personal time is the ultimate rate-limiting substrate of their business.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid md:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-10%" }}
+          variants={containerVariants}
+        >
           {profiles.map((profile, idx) => (
-            <div 
+            <motion.div 
               key={idx} 
-              className="p-8 md:p-10 bg-zinc-50 border border-zinc-200/60 hover:border-[#b8860b]/40 hover:bg-white hover:shadow-xl transition-all duration-500 flex flex-col justify-between group relative"
+              className="p-8 md:p-10 bg-zinc-50 border border-zinc-200/60 transition-all duration-500 flex flex-col justify-between group relative"
+              variants={itemVariants}
+              whileHover={{
+                y: -6,
+                borderColor: 'rgba(184, 134, 11, 0.4)',
+                backgroundColor: '#ffffff',
+                boxShadow: '0 20px 40px rgba(184, 134, 11, 0.05)'
+              }}
             >
               <div>
                 <div className="flex items-center justify-between mb-8">
@@ -78,15 +123,21 @@ const WhoWeBuildFor: React.FC = () => {
                   <span>{profile.outcome}</span>
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="mt-16 text-center">
+        <motion.div 
+          className="mt-16 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
           <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest italic">
             * Strict selection protocol: We accept only 3 new corporate clients per quarter to preserve operational depth.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
