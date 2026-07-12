@@ -9,6 +9,7 @@ import Assessment from '../../components/Assessment.tsx';
 import Program from '../../components/Program.tsx';
 import Methodology from '../../components/Methodology.tsx';
 import ScaleEvidence from '../../components/ScaleEvidence.tsx';
+import ThreePillars from '../../components/ThreePillars.tsx';
 import ImpactLedger from '../../components/ImpactLedger.tsx';
 import EliteReasoning from '../../components/EliteReasoning.tsx';
 import Insights from '../../components/Insights.tsx';
@@ -45,6 +46,7 @@ const Home: React.FC<HomeProps> = ({ onBriefClick, onArticleClick }) => {
       <FiveDomains />
       <InstitutionalMetrics />
       <ScaleEvidence onBriefClick={onBriefClick} />
+      <ThreePillars />
       
       {/* Modular Entry - Visual Authority Upgrade */}
       <section className="py-32 bg-[#111111] text-white overflow-hidden relative">

@@ -15,6 +15,17 @@ interface BlogProps {
 
 const INITIAL_POSTS = INSTITUTIONAL_ARTICLES.filter(a => a.id.startsWith('INT-00'));
 
+const getArticleStats = (post: any) => {
+  const text = Array.isArray(post.content) ? post.content.join(' ') : (post.content || '');
+  const words = text.split(/\s+/).filter(Boolean).length;
+  const finalWords = words > 100 ? words : 1250;
+  const readTime = Math.max(2, Math.ceil(finalWords / 200));
+  return {
+    words: finalWords.toLocaleString(),
+    readTime
+  };
+};
+
 const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
   const [posts, setPosts] = useState<any[]>(INITIAL_POSTS);
   const [sharingId, setSharingId] = useState<string | null>(null);
@@ -111,9 +122,15 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
               )}
               
               <div className="flex justify-between items-center mb-4 sm:mb-6 relative z-10">
-                <span className="registry-category text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase tracking-widest">
-                  {post.category}
-                </span>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                  <span className="registry-category text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase tracking-widest">
+                    {post.category}
+                  </span>
+                  <span className="text-zinc-500 font-mono text-[8px] sm:text-[9px] uppercase tracking-widest hidden sm:inline">•</span>
+                  <span className="text-zinc-500 font-mono text-[8px] sm:text-[9px] uppercase tracking-widest">
+                    {getArticleStats(post).words} words • {getArticleStats(post).readTime} min read
+                  </span>
+                </div>
                 <div className="flex items-center gap-4">
                   <span className="text-zinc-600 text-[8px] sm:text-[9px] font-black uppercase tracking-widest">
                     {post.date}

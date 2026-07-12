@@ -735,12 +735,12 @@ const Assessment: React.FC = () => {
               exit={{ opacity: 0, y: -20 }}
               className="text-center"
             >
-              <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-6 tracking-[0.4em]">The Free Yield Calibration</h2>
+              <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-6 tracking-[0.4em]">The Strategic Alignment & Bandwidth Audit</h2>
               <h3 className="text-4xl sm:text-6xl font-bold mb-8 text-[#111111] leading-tight font-serif">
-                Architectural <span className="italic text-[#b8860b]">Maturity.</span>
+                Capture Your <span className="italic text-[#b8860b]">Alignment Premium.</span>
               </h3>
               <p className="text-zinc-600 text-xl mb-12 font-light italic leading-relaxed max-w-2xl mx-auto">
-                A free 5-domain diagnostic to map your institutional substrate. Identify the primary constraints preventing your transition from Hero to Architect.
+                Evaluate your leadership latency and identify hidden operational leakages draining up to 15% of your annual EBITDA. Complete this clinical 10-point audit to receive your confidential, multi-page Strategic Dossier.
               </p>
 
               {restoredSession && (

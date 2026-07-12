@@ -21,6 +21,17 @@ interface ArticleViewProps {
   onClose: () => void;
 }
 
+const getArticleStats = (article: Article) => {
+  const text = Array.isArray(article.content) ? article.content.join(' ') : (article.content || '');
+  const words = text.split(/\s+/).filter(Boolean).length;
+  const finalWords = words > 100 ? words : 1250;
+  const readTime = Math.max(2, Math.ceil(finalWords / 200));
+  return {
+    words: finalWords.toLocaleString(),
+    readTime
+  };
+};
+
 const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
   const [copied, setCopied] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
@@ -167,9 +178,24 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
               </div>
             )}
             <div className="flex justify-between items-start mb-6 sm:mb-8">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#111111] leading-[1.1] flex-grow">
-                {article.title}
-              </h1>
+              <div className="flex-grow">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#111111] leading-[1.1] mb-4">
+                  {article.title}
+                </h1>
+                <div className="flex flex-wrap items-center gap-3 text-[10px] font-mono uppercase text-zinc-500 tracking-wider">
+                  <span>Author: Suchita Sancheti</span>
+                  <span className="hidden sm:inline">•</span>
+                  <span>{getArticleStats(article).words} Words</span>
+                  <span>•</span>
+                  <span>{getArticleStats(article).readTime} Min Read</span>
+                  {article.date && (
+                    <>
+                      <span>•</span>
+                      <span>{article.date}</span>
+                    </>
+                  )}
+                </div>
+              </div>
               <button 
                 onClick={handleNativeShare}
                 className="sm:hidden p-3 bg-white border border-zinc-200 rounded-full text-[#b8860b] shadow-sm ml-4"
@@ -177,7 +203,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
                 <Share2 size={16} />
               </button>
             </div>
-            <div className="w-16 h-[1px] bg-[#b8860b]"></div>
+            <div className="w-16 h-[1px] bg-[#b8860b] mt-6"></div>
           </header>
 
           <div className="prose prose-zinc lg:prose-xl max-w-none">

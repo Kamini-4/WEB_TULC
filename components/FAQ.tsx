@@ -4,28 +4,36 @@ import { motion } from 'motion/react';
 const FAQ: React.FC = () => {
   const faqs = [
     {
-      question: "Who is Suchita Sancheti?",
-      answer: "Suchita Sancheti is an elite enterprise architect, computer science engineer, and industrial psychologist. She serves as the Principal of The Unbounded Leadership Co., partnering with global founders, venture capitalists, and CEOs to align corporate frameworks and reduce decision delays by 40% in 90 days."
+      question: "Who is Suchita Sancheti, and how does T.U.L.C. operate?",
+      answer: "Suchita Sancheti is an elite enterprise architect, computer science engineer, and industrial psychologist. Serving as the Principal of The Unbounded Leadership Co. (T.U.L.C.), she builds self-regulating corporate architectures for elite founders, venture capitalists, and CEOs to systematically reduce decision delays by 40% in 90 days."
     },
     {
-      question: "What is Intent Dilution?",
-      answer: "Intent dilution is the structural degradation of strategic clarity as direction propagates down hierarchical layers. This systematic decay forces teams to execute low-fidelity approximations of the original vision, creating severe coordination drag and operational latency."
+      question: "Why does decision-making slow down as my company scales? (The Coordination Tax)",
+      answer: "As an organization grows, the number of communication lines increases exponentially. This is what John Sweller's Cognitive Load theory identifies as extraneous coordination drag. Without a Sovereign Operating Substrate™ (Patent Pending), the team is forced into constant alignment meetings, creating severe meeting bloat and executive latency. This inaction tax dilutes your founding vision, forcing you to pay a high metabolic cost—or Cognitive Tax—to keep operations aligned."
     },
     {
-      question: "What is the Cognitive Tax?",
-      answer: "The cognitive tax is the compound mental exhaustion and creative depletion paid by elite leadership when forced to step out of high-stakes long-term vision planning to resolve ongoing operational misalignments."
+      question: "What is Sovereign Voice Mapping™ (Patent Pending), and how does it delegate high-stakes decisions?",
+      answer: "Standard delegation fails because it transfers tasks, not the founder's mental criteria. Sovereign Voice Mapping™ (Patent Pending) is a proprietary, scientific process where we extract your precise strategic heuristics, risk tolerance, and decision-making filters, codifying them into automated operational logic gates. This allows your executive team to execute decisions with 100% of your exact values and risk appetite autonomously, keeping you in pure strategic design."
     },
     {
-      question: "What is the Inaction Tax?",
-      answer: "The inaction tax is the compound opportunity cost, delayed strategic alignment, frozen initiatives, and systemic indecision that occurs when scaling organizations lack durable, self-regulating operating structures."
+      question: "How does the 10-Point Friction Audit™ (Patent Pending) measure my organization's latency?",
+      answer: "Our signature 10-Point Friction Audit™ (Patent Pending) analyzes ten critical vectors of organizational friction, including decision cycle times, middle-management autonomy thresholds, meeting frequency, and intent dilution. By mathematically benchmarking your executive latency, we pinpoint the exact structural leaks draining your strategic capacity and design a clear path to reclaim up to 15 hours of weekly schedule."
     },
     {
-      question: "How does Suchita Sancheti reduce decision delays?",
-      answer: "Suchita Sancheti reduces decision delays by 40% in 90 days. This is achieved by engineering high-fidelity operational logic gates directly into the organization's substrate, automating alignment, and eliminating the need for manual, meeting-heavy alignment checks."
+      question: "Is our company's private strategy, voice mapping, and corporate data safe? (Security & Zero Retention)",
+      answer: "Absolutely. T.U.L.C. operates under a strict Zero Data Retention (ZDR) mandate. All diagnostic data and strategic inputs are processed in transient volatile memory. We do not store, sell, or train public AI models on your private corporate telemetry. Your sovereign IP remains strictly yours, protected by our Privileged Disclosure framework."
     },
     {
-      question: "How does T.U.L.C. differ from management consulting?",
-      answer: "Traditional consulting delivers static, recommendation-heavy advisory reports. The Unbounded Leadership Co. (T.U.L.C.) builds durable, self-regulating corporate architectures. We hard-code active operational systems into your company's daily substrate, ensuring absolute strategic fidelity and permanent structural autonomy."
+      question: "How is this different from hiring premium management consultants like McKinsey, Bain, or BCG?",
+      answer: "Traditional consulting firms deliver expensive, static slide decks containing recommendations that middle management struggles to execute. These decks quickly become outdated. T.U.L.C. does not sell recommendations; we engineer active, self-regulating corporate substrates. We install live operational logic gates and automated protocols directly into your company's infrastructure, ensuring absolute strategic fidelity and sustainable operational leverage."
+    },
+    {
+      question: "Is the Yield Calibration or 'Strategic Alignment Audit' the complete process?",
+      answer: "The digital Yield Calibration on this platform is a highly calibrated pre-diagnostic snapshot (the 'Trailer') designed for preliminary mapping. It is a precursor to the definitive, deep-dive 'Institutional Alignment Instrument' administered in-person or via our secure portal. The results of the initial diagnostic benchmark your cognitive tax and identify immediate structural quick-wins."
+    },
+    {
+      question: "What is the tangible ROI of undergoing an alignment intervention?",
+      answer: "Our clients typically experience a 40% reduction in operational decision delays within 90 days, a 15% increase in EBITDA by eliminating coordination drag, and the immediate reclamation of 30-40% of the founder's weekly cognitive capacity. This allows you to step out of daily fire dousing and assume the role of the Aligned Architect of your enterprise."
     }
   ];
 

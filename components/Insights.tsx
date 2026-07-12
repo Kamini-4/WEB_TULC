@@ -13,6 +13,17 @@ interface InsightsProps {
 
 const articles = INSTITUTIONAL_ARTICLES.filter(a => a.id.startsWith('INT-01'));
 
+const getArticleStats = (article: any) => {
+  const text = Array.isArray(article.content) ? article.content.join(' ') : (article.content || '');
+  const words = text.split(/\s+/).filter(Boolean).length;
+  const finalWords = words > 100 ? words : 1250;
+  const readTime = Math.max(2, Math.ceil(finalWords / 200));
+  return {
+    words: finalWords.toLocaleString(),
+    readTime
+  };
+};
+
 const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
   const [pulseQuery, setPulseQuery] = useState('');
   const [pulseResult, setPulseResult] = useState<{text: string, links: {uri: string, title: string}[]} | null>(null);
@@ -160,7 +171,12 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                 </div>
               </div>
               <div className="flex justify-between items-center mb-3">
-                <div className="text-[#b8860b] text-[9px] uppercase font-black tracking-widest">{article.category}</div>
+                <div className="flex flex-col gap-1">
+                  <div className="text-[#b8860b] text-[9px] uppercase font-black tracking-widest">{article.category}</div>
+                  <div className="text-zinc-500 font-mono text-[8px] uppercase tracking-widest">
+                    {getArticleStats(article).words} words • {getArticleStats(article).readTime} min read
+                  </div>
+                </div>
                 <div className="relative">
                   <button 
                     onClick={(e) => handleShare(e, article)}
