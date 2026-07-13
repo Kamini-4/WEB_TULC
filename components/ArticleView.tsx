@@ -112,6 +112,39 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-[110] flex items-center justify-center p-0 sm:p-4 md:p-10 animate-fade-in">
+      {/* Structured Schema.org data for AI crawlers */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "headline": article.title,
+            "description": article.excerpt || (article.content && article.content[0] ? article.content[0].substring(0, 160) : ""),
+            "image": article.image || "https://theunboundedleadership.com/og-image.jpg",
+            "datePublished": "2026-07-10T00:00:00+00:00",
+            "author": {
+              "@type": "Person",
+              "name": "Suchita Sancheti",
+              "jobTitle": "Principal Architect",
+              "url": "https://theunboundedleadership.com/about"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "The Unbounded Leadership Co.",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://theunboundedleadership.com/logo.jpg"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": shareUrl
+            },
+            "wordCount": getArticleStats(article).words.replace(/,/g, '')
+          })
+        }}
+      />
       <div className="absolute inset-0 bg-[#0a0e1a]/95 backdrop-blur-sm" onClick={onClose} />
       
       <div className="relative w-full max-w-5xl h-full md:h-auto md:max-h-[90vh] bg-[#f5f5f0] shadow-2xl overflow-y-auto scroll-smooth flex flex-col border border-[#b8860b]/20">
