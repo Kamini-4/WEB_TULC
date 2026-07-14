@@ -713,8 +713,8 @@ const Assessment: React.FC = () => {
       attentionDomain2,
       domainInsights: insights,
       priority: totalScoreValue < 17 
-        ? "IMMEDIATE CALIBRATION REQUIRED: Your current institutional substrate is performing with some localized resilience but is bleeding strategic bandwidth. Scaling your existing strengths while building autonomous logic gates is the correct next move to unlock strategic velocity and preserve your leadership legacy."
-        : "ARCHITECTURAL SCALE SECURED: You are positioned beautifully for institutional permanence. Challenging your organization to move beyond 'Heroic Management' into 'Pure Architecture' is the definitive next step to insulate your brand and scale your genius."
+        ? "IMMEDIATE CALIBRATION REQUIRED: Your current institutional substrate is performing with some localized resilience but is bleeding strategic bandwidth. Our Strategic Alignment Protocol (Phases 01-04) will focus exclusively on designing custom operating substrates for exactly these 2 attention areas (out of the 5 global domains) to unlock strategic velocity and preserve your leadership legacy."
+        : "ARCHITECTURAL SCALE SECURED: You are positioned beautifully for institutional permanence. Moving forward, our Strategic Alignment Protocol (Phases 01-04) will focus exclusively on hard-coding systems for exactly these 2 attention areas (out of the 5 global domains) to insulate your brand and scale your genius."
     };
   };
 
@@ -1362,10 +1362,13 @@ const Assessment: React.FC = () => {
                           <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#b8860b] font-mono block">
                             Module 04 // Dynamic Recalibration Strategy
                           </span>
-                          <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-tight mb-2">
+                          <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-tight mb-1">
                             Structural Alignment & Custom Recalibration
                           </h3>
-                          <div className="grid sm:grid-cols-2 gap-6 pt-2">
+                          <p className="text-zinc-400 text-xs italic font-light leading-relaxed mb-4 pb-2 border-b border-white/5">
+                            Note: Our core Phases 01-04 Strategic Alignment Protocol works on <strong className="text-white font-semibold">exactly 2 out of the 5 global domains</strong> (the two lowest-scoring dimensions identified below) to ensure surgical execution focus, resource efficiency, and maximum ROI.
+                          </p>
+                          <div className="grid sm:grid-cols-2 gap-6">
                             <div className="space-y-2.5">
                               <h4 className="text-[10px] uppercase tracking-wider font-semibold text-zinc-300 font-mono">
                                 01. {rDetails.attentionDomain1}

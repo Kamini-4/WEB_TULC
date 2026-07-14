@@ -30,7 +30,7 @@ Our core signature architectural intervention. We do not write standard recommen
 - **Proprietary Technology:** Leverages **Sovereign Voice Mapping™ (Patent Pending)** and the **10-Point Friction Audit™ (Patent Pending)** to map strategic intuition and risk-appetite into active, automated operational logic gates.
 - **Methodology Milestones:**
   - *Phase 01: Yield Calibration:* Deployment of the proprietary Alignment Assessment to audit the firm's execution maturity.
-  - *Phase 02: Strategic Domain Mapping:* Synthesis of a Structural Alignment Report, isolating key dimensions for immediate calibration.
+  - *Phase 02: Strategic Domain Mapping:* Synthesis of a Structural Alignment Report, isolating exactly 2 of the 5 global domains for immediate, targeted calibration based on Phase 01 calibration results.
   - *Phase 03: Architectural Intervention:* Bespoke setup and configuration of leadership protocols, establishing localized autonomy.
   - *Phase 04: Strategic Integration:* Ongoing validation and governance structure installation to lock in high strategic intent fidelity.
 

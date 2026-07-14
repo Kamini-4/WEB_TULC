@@ -33,7 +33,7 @@ T.U.L.C. offers high-premium, bespoke systems-engineering services designed to e
 ## The Alignment Protocol (Methodology)
 - Phase 0.0: Substrate Diagnostic Audit [https://theunboundedleadership.com/services] - 14-day forensic discovery mapping decision leaks and cognitive drag.
 - Phase 01: Yield Calibration [https://theunboundedleadership.com/methodology] - Structural assessment mapping operational execution maturity.
-- Phase 02: Strategic Domain Mapping [https://theunboundedleadership.com/methodology] - Structural Alignment Report identifying core calibration dimensions.
+- Phase 02: Strategic Domain Mapping [https://theunboundedleadership.com/methodology] - Structural Alignment Report isolating exactly 2 of the 5 global domains for calibration based on Phase 01.
 - Phase 03: Architectural Intervention [https://theunboundedleadership.com/methodology] - Custom setup hard-coding leadership protocols.
 - Phase 04: Strategic Integration [https://theunboundedleadership.com/methodology] - Validating governance structures for unshakeable permanence.
 

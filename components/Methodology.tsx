@@ -68,8 +68,8 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             phase="02"
             title="Strategic Domain Mapping"
             subtitle="The Synthesis"
-            action="Generation of the Structural Alignment Report, isolating the two primary dimensions for immediate calibration."
-            outcome="A definitive operational blueprint for executive bandwidth reclamation."
+            action="Generation of the Structural Alignment Report, isolating exactly 2 of the 5 global domains for immediate, targeted calibration based on your Phase 01 results."
+            outcome="A definitive operational blueprint focusing exclusively on those 2 domains for maximum executive bandwidth reclamation."
             image="https://images.unsplash.com/photo-1518349619113-03114f06ac3a?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('02')}
           />
