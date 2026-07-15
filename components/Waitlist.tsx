@@ -12,6 +12,7 @@ const ledgerMessages = [
 ];
 
 const Waitlist: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [isEncrypting, setIsEncrypting] = useState(false);
   const [ledgerLog, setLedgerLog] = useState<string[]>([]);
@@ -99,7 +100,29 @@ const Waitlist: React.FC = () => {
           </div>
         </div>
 
-        {isEncrypting && !submitted ? (
+        {!isOpen ? (
+          <div className="max-w-2xl mx-auto py-12 px-6 border border-[#b8860b]/20 bg-[#111111] relative overflow-hidden group shadow-2xl rounded-xs">
+            <div className="absolute top-0 right-0 p-4 font-mono text-[7px] text-zinc-600 tracking-widest">TULC-SECURE-01</div>
+            <div className="relative z-10 space-y-6">
+              <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-[0.4em] block">Exclusive Advisory Intake</span>
+              <h4 className="text-2xl sm:text-3xl font-bold font-serif italic text-white">Admittance of Strategic Capital & Legacy Architecture.</h4>
+              <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed italic font-light">
+                To maintain sovereign fidelity and exceptional operational depth, the Principal Architect accepts exactly <strong className="text-white font-medium">3 new corporate clients per quarter</strong>. All inquiries are screened under zero-knowledge encryption protocols.
+              </p>
+              <div className="pt-4">
+                <button
+                  onClick={() => setIsOpen(true)}
+                  className="px-10 py-5 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 shadow-[0_0_50px_rgba(184,134,11,0.2)] animate-pulse-executive-dark cursor-pointer font-bold"
+                >
+                  Request Privileged Access & Secure Intake
+                </button>
+              </div>
+              <p className="text-zinc-500 text-[9px] font-mono uppercase tracking-widest pt-2">
+                🔒 Direct Calendly Booking & Encrypted Ledger Form Included
+              </p>
+            </div>
+          </div>
+        ) : isEncrypting && !submitted ? (
           <div className="bg-[#111111] p-8 sm:p-12 border border-[#b8860b]/30 text-left font-inter">
             <div className="flex items-center gap-4 mb-6 sm:mb-8">
               <div className="w-2 h-2 rounded-full bg-[#b8860b] animate-ping" />
@@ -131,6 +154,7 @@ const Waitlist: React.FC = () => {
                 setIsEncrypting(false);
                 setLedgerLog([]);
                 setFormData({ name: '', email: '', organization: '', role: '', message: '' });
+                setIsOpen(false);
               }}
               className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-400 hover:text-white tracking-widest transition-all"
             >
@@ -138,7 +162,7 @@ const Waitlist: React.FC = () => {
             </button>
           </div>
         ) : (
-          <div className="space-y-12">
+          <div className="space-y-12 animate-fade-in">
             {/* Direct Channel Booking Option */}
             <div className="bg-[#111111] p-6 sm:p-10 border border-[#b8860b]/30 text-left relative shadow-2xl overflow-hidden group">
               <div className="absolute top-0 right-0 p-3 bg-[#b8860b]/10 text-[#b8860b] text-[8px] font-black uppercase tracking-widest">
@@ -152,14 +176,22 @@ const Waitlist: React.FC = () => {
                     Skip standard queue review mechanisms. Consult Suchita Sancheti's calendar directly to reserve a private briefing segment and diagnose your firm's operational substrates immediately.
                   </p>
                 </div>
-                <a 
-                  href="https://calendly.com/d/d3jb-kpx-r6q" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="shrink-0 px-6 py-4 bg-[#b8860b] text-white text-[9px] font-black uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 shadow-lg text-center cursor-pointer inline-block font-bold"
-                >
-                  Book Direct Segment
-                </a>
+                <div className="flex flex-col gap-2 shrink-0">
+                  <a 
+                    href="https://calendly.com/d/d3jb-kpx-r6q" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="px-6 py-4 bg-[#b8860b] text-white text-[9px] font-black uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 shadow-lg text-center cursor-pointer inline-block font-bold"
+                  >
+                    Book Direct Segment
+                  </a>
+                  <button 
+                    onClick={() => setIsOpen(false)}
+                    className="text-[8px] font-bold text-zinc-500 uppercase tracking-widest hover:text-white transition-colors"
+                  >
+                    Collapse Form
+                  </button>
+                </div>
               </div>
             </div>
 

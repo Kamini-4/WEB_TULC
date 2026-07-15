@@ -3,8 +3,15 @@ import { motion } from 'motion/react';
 import { Mail, Phone, Instagram, Linkedin } from '../../components/BrandIcons.tsx';
 import PrincipalDispatch from '../../components/PrincipalDispatch.tsx';
 import BrandLogo from '../../components/BrandLogo.tsx';
+import WhoWeBuildFor from '../../components/WhoWeBuildFor.tsx';
+import ScaleEvidence from '../../components/ScaleEvidence.tsx';
+import ImpactLedger from '../../components/ImpactLedger.tsx';
 
-const About: React.FC = () => {
+interface AboutProps {
+  onBriefClick: (id?: string) => void;
+}
+
+const About: React.FC<AboutProps> = ({ onBriefClick }) => {
   // JSON-LD structured data for GEO/AEO/SEO index optimization
   const jsonLd = {
     "@context": "https://schema.org",
@@ -327,8 +334,20 @@ const About: React.FC = () => {
           <PrincipalDispatch />
         </section>
 
+        {/* Shifted Sections to About Page */}
+        <div className="-mx-6 md:-mx-12">
+          {/* Target Alignment Profiles */}
+          <WhoWeBuildFor />
+          
+          {/* Dynamics of Scale */}
+          <ScaleEvidence onBriefClick={onBriefClick} />
+          
+          {/* Impact Ledger */}
+          <ImpactLedger />
+        </div>
+
         {/* CREDO SECTION */}
-        <div className="bg-[#111111] p-10 text-white rounded-xs border border-[#b8860b]/20">
+        <div className="bg-[#111111] p-10 text-white rounded-xs border border-[#b8860b]/20 mt-16">
           <h4 className="text-[#b8860b] text-[10px] font-black uppercase tracking-widest mb-4 font-mono">Institutional Credo</h4>
           <p className="text-sm italic font-light text-zinc-350 leading-relaxed">
             "We do not focus on temporary coaching. We build durable operating guardrails. Solid architecture is the only way to reliably delegate strategic intent at scale."

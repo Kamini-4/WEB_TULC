@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
     { label: 'About', path: '/about' },
     { label: 'Sovereign Protocol', path: '/methodology' },
     { label: 'Services', path: '/services' },
-    { label: 'Mandates', path: '/#mandates' },
+    { label: 'Mandates', path: '/services#mandates' },
     { label: 'Assessment', path: '/assessment' },
     { label: 'Library', path: '/library' },
     { label: 'Portal', path: '/portal' },
@@ -34,13 +34,20 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
     if (external) {
       return; // Let the Link or a tag handle it
     }
-    if (path.startsWith('/#')) {
+    if (path.includes('#')) {
       e.preventDefault();
-      const targetId = path.substring(2);
-      if (location.pathname === '/') {
-        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+      const [route, hash] = path.split('#');
+      // Normalize routes for comparison (e.g., remove leading/trailing slashes or empty strings)
+      const normalizedCurrent = location.pathname === '/' ? '/' : location.pathname.replace(/\/$/, '');
+      const normalizedTarget = route === '/' ? '/' : route.replace(/\/$/, '');
+      
+      if (normalizedCurrent === normalizedTarget) {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       } else {
-        navigate(`/${path.substring(1)}`);
+        navigate(path);
       }
     }
     setIsMenuOpen(false);

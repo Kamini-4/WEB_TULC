@@ -89,7 +89,14 @@ const ImpactLedger: React.FC = () => {
 
         <div className="mt-16 sm:mt-24 text-center">
           <button 
-            onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => {
+              const element = document.getElementById('intake');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                window.location.href = '/#intake';
+              }
+            }}
             className="px-8 sm:px-12 py-4 sm:py-6 bg-transparent border border-zinc-700 text-white text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-500"
           >
             Request Full Case Briefings

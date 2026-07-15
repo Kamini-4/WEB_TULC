@@ -2,6 +2,9 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Shield, Sparkles, Zap, ArrowRight, CheckCircle, Calculator, Building, Users, Clock, AlertTriangle } from 'lucide-react';
+import FiveDomains from '../../components/FiveDomains.tsx';
+import StrategicMandates from '../../components/StrategicMandates.tsx';
+import FAQ from '../../components/FAQ.tsx';
 
 interface Service {
   id: string;
@@ -206,6 +209,11 @@ const ServicesPage: React.FC = () => {
           </div>
         </div>
 
+        {/* The Five Domains of Leadership Architecture */}
+        <div className="mb-16 md:mb-20 max-w-5xl mx-auto">
+          <FiveDomains />
+        </div>
+
         {/* Architectural Calibration Benchmark */}
         <section className="mb-10 md:mb-12 max-w-5xl mx-auto bg-zinc-950 text-white border border-red-900/30 p-5 sm:p-6 md:p-8 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-radial-gradient from-red-950/20 to-transparent pointer-events-none" />
@@ -395,6 +403,71 @@ const ServicesPage: React.FC = () => {
           </div>
         </section>
 
+        {/* 03. Low-Friction Modular Engagement Entry - Shifted from Home */}
+        <div className="mt-16 md:mt-24 -mx-6 md:-mx-12">
+          <section className="py-24 sm:py-32 bg-[#111111] text-white overflow-hidden relative">
+            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #b8860b 1px, transparent 0)`, backgroundSize: '40px 40px' }} />
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
+              <div className="grid lg:grid-cols-12 gap-16 md:gap-24 items-center">
+                <div className="lg:col-span-7 text-left">
+                  <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-6">Modular Entry Track</h2>
+                  <h3 className="text-4xl md:text-6xl font-bold mb-8 leading-[1.1]">
+                    Neutralize <span className="italic text-[#b8860b]">Risk.</span> <br />
+                    Verify the <span className="italic font-light">Signal.</span>
+                  </h3>
+                  <p className="text-zinc-200 text-base md:text-lg leading-relaxed mb-10 italic font-light max-w-2xl">
+                    For principals requiring architectural proof before full institutional integration. A 14-day high-fidelity diagnostic of your leadership substrate.
+                  </p>
+                  <div className="grid sm:grid-cols-2 gap-6 mb-10">
+                    <div className="flex items-start gap-4">
+                      <div className="w-6 h-px bg-[#b8860b] mt-3" />
+                      <div>
+                        <h4 className="font-bold text-xs uppercase tracking-widest mb-1">Cognitive Calibration</h4>
+                        <p className="text-[11px] text-zinc-400 italic">Mapping your personal decision frequency.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-6 h-px bg-[#b8860b] mt-3" />
+                      <div>
+                        <h4 className="font-bold text-xs uppercase tracking-widest mb-1">Logic Leak Audit</h4>
+                        <p className="text-[11px] text-zinc-400 italic">Identifying the 30% bandwidth drain.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                    <button 
+                      onClick={() => navigate('/intake')}
+                      className="px-8 py-4 bg-[#b8860b] text-white text-[9px] font-black uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-all shadow-[0_0_50px_rgba(184,134,11,0.2)]"
+                    >
+                      Inquire for Diagnostic Audit
+                    </button>
+                    <div>
+                      <div className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-0.5">Pricing Model</div>
+                      <div className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest">Upon Request</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="lg:col-span-5">
+                  <div className="aspect-[4/5] bg-zinc-900 border border-white/10 p-1 flex flex-col items-center justify-center relative group">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-[#b8860b]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                    <div className="w-12 h-12 border-2 border-[#b8860b] mb-6 rotate-45 flex items-center justify-center">
+                      <div className="w-4 h-4 bg-[#b8860b]/50 animate-pulse" />
+                    </div>
+                    <h4 className="text-xl font-bold italic mb-2">Phase 0.0</h4>
+                    <div className="text-[9px] font-black uppercase tracking-[0.5em] text-[#b8860b] mb-6">Diagnostic Protocol</div>
+                    <ul className="text-center space-y-2 text-zinc-300 text-xs italic font-light">
+                      <li>Institutional Telemetry Scan</li>
+                      <li>Principal Logic Synthesis</li>
+                      <li>Substrate Integrity Report</li>
+                      <li>Execution Velocity Map</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
         {/* Pricing Matrix / Buying Menus */}
         <div className="grid lg:grid-cols-3 gap-6 items-stretch mb-10 md:mb-12">
           {SERVICES_SPECTRUM.map((service) => {
@@ -465,6 +538,11 @@ const ServicesPage: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* The Mandates of Enterprise Alignment */}
+        <div className="my-16 md:my-24 max-w-5xl mx-auto">
+          <StrategicMandates />
         </div>
 
         {/* Custom Interactive Calculator - Cognitive Equity Estimator */}
@@ -596,6 +674,11 @@ const ServicesPage: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* Strategic Objection Handling - FAQ */}
+        <div className="mt-16 md:mt-24 -mx-6 md:-mx-12">
+          <FAQ />
+        </div>
 
       </div>
     </motion.div>

@@ -2,7 +2,9 @@ import React from 'react';
 import { motion } from 'motion/react';
 import Methodology from '../../components/Methodology.tsx';
 import StrategicOutcomes from '../../components/StrategicOutcomes.tsx';
+import ThreePillars from '../../components/ThreePillars.tsx';
 import Newsletter from '../../components/Newsletter.tsx';
+import Problem from '../../components/Problem.tsx';
 
 interface MethodologyPageProps {
   onBriefClick: (id?: string) => void;
@@ -25,6 +27,11 @@ const MethodologyPage: React.FC<MethodologyPageProps> = ({ onBriefClick }) => {
           </p>
         </div>
       </section>
+
+      {/* Problem Section: Establish the Friction Before Introducing the Solution */}
+      <div className="bg-[#0a0a0a] border-t border-white/5 py-4">
+        <Problem />
+      </div>
       
       <div className="bg-[#0a0a0a]">
         <Methodology onBriefClick={onBriefClick} />
@@ -32,6 +39,9 @@ const MethodologyPage: React.FC<MethodologyPageProps> = ({ onBriefClick }) => {
       <div className="bg-[#0a0a0a]">
         <StrategicOutcomes />
       </div>
+      
+      {/* Three Pillars: TULC Core IP Framework */}
+      <ThreePillars />
       
       <section className="py-12 bg-[#0a0a0a] text-white border-t border-white/5">
         <div className="max-w-4xl mx-auto px-6">

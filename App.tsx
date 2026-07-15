@@ -304,7 +304,7 @@ const App: React.FC = () => {
         <main className="pt-32 sm:pt-36 md:pt-40">
           <Routes>
             <Route path="/" element={<Home onBriefClick={handleBriefClick} onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About onBriefClick={handleBriefClick} />} />
             <Route path="/library" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
             <Route path="/library/:articleId" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
             <Route path="/methodology" element={<MethodologyPage onBriefClick={handleBriefClick} />} />
