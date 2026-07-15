@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Shield, Sparkles, Zap, ArrowRight, CheckCircle, Calculator, Building, Users, Clock, AlertTriangle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 import FiveDomains from '../../components/FiveDomains.tsx';
 import StrategicMandates from '../../components/StrategicMandates.tsx';
 import FAQ from '../../components/FAQ.tsx';
@@ -85,34 +85,10 @@ const SERVICES_SPECTRUM: Service[] = [
 
 const ServicesPage: React.FC = () => {
   const navigate = useNavigate();
-  const [selectedService, setSelectedService] = useState<string>('diagnostic');
-  const [revenue, setRevenue] = useState<number>(500); // in Crores
-  const [headcount, setHeadcount] = useState<number>(10); // number of direct reports
-  const [meetingHours, setMeetingHours] = useState<number>(25); // meetings per week
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  // Calculate estimated Cognitive Tax based on sliders
-  const cognitiveTaxCost = useMemo(() => {
-    // Basic conceptual math for opportunity cost of leadership friction in INR Rupees
-    // revenue is Cr, so revenue * 10,000,000 Rupees
-    const executiveHourValue = (revenue * 10000000) / 2000; // estimated output value per hour
-    const weeklyLostHours = meetingHours * 0.4; // 40% estimated meeting waste / cognitive tax
-    const annualLostOpportunityValue = executiveHourValue * weeklyLostHours * 48; // 48 active weeks
-    return Math.round(annualLostOpportunityValue);
-  }, [revenue, meetingHours]);
-
-  const formatCurrency = (val: number) => {
-    if (val >= 10000000) {
-      return `₹${(val / 10000000).toFixed(2)} Crores`;
-    }
-    if (val >= 100000) {
-      return `₹${(val / 100000).toFixed(1)} Lakhs`;
-    }
-    return `₹${val.toLocaleString('en-IN')}`;
-  };
 
   const handleCtaClick = (service: Service) => {
     navigate('/intake');
@@ -137,6 +113,78 @@ const ServicesPage: React.FC = () => {
           <p className="text-base sm:text-lg text-zinc-600 font-light italic leading-relaxed">
             Every operational bottleneck is a design flaw. Our service engagements are engineered to isolate, neutralize, and restructure your leadership operating systems.
           </p>
+        </div>
+
+        {/* Pricing Matrix / Buying Menus */}
+        <div className="grid lg:grid-cols-3 gap-6 items-stretch mb-10 md:mb-12">
+          {SERVICES_SPECTRUM.map((service) => {
+            const isDiag = service.id === 'diagnostic';
+            return (
+              <div 
+                key={service.id} 
+                className={`flex flex-col relative h-full transition-all duration-500 rounded-sm border p-5 sm:p-6 bg-white ${
+                  service.isPopular 
+                    ? 'border-[#b8860b] shadow-[0_15px_40px_rgba(184,134,11,0.08)] ring-1 ring-[#b8860b]/20' 
+                    : 'border-zinc-200 hover:border-[#b8860b]/50 shadow-sm'
+                }`}
+              >
+                {service.isPopular && (
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#b8860b] text-white text-[8px] font-black uppercase tracking-[0.2em] rounded-full">
+                    Immediate Activation Available
+                  </span>
+                )}
+
+                <div className="mb-4 md:mb-6">
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#b8860b] px-2 py-0.5 bg-[#b8860b]/10 rounded-xs">
+                      {service.badge}
+                    </span>
+                    <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">
+                      {service.duration}
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 mb-1 leading-tight">{service.title}</h3>
+                  <p className="text-xs text-zinc-500 italic mb-4 font-medium">{service.subtitle}</p>
+                  <p className="text-zinc-600 text-xs sm:text-sm italic font-light leading-relaxed">{service.description}</p>
+                </div>
+
+                <div className="my-auto pt-3 pb-4 sm:pb-6 border-t border-zinc-100/80">
+                  <span className="text-[10px] uppercase font-black text-zinc-400 tracking-widest block mb-2">Cost Price & Investment</span>
+                  <div className="flex items-baseline gap-2">
+                    <span className={`text-2xl sm:text-3xl font-extrabold ${isDiag ? 'text-[#b8860b]' : 'text-zinc-900 font-bold'}`}>
+                      {service.price}
+                    </span>
+                  </div>
+                  <span className="text-[10px] text-zinc-500 italic mt-1 block">{service.billingDetail}</span>
+                </div>
+
+                <div className="space-y-2 mb-6">
+                  <span className="text-[9px] uppercase font-black text-zinc-400 tracking-widest block">Structural Inclusions</span>
+                  <ul className="space-y-2 md:space-y-2.5">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex gap-2.5 text-xs text-zinc-700 italic font-light leading-snug">
+                        <CheckCircle className="w-4 h-4 text-[#b8860b] shrink-0 mt-0.5" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <button
+                  onClick={() => handleCtaClick(service)}
+                  className={`w-full py-3.5 text-[10px] font-black uppercase tracking-[0.2em] transition-all-500 mt-auto shadow-sm ${
+                    service.isPopular
+                      ? 'bg-[#111111] text-white hover:bg-[#b8860b]'
+                      : 'border border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-white'
+                  }`}
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    {service.ctaText} <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </button>
+              </div>
+            );
+          })}
         </div>
 
         {/* Private Calibration Baseline Banner */}
@@ -468,212 +516,10 @@ const ServicesPage: React.FC = () => {
           </section>
         </div>
 
-        {/* Pricing Matrix / Buying Menus */}
-        <div className="grid lg:grid-cols-3 gap-6 items-stretch mb-10 md:mb-12">
-          {SERVICES_SPECTRUM.map((service) => {
-            const isDiag = service.id === 'diagnostic';
-            return (
-              <div 
-                key={service.id} 
-                className={`flex flex-col relative h-full transition-all duration-500 rounded-sm border p-5 sm:p-6 bg-white ${
-                  service.isPopular 
-                    ? 'border-[#b8860b] shadow-[0_15px_40px_rgba(184,134,11,0.08)] ring-1 ring-[#b8860b]/20' 
-                    : 'border-zinc-200 hover:border-[#b8860b]/50 shadow-sm'
-                }`}
-              >
-                {service.isPopular && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#b8860b] text-white text-[8px] font-black uppercase tracking-[0.2em] rounded-full">
-                    Immediate Activation Available
-                  </span>
-                )}
-
-                <div className="mb-4 md:mb-6">
-                  <div className="flex justify-between items-center mb-3">
-                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#b8860b] px-2 py-0.5 bg-[#b8860b]/10 rounded-xs">
-                      {service.badge}
-                    </span>
-                    <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">
-                      {service.duration}
-                    </span>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 mb-1 leading-tight">{service.title}</h3>
-                  <p className="text-xs text-zinc-500 italic mb-4 font-medium">{service.subtitle}</p>
-                  <p className="text-zinc-600 text-xs sm:text-sm italic font-light leading-relaxed">{service.description}</p>
-                </div>
-
-                <div className="my-auto pt-3 pb-4 sm:pb-6 border-t border-zinc-100/80">
-                  <span className="text-[10px] uppercase font-black text-zinc-400 tracking-widest block mb-2">Cost Price & Investment</span>
-                  <div className="flex items-baseline gap-2">
-                    <span className={`text-2xl sm:text-3xl font-extrabold ${isDiag ? 'text-[#b8860b]' : 'text-zinc-900 font-bold'}`}>
-                      {service.price}
-                    </span>
-                  </div>
-                  <span className="text-[10px] text-zinc-500 italic mt-1 block">{service.billingDetail}</span>
-                </div>
-
-                <div className="space-y-2 mb-6">
-                  <span className="text-[9px] uppercase font-black text-zinc-400 tracking-widest block">Structural Inclusions</span>
-                  <ul className="space-y-2 md:space-y-2.5">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex gap-2.5 text-xs text-zinc-700 italic font-light leading-snug">
-                        <CheckCircle className="w-4 h-4 text-[#b8860b] shrink-0 mt-0.5" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <button
-                  onClick={() => handleCtaClick(service)}
-                  className={`w-full py-3.5 text-[10px] font-black uppercase tracking-[0.2em] transition-all-500 mt-auto shadow-sm ${
-                    service.isPopular
-                      ? 'bg-[#111111] text-white hover:bg-[#b8860b]'
-                      : 'border border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-white'
-                  }`}
-                >
-                  <span className="flex items-center justify-center gap-2">
-                    {service.ctaText} <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                </button>
-              </div>
-            );
-          })}
-        </div>
-
         {/* The Mandates of Enterprise Alignment */}
         <div className="my-16 md:my-24 max-w-5xl mx-auto">
           <StrategicMandates />
         </div>
-
-        {/* Custom Interactive Calculator - Cognitive Equity Estimator */}
-        <section className="bg-zinc-950 text-white rounded-sm p-5 sm:p-6 md:p-10 overflow-hidden relative border border-[#b8860b]/20">
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#b8860b]/5 to-transparent pointer-events-none" />
-          
-          <div className="grid lg:grid-cols-12 gap-8 md:gap-12 items-center relative z-10">
-            <div className="lg:col-span-6 space-y-4 md:space-y-6">
-              <div className="inline-flex items-center gap-2.5 bg-[#b8860b]/10 text-[#b8860b] px-3 py-1 rounded-xs border border-[#b8860b]/20">
-                <Calculator className="w-4 h-4" />
-                <span className="text-[10px] uppercase font-black tracking-widest">Alignment Estimator</span>
-              </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
-                Quantify Your <br />
-                <span className="text-[#b8860b] italic">Cognitive Tax.</span>
-              </h2>
-              <p className="text-zinc-400 text-sm italic font-light leading-relaxed">
-                Strategic drift and un-automated execution represent a major hidden loss. Drag the coordinates below to isolate your firm's metabolic leak.
-              </p>
-
-              {/* Slider Controls */}
-              <div className="space-y-4 md:space-y-6 pt-2">
-                <div>
-                  <div className="flex justify-between items-center mb-1.5 text-xs uppercase tracking-widest text-zinc-300">
-                    <span className="flex items-center gap-2"><Building className="w-3.5 h-3.5 text-zinc-500" /> Annual Org Revenue</span>
-                    <span className="font-bold text-[#b8860b]">₹{revenue} Cr</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    min="10" 
-                    max="2000" 
-                    value={revenue} 
-                    onChange={(e) => setRevenue(Number(e.target.value))}
-                    className="w-full accent-[#b8860b] bg-zinc-800 h-1 rounded-lg cursor-pointer"
-                  />
-                  <div className="flex justify-between text-[9px] text-zinc-500 mt-1 uppercase tracking-widest">
-                    <span>₹10 Cr</span>
-                    <span>₹2,000 Cr+</span>
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between items-center mb-1.5 text-xs uppercase tracking-widest text-zinc-300">
-                    <span className="flex items-center gap-2"><Users className="w-3.5 h-3.5 text-zinc-500" /> Direct Reports / Leaders</span>
-                    <span className="font-bold text-[#b8860b]"> {headcount} Leaders</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    min="3" 
-                    max="45" 
-                    value={headcount} 
-                    onChange={(e) => setHeadcount(Number(e.target.value))}
-                    className="w-full accent-[#b8860b] bg-zinc-800 h-1 rounded-lg cursor-pointer"
-                  />
-                  <div className="flex justify-between text-[9px] text-zinc-500 mt-1 uppercase tracking-widest">
-                    <span>3 Key Players</span>
-                    <span>45+ Enterprise Roles</span>
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between items-center mb-1.5 text-xs uppercase tracking-widest text-zinc-300">
-                    <span className="flex items-center gap-2"><Clock className="w-3.5 h-3.5 text-zinc-500" /> Tactical Meeting Hours / Wk</span>
-                    <span className="font-bold text-[#b8860b]">{meetingHours} Hours</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    min="5" 
-                    max="60" 
-                    value={meetingHours} 
-                    onChange={(e) => setMeetingHours(Number(e.target.value))}
-                    className="w-full accent-[#b8860b] bg-zinc-800 h-1 rounded-lg cursor-pointer"
-                  />
-                  <div className="flex justify-between text-[9px] text-zinc-500 mt-1 uppercase tracking-widest">
-                    <span>5 Hrs (Lean)</span>
-                    <span>60 Hrs (Saturated)</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6">
-              <div className="bg-zinc-900 border border-white/5 p-5 md:p-6 relative rounded-sm flex flex-col justify-between h-full">
-                <div className="absolute top-4 right-4 text-[#b8860b]/20">
-                  <AlertTriangle className="w-16 h-16" />
-                </div>
-
-                <div className="space-y-6">
-                  <span className="text-[10px] font-black uppercase text-zinc-500 tracking-[0.25em] block">Leaked Cognitive Equity Summary</span>
-                  
-                  <div>
-                    <span className="text-zinc-400 text-xs italic font-light block mb-1">Estimated Annual Inaction Tax</span>
-                    <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#b8860b] tracking-tight">
-                      {formatCurrency(cognitiveTaxCost)}
-                    </div>
-                  </div>
-
-                  <div className="h-px bg-white/10" />
-
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#b8860b] mt-1.5" />
-                      <p className="text-xs text-zinc-400 italic">
-                        Estimated <strong className="text-white">{(meetingHours * 0.4).toFixed(0)} hours per week</strong> of key leadership attention spent resolving systemic variances rather than compounding strategic advantage.
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#b8860b] mt-1.5" />
-                      <p className="text-xs text-zinc-400 italic">
-                        Current organizational velocity coefficient is throttled. Strategic decisions require <strong className="text-white">3.5x</strong> more coordination labor than custom logic-gate baselines.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6 p-4 sm:p-5 bg-[#b8860b]/5 border border-[#b8860b]/20 flex flex-col sm:flex-row items-center gap-4 justify-between">
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-white uppercase tracking-widest mb-1">Audit Your Substrate</h4>
-                    <p className="text-[10px] text-zinc-400 italic">Request your Phase 0.0 Diagnostic to engineer absolute performance.</p>
-                  </div>
-                  <button 
-                    onClick={() => navigate('/intake')}
-                    className="px-6 py-2.5 bg-[#b8860b] text-white hover:bg-white hover:text-black text-[9px] font-black uppercase tracking-widest transition-all shrink-0"
-                  >
-                    Request Audit
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Strategic Objection Handling - FAQ */}
         <div className="mt-16 md:mt-24 -mx-6 md:-mx-12">
