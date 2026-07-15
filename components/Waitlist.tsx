@@ -85,42 +85,14 @@ const Waitlist: React.FC = () => {
         `}
       </style>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <h2 className="text-[#b8860b] text-[8px] sm:text-[10px] font-black uppercase mb-6 sm:mb-8 tracking-[0.3em]">The Sovereign Ledger</h2>
-        <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 text-white">Privileged <span className="italic text-[#b8860b]">Intake Terminal.</span></h3>
-        
-        {/* Social Proof Ticker */}
-        <div className="mb-12 overflow-hidden border-y border-white/10 py-4">
-          <div className="flex animate-marquee whitespace-nowrap gap-12 text-[8px] font-black uppercase tracking-[0.3em] text-zinc-600">
-            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b] rounded-full" /> RECENT INTAKE: CEO, GLOBAL LOGISTICS (LONDON)</span>
-            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b] rounded-full" /> RECENT INTAKE: PRINCIPAL, PRIVATE EQUITY (NYC)</span>
-            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b] rounded-full" /> RECENT INTAKE: FOUNDER, FINTECH UNICORN (SINGAPORE)</span>
-            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b] rounded-full" /> RECENT INTAKE: MANAGING DIRECTOR, INFRASTRUCTURE (DUBAI)</span>
-            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b] rounded-full" /> RECENT INTAKE: CEO, GLOBAL LOGISTICS (LONDON)</span>
-            <span className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b] rounded-full" /> RECENT INTAKE: PRINCIPAL, PRIVATE EQUITY (NYC)</span>
-          </div>
-        </div>
-
         {!isOpen ? (
-          <div className="max-w-2xl mx-auto py-12 px-6 border border-[#b8860b]/20 bg-[#111111] relative overflow-hidden group shadow-2xl rounded-xs">
-            <div className="absolute top-0 right-0 p-4 font-mono text-[7px] text-zinc-600 tracking-widest">TULC-SECURE-01</div>
-            <div className="relative z-10 space-y-6">
-              <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-[0.4em] block">Exclusive Advisory Intake</span>
-              <h4 className="text-2xl sm:text-3xl font-bold font-serif italic text-white">Admittance of Strategic Capital & Legacy Architecture.</h4>
-              <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed italic font-light">
-                To maintain sovereign fidelity and exceptional operational depth, the Principal Architect accepts exactly <strong className="text-white font-medium">3 new corporate clients per quarter</strong>. All inquiries are screened under zero-knowledge encryption protocols.
-              </p>
-              <div className="pt-4">
-                <button
-                  onClick={() => setIsOpen(true)}
-                  className="px-10 py-5 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 shadow-[0_0_50px_rgba(184,134,11,0.2)] animate-pulse-executive-dark cursor-pointer font-bold"
-                >
-                  Request Privileged Access & Secure Intake
-                </button>
-              </div>
-              <p className="text-zinc-500 text-[9px] font-mono uppercase tracking-widest pt-2">
-                🔒 Direct Calendly Booking & Encrypted Ledger Form Included
-              </p>
-            </div>
+          <div className="py-12">
+            <button
+              onClick={() => setIsOpen(true)}
+              className="px-12 py-6 bg-[#b8860b] text-white text-[11px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 shadow-[0_0_50px_rgba(184,134,11,0.2)] cursor-pointer font-bold"
+            >
+              Request Access
+            </button>
           </div>
         ) : isEncrypting && !submitted ? (
           <div className="bg-[#111111] p-8 sm:p-12 border border-[#b8860b]/30 text-left font-inter">
