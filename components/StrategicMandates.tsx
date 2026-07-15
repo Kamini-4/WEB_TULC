@@ -113,6 +113,52 @@ const StrategicMandates: React.FC = () => {
           ))}
         </div>
 
+        {/* Combined Sovereign Protocol */}
+        <div className="mt-32 pt-16 border-t border-zinc-200/80">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] block mb-3">Trust Architecture</span>
+            <h3 className="text-3xl md:text-5xl font-light text-zinc-950 leading-tight animate-fade-in">
+              The Sovereign <span className="italic font-medium text-[#b8860b]">Data Protocol.</span>
+            </h3>
+            <div className="w-12 h-px bg-[#b8860b] mx-auto mt-6 mb-4 opacity-40"></div>
+            <p className="text-zinc-600 text-xs sm:text-sm italic font-light leading-relaxed">
+              Data sovereignty is the bedrock of institutional authority. Our systems and engagements are engineered to amplify executive brilliance while ensuring near-absolute strategic confidentiality.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="group border-l border-zinc-200 pl-6 py-2 hover:border-[#b8860b] transition-all duration-500">
+              <h4 className="text-lg font-bold text-zinc-900 mb-2 group-hover:text-[#b8860b] transition-colors">Zero Data Retention (ZDR)</h4>
+              <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed italic font-light">
+                Our diagnostic engine operates on ephemeral ZDR protocols. All inputs, voice prints, and strategic answers are processed in volatile memory and purged the moment your terminal session concludes.
+              </p>
+            </div>
+            <div className="group border-l border-zinc-200 pl-6 py-2 hover:border-[#b8860b] transition-all duration-500">
+              <h4 className="text-lg font-bold text-zinc-900 mb-2 group-hover:text-[#b8860b] transition-colors">The Principal Review</h4>
+              <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed italic font-light">
+                TULC does not rely on black-box automation for critical decisions. Every diagnostic enquiry is personally reviewed by the Principal Architect to ensure near-absolute strategic fidelity.
+              </p>
+            </div>
+            <div className="group border-l border-zinc-200 pl-6 py-2 hover:border-[#b8860b] transition-all duration-500">
+              <h4 className="text-lg font-bold text-zinc-900 mb-2 group-hover:text-[#b8860b] transition-colors">Privileged Disclosure</h4>
+              <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed italic font-light">
+                All architectural blueprints and intervention briefs are handled under a 'Privileged Disclosure Framework,' mirroring the confidentiality of executive legal counsel.
+              </p>
+            </div>
+          </div>
+
+          <div className="p-8 bg-[#111111] text-white rounded-xs text-center border border-[#b8860b]/20 relative overflow-hidden">
+            <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`, backgroundSize: '100px 100px' }} />
+            <p className="text-zinc-400 text-xs sm:text-sm italic font-light leading-relaxed max-w-2xl mx-auto relative z-10">
+              "Data sovereignty is the bedrock of institutional authority. Systems are designed to amplify brilliance, not harvest it. Intellectual property remains with the sovereign, always."
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center items-center gap-6 relative z-10">
+              <span className="text-[8px] sm:text-[9px] uppercase font-black text-[#b8860b] tracking-widest border border-[#b8860b]/30 px-3 py-1.5 font-mono">ISO/TULC-2026 COMPLIANT</span>
+              <span className="text-[8px] sm:text-[9px] uppercase font-black text-white/30 tracking-widest font-mono">AES-256 ENCRYPTED</span>
+            </div>
+          </div>
+        </div>
+
         <div className="mt-24 p-12 bg-[#111111] text-white flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden group">
           <div className="absolute inset-0 bg-[#b8860b] translate-y-full group-hover:translate-y-0 transition-transform duration-1000 opacity-5" />
           <div className="max-w-2xl relative z-10">

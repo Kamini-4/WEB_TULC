@@ -11,8 +11,12 @@ const ledgerMessages = [
   "SECURITY_TUNNEL_CLOSED."
 ];
 
-const Waitlist: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface WaitlistProps {
+  defaultOpen?: boolean;
+}
+
+const Waitlist: React.FC<WaitlistProps> = ({ defaultOpen = false }) => {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
   const [submitted, setSubmitted] = useState(false);
   const [isEncrypting, setIsEncrypting] = useState(false);
   const [ledgerLog, setLedgerLog] = useState<string[]>([]);

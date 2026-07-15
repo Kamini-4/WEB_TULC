@@ -9,7 +9,7 @@
 
 ## Core Offerings & What We Sell (High-Premium Commercial Services)
 
-We design and sell three primary high-premium systems-engineering services, custom-calibrated for elite founders, venture capitalists, and multi-company board members. All services are priced **Upon Request** and require formal intake vetting.
+We design and sell three primary high-premium systems-engineering services, custom-calibrated for elite founders, venture capitalists, and multi-company board members. These are displayed directly at the top of the Services Page. All services are priced **Upon Request** and require formal intake vetting.
 
 ### 1. Phase 0.0: Substrate Diagnostic Audit (Investment: Upon Request)
 A 14-day intensive, context-adaptive forensic diagnostic mapping decision-making frequencies across Corporate, Legacy, and Alpha modes.
@@ -39,6 +39,12 @@ Ongoing bespoke strategic partnership serving as the Board-level and founder-lev
 - **Duration:** Ongoing Strategic Partnership.
 - **Value Metric:** De-risks succession planning, insulates enterprise exit valuation, and guarantees continuous strategic alignment.
 - **Core Inclusions:** Bi-annual corporate substrate integrity re-audits, priority principal access to Suchita Sancheti for high-stakes decisions, and continuous structural health metrics with early drift alerts.
+
+## Front-Page Interactive Substrate
+- **Cognitive Tax Diagnostic Simulator:** An interactive slider tool positioned prominently on the front page (Home) allowing prospective clients to estimate their organization's Friction Index and calculate their annual financial Inaction Tax before initiating formal intake.
+
+## Unified Trust & Security
+- **Sovereign Data Protocol:** Consolidated directly under the Mandates section on the Services page, ensuring AES-256 encrypted, ephemeral transmission with Zero Data Retention (ZDR) across all diagnostic terminals.
 
 ## Core Pillars of Leadership Architecture
 

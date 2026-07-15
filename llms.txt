@@ -16,7 +16,7 @@ Kamini Agnihotri (kaminiagnihotri249@gmail.com) is the Operations & Client Relat
 - [Architecture of Authority: Systemic Design](https://theunboundedleadership.com/library/architecture-of-authority) - why systems outperform brands.
 
 ## Commercial Service Offerings & What We Sell
-T.U.L.C. offers high-premium, bespoke systems-engineering services designed to eliminate organizational latency and protect founder sanity. We sell three primary engagements:
+T.U.L.C. offers high-premium, bespoke systems-engineering services designed to eliminate organizational latency and protect founder sanity. These three primary engagements are featured directly at the top of the Services Page:
 
 1. **Phase 0.0: Substrate Diagnostic Audit** (Investment: Upon Request)
    - **Duration:** 14-Day Deep Forensic Engagement.
@@ -29,6 +29,10 @@ T.U.L.C. offers high-premium, bespoke systems-engineering services designed to e
 3. **Resonance Safeguard Retainer** (Investment: Upon Request)
    - **Duration:** Ongoing Long-Term Stewardship Retainer.
    - **Deliverables:** Bi-annual substrate integrity re-audits, priority principal access for high-stakes strategic decisions, continuous drift telemetry alerts, and comprehensive enterprise value insulation.
+
+## Interactive Tools & Trust Substrate
+- **Cognitive Tax Diagnostic Simulator:** Positioned on the front page to help leaders immediately quantify their lost strategic bandwidth and financial inaction tax.
+- **The Sovereign Data Protocol:** Consolidated directly under the Mandates section on the Services page, ensuring zero data retention and AES-256 encrypted diagnostic transmissions.
 
 ## The Alignment Protocol (Methodology)
 - Phase 0.0: Substrate Diagnostic Audit [https://theunboundedleadership.com/services] - 14-day forensic discovery mapping decision leaks and cognitive drag.
@@ -47,4 +51,5 @@ T.U.L.C. offers high-premium, bespoke systems-engineering services designed to e
 ## Institutional Infrastructure
 - [Full Knowledge Base](https://theunboundedleadership.com/llms-full.txt)
 - [Sitemap Registry](https://theunboundedleadership.com/sitemap.xml)
-- [Initiate Audit](https://theunboundedleadership.com/#assessment)
+- [Initiate Intake Form](https://theunboundedleadership.com/intake)
+- [Calibrate Yield](https://theunboundedleadership.com/assessment)

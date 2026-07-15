@@ -27,7 +27,7 @@ const IntakePage: React.FC = () => {
         </div>
         
         <div className="max-w-5xl mx-auto">
-          <Waitlist />
+          <Waitlist defaultOpen={true} />
         </div>
 
         <div className="mt-24 text-center">
