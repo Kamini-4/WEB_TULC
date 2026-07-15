@@ -16,6 +16,30 @@ const FAQ: React.FC = () => {
       answer: "Standard delegation fails because it transfers tasks, not the founder's mental criteria. Sovereign Voice Mapping™ (Patent Pending) is a proprietary, scientific process where we extract your precise strategic heuristics, risk tolerance, and decision-making filters, codifying them into automated operational logic gates. This allows your executive team to execute decisions with 100% of your exact values and risk appetite autonomously, keeping you in pure strategic design."
     },
     {
+      question: "How does the 'Sovereign Voice Mapping' process work in practice? Do I have to record hours of audio?",
+      answer: "No. We do not ingest passive audio or require hours of recordings. Instead, we run a highly efficient, semi-structured 60-minute cognitive interview. We present you with synthetic adversarial trade-off scenarios (Strategic Micro-Simulations). By mapping your decision boundaries, risk thresholds, and exception filters across these high-stakes vectors, we compile a mathematical decision matrix that is codified into your organization's delegation rules."
+    },
+    {
+      question: "Can T.U.L.C. integrate with our existing tools (Slack, Teams, Notion, Jira)?",
+      answer: "Yes. We do not ask your team to adopt new software. We integrate directly into your current communication and project management substrates. We redesign the reporting structures, automated alert routing, and escalation filters inside your existing stack. This eliminates up to 80% of communication noise and ensures that information flowing to you is pre-filtered for absolute strategic relevance."
+    },
+    {
+      question: "What is the time commitment required from me (the Founder/CEO) during the 14-Day Audit?",
+      answer: "We strictly respect your bandwidth. The entire Phase 0.0 Diagnostic Audit requires exactly three hours of your direct time: a 60-minute initial context briefing, a 60-minute Adversarial Mapping interview, and a 60-minute private feedback briefing to deliver your Cognitive Bandwidth Blueprint. All other telemetry and background data gathering are handled asynchronously with your operations team."
+    },
+    {
+      question: "What does a 'metabolic leak' or 'Cognitive Tax' look like on a day-to-day basis?",
+      answer: "Day-to-day, a metabolic leak manifests as: constant status-update meetings that produce no actual strategic advancement, middle managers constantly escalating trade-offs they should handle autonomously, and key executives waiting days for your approval before taking action. This inaction tax slows down your company's momentum, causes key talent burnout, and silently dilutes enterprise value."
+    },
+    {
+      question: "We have multiple business units or a holding company structure. Can you handle multi-hub operations?",
+      answer: "Yes. We regularly design alignment substrates for multi-company board members, holding corporations, and venture funds with portfolio companies across our London, New York, and Singapore hubs. We specialize in cross-entity governance protocols that preserve local operating speed while maintaining absolute strategic and fiduciary fidelity to the parent holding or investment thesis."
+    },
+    {
+      question: "What exact scientific frameworks or methodologies are these audits based on?",
+      answer: "Our diagnostics and interventions are built on Second-Order Cybernetics (the study of self-regulating systems), John Sweller's Cognitive Load Theory, and first-principles Complexity Theory. We translate these academic disciplines into hard-coded organizational logic gates, ensuring your enterprise operates like a self-regulating cybernetic system rather than a chaotic hierarchy."
+    },
+    {
       question: "How does the 10-Point Friction Audit™ (Patent Pending) measure my organization's latency?",
       answer: "Our signature 10-Point Friction Audit™ (Patent Pending) analyzes ten critical vectors of organizational friction, including decision cycle times, middle-management autonomy thresholds, meeting frequency, and intent dilution. By mathematically benchmarking your executive latency, we pinpoint the exact structural leaks draining your strategic capacity and design a clear path to reclaim up to 15 hours of weekly schedule."
     },
