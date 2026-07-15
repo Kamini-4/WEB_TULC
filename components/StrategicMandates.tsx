@@ -119,6 +119,61 @@ const StrategicMandates: React.FC = () => {
           <FiveDomains />
         </div>
 
+        {/* Human-System Integration Paradigm */}
+        <div className="mt-28 p-8 sm:p-12 bg-zinc-50 border border-zinc-200 shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#b8860b]/5 blur-3xl rounded-full pointer-events-none" />
+          
+          <div className="max-w-4xl mx-auto relative z-10">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-8 h-px bg-[#b8860b]" />
+              <span className="text-[#b8860b] text-[9px] sm:text-[10px] font-black uppercase tracking-[0.3em]">The Human-System Integration</span>
+            </div>
+
+            <h3 className="text-3xl sm:text-5xl font-light text-zinc-950 leading-tight mb-8">
+              Systems architecture is the skeleton; <br />
+              <span className="italic font-medium text-[#b8860b]">human cognitive alignment is the soul.</span>
+            </h3>
+
+            <div className="border-l-2 border-[#b8860b] pl-6 md:pl-8 py-2 mb-12 bg-white p-6 shadow-sm">
+              <p className="text-zinc-800 text-base md:text-lg italic font-light leading-relaxed">
+                "The entire framework exists because standard systems fail without human resonance, and humans suffer chronic burn-out without system-level insulation. We do not build technology to replace human judgment—we build structural logic gates to liberate human creative energy."
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 my-12">
+              <div className="p-6 bg-white border border-zinc-200/60 rounded-xs hover:shadow-md transition-shadow">
+                <div className="text-[10px] font-bold text-[#b8860b] uppercase tracking-widest mb-3 font-mono">01 / SUBSTRATE</div>
+                <h4 className="text-lg font-bold text-zinc-900 mb-2">Cognitive Load Optimization</h4>
+                <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed italic font-light">
+                  We do not add bureaucratic weight. Instead, we map the decision frequency of key leaders to identify exactly where human creative energy is being drained by low-level exception handling. The system is designed to return the leader to their state of highest leverage.
+                </p>
+              </div>
+
+              <div className="p-6 bg-white border border-zinc-200/60 rounded-xs hover:shadow-md transition-shadow">
+                <div className="text-[10px] font-bold text-[#b8860b] uppercase tracking-widest mb-3 font-mono">02 / ALIGNMENT</div>
+                <h4 className="text-lg font-bold text-zinc-900 mb-2">Behavioral Logic Gates</h4>
+                <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed italic font-light">
+                  Instead of relying on human willpower or endless 'alignment meetings'—which drain executive focus—we codify strategic intent into self-regulating operational gates. We align the human incentive structure with the system's structural flow, making strategic compliance the path of least resistance.
+                </p>
+              </div>
+
+              <div className="p-6 bg-white border border-zinc-200/60 rounded-xs hover:shadow-md transition-shadow">
+                <div className="text-[10px] font-bold text-[#b8860b] uppercase tracking-widest mb-3 font-mono">03 / SAFEGUARDS</div>
+                <h4 className="text-lg font-bold text-zinc-900 mb-2">Structural Drift Defense</h4>
+                <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed italic font-light">
+                  Organizational drift is always a human phenomenon, driven by fatigue, political friction, or succession anxiety. Our long-term safeguards actively monitor these 'human' shadow metrics, insulating the enterprise from decay and preserving absolute clarity of intent across generations.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 p-6 bg-zinc-900 text-white rounded-xs border border-[#b8860b]/20">
+              <p className="text-zinc-300 text-xs sm:text-sm italic leading-relaxed font-light">
+                "In high-stakes environments, systems architecture is human architecture. You cannot separate the code of an organization from the psychology of the people executing it. Our framework does not treat 'systems' and 'humans' as separate tracks. A pristine systems architecture that ignores human cognitive fatigue, incentives, and structural friction will suffer rapid operational drift and eventual collapse. Conversely, a purely 'human-centric' approach without systematic logic gates leads to perpetual meeting-tax and chaotic exception handling. In short, we do not build rigid technical frameworks. We architect Sovereign Systems—automated protocols that liberate human vision, intuition, and leadership resonance."
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Combined Sovereign Protocol */}
         <div className="mt-32 pt-16 border-t border-zinc-200/80">
           <div className="text-center max-w-3xl mx-auto mb-16">

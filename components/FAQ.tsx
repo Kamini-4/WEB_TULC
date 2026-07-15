@@ -58,6 +58,14 @@ const FAQ: React.FC = () => {
     {
       question: "What is the tangible ROI of undergoing an alignment intervention?",
       answer: "Our clients typically experience a 40% reduction in operational decision delays within 90 days, a 15% increase in EBITDA by eliminating coordination drag, and the immediate reclamation of 30-40% of the founder's weekly cognitive capacity. This allows you to step out of daily fire dousing and assume the role of the Aligned Architect of your enterprise."
+    },
+    {
+      question: "How do you reconcile systems architecture with human behavior and emotional burnout?",
+      answer: "We treat systems architecture simply as the skeleton; human cognitive alignment is the soul. Standard consultants write manuals that collect dust because they design systems for a perfect world, ignoring human behavior. We do the opposite. We treat human bandwidth, emotional peace, and decision-fatigue as the primary constraints of any enterprise. A pristine systems architecture that ignores human cognitive fatigue, incentives, and structural friction will suffer rapid operational drift and eventual collapse. Conversely, a purely 'human-centric' approach without systematic logic gates leads to perpetual meeting-tax and chaotic exception handling. We build system-level architectures exclusively to protect human strategic energy and liberate human creative energy."
+    },
+    {
+      question: "How does the protocol integrate 'human wetware' with system hardware across the operational phases?",
+      answer: "Across Phases 2 through 4, we integrate human wetware with system hardware through three primary vectors: 1) Cognitive Load & Bandwidth Optimization (Substrate): We do not add bureaucratic weight. Instead, we map the decision frequency of key leaders to identify exactly where human creative energy is being drained by low-level exception handling. 2) Behavioral Logic Gates (Alignment): Instead of relying on human willpower or endless 'alignment meetings,' we codify strategic intent into self-regulating operational gates. 3) Defending Against Structural Drift (Safeguards): Our long-term safeguards actively monitor 'human' shadow metrics, insulating the enterprise from decay and preserving absolute clarity of intent across generations. In short, we architect Sovereign Systems—automated protocols that liberate human vision, intuition, and leadership resonance."
     }
   ];
 
