@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle } from 'lucide-react';
-import FiveDomains from '../../components/FiveDomains.tsx';
 import StrategicMandates from '../../components/StrategicMandates.tsx';
 import FAQ from '../../components/FAQ.tsx';
 
@@ -255,11 +254,6 @@ const ServicesPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* The Five Domains of Leadership Architecture */}
-        <div className="mb-16 md:mb-20 max-w-5xl mx-auto">
-          <FiveDomains />
         </div>
 
         {/* Architectural Calibration Benchmark */}

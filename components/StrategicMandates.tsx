@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Shield, Zap, Target, Layers } from 'lucide-react';
+import FiveDomains from './FiveDomains.tsx';
 
 interface Mandate {
   id: string;
@@ -111,6 +112,11 @@ const StrategicMandates: React.FC = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* The Five Domains of Leadership Architecture */}
+        <div className="mt-24">
+          <FiveDomains />
         </div>
 
         {/* Combined Sovereign Protocol */}
