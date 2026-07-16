@@ -12,6 +12,7 @@ import AssessmentPage from './src/pages/AssessmentPage.tsx';
 import IntakePage from './src/pages/IntakePage.tsx';
 import Portal from './src/pages/Portal.tsx';
 import ServicesPage from './src/pages/ServicesPage.tsx';
+import MandatesPage from './src/pages/MandatesPage.tsx';
 import ArticleView from './components/ArticleView.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import FloatingCTA from './components/FloatingCTA.tsx';
@@ -312,6 +313,7 @@ const App: React.FC = () => {
             <Route path="/intake" element={<IntakePage />} />
             <Route path="/portal" element={<Portal />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/mandates" element={<MandatesPage />} />
           </Routes>
         </main>
         <Footer onLegalClick={handleLegalClick} />

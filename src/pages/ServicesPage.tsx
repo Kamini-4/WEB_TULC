@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle } from 'lucide-react';
-import StrategicMandates from '../../components/StrategicMandates.tsx';
 import FAQ from '../../components/FAQ.tsx';
 
 interface Service {
@@ -510,10 +509,7 @@ const ServicesPage: React.FC = () => {
           </section>
         </div>
 
-        {/* The Mandates of Enterprise Alignment */}
-        <div className="my-16 md:my-24 max-w-5xl mx-auto">
-          <StrategicMandates />
-        </div>
+
 
         {/* Strategic Objection Handling - FAQ */}
         <div className="mt-16 md:mt-24 -mx-6 md:-mx-12">
