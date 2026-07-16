@@ -69,8 +69,14 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
 
   if (!article) return null;
 
-  const baseShareUrl = typeof window !== 'undefined' ? window.location.origin : 'https://theunboundedleadership.com';
-  const shareUrl = baseShareUrl + (article.id ? `/library/${article.id}` : '/library');
+  const baseShareUrl = typeof window !== 'undefined' && 
+    !window.location.hostname.includes('localhost') && 
+    !window.location.hostname.includes('127.0.0.1') && 
+    !window.location.hostname.includes('run.app') && 
+    !window.location.hostname.includes('webcontainer')
+      ? window.location.origin 
+      : 'https://theunboundedleadership.com';
+  const shareUrl = baseShareUrl + (article.slug || article.id ? `/library/${article.slug || article.id}` : '/library');
   const shareTitle = `${article.title} | The Unbounded Leadership Co.`;
 
   const handleCopyLink = () => {

@@ -34,7 +34,13 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
   const navigate = useNavigate();
 
-  const baseShareUrl = typeof window !== 'undefined' ? window.location.origin : 'https://theunboundedleadership.com';
+  const baseShareUrl = typeof window !== 'undefined' && 
+    !window.location.hostname.includes('localhost') && 
+    !window.location.hostname.includes('127.0.0.1') && 
+    !window.location.hostname.includes('run.app') && 
+    !window.location.hostname.includes('webcontainer')
+      ? window.location.origin 
+      : 'https://theunboundedleadership.com';
 
   const handleShare = (e: React.MouseEvent, article: Article) => {
     e.stopPropagation();
