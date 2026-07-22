@@ -101,53 +101,250 @@ const ServicesPage: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Header Section */}
-        <div className="mb-10 text-center max-w-4xl mx-auto">
-          <h2 className="text-[#b8860b] text-xs font-black uppercase tracking-[0.4em] mb-2">The Alignment Spectrum</h2>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-            Institutional <span className="text-[#b8860b] italic">Services.</span>
+        {/* Header Section - Client Reality First */}
+        <div className="mb-12 text-center max-w-4xl mx-auto">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="w-8 h-px bg-[#b8860b]" />
+            <h2 className="text-[#b8860b] text-xs font-black uppercase tracking-[0.4em]">Targeted Enterprise Interventions</h2>
+            <span className="w-8 h-px bg-[#b8860b]" />
+          </div>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight font-serif text-[#111111]">
+            Is Your Enterprise Losing Velocity <br />
+            <span className="text-[#b8860b] italic font-light">To Hidden Alignment Friction?</span>
           </h1>
           <div className="h-1 w-20 bg-[#b8860b] mx-auto mb-6"></div>
-          <p className="text-base sm:text-lg text-zinc-600 font-light italic leading-relaxed">
-            Every operational bottleneck is a design flaw. Our service engagements are engineered to isolate, neutralize, and restructure your leadership operating systems.
+          <p className="text-base sm:text-lg text-zinc-700 font-light italic leading-relaxed">
+            Every operational bottleneck is a design flaw. Before selecting an engagement protocol below, explore how structural latency erodes your bandwidth and why standard executive coaching fails to fix it.
+          </p>
+        </div>
+
+        {/* 1. Kinetic Latency Analysis - The Cost of Inaction First */}
+        <section className="mb-12 max-w-5xl mx-auto bg-zinc-950 text-white border border-red-900/30 p-6 sm:p-8 relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-radial-gradient from-red-950/20 to-transparent pointer-events-none" />
+          <div className="absolute -left-12 -bottom-12 w-48 h-48 bg-gradient-to-tr from-[#b8860b]/5 to-transparent pointer-events-none" />
+          
+          <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7 space-y-4">
+              <span className="text-red-400 text-[10px] font-mono font-black uppercase tracking-[0.3em] block flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" /> Diagnostic Reality Check
+              </span>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold font-serif tracking-tight text-white leading-tight">
+                The Cost of Latency:<br />
+                Where Board Directives <span className="text-red-400 italic font-light">Lose Fidelity.</span>
+              </h3>
+              
+              <div className="h-[2px] w-16 bg-red-800" />
+              
+              <p className="text-zinc-300 text-sm leading-relaxed italic font-light">
+                You built this company to create enterprise value. Instead, <strong className="text-white font-medium">operational firefighting dominates your calendar</strong>. 
+              </p>
+              
+              <p className="text-zinc-400 text-xs leading-relaxed italic font-light">
+                Trapped in the "Heroic Solver" loop, stepping away for 30 days causes growth to plateau, leadership teams to stall, and operations to slide into coordination drag. 
+              </p>
+
+              <p className="text-zinc-400 text-xs leading-relaxed italic font-light">
+                This is a <strong className="text-white">compounding erosion of your exit valuation and your personal peace</strong>. Every hour spent resolving executive alignment errors is stolen from compounding your ultimate strategic advantage.
+              </p>
+            </div>
+            
+            <div className="lg:col-span-5 bg-zinc-900/90 border border-red-900/30 p-5 md:p-6 space-y-4 rounded-xs relative shadow-xl">
+              <span className="text-[9px] font-mono font-bold text-red-400 uppercase tracking-widest block">Structural Inaction Impact Index</span>
+              
+              <div className="space-y-3 font-mono text-[11px]">
+                <div className="flex justify-between items-start border-b border-zinc-800/60 pb-2">
+                  <span className="text-zinc-500 uppercase text-left">Estimated Annual Leakage:</span>
+                  <span className="text-red-400 font-bold text-right">~₹2.4 Cr to ₹15 Cr</span>
+                </div>
+                <div className="flex justify-between items-start border-b border-zinc-800/60 pb-2">
+                  <span className="text-zinc-500 uppercase text-left">Fidelity Decay Rate:</span>
+                  <span className="text-red-400 font-bold text-right">15% Loss per Org Layer</span>
+                </div>
+                <div className="flex justify-between items-start border-b border-zinc-800/60 pb-2">
+                  <span className="text-zinc-500 uppercase text-left">Key-Person Discount:</span>
+                  <span className="text-red-400 font-bold text-right">Up to 35% Valuation Penalty</span>
+                </div>
+                <div className="flex justify-between items-start">
+                  <span className="text-zinc-500 uppercase text-left">Cognitive Deficit:</span>
+                  <span className="text-red-400 font-bold text-right">40% Wasted Bandwidth</span>
+                </div>
+              </div>
+
+              <div className="bg-red-950/30 border border-red-800/40 p-3 text-xs italic font-light text-zinc-300">
+                "Delaying calibration is an active decision to continue leaking your life’s work. Solid architecture is the only permanent antidote."
+              </div>
+
+              <button 
+                onClick={() => navigate('/assessment')}
+                className="w-full py-3 bg-red-950 border border-red-700/60 hover:bg-red-900 hover:border-red-500 text-white text-[9px] font-black uppercase tracking-[0.2em] transition-all"
+              >
+                Benchmark Your Drift Coefficient
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* 2. Start With Why / Psychological Care Section */}
+        <div className="mb-12 max-w-5xl mx-auto bg-white border border-zinc-200/80 p-6 sm:p-8 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-2.5 h-full bg-[#b8860b]" />
+          <div className="space-y-4">
+            <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] block">Our Foundation: Why We Architect</span>
+            
+            <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 leading-tight font-serif">
+              We believe your creative genius is too precious to be consumed by tactical friction.
+            </h3>
+            
+            <p className="text-zinc-600 text-xs sm:text-sm md:text-sm lg:text-base leading-relaxed italic font-light">
+              <strong>Why we do what we do:</strong> The traditional corporate world measures success by endurance—how many fires you can extinguish, how much fatigue you can carry. We reject this. We exist because we care deeply about the human behind the title. Elite leadership is not a test of physical survival, but an art of pure strategic transmission. Our entire architecture is built to protect your peace of mind, restore your bandwidth, and ensure your vision executes with absolute fidelity.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-6 pt-6 border-t border-zinc-100">
+              <div className="space-y-3">
+                <h4 className="text-xs sm:text-sm font-bold text-zinc-900 uppercase tracking-wider">The Hidden Costs You Pay Daily:</h4>
+                <ul className="space-y-2 text-xs text-zinc-600 italic font-light">
+                  <li className="flex items-start gap-2.5">
+                    <span className="text-red-700 font-bold text-sm leading-none">•</span>
+                    <span><strong>Decay of Strategic Bandwidth:</strong> Up to 40% of cognitive energy is consumed correcting alignment errors rather than inventing the future.</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <span className="text-red-700 font-bold text-sm leading-none">•</span>
+                    <span><strong>Intent Dilution Tax:</strong> Direct reports execute a diluted version of your strategic vision down the hierarchy.</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <span className="text-red-700 font-bold text-sm leading-none">•</span>
+                    <span><strong>Decision Fatigue:</strong> Compounding psychological exhaustion that slowly drains your personal creative engine.</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="space-y-3">
+                <h4 className="text-xs sm:text-sm font-bold text-zinc-900 uppercase tracking-wider">Strict Engagement Capacity:</h4>
+                <p className="text-xs text-zinc-600 italic font-light leading-relaxed mb-2">
+                  To preserve absolute signal quality and zero-dilution focus, Principal Suchita Sancheti maintains strict limits on client onboarding.
+                </p>
+                <div className="p-3.5 bg-zinc-50 border border-zinc-200/80 rounded-xs">
+                  <p className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider mb-0.5">Quarterly Capacity Limit:</p>
+                  <p className="text-xs text-[#b8860b] italic font-semibold">
+                    Accepting only <strong className="font-extrabold text-[#b8860b]">3 enterprise calibrations per quarter</strong>. Currently 2 slots are committed. Only 1 opening remains for Q2.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 3. The Structural Divergence Index (Uncalibrated vs. Calibrated) */}
+        <section className="mb-16 max-w-5xl mx-auto bg-white border border-zinc-200/80 p-6 sm:p-8 shadow-md relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#b8860b]/10 to-transparent pointer-events-none" />
+          
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] block mb-2 font-mono">Operations Diagnostic</span>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-zinc-900 leading-tight font-serif">The Structural Divergence Index</h3>
+            <p className="text-zinc-500 text-xs italic font-medium mt-1">
+              Side-by-side comparison of uncalibrated friction nodes versus custom-architected systemic governance.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {/* Contrast Header */}
+            <div className="grid md:grid-cols-2 gap-4 pb-3 border-b border-zinc-200 text-center font-mono uppercase tracking-widest text-[10px] font-black hidden md:grid">
+              <div className="text-red-700 bg-red-50/50 py-2 border border-red-200/40 rounded-xs flex items-center justify-center gap-2">
+                <span>✕</span> Uncalibrated Operating Model (Friction & Drag)
+              </div>
+              <div className="text-emerald-700 bg-emerald-50/50 py-2 border border-emerald-200/40 rounded-xs flex items-center justify-center gap-2">
+                <span>✓</span> Calibrated Sovereign Model (Autopilot Execution)
+              </div>
+            </div>
+
+            {/* Contrast Row 1 */}
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block font-mono">01. Founder / CEO Bandwidth</span>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="p-4 bg-red-50/20 border border-red-200/30 rounded-xs relative">
+                  <div className="absolute top-4 right-4 text-red-500 text-xs font-bold font-mono">DRAG</div>
+                  <h4 className="text-xs font-bold text-red-800 uppercase tracking-wider mb-1">Cognitive Insolvency</h4>
+                  <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
+                    Founder trapped spending <strong>60+ hours per week</strong> handling reactive firefighting, double-checking work, and resolving recurring team friction.
+                  </p>
+                </div>
+                <div className="p-4 bg-emerald-50/20 border border-emerald-200/30 rounded-xs relative">
+                  <div className="absolute top-4 right-4 text-emerald-600 text-xs font-bold font-mono">CALIBRATED</div>
+                  <h4 className="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1">Cognitive Liberation</h4>
+                  <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
+                    <strong>Reclaims up to 40% of strategic bandwidth</strong> in 90 days. Permanently insulated from daily operational noise.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Contrast Row 2 */}
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block font-mono">02. Delegation Fidelity</span>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="p-4 bg-red-50/20 border border-red-200/30 rounded-xs relative">
+                  <div className="absolute top-4 right-4 text-red-500 text-xs font-bold font-mono">DRAG</div>
+                  <h4 className="text-xs font-bold text-red-800 uppercase tracking-wider mb-1">Intent Dilution Tax</h4>
+                  <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
+                    Strategic intent decays by <strong>~15% with every org layer</strong>. Direct reports execute a diluted version of your original vision.
+                  </p>
+                </div>
+                <div className="p-4 bg-emerald-50/20 border border-emerald-200/30 rounded-xs relative">
+                  <div className="absolute top-4 right-4 text-emerald-600 text-xs font-bold font-mono">CALIBRATED</div>
+                  <h4 className="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1">Zero-Dilution Parity</h4>
+                  <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
+                    Strategic reasoning hardcoded directly into <strong>self-cohering decision parameters</strong>. Direct reports execute with 100% precision.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. NOW PRESENT THE SERVICE SPECTRUM / BUYING MENU */}
+        <div className="mb-10 text-center max-w-3xl mx-auto">
+          <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] block mb-2 font-mono">Architectural Solution Menu</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#111111] font-serif">
+            Select Your Calibration <span className="text-[#b8860b] italic font-light">Protocol.</span>
+          </h2>
+          <p className="text-xs text-zinc-500 italic font-medium mt-2">
+            Structured for high-growth enterprise founders, VCs, and CEOs seeking immediate cognitive bandwidth reclamation.
           </p>
         </div>
 
         {/* Pricing Matrix / Buying Menus */}
-        <div className="grid lg:grid-cols-3 gap-6 items-stretch mb-10 md:mb-12">
+        <div className="grid lg:grid-cols-3 gap-6 items-stretch mb-16">
           {SERVICES_SPECTRUM.map((service) => {
             const isDiag = service.id === 'diagnostic';
             return (
               <div 
                 key={service.id} 
-                className={`flex flex-col relative h-full transition-all duration-500 rounded-sm border p-5 sm:p-6 bg-white ${
+                className={`flex flex-col relative h-full transition-all duration-500 rounded-sm border p-6 bg-white ${
                   service.isPopular 
-                    ? 'border-[#b8860b] shadow-[0_15px_40px_rgba(184,134,11,0.08)] ring-1 ring-[#b8860b]/20' 
+                    ? 'border-[#b8860b] shadow-[0_15px_40px_rgba(184,134,11,0.12)] ring-1 ring-[#b8860b]/30' 
                     : 'border-zinc-200 hover:border-[#b8860b]/50 shadow-sm'
                 }`}
               >
                 {service.isPopular && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#b8860b] text-white text-[8px] font-black uppercase tracking-[0.2em] rounded-full">
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#b8860b] text-white text-[8px] font-black uppercase tracking-[0.2em] rounded-full shadow-md">
                     Immediate Activation Available
                   </span>
                 )}
 
-                <div className="mb-4 md:mb-6">
+                <div className="mb-6">
                   <div className="flex justify-between items-center mb-3">
-                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#b8860b] px-2 py-0.5 bg-[#b8860b]/10 rounded-xs">
+                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#b8860b] px-2.5 py-1 bg-[#b8860b]/10 rounded-xs font-mono">
                       {service.badge}
                     </span>
                     <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">
                       {service.duration}
                     </span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 mb-1 leading-tight">{service.title}</h3>
-                  <p className="text-xs text-zinc-500 italic mb-4 font-medium">{service.subtitle}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 mb-1 leading-tight font-serif">{service.title}</h3>
+                  <p className="text-xs text-[#b8860b] italic mb-4 font-semibold">{service.subtitle}</p>
                   <p className="text-zinc-600 text-xs sm:text-sm italic font-light leading-relaxed">{service.description}</p>
                 </div>
 
-                <div className="my-auto pt-3 pb-4 sm:pb-6 border-t border-zinc-100/80">
-                  <span className="text-[10px] uppercase font-black text-zinc-400 tracking-widest block mb-2">Cost Price & Investment</span>
+                <div className="my-auto pt-4 pb-6 border-t border-zinc-100/80">
+                  <span className="text-[10px] uppercase font-black text-zinc-400 tracking-widest block mb-2 font-mono">Investment Terms</span>
                   <div className="flex items-baseline gap-2">
                     <span className={`text-2xl sm:text-3xl font-extrabold ${isDiag ? 'text-[#b8860b]' : 'text-zinc-900 font-bold'}`}>
                       {service.price}
@@ -157,8 +354,8 @@ const ServicesPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-2 mb-6">
-                  <span className="text-[9px] uppercase font-black text-zinc-400 tracking-widest block">Structural Inclusions</span>
-                  <ul className="space-y-2 md:space-y-2.5">
+                  <span className="text-[9px] uppercase font-black text-zinc-400 tracking-widest block font-mono">Structural Deliverables</span>
+                  <ul className="space-y-2.5">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex gap-2.5 text-xs text-zinc-700 italic font-light leading-snug">
                         <CheckCircle className="w-4 h-4 text-[#b8860b] shrink-0 mt-0.5" />
@@ -170,7 +367,7 @@ const ServicesPage: React.FC = () => {
 
                 <button
                   onClick={() => handleCtaClick(service)}
-                  className={`w-full py-3.5 text-[10px] font-black uppercase tracking-[0.2em] transition-all-500 mt-auto shadow-sm ${
+                  className={`w-full py-4 text-[10px] font-black uppercase tracking-[0.2em] transition-all mt-auto shadow-md ${
                     service.isPopular
                       ? 'bg-[#111111] text-white hover:bg-[#b8860b]'
                       : 'border border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-white'

@@ -1,25 +1,15 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { SovereignDB } from '../lib/database.ts';
-
-const ledgerMessages = [
-  "INITIALIZING_HANDSHAKE...",
-  "RSA_4096_ENCRYPTION_ACTIVE",
-  "PARSING_SUBSTRATE_QUERY...",
-  "TRANSMITTING_TO_SOVEREIGN_LEDGER...",
-  "RECEIPT_CONFIRMED: TULC-INTAKE-01",
-  "SECURITY_TUNNEL_CLOSED."
-];
+import { Calendar, ShieldCheck, Send, CheckCircle2 } from 'lucide-react';
 
 interface WaitlistProps {
   defaultOpen?: boolean;
 }
 
-const Waitlist: React.FC<WaitlistProps> = ({ defaultOpen = false }) => {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+const Waitlist: React.FC<WaitlistProps> = () => {
   const [submitted, setSubmitted] = useState(false);
-  const [isEncrypting, setIsEncrypting] = useState(false);
-  const [ledgerLog, setLedgerLog] = useState<string[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   // Form State
   const [formData, setFormData] = useState({
@@ -32,9 +22,9 @@ const Waitlist: React.FC<WaitlistProps> = ({ defaultOpen = false }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsEncrypting(true);
+    setIsSubmitting(true);
     
-    // Commit to the Sovereign Ledger (Local Persistence)
+    // Commit to local DB
     await SovereignDB.saveLead({
       name: formData.name,
       email: formData.email,
@@ -44,7 +34,6 @@ const Waitlist: React.FC<WaitlistProps> = ({ defaultOpen = false }) => {
     });
 
     try {
-      // Trigger Real-time Notification via Backend API and log email status
       await SovereignDB.sendContactEmail({
         name: formData.name,
         email: formData.email,
@@ -54,217 +43,173 @@ const Waitlist: React.FC<WaitlistProps> = ({ defaultOpen = false }) => {
         type: 'INTAKE_ENTRY'
       });
     } catch (error) {
-      console.error("Notification Transmission Failed:", error);
+      console.error("Transmission Failed:", error);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
     }
   };
 
-  useEffect(() => {
-    if (isEncrypting) {
-      let i = 0;
-      const interval = setInterval(() => {
-        if (i < ledgerMessages.length) {
-          setLedgerLog(prev => [...prev, ledgerMessages[i]]);
-          i++;
-        } else {
-          clearInterval(interval);
-          setSubmitted(true);
-        }
-      }, 600);
-      return () => clearInterval(interval);
-    }
-  }, [isEncrypting]);
-
   return (
-    <section id="intake" className="py-16 sm:py-24 bg-[#0a0a0a] text-white border-t border-white/10">
-      <style>
-        {`
-          @keyframes executivePulse {
-            0% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0.2); }
-            70% { box-shadow: 0 0 0 15px rgba(184, 134, 11, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0); }
-          }
-          .animate-pulse-executive-dark {
-            animation: executivePulse 3s infinite cubic-bezier(0.66, 0, 0, 1);
-          }
-        `}
-      </style>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        {!isOpen ? (
-          <div className="py-12">
-            <button
-              onClick={() => setIsOpen(true)}
-              className="px-12 py-6 bg-[#b8860b] text-white text-[11px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 shadow-[0_0_50px_rgba(184,134,11,0.2)] cursor-pointer font-bold"
-            >
-              Request Access
-            </button>
-          </div>
-        ) : isEncrypting && !submitted ? (
-          <div className="bg-[#111111] p-8 sm:p-12 border border-[#b8860b]/30 text-left font-inter">
-            <div className="flex items-center gap-4 mb-6 sm:mb-8">
-              <div className="w-2 h-2 rounded-full bg-[#b8860b] animate-ping" />
-              <span className="text-[8px] sm:text-[10px] font-black uppercase text-[#b8860b] tracking-[0.2em]">Securing Transmission...</span>
+    <section id="intake" className="py-16 sm:py-20 bg-[#0a0a0a] text-white border-t border-white/10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] block mb-2 font-mono">
+            Direct Intake & Consultation
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-bold font-serif text-white mb-3">
+            Initiate Your Strategic <span className="text-[#b8860b] italic font-light">Calibration.</span>
+          </h2>
+          <p className="text-zinc-400 text-xs sm:text-sm font-light italic leading-relaxed">
+            Choose your preferred path to engage Suchita Sancheti, Principal Architect.
+          </p>
+        </div>
+
+        {/* 2-Column Structured Conversion Cards */}
+        <div className="grid md:grid-cols-12 gap-8 items-start">
+          
+          {/* Path 1: Direct Calendar Segment */}
+          <div className="md:col-span-5 bg-gradient-to-b from-zinc-900 to-zinc-950 border border-[#b8860b]/30 p-6 sm:p-8 rounded-xs flex flex-col justify-between h-full relative overflow-hidden shadow-xl">
+            <div className="absolute top-0 right-0 px-3 py-1 bg-[#b8860b]/20 text-[#b8860b] text-[8px] font-black uppercase tracking-widest font-mono">
+              Fast Track
             </div>
-            <div className="space-y-2 sm:space-y-3">
-              {ledgerLog.map((log, idx) => (
-                <div key={idx} className="text-[9px] sm:text-[11px] uppercase font-bold text-white/60 animate-fade-in flex gap-3 sm:gap-4">
-                  <span className="text-[#b8860b] opacity-100">[{idx}]</span>
-                  <span>{log}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        ) : submitted ? (
-          <div className="p-10 sm:p-16 border border-[#b8860b]/30 bg-white/5 backdrop-blur-sm shadow-2xl">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#b8860b] rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8">
-              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <h4 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white">Intake Initialized.</h4>
-            <p className="text-zinc-300 text-base sm:text-lg font-light italic leading-relaxed max-w-lg mx-auto mb-8 sm:mb-10">
-              Your inquiry has been encrypted and placed in the Aligned Ledger. Suchita Sancheti will personally review your substrate within one business cycle.
-            </p>
-            <button 
-              onClick={() => {
-                setSubmitted(false);
-                setIsEncrypting(false);
-                setLedgerLog([]);
-                setFormData({ name: '', email: '', organization: '', role: '', message: '' });
-                setIsOpen(false);
-              }}
-              className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-400 hover:text-white tracking-widest transition-all"
-            >
-              Close Ledger Entry
-            </button>
-          </div>
-        ) : (
-          <div className="space-y-12 animate-fade-in">
-            {/* Direct Channel Booking Option */}
-            <div className="bg-[#111111] p-6 sm:p-10 border border-[#b8860b]/30 text-left relative shadow-2xl overflow-hidden group">
-              <div className="absolute top-0 right-0 p-3 bg-[#b8860b]/10 text-[#b8860b] text-[8px] font-black uppercase tracking-widest">
-                DIRECT SECURE CHANNEL
+
+            <div className="space-y-4 mb-8">
+              <div className="w-10 h-10 rounded-full bg-[#b8860b]/10 border border-[#b8860b]/30 flex items-center justify-center text-[#b8860b]">
+                <Calendar className="w-5 h-5" />
               </div>
-              <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <h3 className="text-xl font-bold font-serif text-white">Direct Executive Booking</h3>
+              <p className="text-zinc-400 text-xs italic font-light leading-relaxed">
+                Reserve a private 30-minute calibration briefing directly on Suchita Sancheti's calendar to diagnose your leadership substrate immediately.
+              </p>
+              
+              <div className="pt-4 space-y-2 font-mono text-[11px] border-t border-white/10">
+                <div className="flex items-center gap-2 text-zinc-300">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#b8860b]" />
+                  <span>Confidential 1-on-1 Session</span>
+                </div>
+                <div className="flex items-center gap-2 text-zinc-300">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#b8860b]" />
+                  <span>Substrate Leak Identification</span>
+                </div>
+              </div>
+            </div>
+
+            <a 
+              href="https://calendly.com/d/d3jb-kpx-r6q" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full py-4 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-all duration-300 text-center cursor-pointer block font-bold shadow-md"
+            >
+              Open Direct Calendar
+            </a>
+          </div>
+
+          {/* Path 2: Private Ledger Inquiry */}
+          <div className="md:col-span-7 bg-zinc-900 border border-white/10 p-6 sm:p-8 rounded-xs shadow-xl relative">
+            <div className="absolute top-0 right-0 px-3 py-1 bg-white/5 text-zinc-400 text-[8px] font-black uppercase tracking-widest font-mono">
+              Form TULC-01
+            </div>
+
+            {submitted ? (
+              <div className="py-12 text-center space-y-4">
+                <CheckCircle2 className="w-12 h-12 text-[#b8860b] mx-auto" />
+                <h3 className="text-2xl font-bold text-white font-serif">Inquiry Transmitted</h3>
+                <p className="text-zinc-300 text-xs italic font-light max-w-md mx-auto leading-relaxed">
+                  Your inquiry has been placed in the Aligned Ledger. Suchita Sancheti will review your parameters within 24 hours.
+                </p>
+                <button 
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFormData({ name: '', email: '', organization: '', role: '', message: '' });
+                  }}
+                  className="text-[9px] uppercase font-bold text-[#b8860b] hover:underline tracking-widest pt-4"
+                >
+                  Send Another Inquiry
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4 text-left">
+                <h3 className="text-lg font-bold font-serif text-white mb-4">Submit Private Inquiry</h3>
+                
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-[9px] font-black uppercase text-[#b8860b] tracking-wider block mb-1">Full Name</label>
+                    <input 
+                      required
+                      type="text" 
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      placeholder="e.g. Rahul Sharma"
+                      className="w-full bg-black/40 border border-white/10 px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#b8860b] transition-colors rounded-xs"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[9px] font-black uppercase text-[#b8860b] tracking-wider block mb-1">Work Email</label>
+                    <input 
+                      required
+                      type="email" 
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      placeholder="e.g. rahul@enterprise.com"
+                      className="w-full bg-black/40 border border-white/10 px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#b8860b] transition-colors rounded-xs"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-[9px] font-black uppercase text-[#b8860b] tracking-wider block mb-1">Organization</label>
+                    <input 
+                      required
+                      type="text" 
+                      value={formData.organization}
+                      onChange={(e) => setFormData({...formData, organization: e.target.value})}
+                      placeholder="e.g. Acme Global"
+                      className="w-full bg-black/40 border border-white/10 px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#b8860b] transition-colors rounded-xs"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[9px] font-black uppercase text-[#b8860b] tracking-wider block mb-1">Role</label>
+                    <input 
+                      required
+                      type="text" 
+                      value={formData.role}
+                      onChange={(e) => setFormData({...formData, role: e.target.value})}
+                      placeholder="e.g. Founder & CEO"
+                      className="w-full bg-black/40 border border-white/10 px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#b8860b] transition-colors rounded-xs"
+                    />
+                  </div>
+                </div>
+
                 <div>
-                  <span className="text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase tracking-[0.3em] block mb-2">INTEGRATE OPERATIONS & LEADERSHIP</span>
-                  <h4 className="text-xl sm:text-2xl font-bold text-white mb-2">Direct Calibration Booking</h4>
-                  <p className="text-zinc-400 text-xs sm:text-sm italic font-light leading-relaxed max-w-xl">
-                    Skip standard queue review mechanisms. Consult Suchita Sancheti's calendar directly to reserve a private briefing segment and diagnose your firm's operational substrates immediately.
-                  </p>
+                  <label className="text-[9px] font-black uppercase text-[#b8860b] tracking-wider block mb-1">Primary Bottleneck / Yield Target</label>
+                  <textarea 
+                    required
+                    rows={3}
+                    value={formData.message}
+                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    placeholder="Describe your current leadership friction or alignment goal..."
+                    className="w-full bg-black/40 border border-white/10 p-3.5 text-xs text-white focus:outline-none focus:border-[#b8860b] transition-colors resize-none rounded-xs"
+                  />
                 </div>
-                <div className="flex flex-col gap-2 shrink-0">
-                  <a 
-                    href="https://calendly.com/d/d3jb-kpx-r6q" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="px-6 py-4 bg-[#b8860b] text-white text-[9px] font-black uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 shadow-lg text-center cursor-pointer inline-block font-bold"
-                  >
-                    Book Direct Segment
-                  </a>
-                  <button 
-                    onClick={() => setIsOpen(false)}
-                    className="text-[8px] font-bold text-zinc-500 uppercase tracking-widest hover:text-white transition-colors"
-                  >
-                    Collapse Form
-                  </button>
-                </div>
-              </div>
-            </div>
 
-            {/* Separator / Alternative Option */}
-            <div className="flex items-center gap-4 py-2">
-              <div className="h-[1px] flex-1 bg-white/10" />
-              <span className="text-[9px] font-black uppercase tracking-[0.3em] text-zinc-500">OR SUBMIT MANUAL LEDGER INQUIRY</span>
-              <div className="h-[1px] flex-1 bg-white/10" />
-            </div>
-
-            <form onSubmit={handleSubmit} className="text-left space-y-6 sm:space-y-8 bg-white/5 p-8 sm:p-10 md:p-16 border border-white/10 shadow-2xl relative backdrop-blur-md">
-              <div className="absolute top-0 right-0 p-4 sm:p-8">
-                <span className="text-[7px] sm:text-[9px] uppercase font-black text-white/20 tracking-widest">FORM: TULC-SR-01</span>
-              </div>
-              
-              <div className="grid sm:grid-cols-2 gap-6 sm:gap-10">
-                <div className="space-y-1 sm:space-y-2">
-                  <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Full Name</label>
-                  <input 
-                    required
-                    type="text" 
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full bg-transparent border-b border-white/10 py-2 sm:py-3 text-white focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
-                  />
-                </div>
-                <div className="space-y-1 sm:space-y-2">
-                  <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Work Email</label>
-                  <input 
-                    required
-                    type="email" 
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full bg-transparent border-b border-white/10 py-2 sm:py-3 text-white focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
-                  />
-                </div>
-              </div>
-              
-              <div className="grid sm:grid-cols-2 gap-6 sm:gap-10">
-                <div className="space-y-1 sm:space-y-2">
-                  <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Organization Name</label>
-                  <input 
-                    required
-                    type="text" 
-                    value={formData.organization}
-                    onChange={(e) => setFormData({...formData, organization: e.target.value})}
-                    className="w-full bg-transparent border-b border-white/10 py-2 sm:py-3 text-white focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
-                  />
-                </div>
-                <div className="space-y-1 sm:space-y-2">
-                  <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Institutional Role</label>
-                  <input 
-                    required
-                    type="text" 
-                    value={formData.role}
-                    onChange={(e) => setFormData({...formData, role: e.target.value})}
-                    placeholder="e.g. CEO, Principal Architect"
-                    className="w-full bg-transparent border-b border-white/10 py-2 sm:py-3 text-white focus:outline-none focus:border-[#b8860b] transition-colors font-medium text-base sm:text-lg italic"
-                  />
-                </div>
-              </div>
-              
-              <div className="space-y-1 sm:space-y-2">
-                <label className="text-[8px] sm:text-[10px] uppercase text-[#b8860b] font-black tracking-widest">Institutional Yield Target</label>
-                <textarea 
-                  required
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  placeholder="Briefly define the primary bottleneck in your current leadership substrate..."
-                  className="w-full bg-white/5 border border-white/10 p-4 sm:p-6 text-white focus:outline-none focus:border-[#b8860b] transition-colors resize-none font-medium italic text-base sm:text-lg leading-relaxed"
-                />
-              </div>
-              
-              <div className="pt-4 sm:pt-6">
                 <button 
                   type="submit"
-                  className="w-full py-4 sm:py-6 bg-[#b8860b] text-white text-[9px] sm:text-[11px] font-bold uppercase hover:bg-white hover:text-black transition-all shadow-2xl tracking-[0.2em] sm:tracking-[0.3em] animate-pulse-executive-dark"
+                  disabled={isSubmitting}
+                  className="w-full py-3.5 bg-white text-black hover:bg-[#b8860b] hover:text-white text-[10px] font-black uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
                 >
-                  Transmit to Sovereign Ledger
+                  <Send className="w-3.5 h-3.5" />
+                  <span>{isSubmitting ? 'Transmitting...' : 'Transmit Inquiry'}</span>
                 </button>
-                
-                <div className="mt-6 sm:mt-8 flex flex-wrap justify-center items-center gap-4 sm:gap-6 opacity-40">
-                  <div className="flex items-center gap-2">
-                    <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-zinc-400" />
-                    <span className="text-[7px] sm:text-[8px] uppercase font-black tracking-widest text-white">End-to-End Encrypted</span>
-                  </div>
-                  <div className="hidden sm:block w-px h-3 bg-white/10" />
-                  <div className="flex items-center gap-2">
-                    <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-zinc-400" />
-                    <span className="text-[7px] sm:text-[8px] uppercase font-black tracking-widest text-white">Zero Data Retention Active</span>
-                  </div>
-                </div>
-              </div>
-            </form>
+              </form>
+            )}
           </div>
-        )}
+
+        </div>
+
       </div>
     </section>
   );
