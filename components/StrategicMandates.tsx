@@ -50,84 +50,88 @@ const mandates: Mandate[] = [
 
 const StrategicMandates: React.FC = () => {
   return (
-    <section id="mandates" className="py-32 bg-[#fdfdfb] border-t border-zinc-200">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-px bg-[#b8860b]" />
-              <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em]">Strategic Engagements</span>
+    <>
+      <section id="mandates" className="py-24 md:py-32 bg-[#fdfdfb] border-t border-zinc-200">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-px bg-[#b8860b]" />
+                <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em]">Strategic Engagements</span>
+              </div>
+              <h2 className="text-4xl md:text-7xl font-light leading-[1.1] text-[#111111]">
+                The Mandates of <br />
+                <span className="italic font-medium text-[#b8860b]">Enterprise Alignment.</span>
+              </h2>
             </div>
-            <h2 className="text-4xl md:text-7xl font-light leading-[1.1] text-[#111111]">
-              The Mandates of <br />
-              <span className="italic font-medium text-[#b8860b]">Enterprise Alignment.</span>
-            </h2>
-          </div>
-          <div className="md:text-right">
-            <p className="text-zinc-700 italic max-w-sm ml-auto mb-8 font-light leading-relaxed">
-              We provide tailored operational assessments and structural alignment frameworks that secure scale and resolve administrative drag.
-            </p>
-            <div className="text-[10px] font-black uppercase tracking-widest text-zinc-600">
-              Select an engagement track to evaluate operational alignment
+            <div className="md:text-right">
+              <p className="text-zinc-700 italic max-w-sm ml-auto mb-8 font-light leading-relaxed">
+                We provide tailored operational assessments and structural alignment frameworks that secure scale and resolve administrative drag.
+              </p>
+              <div className="text-[10px] font-black uppercase tracking-widest text-zinc-600">
+                Select an engagement track to evaluate operational alignment
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-200 border border-zinc-200 overflow-hidden shadow-2xl">
-          {mandates.map((mandate) => (
-            <motion.div 
-              key={mandate.id}
-              whileHover={{ backgroundColor: '#ffffff' }}
-              className="bg-[#fdfdfb] p-10 flex flex-col h-full group relative transition-colors duration-500"
-            >
-              <div className="flex justify-between items-start mb-12">
-                <span className="text-[#b8860b] text-2xl font-bold italic opacity-30 group-hover:opacity-100 transition-opacity">{mandate.id}</span>
-                <div className="p-3 bg-zinc-100 rounded-full text-zinc-400 group-hover:bg-[#b8860b]/10 group-hover:text-[#b8860b] transition-all">
-                  {mandate.icon}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-200 border border-zinc-200 overflow-hidden shadow-2xl">
+            {mandates.map((mandate) => (
+              <motion.div 
+                key={mandate.id}
+                whileHover={{ backgroundColor: '#ffffff' }}
+                className="bg-[#fdfdfb] p-10 flex flex-col h-full group relative transition-colors duration-500"
+              >
+                <div className="flex justify-between items-start mb-12">
+                  <span className="text-[#b8860b] text-2xl font-bold italic opacity-30 group-hover:opacity-100 transition-opacity">{mandate.id}</span>
+                  <div className="p-3 bg-zinc-100 rounded-full text-zinc-400 group-hover:bg-[#b8860b]/10 group-hover:text-[#b8860b] transition-all">
+                    {mandate.icon}
+                  </div>
                 </div>
-              </div>
-              
-              <div className="mt-auto">
-                <div className="text-[9px] font-black uppercase tracking-[0.3em] text-zinc-600 mb-4">{mandate.label}</div>
-                <h3 className="text-2xl font-bold mb-6 group-hover:text-[#b8860b] transition-colors leading-tight">{mandate.title}</h3>
-                <p className="text-zinc-700 text-sm mb-8 italic font-light leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all">
-                  {mandate.description}
-                </p>
                 
-                <ul className="space-y-3 mb-10 overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-700 opacity-0 group-hover:opacity-100">
-                  {mandate.deliverables.map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-[10px] uppercase font-bold tracking-widest text-[#111111]">
-                      <div className="w-1 h-1 bg-[#b8860b]" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <div className="mt-auto">
+                  <div className="text-[9px] font-black uppercase tracking-[0.3em] text-zinc-600 mb-4">{mandate.label}</div>
+                  <h3 className="text-2xl font-bold mb-6 group-hover:text-[#b8860b] transition-colors leading-tight">{mandate.title}</h3>
+                  <p className="text-zinc-700 text-sm mb-8 italic font-light leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all">
+                    {mandate.description}
+                  </p>
+                  
+                  <ul className="space-y-3 mb-10 overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-700 opacity-0 group-hover:opacity-100">
+                    {mandate.deliverables.map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-3 text-[10px] uppercase font-bold tracking-widest text-[#111111]">
+                        <div className="w-1 h-1 bg-[#b8860b]" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
 
-                <button 
-                  onClick={() => window.location.hash = 'assessment'}
-                  className="mt-4 flex items-center gap-4 text-[9px] font-black uppercase tracking-widest text-[#111111] hover:text-[#b8860b] transition-colors"
-                >
-                  Request Mandate Brief <ArrowRight className="w-4 h-4" />
-                </button>
+                  <button 
+                    onClick={() => window.location.hash = 'assessment'}
+                    className="mt-4 flex items-center gap-4 text-[9px] font-black uppercase tracking-widest text-[#111111] hover:text-[#b8860b] transition-colors"
+                  >
+                    Request Mandate Brief <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Five Domains of Leadership Architecture (Spans beautifully to edges) */}
+      <FiveDomains />
+
+      {/* Human-System Integration Paradigm, Sovereign Data Protocol & Vetted Client Portal */}
+      <section className="py-24 md:py-32 bg-[#fdfdfb] border-t border-zinc-200">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Human-System Integration Paradigm */}
+          <div className="p-8 sm:p-12 bg-zinc-50 border border-zinc-200 shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#b8860b]/5 blur-3xl rounded-full pointer-events-none" />
+            
+            <div className="max-w-4xl mx-auto relative z-10">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-8 h-px bg-[#b8860b]" />
+                <span className="text-[#b8860b] text-[9px] sm:text-[10px] font-black uppercase tracking-[0.3em]">The Human-System Integration</span>
               </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* The Five Domains of Leadership Architecture */}
-        <div className="mt-24">
-          <FiveDomains />
-        </div>
-
-        {/* Human-System Integration Paradigm */}
-        <div className="mt-28 p-8 sm:p-12 bg-zinc-50 border border-zinc-200 shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#b8860b]/5 blur-3xl rounded-full pointer-events-none" />
-          
-          <div className="max-w-4xl mx-auto relative z-10">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-8 h-px bg-[#b8860b]" />
-              <span className="text-[#b8860b] text-[9px] sm:text-[10px] font-black uppercase tracking-[0.3em]">The Human-System Integration</span>
-            </div>
 
             <h3 className="text-3xl sm:text-5xl font-light text-zinc-950 leading-tight mb-8">
               Systems architecture is the skeleton; <br />
@@ -239,6 +243,7 @@ const StrategicMandates: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface MethodologyProps {
   onBriefClick: (phaseId?: string) => void;
@@ -162,74 +163,124 @@ const PhaseCard: React.FC<{
   humanIntegration?: string;
   image: string;
   onBriefClick: () => void;
-}> = ({ phase, title, subtitle, action, outcome, systemLayer, humanIntegration, image, onBriefClick }) => (
-  <div className="bg-[#0a0a0a] p-8 lg:p-10 group relative overflow-hidden flex flex-col h-full hover:bg-[#111111] transition-all duration-700">
-    <div className="absolute top-0 right-0 w-full h-full opacity-0 group-hover:opacity-[0.05] transition-opacity duration-1000 -z-10">
-      <img 
-        src={image} 
-        alt={title} 
-        className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000 grayscale"
-        loading="lazy"
-        decoding="async"
-        referrerPolicy="no-referrer"
-      />
-    </div>
+}> = ({ phase, title, subtitle, action, outcome, systemLayer, humanIntegration, image, onBriefClick }) => {
+  const [activeTab, setActiveTab] = useState<'core' | 'alignment'>('core');
 
-    <div className="flex justify-between items-start mb-6 gap-4">
-      <div className="flex flex-col">
-        <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-2">Phase {phase}</span>
-        <span className="text-white/30 text-[9px] uppercase font-bold tracking-widest">{subtitle}</span>
-      </div>
-      <div className="text-white/5 text-6xl md:text-8xl font-black italic select-none group-hover:text-[#b8860b]/10 transition-colors duration-700">
-        {phase}
-      </div>
-    </div>
-
-    <h4 className="text-2xl lg:text-3xl font-bold mb-8 text-white group-hover:text-[#b8860b] transition-colors duration-500">
-      {title}
-    </h4>
-
-    <div className="space-y-6 mb-8 flex-grow">
-      <div>
-        <div className="text-[9px] uppercase font-black text-[#b8860b] mb-2 tracking-widest opacity-60">The Action:</div>
-        <p className="text-zinc-400 text-base leading-relaxed italic font-light">
-          {action}
-        </p>
-      </div>
-      <div>
-        <div className="text-[9px] uppercase font-black text-[#b8860b] mb-2 tracking-widest opacity-60">The Outcome:</div>
-        <p className="text-white text-base leading-relaxed font-medium">
-          {outcome}
-        </p>
+  return (
+    <div className="bg-[#0a0a0a] p-8 lg:p-10 group relative overflow-hidden flex flex-col h-full hover:bg-[#111111] transition-all duration-700">
+      <div className="absolute top-0 right-0 w-full h-full opacity-0 group-hover:opacity-[0.05] transition-opacity duration-1000 -z-10">
+        <img 
+          src={image} 
+          alt={title} 
+          className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000 grayscale"
+          loading="lazy"
+          decoding="async"
+          referrerPolicy="no-referrer"
+        />
       </div>
 
-      {systemLayer && (
-        <div className="pt-4 border-t border-white/5 space-y-4">
-          <div>
-            <div className="text-[9px] uppercase font-black text-white/50 mb-1.5 tracking-widest font-mono">The System Layer:</div>
-            <p className="text-zinc-300 text-sm leading-relaxed font-light font-mono">
-              {systemLayer}
-            </p>
-          </div>
-          <div>
-            <div className="text-[9px] uppercase font-black text-[#b8860b] mb-1.5 tracking-widest">The Human Integration:</div>
-            <p className="text-zinc-300 text-sm leading-relaxed italic font-light">
-              {humanIntegration}
-            </p>
-          </div>
+      <div className="flex justify-between items-start mb-6 gap-4">
+        <div className="flex flex-col">
+          <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-2">Phase {phase}</span>
+          <span className="text-white/30 text-[9px] uppercase font-bold tracking-widest">{subtitle}</span>
         </div>
-      )}
-    </div>
+        <div className="text-white/5 text-6xl md:text-8xl font-black italic select-none group-hover:text-[#b8860b]/10 transition-colors duration-700">
+          {phase}
+        </div>
+      </div>
 
-    <div className="pt-8 border-t border-white/5">
-      <button 
-        onClick={onBriefClick}
-        className="text-[10px] font-black uppercase text-white/40 group-hover:text-[#b8860b] tracking-[0.3em] transition-all flex items-center gap-3"
-      >
-        Request Briefing <span>→</span>
-      </button>
+      <h4 className="text-2xl lg:text-3xl font-bold mb-6 text-white group-hover:text-[#b8860b] transition-colors duration-500">
+        {title}
+      </h4>
+
+      {/* Dynamic View Toggle Tabs */}
+      <div className="flex border-b border-white/5 mb-6 text-[9px] font-black uppercase tracking-widest font-mono">
+        <button
+          onClick={() => setActiveTab('core')}
+          className={`pb-3 pr-4 border-b-2 transition-all duration-300 relative ${
+            activeTab === 'core' 
+              ? 'border-[#b8860b] text-white font-bold' 
+              : 'border-transparent text-white/30 hover:text-white/70'
+          }`}
+        >
+          01 / Core Protocol
+        </button>
+        <button
+          onClick={() => setActiveTab('alignment')}
+          className={`pb-3 px-4 border-b-2 transition-all duration-300 relative ${
+            activeTab === 'alignment' 
+              ? 'border-[#b8860b] text-white font-bold' 
+              : 'border-transparent text-white/30 hover:text-white/70'
+          }`}
+        >
+          02 / Deep Alignment
+        </button>
+      </div>
+
+      <div className="mb-8 flex-grow">
+        <AnimatePresence mode="wait">
+          {activeTab === 'core' ? (
+            <motion.div
+              key="core"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.2 }}
+              className="space-y-6"
+            >
+              <div>
+                <div className="text-[9px] uppercase font-black text-[#b8860b] mb-2 tracking-widest opacity-60">The Action:</div>
+                <p className="text-zinc-400 text-base leading-relaxed italic font-light">
+                  {action}
+                </p>
+              </div>
+              <div>
+                <div className="text-[9px] uppercase font-black text-[#b8860b] mb-2 tracking-widest opacity-60">The Outcome:</div>
+                <p className="text-white text-base leading-relaxed font-medium">
+                  {outcome}
+                </p>
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="alignment"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.2 }}
+              className="space-y-6"
+            >
+              {systemLayer && (
+                <div className="space-y-4">
+                  <div>
+                    <div className="text-[9px] uppercase font-black text-white/50 mb-1.5 tracking-widest font-mono">The System Layer:</div>
+                    <p className="text-zinc-300 text-sm leading-relaxed font-light font-mono">
+                      {systemLayer}
+                    </p>
+                  </div>
+                  <div>
+                    <div className="text-[9px] uppercase font-black text-[#b8860b] mb-1.5 tracking-widest">The Human Integration:</div>
+                    <p className="text-zinc-300 text-sm leading-relaxed italic font-light">
+                      {humanIntegration}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      <div className="pt-8 border-t border-white/5">
+        <button 
+          onClick={onBriefClick}
+          className="text-[10px] font-black uppercase text-white/40 group-hover:text-[#b8860b] tracking-[0.3em] transition-all flex items-center gap-3"
+        >
+          Request Briefing <span>→</span>
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Methodology;

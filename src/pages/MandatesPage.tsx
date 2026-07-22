@@ -12,7 +12,7 @@ const MandatesPage: React.FC = () => {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="bg-[#f5f5f0] min-h-screen pt-4"
+      className="min-h-screen"
     >
       <StrategicMandates />
     </motion.div>

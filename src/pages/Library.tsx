@@ -572,9 +572,9 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="bg-[#0a0a0a] min-h-screen pt-6 md:pt-16 pb-24 text-white"
+      className="bg-[#0a0a0a] min-h-screen text-white flex flex-col"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl w-full mx-auto px-6 pt-12 md:pt-16 pb-8">
         <nav className="flex items-center gap-2 text-[8px] uppercase tracking-[0.3em] font-black text-zinc-500 mb-8">
           <a href="/" className="hover:text-[#b8860b] transition-colors">Home</a>
           <span className="text-zinc-700">/</span>
@@ -591,19 +591,17 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
           </p>
           <div className="w-16 h-[2px] bg-[#b8860b] mt-8" />
         </header>
+      </div>
 
-        {/* Core Articles & Pulse */}
-        <div className="-mx-6">
-          <Insights onArticleClick={onArticleClick} hideHeader />
-        </div>
+      {/* Core Articles & Pulse */}
+      <Insights onArticleClick={onArticleClick} hideHeader />
 
-        {/* Dynamic Dispatches */}
-        <div className="mt-16 -mx-6">
-          <Blog onArticleClick={onArticleClick} hideHeader />
-        </div>
+      {/* Dynamic Dispatches */}
+      <Blog onArticleClick={onArticleClick} hideHeader />
 
-        {/* White Papers Section */}
-        <div className="mt-16 pt-16 border-t border-white/5 pb-24">
+      {/* White Papers Section */}
+      <div className="bg-[#0a0a0a] border-t border-white/5 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-6">
           <h3 className="text-[10px] font-black uppercase text-zinc-400 tracking-[0.2em] mb-10 border-b border-white/10 pb-4">Architectural White Papers</h3>
           <div className="grid lg:grid-cols-2 gap-10">
             <div className="group bg-white/5 p-10 border border-white/10 hover:border-[#b8860b]/30 transition-all duration-700">
@@ -650,12 +648,13 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Strategic Newsletter Placement - Library Terminal */}
-        <div className="mt-12 pt-16 border-t border-white/10 max-w-4xl mx-auto">
-          <Newsletter />
+          {/* Strategic Newsletter Placement - Library Terminal */}
+          <div className="mt-20 pt-16 border-t border-white/10 max-w-4xl mx-auto">
+            <Newsletter />
+          </div>
         </div>
+      </div>
 
         {/* Immersive Online White Paper Reader */}
         {activePaperKey && WHITE_PAPERS[activePaperKey] && (() => {
@@ -816,7 +815,6 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
             </div>
           );
         })()}
-      </div>
     </motion.div>
   );
 };
