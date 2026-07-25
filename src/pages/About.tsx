@@ -325,16 +325,56 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
               </div>
 
               {/* Our Core Thesis */}
-              <div className="bg-white p-8 md:p-10 border border-zinc-200 shadow-lg">
-                <h3 className="text-lg font-bold mb-4 text-[#111111] border-b border-[#b8860b]/20 pb-3 flex items-center gap-2">
-                  <span className="text-zinc-400 font-mono text-xs">01 /</span> The Architectural Thesis
-                </h3>
-                <p className="text-zinc-600 leading-relaxed font-light italic text-sm mb-4">
-                  Most governance frameworks treat delegation as a simple task-assignment problem. We treat it as a systemic alignment problem. Even when authority is formally transferred, the strategic reasoning structure remains locked inside the founder's head, causing up to a 15% strategic dilution per organizational layer.
-                </p>
-                <p className="text-zinc-600 leading-relaxed font-light italic text-sm">
-                  TULC maps these hidden alignment leaks and implements strategic intent into your enterprise's architecture—utilizing our proprietary Strategic Alignment Protocol™—creating a self-cohering, high-frequency execution structure that gains velocity even in your absence.
-                </p>
+              <div className="bg-white p-8 md:p-10 border border-zinc-200 shadow-lg space-y-6">
+                <div>
+                  <h3 className="text-lg font-bold mb-3 text-[#111111] border-b border-[#b8860b]/20 pb-3 flex items-center justify-between">
+                    <span className="flex items-center gap-2 font-serif">
+                      <span className="text-zinc-400 font-mono text-xs">01 /</span> The Architectural Thesis
+                    </span>
+                    <span className="text-[9px] font-mono font-bold uppercase text-[#b8860b] bg-[#b8860b]/10 px-2 py-0.5 border border-[#b8860b]/30">
+                      Patent-Filed Matrix
+                    </span>
+                  </h3>
+                  <p className="text-zinc-600 leading-relaxed font-light italic text-sm mb-3">
+                    Most governance frameworks treat delegation as a simple task-assignment problem. We treat it as a systemic alignment problem. Even when authority is formally transferred, the strategic reasoning structure remains locked inside the founder's head, causing up to a 15% strategic dilution per organizational layer.
+                  </p>
+                  <p className="text-zinc-600 leading-relaxed font-light italic text-sm">
+                    TULC maps these hidden alignment leaks and implements strategic intent into your enterprise's architecture—utilizing our proprietary Strategic Alignment Protocol™—creating a self-cohering, high-frequency execution structure that gains velocity even in your absence.
+                  </p>
+                </div>
+
+                {/* 5 Sovereign Domains Executive Summary Card */}
+                <div className="bg-[#111111] text-white p-5 border border-[#b8860b]/30 rounded-xs space-y-3">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                    <span className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#b8860b]">
+                      The 5 Sovereign Domains Framework
+                    </span>
+                    <span className="text-[8px] font-mono text-zinc-400 uppercase">Core Diagnostic Pillars</span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] font-mono">
+                    <div className="p-2 bg-white/5 border border-white/5 rounded-xs">
+                      <strong className="text-[#b8860b] block text-[10px]">01. Cognitive Clarity</strong>
+                      <span className="text-zinc-300 text-[10px] italic">Executive Decision Flow & Bandwidth</span>
+                    </div>
+                    <div className="p-2 bg-white/5 border border-white/5 rounded-xs">
+                      <strong className="text-[#b8860b] block text-[10px]">02. Systemic Integrity</strong>
+                      <span className="text-zinc-300 text-[10px] italic">Organizational Execution Architecture</span>
+                    </div>
+                    <div className="p-2 bg-white/5 border border-white/5 rounded-xs">
+                      <strong className="text-[#b8860b] block text-[10px]">03. Strategic Velocity</strong>
+                      <span className="text-zinc-300 text-[10px] italic">Operational Directives & Speed</span>
+                    </div>
+                    <div className="p-2 bg-white/5 border border-white/5 rounded-xs">
+                      <strong className="text-[#b8860b] block text-[10px]">04. Moral Gravity</strong>
+                      <span className="text-zinc-300 text-[10px] italic">Governance & Compliance Standards</span>
+                    </div>
+                    <div className="p-2 sm:col-span-2 bg-white/5 border border-white/5 rounded-xs">
+                      <strong className="text-[#b8860b] block text-[10px]">05. Cultural Fidelity</strong>
+                      <span className="text-zinc-300 text-[10px] italic">Institutional Continuity, Key-Person Protection & Succession</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Office of the Principal Staff Block */}

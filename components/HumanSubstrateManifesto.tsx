@@ -69,6 +69,50 @@ const HumanSubstrateManifesto: React.FC = () => {
 
           </div>
 
+          {/* 5 Sovereign Domains Patent Preview Bar */}
+          <div className="bg-black border border-[#b8860b]/40 p-5 rounded-xs mb-8 text-left">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 border-b border-white/10 pb-3">
+              <div>
+                <span className="text-[9px] font-mono font-bold uppercase tracking-[0.25em] text-[#b8860b] block">
+                  Provisional Patent-Filed Framework
+                </span>
+                <h4 className="text-base font-bold font-serif text-white">
+                  The 5 Sovereign Domains of Systemic Alignment
+                </h4>
+              </div>
+              <button 
+                onClick={() => navigate('/services')}
+                className="text-[9px] font-mono text-[#b8860b] hover:text-white uppercase tracking-widest flex items-center gap-1 shrink-0 cursor-pointer"
+              >
+                <span>View Full Matrix</span>
+                <ArrowRight className="w-3 h-3" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5 text-[11px] font-mono">
+              <div className="bg-white/5 border border-white/5 p-2.5 rounded-xs hover:border-[#b8860b]/40 transition-colors">
+                <span className="text-[#b8860b] font-bold block text-[10px]">01. Cognitive Clarity</span>
+                <span className="text-zinc-400 text-[9.5px] leading-tight block">Decision Flow & Bandwidth</span>
+              </div>
+              <div className="bg-white/5 border border-white/5 p-2.5 rounded-xs hover:border-[#b8860b]/40 transition-colors">
+                <span className="text-[#b8860b] font-bold block text-[10px]">02. Systemic Integrity</span>
+                <span className="text-zinc-400 text-[9.5px] leading-tight block">Organizational Architecture</span>
+              </div>
+              <div className="bg-white/5 border border-white/5 p-2.5 rounded-xs hover:border-[#b8860b]/40 transition-colors">
+                <span className="text-[#b8860b] font-bold block text-[10px]">03. Strategic Velocity</span>
+                <span className="text-zinc-400 text-[9.5px] leading-tight block">Operational Directives</span>
+              </div>
+              <div className="bg-white/5 border border-white/5 p-2.5 rounded-xs hover:border-[#b8860b]/40 transition-colors">
+                <span className="text-[#b8860b] font-bold block text-[10px]">04. Moral Gravity</span>
+                <span className="text-zinc-400 text-[9.5px] leading-tight block">Governance & Compliance</span>
+              </div>
+              <div className="bg-white/5 border border-white/5 p-2.5 rounded-xs hover:border-[#b8860b]/40 transition-colors">
+                <span className="text-[#b8860b] font-bold block text-[10px]">05. Cultural Fidelity</span>
+                <span className="text-zinc-400 text-[9.5px] leading-tight block">Continuity & Succession</span>
+              </div>
+            </div>
+          </div>
+
           {/* Concluding Statement */}
           <div className="bg-[#b8860b]/10 border border-[#b8860b]/30 p-5 rounded-xs flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <div>
