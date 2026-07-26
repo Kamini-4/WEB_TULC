@@ -65,10 +65,10 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
           onClick={handleLogoClick}
           title="Hold Alt to access Sovereign Ledger"
         >
-          <span className="text-base sm:text-xl md:text-2xl font-bold text-[#111111] tracking-tighter group-hover:text-[#b8860b] transition-colors duration-500 truncate">THE UNBOUNDED</span>
+          <span className="text-base sm:text-xl md:text-2xl font-bold text-[#111111] group-hover:text-[#b8860b] transition-colors duration-500 truncate">THE UNBOUNDED</span>
           <div className="flex items-center gap-2 -mt-1">
             <div className="h-[1px] w-3 md:w-6 bg-[#b8860b] shrink-0"></div>
-            <span className="text-[6px] sm:text-[8px] md:text-[9px] uppercase text-[#b8860b] font-black tracking-[0.2em] sm:tracking-[0.3em] truncate">LEADERSHIP CO.</span>
+            <span className="text-[6px] sm:text-[8px] md:text-[9px] uppercase text-[#b8860b] font-black sm:truncate">LEADERSHIP CO.</span>
           </div>
         </div>
         
@@ -81,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
                   href={item.path}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[9px] font-black uppercase text-[#111111] hover:text-[#b8860b] transition-colors tracking-widest"
+                  className="text-[9px] font-black uppercase text-[#111111] hover:text-[#b8860b] transition-colors "
                 >
                   {item.label}
                 </a>
@@ -90,7 +90,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
                   key={item.path}
                   to={item.path}
                   onClick={(e) => handleNavClick(item.path, e)}
-                  className="text-[9px] font-black uppercase text-[#111111] hover:text-[#b8860b] transition-colors tracking-widest"
+                  className="text-[9px] font-black uppercase text-[#111111] hover:text-[#b8860b] transition-colors "
                 >
                   {item.label}
                 </Link>
@@ -99,7 +99,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
           </div>
           <button 
             onClick={scrollToWaitlist}
-            className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 bg-[#111111] text-white hover:bg-black transition-all duration-500 shadow-xl text-[8px] sm:text-[10px] uppercase font-bold tracking-[0.2em] border border-white/10"
+            className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 bg-[#111111] text-white hover:bg-black transition-all duration-500 shadow-xl text-[8px] sm:text-[10px] uppercase font-bold border border-white/10"
           >
             REQUEST ACCESS
           </button>
@@ -127,7 +127,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
                   href={item.path}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xl font-bold text-[#111111] text-left uppercase tracking-widest border-b border-zinc-200 pb-4"
+                  className="text-xl font-bold text-[#111111] text-left uppercase border-b border-zinc-200 pb-4"
                 >
                   {item.label}
                 </a>
@@ -136,7 +136,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
                   key={item.path}
                   to={item.path}
                   onClick={(e) => handleNavClick(item.path, e)}
-                  className="text-xl font-bold text-[#111111] text-left uppercase tracking-widest border-b border-zinc-200 pb-4"
+                  className="text-xl font-bold text-[#111111] text-left uppercase border-b border-zinc-200 pb-4"
                 >
                   {item.label}
                 </Link>
@@ -144,7 +144,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
             ))}
             <button 
               onClick={scrollToWaitlist}
-              className="mt-4 py-5 bg-[#111111] text-white text-xs font-black uppercase tracking-widest"
+              className="mt-4 py-5 bg-[#111111] text-white text-xs font-black uppercase "
             >
               REQUEST SOVEREIGN ACCESS
             </button>
@@ -157,10 +157,10 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
 
 const StatusIndicator: React.FC<{ label: string; value: string; active?: boolean }> = ({ label, value, active }) => (
   <div className="flex flex-col">
-    <span className="text-[7px] uppercase font-black text-zinc-400 tracking-widest mb-1">{label}</span>
+    <span className="text-[7px] uppercase font-black text-zinc-400 mb-1">{label}</span>
     <div className="flex items-center gap-2">
       <div className={`w-1 h-1 rounded-full ${active ? 'bg-green-500 animate-pulse' : 'bg-[#b8860b]'}`} />
-      <span className="text-[9px] uppercase font-bold text-[#111111] tracking-widest">{value}</span>
+      <span className="text-[9px] uppercase font-bold text-[#111111] ">{value}</span>
     </div>
   </div>
 );

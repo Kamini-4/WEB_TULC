@@ -42,7 +42,7 @@ const Newsletter: React.FC = () => {
       <div className="absolute top-0 right-0 w-32 h-32 bg-[#b8860b]/5 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-[#b8860b]/10 transition-all duration-700" />
       
       <div className="relative z-10">
-        <h3 className="text-[#b8860b] text-[8px] sm:text-[10px] font-black uppercase tracking-[0.4em] mb-4">The Newsletter</h3>
+        <h3 className="text-[#b8860b] text-[8px] sm:text-[10px] font-black uppercase mb-4">The Newsletter</h3>
         <h4 className="text-xl sm:text-2xl font-bold text-white mb-6 leading-tight">
           Receive the <span className="italic text-[#b8860b]">Strategic Alignment Newsletter</span> directly to your inbox.
         </h4>
@@ -52,7 +52,7 @@ const Newsletter: React.FC = () => {
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            <span className="text-xs font-bold uppercase tracking-widest">Handshake Confirmed. Welcome to the Registry.</span>
+            <span className="text-xs font-bold uppercase ">Handshake Confirmed. Welcome to the Registry.</span>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
@@ -67,14 +67,14 @@ const Newsletter: React.FC = () => {
             <button
               disabled={status === 'loading'}
               type="submit"
-              className="px-8 py-4 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.2em] hover:bg-[#d4af37] transition-all duration-300 disabled:opacity-50"
+              className="px-8 py-4 bg-[#b8860b] text-white text-[10px] font-black uppercase hover:bg-[#d4af37] transition-all duration-300 disabled:opacity-50"
             >
               {status === 'loading' ? 'Transmitting...' : 'Subscribe'}
             </button>
           </form>
         )}
         
-        <p className="mt-6 text-[9px] text-white/50 uppercase font-bold tracking-widest flex items-center gap-3">
+        <p className="mt-6 text-[9px] text-white/50 uppercase font-bold flex items-center gap-3">
           <span className="w-1 h-1 bg-[#b8860b] rounded-full" />
           Zero Data Retention Active
           <span className="w-1 h-1 bg-[#b8860b] rounded-full" />

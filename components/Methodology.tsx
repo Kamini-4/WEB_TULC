@@ -38,7 +38,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 sm:mb-24 gap-8">
           <div className="max-w-2xl">
-            <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 tracking-[0.3em] sm:tracking-[0.4em] flex flex-wrap items-center gap-2">
+            <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 sm:flex flex-wrap items-center gap-2">
               <span>The Strategic Alignment Protocol</span>
             </h2>
             <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
@@ -48,7 +48,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
           <div className="pb-2 w-full md:w-auto">
             <button 
               onClick={() => onBriefClick()}
-              className="w-full md:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-[#b8860b] text-white text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 shadow-2xl animate-pulse-executive"
+              className="w-full md:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-[#b8860b] text-white text-[9px] sm:text-[10px] font-black uppercase sm:hover:bg-white hover:text-black transition-all duration-500 shadow-2xl animate-pulse-executive"
             >
               Request Full Protocol
             </button>
@@ -110,7 +110,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
               <div className="w-12 h-12 rounded-full border border-[#b8860b]/30 bg-zinc-900 flex items-center justify-center text-[#b8860b]">
                 <span className="text-xl">🎙️</span>
               </div>
-              <div className="text-[8px] font-black uppercase tracking-widest text-[#b8860b] font-mono">Principal Audio</div>
+              <div className="text-[8px] font-black uppercase text-[#b8860b] font-mono">Principal Audio</div>
               <div className="flex items-end gap-1 h-6 pt-1">
                 <span className="w-1 h-3 bg-[#b8860b]/40 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></span>
                 <span className="w-1 h-5 bg-[#b8860b] rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></span>
@@ -120,7 +120,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
               </div>
             </div>
             <div className="space-y-4 flex-grow">
-              <span className="text-[10px] font-black uppercase text-[#b8860b] tracking-[0.3em] block">The Boardroom Soundbite</span>
+              <span className="text-[10px] font-black uppercase text-[#b8860b] block">The Boardroom Soundbite</span>
               <blockquote className="text-zinc-200 text-base md:text-lg italic font-light leading-relaxed">
                 "Standard consultants write manuals that collect dust because they design systems for a perfect world, ignoring human behavior. We do the opposite. We treat human bandwidth, emotional peace, and decision-fatigue as the primary constraints of any enterprise.
                 <br /><br />
@@ -137,13 +137,13 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
         <div className="mt-16 sm:mt-24 flex flex-wrap justify-center gap-4 sm:gap-8">
           <button 
             onClick={() => navigate('/intake')}
-            className="px-8 sm:px-12 py-4 sm:py-6 border border-white/20 text-white text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-500"
+            className="px-8 sm:px-12 py-4 sm:py-6 border border-white/20 text-white text-[9px] sm:text-[11px] font-black uppercase sm:hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-500"
           >
             Initiate Phase 01
           </button>
           <button 
             onClick={() => navigate('/intake')}
-            className="px-8 sm:px-12 py-4 sm:py-6 bg-white text-black text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:bg-[#b8860b] hover:text-white transition-all duration-500 shadow-2xl animate-pulse-executive"
+            className="px-8 sm:px-12 py-4 sm:py-6 bg-white text-black text-[9px] sm:text-[11px] font-black uppercase sm:hover:bg-[#b8860b] hover:text-white transition-all duration-500 shadow-2xl animate-pulse-executive"
           >
             Secure Strategic Intake
           </button>
@@ -181,8 +181,8 @@ const PhaseCard: React.FC<{
 
       <div className="flex justify-between items-start mb-6 gap-4">
         <div className="flex flex-col">
-          <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-2">Phase {phase}</span>
-          <span className="text-white/30 text-[9px] uppercase font-bold tracking-widest">{subtitle}</span>
+          <span className="text-[#b8860b] text-[10px] font-black uppercase mb-2">Phase {phase}</span>
+          <span className="text-white/30 text-[9px] uppercase font-bold ">{subtitle}</span>
         </div>
         <div className="text-white/5 text-6xl md:text-8xl font-black italic select-none group-hover:text-[#b8860b]/10 transition-colors duration-700">
           {phase}
@@ -194,7 +194,7 @@ const PhaseCard: React.FC<{
       </h4>
 
       {/* Dynamic View Toggle Tabs */}
-      <div className="flex border-b border-white/5 mb-6 text-[9px] font-black uppercase tracking-widest font-mono">
+      <div className="flex border-b border-white/5 mb-6 text-[9px] font-black uppercase font-mono">
         <button
           onClick={() => setActiveTab('core')}
           className={`pb-3 pr-4 border-b-2 transition-all duration-300 relative ${
@@ -229,13 +229,13 @@ const PhaseCard: React.FC<{
               className="space-y-6"
             >
               <div>
-                <div className="text-[9px] uppercase font-black text-[#b8860b] mb-2 tracking-widest opacity-60">The Action:</div>
+                <div className="text-[9px] uppercase font-black text-[#b8860b] mb-2 opacity-60">The Action:</div>
                 <p className="text-zinc-400 text-base leading-relaxed italic font-light">
                   {action}
                 </p>
               </div>
               <div>
-                <div className="text-[9px] uppercase font-black text-[#b8860b] mb-2 tracking-widest opacity-60">The Outcome:</div>
+                <div className="text-[9px] uppercase font-black text-[#b8860b] mb-2 opacity-60">The Outcome:</div>
                 <p className="text-white text-base leading-relaxed font-medium">
                   {outcome}
                 </p>
@@ -253,13 +253,13 @@ const PhaseCard: React.FC<{
               {systemLayer && (
                 <div className="space-y-4">
                   <div>
-                    <div className="text-[9px] uppercase font-black text-white/50 mb-1.5 tracking-widest font-mono">The System Layer:</div>
+                    <div className="text-[9px] uppercase font-black text-white/50 mb-1.5 font-mono">The System Layer:</div>
                     <p className="text-zinc-300 text-sm leading-relaxed font-light font-mono">
                       {systemLayer}
                     </p>
                   </div>
                   <div>
-                    <div className="text-[9px] uppercase font-black text-[#b8860b] mb-1.5 tracking-widest">The Human Integration:</div>
+                    <div className="text-[9px] uppercase font-black text-[#b8860b] mb-1.5 ">The Human Integration:</div>
                     <p className="text-zinc-300 text-sm leading-relaxed italic font-light">
                       {humanIntegration}
                     </p>
@@ -274,7 +274,7 @@ const PhaseCard: React.FC<{
       <div className="pt-8 border-t border-white/5">
         <button 
           onClick={onBriefClick}
-          className="text-[10px] font-black uppercase text-white/40 group-hover:text-[#b8860b] tracking-[0.3em] transition-all flex items-center gap-3"
+          className="text-[10px] font-black uppercase text-white/40 group-hover:text-[#b8860b] transition-all flex items-center gap-3"
         >
           Request Briefing <span>→</span>
         </button>

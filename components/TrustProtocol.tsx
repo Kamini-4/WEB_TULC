@@ -7,7 +7,7 @@ const TrustProtocol: React.FC = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-12 sm:mb-20">
-          <h2 className="text-[#b8860b] text-[8px] sm:text-[10px] font-black uppercase mb-4 sm:mb-6 tracking-[0.3em] sm:tracking-[0.4em]">Trust Architecture</h2>
+          <h2 className="text-[#b8860b] text-[8px] sm:text-[10px] font-black uppercase mb-4 sm:mb-6 sm:">Trust Architecture</h2>
           <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">The Sovereign <span className="italic text-[#b8860b]">Data Protocol.</span></h3>
           <div className="w-12 h-px bg-[#b8860b] mx-auto opacity-40"></div>
         </div>
@@ -32,8 +32,8 @@ const TrustProtocol: React.FC = () => {
             "Data sovereignty is the bedrock of institutional authority. Systems are designed to amplify brilliance, not harvest it. Intellectual property remains with the sovereign, always."
           </p>
           <div className="mt-6 sm:mt-8 flex flex-wrap justify-center items-center gap-4 sm:gap-8">
-            <span className="text-[8px] sm:text-[9px] uppercase font-black text-[#b8860b] tracking-widest border border-[#b8860b]/30 px-3 sm:px-4 py-2">ISO/TULC-2026 COMPLIANT</span>
-            <span className="text-[8px] sm:text-[9px] uppercase font-black text-white/30 tracking-widest">AES-256 ENCRYPTED</span>
+            <span className="text-[8px] sm:text-[9px] uppercase font-black text-[#b8860b] border border-[#b8860b]/30 px-3 sm:px-4 py-2">ISO/TULC-2026 COMPLIANT</span>
+            <span className="text-[8px] sm:text-[9px] uppercase font-black text-white/30 ">AES-256 ENCRYPTED</span>
           </div>
         </div>
       </div>

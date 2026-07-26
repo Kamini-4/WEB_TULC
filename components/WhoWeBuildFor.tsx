@@ -62,15 +62,15 @@ const WhoWeBuildFor: React.FC = () => {
           viewport={{ once: true, margin: "-10%" }}
           variants={containerVariants}
         >
-          <motion.span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] block mb-4" variants={itemVariants}>
+          <motion.span className="text-[#b8860b] text-[10px] font-black uppercase block mb-3" variants={itemVariants}>
             Target Alignment Profiles
           </motion.span>
-          <motion.h2 className="text-4xl md:text-6xl font-bold text-zinc-950 leading-tight tracking-tight mb-6" variants={itemVariants}>
-            Built for those who lead by <span className="italic font-light">design</span>, not by <span className="italic text-[#b8860b] font-medium">reaction.</span>
+          <motion.h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-950 leading-tight mb-4 font-serif" variants={itemVariants}>
+            Built for leaders who govern by <span className="italic font-light">design</span>, not by <span className="italic text-[#b8860b] font-medium">reaction.</span>
           </motion.h2>
-          <motion.div className="h-[2px] w-20 bg-[#b8860b] mb-6" variants={itemVariants} />
-          <motion.p className="text-zinc-600 text-base md:text-lg italic font-light leading-relaxed" variants={itemVariants}>
-            The Unbounded Leadership methodology is exclusive to high-leverage decision-makers who recognize that their personal time is the ultimate rate-limiting substrate of their business.
+          <motion.div className="h-[2px] w-16 bg-[#b8860b] mb-4" variants={itemVariants} />
+          <motion.p className="text-zinc-700 text-sm md:text-base italic font-light leading-relaxed" variants={itemVariants}>
+            The Unbounded Leadership Co. partners with high-leverage decision-makers who recognize that executive time and clarity are the ultimate rate-limiting substrates of enterprise value. We walk alongside you through every step of implementation.
           </motion.p>
         </motion.div>
 
@@ -98,15 +98,15 @@ const WhoWeBuildFor: React.FC = () => {
                   <div className="p-3 bg-white border border-zinc-200 rounded-none group-hover:border-[#b8860b]/30 transition-colors">
                     {profile.icon}
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-[#b8860b]">
+                  <span className="text-[10px] font-black uppercase text-[#b8860b]">
                     Profile 0{idx + 1}
                   </span>
                 </div>
 
-                <span className="text-zinc-400 text-[9px] font-black uppercase tracking-[0.3em] block mb-2">
+                <span className="text-zinc-400 text-[9px] font-black uppercase block mb-2">
                   {profile.category}
                 </span>
-                <h3 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">
+                <h3 className="text-xl font-bold text-zinc-900 mb-4">
                   {profile.title}
                 </h3>
                 <p className="text-zinc-600 text-xs italic font-light leading-relaxed mb-8">
@@ -115,7 +115,7 @@ const WhoWeBuildFor: React.FC = () => {
               </div>
 
               <div className="pt-6 border-t border-zinc-200/60 group-hover:border-[#b8860b]/20 transition-colors">
-                <span className="text-[9px] font-black uppercase tracking-[0.2em] text-zinc-900 block mb-2">
+                <span className="text-[9px] font-black uppercase text-zinc-900 block mb-2">
                   Alignment Outcome:
                 </span>
                 <p className="text-zinc-700 text-xs font-medium leading-relaxed flex items-start gap-2">
@@ -134,7 +134,7 @@ const WhoWeBuildFor: React.FC = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest italic">
+          <p className="text-zinc-500 text-[10px] font-bold uppercase italic">
             * Strict selection protocol: We accept only 3 new corporate clients per quarter to preserve operational depth.
           </p>
         </motion.div>

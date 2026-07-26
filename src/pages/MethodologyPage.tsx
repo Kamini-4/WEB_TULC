@@ -20,10 +20,10 @@ const MethodologyPage: React.FC<MethodologyPageProps> = ({ onBriefClick }) => {
     >
       <section className="pt-6 md:pt-12 pb-8 bg-[#0a0a0a] text-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-4">Deep Dive</h2>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">Systemic <br /><span className="italic text-[#b8860b]">Alignment.</span></h1>
-          <p className="max-w-3xl text-zinc-500 text-lg leading-relaxed italic font-light">
-            Moving beyond superficial coaching into the realm of structural alignment. We analyze the forces that govern scalable enterprise growth.
+          <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-2 font-mono">End-to-End Methodology</h2>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight font-serif">Systemic <span className="italic text-[#b8860b]">Alignment.</span></h1>
+          <p className="max-w-3xl text-zinc-300 text-sm sm:text-base leading-relaxed italic font-light">
+            Moving beyond superficial advisory into the physics of structural alignment. We partner with leadership at every step of the journey—from diagnostic substrate mapping to self-cohering operational governance.
           </p>
         </div>
       </section>

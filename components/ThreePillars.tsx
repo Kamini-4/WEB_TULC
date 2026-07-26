@@ -89,11 +89,11 @@ const ThreePillars: React.FC = () => {
         <div className="max-w-3xl mx-auto text-center mb-20">
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-8 h-px bg-[#b8860b]" />
-            <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em]">The Strategic Infrastructure</span>
+            <span className="text-[#b8860b] text-[10px] font-black uppercase ">The Strategic Infrastructure</span>
             <div className="w-8 h-px bg-[#b8860b]" />
           </div>
           
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-[#111111] mb-6 font-serif">
+          <h2 className="text-4xl md:text-6xl font-bold text-[#111111] mb-6 font-serif">
             The Three Pillars of <br />
             <span className="italic text-[#b8860b]">Institutional Calibration.</span>
           </h2>
@@ -129,10 +129,10 @@ const ThreePillars: React.FC = () => {
                     {pillar.icon}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-[#111111] tracking-wide group-hover:text-[#b8860b] transition-colors">
+                    <h3 className="text-xl font-bold text-[#111111] group-hover:text-[#b8860b] transition-colors">
                       {pillar.title}
                     </h3>
-                    <p className="text-[#b8860b] text-[9px] font-black uppercase tracking-widest mt-0.5">
+                    <p className="text-[#b8860b] text-[9px] font-black uppercase mt-0.5">
                       {pillar.subtitle}
                     </p>
                   </div>
@@ -145,14 +145,14 @@ const ThreePillars: React.FC = () => {
 
                 {/* Core Gains List */}
                 <div className="space-y-6 mb-8">
-                  <div className="text-[9px] font-black uppercase tracking-widest text-zinc-400 border-b border-zinc-100 pb-2">
+                  <div className="text-[9px] font-black uppercase text-zinc-400 border-b border-zinc-100 pb-2">
                     What You Stand to Gain:
                   </div>
                   {pillar.gains.map((gain, idx) => (
                     <div key={idx} className="flex gap-4">
                       <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#b8860b] mt-1.5" />
                       <div>
-                        <h5 className="text-[11px] font-bold uppercase tracking-wider text-zinc-900">
+                        <h5 className="text-[11px] font-bold uppercase text-zinc-900">
                           {gain.label}
                         </h5>
                         <p className="text-xs text-zinc-500 italic font-light leading-relaxed mt-0.5">
@@ -168,7 +168,7 @@ const ThreePillars: React.FC = () => {
               <div className="mt-8 pt-6 border-t border-zinc-100">
                 <div className="flex items-center gap-2 mb-2">
                   <TrendingUp className="w-3.5 h-3.5 text-[#b8860b]" />
-                  <span className="text-[9px] font-black uppercase tracking-widest text-zinc-500">
+                  <span className="text-[9px] font-black uppercase text-zinc-500">
                     Institutional Asset Value:
                   </span>
                 </div>
@@ -191,7 +191,7 @@ const ThreePillars: React.FC = () => {
             className="inline-flex flex-col sm:flex-row items-center gap-6 p-8 bg-[#111111] border border-zinc-800 text-white max-w-4xl w-full text-left"
           >
             <div className="flex-1">
-              <span className="text-[#b8860b] text-[9px] font-black uppercase tracking-[0.4em] block mb-2">
+              <span className="text-[#b8860b] text-[9px] font-black uppercase block mb-2">
                 Qualifying for Calibration
               </span>
               <h4 className="text-xl font-bold italic mb-2">
@@ -204,7 +204,7 @@ const ThreePillars: React.FC = () => {
             
             <button
               onClick={() => navigate('/assessment')}
-              className="flex-shrink-0 px-8 py-4.5 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 flex items-center gap-3"
+              className="flex-shrink-0 px-8 py-4.5 bg-[#b8860b] text-white text-[10px] font-black uppercase hover:bg-white hover:text-black transition-all duration-500 flex items-center gap-3"
             >
               <span>Begin Strategic Audit</span>
               <ArrowRight className="w-3.5 h-3.5" />

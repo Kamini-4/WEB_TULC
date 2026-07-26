@@ -48,24 +48,24 @@ const Hero: React.FC<HeroProps> = () => {
           {/* Eyebrow & Institutional Credentials */}
           <motion.div className="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 py-1.5 bg-white/80 border border-zinc-200/90 rounded-full mb-5 shadow-2xs" variants={itemVariants}>
             <span className="w-2 h-2 rounded-full bg-[#b8860b] animate-pulse" />
-            <span className="text-[#111111] text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em]">The Unbounded Leadership Co.</span>
+            <span className="text-[#111111] text-[10px] sm:text-[11px] font-black uppercase">The Unbounded Leadership Co.</span>
             <span className="text-zinc-300">|</span>
-            <span className="text-[#b8860b] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider flex items-center gap-1">
+            <span className="text-[#b8860b] text-[10px] sm:text-[11px] font-mono font-bold uppercase flex items-center gap-1">
               <Award className="w-3.5 h-3.5" /> Provisional Patent-Filed System
             </span>
           </motion.div>
 
-          {/* Unified Headline: Category Definition + Real Client Problem */}
-          <motion.h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight mb-5 text-center font-serif text-[#111111]" variants={itemVariants}>
+          {/* Unified Headline: Tightened font size with high-conversion client alignment */}
+          <motion.h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-[1.18] mb-4 text-center font-serif text-[#111111]" variants={itemVariants}>
             Lead Through <span className="text-[#b8860b] italic font-light">Architecture.</span> <br />
-            <span className="text-2xl sm:text-4xl lg:text-5xl font-light text-zinc-800">
-              You Scaled an Enterprise. So Why Are You Fighting Operational Fires?
+            <span className="text-xl sm:text-2xl lg:text-3xl font-light text-zinc-800">
+              You Scaled an Enterprise. So Why Are You Still Solving Operational Fires?
             </span>
           </motion.h1>
 
-          {/* Core Value Proposition */}
-          <motion.p className="text-sm sm:text-base md:text-lg text-zinc-700 font-light italic leading-relaxed mb-6 text-center max-w-3xl px-2" variants={itemVariants}>
-            Up to <strong className="text-[#111111] font-semibold not-italic">40% of executive bandwidth</strong> is consumed resolving alignment friction. We do not provide generic coaching; we build <span className="text-[#b8860b] font-extrabold not-italic">self-executing operational architecture</span> that hard-codes founder intent into your leadership substrate for total cognitive liberation.
+          {/* Core Value Proposition & End-to-End Partnership Reassurance */}
+          <motion.p className="text-xs sm:text-sm md:text-base text-zinc-700 font-light italic leading-relaxed mb-6 text-center max-w-3xl px-2" variants={itemVariants}>
+            Up to <strong className="text-[#111111] font-semibold not-italic">40% of executive bandwidth</strong> is consumed resolving alignment friction. We do not offer generic advisory—we partner with you <span className="text-[#111111] font-bold not-italic">at every step of your scaling journey</span> to build <span className="text-[#b8860b] font-extrabold not-italic">self-executing operational architecture</span> that hard-codes founder intent for total cognitive liberation.
           </motion.p>
 
           {/* Proprietary Technical Capabilities Pills */}
@@ -90,13 +90,13 @@ const Hero: React.FC<HeroProps> = () => {
               href="https://calendly.com/d/d3jb-kpx-r6q"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-[#b8860b] text-white text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] hover:bg-[#111111] transition-all duration-300 shadow-md inline-block text-center cursor-pointer font-bold"
+              className="px-8 py-4 bg-[#b8860b] text-white text-[10px] sm:text-[11px] font-black uppercase hover:bg-[#111111] transition-all duration-300 shadow-md inline-block text-center cursor-pointer font-bold"
             >
               Book Private Consult
             </a>
             <button 
               onClick={() => navigate('/assessment')}
-              className="px-8 py-4 bg-white border border-zinc-300 text-[#111111] text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-300 shadow-xs cursor-pointer font-bold"
+              className="px-8 py-4 bg-white border border-zinc-300 text-[#111111] text-[10px] sm:text-[11px] font-black uppercase hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-300 shadow-xs cursor-pointer font-bold"
             >
               Audit Alignment Score
             </button>
@@ -107,13 +107,13 @@ const Hero: React.FC<HeroProps> = () => {
             className="w-full max-w-5xl bg-[#111111] border border-[#b8860b]/30 p-6 sm:p-8 rounded-xs text-left mb-10 shadow-2xl relative overflow-hidden"
             variants={itemVariants}
           >
-            <div className="absolute top-0 right-0 px-3.5 py-1 bg-[#b8860b]/20 text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase tracking-widest font-mono">
+            <div className="absolute top-0 right-0 px-3.5 py-1 bg-[#b8860b]/20 text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase font-mono">
               Target Client Profile
             </div>
 
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="space-y-2 max-w-xl">
-                <span className="text-[#b8860b] text-[9px] font-black uppercase tracking-[0.25em] font-mono block">Exclusively Built For</span>
+                <span className="text-[#b8860b] text-[9px] font-black uppercase font-mono block">Exclusively Built For</span>
                 <h3 className="text-lg sm:text-xl font-bold font-serif text-white">High-Growth Founders & Enterprise Leaders</h3>
                 <p className="text-zinc-300 text-xs sm:text-sm font-light italic leading-relaxed">
                   Engineered specifically for executives running 20 to 500+ headcount enterprises who have scaled market presence but remain bogged down in daily operational alignment friction.
@@ -144,22 +144,22 @@ const Hero: React.FC<HeroProps> = () => {
           >
             <div className="flex flex-col items-center bg-[#111111] p-5 hover:bg-zinc-900 transition-colors">
               <span className="text-xl sm:text-2xl font-extrabold text-[#b8860b] block mb-1">40% Deficit</span>
-              <span className="text-[9px] font-black uppercase text-zinc-300 tracking-wider block mb-1">Bandwidth Reclaimed</span>
+              <span className="text-[9px] font-black uppercase text-zinc-300 block mb-1">Bandwidth Reclaimed</span>
               <span className="text-[10px] text-zinc-400 italic font-light block text-center">Eliminate reactive review traps</span>
             </div>
             <div className="flex flex-col items-center bg-[#111111] p-5 hover:bg-zinc-900 transition-colors">
               <span className="text-xl sm:text-2xl font-extrabold text-[#b8860b] block mb-1">100% Fidelity</span>
-              <span className="text-[9px] font-black uppercase text-zinc-300 tracking-wider block mb-1">Delegation Parity</span>
+              <span className="text-[9px] font-black uppercase text-zinc-300 block mb-1">Delegation Parity</span>
               <span className="text-[10px] text-zinc-400 italic font-light block text-center">Zero strategic signal loss</span>
             </div>
             <div className="flex flex-col items-center bg-[#111111] p-5 hover:bg-zinc-900 transition-colors">
               <span className="text-xl sm:text-2xl font-extrabold text-white block mb-1">Zero Risk</span>
-              <span className="text-[9px] font-black uppercase text-zinc-300 tracking-wider block mb-1">Key-Person Protection</span>
+              <span className="text-[9px] font-black uppercase text-zinc-300 block mb-1">Key-Person Protection</span>
               <span className="text-[10px] text-zinc-400 italic font-light block text-center">Continuity without presence</span>
             </div>
             <div className="flex flex-col items-center bg-[#111111] p-5 hover:bg-zinc-900 transition-colors">
               <span className="text-xl sm:text-2xl font-extrabold text-emerald-400 block mb-1">90 Days</span>
-              <span className="text-[9px] font-black uppercase text-zinc-300 tracking-wider block mb-1">Full Calibration</span>
+              <span className="text-[9px] font-black uppercase text-zinc-300 block mb-1">Full Calibration</span>
               <span className="text-[10px] text-zinc-400 italic font-light block text-center">Self-cohering governance</span>
             </div>
           </motion.div>
@@ -167,10 +167,10 @@ const Hero: React.FC<HeroProps> = () => {
           {/* Structured 3 Core Pillars Section */}
           <motion.div className="w-full text-left max-w-5xl" variants={itemVariants}>
             <div className="flex items-center justify-between mb-5 pb-2 border-b border-zinc-300">
-              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#b8860b]">The 3 Pillars of Alignment Architecture</span>
+              <span className="text-[10px] font-black uppercase text-[#b8860b]">The 3 Pillars of Alignment Architecture</span>
               <button 
                 onClick={() => navigate('/services')}
-                className="text-[9px] font-bold uppercase tracking-wider text-zinc-600 hover:text-[#b8860b] transition-colors"
+                className="text-[9px] font-bold uppercase text-zinc-600 hover:text-[#b8860b] transition-colors"
               >
                 View Full Protocols &rarr;
               </button>

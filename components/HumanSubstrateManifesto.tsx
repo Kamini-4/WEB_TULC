@@ -13,11 +13,14 @@ const HumanSubstrateManifesto: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b]" />
-            <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.25em]">Methodology & Philosophy</span>
+            <span className="text-[#b8860b] text-[10px] font-black uppercase">Methodology & Philosophy</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-bold font-serif text-white tracking-tight">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-serif text-white mb-2">
             Systems As <span className="text-[#b8860b] italic font-light">Codified Human Behavior.</span>
           </h2>
+          <p className="text-zinc-400 text-xs sm:text-sm font-light italic leading-relaxed">
+            Why traditional advisory fails at scale. We do not hand off reports—we engineer your organization's permanent nervous system and partner with you through every phase of execution.
+          </p>
         </div>
 
         {/* Core Manifesto Card */}
@@ -73,7 +76,7 @@ const HumanSubstrateManifesto: React.FC = () => {
           <div className="bg-black border border-[#b8860b]/40 p-5 rounded-xs mb-8 text-left">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 border-b border-white/10 pb-3">
               <div>
-                <span className="text-[9px] font-mono font-bold uppercase tracking-[0.25em] text-[#b8860b] block">
+                <span className="text-[9px] font-mono font-bold uppercase text-[#b8860b] block">
                   Provisional Patent-Filed Framework
                 </span>
                 <h4 className="text-base font-bold font-serif text-white">
@@ -82,7 +85,7 @@ const HumanSubstrateManifesto: React.FC = () => {
               </div>
               <button 
                 onClick={() => navigate('/services')}
-                className="text-[9px] font-mono text-[#b8860b] hover:text-white uppercase tracking-widest flex items-center gap-1 shrink-0 cursor-pointer"
+                className="text-[9px] font-mono text-[#b8860b] hover:text-white uppercase flex items-center gap-1 shrink-0 cursor-pointer"
               >
                 <span>View Full Matrix</span>
                 <ArrowRight className="w-3 h-3" />
@@ -92,23 +95,23 @@ const HumanSubstrateManifesto: React.FC = () => {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5 text-[11px] font-mono">
               <div className="bg-white/5 border border-white/5 p-2.5 rounded-xs hover:border-[#b8860b]/40 transition-colors">
                 <span className="text-[#b8860b] font-bold block text-[10px]">01. Cognitive Clarity</span>
-                <span className="text-zinc-400 text-[9.5px] leading-tight block">Decision Flow & Bandwidth</span>
+                <span className="text-zinc-300 text-[9.5px] font-semibold leading-tight block">Outcome: +40% Reclaimed Bandwidth</span>
               </div>
               <div className="bg-white/5 border border-white/5 p-2.5 rounded-xs hover:border-[#b8860b]/40 transition-colors">
                 <span className="text-[#b8860b] font-bold block text-[10px]">02. Systemic Integrity</span>
-                <span className="text-zinc-400 text-[9.5px] leading-tight block">Organizational Architecture</span>
+                <span className="text-zinc-300 text-[9.5px] font-semibold leading-tight block">Outcome: Autonomous SOP Execution</span>
               </div>
               <div className="bg-white/5 border border-white/5 p-2.5 rounded-xs hover:border-[#b8860b]/40 transition-colors">
                 <span className="text-[#b8860b] font-bold block text-[10px]">03. Strategic Velocity</span>
-                <span className="text-zinc-400 text-[9.5px] leading-tight block">Operational Directives</span>
+                <span className="text-zinc-300 text-[9.5px] font-semibold leading-tight block">Outcome: 2x Execution Frequency</span>
               </div>
               <div className="bg-white/5 border border-white/5 p-2.5 rounded-xs hover:border-[#b8860b]/40 transition-colors">
                 <span className="text-[#b8860b] font-bold block text-[10px]">04. Moral Gravity</span>
-                <span className="text-zinc-400 text-[9.5px] leading-tight block">Governance & Compliance</span>
+                <span className="text-zinc-300 text-[9.5px] font-semibold leading-tight block">Outcome: Preempted Risk & Friction</span>
               </div>
               <div className="bg-white/5 border border-white/5 p-2.5 rounded-xs hover:border-[#b8860b]/40 transition-colors">
                 <span className="text-[#b8860b] font-bold block text-[10px]">05. Cultural Fidelity</span>
-                <span className="text-zinc-400 text-[9.5px] leading-tight block">Continuity & Succession</span>
+                <span className="text-zinc-300 text-[9.5px] font-semibold leading-tight block">Outcome: Key-Person Insulation</span>
               </div>
             </div>
           </div>
@@ -116,16 +119,16 @@ const HumanSubstrateManifesto: React.FC = () => {
           {/* Concluding Statement */}
           <div className="bg-[#b8860b]/10 border border-[#b8860b]/30 p-5 rounded-xs flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <div>
-              <p className="text-xs sm:text-sm font-bold text-white tracking-wide">
+              <p className="text-xs sm:text-sm font-bold text-white">
                 "We do not build machines; we build an organizational nervous system that protects, insulates, and multiplies human strategic energy."
               </p>
-              <span className="text-[10px] text-[#b8860b] font-mono uppercase tracking-widest block mt-1">
+              <span className="text-[10px] text-[#b8860b] font-mono uppercase block mt-1">
                 — Suchita Sancheti, Principal Architect
               </span>
             </div>
             <button 
               onClick={() => navigate('/assessment')}
-              className="px-6 py-3 bg-[#b8860b] text-white hover:bg-white hover:text-black text-[9px] font-black uppercase tracking-[0.2em] transition-all shrink-0 cursor-pointer flex items-center gap-2"
+              className="px-6 py-3 bg-[#b8860b] text-white hover:bg-white hover:text-black text-[9px] font-black uppercase transition-all shrink-0 cursor-pointer flex items-center gap-2"
             >
               <span>Explore Assessment</span>
               <ArrowRight className="w-3.5 h-3.5" />

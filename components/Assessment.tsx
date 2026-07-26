@@ -735,18 +735,18 @@ const Assessment: React.FC = () => {
               exit={{ opacity: 0, y: -20 }}
               className="text-center"
             >
-              <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-6 tracking-[0.4em]">The Strategic Alignment & Bandwidth Audit</h2>
-              <h3 className="text-4xl sm:text-6xl font-bold mb-8 text-[#111111] leading-tight font-serif">
+              <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-3 font-mono">End-to-End Diagnostic Audit</h2>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-[#111111] leading-tight font-serif">
                 Capture Your <span className="italic text-[#b8860b]">Alignment Premium.</span>
               </h3>
-              <p className="text-zinc-600 text-xl mb-12 font-light italic leading-relaxed max-w-2xl mx-auto">
-                Evaluate your leadership latency and identify hidden operational leakages draining up to 15% of your annual EBITDA. Complete this clinical 10-point audit to receive your confidential, multi-page Strategic Dossier.
+              <p className="text-zinc-700 text-sm sm:text-base mb-8 font-light italic leading-relaxed max-w-2xl mx-auto">
+                Pinpoint the exact operational friction points draining up to 40% of your executive bandwidth and 15% of strategic fidelity per management layer. Complete this 3-minute diagnostic to generate your confidential Executive Dossier and personalized alignment roadmap.
               </p>
 
               {restoredSession && (
                 <div className="mb-10 max-w-lg mx-auto bg-[#fafafa] border border-zinc-200/60 p-6 shadow-md text-left relative overflow-hidden">
                   <div className="absolute top-0 left-0 h-full w-1 bg-[#b8860b]" />
-                  <h4 className="text-[10px] font-black uppercase tracking-widest text-[#b8860b] mb-2 flex items-center gap-2">
+                  <h4 className="text-[10px] font-black uppercase text-[#b8860b] mb-2 flex items-center gap-2">
                     <Shield className="w-3.5 h-3.5 text-[#b8860b]" /> Active Protocol State Found
                   </h4>
                   <p className="text-zinc-600 text-[11px] font-light leading-relaxed mb-4 italic">
@@ -755,13 +755,13 @@ const Assessment: React.FC = () => {
                   <div className="flex gap-4">
                     <button
                       onClick={handleResume}
-                      className="px-4 py-2.5 bg-[#111111] text-white hover:bg-[#b8860b] text-[9px] font-bold uppercase tracking-wider transition-all shadow-sm"
+                      className="px-4 py-2.5 bg-[#111111] text-white hover:bg-[#b8860b] text-[9px] font-bold uppercase transition-all shadow-sm"
                     >
                       Resume Protocol
                     </button>
                     <button
                       onClick={handleReset}
-                      className="px-4 py-2.5 bg-transparent border border-zinc-300 hover:border-red-600 hover:text-red-600 text-zinc-500 text-[9px] font-bold uppercase tracking-wider transition-all"
+                      className="px-4 py-2.5 bg-transparent border border-zinc-300 hover:border-red-600 hover:text-red-600 text-zinc-500 text-[9px] font-bold uppercase transition-all"
                     >
                       Discard Session
                     </button>
@@ -772,18 +772,18 @@ const Assessment: React.FC = () => {
               <div className="flex flex-col items-center gap-8">
                 <button 
                   onClick={handleStart}
-                  className="px-12 py-6 bg-[#111111] text-white text-[11px] font-black uppercase tracking-[0.3em] hover:bg-[#b8860b] transition-all shadow-2xl"
+                  className="px-12 py-6 bg-[#111111] text-white text-[11px] font-black uppercase hover:bg-[#b8860b] transition-all shadow-2xl"
                 >
                   Initiate Identity Verification
                 </button>
                 
                 <div className="flex flex-col items-center gap-2">
-                  <div className="text-[9px] uppercase text-zinc-600 tracking-[0.5em] font-black">Already a Principal?</div>
+                  <div className="text-[9px] uppercase text-zinc-600 font-black">Already a Principal?</div>
                   <a 
                     href="https://ai.studio/apps/bc205532-cdb0-43d3-a8fb-919809372614"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#b8860b] text-xs font-mono hover:underline tracking-widest flex items-center gap-2"
+                    className="text-[#b8860b] text-xs font-mono hover:underline flex items-center gap-2"
                   >
                     Enter The Executive Portal <ArrowRight className="w-3 h-3" />
                   </a>
@@ -801,14 +801,14 @@ const Assessment: React.FC = () => {
               className="bg-white p-5 sm:p-6 md:p-10 shadow-2xl border border-zinc-100 text-center max-w-xl mx-auto"
             >
               <Shield className="w-8 h-8 text-[#b8860b] mx-auto mb-3" />
-              <h3 className="text-xl sm:text-2xl font-bold mb-1 text-[#111111] uppercase tracking-wider">Identity Protocol</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-1 text-[#111111] uppercase ">Identity Protocol</h3>
               <p className="text-zinc-700 text-xs sm:text-sm mb-4 italic font-light">
                 Access to the Alignment Protocol requires institutional verification. Please provide your strategic identifiers.
               </p>
               
               <form onSubmit={handleIdentitySubmit} className="space-y-3 sm:space-y-4 text-left">
                 <div>
-                  <label className="text-[9px] font-black uppercase text-zinc-600 tracking-[0.3em] block mb-1 font-sans">Institutional Identity</label>
+                  <label className="text-[9px] font-black uppercase text-zinc-600 block mb-1 font-sans">Institutional Identity</label>
                   <input 
                     type="text"
                     required
@@ -819,7 +819,7 @@ const Assessment: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-[9px] font-black uppercase text-zinc-600 tracking-[0.3em] block mb-1 font-sans">Strategic Email</label>
+                  <label className="text-[9px] font-black uppercase text-zinc-600 block mb-1 font-sans">Strategic Email</label>
                   <input 
                     type="email"
                     required
@@ -830,7 +830,7 @@ const Assessment: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="text-[9px] font-black uppercase text-zinc-600 tracking-[0.3em] block mb-1 font-sans">Organization</label>
+                  <label className="text-[9px] font-black uppercase text-zinc-600 block mb-1 font-sans">Organization</label>
                   <input 
                     type="text"
                     required
@@ -843,14 +843,14 @@ const Assessment: React.FC = () => {
 
                 <button 
                   type="submit"
-                  className="w-full py-3.5 bg-[#111111] text-white text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] hover:bg-[#b8860b] transition-all shadow-lg rounded-xs"
+                  className="w-full py-3.5 bg-[#111111] text-white text-[10px] sm:text-[11px] font-black uppercase hover:bg-[#b8860b] transition-all shadow-lg rounded-xs"
                 >
                   Initiate Verification
                 </button>
               </form>
               
               {authError && (
-                <div className="mt-4 p-3 bg-red-50 border border-red-100 text-red-600 text-[10px] font-bold uppercase tracking-widest leading-relaxed">
+                <div className="mt-4 p-3 bg-red-50 border border-red-100 text-red-600 text-[10px] font-bold uppercase leading-relaxed">
                   <div className="flex items-center gap-2 mb-1">
                     <AlertCircle className="w-3.5 h-3.5" />
                     <span>Verification Error</span>
@@ -859,7 +859,7 @@ const Assessment: React.FC = () => {
                 </div>
               )}
 
-              <div className="text-[8px] uppercase text-zinc-500 tracking-widest mt-4">
+              <div className="text-[8px] uppercase text-zinc-500 mt-4">
                 Zero Data Retention (ZDR) Mandate Active
               </div>
             </motion.div>
@@ -874,10 +874,10 @@ const Assessment: React.FC = () => {
               className="bg-white p-5 sm:p-6 md:p-10 shadow-2xl border border-zinc-100 text-center max-w-xl mx-auto"
             >
               <Mic className="w-8 h-8 text-[#b8860b] mx-auto mb-2 animate-pulse" />
-              <h3 className="text-xl sm:text-2xl font-bold mb-1 text-[#111111] uppercase tracking-wider font-sans">
+              <h3 className="text-xl sm:text-2xl font-bold mb-1 text-[#111111] uppercase font-sans">
                 Vocal Substrate Calibration
               </h3>
-              <div className="text-[#b8860b] text-[9px] font-black uppercase tracking-[0.3em] mb-3">
+              <div className="text-[#b8860b] text-[9px] font-black uppercase mb-3">
                 Proprietary Real-Time Voice Alignment Diagnostic
               </div>
               
@@ -888,12 +888,12 @@ const Assessment: React.FC = () => {
               <div className="bg-black text-white p-4 rounded-xs border border-[#b8860b]/20 mb-4 text-left relative overflow-hidden">
                 <div className="absolute top-2 right-2 flex items-center gap-1">
                   <span className={`w-1.5 h-1.5 rounded-full ${micState === 'calibrating' ? 'bg-[#b8860b] animate-ping' : micState === 'completed' ? 'bg-green-500' : 'bg-red-500'}`} />
-                  <span className="text-[7px] font-mono text-zinc-500 uppercase tracking-widest">
+                  <span className="text-[7px] font-mono text-zinc-500 uppercase ">
                     {micState === 'idle' ? 'Disconnected' : micState === 'calibrating' ? 'Analyzing' : 'Calibrated'}
                   </span>
                 </div>
 
-                <div className="font-mono text-[8px] text-[#b8860b] uppercase tracking-widest mb-2">
+                <div className="font-mono text-[8px] text-[#b8860b] uppercase mb-2">
                   Volatile Cryptographic Ledger Matrix
                 </div>
 
@@ -908,7 +908,7 @@ const Assessment: React.FC = () => {
                   <button
                     type="button"
                     onClick={startVoiceCalibration}
-                    className="w-full py-2.5 bg-[#b8860b] hover:bg-white hover:text-black font-bold uppercase tracking-wider text-[8px] sm:text-[9px] transition-all font-mono text-center block text-white"
+                    className="w-full py-2.5 bg-[#b8860b] hover:bg-white hover:text-black font-bold uppercase text-[8px] sm:text-[9px] transition-all font-mono text-center block text-white"
                   >
                     Allow Microphone & Initiate Baseline Calibration
                   </button>
@@ -922,7 +922,7 @@ const Assessment: React.FC = () => {
                         &ldquo;I am here to calibrate my cognitive alignment and eliminate decision latency.&rdquo;
                       </span>
                     </p>
-                    <div className="grid grid-cols-3 gap-1.5 pt-2 border-t border-white/5 text-[7px] uppercase tracking-widest text-[#b8860b]/60 text-center">
+                    <div className="grid grid-cols-3 gap-1.5 pt-2 border-t border-white/5 text-[7px] uppercase text-[#b8860b]/60 text-center">
                       <div>
                         <span>vocal stress coeff</span>
                         <span className="block text-white font-bold mt-0.5">Calculating...</span>
@@ -944,7 +944,7 @@ const Assessment: React.FC = () => {
                     <p className="text-[11px] text-green-500 font-semibold italic">
                       ✓ Calibration Complete. Real-Time Vocal Footprint registered successfully.
                     </p>
-                    <div className="grid grid-cols-3 gap-1.5 py-1.5 border-y border-white/5 text-[7px] uppercase tracking-widest text-[#b8860b]/60 text-center">
+                    <div className="grid grid-cols-3 gap-1.5 py-1.5 border-y border-white/5 text-[7px] uppercase text-[#b8860b]/60 text-center">
                       <div>
                         <span>vocal stress coeff</span>
                         <span className="block text-white font-bold mt-0.5">1.02x (Aligned)</span>
@@ -969,7 +969,7 @@ const Assessment: React.FC = () => {
                           cancelAnimationFrame(voiceAnimationRef.current);
                         }
                       }}
-                      className="w-full py-2 border border-white/10 hover:border-[#b8860b] hover:text-[#b8860b] text-white font-bold uppercase tracking-wider text-[8px] sm:text-[9px] transition-all font-mono"
+                      className="w-full py-2 border border-white/10 hover:border-[#b8860b] hover:text-[#b8860b] text-white font-bold uppercase text-[8px] sm:text-[9px] transition-all font-mono"
                     >
                       Lock Calibrated Baseline & Enter Substrate Selection →
                     </button>
@@ -977,7 +977,7 @@ const Assessment: React.FC = () => {
                 )}
               </div>
 
-              <div className="text-[8px] uppercase text-zinc-500 tracking-widest leading-normal">
+              <div className="text-[8px] uppercase text-zinc-500 leading-normal">
                 Notice: All spoken data is processed in real-time inside your browser using secure sandboxed buffers. Zero audio leaves the node.
               </div>
             </motion.div>
@@ -991,7 +991,7 @@ const Assessment: React.FC = () => {
               exit={{ opacity: 0, x: -20 }}
               className="text-center max-w-5xl mx-auto"
             >
-              <h3 className="text-xl sm:text-2xl font-bold mb-2 text-[#111111] uppercase tracking-wider">Select Institutional Substrate</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-2 text-[#111111] uppercase ">Select Institutional Substrate</h3>
               <p className="text-zinc-700 mb-6 italic font-light text-xs sm:text-sm max-w-2xl mx-auto">
                 The diagnostic must be calibrated to your specific theater of operation. Select the substrate that most accurately reflects your current institutional complexity.
               </p>
@@ -1027,8 +1027,8 @@ const Assessment: React.FC = () => {
                   >
                     <div className="absolute top-0 left-0 w-full h-1 bg-zinc-100 group-hover:bg-[#b8860b] transition-colors" />
                     <item.icon className="w-7 h-7 text-zinc-300 group-hover:text-[#b8860b] mb-3 sm:mb-4 transition-colors" />
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#111111] mb-1">{item.label}</span>
-                    <span className="text-[8px] text-[#b8860b] uppercase tracking-widest font-black mb-2">{item.desc}</span>
+                    <span className="text-[10px] font-black uppercase text-[#111111] mb-1">{item.label}</span>
+                    <span className="text-[8px] text-[#b8860b] uppercase font-black mb-2">{item.desc}</span>
                     <p className="text-[9px] sm:text-[10px] text-zinc-600 leading-relaxed font-light italic">
                       {item.longDesc}
                     </p>
@@ -1047,10 +1047,10 @@ const Assessment: React.FC = () => {
             >
               <div className="flex justify-between items-center mb-6 md:mb-8 select-none">
                 <div className="flex flex-col text-left">
-                  <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em]">Integrated Calibration {String(currentQuestion + 1).padStart(2, '0')}/10</span>
+                  <span className="text-[#b8860b] text-[10px] font-black uppercase ">Integrated Calibration {String(currentQuestion + 1).padStart(2, '0')}/10</span>
                   <div className="flex items-center gap-1.5 mt-1">
                     <span className="w-1 rounded-full bg-green-500 animate-pulse h-1" />
-                    <span className="text-[7px] font-mono text-zinc-500 uppercase tracking-widest">Real-Time Vocal Stress Alignment Tracking Active</span>
+                    <span className="text-[7px] font-mono text-zinc-500 uppercase ">Real-Time Vocal Stress Alignment Tracking Active</span>
                   </div>
                 </div>
                 <div className="flex gap-1">
@@ -1073,7 +1073,7 @@ const Assessment: React.FC = () => {
                       className="w-full p-4 sm:p-5 md:p-6 border border-zinc-100 hover:border-[#b8860b] hover:bg-zinc-50 transition-all text-left group flex justify-between items-center rounded-xs"
                     >
                       <div>
-                        <div className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-[#b8860b] mb-1">{item.option.label}</div>
+                        <div className="text-[9px] sm:text-[10px] font-black uppercase text-[#b8860b] mb-1">{item.option.label}</div>
                         <div className="text-zinc-700 font-light italic text-xs sm:text-sm">{item.option.description}</div>
                       </div>
                       <ChevronRight className="w-4 h-4 text-zinc-300 group-hover:text-[#b8860b] shrink-0 ml-4 transition-colors" />
@@ -1087,7 +1087,7 @@ const Assessment: React.FC = () => {
                       className="w-full p-4 sm:p-5 md:p-6 border border-zinc-100 hover:border-[#b8860b] hover:bg-zinc-50 transition-all text-left group flex justify-between items-center rounded-xs"
                     >
                       <div>
-                        <div className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-[#b8860b] mb-1">{opt.label}</div>
+                        <div className="text-[9px] sm:text-[10px] font-black uppercase text-[#b8860b] mb-1">{opt.label}</div>
                         <div className="text-zinc-700 font-light italic text-xs sm:text-sm">{opt.description}</div>
                       </div>
                       <ChevronRight className="w-4 h-4 text-zinc-300 group-hover:text-[#b8860b] shrink-0 ml-4 transition-colors" />
@@ -1113,7 +1113,7 @@ const Assessment: React.FC = () => {
                   transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
                 />
               </div>
-              <h3 className="text-xl font-bold mb-4 text-[#111111] uppercase tracking-[0.3em] font-mono">Cross-Domain Mapping in Progress</h3>
+              <h3 className="text-xl font-bold mb-4 text-[#111111] uppercase font-mono">Cross-Domain Mapping in Progress</h3>
               <p className="text-zinc-500 italic font-light animate-pulse font-serif">Synthesizing multi-vector alignment and estimating key-person risk thresholds...</p>
             </motion.div>
           )}
@@ -1226,15 +1226,15 @@ const Assessment: React.FC = () => {
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-pulse" />
-                          <span className="text-[#b8860b] text-[8px] font-bold uppercase tracking-[0.4em] font-mono">Confidential Briefing</span>
+                          <span className="text-[#b8860b] text-[8px] font-bold uppercase font-mono">Confidential Briefing</span>
                         </div>
-                        <div className="text-sm font-bold uppercase tracking-wider font-mono">
+                        <div className="text-sm font-bold uppercase font-mono">
                           Dossier <span className="text-[#b8860b]">{dossierId}</span>
                         </div>
                       </div>
                       <div className="flex items-center gap-3">
-                        <span className="text-[8px] uppercase font-bold text-zinc-500 tracking-widest font-mono">Vertical Calibration Rank:</span>
-                        <span className="px-3 py-1 bg-white text-black text-[9px] font-black uppercase tracking-wider font-mono">
+                        <span className="text-[8px] uppercase font-bold text-zinc-500 font-mono">Vertical Calibration Rank:</span>
+                        <span className="px-3 py-1 bg-white text-black text-[9px] font-black uppercase font-mono">
                           {getGrade()}
                         </span>
                       </div>
@@ -1248,7 +1248,7 @@ const Assessment: React.FC = () => {
                             <BrandLogo size="md" variant="full" theme="dark" className="border-none bg-transparent shadow-none" />
                           </div>
                           <div>
-                            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-3 leading-tight">
+                            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 leading-tight">
                               CONFIDENTIAL STRATEGIC DOSSIER
                             </h2>
                             <p className="text-sm sm:text-base text-zinc-400 max-w-xl mx-auto italic font-light leading-relaxed mt-4">
@@ -1257,15 +1257,15 @@ const Assessment: React.FC = () => {
                           </div>
                           <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/5 text-left max-w-2xl mx-auto w-full text-[11px] font-mono text-zinc-400">
                             <div>
-                              <span className="text-zinc-600 block uppercase tracking-wider text-[8px] font-bold mb-1">Source Principal</span>
+                              <span className="text-zinc-600 block uppercase text-[8px] font-bold mb-1">Source Principal</span>
                               <span className="text-white italic">{identity.name || 'Executive Principal'}</span>
                             </div>
                             <div>
-                              <span className="text-zinc-600 block uppercase tracking-wider text-[8px] font-bold mb-1">Enterprise Authority</span>
+                              <span className="text-zinc-600 block uppercase text-[8px] font-bold mb-1">Enterprise Authority</span>
                               <span className="text-white italic">{identity.organization || 'Elite Entity'}</span>
                             </div>
                             <div>
-                              <span className="text-zinc-600 block uppercase tracking-wider text-[8px] font-bold mb-1">Maturity Ledger</span>
+                              <span className="text-zinc-600 block uppercase text-[8px] font-bold mb-1">Maturity Ledger</span>
                               <span className="text-[#b8860b] font-bold uppercase">{getGrade()} Standard</span>
                             </div>
                           </div>
@@ -1275,10 +1275,10 @@ const Assessment: React.FC = () => {
                       {dossierPage === 2 && (
                         /* PAGE 2: PRIMAL INSTITUTIONAL ASSET */
                         <div className="space-y-4 py-2 text-left">
-                          <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#b8860b] font-mono block">
+                          <span className="text-[9px] font-black uppercase text-[#b8860b] font-mono block">
                             Module 01 // Core Resource Alignment
                           </span>
-                          <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
+                          <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
                             Primary Institutional Asset: <span className="text-[#b8860b]">{rDetails.strengthDomain}</span>
                           </h3>
                           <div className="space-y-4">
@@ -1295,11 +1295,11 @@ const Assessment: React.FC = () => {
                       {dossierPage === 3 && (
                         /* PAGE 3: CRITICAL ATTENTION FIELD 01 */
                         <div className="space-y-4 py-2 text-left">
-                          <div className="text-[9px] font-black uppercase tracking-[0.3em] text-red-400 font-mono flex items-center gap-2">
+                          <div className="text-[9px] font-black uppercase text-red-400 font-mono flex items-center gap-2">
                             <span className="w-1.5 h-1.5 bg-red-400 rounded-full animate-pulse" />
                             Module 02 // Structural Refinement Domain 01
                           </div>
-                          <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
+                          <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
                             Refinement Area: <span className="text-[#b8860b]">{rDetails.attentionDomain1}</span>
                           </h3>
                           <div className="space-y-3">
@@ -1310,7 +1310,7 @@ const Assessment: React.FC = () => {
                               {d1Ins?.urgency || rDetails.domainInsights[rDetails.attentionDomain1]?.urgency}
                             </p>
                             <div className="p-4 bg-white/[0.01] border border-white/5 rounded-xs mt-2">
-                              <span className="text-[8px] font-bold text-[#b8860b] uppercase tracking-widest block mb-2 font-mono">Forensic Symptoms Identified</span>
+                              <span className="text-[8px] font-bold text-[#b8860b] uppercase block mb-2 font-mono">Forensic Symptoms Identified</span>
                               <div className="space-y-1.5">
                                 {(d1Ins?.symptoms || rDetails.symptoms1).slice(0, 3).map((s, idx) => (
                                   <div key={idx} className="flex gap-2 text-xs italic text-zinc-400 font-light items-start">
@@ -1327,11 +1327,11 @@ const Assessment: React.FC = () => {
                       {dossierPage === 4 && (
                         /* PAGE 4: CRITICAL ATTENTION FIELD 02 */
                         <div className="space-y-4 py-2 text-left">
-                          <div className="text-[9px] font-black uppercase tracking-[0.3em] text-red-400 font-mono flex items-center gap-2">
+                          <div className="text-[9px] font-black uppercase text-red-400 font-mono flex items-center gap-2">
                             <span className="w-1.5 h-1.5 bg-red-400 rounded-full animate-pulse" />
                             Module 03 // Structural Refinement Domain 02
                           </div>
-                          <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
+                          <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
                             Refinement Area: <span className="text-[#b8860b]">{rDetails.attentionDomain2}</span>
                           </h3>
                           <div className="space-y-3">
@@ -1342,7 +1342,7 @@ const Assessment: React.FC = () => {
                               {d2Ins?.urgency || rDetails.domainInsights[rDetails.attentionDomain2]?.urgency}
                             </p>
                             <div className="p-4 bg-white/[0.01] border border-white/5 rounded-xs mt-2">
-                              <span className="text-[8px] font-bold text-[#b8860b] uppercase tracking-widest block mb-2 font-mono">Forensic Symptoms Identified</span>
+                              <span className="text-[8px] font-bold text-[#b8860b] uppercase block mb-2 font-mono">Forensic Symptoms Identified</span>
                               <div className="space-y-1.5">
                                 {(d2Ins?.symptoms || rDetails.symptoms2).slice(0, 3).map((s, idx) => (
                                   <div key={idx} className="flex gap-2 text-xs italic text-zinc-400 font-light items-start">
@@ -1359,10 +1359,10 @@ const Assessment: React.FC = () => {
                       {dossierPage === 5 && (
                         /* PAGE 5: STRATEGIC RECALIBRATION RESPONSE (Objections and Benefits) */
                         <div className="space-y-4 py-2 text-left">
-                          <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#b8860b] font-mono block">
+                          <span className="text-[9px] font-black uppercase text-[#b8860b] font-mono block">
                             Module 04 // Dynamic Recalibration Strategy
                           </span>
-                          <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-tight mb-1">
+                          <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight mb-1">
                             Structural Alignment & Custom Recalibration
                           </h3>
                           <p className="text-zinc-400 text-xs italic font-light leading-relaxed mb-4 pb-2 border-b border-white/5">
@@ -1370,26 +1370,26 @@ const Assessment: React.FC = () => {
                           </p>
                           <div className="grid sm:grid-cols-2 gap-6">
                             <div className="space-y-2.5">
-                              <h4 className="text-[10px] uppercase tracking-wider font-semibold text-zinc-300 font-mono">
+                              <h4 className="text-[10px] uppercase font-semibold text-zinc-300 font-mono">
                                 01. {rDetails.attentionDomain1}
                               </h4>
                               <p className="text-xs text-[#b8860b] italic leading-relaxed pl-3 border-l border-[#b8860b]/30">
                                 {d1Ins?.objection}
                               </p>
                               <p className="text-xs text-zinc-400 leading-relaxed font-light">
-                                <strong className="font-mono text-[9px] text-zinc-500 uppercase block tracking-wider mt-1">Systemic Unlock:</strong>
+                                <strong className="font-mono text-[9px] text-zinc-500 uppercase block mt-1">Systemic Unlock:</strong>
                                 {d1Ins?.benefit}
                               </p>
                             </div>
                             <div className="space-y-2.5">
-                              <h4 className="text-[10px] uppercase tracking-wider font-semibold text-zinc-300 font-mono">
+                              <h4 className="text-[10px] uppercase font-semibold text-zinc-300 font-mono">
                                 02. {rDetails.attentionDomain2}
                               </h4>
                               <p className="text-xs text-[#b8860b] italic leading-relaxed pl-3 border-l border-[#b8860b]/30">
                                 {d2Ins?.objection}
                               </p>
                               <p className="text-xs text-zinc-400 leading-relaxed font-light">
-                                <strong className="font-mono text-[9px] text-zinc-500 uppercase block tracking-wider mt-1">Systemic Unlock:</strong>
+                                <strong className="font-mono text-[9px] text-zinc-500 uppercase block mt-1">Systemic Unlock:</strong>
                                 {d2Ins?.benefit}
                               </p>
                             </div>
@@ -1400,7 +1400,7 @@ const Assessment: React.FC = () => {
                       {dossierPage === 6 && (
                         /* PAGE 6: EMPIRICAL CALIBRATION INDICES & PRIORITY MATRIX WITH REAL-TIME VOICE USP */
                         <div className="space-y-5 py-2 text-left">
-                          <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#b8860b] font-mono block">
+                          <span className="text-[9px] font-black uppercase text-[#b8860b] font-mono block">
                             Module 05 // Empirical Calibration & Real-Time Voice Cross-Map
                           </span>
                           
@@ -1408,7 +1408,7 @@ const Assessment: React.FC = () => {
                             {/* Column 1: Core Indices */}
                             <div className="md:col-span-6 space-y-4">
                               <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xs">
-                                <div className="text-[8px] uppercase font-black text-zinc-500 mb-1 tracking-widest font-mono">Aggregate Fidelity Index</div>
+                                <div className="text-[8px] uppercase font-black text-zinc-500 mb-1 font-mono">Aggregate Fidelity Index</div>
                                 <div className="flex items-end gap-1 mb-2">
                                   <span className="text-3xl font-bold text-[#b8860b] font-mono">
                                     {Math.round((totalScoreValue / 50) * 100)}
@@ -1424,7 +1424,7 @@ const Assessment: React.FC = () => {
                               </div>
 
                               <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xs">
-                                <div className="text-[8px] uppercase font-black text-zinc-500 mb-1 tracking-widest font-mono">Cognitive Bandwidth Reclaimed</div>
+                                <div className="text-[8px] uppercase font-black text-zinc-500 mb-1 font-mono">Cognitive Bandwidth Reclaimed</div>
                                 <div className="flex items-end gap-1 mb-2">
                                   <span className="text-3xl font-bold text-white font-mono">
                                     {Math.round(80 + (totalScoreValue / 5))}
@@ -1443,8 +1443,8 @@ const Assessment: React.FC = () => {
                             {/* Column 2: Voice USP profile */}
                             <div className="md:col-span-6 p-4 bg-[#111] border border-[#b8860b]/20 text-white space-y-3 font-mono text-[10px]">
                               <div className="flex justify-between items-center border-b border-white/15 pb-2">
-                                <span className="text-[#b8860b] font-bold uppercase text-[8px] tracking-wider">Vocal Stress Analyzer Profile</span>
-                                <span className="text-emerald-400 font-bold text-[7px] uppercase tracking-widest bg-emerald-950 px-1.5 py-0.5 border border-emerald-900 animate-pulse">
+                                <span className="text-[#b8860b] font-bold uppercase text-[8px] ">Vocal Stress Analyzer Profile</span>
+                                <span className="text-emerald-400 font-bold text-[7px] uppercase bg-emerald-950 px-1.5 py-0.5 border border-emerald-900 animate-pulse">
                                   ✓ SECURE SIGNAL MATCHED
                                 </span>
                               </div>
@@ -1473,7 +1473,7 @@ const Assessment: React.FC = () => {
                           </div>
 
                           <div className="space-y-1 bg-[#1a140d]/30 border border-[#b8860b]/10 p-3 rounded-xs">
-                            <div className="text-[8px] uppercase font-black text-[#b8860b] tracking-[0.2em] font-mono mb-1">Office Priority Intervention Recommendation</div>
+                            <div className="text-[8px] uppercase font-black text-[#b8860b] font-mono mb-1">Office Priority Intervention Recommendation</div>
                             <p className="text-zinc-200 text-xs italic font-light leading-relaxed">
                               {rDetails.priority}
                             </p>
@@ -1486,7 +1486,7 @@ const Assessment: React.FC = () => {
                         <div className="space-y-3 py-1 text-left">
                           <div className="flex items-center justify-between border-b border-white/10 pb-3">
                             <div>
-                              <span className="text-[8px] uppercase font-mono font-bold text-[#b8860b] tracking-[0.3em] block">
+                              <span className="text-[8px] uppercase font-mono font-bold text-[#b8860b] block">
                                 Dynamic Value Add-On Protocol
                               </span>
                               <h4 className="text-lg font-bold text-white leading-tight">
@@ -1496,7 +1496,7 @@ const Assessment: React.FC = () => {
                             {playbookSubmitted && (
                               <button
                                 onClick={() => window.print()}
-                                className="text-[8px] font-bold uppercase tracking-widest border border-white/20 px-3 py-1 bg-black text-white hover:bg-white hover:text-black transition-all flex items-center gap-1.5 font-mono"
+                                className="text-[8px] font-bold uppercase border border-white/20 px-3 py-1 bg-black text-white hover:bg-white hover:text-black transition-all flex items-center gap-1.5 font-mono"
                               >
                                 <Download className="w-3 h-3" /> Print
                               </button>
@@ -1511,7 +1511,7 @@ const Assessment: React.FC = () => {
                                 </p>
                                 <button
                                   onClick={() => setShowPlaybookOnboard(true)}
-                                  className="px-6 py-3 bg-[#b8860b] hover:bg-white hover:text-black text-white text-[9px] font-bold uppercase tracking-[0.15em] transition-all font-mono"
+                                  className="px-6 py-3 bg-[#b8860b] hover:bg-white hover:text-black text-white text-[9px] font-bold uppercase transition-all font-mono"
                                 >
                                   Customize My Playbook ➔
                                 </button>
@@ -1521,7 +1521,7 @@ const Assessment: React.FC = () => {
                                 <div className="grid sm:grid-cols-3 gap-4">
                                   {/* Q1 */}
                                   <div className="space-y-2">
-                                    <label className="text-[8px] font-black uppercase text-zinc-300 tracking-wider block font-mono">1. Handover Horizon</label>
+                                    <label className="text-[8px] font-black uppercase text-zinc-300 block font-mono">1. Handover Horizon</label>
                                     <select
                                       value={playbookAnswers.handoverHorizon}
                                       onChange={(e) => setPlaybookAnswers({ ...playbookAnswers, handoverHorizon: e.target.value })}
@@ -1536,7 +1536,7 @@ const Assessment: React.FC = () => {
                                   </div>
                                   {/* Q2 */}
                                   <div className="space-y-2">
-                                    <label className="text-[8px] font-black uppercase text-zinc-300 tracking-wider block font-mono">2. Cognitive Drain Point</label>
+                                    <label className="text-[8px] font-black uppercase text-zinc-300 block font-mono">2. Cognitive Drain Point</label>
                                     <select
                                       value={playbookAnswers.focusBottleneck}
                                       onChange={(e) => setPlaybookAnswers({ ...playbookAnswers, focusBottleneck: e.target.value })}
@@ -1551,7 +1551,7 @@ const Assessment: React.FC = () => {
                                   </div>
                                   {/* Q3 */}
                                   <div className="space-y-2">
-                                    <label className="text-[8px] font-black uppercase text-zinc-300 tracking-wider block font-mono">3. Key-Person Risk Profile</label>
+                                    <label className="text-[8px] font-black uppercase text-zinc-300 block font-mono">3. Key-Person Risk Profile</label>
                                     <select
                                       value={playbookAnswers.keyRiskLevel}
                                       onChange={(e) => setPlaybookAnswers({ ...playbookAnswers, keyRiskLevel: e.target.value })}
@@ -1591,7 +1591,7 @@ const Assessment: React.FC = () => {
                                     }, 1500);
                                   }}
                                   disabled={isGeneratingPlaybook}
-                                  className="w-full px-6 py-3 bg-[#b8860b] hover:bg-white hover:text-black text-white text-[9px] font-bold uppercase tracking-[0.2em] transition-all font-mono"
+                                  className="w-full px-6 py-3 bg-[#b8860b] hover:bg-white hover:text-black text-white text-[9px] font-bold uppercase transition-all font-mono"
                                 >
                                   {isGeneratingPlaybook ? 'Compiling Playbook Framework...' : 'Authorize & Compile Playbook'}
                                 </button>
@@ -1602,21 +1602,21 @@ const Assessment: React.FC = () => {
                               {/* Diagnostic Summary Recaps */}
                               <div className="grid grid-cols-3 gap-2 text-[10px] p-2 bg-white/[0.02] border border-white/5 font-mono">
                                 <div>
-                                  <span className="text-zinc-500 block uppercase tracking-widest text-[7px] font-bold">Horizon</span>
+                                  <span className="text-zinc-500 block uppercase text-[7px] font-bold">Horizon</span>
                                   <span className="text-white italic">{playbookAnswers.handoverHorizon}</span>
                                 </div>
                                 <div>
-                                  <span className="text-zinc-500 block uppercase tracking-widest text-[7px] font-bold">Bottleneck</span>
+                                  <span className="text-zinc-500 block uppercase text-[7px] font-bold">Bottleneck</span>
                                   <span className="text-white italic">{playbookAnswers.focusBottleneck}</span>
                                 </div>
                                 <div>
-                                  <span className="text-zinc-500 block uppercase tracking-widest text-[7px] font-bold">Key Risk</span>
+                                  <span className="text-zinc-500 block uppercase text-[7px] font-bold">Key Risk</span>
                                   <span className="text-white italic">{playbookAnswers.keyRiskLevel}</span>
                                 </div>
                               </div>
 
                               <div className="p-4 bg-black/40 border border-white/5 space-y-2 rounded-xs">
-                                <h5 className="text-[10px] font-bold text-[#b8860b] uppercase tracking-wider font-mono">
+                                <h5 className="text-[10px] font-bold text-[#b8860b] uppercase font-mono">
                                   Action Protocol: Mitigating {rDetails.attentionDomain1}
                                 </h5>
                                 <p className="text-zinc-400 text-xs leading-relaxed font-light">
@@ -1637,7 +1637,7 @@ const Assessment: React.FC = () => {
                         <div className="space-y-3 py-1 text-left">
                           <div className="border-b border-white/10 pb-3 flex justify-between items-center">
                             <div>
-                              <span className="text-[8px] uppercase font-mono font-bold text-[#b8860b] tracking-[0.3em] block">
+                              <span className="text-[8px] uppercase font-mono font-bold text-[#b8860b] block">
                                 Strategic Alignment Verification Portal
                               </span>
                               <h4 className="text-lg font-bold text-white leading-tight">
@@ -1648,7 +1648,7 @@ const Assessment: React.FC = () => {
 
                           <div className="grid sm:grid-cols-12 gap-6 items-start pt-1">
                             <div className="sm:col-span-5 space-y-2 bg-white/[0.01] border border-white/5 p-3 rounded-xs font-mono">
-                              <span className="text-[8px] font-black uppercase text-[#b8860b] tracking-wider block">Locked Systems Modules</span>
+                              <span className="text-[8px] font-black uppercase text-[#b8860b] block">Locked Systems Modules</span>
                               <div className="space-y-1 text-[10px] text-zinc-450 italic">
                                 <div className="flex justify-between border-b border-white/5 py-1">
                                   <span className="text-zinc-400">90-Day Strategic Roadmap</span>
@@ -1673,7 +1673,7 @@ const Assessment: React.FC = () => {
                                   </p>
                                   
                                   <div className="p-4 bg-black/60 border border-zinc-800 text-left rounded-sm">
-                                    <h6 className="text-[9px] font-bold uppercase text-[#b8860b] tracking-wider mb-2 font-mono flex items-center gap-1.5">
+                                    <h6 className="text-[9px] font-bold uppercase text-[#b8860b] mb-2 font-mono flex items-center gap-1.5">
                                       <Shield className="w-3 h-3 text-[#b8860b]" /> Request Custom Proposal & System Unlock
                                     </h6>
                                     
@@ -1692,7 +1692,7 @@ const Assessment: React.FC = () => {
                                         <button
                                           type="submit"
                                           disabled={isSubmittingVIPWire}
-                                          className="w-full py-2.5 bg-[#b8860b] hover:bg-white hover:text-black font-mono font-bold uppercase text-[9px] tracking-wider text-white transition-all shadow-lg"
+                                          className="w-full py-2.5 bg-[#b8860b] hover:bg-white hover:text-black font-mono font-bold uppercase text-[9px] text-white transition-all shadow-lg"
                                         >
                                           {isSubmittingVIPWire ? "Transmitting..." : "Submit Inquiry & Unlock Report"}
                                         </button>
@@ -1700,14 +1700,14 @@ const Assessment: React.FC = () => {
                                     ) : (
                                       <div className="p-2 bg-[#b8860b]/10 border border-[#b8860b]/20 text-center rounded-xs">
                                         <Check className="w-4 h-4 text-[#b8860b] mx-auto mb-1" />
-                                        <span className="text-[8px] font-mono uppercase text-white font-bold tracking-wider block">Inquiry Submitted</span>
+                                        <span className="text-[8px] font-mono uppercase text-white font-bold block">Inquiry Submitted</span>
                                         <p className="text-[9px] text-zinc-400 italic">
                                           Your request has been registered. Kamini Agnihotri (Operations & Client Relations Coordinator, kaminiagnihotri249@gmail.com) is compiling details. A customized alignment brief and pricing proposal will reach you within 4 hours.
                                         </p>
                                         <button
                                           type="button"
                                           onClick={() => setIsPaid(true)}
-                                          className="mt-2 w-full py-1 bg-white/10 hover:bg-[#b8860b] text-white font-mono text-[8px] uppercase tracking-wider transition-all"
+                                          className="mt-2 w-full py-1 bg-white/10 hover:bg-[#b8860b] text-white font-mono text-[8px] uppercase transition-all"
                                         >
                                           Continue to Full Report
                                         </button>
@@ -1718,7 +1718,7 @@ const Assessment: React.FC = () => {
                               ) : (
                                 <div className="space-y-3 animate-fade-in text-center py-2">
                                   <div className="p-3 bg-[#b8860b]/10 border border-[#b8860b]/30">
-                                    <div className="text-[9px] uppercase text-[#b8860b] tracking-wider font-mono font-bold">Authority Calibrated & Certified</div>
+                                    <div className="text-[9px] uppercase text-[#b8860b] font-mono font-bold">Authority Calibrated & Certified</div>
                                     <p className="text-xs text-zinc-400 italic font-light mt-1">Alignment Portal assessment is fully unlocked on your client terminal node.</p>
                                   </div>
 
@@ -1726,7 +1726,7 @@ const Assessment: React.FC = () => {
                                     href="https://ai.studio/apps/bc205532-cdb0-43d3-a8fb-919809372614"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group relative px-6 py-4 bg-[#b8860b] text-white text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all shadow-xl flex items-center justify-center gap-2 overflow-hidden text-center mx-auto no-underline"
+                                    className="group relative px-6 py-4 bg-[#b8860b] text-white text-[11px] font-bold uppercase hover:bg-white hover:text-black transition-all shadow-xl flex items-center justify-center gap-2 overflow-hidden text-center mx-auto no-underline"
                                   >
                                     <span>Access Indepth Assessment Portal</span>
                                     <ArrowRight className="w-4 h-4" />
@@ -1745,23 +1745,23 @@ const Assessment: React.FC = () => {
                     <button
                       onClick={() => setDossierPage(prev => Math.max(1, prev - 1))}
                       disabled={dossierPage === 1}
-                      className="px-4 py-2 bg-black border border-white/10 hover:border-[#b8860b] text-[9px] font-bold uppercase tracking-widest disabled:opacity-30 transition-all font-mono"
+                      className="px-4 py-2 bg-black border border-white/10 hover:border-[#b8860b] text-[9px] font-bold uppercase disabled:opacity-30 transition-all font-mono"
                     >
                       ← Prev Leaf
                     </button>
-                    <span className="text-[10px] tracking-widest font-mono text-zinc-500 uppercase">
+                    <span className="text-[10px] font-mono text-zinc-500 uppercase">
                       Page {dossierPage.toString().padStart(2, '0')} of 08
                     </span>
                     <button
                       onClick={() => setDossierPage(prev => Math.min(8, prev + 1))}
                       disabled={dossierPage === 8}
-                      className="px-4 py-2 bg-black border border-white/10 hover:border-[#b8860b] text-[9px] font-bold uppercase tracking-widest disabled:opacity-30 transition-all font-mono"
+                      className="px-4 py-2 bg-black border border-white/10 hover:border-[#b8860b] text-[9px] font-bold uppercase disabled:opacity-30 transition-all font-mono"
                     >
                       Next Leaf →
                     </button>
                   </div>
 
-                  <div className="mt-4 pt-2 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-2 select-none text-[8px] font-mono text-zinc-600 uppercase tracking-widest.">
+                  <div className="mt-4 pt-2 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-2 select-none text-[8px] font-mono text-zinc-600 uppercase ">
                     <span>Calibration Target Email: {identity.email}</span>
                     <span>TULC Protocol Verification Registry</span>
                   </div>
@@ -1769,7 +1769,7 @@ const Assessment: React.FC = () => {
                   {/* EMBED WIDGET (Renders nicely below nav controls on page 8 only or when desired, but keeping to prevent layout disruptions) */}
                   {dossierPage === 8 && (
                     <div className="mt-6 pt-4 border-t border-white/5 text-center">
-                      <span className="text-[8px] uppercase font-bold text-[#b8860b] tracking-[0.3em] block mb-2 font-mono">
+                      <span className="text-[8px] uppercase font-bold text-[#b8860b] block mb-2 font-mono">
                         INSTITUTIONAL CALIBRATION VERIFICATION BADGE
                       </span>
                       <div className="flex flex-col md:flex-row items-center gap-4 justify-center bg-black/40 border border-white/5 p-4 rounded-xs">
@@ -1789,7 +1789,7 @@ const Assessment: React.FC = () => {
                           </svg>
                         </div>
                         <div className="w-full text-left font-mono">
-                          <span className="text-[7px] font-bold text-zinc-500 uppercase tracking-widest block mb-1">HTML EMBED (ALIGNMENT SEAL)</span>
+                          <span className="text-[7px] font-bold text-zinc-500 uppercase block mb-1">HTML EMBED (ALIGNMENT SEAL)</span>
                           <textarea
                             readOnly
                             value={`<div style="text-align: center;"><a href="https://theunboundedleadership.com" target="_blank"><img src="https://theunboundedleadership.com/assets/badges/calibrated.svg" alt="The Unbounded Leadership Co. | Calibration Seal" width="120" height="120" style="border: none;" /></a></div>`}

@@ -9,14 +9,14 @@ const EliteReasoning: React.FC = () => {
           <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#b8860b]/30 to-transparent skew-x-12 opacity-50" />
           
           <div className="max-w-4xl relative z-10">
-            <h2 className="text-[10px] font-bold uppercase mb-12 border-b border-white/10 pb-4 inline-block text-[#b8860b] tracking-[0.3em]">The Sovereign Intervention</h2>
+            <h2 className="text-[10px] font-bold uppercase mb-12 border-b border-white/10 pb-4 inline-block text-[#b8860b] ">The Sovereign Intervention</h2>
             <h3 className="text-3xl md:text-5xl font-bold mb-12 leading-tight">
               Optimization of strategic substrates that coaching <span className="text-[#b8860b] italic">cannot detect.</span>
             </h3>
             
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div className="space-y-8">
-                <div className="space-y-6 text-[10px] leading-relaxed uppercase font-black tracking-widest">
+                <div className="space-y-6 text-[10px] leading-relaxed uppercase font-black ">
                   <div className="pb-4 border-b border-white/10 flex justify-between items-center">
                     <span>Traditional Coaching</span>
                     <span className="text-white/30 italic">Behavioral Modification</span>
@@ -34,13 +34,13 @@ const EliteReasoning: React.FC = () => {
                 <div className="flex flex-wrap gap-4 pt-4">
                   <button 
                     onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="px-10 py-5 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all shadow-xl"
+                    className="px-10 py-5 bg-[#b8860b] text-white text-[10px] font-black uppercase hover:bg-white hover:text-black transition-all shadow-xl"
                   >
                     Request Private Access
                   </button>
                   <button 
                     onClick={() => document.getElementById('registry')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="px-10 py-5 border border-white/20 text-white text-[10px] font-black uppercase tracking-widest hover:border-[#b8860b] hover:text-[#b8860b] transition-all"
+                    className="px-10 py-5 border border-white/20 text-white text-[10px] font-black uppercase hover:border-[#b8860b] hover:text-[#b8860b] transition-all"
                   >
                     Explore Case Registry
                   </button>
@@ -48,7 +48,7 @@ const EliteReasoning: React.FC = () => {
               </div>
               
               <div className="bg-white/5 p-12 border border-white/10 flex flex-col justify-center backdrop-blur-md">
-                <p className="text-white/40 text-[9px] uppercase font-black mb-6 tracking-[0.2em]">Protocol Objective</p>
+                <p className="text-white/40 text-[9px] uppercase font-black mb-6 ">Protocol Objective</p>
                 <div className="text-2xl font-bold text-white mb-8 leading-snug">
                   Transition from <span className="text-[#b8860b]">Latent Potential</span> to <span className="text-[#b8860b]">Institutional Sovereignty.</span>
                 </div>
@@ -56,13 +56,13 @@ const EliteReasoning: React.FC = () => {
                 <div className="space-y-4">
                   <button 
                     onClick={() => document.getElementById('program')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="text-[10px] font-black uppercase text-[#b8860b] hover:text-white transition-all text-left tracking-widest block w-full"
+                    className="text-[10px] font-black uppercase text-[#b8860b] hover:text-white transition-all text-left block w-full"
                   >
                     Review Excellence Standards →
                   </button>
                   <button 
                     onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="text-[10px] font-black uppercase text-white/40 hover:text-[#b8860b] transition-all text-left tracking-widest block w-full"
+                    className="text-[10px] font-black uppercase text-white/40 hover:text-[#b8860b] transition-all text-left block w-full"
                   >
                     Inquire Regarding Custom Calibration →
                   </button>

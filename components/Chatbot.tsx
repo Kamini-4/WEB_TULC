@@ -132,10 +132,10 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen: propIsOpen, setIsOpen: propSe
                   <Bot className="w-4 h-4 text-[#b8860b]" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white">Sovereign Concierge</h4>
+                  <h4 className="text-xs font-black uppercase text-white">Sovereign Concierge</h4>
                   <div className="flex items-center gap-1.5 mt-0.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-[9px] font-mono uppercase tracking-widest text-zinc-400">Institutional Channel</span>
+                    <span className="text-[9px] font-mono uppercase text-zinc-400">Institutional Channel</span>
                   </div>
                 </div>
               </div>
@@ -184,7 +184,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen: propIsOpen, setIsOpen: propSe
                 <div className="flex justify-start">
                   <div className="bg-white border border-zinc-200/80 rounded-sm p-4 max-w-[85%] flex items-center gap-3">
                     <Loader2 className="w-4 h-4 text-[#b8860b] animate-spin" />
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">Formulating response...</span>
+                    <span className="text-[10px] font-mono uppercase text-zinc-500">Formulating response...</span>
                   </div>
                 </div>
               )}
@@ -198,7 +198,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen: propIsOpen, setIsOpen: propSe
                   <button
                     key={idx}
                     onClick={() => handleSendMessage(chip.query)}
-                    className="text-[9px] uppercase tracking-wider font-semibold border border-zinc-200 bg-white hover:border-[#b8860b] hover:text-[#b8860b] text-zinc-600 px-2.5 py-1.5 transition-all text-left flex items-center gap-1"
+                    className="text-[9px] uppercase font-semibold border border-zinc-200 bg-white hover:border-[#b8860b] hover:text-[#b8860b] text-zinc-600 px-2.5 py-1.5 transition-all text-left flex items-center gap-1"
                   >
                     {chip.label} <ArrowUpRight className="w-2.5 h-2.5 shrink-0" />
                   </button>
@@ -251,7 +251,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen: propIsOpen, setIsOpen: propSe
             <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#b8860b] rounded-full border border-white animate-pulse" />
           )}
         </div>
-        <span className="text-[10px] font-black uppercase tracking-[0.2em]">
+        <span className="text-[10px] font-black uppercase ">
           {isOpen ? 'Close Concierge' : 'Sovereign Concierge'}
         </span>
         

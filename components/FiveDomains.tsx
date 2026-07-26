@@ -17,51 +17,51 @@ const domains: Domain[] = [
   {
     id: "01",
     title: "Cognitive Clarity",
-    subtitle: "Executive Decision Flow",
-    benefit: "Reclaim up to 40% of the executive schedule by eliminating low-level decision-making.",
-    pain: "Calendar packed with review meetings and decision fatigue.",
-    outcome: "Bandwidth reallocated to capital allocation and strategy in 90 days.",
-    vision: "Zero daily operational bottlenecks and absolute priority clarity.",
+    subtitle: "Executive Decision Flow & Bandwidth",
+    benefit: "Reclaims 30–40% of executive leadership schedule by stripping away operational review clutter and low-leverage oversight loops.",
+    pain: "Calendar bogged down in reactive micro-decisions, status meetings, and cognitive friction that dilutes long-range founder focus.",
+    outcome: "100% of liberated executive bandwidth redirected strictly to capital allocation, strategic partnerships, and enterprise vision within 90 days.",
+    vision: "An insulated C-suite operating with zero daily operational bottlenecks and absolute strategic decision clarity.",
     icon: <Brain className="w-4 h-4 text-[#b8860b]" />
   },
   {
     id: "02",
     title: "Systemic Integrity",
-    subtitle: "Organizational Architecture",
-    benefit: "Maintains consistent strategic alignment and execution across operating divisions.",
-    pain: "Inconsistent performance, continuous follow-ups, and scaling drift.",
-    outcome: "Standard operating procedures execute reliably without manual intervention.",
-    vision: "Predictable workflow that functions reliably regardless of supervisor presence.",
+    subtitle: "Organizational Execution Architecture",
+    benefit: "Hard-codes founder intent into automated operational logic gates so directives execute flawlessly across all business units.",
+    pain: "Strategic signal loss, constant follow-ups, execution drift, and inconsistent departmental output as headcount expands.",
+    outcome: "SOPs and cross-functional directives execute autonomously with zero quality degradation or need for manual management intervention.",
+    vision: "A self-cohering organizational structure that operates at peak fidelity regardless of executive physical presence.",
     icon: <Cpu className="w-4 h-4 text-[#b8860b]" />
   },
   {
     id: "03",
     title: "Strategic Velocity",
-    subtitle: "Operational Directives",
-    benefit: "Accelerates response times when deploying new board-approved initiatives.",
-    pain: "Delays in executing strategic decisions caused by management layers.",
-    outcome: "Initiatives execute precisely on scheduled timelines.",
-    vision: "Responsive structure translating executive decisions into action instantly.",
+    subtitle: "Operational Directives & Speed",
+    benefit: "Compresses the cycle time between board-approved strategic decisions and on-the-ground market deployment.",
+    pain: "Multi-layered management drag, decision latency, committee paralysis, and delayed market initiative rollouts.",
+    outcome: "Doubles organizational decision-to-execution frequency, delivering market initiatives precisely on target and ahead of schedule.",
+    vision: "A frictionless, high-frequency execution engine that translates executive vision into market action instantly.",
     icon: <Zap className="w-4 h-4 text-[#b8860b]" />
   },
   {
     id: "04",
     title: "Moral Gravity",
-    subtitle: "Governance & Compliance",
-    benefit: "Establishes institutional compliance and clear corporate governance.",
-    pain: "Internal policy friction and reactive handling of governance challenges.",
-    outcome: "Unified culture of accountability reducing regulatory and legal risks.",
-    vision: "Robust governance framework protecting long-term enterprise value.",
+    subtitle: "Governance & Compliance Standards",
+    benefit: "Establishes unyielding institutional compliance, ethical safeguards, and unified governance structures across all operations.",
+    pain: "Regulatory vulnerabilities, policy non-compliance, internal friction, and reputational exposures from decentralized decisions.",
+    outcome: "A self-policing culture of radical accountability that mitigates legal, regulatory, and operational enterprise risks before they materialize.",
+    vision: "A bulletproof governance framework that safeguards long-term enterprise valuation and brand equity across market cycles.",
     icon: <Shield className="w-4 h-4 text-[#b8860b]" />
   },
   {
     id: "05",
     title: "Cultural Fidelity",
-    subtitle: "Business Continuity",
-    benefit: "Guarantees institutional memory, succession readiness, and stability.",
-    pain: "Dependency on key personnel and talent exit liabilities.",
-    outcome: "Documented leadership criteria and prepared internal talent pipeline.",
-    vision: "Long-term operational resilience driven by repeatable succession processes.",
+    subtitle: "Continuity, Key-Person Protection & Succession",
+    benefit: "Insulates the organization against key-person dependency risks while locking in permanent institutional memory and leadership culture.",
+    pain: "Severe vulnerability to key executive exits, knowledge silos, leadership drift, and fragile succession planning.",
+    outcome: "Codified leadership criteria, active bench-strength talent pipelines, and zero operational disruption during executive transitions.",
+    vision: "Complete operational resilience and multi-generational business continuity driven by repeatable succession protocols.",
     icon: <Layers className="w-4 h-4 text-[#b8860b]" />
   }
 ];
@@ -82,16 +82,16 @@ const FiveDomains: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-3">
               <Award className="w-3.5 h-3.5 text-[#b8860b]" />
-              <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.2em] font-mono">
+              <span className="text-[#b8860b] text-[10px] font-black uppercase font-mono">
                 Provisional Patent-Filed System
               </span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-bold font-serif text-white">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-serif text-white">
               The 5 Sovereign <span className="text-[#b8860b] italic font-light">Domains.</span>
             </h2>
           </div>
-          <p className="text-zinc-400 text-xs sm:text-sm italic font-light max-w-md leading-relaxed">
-            Strategic performance is a direct result of structural design across five core operational dimensions. Click any domain to inspect diagnostic metrics.
+          <p className="text-zinc-300 text-xs sm:text-sm italic font-light max-w-md leading-relaxed">
+            The core architecture of founder liberation. Select any domain below to inspect the exact operational friction we eliminate and the 90-day benchmark outcomes we engineer for your enterprise.
           </p>
         </div>
 
@@ -115,7 +115,7 @@ const FiveDomains: React.FC = () => {
 
         {/* Active Domain Detail Inspector Box (Black Box Executive UI) */}
         <div className="bg-[#111111] border border-[#b8860b]/40 p-6 sm:p-8 rounded-xs shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 px-3 py-1 bg-[#b8860b]/20 text-[#b8860b] text-[8px] font-mono uppercase tracking-widest font-bold">
+          <div className="absolute top-0 right-0 px-3 py-1 bg-[#b8860b]/20 text-[#b8860b] text-[8px] font-mono uppercase font-bold">
             Domain 0{selectedIdx + 1} Diagnostic Matrix
           </div>
 
@@ -135,7 +135,7 @@ const FiveDomains: React.FC = () => {
                     {domains[selectedIdx].icon}
                   </div>
                   <div>
-                    <span className="text-[10px] text-[#b8860b] uppercase font-mono tracking-wider block font-bold">
+                    <span className="text-[10px] text-[#b8860b] uppercase font-mono block font-bold">
                       {domains[selectedIdx].subtitle}
                     </span>
                     <h3 className="text-xl sm:text-2xl font-bold font-serif text-white">
@@ -145,7 +145,7 @@ const FiveDomains: React.FC = () => {
                 </div>
 
                 <div className="p-4 bg-white/5 border border-white/5 rounded-xs space-y-1.5">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-[#b8860b] font-mono block">
+                  <span className="text-[9px] font-black uppercase text-[#b8860b] font-mono block">
                     Strategic Operational Vision
                   </span>
                   <p className="text-xs text-zinc-200 italic font-light leading-relaxed">
@@ -159,7 +159,7 @@ const FiveDomains: React.FC = () => {
                 
                 {/* Benefit */}
                 <div className="bg-zinc-900 border border-white/10 p-4 rounded-xs space-y-1.5">
-                  <span className="text-[9px] font-black uppercase text-[#b8860b] font-mono tracking-wider block">
+                  <span className="text-[9px] font-black uppercase text-[#b8860b] font-mono block">
                     Key Benefit
                   </span>
                   <p className="text-xs text-zinc-200 font-medium leading-relaxed">
@@ -169,7 +169,7 @@ const FiveDomains: React.FC = () => {
 
                 {/* Friction */}
                 <div className="bg-zinc-900 border border-white/10 p-4 rounded-xs space-y-1.5">
-                  <span className="text-[9px] font-black uppercase text-red-400 font-mono tracking-wider block">
+                  <span className="text-[9px] font-black uppercase text-red-400 font-mono block">
                     Friction Avoided
                   </span>
                   <p className="text-xs text-zinc-300 italic font-light leading-relaxed">
@@ -179,7 +179,7 @@ const FiveDomains: React.FC = () => {
 
                 {/* Outcome */}
                 <div className="bg-zinc-900 border border-white/10 p-4 rounded-xs space-y-1.5">
-                  <span className="text-[9px] font-black uppercase text-emerald-400 font-mono tracking-wider block">
+                  <span className="text-[9px] font-black uppercase text-emerald-400 font-mono block">
                     90-Day Outcome
                   </span>
                   <p className="text-xs text-zinc-200 font-semibold leading-relaxed">

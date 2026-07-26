@@ -93,7 +93,7 @@ const FAQ: React.FC = () => {
       
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-[#b8860b] text-[11px] font-black uppercase mb-4 tracking-[0.3em]">Institutional Clearness</h2>
+          <h2 className="text-[#b8860b] text-[11px] font-black uppercase mb-4 ">Institutional Clearness</h2>
           <h3 className="text-4xl md:text-5xl font-bold text-[#111111] mb-4">Strategic <span className="italic text-[#b8860b]">Clarifications.</span></h3>
           <p className="text-zinc-700 text-sm max-w-lg mx-auto italic">Addressing the structural refinements of institutional alignment and deliverability for global leadership.</p>
           <div className="w-12 h-[1px] bg-[#b8860b] mx-auto mt-6 opacity-30"></div>
@@ -117,7 +117,7 @@ const FAQ: React.FC = () => {
                  window.location.href = '/intake';
                }
              }}
-             className="px-10 py-4 bg-[#111111] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#b8860b] transition-all cursor-pointer"
+             className="px-10 py-4 bg-[#111111] text-white text-[10px] font-bold uppercase hover:bg-[#b8860b] transition-all cursor-pointer"
            >
              Request Strategic Access
            </button>

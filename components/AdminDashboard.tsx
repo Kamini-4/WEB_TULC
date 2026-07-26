@@ -421,13 +421,13 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
             @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;900&family=JetBrains+Mono&display=swap');
             body { font-family: 'Playfair Display', serif; padding: 60px; line-height: 1.6; color: #111111; background-color: #ffffff; }
             .header { border-bottom: 2px solid #b8860b; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
-            .logo { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 0.35em; text-transform: uppercase; color: #111; font-weight: bold; }
+            .logo { font-family: 'Cinzel', serif; font-size: 14px;  text-transform: uppercase; color: #111; font-weight: bold; }
             .title { font-size: 30px; font-weight: bold; margin: 15px 0 5px 0; font-family: 'Cinzel', serif; }
-            .category { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 900; letter-spacing: 0.25em; text-transform: uppercase; color: #b8860b; }
+            .category { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 900;  text-transform: uppercase; color: #b8860b; }
             
             .meta-grid { display: grid; grid-template-cols: 1fr 1fr; gap: 20px; margin-bottom: 40px; font-family: 'Inter', sans-serif; font-size: 12px; border-bottom: 1px solid #eee; padding-bottom: 30px; }
             .meta-item { display: flex; flex-direction: column; }
-            .meta-lbl { font-weight: 900; color: #888; text-transform: uppercase; letter-spacing: 0.1em; font-size: 9px; margin-bottom: 4px; }
+            .meta-lbl { font-weight: 900; color: #888; text-transform: uppercase;  font-size: 9px; margin-bottom: 4px; }
             .meta-val { font-weight: bold; }
 
             .score-card { background-color: #fafaf6; border: 1px solid #e5e5d8; padding: 25px; margin-bottom: 45px; }
@@ -435,7 +435,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
             .grade-title { font-family: 'Cinzel', serif; font-size: 18px; font-weight: bold; text-transform: uppercase; margin-top: 10px; }
             .grade-desc { font-size: 13px; color: #555; font-style: italic; }
 
-            .section-title { font-family: 'Cinzel', serif; font-size: 15px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid #b8860b; padding-bottom: 8px; margin-top: 40px; margin-bottom: 20px; }
+            .section-title { font-family: 'Cinzel', serif; font-size: 15px; font-weight: bold; text-transform: uppercase;  border-bottom: 1px solid #b8860b; padding-bottom: 8px; margin-top: 40px; margin-bottom: 20px; }
             .domain-row { display: grid; grid-template-cols: 150px 100px 1fr; gap: 20px; margin-bottom: 15px; font-family: 'Inter', sans-serif; font-size: 11px; align-items: center; border-bottom: 1px solid #f9f9f9; padding-bottom: 10px; }
             .domain-name { font-weight: bold; color: #111; }
             .domain-score-box { background-color: #eee; height: 6px; border-radius: 3px; position: relative; overflow: hidden; }
@@ -443,7 +443,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
             .choice-desc { font-style: italic; color: #555; }
             
             .cert-box { border: 1px dashed #b8860b; padding: 25px; margin-top: 60px; text-align: center; }
-            .footer { margin-top: 80px; border-top: 1px solid #eee; padding-top: 20px; font-size: 8px; color: #999; text-align: center; font-family: 'Inter', sans-serif; letter-spacing: 0.1em; }
+            .footer { margin-top: 80px; border-top: 1px solid #eee; padding-top: 20px; font-size: 8px; color: #999; text-align: center; font-family: 'Inter', sans-serif;  }
           </style>
         </head>
         <body>
@@ -472,11 +472,11 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                 </g>
                 
                 <!-- Text -->
-                <text x="250" y="165" text-anchor="middle" fill="url(#gold-grad-dash)" font-size="28" font-weight="bold" letter-spacing="0.16em" font-family="'Cinzel', 'Playfair Display', serif">THE UNBOUNDED</text>
+                <text x="250" y="165" text-anchor="middle" fill="url(#gold-grad-dash)" font-size="28" font-weight="bold"  font-family="'Cinzel', 'Playfair Display', serif">THE UNBOUNDED</text>
                 <line x1="85" y1="185" x2="185" y2="185" stroke="url(#gold-grad-dash)" stroke-width="1.2" />
-                <text x="250" y="190" text-anchor="middle" fill="url(#gold-grad-dash)" font-size="14" font-weight="900" letter-spacing="0.32em" font-family="'Inter', sans-serif">LEADERSHIP CO.</text>
+                <text x="250" y="190" text-anchor="middle" fill="url(#gold-grad-dash)" font-size="14" font-weight="900"  font-family="'Inter', sans-serif">LEADERSHIP CO.</text>
                 <line x1="315" y1="185" x2="415" y2="185" stroke="url(#gold-grad-dash)" stroke-width="1.2" />
-                <text x="250" y="215" text-anchor="middle" fill="#8a640f" font-size="10.5" letter-spacing="0.06em" font-family="'Inter', sans-serif" font-weight="300" font-style="italic">Elevating Cultures, Transforming Leadership</text>
+                <text x="250" y="215" text-anchor="middle" fill="#8a640f" font-size="10.5"  font-family="'Inter', sans-serif" font-weight="300" font-style="italic">Elevating Cultures, Transforming Leadership</text>
               </svg>
             </div>
           </div>
@@ -551,8 +551,8 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#b8860b]/40 bg-[#b8860b]/10 text-[#b8860b] mb-4">
               <Shield className="w-5 h-5" />
             </div>
-            <h2 className="text-xl font-bold tracking-tight text-white uppercase font-sans">Sovereign Decryption Core</h2>
-            <p className="text-[9px] text-[#b8860b] uppercase tracking-[0.3em] mt-1 font-black">Authentication Portal Required</p>
+            <h2 className="text-xl font-bold text-white uppercase font-sans">Sovereign Decryption Core</h2>
+            <p className="text-[9px] text-[#b8860b] uppercase mt-1 font-black">Authentication Portal Required</p>
             <p className="text-xs text-zinc-500 italic mt-4 max-w-sm mx-auto leading-relaxed">
               Protected administration interface. Provide the Principal Passkey to decrypt client records, intake files, and strategic assessment reports.
             </p>
@@ -560,14 +560,14 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
 
           <form onSubmit={handleAuthSubmit} className="space-y-4 relative z-10">
             <div>
-              <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Master Code</label>
+              <label className="text-[9px] font-black uppercase text-zinc-400 block mb-2">Master Code</label>
               <input
                 type="password"
                 required
                 autoFocus
                 value={passkeyInput}
                 onChange={(e) => setPasskeyInput(e.target.value)}
-                className="w-full px-4 py-3 bg-[#1e1e1d] border border-zinc-800 text-sm text-center font-mono focus:outline-none focus:border-[#b8860b] text-white tracking-widest"
+                className="w-full px-4 py-3 bg-[#1e1e1d] border border-zinc-800 text-sm text-center font-mono focus:outline-none focus:border-[#b8860b] text-white "
                 placeholder="••••••••••••"
               />
             </div>
@@ -580,14 +580,14 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
 
             <button
               type="submit"
-              className="w-full py-4 bg-[#b8860b] hover:bg-amber-600 hover:text-black text-black font-black text-[10px] uppercase tracking-widest transition-all"
+              className="w-full py-4 bg-[#b8860b] hover:bg-amber-600 hover:text-black text-black font-black text-[10px] uppercase transition-all"
             >
               Verify Credentials
             </button>
 
             <div className="flex items-center my-4">
               <div className="flex-grow border-t border-zinc-800"></div>
-              <span className="px-3 text-[9px] text-zinc-500 font-mono uppercase tracking-widest">OR</span>
+              <span className="px-3 text-[9px] text-zinc-500 font-mono uppercase ">OR</span>
               <div className="flex-grow border-t border-zinc-800"></div>
             </div>
 
@@ -604,7 +604,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                   setAuthError(`Google Authentication failed: ${err.message || err}`);
                 }
               }}
-              className="w-full py-4 bg-transparent hover:bg-white/10 border border-zinc-700 text-white font-bold text-[10px] uppercase tracking-widest transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-4 bg-transparent hover:bg-white/10 border border-zinc-700 text-white font-bold text-[10px] uppercase transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <Fingerprint className="w-4 h-4 text-[#b8860b]" /> Sign In with Google Admin
             </button>
@@ -613,7 +613,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
           <div className="mt-6 text-center relative z-10">
             <button
               onClick={onClose}
-              className="text-[9px] font-bold text-zinc-500 hover:text-white uppercase tracking-widest transition-all border-b border-transparent hover:border-zinc-500 pb-0.5"
+              className="text-[9px] font-bold text-zinc-500 hover:text-white uppercase transition-all border-b border-transparent hover:border-zinc-500 pb-0.5"
             >
               Cancel Access
             </button>
@@ -629,38 +629,38 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
       <div className="sticky top-0 bg-white border-b border-zinc-200 px-8 py-6 flex justify-between items-center z-10 shadow-sm">
         <div className="flex items-center gap-6">
           <div className="flex flex-col">
-            <span className="text-xl font-bold tracking-tighter text-[#111111]">SOVEREIGN DASHBOARD</span>
-            <span className="text-[9px] font-black text-[#b8860b] uppercase tracking-[0.3em]">Institutional Lead Management v1.0</span>
+            <span className="text-xl font-bold text-[#111111]">SOVEREIGN DASHBOARD</span>
+            <span className="text-[9px] font-black text-[#b8860b] uppercase ">Institutional Lead Management v1.0</span>
           </div>
           <div className="h-8 w-px bg-zinc-200" />
           <div className="flex gap-4">
             <button 
               onClick={() => setActiveTab('leads')}
-              className={`text-[10px] font-bold uppercase tracking-widest px-4 py-2 ${activeTab === 'leads' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
+              className={`text-[10px] font-bold uppercase px-4 py-2 ${activeTab === 'leads' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
             >
               Leads & Reports
             </button>
             <button 
               onClick={() => setActiveTab('registry')}
-              className={`text-[10px] font-bold uppercase tracking-widest px-4 py-2 ${activeTab === 'registry' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
+              className={`text-[10px] font-bold uppercase px-4 py-2 ${activeTab === 'registry' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
             >
               Registry
             </button>
             <button 
               onClick={() => setActiveTab('analytics')}
-              className={`text-[10px] font-bold uppercase tracking-widest px-4 py-2 ${activeTab === 'analytics' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
+              className={`text-[10px] font-bold uppercase px-4 py-2 ${activeTab === 'analytics' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
             >
               Telemetry
             </button>
             <button 
               onClick={() => setActiveTab('outreach')}
-              className={`text-[10px] font-bold uppercase tracking-widest px-4 py-2 ${activeTab === 'outreach' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
+              className={`text-[10px] font-bold uppercase px-4 py-2 ${activeTab === 'outreach' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
             >
               Executive Outbound
             </button>
             <button 
               onClick={() => setActiveTab('email_logs')}
-              className={`text-[10px] font-bold uppercase tracking-widest px-4 py-2 ${activeTab === 'email_logs' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
+              className={`text-[10px] font-bold uppercase px-4 py-2 ${activeTab === 'email_logs' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
             >
               Email Tracker
             </button>
@@ -669,13 +669,13 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
         <div className="flex items-center gap-4">
           <button 
             onClick={() => SovereignDB.exportToCSV()}
-            className="px-6 py-2 border border-zinc-300 text-[10px] font-bold uppercase hover:bg-zinc-100 transition-all tracking-widest"
+            className="px-6 py-2 border border-zinc-300 text-[10px] font-bold uppercase hover:bg-zinc-100 transition-all "
           >
             Export CSV
           </button>
           <button 
             onClick={onClose}
-            className="px-6 py-2 bg-[#111111] text-white text-[10px] font-bold uppercase hover:bg-black transition-all tracking-widest"
+            className="px-6 py-2 bg-[#111111] text-white text-[10px] font-bold uppercase hover:bg-black transition-all "
           >
             Exit Terminal
           </button>
@@ -694,7 +694,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
             {!firebaseUser && (
               <div className="bg-amber-50/40 border border-amber-300/60 p-6 rounded-sm flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs font-inter text-[#4d3c0c]">
                 <div>
-                  <h4 className="font-extrabold uppercase tracking-widest text-[#b8860b]">🔐 Client Registry Secure Encryption Gate</h4>
+                  <h4 className="font-extrabold uppercase text-[#b8860b]">🔐 Client Registry Secure Encryption Gate</h4>
                   <p className="text-zinc-600 mt-1 max-w-2xl leading-relaxed">
                     Client leads and diagnostic dossiers are cryptographically shielded. To initiate a secure decryption sync, please authenticate via your Google Admin account.
                   </p>
@@ -708,7 +708,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                       alert(`Google Admin login failed: ${err.message || err}`);
                     }
                   }}
-                  className="px-5 py-3 bg-[#b8860b] hover:bg-amber-600 text-white font-black text-[10px] uppercase tracking-widest transition-all rounded-sm flex items-center justify-center gap-2 cursor-pointer shrink-0"
+                  className="px-5 py-3 bg-[#b8860b] hover:bg-amber-600 text-white font-black text-[10px] uppercase transition-all rounded-sm flex items-center justify-center gap-2 cursor-pointer shrink-0"
                 >
                   <Fingerprint className="w-4 h-4" /> Authenticate Google Admin
                 </button>
@@ -717,17 +717,17 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
 
             <div className="bg-white border border-zinc-200 shadow-xl overflow-hidden rounded-sm">
               <div className="p-6 bg-zinc-50 border-b border-zinc-200 flex justify-between items-center">
-                <span className="text-xs font-bold text-zinc-700 uppercase tracking-wider">Active Client Registry Ledgers</span>
+                <span className="text-xs font-bold text-zinc-700 uppercase ">Active Client Registry Ledgers</span>
                 <span className="text-[10px] font-mono text-zinc-400">Click any row to reveal detailed Dossiers & printable reports</span>
               </div>
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="bg-zinc-100 border-b border-zinc-200">
-                    <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 tracking-widest">Inquiry Date</th>
-                    <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 tracking-widest">Identity & Designation</th>
-                    <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 tracking-widest">Organization</th>
-                    <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 tracking-widest">Yield Target / Message</th>
-                    <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 tracking-widest">Calibration Status</th>
+                    <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 ">Inquiry Date</th>
+                    <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 ">Identity & Designation</th>
+                    <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 ">Organization</th>
+                    <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 ">Yield Target / Message</th>
+                    <th className="px-6 py-4 text-[10px] font-black uppercase text-zinc-400 ">Calibration Status</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-zinc-100">
@@ -777,7 +777,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                             <span className="text-[10px] text-zinc-400 font-mono">{entry.email}</span>
                           </div>
                         </td>
-                        <td className="px-6 py-6 text-xs font-bold uppercase tracking-tight text-[#111111]">
+                        <td className="px-6 py-6 text-xs font-bold uppercase text-[#111111]">
                           {entry.organization}
                         </td>
                         <td className="px-6 py-6">
@@ -788,18 +788,18 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                             <div className="flex flex-col gap-1">
                               <div className="flex items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                <span className="text-[10px] font-extrabold text-[#111111] uppercase tracking-widest">
+                                <span className="text-[10px] font-extrabold text-[#111111] uppercase ">
                                   {entry.assessment.totalScore} / 25
                                 </span>
                               </div>
-                              <div className={`text-[8px] font-black uppercase tracking-widest text-[#b8860b]`}>
+                              <div className={`text-[8px] font-black uppercase text-[#b8860b]`}>
                                 {getEntryGrade(entry.assessment.totalScore).title} Alignment
                               </div>
                             </div>
                           ) : (
                             <div className="flex items-center gap-2 text-zinc-400">
                               <span className="w-1.5 h-1.5 rounded-full bg-zinc-300" />
-                              <span className="text-[9px] font-bold uppercase tracking-widest italic">Intake Contact</span>
+                              <span className="text-[9px] font-bold uppercase italic">Intake Contact</span>
                             </div>
                           )}
                         </td>
@@ -813,7 +813,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
             <div className="flex justify-end">
               <button 
                 onClick={handleDeleteAll}
-                className="text-[9px] font-black text-red-700 uppercase tracking-widest hover:underline"
+                className="text-[9px] font-black text-red-700 uppercase hover:underline"
               >
                 Clear Ledger History
               </button>
@@ -825,7 +825,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 animate-fade-in">
             <div className="lg:col-span-1">
               <div className="bg-white border border-zinc-200 p-8 shadow-xl sticky top-32 rounded-sm">
-                <h3 className="text-sm font-black uppercase tracking-widest mb-6 border-b border-zinc-100 pb-4">New Dispatch</h3>
+                <h3 className="text-sm font-black uppercase mb-6 border-b border-zinc-100 pb-4">New Dispatch</h3>
                 {recentlyAddedUrl && (
                   <div id="new-post-success-banner" className="mb-6 p-4 bg-amber-50 border border-amber-200 text-xs text-amber-950 rounded space-y-2 animate-fadeIn">
                     <div className="flex justify-between items-center font-bold">
@@ -850,7 +850,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                 )}
                 <form onSubmit={handleAddPost} className="space-y-4">
                   <div>
-                    <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Category</label>
+                    <label className="text-[9px] font-black uppercase text-zinc-400 block mb-2">Category</label>
                     <input 
                       type="text" 
                       value={newPost.category}
@@ -860,7 +860,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                     />
                   </div>
                   <div>
-                    <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Title</label>
+                    <label className="text-[9px] font-black uppercase text-zinc-400 block mb-2">Title</label>
                     <input 
                       type="text" 
                       required
@@ -871,7 +871,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                     />
                   </div>
                   <div>
-                    <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Excerpt</label>
+                    <label className="text-[9px] font-black uppercase text-zinc-400 block mb-2">Excerpt</label>
                     <textarea 
                       value={newPost.excerpt}
                       onChange={(e) => setNewPost({...newPost, excerpt: e.target.value})}
@@ -880,7 +880,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                     />
                   </div>
                   <div>
-                    <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Content (Double line break for new paragraph)</label>
+                    <label className="text-[9px] font-black uppercase text-zinc-400 block mb-2">Content (Double line break for new paragraph)</label>
                     <textarea 
                       required
                       value={newPost.content}
@@ -891,7 +891,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                   </div>
                   <button 
                     type="submit"
-                    className="w-full py-4 bg-[#111111] text-white text-[10px] font-black uppercase tracking-widest hover:bg-black transition-all"
+                    className="w-full py-4 bg-[#111111] text-white text-[10px] font-black uppercase hover:bg-black transition-all"
                   >
                     Archive Dispatch
                   </button>
@@ -905,11 +905,11 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               <div className="bg-white border border-zinc-200 p-8 shadow-xl rounded-sm">
                 <div className="flex justify-between items-center border-b border-zinc-100 pb-4 mb-4">
                   <div>
-                    <h3 className="text-sm font-black uppercase tracking-widest text-[#111111]">Sovereign Subscription Hub</h3>
+                    <h3 className="text-sm font-black uppercase text-[#111111]">Sovereign Subscription Hub</h3>
                     <p className="text-[10px] text-zinc-400 font-mono mt-1">Direct Zero-Cost Pipeline to Active Registry Readers</p>
                   </div>
                   <div className="bg-amber-50 border border-amber-200 px-4 py-2 rounded">
-                    <span className="text-[10px] font-black uppercase text-[#b8860b] tracking-wider block">Subscribers</span>
+                    <span className="text-[10px] font-black uppercase text-[#b8860b] block">Subscribers</span>
                     <span className="text-xl font-bold font-mono text-zinc-900 leading-none">{subscriberEmails.length}</span>
                   </div>
                 </div>
@@ -938,7 +938,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
 
               {/* Custom Active Registry Entries */}
               <div className="space-y-4">
-                <h3 className="text-sm font-black uppercase tracking-widest border-b border-zinc-100 pb-2">Custom Active Registry Entries</h3>
+                <h3 className="text-sm font-black uppercase border-b border-zinc-100 pb-2">Custom Active Registry Entries</h3>
                 {data.blog.length === 0 ? (
                   <div className="p-8 border-2 border-dashed border-zinc-200 text-center text-zinc-400 italic text-xs">
                     No custom dispatches found in the database. Use the left form to write and archive.
@@ -952,7 +952,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                         <div key={post.id} className="bg-white border border-zinc-200 p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 group rounded-sm">
                           <div className="flex-1 min-w-0 font-inter">
                             <div className="flex items-center gap-3 mb-1">
-                              <span className="text-[8px] font-black text-[#b8860b] uppercase tracking-widest">{post.category}</span>
+                              <span className="text-[8px] font-black text-[#b8860b] uppercase ">{post.category}</span>
                               <span className="text-[8px] text-zinc-400 font-mono">{post.id}</span>
                             </div>
                             <h4 className="text-sm font-bold text-[#111111] truncate">{post.title}</h4>
@@ -983,7 +983,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                                 tagline: post.excerpt,
                                 content: post.content
                               })}
-                              className={`px-4 py-2 border font-bold text-[9px] uppercase tracking-wider transition-all duration-200 ${
+                              className={`px-4 py-2 border font-bold text-[9px] uppercase transition-all duration-200 ${
                                 isPostBroadcasting 
                                   ? 'bg-[#b8860b] text-white border-[#b8860b] animate-pulse' 
                                   : 'border-[#b8860b] text-[#b8860b] hover:bg-[#b8860b] hover:text-white'
@@ -1010,8 +1010,8 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               {/* Pre-compiled Core Dispatches */}
               <div className="space-y-4 pt-4 border-t border-zinc-200">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-sm font-black uppercase tracking-widest text-[#111111]">Core Systemic Dispatches</h3>
-                  <span className="text-[9px] text-zinc-400 font-mono font-bold tracking-widest uppercase">Pre-Built Treasury (Value Driven 1%)</span>
+                  <h3 className="text-sm font-black uppercase text-[#111111]">Core Systemic Dispatches</h3>
+                  <span className="text-[9px] text-zinc-400 font-mono font-bold uppercase">Pre-Built Treasury (Value Driven 1%)</span>
                 </div>
                 <div className="bg-white border border-zinc-200 divide-y divide-zinc-100 max-h-96 overflow-y-auto shadow-sm rounded-sm">
                   {DISPATCH_TOPICS.map((topic) => {
@@ -1020,7 +1020,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                       <div key={topic.id} className="p-4 flex justify-between items-center gap-4 hover:bg-zinc-50 transition-colors group">
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-3">
-                            <span className="text-[8px] font-mono text-[#b8860b] font-black uppercase tracking-wider">{topic.category}</span>
+                            <span className="text-[8px] font-mono text-[#b8860b] font-black uppercase ">{topic.category}</span>
                             <span className="text-[8px] text-zinc-400 font-mono font-bold">{topic.id}</span>
                           </div>
                           <h4 className="text-xs font-bold text-zinc-900 truncate mt-0.5">{topic.title}</h4>
@@ -1036,7 +1036,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                             tagline: topic.tagline,
                             content: topic.content
                           })}
-                          className={`px-3 py-1.5 border font-bold text-[8px] uppercase tracking-wider transition-all duration-200 ${
+                          className={`px-3 py-1.5 border font-bold text-[8px] uppercase transition-all duration-200 ${
                             isTopicBroadcasting 
                               ? 'bg-[#b8860b] text-white border-[#b8860b] animate-pulse' 
                               : 'border-zinc-300 text-zinc-600 hover:border-[#b8860b] hover:text-[#b8860b]'
@@ -1057,7 +1057,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
         {activeTab === 'analytics' && (
           <div className="p-20 text-center border-2 border-dashed border-zinc-200 rounded-sm bg-white">
              <Activity className="w-12 h-12 text-zinc-300 mx-auto mb-4 animate-pulse" />
-             <h3 className="text-zinc-400 font-black uppercase tracking-[0.5em] text-sm">Analytics Engine Idle</h3>
+             <h3 className="text-zinc-400 font-black uppercase text-sm">Analytics Engine Idle</h3>
              <p className="text-zinc-400 text-xs italic mt-2">Sovereign telemetry requires active calibration nodes to generate resonance scores.</p>
           </div>
         )}
@@ -1070,14 +1070,14 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                 <div className="flex items-center gap-3 border-b border-zinc-100 pb-4 mb-6">
                   <Mail className="w-5 h-5 text-[#b8860b]" />
                   <div>
-                    <h3 className="text-sm font-black uppercase tracking-widest text-zinc-900">Outbound Intelligence</h3>
+                    <h3 className="text-sm font-black uppercase text-zinc-900">Outbound Intelligence</h3>
                     <p className="text-[10px] text-zinc-400 font-mono">Calibrated Sovereign Pitch Builder</p>
                   </div>
                 </div>
 
                 <form onSubmit={handleGenerateOutreach} className="space-y-4">
                   <div>
-                    <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Target Executive Name</label>
+                    <label className="text-[9px] font-black uppercase text-zinc-400 block mb-2">Target Executive Name</label>
                     <input 
                       type="text" 
                       required
@@ -1090,7 +1090,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Executive Title</label>
+                      <label className="text-[9px] font-black uppercase text-zinc-400 block mb-2">Executive Title</label>
                       <input 
                         type="text" 
                         required
@@ -1101,7 +1101,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                       />
                     </div>
                     <div>
-                      <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Company Name</label>
+                      <label className="text-[9px] font-black uppercase text-zinc-400 block mb-2">Company Name</label>
                       <input 
                         type="text" 
                         required
@@ -1114,7 +1114,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                   </div>
 
                   <div>
-                    <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Direct Email (Optional)</label>
+                    <label className="text-[9px] font-black uppercase text-zinc-400 block mb-2">Direct Email (Optional)</label>
                     <input 
                       type="email"
                       value={outreachForm.targetEmail}
@@ -1127,14 +1127,14 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                   {/* High-End Swiss Style Pre-Research Hub */}
                   <div className="p-4 bg-zinc-50 border border-zinc-200 rounded-xs space-y-4">
                     <div className="flex items-center gap-2 border-b border-zinc-200 pb-2">
-                      <span className="text-[10px] font-black text-[#b8860b] uppercase tracking-widest block">
+                      <span className="text-[10px] font-black text-[#b8860b] uppercase block">
                         🔍 Target Pre-Research Intelligence
                       </span>
                     </div>
                     
                     <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <label className="text-[8px] font-bold uppercase text-zinc-400 tracking-widest block mb-1">Company Website URL</label>
+                        <label className="text-[8px] font-bold uppercase text-zinc-400 block mb-1">Company Website URL</label>
                         <input 
                           type="url"
                           value={outreachForm.companyWebsiteUrl}
@@ -1144,7 +1144,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                         />
                       </div>
                       <div>
-                        <label className="text-[8px] font-bold uppercase text-zinc-400 tracking-widest block mb-1">LinkedIn / Profile URL</label>
+                        <label className="text-[8px] font-bold uppercase text-zinc-400 block mb-1">LinkedIn / Profile URL</label>
                         <input 
                           type="url"
                           value={outreachForm.linkedinUrl}
@@ -1157,7 +1157,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
 
                     <div>
                       <div className="flex justify-between items-center mb-1">
-                        <label className="text-[8px] font-bold uppercase text-zinc-400 tracking-widest block">📋 Copied Bio, Recent Post, or Homepage text</label>
+                        <label className="text-[8px] font-bold uppercase text-zinc-400 block">📋 Copied Bio, Recent Post, or Homepage text</label>
                         <span className="text-[8px] text-zinc-400 font-mono lowercase">Free Tier Precision</span>
                       </div>
                       <textarea
@@ -1178,7 +1178,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                           onChange={(e) => setOutreachForm({...outreachForm, enableSearchGrounding: e.target.checked})}
                           className="w-3.5 h-3.5 text-[#b8860b] border-zinc-350 rounded focus:ring-0 accent-[#b8860b] cursor-pointer"
                         />
-                        <label htmlFor="enableSearchGrounding" className="text-[8px] font-bold text-zinc-500 uppercase tracking-widest cursor-pointer select-none">
+                        <label htmlFor="enableSearchGrounding" className="text-[8px] font-bold text-zinc-500 uppercase cursor-pointer select-none">
                           Enable Real-Time Google Search Grounding
                         </label>
                       </div>
@@ -1191,7 +1191,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                           onChange={(e) => setOutreachForm({...outreachForm, embedResearch: e.target.checked})}
                           className="w-3.5 h-3.5 text-[#b8860b] border-zinc-350 rounded focus:ring-0 accent-[#b8860b] cursor-pointer"
                         />
-                        <label htmlFor="embedResearch" className="text-[8px] font-bold text-[#b8860b] uppercase tracking-widest cursor-pointer select-none flex items-center gap-1">
+                        <label htmlFor="embedResearch" className="text-[8px] font-bold text-[#b8860b] uppercase cursor-pointer select-none flex items-center gap-1">
                           ✨ Embed Specific Founder / Company Facts inside Draft
                         </label>
                       </div>
@@ -1199,7 +1199,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                   </div>
 
                   <div>
-                    <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Friction Point / Theme Focus</label>
+                    <label className="text-[9px] font-black uppercase text-zinc-400 block mb-2">Friction Point / Theme Focus</label>
                     <select
                       value={outreachForm.theme}
                       onChange={(e) => setOutreachForm({...outreachForm, theme: e.target.value})}
@@ -1213,7 +1213,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                   </div>
 
                   <div>
-                    <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest block mb-2">Pitch Style Tone</label>
+                    <label className="text-[9px] font-black uppercase text-zinc-400 block mb-2">Pitch Style Tone</label>
                     <select
                       value={outreachForm.tone}
                       onChange={(e) => setOutreachForm({...outreachForm, tone: e.target.value})}
@@ -1229,7 +1229,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                   <button 
                     type="submit"
                     disabled={isGeneratingOutreach}
-                    className="w-full py-4 bg-[#b8860b] hover:bg-[#a07409] text-white text-[10px] font-black uppercase tracking-widest transition-all rounded-sm flex justify-center items-center gap-2 cursor-pointer"
+                    className="w-full py-4 bg-[#b8860b] hover:bg-[#a07409] text-white text-[10px] font-black uppercase transition-all rounded-sm flex justify-center items-center gap-2 cursor-pointer"
                   >
                     {isGeneratingOutreach ? (
                       <>
@@ -1251,10 +1251,10 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               <div className="bg-white border border-zinc-200 p-8 shadow-xl rounded-sm">
                 <div className="flex justify-between items-center border-b border-zinc-100 pb-4 mb-6">
                   <div>
-                    <h3 className="text-sm font-black uppercase tracking-widest text-zinc-900">Sovereign Dispatch Preview Stationery</h3>
+                    <h3 className="text-sm font-black uppercase text-zinc-900">Sovereign Dispatch Preview Stationery</h3>
                     <p className="text-[10px] text-zinc-400 font-mono">Highly personalized alignment pitch crafted by TULC Copilot</p>
                   </div>
-                  <span className="px-3 py-1 bg-zinc-100 border border-zinc-200 text-[8px] font-mono font-black text-zinc-500 uppercase tracking-widest">
+                  <span className="px-3 py-1 bg-zinc-100 border border-zinc-200 text-[8px] font-mono font-black text-zinc-500 uppercase ">
                     Internal Workspace Draft
                   </span>
                 </div>
@@ -1264,14 +1264,14 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                     {/* Analyst Strategic Brief and Active Draft Info */}
                     <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between p-4 bg-zinc-50 border border-zinc-200 rounded text-xs leading-relaxed text-zinc-800">
                       <div>
-                        <span className="text-[9px] font-black text-[#b8860b] uppercase tracking-widest block mb-1">Active Ledger Document ID:</span>
+                        <span className="text-[9px] font-black text-[#b8860b] uppercase block mb-1">Active Ledger Document ID:</span>
                         <code className="text-[10px] font-mono text-zinc-600 bg-zinc-100 px-1 rounded">{activeOutreachId || "Unsaved Draft"}</code>
                         <span className="text-zinc-600 block mt-1">"{generatedOutreach.brief}"</span>
                       </div>
                       
                       {activeOutreachId && (
                         <div className="flex items-center gap-2 shrink-0 bg-white border border-zinc-200 px-3 py-1.5 rounded shadow-sm">
-                          <span className="text-[8px] font-black uppercase text-zinc-400 tracking-wider">Status:</span>
+                          <span className="text-[8px] font-black uppercase text-zinc-400 ">Status:</span>
                           <div className="flex gap-1">
                             {(['Draft', 'Sent', 'Engaged'] as const).map((stage) => {
                               const isCurrent = outreachHistory.find(h => h.id === activeOutreachId)?.status === stage;
@@ -1304,7 +1304,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                     <div className="space-y-4">
                       <div>
                         <div className="flex justify-between items-center mb-1">
-                          <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest">Email Subject Line (Fully Editable)</label>
+                          <label className="text-[9px] font-black uppercase text-zinc-400 ">Email Subject Line (Fully Editable)</label>
                           <button
                             type="button"
                             onClick={() => {
@@ -1327,7 +1327,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
 
                       <div>
                         <div className="flex justify-between items-center mb-1">
-                          <label className="text-[9px] font-black uppercase text-zinc-400 tracking-widest">Letter Body Content (Type or Edit Freely)</label>
+                          <label className="text-[9px] font-black uppercase text-zinc-400 ">Letter Body Content (Type or Edit Freely)</label>
                           <button
                             type="button"
                             onClick={() => {
@@ -1353,14 +1353,14 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                       <button
                         type="button"
                         onClick={handleUpdateDraft}
-                        className="flex-1 py-4 bg-[#b8860b] hover:bg-[#a07409] text-white text-[10px] font-black uppercase tracking-widest transition-all rounded-sm flex justify-center items-center gap-2 cursor-pointer"
+                        className="flex-1 py-4 bg-[#b8860b] hover:bg-[#a07409] text-white text-[10px] font-black uppercase transition-all rounded-sm flex justify-center items-center gap-2 cursor-pointer"
                       >
                         <Check className="w-4 h-4" /> Approve & Save Draft Variations
                       </button>
                       <button
                         type="button"
                         onClick={() => handleLaunchMailto(generatedOutreach.subject, generatedOutreach.body, outreachForm.targetEmail)}
-                        className="flex-1 py-4 bg-[#111111] hover:bg-black text-white text-[10px] font-black uppercase tracking-widest transition-all rounded-sm flex justify-center items-center gap-2 cursor-pointer"
+                        className="flex-1 py-4 bg-[#111111] hover:bg-black text-white text-[10px] font-black uppercase transition-all rounded-sm flex justify-center items-center gap-2 cursor-pointer"
                       >
                         <ExternalLink className="w-4 h-4" /> Launch Live Native Mail Client
                       </button>
@@ -1369,14 +1369,14 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                 ) : (
                   <div className="p-16 text-center border-2 border-dashed border-zinc-200 rounded-sm bg-zinc-50 flex flex-col items-center justify-center">
                     <Mail className="w-12 h-12 text-zinc-300 mb-4 animate-pulse" />
-                    <h3 className="text-zinc-400 font-black uppercase tracking-[0.3em] text-xs">Construct Sovereign Correspondence</h3>
+                    <h3 className="text-zinc-400 font-black uppercase text-xs">Construct Sovereign Correspondence</h3>
                     <p className="text-zinc-400 text-[11px] italic mt-2 max-w-md mx-auto mb-6">
                       Fill out target metrics on the left, or skip the AI and immediately formulate a manual customized letter template to suit your strict stylistic specifications.
                     </p>
                     <button
                       type="button"
                       onClick={handleStartManualDraft}
-                      className="px-6 py-3 bg-[#111111] hover:bg-black text-white text-[9px] font-black uppercase tracking-widest transition-all rounded-sm flex items-center gap-2 cursor-pointer"
+                      className="px-6 py-3 bg-[#111111] hover:bg-black text-white text-[9px] font-black uppercase transition-all rounded-sm flex items-center gap-2 cursor-pointer"
                     >
                       📝 Begin Blank Custom Draft
                     </button>
@@ -1388,7 +1388,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               <div className="bg-white border border-zinc-200 p-8 shadow-xl rounded-sm">
                 <div className="flex justify-between items-center border-b border-zinc-100 pb-4 mb-4">
                   <div>
-                    <h3 className="text-sm font-black uppercase tracking-widest text-[#111111]">Outreach Target Registry Ledger</h3>
+                    <h3 className="text-sm font-black uppercase text-[#111111]">Outreach Target Registry Ledger</h3>
                     <p className="text-[10px] text-zinc-400 font-mono mt-1">Sovereign outbound dispatch audit log</p>
                   </div>
                   <span className="bg-amber-50 border border-amber-200 px-3 py-1 rounded text-[10px] font-black uppercase font-mono text-[#b8860b]">
@@ -1404,7 +1404,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                       <div key={item.id} className="py-4 flex justify-between items-start gap-4 group hover:bg-zinc-50/50 px-2 rounded transition-colors text-neutral-800">
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-3 mb-1">
-                            <span className="text-[8px] font-mono text-[#b8860b] font-black uppercase tracking-wider">{item.targetCompany}</span>
+                            <span className="text-[8px] font-mono text-[#b8860b] font-black uppercase ">{item.targetCompany}</span>
                             <span className="text-[8px] text-zinc-400 font-mono">{new Date(item.timestamp).toLocaleDateString()}</span>
                           </div>
                           <h4 className="text-xs font-bold text-zinc-900">{item.targetName} — <span className="text-zinc-500 font-normal italic">{item.targetTitle}</span></h4>
@@ -1429,7 +1429,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                               });
                               setActiveOutreachId(item.id);
                             }}
-                            className="px-3 py-1.5 border border-zinc-200 hover:border-[#b8860b] hover:text-[#b8860b] font-bold text-[8px] uppercase tracking-wider transition-all cursor-pointer"
+                            className="px-3 py-1.5 border border-zinc-200 hover:border-[#b8860b] hover:text-[#b8860b] font-bold text-[8px] uppercase transition-all cursor-pointer"
                           >
                             Restore Draft
                           </button>
@@ -1461,14 +1461,14 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white border border-zinc-200 p-6 shadow-sm rounded-sm flex flex-col justify-between">
                 <div>
-                  <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-[0.3em] block mb-2">Total Transmissions Attempted</span>
+                  <span className="text-[9px] font-black uppercase text-[#b8860b] block mb-2">Total Transmissions Attempted</span>
                   <span className="text-4xl font-bold font-mono text-[#111111]">{data.emailLogs.length}</span>
                 </div>
                 <div className="text-[10px] text-zinc-400 mt-2 font-mono">Telemetry of all outbound traffic</div>
               </div>
               <div className="bg-white border border-zinc-200 p-6 shadow-sm rounded-sm flex flex-col justify-between">
                 <div>
-                  <span className="text-[9px] font-black uppercase text-green-700 tracking-[0.3em] block mb-2">Clear & Delivered Routes</span>
+                  <span className="text-[9px] font-black uppercase text-green-700 block mb-2">Clear & Delivered Routes</span>
                   <span className="text-4xl font-bold font-mono text-green-700">
                     {data.emailLogs.filter(l => l.status === 'sent').length}
                   </span>
@@ -1479,7 +1479,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               </div>
               <div className="bg-white border border-zinc-200 p-6 shadow-sm rounded-sm flex flex-col justify-between bg-rose-50/10">
                 <div>
-                  <span className="text-[9px] font-black uppercase text-rose-700 tracking-[0.3em] block mb-2">Delivery Blockages</span>
+                  <span className="text-[9px] font-black uppercase text-rose-700 block mb-2">Delivery Blockages</span>
                   <span className="text-4xl font-bold font-mono text-rose-700">
                     {data.emailLogs.filter(l => l.status === 'failed').length}
                   </span>
@@ -1490,7 +1490,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
 
             {/* Diagnostic Alert Advice */}
             <div className="bg-zinc-50 border border-zinc-200 p-6 rounded-sm text-xs text-zinc-600 space-y-2">
-              <h4 className="font-bold text-[#b8860b] uppercase tracking-wider text-[10px]">RECIPIENT & DOMAIN VERIFICATION GUIDE:</h4>
+              <h4 className="font-bold text-[#b8860b] uppercase text-[10px]">RECIPIENT & DOMAIN VERIFICATION GUIDE:</h4>
               <p>
                 1. <strong>Free-tier constraint:</strong> If you are using Resend's free tier, you can only send emails to the address you signed up with (the verified owner email <strong>suchita135sancheti@gmail.com</strong>) unless you verify your domain.
               </p>
@@ -1502,7 +1502,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
             {/* Log List View */}
             <div className="bg-white border border-zinc-200 rounded-sm shadow-sm">
               <div className="p-6 border-b border-zinc-100">
-                <h3 className="text-xs font-black uppercase tracking-widest text-[#111111]">Outbound Logs</h3>
+                <h3 className="text-xs font-black uppercase text-[#111111]">Outbound Logs</h3>
                 <p className="text-[10px] text-zinc-400 font-mono mt-0.5">Real-time delivery registry & status checks</p>
               </div>
 
@@ -1513,7 +1513,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               ) : (
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs text-zinc-600 font-inter">
-                    <thead className="bg-zinc-50 text-[9px] font-black uppercase tracking-wider text-zinc-400 border-b border-zinc-200">
+                    <thead className="bg-zinc-50 text-[9px] font-black uppercase text-zinc-400 border-b border-zinc-200">
                       <tr>
                         <th className="px-6 py-4">Status</th>
                         <th className="px-6 py-4">Timestamp</th>
@@ -1527,7 +1527,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                       {data.emailLogs.map((log) => (
                         <tr key={log.id} className="hover:bg-zinc-50/50 transition-colors">
                           <td className="px-6 py-4 whitespace-nowrap">
-                            <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider border ${
+                            <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-bold uppercase border ${
                               log.status === 'sent' 
                                 ? 'bg-green-50 text-green-700 border-green-200/50' 
                                 : 'bg-rose-50 text-rose-700 border-rose-200/50'
@@ -1539,7 +1539,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                             {log.timestamp ? new Date(log.timestamp).toLocaleTimeString() + ' ' + new Date(log.timestamp).toLocaleDateString() : 'N/A'}
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap font-mono text-[10px]">
-                            <span className="text-zinc-500 uppercase tracking-wide">
+                            <span className="text-zinc-500 uppercase ">
                               {log.type.replace('_', ' ')}
                             </span>
                           </td>
@@ -1577,10 +1577,10 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               {/* Header */}
               <div className="flex justify-between items-start border-b border-zinc-200 pb-6 mb-6">
                 <div>
-                  <span className="text-[9px] font-black text-[#b8860b] uppercase tracking-widest block mb-1">
+                  <span className="text-[9px] font-black text-[#b8860b] uppercase block mb-1">
                     {selectedEntry.assessment ? 'Diagnostic Dossier Calibrated' : 'Contact File Open'}
                   </span>
-                  <h3 className="text-2xl font-bold tracking-tight text-neutral-900">{selectedEntry.name}</h3>
+                  <h3 className="text-2xl font-bold text-neutral-900">{selectedEntry.name}</h3>
                   <p className="text-xs font-mono text-zinc-500 mt-1">{selectedEntry.email}</p>
                 </div>
                 <button 
@@ -1594,28 +1594,28 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               {/* Coordinates Grid */}
               <div className="grid grid-cols-2 gap-4 mb-8 bg-zinc-50 p-4 border border-zinc-200 rounded-sm">
                 <div>
-                  <span className="text-[8px] font-black uppercase text-zinc-400 tracking-widest block mb-1">Organization</span>
+                  <span className="text-[8px] font-black uppercase text-zinc-400 block mb-1">Organization</span>
                   <span className="text-xs font-bold text-neutral-900">{selectedEntry.organization}</span>
                 </div>
                 <div>
-                  <span className="text-[8px] font-black uppercase text-zinc-400 tracking-widest block mb-1">Date Logged</span>
+                  <span className="text-[8px] font-black uppercase text-zinc-400 block mb-1">Date Logged</span>
                   <span className="text-xs text-neutral-600 font-mono">{new Date(selectedEntry.timestamp).toLocaleString()}</span>
                 </div>
                 <div>
-                  <span className="text-[8px] font-black uppercase text-zinc-400 tracking-widest block mb-1">Classification Context</span>
-                  <span className="text-xs font-bold text-[#b8860b] uppercase tracking-wide">
+                  <span className="text-[8px] font-black uppercase text-zinc-400 block mb-1">Classification Context</span>
+                  <span className="text-xs font-bold text-[#b8860b] uppercase ">
                     {selectedEntry.assessment?.context || 'Sovereign Contact Only'}
                   </span>
                 </div>
                 <div>
-                  <span className="text-[8px] font-black uppercase text-zinc-400 tracking-widest block mb-1">Entry Id</span>
+                  <span className="text-[8px] font-black uppercase text-zinc-400 block mb-1">Entry Id</span>
                   <span className="text-[10px] text-zinc-400 font-mono">{selectedEntry.id}</span>
                 </div>
               </div>
 
               {/* Initial message */}
               <div className="mb-8">
-                <span className="text-[8px] font-black uppercase text-zinc-400 tracking-widest block mb-1">Inquiry coordinates / notes</span>
+                <span className="text-[8px] font-black uppercase text-zinc-400 block mb-1">Inquiry coordinates / notes</span>
                 <p className="text-xs text-zinc-700 font-light italic bg-[#fafaf8] border border-zinc-100 px-4 py-3 rounded-sm leading-relaxed">
                   "{selectedEntry.message}"
                 </p>
@@ -1626,7 +1626,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                 <div className="space-y-6">
                   {/* Score circle */}
                   <div className="border border-zinc-200 p-6 bg-zinc-50 rounded-sm">
-                    <span className="text-[8px] font-black uppercase text-[#b8860b] tracking-[0.25em] block mb-2">Systemic Resonant Level</span>
+                    <span className="text-[8px] font-black uppercase text-[#b8860b] block mb-2">Systemic Resonant Level</span>
                     <div className="flex items-center gap-6">
                       <div className="relative flex items-center justify-center w-16 h-16 rounded-full border-2 border-amber-600/50 bg-[#b8860b]/10 text-xl font-bold font-mono text-zinc-900">
                         {selectedEntry.assessment.totalScore}
@@ -1644,7 +1644,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
 
                   {/* Detailed question results */}
                   <div>
-                    <h4 className="text-xs font-black uppercase tracking-widest text-[#111111] mb-4 border-b border-zinc-100 pb-2">Domain Audit Results</h4>
+                    <h4 className="text-xs font-black uppercase text-[#111111] mb-4 border-b border-zinc-100 pb-2">Domain Audit Results</h4>
                     <div className="space-y-4">
                       {optionDescriptions.map((domainMeta) => {
                         const scoreVal = selectedEntry.assessment.answers?.[domainMeta.index] || 1;
@@ -1679,7 +1679,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                 <button
                   type="button"
                   onClick={() => handlePrintDossier(selectedEntry)}
-                  className="flex-1 py-3 bg-[#b8860b] hover:bg-[#a07409] text-white text-[10px] uppercase font-black tracking-widest text-center transition-all flex items-center justify-center gap-2 rounded-sm shadow-md"
+                  className="flex-1 py-3 bg-[#b8860b] hover:bg-[#a07409] text-white text-[10px] uppercase font-black text-center transition-all flex items-center justify-center gap-2 rounded-sm shadow-md"
                 >
                   <FileText className="w-4 h-4" /> Print Diagnostic Dossier
                 </button>
@@ -1687,7 +1687,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               <button
                 type="button"
                 onClick={() => setSelectedEntry(null)}
-                className="py-3 px-8 border border-zinc-200 hover:bg-zinc-50 text-[10px] text-zinc-600 uppercase font-bold tracking-widest transition-all rounded-sm text-center"
+                className="py-3 px-8 border border-zinc-200 hover:bg-zinc-50 text-[10px] text-zinc-600 uppercase font-bold transition-all rounded-sm text-center"
               >
                 Close File
               </button>
@@ -1701,7 +1701,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
 
 const StatCard: React.FC<{ label: string, value: string }> = ({ label, value }) => (
   <div className="bg-white border border-zinc-200 p-8 shadow-sm rounded-sm">
-    <span className="text-[9px] font-black uppercase text-[#b8860b] tracking-[0.3em] block mb-2">{label}</span>
+    <span className="text-[9px] font-black uppercase text-[#b8860b] block mb-2">{label}</span>
     <span className="text-4xl font-bold font-mono text-[#111111]">{value}</span>
   </div>
 );

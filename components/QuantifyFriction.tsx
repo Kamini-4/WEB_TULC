@@ -34,8 +34,8 @@ const QuantifyFriction: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] block mb-3">Diagnostic Simulation Tool</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-zinc-950 mb-4 tracking-tight leading-none">
+          <span className="text-[#b8860b] text-[10px] font-black uppercase block mb-3">Diagnostic Simulation Tool</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-zinc-950 mb-4 leading-none">
             Quantify Your <span className="text-[#b8860b] italic font-light">Cognitive Tax.</span>
           </h2>
           <p className="text-zinc-600 text-xs sm:text-sm italic font-light leading-relaxed">
@@ -48,7 +48,7 @@ const QuantifyFriction: React.FC = () => {
             
             {/* Left Column: Sliders */}
             <div className="lg:col-span-6 space-y-6 flex flex-col justify-center">
-              <div className="inline-flex items-center gap-2.5 bg-[#b8860b]/10 text-[#b8860b] px-3 py-1 border border-[#b8860b]/20 text-[9px] uppercase tracking-widest font-black self-start">
+              <div className="inline-flex items-center gap-2.5 bg-[#b8860b]/10 text-[#b8860b] px-3 py-1 border border-[#b8860b]/20 text-[9px] uppercase font-black self-start">
                 <Calculator className="w-3.5 h-3.5" />
                 <span>Alignment Parameters</span>
               </div>
@@ -56,7 +56,7 @@ const QuantifyFriction: React.FC = () => {
               <div className="space-y-6 pt-2">
                 {/* Revenue Slider */}
                 <div>
-                  <div className="flex justify-between items-center mb-1.5 text-xs uppercase tracking-widest text-zinc-300">
+                  <div className="flex justify-between items-center mb-1.5 text-xs uppercase text-zinc-300">
                     <span className="flex items-center gap-2 font-medium"><Building className="w-3.5 h-3.5 text-zinc-500" /> Annual Org Revenue</span>
                     <span className="font-bold text-[#b8860b]">₹{revenue} Cr</span>
                   </div>
@@ -68,7 +68,7 @@ const QuantifyFriction: React.FC = () => {
                     onChange={(e) => setRevenue(Number(e.target.value))}
                     className="w-full accent-[#b8860b] bg-zinc-850 h-1 rounded-lg cursor-pointer"
                   />
-                  <div className="flex justify-between text-[9px] text-zinc-500 mt-1 uppercase tracking-widest font-mono">
+                  <div className="flex justify-between text-[9px] text-zinc-500 mt-1 uppercase font-mono">
                     <span>₹10 Cr</span>
                     <span>₹2,000 Cr+</span>
                   </div>
@@ -76,7 +76,7 @@ const QuantifyFriction: React.FC = () => {
 
                 {/* Headcount Slider */}
                 <div>
-                  <div className="flex justify-between items-center mb-1.5 text-xs uppercase tracking-widest text-zinc-300">
+                  <div className="flex justify-between items-center mb-1.5 text-xs uppercase text-zinc-300">
                     <span className="flex items-center gap-2 font-medium"><Users className="w-3.5 h-3.5 text-zinc-500" /> Direct Reports / Leaders</span>
                     <span className="font-bold text-[#b8860b]">{headcount} Leaders</span>
                   </div>
@@ -88,7 +88,7 @@ const QuantifyFriction: React.FC = () => {
                     onChange={(e) => setHeadcount(Number(e.target.value))}
                     className="w-full accent-[#b8860b] bg-zinc-850 h-1 rounded-lg cursor-pointer"
                   />
-                  <div className="flex justify-between text-[9px] text-zinc-500 mt-1 uppercase tracking-widest font-mono">
+                  <div className="flex justify-between text-[9px] text-zinc-500 mt-1 uppercase font-mono">
                     <span>3 Key Players</span>
                     <span>45+ Enterprise Roles</span>
                   </div>
@@ -96,7 +96,7 @@ const QuantifyFriction: React.FC = () => {
 
                 {/* Meeting Hours Slider */}
                 <div>
-                  <div className="flex justify-between items-center mb-1.5 text-xs uppercase tracking-widest text-zinc-300">
+                  <div className="flex justify-between items-center mb-1.5 text-xs uppercase text-zinc-300">
                     <span className="flex items-center gap-2 font-medium"><Clock className="w-3.5 h-3.5 text-zinc-500" /> Tactical Meeting Hours / Wk</span>
                     <span className="font-bold text-[#b8860b]">{meetingHours} Hours</span>
                   </div>
@@ -108,7 +108,7 @@ const QuantifyFriction: React.FC = () => {
                     onChange={(e) => setMeetingHours(Number(e.target.value))}
                     className="w-full accent-[#b8860b] bg-zinc-850 h-1 rounded-lg cursor-pointer"
                   />
-                  <div className="flex justify-between text-[9px] text-zinc-500 mt-1 uppercase tracking-widest font-mono">
+                  <div className="flex justify-between text-[9px] text-zinc-500 mt-1 uppercase font-mono">
                     <span>5 Hrs (Lean)</span>
                     <span>60 Hrs (Saturated)</span>
                   </div>
@@ -124,11 +124,11 @@ const QuantifyFriction: React.FC = () => {
                 </div>
 
                 <div className="space-y-5 text-left">
-                  <span className="text-[10px] font-black uppercase text-zinc-500 tracking-[0.25em] block font-mono">Leaked Cognitive Equity Summary</span>
+                  <span className="text-[10px] font-black uppercase text-zinc-500 block font-mono">Leaked Cognitive Equity Summary</span>
                   
                   <div>
                     <span className="text-zinc-400 text-xs italic font-light block mb-1">Estimated Annual Inaction Tax</span>
-                    <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#b8860b] tracking-tight">
+                    <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#b8860b]">
                       {formatCurrency(cognitiveTaxCost)}
                     </div>
                   </div>
@@ -153,12 +153,12 @@ const QuantifyFriction: React.FC = () => {
 
                 <div className="mt-6 p-4 bg-[#b8860b]/5 border border-[#b8860b]/20 flex flex-col sm:flex-row items-center gap-4 justify-between">
                   <div className="text-left">
-                    <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-0.5">Audit Your Substrate</h4>
+                    <h4 className="text-xs font-bold text-white uppercase mb-0.5">Audit Your Substrate</h4>
                     <p className="text-[10px] text-zinc-400 italic">Request your Phase 0.0 Diagnostic to engineer absolute performance.</p>
                   </div>
                   <button 
                     onClick={() => navigate('/intake')}
-                    className="w-full sm:w-auto px-5 py-2.5 bg-[#b8860b] text-white hover:bg-white hover:text-black text-[9px] font-black uppercase tracking-widest transition-all shrink-0 cursor-pointer"
+                    className="w-full sm:w-auto px-5 py-2.5 bg-[#b8860b] text-white hover:bg-white hover:text-black text-[9px] font-black uppercase transition-all shrink-0 cursor-pointer"
                   >
                     Request Audit
                   </button>

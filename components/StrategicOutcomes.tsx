@@ -5,7 +5,7 @@ const StrategicOutcomes: React.FC = () => {
     <section id="outcomes" className="py-40 bg-[#0a0e1a] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
-          <h2 className="text-[#b8860b] text-[11px] font-black uppercase mb-8 tracking-[0.4em]">The Standard of Excellence</h2>
+          <h2 className="text-[#b8860b] text-[11px] font-black uppercase mb-8 ">The Standard of Excellence</h2>
           <h3 className="text-4xl md:text-6xl font-medium leading-[1.15] text-white max-w-4xl mx-auto">
             Reclaiming the <span className="italic text-[#b8860b]">Strategic Yield.</span>
           </h3>
@@ -39,7 +39,7 @@ const StrategicOutcomes: React.FC = () => {
            </p>
            <button 
              onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
-             className="px-12 py-5 border border-[#b8860b] text-[#b8860b] text-[11px] font-black uppercase tracking-widest hover:bg-[#b8860b] hover:text-white transition-all shadow-2xl"
+             className="px-12 py-5 border border-[#b8860b] text-[#b8860b] text-[11px] font-black uppercase hover:bg-[#b8860b] hover:text-white transition-all shadow-2xl"
            >
              Secure Your Outcome Vector
            </button>
@@ -52,22 +52,22 @@ const StrategicOutcomes: React.FC = () => {
 const OutcomeCard: React.FC<{ vector: string; title: string; description: string; kpi: string }> = ({ vector, title, description, kpi }) => (
   <div className="bg-white/5 p-12 border-l-2 border-[#b8860b]/30 flex flex-col h-full hover:bg-white/10 transition-all duration-700 group">
     <div className="mb-10">
-      <div className="text-[10px] font-black text-[#b8860b] mb-6 tracking-[0.4em] uppercase">Vector {vector}</div>
+      <div className="text-[10px] font-black text-[#b8860b] mb-6 uppercase">Vector {vector}</div>
       <h4 className="text-white text-2xl font-bold mb-6 group-hover:text-[#b8860b] transition-colors">{title}</h4>
       <p className="text-white/60 font-light text-lg leading-[1.7] italic pr-2 mb-8">
         {description}
       </p>
       <button 
         onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
-        className="text-[9px] font-black uppercase text-[#b8860b] border-b border-[#b8860b]/30 pb-1 hover:text-white hover:border-white transition-all tracking-widest"
+        className="text-[9px] font-black uppercase text-[#b8860b] border-b border-[#b8860b]/30 pb-1 hover:text-white hover:border-white transition-all "
       >
         Architect this Vector
       </button>
     </div>
     <div className="mt-auto">
       <div className="h-[1px] w-10 bg-white/10 mb-8"></div>
-      <div className="text-white/40 text-[9px] uppercase font-black mb-2 tracking-widest">Mandatory Benchmark:</div>
-      <div className="text-[#b8860b] text-[12px] uppercase font-black tracking-[0.2em]">{kpi}</div>
+      <div className="text-white/40 text-[9px] uppercase font-black mb-2 ">Mandatory Benchmark:</div>
+      <div className="text-[#b8860b] text-[12px] uppercase font-black ">{kpi}</div>
     </div>
   </div>
 );

@@ -56,7 +56,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] block mb-2 font-mono">
+          <span className="text-[#b8860b] text-[10px] font-black uppercase block mb-2 font-mono">
             Direct Intake & Consultation
           </span>
           <h2 className="text-2xl sm:text-4xl font-bold font-serif text-white mb-3">
@@ -72,7 +72,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
           
           {/* Path 1: Direct Calendar Segment */}
           <div className="md:col-span-5 bg-gradient-to-b from-zinc-900 to-zinc-950 border border-[#b8860b]/30 p-6 sm:p-8 rounded-xs flex flex-col justify-between h-full relative overflow-hidden shadow-xl">
-            <div className="absolute top-0 right-0 px-3 py-1 bg-[#b8860b]/20 text-[#b8860b] text-[8px] font-black uppercase tracking-widest font-mono">
+            <div className="absolute top-0 right-0 px-3 py-1 bg-[#b8860b]/20 text-[#b8860b] text-[8px] font-black uppercase font-mono">
               Fast Track
             </div>
 
@@ -101,7 +101,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
               href="https://calendly.com/d/d3jb-kpx-r6q" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-full py-4 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-all duration-300 text-center cursor-pointer block font-bold shadow-md"
+              className="w-full py-4 bg-[#b8860b] text-white text-[10px] font-black uppercase hover:bg-white hover:text-black transition-all duration-300 text-center cursor-pointer block font-bold shadow-md"
             >
               Open Direct Calendar
             </a>
@@ -109,7 +109,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
 
           {/* Path 2: Private Ledger Inquiry */}
           <div className="md:col-span-7 bg-zinc-900 border border-white/10 p-6 sm:p-8 rounded-xs shadow-xl relative">
-            <div className="absolute top-0 right-0 px-3 py-1 bg-white/5 text-zinc-400 text-[8px] font-black uppercase tracking-widest font-mono">
+            <div className="absolute top-0 right-0 px-3 py-1 bg-white/5 text-zinc-400 text-[8px] font-black uppercase font-mono">
               Form TULC-01
             </div>
 
@@ -125,7 +125,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
                     setSubmitted(false);
                     setFormData({ name: '', email: '', organization: '', role: '', message: '' });
                   }}
-                  className="text-[9px] uppercase font-bold text-[#b8860b] hover:underline tracking-widest pt-4"
+                  className="text-[9px] uppercase font-bold text-[#b8860b] hover:underline pt-4"
                 >
                   Send Another Inquiry
                 </button>
@@ -136,7 +136,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
                 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-[9px] font-black uppercase text-[#b8860b] tracking-wider block mb-1">Full Name</label>
+                    <label className="text-[9px] font-black uppercase text-[#b8860b] block mb-1">Full Name</label>
                     <input 
                       required
                       type="text" 
@@ -147,7 +147,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-[9px] font-black uppercase text-[#b8860b] tracking-wider block mb-1">Work Email</label>
+                    <label className="text-[9px] font-black uppercase text-[#b8860b] block mb-1">Work Email</label>
                     <input 
                       required
                       type="email" 
@@ -161,7 +161,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-[9px] font-black uppercase text-[#b8860b] tracking-wider block mb-1">Organization</label>
+                    <label className="text-[9px] font-black uppercase text-[#b8860b] block mb-1">Organization</label>
                     <input 
                       required
                       type="text" 
@@ -172,7 +172,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-[9px] font-black uppercase text-[#b8860b] tracking-wider block mb-1">Role</label>
+                    <label className="text-[9px] font-black uppercase text-[#b8860b] block mb-1">Role</label>
                     <input 
                       required
                       type="text" 
@@ -185,7 +185,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
                 </div>
 
                 <div>
-                  <label className="text-[9px] font-black uppercase text-[#b8860b] tracking-wider block mb-1">Primary Bottleneck / Yield Target</label>
+                  <label className="text-[9px] font-black uppercase text-[#b8860b] block mb-1">Primary Bottleneck / Yield Target</label>
                   <textarea 
                     required
                     rows={3}
@@ -199,7 +199,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
                 <button 
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 bg-white text-black hover:bg-[#b8860b] hover:text-white text-[10px] font-black uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                  className="w-full py-3.5 bg-white text-black hover:bg-[#b8860b] hover:text-white text-[10px] font-black uppercase transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>{isSubmitting ? 'Transmitting...' : 'Transmit Inquiry'}</span>

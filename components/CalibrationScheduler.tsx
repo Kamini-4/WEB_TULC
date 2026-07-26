@@ -72,7 +72,7 @@ const CalibrationScheduler: React.FC<CalibrationSchedulerProps> = ({ onClose, le
         <div className="p-8 sm:p-12">
           <div className="flex justify-between items-start mb-8">
             <div>
-              <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] mb-2">Institutional Protocol</h2>
+              <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-2">Institutional Protocol</h2>
               <h3 className="text-3xl font-bold text-[#111111]">Request <span className="italic">Structural Alignment.</span></h3>
             </div>
             <button onClick={onClose} className="text-zinc-400 hover:text-[#111111] transition-colors">
@@ -97,7 +97,7 @@ const CalibrationScheduler: React.FC<CalibrationSchedulerProps> = ({ onClose, le
 
                 <div className="space-y-6">
                   <div>
-                    <label className="text-[9px] uppercase text-[#b8860b] font-black tracking-widest block mb-4">Select Diagnostic Window</label>
+                    <label className="text-[9px] uppercase text-[#b8860b] font-black block mb-4">Select Diagnostic Window</label>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                       {dates.map((date) => (
                         <button
@@ -125,7 +125,7 @@ const CalibrationScheduler: React.FC<CalibrationSchedulerProps> = ({ onClose, le
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                     >
-                      <label className="text-[9px] uppercase text-[#b8860b] font-black tracking-widest block mb-4">Select Time (9 AM - 2 PM)</label>
+                      <label className="text-[9px] uppercase text-[#b8860b] font-black block mb-4">Select Time (9 AM - 2 PM)</label>
                       <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
                         {timeSlots.map((time) => (
                           <button
@@ -149,7 +149,7 @@ const CalibrationScheduler: React.FC<CalibrationSchedulerProps> = ({ onClose, le
                   <button
                     disabled={!selectedDate || !selectedTime || isSubmitting}
                     onClick={handleRequest}
-                    className="w-full py-5 bg-[#111111] text-white text-[11px] font-bold uppercase tracking-[0.3em] hover:bg-black transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                    className="w-full py-5 bg-[#111111] text-white text-[11px] font-bold uppercase hover:bg-black transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                   >
                     {isSubmitting ? (
                       <>
@@ -160,7 +160,7 @@ const CalibrationScheduler: React.FC<CalibrationSchedulerProps> = ({ onClose, le
                       'Request Institutional Alignment'
                     )}
                   </button>
-                  <p className="text-center text-[9px] text-zinc-400 uppercase mt-4 tracking-widest">
+                  <p className="text-center text-[9px] text-zinc-400 uppercase mt-4 ">
                     Your request will be reviewed by the Principal Architect.
                   </p>
                 </div>
@@ -183,7 +183,7 @@ const CalibrationScheduler: React.FC<CalibrationSchedulerProps> = ({ onClose, le
                 </p>
                 <button 
                   onClick={onClose}
-                  className="text-[11px] font-black uppercase text-[#b8860b] tracking-widest hover:text-[#111111] transition-colors"
+                  className="text-[11px] font-black uppercase text-[#b8860b] hover:text-[#111111] transition-colors"
                 >
                   Return to Terminal
                 </button>

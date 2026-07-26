@@ -105,16 +105,16 @@ const ServicesPage: React.FC = () => {
         <div className="mb-12 text-center max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-2 mb-3">
             <span className="w-8 h-px bg-[#b8860b]" />
-            <h2 className="text-[#b8860b] text-xs font-black uppercase tracking-[0.4em]">Targeted Enterprise Interventions</h2>
+            <h2 className="text-[#b8860b] text-xs font-black uppercase ">Targeted Enterprise Interventions</h2>
             <span className="w-8 h-px bg-[#b8860b]" />
           </div>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight font-serif text-[#111111]">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight font-serif text-[#111111]">
             Is Your Enterprise Losing Velocity <br />
             <span className="text-[#b8860b] italic font-light">To Hidden Alignment Friction?</span>
           </h1>
-          <div className="h-1 w-20 bg-[#b8860b] mx-auto mb-6"></div>
-          <p className="text-base sm:text-lg text-zinc-700 font-light italic leading-relaxed">
-            Every operational bottleneck is a design flaw. Before selecting an engagement protocol below, explore how structural latency erodes your bandwidth and why standard executive coaching fails to fix it.
+          <div className="h-1 w-16 bg-[#b8860b] mx-auto mb-5"></div>
+          <p className="text-sm sm:text-base text-zinc-700 font-light italic leading-relaxed">
+            Every operational bottleneck is a structural design flaw. We partner with you at every step of your scaling journey—from initial substrate diagnostics to self-cohering enterprise governance—to replace tactical friction with permanent operational architecture.
           </p>
         </div>
 
@@ -125,10 +125,10 @@ const ServicesPage: React.FC = () => {
           
           <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7 space-y-4">
-              <span className="text-red-400 text-[10px] font-mono font-black uppercase tracking-[0.3em] block flex items-center gap-2">
+              <span className="text-red-400 text-[10px] font-mono font-black uppercase block flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" /> Diagnostic Reality Check
               </span>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold font-serif tracking-tight text-white leading-tight">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold font-serif text-white leading-tight">
                 The Cost of Latency:<br />
                 Where Board Directives <span className="text-red-400 italic font-light">Lose Fidelity.</span>
               </h3>
@@ -149,7 +149,7 @@ const ServicesPage: React.FC = () => {
             </div>
             
             <div className="lg:col-span-5 bg-zinc-900/90 border border-red-900/30 p-5 md:p-6 space-y-4 rounded-xs relative shadow-xl">
-              <span className="text-[9px] font-mono font-bold text-red-400 uppercase tracking-widest block">Structural Inaction Impact Index</span>
+              <span className="text-[9px] font-mono font-bold text-red-400 uppercase block">Structural Inaction Impact Index</span>
               
               <div className="space-y-3 font-mono text-[11px]">
                 <div className="flex justify-between items-start border-b border-zinc-800/60 pb-2">
@@ -176,7 +176,7 @@ const ServicesPage: React.FC = () => {
 
               <button 
                 onClick={() => navigate('/assessment')}
-                className="w-full py-3 bg-red-950 border border-red-700/60 hover:bg-red-900 hover:border-red-500 text-white text-[9px] font-black uppercase tracking-[0.2em] transition-all"
+                className="w-full py-3 bg-red-950 border border-red-700/60 hover:bg-red-900 hover:border-red-500 text-white text-[9px] font-black uppercase transition-all"
               >
                 Benchmark Your Drift Coefficient
               </button>
@@ -188,7 +188,7 @@ const ServicesPage: React.FC = () => {
         <div className="mb-12 max-w-5xl mx-auto bg-white border border-zinc-200/80 p-6 sm:p-8 shadow-sm relative overflow-hidden">
           <div className="absolute top-0 left-0 w-2.5 h-full bg-[#b8860b]" />
           <div className="space-y-4">
-            <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] block">Our Foundation: Why We Architect</span>
+            <span className="text-[#b8860b] text-[10px] font-black uppercase block">Our Foundation: Why We Architect</span>
             
             <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 leading-tight font-serif">
               We believe your creative genius is too precious to be consumed by tactical friction.
@@ -200,7 +200,7 @@ const ServicesPage: React.FC = () => {
             
             <div className="grid md:grid-cols-2 gap-6 pt-6 border-t border-zinc-100">
               <div className="space-y-3">
-                <h4 className="text-xs sm:text-sm font-bold text-zinc-900 uppercase tracking-wider">The Hidden Costs You Pay Daily:</h4>
+                <h4 className="text-xs sm:text-sm font-bold text-zinc-900 uppercase ">The Hidden Costs You Pay Daily:</h4>
                 <ul className="space-y-2 text-xs text-zinc-600 italic font-light">
                   <li className="flex items-start gap-2.5">
                     <span className="text-red-700 font-bold text-sm leading-none">•</span>
@@ -217,12 +217,12 @@ const ServicesPage: React.FC = () => {
                 </ul>
               </div>
               <div className="space-y-3">
-                <h4 className="text-xs sm:text-sm font-bold text-zinc-900 uppercase tracking-wider">Strict Engagement Capacity:</h4>
+                <h4 className="text-xs sm:text-sm font-bold text-zinc-900 uppercase ">Strict Engagement Capacity:</h4>
                 <p className="text-xs text-zinc-600 italic font-light leading-relaxed mb-2">
                   To preserve absolute signal quality and zero-dilution focus, Principal Suchita Sancheti maintains strict limits on client onboarding.
                 </p>
                 <div className="p-3.5 bg-zinc-50 border border-zinc-200/80 rounded-xs">
-                  <p className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider mb-0.5">Quarterly Capacity Limit:</p>
+                  <p className="text-[9px] text-zinc-500 font-bold uppercase mb-0.5">Quarterly Capacity Limit:</p>
                   <p className="text-xs text-[#b8860b] italic font-semibold">
                     Accepting only <strong className="font-extrabold text-[#b8860b]">3 enterprise calibrations per quarter</strong>. Currently 2 slots are committed. Only 1 opening remains for Q2.
                   </p>
@@ -237,7 +237,7 @@ const ServicesPage: React.FC = () => {
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#b8860b]/10 to-transparent pointer-events-none" />
           
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] block mb-2 font-mono">Operations Diagnostic</span>
+            <span className="text-[#b8860b] text-[10px] font-black uppercase block mb-2 font-mono">Operations Diagnostic</span>
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-zinc-900 leading-tight font-serif">The Structural Divergence Index</h3>
             <p className="text-zinc-500 text-xs italic font-medium mt-1">
               Side-by-side comparison of uncalibrated friction nodes versus custom-architected systemic governance.
@@ -246,7 +246,7 @@ const ServicesPage: React.FC = () => {
 
           <div className="space-y-6">
             {/* Contrast Header */}
-            <div className="grid md:grid-cols-2 gap-4 pb-3 border-b border-zinc-200 text-center font-mono uppercase tracking-widest text-[10px] font-black hidden md:grid">
+            <div className="grid md:grid-cols-2 gap-4 pb-3 border-b border-zinc-200 text-center font-mono uppercase text-[10px] font-black hidden md:grid">
               <div className="text-red-700 bg-red-50/50 py-2 border border-red-200/40 rounded-xs flex items-center justify-center gap-2">
                 <span>✕</span> Uncalibrated Operating Model (Friction & Drag)
               </div>
@@ -257,18 +257,18 @@ const ServicesPage: React.FC = () => {
 
             {/* Contrast Row 1 */}
             <div className="space-y-1.5">
-              <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block font-mono">01. Founder / CEO Bandwidth</span>
+              <span className="text-[10px] font-black text-zinc-400 uppercase block font-mono">01. Founder / CEO Bandwidth</span>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="p-4 bg-red-50/20 border border-red-200/30 rounded-xs relative">
                   <div className="absolute top-4 right-4 text-red-500 text-xs font-bold font-mono">DRAG</div>
-                  <h4 className="text-xs font-bold text-red-800 uppercase tracking-wider mb-1">Cognitive Insolvency</h4>
+                  <h4 className="text-xs font-bold text-red-800 uppercase mb-1">Cognitive Insolvency</h4>
                   <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
                     Founder trapped spending <strong>60+ hours per week</strong> handling reactive firefighting, double-checking work, and resolving recurring team friction.
                   </p>
                 </div>
                 <div className="p-4 bg-emerald-50/20 border border-emerald-200/30 rounded-xs relative">
                   <div className="absolute top-4 right-4 text-emerald-600 text-xs font-bold font-mono">CALIBRATED</div>
-                  <h4 className="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1">Cognitive Liberation</h4>
+                  <h4 className="text-xs font-bold text-emerald-800 uppercase mb-1">Cognitive Liberation</h4>
                   <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
                     <strong>Reclaims up to 40% of strategic bandwidth</strong> in 90 days. Permanently insulated from daily operational noise.
                   </p>
@@ -278,18 +278,18 @@ const ServicesPage: React.FC = () => {
 
             {/* Contrast Row 2 */}
             <div className="space-y-1.5">
-              <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block font-mono">02. Delegation Fidelity</span>
+              <span className="text-[10px] font-black text-zinc-400 uppercase block font-mono">02. Delegation Fidelity</span>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="p-4 bg-red-50/20 border border-red-200/30 rounded-xs relative">
                   <div className="absolute top-4 right-4 text-red-500 text-xs font-bold font-mono">DRAG</div>
-                  <h4 className="text-xs font-bold text-red-800 uppercase tracking-wider mb-1">Intent Dilution Tax</h4>
+                  <h4 className="text-xs font-bold text-red-800 uppercase mb-1">Intent Dilution Tax</h4>
                   <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
                     Strategic intent decays by <strong>~15% with every org layer</strong>. Direct reports execute a diluted version of your original vision.
                   </p>
                 </div>
                 <div className="p-4 bg-emerald-50/20 border border-emerald-200/30 rounded-xs relative">
                   <div className="absolute top-4 right-4 text-emerald-600 text-xs font-bold font-mono">CALIBRATED</div>
-                  <h4 className="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1">Zero-Dilution Parity</h4>
+                  <h4 className="text-xs font-bold text-emerald-800 uppercase mb-1">Zero-Dilution Parity</h4>
                   <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
                     Strategic reasoning hardcoded directly into <strong>self-cohering decision parameters</strong>. Direct reports execute with 100% precision.
                   </p>
@@ -301,7 +301,7 @@ const ServicesPage: React.FC = () => {
 
         {/* 4. NOW PRESENT THE SERVICE SPECTRUM / BUYING MENU */}
         <div className="mb-10 text-center max-w-3xl mx-auto">
-          <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] block mb-2 font-mono">Architectural Solution Menu</span>
+          <span className="text-[#b8860b] text-[10px] font-black uppercase block mb-2 font-mono">Architectural Solution Menu</span>
           <h2 className="text-3xl md:text-4xl font-bold text-[#111111] font-serif">
             Select Your Calibration <span className="text-[#b8860b] italic font-light">Protocol.</span>
           </h2>
@@ -324,17 +324,17 @@ const ServicesPage: React.FC = () => {
                 }`}
               >
                 {service.isPopular && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#b8860b] text-white text-[8px] font-black uppercase tracking-[0.2em] rounded-full shadow-md">
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#b8860b] text-white text-[8px] font-black uppercase rounded-full shadow-md">
                     Immediate Activation Available
                   </span>
                 )}
 
                 <div className="mb-6">
                   <div className="flex justify-between items-center mb-3">
-                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#b8860b] px-2.5 py-1 bg-[#b8860b]/10 rounded-xs font-mono">
+                    <span className="text-[10px] font-black uppercase text-[#b8860b] px-2.5 py-1 bg-[#b8860b]/10 rounded-xs font-mono">
                       {service.badge}
                     </span>
-                    <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">
+                    <span className="text-[10px] uppercase font-bold text-zinc-400 ">
                       {service.duration}
                     </span>
                   </div>
@@ -344,7 +344,7 @@ const ServicesPage: React.FC = () => {
                 </div>
 
                 <div className="my-auto pt-4 pb-6 border-t border-zinc-100/80">
-                  <span className="text-[10px] uppercase font-black text-zinc-400 tracking-widest block mb-2 font-mono">Investment Terms</span>
+                  <span className="text-[10px] uppercase font-black text-zinc-400 block mb-2 font-mono">Investment Terms</span>
                   <div className="flex items-baseline gap-2">
                     <span className={`text-2xl sm:text-3xl font-extrabold ${isDiag ? 'text-[#b8860b]' : 'text-zinc-900 font-bold'}`}>
                       {service.price}
@@ -354,7 +354,7 @@ const ServicesPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-2 mb-6">
-                  <span className="text-[9px] uppercase font-black text-zinc-400 tracking-widest block font-mono">Structural Deliverables</span>
+                  <span className="text-[9px] uppercase font-black text-zinc-400 block font-mono">Structural Deliverables</span>
                   <ul className="space-y-2.5">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex gap-2.5 text-xs text-zinc-700 italic font-light leading-snug">
@@ -367,7 +367,7 @@ const ServicesPage: React.FC = () => {
 
                 <button
                   onClick={() => handleCtaClick(service)}
-                  className={`w-full py-4 text-[10px] font-black uppercase tracking-[0.2em] transition-all mt-auto shadow-md ${
+                  className={`w-full py-4 text-[10px] font-black uppercase transition-all mt-auto shadow-md ${
                     service.isPopular
                       ? 'bg-[#111111] text-white hover:bg-[#b8860b]'
                       : 'border border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-white'
@@ -386,10 +386,10 @@ const ServicesPage: React.FC = () => {
         <div className="mb-10 md:mb-12 max-w-5xl mx-auto bg-gradient-to-r from-[#111111] to-[#1a1a1a] p-5 sm:p-6 md:p-8 border border-[#b8860b]/30 shadow-xl relative overflow-hidden text-left flex flex-col md:flex-row items-center justify-between gap-4 rounded-sm">
           <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#b8860b]/20 to-transparent pointer-events-none" />
           <div className="space-y-1.5 max-w-xl">
-            <div className="inline-flex items-center gap-2 px-2 py-0.5 bg-[#b8860b]/20 border border-[#b8860b]/30 text-[#b8860b] text-[8px] font-black uppercase tracking-[0.25em] rounded-xs font-mono">
+            <div className="inline-flex items-center gap-2 px-2 py-0.5 bg-[#b8860b]/20 border border-[#b8860b]/30 text-[#b8860b] text-[8px] font-black uppercase rounded-xs font-mono">
               <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-ping" /> Private Alignment Baseline
             </div>
-            <h3 className="text-base sm:text-lg md:text-xl font-bold text-white tracking-tight">
+            <h3 className="text-base sm:text-lg md:text-xl font-bold text-white ">
               Quantify Your Current Leadership Friction
             </h3>
             <p className="text-zinc-400 text-xs italic font-light leading-relaxed">
@@ -398,7 +398,7 @@ const ServicesPage: React.FC = () => {
           </div>
           <button
             onClick={() => navigate('/assessment')}
-            className="w-full md:w-auto px-6 py-3 bg-[#b8860b] hover:bg-white hover:text-zinc-900 text-white text-[8px] sm:text-[9px] font-black uppercase tracking-[0.2em] transition-all shrink-0 shadow-lg border border-[#b8860b] hover:border-white"
+            className="w-full md:w-auto px-6 py-3 bg-[#b8860b] hover:bg-white hover:text-zinc-900 text-white text-[8px] sm:text-[9px] font-black uppercase transition-all shrink-0 shadow-lg border border-[#b8860b] hover:border-white"
           >
             Start Free Assessment
           </button>
@@ -408,7 +408,7 @@ const ServicesPage: React.FC = () => {
         <div className="mb-10 md:mb-12 max-w-5xl mx-auto bg-white border border-zinc-200/80 p-5 sm:p-6 md:p-8 shadow-sm relative overflow-hidden">
           <div className="absolute top-0 left-0 w-2.5 h-full bg-[#b8860b]" />
           <div className="space-y-4">
-            <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] block">Our Foundation: Start with Why</span>
+            <span className="text-[#b8860b] text-[10px] font-black uppercase block">Our Foundation: Start with Why</span>
             
             <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 leading-tight">
               We believe your brilliance is too precious to be consumed by tactical noise.
@@ -420,7 +420,7 @@ const ServicesPage: React.FC = () => {
             
             <div className="grid md:grid-cols-2 gap-6 pt-6 border-t border-zinc-100">
               <div className="space-y-3">
-                <h4 className="text-xs sm:text-sm font-bold text-zinc-900 uppercase tracking-wider">The Cost of Systemic Friction:</h4>
+                <h4 className="text-xs sm:text-sm font-bold text-zinc-900 uppercase ">The Cost of Systemic Friction:</h4>
                 <ul className="space-y-2 text-xs text-zinc-600 italic font-light">
                   <li className="flex items-start gap-2.5">
                     <span className="text-red-700 font-bold text-sm leading-none">•</span>
@@ -437,12 +437,12 @@ const ServicesPage: React.FC = () => {
                 </ul>
               </div>
               <div className="space-y-3">
-                <h4 className="text-xs sm:text-sm font-bold text-zinc-900 uppercase tracking-wider">The Cost of Deferred Alignment:</h4>
+                <h4 className="text-xs sm:text-sm font-bold text-zinc-900 uppercase ">The Cost of Deferred Alignment:</h4>
                 <p className="text-xs text-zinc-600 italic font-light leading-relaxed mb-2">
                   Permitting structural latency to persist is an active operational choice. Over time, this friction cements itself as organizational culture—diluting original strategic vision and quietly compounding executive drag.
                 </p>
                 <div className="p-3 bg-zinc-50 border border-zinc-200/60 rounded-xs">
-                  <p className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider mb-0.5">Exclusive Capacity Threshold:</p>
+                  <p className="text-[9px] text-zinc-500 font-bold uppercase mb-0.5">Exclusive Capacity Threshold:</p>
                   <p className="text-xs text-[#b8860b] italic font-semibold">
                     Suchita Sancheti accepts only <strong className="font-extrabold text-[#b8860b]">3 active corporate calibrations per quarter</strong>. Currently, 2 slots are occupied. Only 1 remains.
                   </p>
@@ -459,10 +459,10 @@ const ServicesPage: React.FC = () => {
           
           <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7 space-y-4">
-              <span className="text-red-400 text-[10px] font-mono font-black uppercase tracking-[0.3em] block flex items-center gap-2">
+              <span className="text-red-400 text-[10px] font-mono font-black uppercase block flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" /> Kinetic Latency Analysis
               </span>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold font-sans tracking-tight text-white leading-tight">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold font-sans text-white leading-tight">
                 The Cost of Latency:<br />
                 Where Board Directives <span className="text-red-400 italic">Lose Fidelity.</span>
               </h3>
@@ -483,7 +483,7 @@ const ServicesPage: React.FC = () => {
             </div>
             
             <div className="lg:col-span-5 bg-zinc-900/80 border border-red-900/20 p-5 md:p-6 space-y-4 rounded-xs relative">
-              <span className="text-[9px] font-mono font-bold text-red-400 uppercase tracking-widest block">Structural Inaction Impact Index</span>
+              <span className="text-[9px] font-mono font-bold text-red-400 uppercase block">Structural Inaction Impact Index</span>
               
               <div className="space-y-3 font-mono text-[11px]">
                 <div className="flex justify-between items-start border-b border-zinc-800/60 pb-2">
@@ -510,7 +510,7 @@ const ServicesPage: React.FC = () => {
 
               <button 
                 onClick={() => navigate('/assessment')}
-                className="w-full py-3 bg-red-950 border border-red-700/60 hover:bg-red-900 hover:border-red-500 text-white text-[9px] font-black uppercase tracking-[0.2em] transition-all"
+                className="w-full py-3 bg-red-950 border border-red-700/60 hover:bg-red-900 hover:border-red-500 text-white text-[9px] font-black uppercase transition-all"
               >
                 Benchmark Your Drift Coefficient
               </button>
@@ -523,7 +523,7 @@ const ServicesPage: React.FC = () => {
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#b8860b]/10 to-transparent pointer-events-none" />
           
           <div className="text-center max-w-2xl mx-auto mb-6 md:mb-8">
-            <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] block mb-2">Institutional Operations Model</span>
+            <span className="text-[#b8860b] text-[10px] font-black uppercase block mb-2">Institutional Operations Model</span>
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-zinc-900 leading-tight">The Structural Divergence Index</h3>
             <p className="text-zinc-500 text-xs italic font-medium mt-1">
               A side-by-side comparative analysis of uncalibrated friction nodes versus custom-architected systemic governance.
@@ -532,7 +532,7 @@ const ServicesPage: React.FC = () => {
 
           <div className="space-y-4 md:space-y-6">
             {/* Contrast Header */}
-            <div className="grid md:grid-cols-2 gap-4 pb-3 border-b border-zinc-200 text-center font-mono uppercase tracking-widest text-[10px] font-black hidden md:grid">
+            <div className="grid md:grid-cols-2 gap-4 pb-3 border-b border-zinc-200 text-center font-mono uppercase text-[10px] font-black hidden md:grid">
               <div className="text-red-700 bg-red-50/50 py-2 border border-red-200/40 rounded-xs flex items-center justify-center gap-2">
                 <span>✕</span> The Uncalibrated Operating Model (Friction & Drift)
               </div>
@@ -543,18 +543,18 @@ const ServicesPage: React.FC = () => {
 
             {/* Contrast Row 1 */}
             <div className="space-y-1.5">
-              <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block font-mono">01. Founder / CEO Bandwidth</span>
+              <span className="text-[10px] font-black text-zinc-400 uppercase block font-mono">01. Founder / CEO Bandwidth</span>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="p-4 bg-red-50/20 border border-red-200/20 hover:border-red-500/20 transition-all rounded-xs relative">
                   <div className="absolute top-4 right-4 text-red-500 text-xs font-bold font-mono">DRAG</div>
-                  <h4 className="text-xs font-bold text-red-800 uppercase tracking-wider mb-2">Cognitive Insolvency</h4>
+                  <h4 className="text-xs font-bold text-red-800 uppercase mb-2">Cognitive Insolvency</h4>
                   <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
                     Founder is trapped spending over <strong>60+ hours per week</strong> handling reactive firefighting, double-checking delegated tasks, and resolving repetitive operational crises. Your strategic mind is bankrupt.
                   </p>
                 </div>
                 <div className="p-5 bg-emerald-50/20 border border-emerald-200/20 hover:border-emerald-500/20 transition-all rounded-xs relative">
                   <div className="absolute top-4 right-4 text-emerald-600 text-xs font-bold font-mono">CALIBRATED</div>
-                  <h4 className="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2">Cognitive Liberation</h4>
+                  <h4 className="text-xs font-bold text-emerald-800 uppercase mb-2">Cognitive Liberation</h4>
                   <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
                     <strong>Reclaims up to 40% of strategic bandwidth</strong> in the first 90 days. You are permanently insulated from daily noise, returned to pure long-term creative vision and uninhibited legacy expansion.
                   </p>
@@ -564,18 +564,18 @@ const ServicesPage: React.FC = () => {
 
             {/* Contrast Row 2 */}
             <div className="space-y-1.5">
-              <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block font-mono">02. Execution & Delegation Fidelity</span>
+              <span className="text-[10px] font-black text-zinc-400 uppercase block font-mono">02. Execution & Delegation Fidelity</span>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="p-4 bg-red-50/20 border border-red-200/20 hover:border-red-500/20 transition-all rounded-xs relative">
                   <div className="absolute top-4 right-4 text-red-500 text-xs font-bold font-mono">DRAG</div>
-                  <h4 className="text-xs font-bold text-red-800 uppercase tracking-wider mb-2">Intent Dilution Tax</h4>
+                  <h4 className="text-xs font-bold text-red-800 uppercase mb-2">Intent Dilution Tax</h4>
                   <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
                     Your strategic intent decays by approximately <strong>15% with every subsequent layer</strong> of organization. Direct reports execute a lower-fidelity, diluted version of your original vision, causing expensive misalignment.
                   </p>
                 </div>
                 <div className="p-4 bg-emerald-50/20 border border-emerald-200/20 hover:border-emerald-500/20 transition-all rounded-xs relative">
                   <div className="absolute top-4 right-4 text-emerald-600 text-xs font-bold font-mono">CALIBRATED</div>
-                  <h4 className="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2">Absolute Alignment Resonance</h4>
+                  <h4 className="text-xs font-bold text-emerald-800 uppercase mb-2">Absolute Alignment Resonance</h4>
                   <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
                     Your exact strategic reasoning structure and operational values are hard-coded directly into <strong>self-cohering decision parameters</strong>. Direct reports execute with 100% precision, even in your absence.
                   </p>
@@ -585,18 +585,18 @@ const ServicesPage: React.FC = () => {
 
             {/* Contrast Row 3 */}
             <div className="space-y-1.5">
-              <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block font-mono">03. Operational Decision Velocity</span>
+              <span className="text-[10px] font-black text-zinc-400 uppercase block font-mono">03. Operational Decision Velocity</span>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="p-4 bg-red-50/20 border border-red-200/20 hover:border-red-500/20 transition-all rounded-xs relative">
                   <div className="absolute top-4 right-4 text-red-500 text-xs font-bold font-mono">DRAG</div>
-                  <h4 className="text-xs font-bold text-red-800 uppercase tracking-wider mb-2">Meeting-Tax Saturation</h4>
+                  <h4 className="text-xs font-bold text-red-800 uppercase mb-2">Meeting-Tax Saturation</h4>
                   <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
                     Operations rely heavily on manual coordination, constant alignment meetings, and committee consensus. Simple decisions require hours of face-to-face friction to execute.
                   </p>
                 </div>
                 <div className="p-4 bg-emerald-50/20 border border-emerald-200/20 hover:border-emerald-500/20 transition-all rounded-xs relative">
                   <div className="absolute top-4 right-4 text-emerald-600 text-xs font-bold font-mono">CALIBRATED</div>
-                  <h4 className="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2">Logic-Gate Automation</h4>
+                  <h4 className="text-xs font-bold text-emerald-800 uppercase mb-2">Logic-Gate Automation</h4>
                   <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
                     We install <strong>12+ customized operational logic gates</strong> that automate daily decision paths. Systemic coordination costs are dissolved, boosting decision velocity by up to <strong>10x</strong>.
                   </p>
@@ -606,18 +606,18 @@ const ServicesPage: React.FC = () => {
 
             {/* Contrast Row 4 */}
             <div className="space-y-1.5">
-              <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block font-mono">04. Organizational Permanence & Enterprise Value</span>
+              <span className="text-[10px] font-black text-zinc-400 uppercase block font-mono">04. Organizational Permanence & Enterprise Value</span>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="p-4 bg-red-50/20 border border-red-200/20 hover:border-red-500/20 transition-all rounded-xs relative">
                   <div className="absolute top-4 right-4 text-red-500 text-xs font-bold font-mono">DRAG</div>
-                  <h4 className="text-xs font-bold text-red-800 uppercase tracking-wider mb-2">Extreme Person-Dependency</h4>
+                  <h4 className="text-xs font-bold text-red-800 uppercase mb-2">Extreme Person-Dependency</h4>
                   <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
                     The company is heavily dependent on your daily physical presence. If you step away for a week, strategic momentum stalls, operations freeze, and Enterprise value experiences sudden degradation.
                   </p>
                 </div>
                 <div className="p-4 bg-emerald-50/20 border border-emerald-200/20 hover:border-emerald-500/20 transition-all rounded-xs relative">
                   <div className="absolute top-4 right-4 text-emerald-600 text-xs font-bold font-mono">CALIBRATED</div>
-                  <h4 className="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2">Institutional Sovereignty</h4>
+                  <h4 className="text-xs font-bold text-emerald-800 uppercase mb-2">Institutional Sovereignty</h4>
                   <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
                     We transition your firm from "Hero" dependency to a <strong>self-governing structural asset</strong>. The company compounds and thrives seamlessly on autopilot, de-risking succession and maximizing valuation.
                   </p>
@@ -627,13 +627,13 @@ const ServicesPage: React.FC = () => {
           </div>
 
           <div className="mt-6 pt-4 border-t border-zinc-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider italic">
+            <span className="text-[10px] font-mono text-zinc-400 uppercase italic">
               Stop paying the compound Inaction Tax. Recalibrate your operating system today.
             </span>
             <div className="flex gap-4">
               <button 
                 onClick={() => navigate('/assessment')}
-                className="px-6 py-2.5 bg-zinc-950 text-white hover:bg-[#b8860b] text-[9px] font-black uppercase tracking-widest transition-all"
+                className="px-6 py-2.5 bg-zinc-950 text-white hover:bg-[#b8860b] text-[9px] font-black uppercase transition-all"
               >
                 Calculate Your Friction Index
               </button>
@@ -648,7 +648,7 @@ const ServicesPage: React.FC = () => {
             <div className="max-w-7xl mx-auto px-6 relative z-10">
               <div className="grid lg:grid-cols-12 gap-16 md:gap-24 items-center">
                 <div className="lg:col-span-7 text-left">
-                  <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-6">Modular Entry Track</h2>
+                  <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-6">Modular Entry Track</h2>
                   <h3 className="text-4xl md:text-6xl font-bold mb-8 leading-[1.1]">
                     Neutralize <span className="italic text-[#b8860b]">Risk.</span> <br />
                     Verify the <span className="italic font-light">Signal.</span>
@@ -660,14 +660,14 @@ const ServicesPage: React.FC = () => {
                     <div className="flex items-start gap-4">
                       <div className="w-6 h-px bg-[#b8860b] mt-3" />
                       <div>
-                        <h4 className="font-bold text-xs uppercase tracking-widest mb-1">Cognitive Calibration</h4>
+                        <h4 className="font-bold text-xs uppercase mb-1">Cognitive Calibration</h4>
                         <p className="text-[11px] text-zinc-400 italic">Mapping your personal decision frequency.</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
                       <div className="w-6 h-px bg-[#b8860b] mt-3" />
                       <div>
-                        <h4 className="font-bold text-xs uppercase tracking-widest mb-1">Logic Leak Audit</h4>
+                        <h4 className="font-bold text-xs uppercase mb-1">Logic Leak Audit</h4>
                         <p className="text-[11px] text-zinc-400 italic">Identifying the 30% bandwidth drain.</p>
                       </div>
                     </div>
@@ -675,13 +675,13 @@ const ServicesPage: React.FC = () => {
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                     <button 
                       onClick={() => navigate('/intake')}
-                      className="px-8 py-4 bg-[#b8860b] text-white text-[9px] font-black uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-all shadow-[0_0_50px_rgba(184,134,11,0.2)]"
+                      className="px-8 py-4 bg-[#b8860b] text-white text-[9px] font-black uppercase hover:bg-white hover:text-black transition-all shadow-[0_0_50px_rgba(184,134,11,0.2)]"
                     >
                       Inquire for Diagnostic Audit
                     </button>
                     <div>
-                      <div className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest mb-0.5">Pricing Model</div>
-                      <div className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest">Upon Request</div>
+                      <div className="text-[9px] font-black uppercase text-[#b8860b] mb-0.5">Pricing Model</div>
+                      <div className="text-[9px] font-bold text-zinc-400 uppercase ">Upon Request</div>
                     </div>
                   </div>
                 </div>
@@ -692,7 +692,7 @@ const ServicesPage: React.FC = () => {
                       <div className="w-4 h-4 bg-[#b8860b]/50 animate-pulse" />
                     </div>
                     <h4 className="text-xl font-bold italic mb-2">Phase 0.0</h4>
-                    <div className="text-[9px] font-black uppercase tracking-[0.5em] text-[#b8860b] mb-6">Diagnostic Protocol</div>
+                    <div className="text-[9px] font-black uppercase text-[#b8860b] mb-6">Diagnostic Protocol</div>
                     <ul className="text-center space-y-2 text-zinc-300 text-xs italic font-light">
                       <li>Institutional Telemetry Scan</li>
                       <li>Principal Logic Synthesis</li>

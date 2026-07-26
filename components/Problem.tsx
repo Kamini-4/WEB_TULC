@@ -47,7 +47,7 @@ const VarianceItem: React.FC<{ num: string, title: string; desc: string }> = ({ 
       <div className="flex-grow">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2 gap-1">
           <h5 className="text-xl font-bold text-[#111111] group-hover:text-[#b8860b] transition-colors">{title}</h5>
-          <span className="text-[#b8860b] text-[9px] font-black uppercase opacity-40 group-hover:opacity-100 transition-opacity tracking-widest">Risk Vector {num}</span>
+          <span className="text-[#b8860b] text-[9px] font-black uppercase opacity-40 group-hover:opacity-100 transition-opacity ">Risk Vector {num}</span>
         </div>
         <p className="text-zinc-700 text-sm italic font-light leading-relaxed">{desc}</p>
       </div>
@@ -68,7 +68,7 @@ const Problem: React.FC = () => {
             viewport={{ once: true, margin: "-10%" }}
             variants={containerVariants}
           >
-            <motion.h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 tracking-[0.3em]" variants={itemVariants}>
+            <motion.h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 " variants={itemVariants}>
               The Governance Threshold
             </motion.h2>
             <motion.h3 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.1] mb-8 sm:mb-10 text-[#111111]" variants={itemVariants}>
@@ -89,7 +89,7 @@ const Problem: React.FC = () => {
                   className="shadow-2xl border border-[#b8860b]/30"
                 />
                 <div className="mt-4 flex justify-end">
-                  <span className="text-[8px] font-black text-[#b8860b] uppercase tracking-[0.3em] bg-white/95 px-3 py-1 border border-[#b8860b]/20 shadow-sm">Institutional Briefing v1.0</span>
+                  <span className="text-[8px] font-black text-[#b8860b] uppercase bg-white/95 px-3 py-1 border border-[#b8860b]/20 shadow-sm">Institutional Briefing v1.0</span>
                 </div>
               </motion.div>
 
@@ -100,7 +100,7 @@ const Problem: React.FC = () => {
               <motion.div className="pt-4" variants={itemVariants}>
                 <button 
                   onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-6 sm:px-8 py-4 bg-[#111111] text-white text-[9px] sm:text-[10px] font-bold uppercase hover:bg-black transition-all shadow-lg tracking-widest"
+                  className="px-6 sm:px-8 py-4 bg-[#111111] text-white text-[9px] sm:text-[10px] font-bold uppercase hover:bg-black transition-all shadow-lg "
                 >
                   Secure Strategic Bandwidth
                 </button>
@@ -110,7 +110,7 @@ const Problem: React.FC = () => {
           
           <div className="space-y-6">
             <motion.h4 
-              className="text-[9px] sm:text-[10px] font-black uppercase text-zinc-600 mb-4 sm:mb-6 tracking-widest"
+              className="text-[9px] sm:text-[10px] font-black uppercase text-zinc-600 mb-4 sm:mb-6 "
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -163,7 +163,7 @@ const Problem: React.FC = () => {
           <div className="bg-[#111111] p-8 sm:p-12 flex flex-col gap-4 items-center justify-center">
             <button 
               onClick={() => document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full px-10 sm:px-12 py-4 sm:py-5 bg-[#b8860b] text-white text-[9px] sm:text-[11px] font-black uppercase tracking-widest hover:bg-white hover:text-[#111111] transition-all whitespace-nowrap shadow-xl"
+              className="w-full px-10 sm:px-12 py-4 sm:py-5 bg-[#b8860b] text-white text-[9px] sm:text-[11px] font-black uppercase hover:bg-white hover:text-[#111111] transition-all whitespace-nowrap shadow-xl"
             >
               Calibrate Your System
             </button>

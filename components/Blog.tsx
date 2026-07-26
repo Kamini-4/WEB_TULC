@@ -77,7 +77,7 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
         {!hideHeader && (
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 gap-8">
             <div className="max-w-2xl">
-              <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 tracking-[0.3em]">The Registry</h2>
+              <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 ">The Registry</h2>
               <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
                 Institutional <span className="italic text-[#b8860b]">Dispatches.</span>
               </h3>
@@ -129,16 +129,16 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
               
               <div className="flex justify-between items-center mb-4 sm:mb-6 relative z-10">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-                  <span className="registry-category text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase tracking-widest">
+                  <span className="registry-category text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase ">
                     {post.category}
                   </span>
-                  <span className="text-zinc-500 font-mono text-[8px] sm:text-[9px] uppercase tracking-widest hidden sm:inline">•</span>
-                  <span className="text-zinc-500 font-mono text-[8px] sm:text-[9px] uppercase tracking-widest">
+                  <span className="text-zinc-500 font-mono text-[8px] sm:text-[9px] uppercase hidden sm:inline">•</span>
+                  <span className="text-zinc-500 font-mono text-[8px] sm:text-[9px] uppercase ">
                     {getArticleStats(post).words} words • {getArticleStats(post).readTime} min read
                   </span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <span className="text-zinc-600 text-[8px] sm:text-[9px] font-black uppercase tracking-widest">
+                  <span className="text-zinc-600 text-[8px] sm:text-[9px] font-black uppercase ">
                     {post.date}
                   </span>
                   <div className="relative">
@@ -195,7 +195,7 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                 {post.excerpt}
               </p>
               
-              <div className="flex items-center gap-4 text-[9px] sm:text-[10px] font-black uppercase text-[#b8860b] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-[-10px] group-hover:translate-x-0 relative z-10 tracking-widest">
+              <div className="flex items-center gap-4 text-[9px] sm:text-[10px] font-black uppercase text-[#b8860b] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-[-10px] group-hover:translate-x-0 relative z-10 ">
                 Access Archive Entry <span>→</span>
               </div>
             </div>
@@ -203,7 +203,7 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
         </div>
 
         <div className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-zinc-800/50 flex justify-center relative z-10">
-          <button className="px-8 sm:px-12 py-4 sm:py-5 border border-zinc-700 text-[9px] sm:text-[11px] font-bold uppercase hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-500 bg-transparent tracking-widest shadow-lg">
+          <button className="px-8 sm:px-12 py-4 sm:py-5 border border-zinc-700 text-[9px] sm:text-[11px] font-bold uppercase hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-500 bg-transparent shadow-lg">
             Open Archive Entries
           </button>
         </div>

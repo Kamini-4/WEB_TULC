@@ -203,13 +203,13 @@ export default function SovereignVoice({ onClose }: SovereignVoiceProps) {
       <div className="absolute top-12 left-12">
         <div className="flex items-center gap-4">
           <div className="w-8 h-[2px] bg-[#b8860b]" />
-          <span className="text-[10px] font-black uppercase text-[#b8860b] tracking-[0.5em]">SOVEREIGN TERMINAL 2.5</span>
+          <span className="text-[10px] font-black uppercase text-[#b8860b] ">SOVEREIGN TERMINAL 2.5</span>
         </div>
       </div>
 
       <div className="absolute top-12 right-12">
         <button onClick={onClose} className="group flex items-center gap-4">
-          <span className="text-[9px] font-black text-zinc-600 group-hover:text-white uppercase tracking-widest">[ CONCLUDE AUDIT ]</span>
+          <span className="text-[9px] font-black text-zinc-600 group-hover:text-white uppercase ">[ CONCLUDE AUDIT ]</span>
           <div className="w-8 h-8 flex items-center justify-center border border-white/10 group-hover:border-[#b8860b] transition-all">
             <svg className="w-3 h-3 text-zinc-600 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" /></svg>
           </div>
@@ -218,10 +218,10 @@ export default function SovereignVoice({ onClose }: SovereignVoiceProps) {
 
       <div className="relative w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         <div className="hidden lg:flex lg:col-span-3 flex-col gap-12 border-l border-white/5 pl-10">
-          <h3 className="text-[9px] font-black uppercase text-[#b8860b] tracking-[0.4em]">INTELLIGENCE_STREAM</h3>
+          <h3 className="text-[9px] font-black uppercase text-[#b8860b] ">INTELLIGENCE_STREAM</h3>
           <div className="space-y-4">
             {telemetry.map((t, i) => (
-              <div key={i} className={`text-[10px] font-bold tracking-widest uppercase ${i === 0 ? 'text-white' : 'text-white/20'}`}>{t}</div>
+              <div key={i} className={`text-[10px] font-bold uppercase ${i === 0 ? 'text-white' : 'text-white/20'}`}>{t}</div>
             ))}
           </div>
         </div>
@@ -253,7 +253,7 @@ export default function SovereignVoice({ onClose }: SovereignVoiceProps) {
              {status === 'active' && (
                <div className="flex flex-col gap-3">
                   {transcription.map((t, i) => (
-                    <p key={i} className="text-white text-base md:text-lg font-bold uppercase tracking-widest italic animate-fade-in">{t}</p>
+                    <p key={i} className="text-white text-base md:text-lg font-bold uppercase italic animate-fade-in">{t}</p>
                   ))}
                </div>
              )}
@@ -272,7 +272,7 @@ export default function SovereignVoice({ onClose }: SovereignVoiceProps) {
 
 const StatusBlock: React.FC<{ label: string; value: string }> = ({ label, value }) => (
   <div>
-    <div className="text-[8px] uppercase font-black text-zinc-500 mb-2 tracking-widest">{label}</div>
-    <div className="text-xs uppercase font-bold text-white tracking-[0.2em]">{value}</div>
+    <div className="text-[8px] uppercase font-black text-zinc-500 mb-2 ">{label}</div>
+    <div className="text-xs uppercase font-bold text-white ">{value}</div>
   </div>
 );

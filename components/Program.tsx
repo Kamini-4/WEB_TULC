@@ -10,7 +10,7 @@ const Program: React.FC<ProgramProps> = ({ onBriefClick }) => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
           <div className="md:col-span-4 sticky top-32 z-10">
-            <h2 className="text-[#b8860b] text-[10px] font-bold uppercase mb-4 tracking-[0.3em]">The Intervention</h2>
+            <h2 className="text-[#b8860b] text-[10px] font-bold uppercase mb-4 ">The Intervention</h2>
             <h3 className="text-3xl md:text-4xl font-bold leading-tight mb-6 text-[#111111]">
               Total Architecture.
             </h3>
@@ -20,20 +20,20 @@ const Program: React.FC<ProgramProps> = ({ onBriefClick }) => {
             <div className="space-y-4">
               <button 
                 onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
-                className="w-full px-10 py-5 bg-[#111111] text-white text-[10px] font-black uppercase tracking-widest hover:bg-[#b8860b] transition-all shadow-xl"
+                className="w-full px-10 py-5 bg-[#111111] text-white text-[10px] font-black uppercase hover:bg-[#b8860b] transition-all shadow-xl"
               >
                 Request Access
               </button>
               <button 
                 onClick={() => document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' })}
-                className="w-full px-10 py-5 border border-[#111111] text-[#111111] text-[10px] font-black uppercase tracking-widest hover:bg-[#111111] hover:text-white transition-all shadow-sm"
+                className="w-full px-10 py-5 border border-[#111111] text-[#111111] text-[10px] font-black uppercase hover:bg-[#111111] hover:text-white transition-all shadow-sm"
               >
                 Start Yield Calibration
               </button>
             </div>
             <div className="mt-12 p-8 border border-[#b8860b]/20 bg-white/50 backdrop-blur-sm">
-              <h4 className="text-[9px] font-black uppercase text-zinc-400 mb-4 tracking-widest">The Format Mix</h4>
-              <ul className="space-y-3 text-[10px] font-bold text-zinc-800 uppercase tracking-widest">
+              <h4 className="text-[9px] font-black uppercase text-zinc-400 mb-4 ">The Format Mix</h4>
+              <ul className="space-y-3 text-[10px] font-bold text-zinc-800 uppercase ">
                 <li className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b]" /> Onsite Intensives</li>
                 <li className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b]" /> Office-Led Diagnostics</li>
                 <li className="flex items-center gap-2"><div className="w-1 h-1 bg-[#b8860b]" /> Closed-Door Labs</li>
@@ -69,7 +69,7 @@ const Program: React.FC<ProgramProps> = ({ onBriefClick }) => {
               </div>
               <button 
                 onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-12 py-5 bg-[#b8860b] text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                className="px-12 py-5 bg-[#b8860b] text-[10px] font-black uppercase hover:bg-white hover:text-black transition-all"
               >
                 Inquire Regarding Intake
               </button>
@@ -89,7 +89,7 @@ const TimelineStep: React.FC<{ step: string; title: string; description: string;
         <h4 className="text-xl font-bold text-[#111111] leading-tight max-w-md min-w-0">{title}</h4>
         <button 
           onClick={() => onBriefClick()}
-          className="text-[9px] font-black uppercase text-zinc-400 hover:text-[#b8860b] tracking-widest transition-all whitespace-nowrap shrink-0"
+          className="text-[9px] font-black uppercase text-zinc-400 hover:text-[#b8860b] transition-all whitespace-nowrap shrink-0"
         >
           Request Briefing →
         </button>
@@ -98,13 +98,13 @@ const TimelineStep: React.FC<{ step: string; title: string; description: string;
       <div className="flex flex-wrap gap-4">
         <button 
           onClick={() => onBriefClick()}
-          className="text-[9px] font-black uppercase text-[#b8860b] tracking-widest border border-[#b8860b]/20 px-6 py-3 hover:bg-[#b8860b] hover:text-white transition-all"
+          className="text-[9px] font-black uppercase text-[#b8860b] border border-[#b8860b]/20 px-6 py-3 hover:bg-[#b8860b] hover:text-white transition-all"
         >
           Request Syllabus
         </button>
         <button 
           onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
-          className="text-[9px] font-black uppercase text-zinc-400 tracking-widest px-6 py-3 hover:text-[#111111] transition-all"
+          className="text-[9px] font-black uppercase text-zinc-400 px-6 py-3 hover:text-[#111111] transition-all"
         >
           View Outcome Review
         </button>

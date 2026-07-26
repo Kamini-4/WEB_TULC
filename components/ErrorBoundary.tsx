@@ -48,7 +48,7 @@ class ErrorBoundary extends Component<Props, State> {
             </p>
             <button
               onClick={() => window.location.reload()}
-              className="px-8 py-3 bg-[#b8860b] text-white font-bold uppercase text-[10px] tracking-widest hover:bg-[#9a700a] transition-colors"
+              className="px-8 py-3 bg-[#b8860b] text-white font-bold uppercase text-[10px] hover:bg-[#9a700a] transition-colors"
             >
               Re-calibrate System
             </button>

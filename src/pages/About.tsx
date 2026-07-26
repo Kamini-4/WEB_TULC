@@ -67,9 +67,9 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
             <div>
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-8 h-px bg-[#b8860b]" />
-                <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em]">The Executive Reality</span>
+                <span className="text-[#b8860b] text-[10px] font-black uppercase ">The Executive Reality</span>
               </div>
-              <h1 className="text-3xl md:text-5xl font-bold text-[#111111] leading-tight max-w-3xl font-serif">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#111111] leading-snug max-w-3xl font-serif">
                 You Engineered a High-Growth Enterprise. <br />
                 <span className="italic text-[#b8860b] font-light">So Why Does Execution Still Depend on Your Continuous Intervention?</span>
               </h1>
@@ -88,7 +88,7 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#b8860b]/10 blur-3xl rounded-full pointer-events-none" />
               
               <div className="relative z-10 space-y-6">
-                <span className="text-[#b8860b] text-[9px] font-mono uppercase tracking-[0.3em] block">Diagnostic Observation</span>
+                <span className="text-[#b8860b] text-[9px] font-mono uppercase block">Diagnostic Observation</span>
                 <h2 className="text-2xl md:text-3xl font-serif font-light text-zinc-100 leading-snug">
                   "The bigger your organization grows, the heavier the bottleneck feels. You hired top-tier directors, yet every high-stakes decision still lands on your desk."
                 </h2>
@@ -106,7 +106,7 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
             {/* Side Callout — The 4 Silent Revenue & Bandwidth Leaks */}
             <div className="lg:col-span-5 bg-white p-8 border border-zinc-200/80 shadow-md flex flex-col justify-between space-y-6">
               <div>
-                <span className="text-zinc-400 text-[10px] font-mono uppercase tracking-widest block mb-2">The Hidden Corporate Tax</span>
+                <span className="text-zinc-400 text-[10px] font-mono uppercase block mb-2">The Hidden Corporate Tax</span>
                 <h3 className="text-xl font-bold text-[#111111] mb-4">Where Your Enterprise Is Losing Velocity:</h3>
                 
                 <ul className="space-y-4">
@@ -138,7 +138,7 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
                 <span className="text-[10px] font-mono uppercase text-zinc-400">Impact: Delayed Execution</span>
                 <button 
                   onClick={() => onBriefClick('assessment')}
-                  className="text-[10px] font-black uppercase tracking-widest text-[#b8860b] hover:text-[#111111] transition-colors flex items-center gap-1.5"
+                  className="text-[10px] font-black uppercase text-[#b8860b] hover:text-[#111111] transition-colors flex items-center gap-1.5"
                 >
                   Request Alignment Audit <ArrowRight className="w-3.5 h-3.5" />
                 </button>
@@ -194,12 +194,12 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
         >
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#b8860b]/10 to-transparent pointer-events-none" />
           <div className="relative z-10 text-center max-w-3xl mx-auto">
-            <span className="text-[#b8860b] text-[9px] font-black tracking-[0.4em] uppercase block mb-3 font-mono">The Institutional Mandate</span>
+            <span className="text-[#b8860b] text-[9px] font-black uppercase block mb-3 font-mono">The Institutional Mandate</span>
             <p className="text-[#f5f5f0] text-2xl md:text-3xl leading-snug font-serif font-light italic mb-4">
               "We help enterprise founders reduce decision delays by <span className="text-[#b8860b] font-bold not-italic font-sans">40%</span> in <span className="text-[#b8860b] font-bold not-italic font-sans">90 days</span> without compromising strategic precision, endless personal intervention, or coordination drag."
             </p>
             <div className="h-px w-24 bg-[#b8860b]/50 mx-auto my-4"></div>
-            <p className="text-zinc-400 text-xs tracking-wider uppercase font-mono">
+            <p className="text-zinc-400 text-xs uppercase font-mono">
               Not motivational coaching. Concrete, high-fidelity enterprise alignment architecture.
             </p>
           </div>
@@ -211,7 +211,7 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
         <section className="mb-24">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-px bg-[#b8860b]" />
-            <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em]">The Principal Architect & Firm</span>
+            <span className="text-[#b8860b] text-[10px] font-black uppercase ">The Principal Architect & Firm</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-[#111111] mb-12 font-serif">
             Why You Need an Enterprise Architect, <br />
@@ -258,29 +258,29 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
                     }}
                   />
                   <div id="ss-logo-fb-about" className="hidden absolute inset-0 flex flex-col items-center justify-center bg-zinc-950">
-                    <span className="text-5xl font-serif text-white font-bold tracking-tight">SS</span>
-                    <span className="absolute bottom-2 text-[8px] font-mono uppercase tracking-widest text-[#b8860b] text-center w-full block font-semibold">PRINCIPAL ARCHITECT</span>
+                    <span className="text-5xl font-serif text-white font-bold ">SS</span>
+                    <span className="absolute bottom-2 text-[8px] font-mono uppercase text-[#b8860b] text-center w-full block font-semibold">PRINCIPAL ARCHITECT</span>
                   </div>
                 </div>
 
                 {/* Sub-block - Rephrased as "How We Calibrate Your Enterprise" */}
                 <div className="text-center w-full">
-                  <h3 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.3em] mb-3">Architectural Disciplines</h3>
+                  <h3 className="text-[#b8860b] text-[10px] font-black uppercase mb-3">Architectural Disciplines</h3>
                   <div className="space-y-2 text-zinc-800 font-serif text-sm">
                     <div className="py-2.5 border-y border-zinc-100 flex flex-col items-start px-2 text-left">
-                      <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase tracking-wider mb-1">Systems Logic (Computer Science Engineer)</span>
+                      <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase mb-1">Systems Logic (Computer Science Engineer)</span>
                       <span className="font-medium text-zinc-900 text-xs italic">"We map your corporate workflows as precise, high-frequency logic gates—turning vague mandates into explicit, self-executing system actions."</span>
                     </div>
                     <div className="py-2.5 border-b border-zinc-100 flex flex-col items-start px-2 text-left">
-                      <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase tracking-wider mb-1">Human Alignment (Industrial Psychologist)</span>
+                      <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase mb-1">Human Alignment (Industrial Psychologist)</span>
                       <span className="font-medium text-zinc-900 text-xs italic">"We pinpoint and dissolve the invisible cognitive bottlenecks, coordination friction, and alignment drag that exhaust your executive team."</span>
                     </div>
                     <div className="py-2.5 border-b border-zinc-100 flex flex-col items-start px-2 text-left">
-                      <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase tracking-wider mb-1">Enterprise Scale (SAP Consultant)</span>
+                      <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase mb-1">Enterprise Scale (SAP Consultant)</span>
                       <span className="font-medium text-zinc-900 text-xs italic">"We build unshakeable, enterprise-grade architecture that ensures your strategic vision propagates to the frontline with absolute zero-dilution fidelity."</span>
                     </div>
                     <div className="py-2.5 border-b border-zinc-100 flex flex-col items-start px-2 text-left">
-                      <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase tracking-wider mb-1">Sub-Verbal Profiling (Handwriting Analyst)</span>
+                      <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase mb-1">Sub-Verbal Profiling (Handwriting Analyst)</span>
                       <span className="font-medium text-zinc-900 text-xs italic">"We run rapid, non-disruptive behavioral audits to uncover underlying motivators and verify deep alignment among key directors."</span>
                     </div>
                   </div>
@@ -291,11 +291,11 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
               <div className="grid grid-cols-2 gap-8 bg-white p-6 border border-zinc-200 shadow-sm text-center">
                 <div>
                   <div className="text-4xl font-extrabold text-[#b8860b] mb-2">40%</div>
-                  <div className="text-[10px] font-black uppercase text-zinc-400 tracking-widest">Bandwidth Recovered</div>
+                  <div className="text-[10px] font-black uppercase text-zinc-400 ">Bandwidth Recovered</div>
                 </div>
                 <div>
                   <div className="text-4xl font-extrabold text-[#b8860b] mb-2">0%</div>
-                  <div className="text-[10px] font-black uppercase text-zinc-400 tracking-widest">Alignment Dilution</div>
+                  <div className="text-[10px] font-black uppercase text-zinc-400 ">Alignment Dilution</div>
                 </div>
               </div>
             </div>
@@ -346,7 +346,7 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
                 {/* 5 Sovereign Domains Executive Summary Card */}
                 <div className="bg-[#111111] text-white p-5 border border-[#b8860b]/30 rounded-xs space-y-3">
                   <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                    <span className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#b8860b]">
+                    <span className="text-[9px] font-mono font-bold uppercase text-[#b8860b]">
                       The 5 Sovereign Domains Framework
                     </span>
                     <span className="text-[8px] font-mono text-zinc-400 uppercase">Core Diagnostic Pillars</span>
@@ -384,9 +384,9 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
                     KA
                   </div>
                   <div>
-                    <h4 className="text-[#b8860b] text-[8px] font-black uppercase tracking-[0.3em]">Office of the Principal Architect</h4>
+                    <h4 className="text-[#b8860b] text-[8px] font-black uppercase ">Office of the Principal Architect</h4>
                     <p className="text-base font-semibold text-[#111111] font-serif font-medium">Kamini Agnihotri — kaminiagnihotri249@gmail.com</p>
-                    <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Operations & Client Relations Coordinator</p>
+                    <p className="text-[10px] font-mono text-zinc-500 uppercase ">Operations & Client Relations Coordinator</p>
                   </div>
                 </div>
                 <p className="text-zinc-600 leading-relaxed font-light italic text-xs">
@@ -400,7 +400,7 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
         {/* SECURE COMMUNICATION CHANNELS BLOCK */}
         <div className="bg-[#111] p-8 md:p-12 text-white space-y-8 mb-24 rounded-sm border border-[#b8860b]/20">
           <div>
-            <span className="text-[10px] uppercase font-mono text-[#b8860b] tracking-[0.3em] block border-b border-white/10 pb-2">Office of the Principal</span>
+            <span className="text-[10px] uppercase font-mono text-[#b8860b] block border-b border-white/10 pb-2">Office of the Principal</span>
             <h3 className="text-xl md:text-2xl font-bold mt-2 font-serif text-[#f5f5f0]">Secure Communication Channels</h3>
           </div>
           
@@ -446,14 +446,14 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-8">
                 <span className="text-lg">📊</span>
-                <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] block">VISION</span>
+                <span className="text-[#b8860b] text-[10px] font-black uppercase block">VISION</span>
               </div>
               <p className="text-[#f5f5f0] text-lg md:text-xl leading-relaxed font-light italic border-l border-[#b8860b]/40 pl-6 mb-8 font-serif">
                 "To align human ambition with enduring organizational architecture — so that power, scale, and perpetuity compound as one, and what the world's greatest founders build today commands the future long after they have conquered it."
               </p>
             </div>
             <div className="mt-8 pt-6 border-t border-white/5 relative z-10">
-              <span className="text-[9px] uppercase font-mono text-zinc-500 tracking-wider block mb-2">DESIGN INSIGHT & CALIBRATION</span>
+              <span className="text-[9px] uppercase font-mono text-zinc-500 block mb-2">DESIGN INSIGHT & CALIBRATION</span>
               <p className="text-[10px] text-zinc-400 italic font-mono leading-relaxed">
                 Aligning structure with execution — our methodology focuses on concrete, measurable gains in strategic velocity, eliminating coordination costs and organizational bottlenecks.
               </p>
@@ -471,22 +471,22 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-8">
                 <span className="text-lg">🏛️</span>
-                <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] block">MISSION</span>
+                <span className="text-[#b8860b] text-[10px] font-black uppercase block">MISSION</span>
               </div>
               <p className="text-white text-lg md:text-xl leading-relaxed font-light italic border-l border-[#b8860b]/40 pl-6 mb-6 font-serif">
                 "We work with the world's most consequential founders to architect the structural conditions for absolute organizational sovereignty. Across five foundational domains of systemic alignment, we dismantle operational dependency, dissolve leadership entropy, and engineer the precise infrastructure that allows an empire to grow, scale, and compound — with or without its founder at the helm."
               </p>
             </div>
             <div className="mt-8 pt-6 border-t border-white/5 relative z-10">
-              <span className="text-[8px] uppercase font-black text-zinc-500 tracking-widest block mb-1">ALIGNMENT DOMAIN COVERAGE</span>
-              <span className="text-[9px] text-[#b8860b] uppercase tracking-widest font-bold font-mono">Cognitive Clarity • Systemic Integrity • Strategic Velocity • Moral Gravity • Cultural Fidelity</span>
+              <span className="text-[8px] uppercase font-black text-zinc-500 block mb-1">ALIGNMENT DOMAIN COVERAGE</span>
+              <span className="text-[9px] text-[#b8860b] uppercase font-bold font-mono">Cognitive Clarity • Systemic Integrity • Strategic Velocity • Moral Gravity • Cultural Fidelity</span>
             </div>
           </motion.div>
         </div>
 
         {/* HIGH FIDELITY VIDEO BRIEFING SECTION */}
         <section className="mb-20 -mx-6 md:-mx-12 border-t border-b border-zinc-200">
-          <div className="py-4 bg-[#f2f2eb] text-center text-xs text-[#b8860b] font-mono tracking-widest uppercase font-semibold">
+          <div className="py-4 bg-[#f2f2eb] text-center text-xs text-[#b8860b] font-mono uppercase font-semibold">
             ✦ HIGH FIDELITY VIDEO BRIEFING ✦
           </div>
           <PrincipalDispatch />
@@ -507,7 +507,7 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
         {/* INSTITUTIONAL CREDO & FINAL CALL TO ACTION */}
         <div className="bg-[#111111] p-10 text-white rounded-xs border border-[#b8860b]/20 mt-16 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl">
-            <h4 className="text-[#b8860b] text-[10px] font-black uppercase tracking-widest font-mono">Institutional Credo</h4>
+            <h4 className="text-[#b8860b] text-[10px] font-black uppercase font-mono">Institutional Credo</h4>
             <p className="text-base italic font-serif font-light text-zinc-300 leading-relaxed">
               "We do not focus on temporary coaching. We build durable operating guardrails. Solid architecture is the only way to reliably delegate strategic intent at scale."
             </p>
@@ -515,7 +515,7 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
 
           <button 
             onClick={() => onBriefClick('assessment')}
-            className="shrink-0 bg-[#b8860b] text-[#111111] px-8 py-4 font-black text-[10px] uppercase tracking-[0.3em] hover:bg-white transition-all shadow-xl flex items-center gap-3"
+            className="shrink-0 bg-[#b8860b] text-[#111111] px-8 py-4 font-black text-[10px] uppercase hover:bg-white transition-all shadow-xl flex items-center gap-3"
           >
             Initiate Executive Briefing <ArrowRight className="w-4 h-4" />
           </button>

@@ -63,20 +63,20 @@ const StrategicMandates: React.FC = () => {
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-zinc-200 rounded-full mb-3 shadow-2xs">
                 <span className="w-2 h-2 rounded-full bg-[#b8860b]" />
-                <span className="text-[#111111] text-[10px] font-black uppercase tracking-[0.25em] font-mono">
-                  Enterprise Engagement Tracks
+                <span className="text-[#111111] text-[10px] font-black uppercase font-mono">
+                  End-to-End Enterprise Partnership
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-5xl font-bold leading-tight font-serif text-[#111111]">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight font-serif text-[#111111]">
                 The Mandates of <span className="italic font-light text-[#b8860b]">Enterprise Alignment.</span>
               </h1>
             </div>
             
             <div className="md:text-right max-w-md">
               <p className="text-zinc-700 text-xs sm:text-sm italic font-light leading-relaxed mb-3">
-                Tailored operational interventions engineered to hard-code founder intent, protect executive energy, and eliminate administrative drag at scale.
+                Tailored operational tracks engineered for founders and C-suites who refuse to trade velocity for control. We serve you at every step—from initial friction mapping to hard-coded governance.
               </p>
-              <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#b8860b] flex items-center md:justify-end gap-1">
+              <div className="text-[10px] font-mono font-bold uppercase text-[#b8860b] flex items-center md:justify-end gap-1">
                 <Award className="w-3.5 h-3.5" /> Select a track to request briefing
               </div>
             </div>
@@ -99,7 +99,7 @@ const StrategicMandates: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="text-[9px] font-mono font-bold uppercase tracking-[0.25em] text-[#b8860b] mb-1">
+                  <div className="text-[9px] font-mono font-bold uppercase text-[#b8860b] mb-1">
                     {mandate.label}
                   </div>
                   <h2 className="text-lg font-bold text-zinc-900 mb-2 font-serif group-hover:text-[#b8860b] transition-colors leading-snug">
@@ -112,7 +112,7 @@ const StrategicMandates: React.FC = () => {
 
                 <div>
                   <div className="border-t border-zinc-100 pt-3 mb-4 space-y-1.5">
-                    <span className="text-[8px] font-mono uppercase font-black tracking-widest text-zinc-400 block mb-1">
+                    <span className="text-[8px] font-mono uppercase font-black text-zinc-400 block mb-1">
                       Key Deliverables
                     </span>
                     {mandate.deliverables.map((item, idx) => (
@@ -125,7 +125,7 @@ const StrategicMandates: React.FC = () => {
 
                   <button 
                     onClick={() => navigate('/assessment')}
-                    className="w-full py-2.5 bg-zinc-900 text-white text-[9px] font-bold uppercase tracking-[0.2em] hover:bg-[#b8860b] transition-colors flex items-center justify-center gap-2 rounded-xs cursor-pointer"
+                    className="w-full py-2.5 bg-zinc-900 text-white text-[9px] font-bold uppercase hover:bg-[#b8860b] transition-colors flex items-center justify-center gap-2 rounded-xs cursor-pointer"
                   >
                     <span>Request Brief</span>
                     <ArrowRight className="w-3 h-3" />
@@ -151,11 +151,11 @@ const StrategicMandates: React.FC = () => {
             <div className="max-w-3xl mb-10 pb-6 border-b border-white/10">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-3">
                 <Shield className="w-3.5 h-3.5 text-[#b8860b]" />
-                <span className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.25em] font-mono">
+                <span className="text-[#b8860b] text-[10px] font-black uppercase font-mono">
                   Trust Architecture & Integration
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-bold font-serif text-white tracking-tight">
+              <h2 className="text-2xl sm:text-4xl font-bold font-serif text-white">
                 Systems Architecture <span className="text-[#b8860b] italic font-light">& Strategic Sovereignty.</span>
               </h2>
               <p className="text-zinc-300 text-xs sm:text-sm italic font-light leading-relaxed mt-2">
@@ -169,7 +169,7 @@ const StrategicMandates: React.FC = () => {
               {/* Left Column: Human-System Integration */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-[#b8860b] font-serif">
+                  <h3 className="text-sm font-bold uppercase text-[#b8860b] font-serif">
                     01 / Human-System Integration
                   </h3>
                   <span className="text-[9px] font-mono text-zinc-500 uppercase">Operational Substrate</span>
@@ -202,7 +202,7 @@ const StrategicMandates: React.FC = () => {
               {/* Right Column: Sovereign Data Protocol */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-[#b8860b] font-serif">
+                  <h3 className="text-sm font-bold uppercase text-[#b8860b] font-serif">
                     02 / Sovereign Data Security
                   </h3>
                   <span className="text-[9px] font-mono text-zinc-500 uppercase">Confidentiality Guarantee</span>
@@ -259,7 +259,7 @@ const StrategicMandates: React.FC = () => {
                   href="https://calendly.com/d/d3jb-kpx-r6q"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 bg-[#b8860b] text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all cursor-pointer rounded-xs"
+                  className="px-6 py-3 bg-[#b8860b] text-white text-[10px] font-bold uppercase hover:bg-white hover:text-black transition-all cursor-pointer rounded-xs"
                 >
                   Book Private Consult
                 </a>
@@ -267,7 +267,7 @@ const StrategicMandates: React.FC = () => {
                   href="https://ai.studio/apps/bc205532-cdb0-43d3-a8fb-919809372614"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 bg-white/10 text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-white/20 transition-all cursor-pointer rounded-xs border border-white/10"
+                  className="px-6 py-3 bg-white/10 text-white text-[10px] font-bold uppercase hover:bg-white/20 transition-all cursor-pointer rounded-xs border border-white/10"
                 >
                   Client Portal
                 </a>

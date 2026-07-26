@@ -61,7 +61,7 @@ const PrincipalDispatch: React.FC = () => {
           </motion.div>
           
           <div className="lg:col-span-7">
-            <motion.h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-6 sm:mb-8 tracking-[0.4em] sm:tracking-[0.5em]" variants={itemVariants}>
+            <motion.h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-6 sm:mb-8 sm:" variants={itemVariants}>
               Principal Dispatch
             </motion.h2>
             <div className="space-y-6 sm:space-y-10">
@@ -79,18 +79,18 @@ const PrincipalDispatch: React.FC = () => {
                 </motion.p>
                 <motion.div className="mt-8 flex items-center gap-4" variants={itemVariants}>
                   <div className="w-8 h-px bg-[#b8860b]/30" />
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#111111]">TULC Architecture</span>
+                  <span className="text-[10px] font-black uppercase text-[#111111]">TULC Architecture</span>
                 </motion.div>
               </div>
               
               <motion.div className="pt-8 sm:pt-12 flex flex-wrap gap-6 sm:gap-8" variants={itemVariants}>
                 <div className="flex flex-col">
-                  <span className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-400 mb-1 sm:mb-2 tracking-widest">Current Focus</span>
-                  <span className="text-xs sm:text-sm font-bold text-[#111111] uppercase tracking-wider">Strategic Recalibration</span>
+                  <span className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-400 mb-1 sm:mb-2 ">Current Focus</span>
+                  <span className="text-xs sm:text-sm font-bold text-[#111111] uppercase ">Strategic Recalibration</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-400 mb-1 sm:mb-2 tracking-widest">Availability</span>
-                  <span className="text-xs sm:text-sm font-bold text-[#b8860b] uppercase tracking-wider">Limited Intake</span>
+                  <span className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-400 mb-1 sm:mb-2 ">Availability</span>
+                  <span className="text-xs sm:text-sm font-bold text-[#b8860b] uppercase ">Limited Intake</span>
                 </div>
               </motion.div>
             </div>

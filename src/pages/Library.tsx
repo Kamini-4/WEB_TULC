@@ -94,7 +94,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               .cover-brand {
                 font-family: 'Cinzel', serif;
                 font-size: 13px;
-                letter-spacing: 0.4em;
+                
                 text-transform: uppercase;
                 color: #111111;
                 font-weight: bold;
@@ -108,7 +108,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 font-family: 'Inter', sans-serif;
                 font-size: 8px;
                 font-weight: 900;
-                letter-spacing: 0.35em;
+                
                 text-transform: uppercase;
                 color: #b8860b;
                 margin-bottom: 25px;
@@ -147,7 +147,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               .signature-title {
                 font-family: 'Cinzel', serif;
                 font-size: 11px;
-                letter-spacing: 0.2em;
+                
                 text-transform: uppercase;
                 color: #111111;
                 font-weight: bold;
@@ -165,7 +165,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 font-family: 'Inter', sans-serif;
                 font-size: 8px;
                 text-transform: uppercase;
-                letter-spacing: 0.15em;
+                
                 color: #777766;
                 font-weight: bold;
               }
@@ -175,7 +175,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 font-size: 8px;
                 color: #aaaa99;
                 margin-top: 4px;
-                letter-spacing: 0.05em;
+                
               }
               
               /* Running Headers and Footers */
@@ -186,7 +186,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 font-size: 7px;
                 font-weight: 900;
                 text-transform: uppercase;
-                letter-spacing: 0.25em;
+                
                 color: #888888;
                 border-bottom: 1px solid #e5e5d8;
                 padding-bottom: 10px;
@@ -202,7 +202,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 color: #aaaa99;
                 text-align: center;
                 line-height: 1.5;
-                letter-spacing: 0.08em;
+                
               }
               
               .page-number {
@@ -212,7 +212,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 font-weight: bold;
                 text-align: center;
                 margin-top: 15px;
-                letter-spacing: 0.1em;
+                
               }
               
               /* Section Styles */
@@ -228,7 +228,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 font-size: 15px;
                 font-weight: bold;
                 text-transform: uppercase;
-                letter-spacing: 0.15em;
+                
                 color: #111111;
                 margin: 0;
               }
@@ -255,7 +255,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 font-size: 11px;
                 font-weight: bold;
                 text-transform: uppercase;
-                letter-spacing: 0.15em;
+                
                 color: #b8860b;
                 margin-top: 0;
                 margin-bottom: 12px;
@@ -273,7 +273,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               th {
                 font-weight: 900;
                 text-transform: uppercase;
-                letter-spacing: 0.08em;
+                
                 color: #111111;
                 border-bottom: 2px solid #b8860b;
                 padding: 8px 6px;
@@ -314,7 +314,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               .cert-title {
                 font-family: 'Cinzel', serif;
                 font-size: 20px;
-                letter-spacing: 0.2em;
+                
                 color: #b8860b;
                 margin-top: 20px;
                 text-transform: uppercase;
@@ -333,7 +333,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 font-family: 'Cinzel', serif;
                 font-size: 8px;
                 font-weight: bold;
-                letter-spacing: 0.1em;
+                
                 color: #b8860b;
                 position: relative;
               }
@@ -378,7 +378,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 font-weight: 900;
                 color: #aaaa99;
                 text-transform: uppercase;
-                letter-spacing: 0.1em;
+                
                 margin-bottom: 4px;
               }
               
@@ -414,11 +414,11 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                       </g>
                       
                       <!-- Text -->
-                      <text x="250" y="165" text-anchor="middle" fill="url(#gold-grad-print)" font-size="28" font-weight="bold" letter-spacing="0.16em" font-family="'Cinzel', 'Playfair Display', serif">THE UNBOUNDED</text>
+                      <text x="250" y="165" text-anchor="middle" fill="url(#gold-grad-print)" font-size="28" font-weight="bold"  font-family="'Cinzel', 'Playfair Display', serif">THE UNBOUNDED</text>
                       <line x1="85" y1="185" x2="185" y2="185" stroke="url(#gold-grad-print)" stroke-width="1.2" />
-                      <text x="250" y="190" text-anchor="middle" fill="url(#gold-grad-print)" font-size="14" font-weight="900" letter-spacing="0.32em" font-family="'Inter', sans-serif">LEADERSHIP CO.</text>
+                      <text x="250" y="190" text-anchor="middle" fill="url(#gold-grad-print)" font-size="14" font-weight="900"  font-family="'Inter', sans-serif">LEADERSHIP CO.</text>
                       <line x1="315" y1="185" x2="415" y2="185" stroke="url(#gold-grad-print)" stroke-width="1.2" />
-                      <text x="250" y="215" text-anchor="middle" fill="#8a640f" font-size="10.5" letter-spacing="0.06em" font-family="'Inter', sans-serif" font-weight="300" font-style="italic">Elevating Cultures, Transforming Leadership</text>
+                      <text x="250" y="215" text-anchor="middle" fill="#8a640f" font-size="10.5"  font-family="'Inter', sans-serif" font-weight="300" font-style="italic">Elevating Cultures, Transforming Leadership</text>
                     </svg>
                   </div>
                   <div class="cover-category">${paper.category}</div>
@@ -522,7 +522,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               <div class="cert-border">
                 <div>
                   <div class="cert-title">Systemic Registry Certificate</div>
-                  <div style="font-family: 'Inter', sans-serif; font-size: 8px; font-weight: 900; letter-spacing: 0.3em; text-transform: uppercase; color: #777766; margin-top: 5px;">
+                  <div style="font-family: 'Inter', sans-serif; font-size: 8px; font-weight: 900;  text-transform: uppercase; color: #777766; margin-top: 5px;">
                     Admission Ledger Verification & Intellectual Asset Protection
                   </div>
                 </div>
@@ -575,13 +575,13 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
       className="bg-[#0a0a0a] min-h-screen text-white flex flex-col"
     >
       <div className="max-w-7xl w-full mx-auto px-6 pt-12 md:pt-16 pb-8">
-        <nav className="flex items-center gap-2 text-[8px] uppercase tracking-[0.3em] font-black text-zinc-500 mb-8">
+        <nav className="flex items-center gap-2 text-[8px] uppercase font-black text-zinc-500 mb-8">
           <a href="/" className="hover:text-[#b8860b] transition-colors">Home</a>
           <span className="text-zinc-700">/</span>
           <span className="text-[#b8860b]">Library</span>
         </nav>
         <header className="mb-16">
-          <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.4em] mb-6">Intellectual Authority</h2>
+          <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-6">Intellectual Authority</h2>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
             The Strategic <br />
             <span className="italic text-[#b8860b]">Library.</span>
@@ -602,10 +602,10 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
       {/* White Papers Section */}
       <div className="bg-[#0a0a0a] border-t border-white/5 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <h3 className="text-[10px] font-black uppercase text-zinc-400 tracking-[0.2em] mb-10 border-b border-white/10 pb-4">Architectural White Papers</h3>
+          <h3 className="text-[10px] font-black uppercase text-zinc-400 mb-10 border-b border-white/10 pb-4">Architectural White Papers</h3>
           <div className="grid lg:grid-cols-2 gap-10">
             <div className="group bg-white/5 p-10 border border-white/10 hover:border-[#b8860b]/30 transition-all duration-700">
-              <span className="text-[#b8860b] text-[8px] uppercase font-black tracking-widest block mb-3">Dynamics of Alignment</span>
+              <span className="text-[#b8860b] text-[8px] uppercase font-black block mb-3">Dynamics of Alignment</span>
               <h4 className="text-2xl font-bold text-white mb-5 group-hover:text-[#b8860b] transition-colors">Strategic Alignment Protocol: A Total Architectural Audit</h4>
               <p className="text-zinc-500 italic font-light leading-relaxed mb-8 text-sm">
                 An in-depth 45-page exploration of coordination lag, strategic dilution, and the transition from individual dependence to organizational alignment.
@@ -613,13 +613,13 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               <div className="flex flex-wrap gap-4">
                 <button 
                   onClick={() => setActivePaperKey('alignment_protocol')}
-                  className="text-[9px] font-black uppercase tracking-widest bg-[#b8860b] text-white px-6 py-3 hover:bg-white hover:text-black transition-all shadow-md"
+                  className="text-[9px] font-black uppercase bg-[#b8860b] text-white px-6 py-3 hover:bg-white hover:text-black transition-all shadow-md"
                 >
                   Read Online
                 </button>
                 <button 
                   onClick={() => handleDownload('alignment_protocol')}
-                  className="text-[9px] font-black uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
+                  className="text-[9px] font-black uppercase border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
                 >
                   Print / Save PDF
                 </button>
@@ -627,7 +627,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
             </div>
 
             <div className="group bg-white/5 p-10 border border-white/10 hover:border-[#b8860b]/30 transition-all duration-700">
-              <span className="text-[#b8860b] text-[8px] uppercase font-black tracking-widest block mb-3">Strategic Substrates</span>
+              <span className="text-[#b8860b] text-[8px] uppercase font-black block mb-3">Strategic Substrates</span>
               <h4 className="text-2xl font-bold text-white mb-5 group-hover:text-[#b8860b] transition-colors">Cognitive Equity: Reclaiming the Architect's seat</h4>
               <p className="text-zinc-500 italic font-light leading-relaxed mb-8 text-sm">
                 Quantifying the metabolic burn rate of leadership and the systemic return on architectural integrity.
@@ -635,13 +635,13 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               <div className="flex flex-wrap gap-4">
                 <button 
                   onClick={() => setActivePaperKey('cognitive_equity')}
-                  className="text-[9px] font-black uppercase tracking-widest bg-[#b8860b] text-white px-6 py-3 hover:bg-white hover:text-black transition-all shadow-md"
+                  className="text-[9px] font-black uppercase bg-[#b8860b] text-white px-6 py-3 hover:bg-white hover:text-black transition-all shadow-md"
                 >
                   Read Online
                 </button>
                 <button 
                   onClick={() => handleDownload('cognitive_equity')}
-                  className="text-[9px] font-black uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
+                  className="text-[9px] font-black uppercase border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
                 >
                   Print / Save PDF
                 </button>
@@ -665,16 +665,16 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 {/* Control Header Bar */}
                 <div className="flex justify-between items-center px-6 py-4 bg-black/40 border-b border-white/10 select-none">
                   <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#b8860b] bg-[#b8860b]/10 px-2 py-1 rounded-sm">
+                    <span className="text-[10px] font-black uppercase text-[#b8860b] bg-[#b8860b]/10 px-2 py-1 rounded-sm">
                       {paper.category}
                     </span>
-                    <span className="text-zinc-500 text-[10px] font-mono tracking-widest hidden sm:inline">
+                    <span className="text-zinc-500 text-[10px] font-mono hidden sm:inline">
                       SECURE DOCUMENT ARCHIVE // VERIFIED
                     </span>
                   </div>
                   <button 
                     onClick={() => setActivePaperKey(null)}
-                    className="text-zinc-400 hover:text-white text-xs font-mono uppercase tracking-widest flex items-center gap-2 border border-white/10 px-3 py-1 hover:border-white/20 transition-all"
+                    className="text-zinc-400 hover:text-white text-xs font-mono uppercase flex items-center gap-2 border border-white/10 px-3 py-1 hover:border-white/20 transition-all"
                   >
                     Close Terminal <span>✕</span>
                   </button>
@@ -687,7 +687,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                   </span>
                   <button
                     onClick={() => handleDownload(activePaperKey)}
-                    className="text-[9px] font-bold uppercase tracking-widest text-[#b8860b] hover:text-white transition-colors bg-white/5 hover:bg-[#b8860b] px-4 py-1.5 border border-[#b8860b]/30 rounded-sm"
+                    className="text-[9px] font-bold uppercase text-[#b8860b] hover:text-white transition-colors bg-white/5 hover:bg-[#b8860b] px-4 py-1.5 border border-[#b8860b]/30 rounded-sm"
                   >
                     Print or Download PDF
                   </button>
@@ -698,7 +698,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                   <div className="max-w-2xl mx-auto space-y-10">
                     {/* Document Header block */}
                     <div className="text-center pb-8 border-b border-zinc-800/60 select-none">
-                      <div className="text-[#b8860b] text-[9px] font-black tracking-[0.4em] uppercase mb-4">
+                      <div className="text-[#b8860b] text-[9px] font-black uppercase mb-4">
                         THE UNBOUNDED LEADERSHIP CO. TECHNICAL BRIEFING
                       </div>
                       <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight font-serif mb-4">
@@ -710,11 +710,11 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                       
                       <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-zinc-900/50 max-w-sm mx-auto text-left font-mono">
                         <div>
-                          <div className="text-zinc-600 text-[8px] uppercase tracking-widest">Architect</div>
+                          <div className="text-zinc-600 text-[8px] uppercase ">Architect</div>
                           <div className="text-zinc-300 text-[9px] font-bold">{paper.author}</div>
                         </div>
                         <div>
-                          <div className="text-zinc-600 text-[8px] uppercase tracking-widest">Released</div>
+                          <div className="text-zinc-600 text-[8px] uppercase ">Released</div>
                           <div className="text-zinc-300 text-[9px] font-bold">{paper.date}</div>
                         </div>
                       </div>
@@ -724,7 +724,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                     <div className="space-y-12">
                       {paper.sections.map((sec, sIdx) => (
                         <section key={sIdx} className="space-y-4">
-                          <h2 className="text-lg md:text-xl font-bold font-sans text-[#b8860b] mb-4 uppercase tracking-widest border-l-2 border-[#b8860b] pl-3 text-left">
+                          <h2 className="text-lg md:text-xl font-bold font-sans text-[#b8860b] mb-4 uppercase border-l-2 border-[#b8860b] pl-3 text-left">
                             {sec.title}
                           </h2>
                           {sec.paragraphs.map((p, pIdx) => (
@@ -739,13 +739,13 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                     {/* Exhibits/Tables inside the document */}
                     {paper.exhibits && paper.exhibits.map((ex, eIdx) => (
                       <div key={eIdx} className="my-10 p-6 bg-black/40 border border-white/5 rounded-sm overflow-hidden">
-                        <div className="text-[#b8860b] text-[8px] font-black tracking-wider uppercase mb-4 font-sans text-center">
+                        <div className="text-[#b8860b] text-[8px] font-black uppercase mb-4 font-sans text-center">
                           {ex.title}
                         </div>
                         <div className="overflow-x-auto">
                           <table className="w-full text-left font-sans text-[11px] sm:text-xs">
                             <thead>
-                              <tr className="border-b border-zinc-800 text-zinc-500 uppercase tracking-wider">
+                              <tr className="border-b border-zinc-800 text-zinc-500 uppercase ">
                                 {ex.headers.map((h, hIdx) => (
                                   <th key={hIdx} className="pb-3 px-3 font-semibold">{h}</th>
                                 ))}
@@ -771,8 +771,8 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                     <div className="border-t border-zinc-800/80 pt-8 mt-12 text-center select-none">
                       <div className="inline-block border border-white/10 px-6 py-4 bg-zinc-950/40 rounded-sm text-left max-w-sm mx-auto">
                         <div className="flex justify-between items-center gap-6 mb-3">
-                          <div className="text-zinc-500 text-[7px] font-bold uppercase tracking-widest">Registry Document Status</div>
-                          <div className="bg-emerald-500/10 text-emerald-400 text-[7px] font-bold px-1.5 py-0.5 rounded-sm uppercase tracking-wider border border-emerald-500/20">
+                          <div className="text-zinc-500 text-[7px] font-bold uppercase ">Registry Document Status</div>
+                          <div className="bg-emerald-500/10 text-emerald-400 text-[7px] font-bold px-1.5 py-0.5 rounded-sm uppercase border border-emerald-500/20">
                             Verified Ledger
                           </div>
                         </div>
@@ -797,7 +797,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 <div className="flex justify-between items-center px-6 py-4 bg-black/40 border-t border-white/10 select-none">
                   <button 
                     onClick={() => setActivePaperKey(null)}
-                    className="text-zinc-500 hover:text-white text-[10px] font-bold uppercase tracking-widest border border-white/10 hover:border-white/20 px-4 py-2 transition-all rounded-sm"
+                    className="text-zinc-500 hover:text-white text-[10px] font-bold uppercase border border-white/10 hover:border-white/20 px-4 py-2 transition-all rounded-sm"
                   >
                     Dismiss Document
                   </button>
@@ -806,7 +806,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                   </p>
                   <button 
                     onClick={() => handleDownload(activePaperKey)}
-                    className="bg-[#b8860b] text-white hover:bg-white hover:text-black text-[10px] font-bold uppercase tracking-widest px-6 py-2 transition-all rounded-sm shadow-md"
+                    className="bg-[#b8860b] text-white hover:bg-white hover:text-black text-[10px] font-bold uppercase px-6 py-2 transition-all rounded-sm shadow-md"
                   >
                     Print & Save Briefing
                   </button>

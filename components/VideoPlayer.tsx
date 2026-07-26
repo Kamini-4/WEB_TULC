@@ -110,11 +110,11 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 
           {/* Top Badge Info */}
           <div className="relative z-10 flex justify-between items-center w-full">
-            <span className="text-[8px] sm:text-[9px] font-black text-[#b8860b] uppercase tracking-[0.3em] bg-black/60 px-2.5 py-1 border border-[#b8860b]/30">
+            <span className="text-[8px] sm:text-[9px] font-black text-[#b8860b] uppercase bg-black/60 px-2.5 py-1 border border-[#b8860b]/30">
               HIGH FIDELITY BROADCAST
             </span>
             {!videoUrl && (
-              <span className="text-[7px] sm:text-[8px] font-mono text-zinc-500 uppercase tracking-widest">
+              <span className="text-[7px] sm:text-[8px] font-mono text-zinc-500 uppercase ">
                 STATUS: VALIDATED SECURE
               </span>
             )}
@@ -127,17 +127,17 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
                 <path d="M8 5v14l11-7z" />
               </svg>
             </div>
-            <span className="text-[#b8860b] text-[9px] sm:text-[10px] font-black uppercase tracking-[0.25em] mt-4 opacity-70 group-hover:opacity-100 transition-opacity">
+            <span className="text-[#b8860b] text-[9px] sm:text-[10px] font-black uppercase mt-4 opacity-70 group-hover:opacity-100 transition-opacity">
               INITIATE SYSTEM BRIEFING
             </span>
           </div>
 
           {/* Bottom Title Info */}
           <div className="relative z-10 w-full text-left">
-            <h4 className="text-white text-base sm:text-lg font-bold tracking-wide font-serif mb-1 group-hover:text-[#b8860b] transition-colors">
+            <h4 className="text-white text-base sm:text-lg font-bold font-serif mb-1 group-hover:text-[#b8860b] transition-colors">
               {title}
             </h4>
-            <p className="text-zinc-500 text-[8px] sm:text-[9px] font-mono uppercase tracking-[0.2em]">
+            <p className="text-zinc-500 text-[8px] sm:text-[9px] font-mono uppercase ">
               OFFICE OF THE PRINCIPAL ARCHITECT • TULC
             </p>
           </div>
@@ -151,7 +151,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="absolute top-3 right-3 z-30 flex items-center gap-2 px-3 py-1.5 bg-black/90 hover:bg-[#b8860b] hover:text-black border border-zinc-800 hover:border-[#b8860b] text-white text-[8px] sm:text-[9px] font-black uppercase tracking-[0.15em] transition-all shadow-xl rounded-sm group/btn"
+          className="absolute top-3 right-3 z-30 flex items-center gap-2 px-3 py-1.5 bg-black/90 hover:bg-[#b8860b] hover:text-black border border-zinc-800 hover:border-[#b8860b] text-white text-[8px] sm:text-[9px] font-black uppercase transition-all shadow-xl rounded-sm group/btn"
           title="Bypass iframe restriction: Open video directly on Google Drive"
         >
           <span>Direct Broadcast</span>

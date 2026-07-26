@@ -36,8 +36,8 @@ const FloatingCTA: React.FC<FloatingCTAProps> = ({ onAuditClick }) => {
               <span className="text-white font-black text-xs">FREE</span>
             </div>
             <div className="flex flex-col items-start px-2">
-              <span className="text-[8px] font-black uppercase tracking-[0.3em] text-[#b8860b] mb-1">Institutional Audit</span>
-              <span className="text-[11px] font-bold uppercase tracking-widest">Free Assessment</span>
+              <span className="text-[8px] font-black uppercase text-[#b8860b] mb-1">Institutional Audit</span>
+              <span className="text-[11px] font-bold uppercase ">Free Assessment</span>
             </div>
             
             {/* Pulse Effect */}

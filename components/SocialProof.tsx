@@ -5,7 +5,7 @@ const SocialProof: React.FC = () => {
     <section id="testimonials" className="py-40 bg-[#0a0e1a] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
-          <h2 className="text-[#b8860b] text-[11px] font-black uppercase mb-8 tracking-[0.4em]">The Institutional Verdict</h2>
+          <h2 className="text-[#b8860b] text-[11px] font-black uppercase mb-8 ">The Institutional Verdict</h2>
           <h3 className="text-4xl md:text-6xl font-medium leading-[1.15] text-white max-w-3xl mx-auto">
             Where structural authority meets <span className="italic text-[#b8860b]">validated results.</span>
           </h3>
@@ -34,7 +34,7 @@ const SocialProof: React.FC = () => {
            <p className="text-zinc-500 text-sm italic font-light">Validation available upon request for verified Institutional Partners.</p>
            <button 
              onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
-             className="px-12 py-5 border border-[#b8860b] text-[#b8860b] text-[11px] font-black uppercase tracking-widest hover:bg-[#b8860b] hover:text-white transition-all"
+             className="px-12 py-5 border border-[#b8860b] text-[#b8860b] text-[11px] font-black uppercase hover:bg-[#b8860b] hover:text-white transition-all"
            >
              Request Alumnus Reference
            </button>
@@ -54,8 +54,8 @@ const TestimonialCard: React.FC<{ quote: string; author: string; org: string }> 
     </div>
     <div className="mt-auto">
       <div className="h-[1px] w-10 bg-white/10 mb-8"></div>
-      <div className="text-white text-[11px] font-bold uppercase mb-2 tracking-widest">{author}</div>
-      <div className="text-[#b8860b] text-[10px] uppercase font-black tracking-widest">{org}</div>
+      <div className="text-white text-[11px] font-bold uppercase mb-2 ">{author}</div>
+      <div className="text-[#b8860b] text-[10px] uppercase font-black ">{org}</div>
     </div>
   </div>
 );

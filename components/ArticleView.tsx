@@ -162,7 +162,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
           </div>
           <div className="flex items-center gap-4 sm:gap-6">
             <div className="hidden sm:flex items-center gap-2 border-r border-zinc-200 pr-4 mr-2">
-              <span className="text-[8px] font-black uppercase text-zinc-400 tracking-widest">Share:</span>
+              <span className="text-[8px] font-black uppercase text-zinc-400 ">Share:</span>
               {shareLinks.map((link) => (
                 <a 
                   key={link.name}
@@ -221,7 +221,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
                 <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#111111] leading-[1.1] mb-4">
                   {article.title}
                 </h1>
-                <div className="flex flex-wrap items-center gap-3 text-[10px] font-mono uppercase text-zinc-500 tracking-wider">
+                <div className="flex flex-wrap items-center gap-3 text-[10px] font-mono uppercase text-zinc-500 ">
                   <span>Author: Suchita Sancheti</span>
                   <span className="hidden sm:inline">•</span>
                   <span>{getArticleStats(article).words} Words</span>
@@ -279,7 +279,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
                     onClose();
                     document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="w-full md:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-[#b8860b] text-white text-[9px] sm:text-[10px] font-bold uppercase hover:bg-[#111111] transition-all shadow-lg tracking-widest"
+                  className="w-full md:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-[#b8860b] text-white text-[9px] sm:text-[10px] font-bold uppercase hover:bg-[#111111] transition-all shadow-lg "
                 >
                   Initiate Yield Calibration
                 </button>

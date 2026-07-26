@@ -49,36 +49,36 @@ const Countdown: React.FC = () => {
     <div className="bg-[#111111] text-white py-2 px-4 border-b border-[#b8860b]/20 relative z-[60]">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8">
         <div className="flex items-center gap-3">
-          <span className="text-[#b8860b] text-[10px] sm:text-[8px] font-black uppercase tracking-[0.3em]">Institutional Intake Window</span>
+          <span className="text-[#b8860b] text-[10px] sm:text-[8px] font-black uppercase ">Institutional Intake Window</span>
           <div className="h-[1px] w-4 bg-[#b8860b]/30"></div>
-          <span className="text-[10px] sm:text-[9px] font-bold uppercase tracking-widest text-zinc-400">Closing {targetLabel}</span>
+          <span className="text-[10px] sm:text-[9px] font-bold uppercase text-zinc-400">Closing {targetLabel}</span>
         </div>
         
         <div className="flex items-center gap-4 sm:gap-6">
           <div className="flex flex-col items-center">
-            <span className="text-[16px] sm:text-[14px] font-black tracking-tighter tabular-nums">{timeLeft.days.toString().padStart(2, '0')}</span>
-            <span className="text-[7px] sm:text-[6px] uppercase font-bold text-[#b8860b] tracking-widest">Days</span>
+            <span className="text-[16px] sm:text-[14px] font-black tabular-nums">{timeLeft.days.toString().padStart(2, '0')}</span>
+            <span className="text-[7px] sm:text-[6px] uppercase font-bold text-[#b8860b] ">Days</span>
           </div>
           <span className="text-[#b8860b]/30 font-light">:</span>
           <div className="flex flex-col items-center">
-            <span className="text-[16px] sm:text-[14px] font-black tracking-tighter tabular-nums">{timeLeft.hours.toString().padStart(2, '0')}</span>
-            <span className="text-[7px] sm:text-[6px] uppercase font-bold text-[#b8860b] tracking-widest">Hrs</span>
+            <span className="text-[16px] sm:text-[14px] font-black tabular-nums">{timeLeft.hours.toString().padStart(2, '0')}</span>
+            <span className="text-[7px] sm:text-[6px] uppercase font-bold text-[#b8860b] ">Hrs</span>
           </div>
           <span className="text-[#b8860b]/30 font-light">:</span>
           <div className="flex flex-col items-center">
-            <span className="text-[16px] sm:text-[14px] font-black tracking-tighter tabular-nums">{timeLeft.minutes.toString().padStart(2, '0')}</span>
-            <span className="text-[7px] sm:text-[6px] uppercase font-bold text-[#b8860b] tracking-widest">Min</span>
+            <span className="text-[16px] sm:text-[14px] font-black tabular-nums">{timeLeft.minutes.toString().padStart(2, '0')}</span>
+            <span className="text-[7px] sm:text-[6px] uppercase font-bold text-[#b8860b] ">Min</span>
           </div>
           <span className="text-[#b8860b]/30 font-light">:</span>
           <div className="flex flex-col items-center">
-            <span className="text-[16px] sm:text-[14px] font-black tracking-tighter tabular-nums text-[#b8860b]">{timeLeft.seconds.toString().padStart(2, '0')}</span>
-            <span className="text-[7px] sm:text-[6px] uppercase font-bold text-[#b8860b] tracking-widest">Sec</span>
+            <span className="text-[16px] sm:text-[14px] font-black tabular-nums text-[#b8860b]">{timeLeft.seconds.toString().padStart(2, '0')}</span>
+            <span className="text-[7px] sm:text-[6px] uppercase font-bold text-[#b8860b] ">Sec</span>
           </div>
         </div>
 
         <div className="hidden md:flex items-center gap-3">
           <div className="h-[1px] w-4 bg-[#b8860b]/30"></div>
-          <span className="text-[8px] font-black uppercase tracking-[0.3em] text-[#b8860b] animate-pulse">Strategic Urgency Active</span>
+          <span className="text-[8px] font-black uppercase text-[#b8860b] animate-pulse">Strategic Urgency Active</span>
         </div>
       </div>
     </div>

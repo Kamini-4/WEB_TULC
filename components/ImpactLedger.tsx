@@ -35,7 +35,7 @@ const ImpactLedger: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 sm:mb-24 gap-8">
           <div className="max-w-2xl">
-            <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 tracking-[0.3em] sm:tracking-[0.4em]">The Impact Ledger</h2>
+            <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 sm:">The Impact Ledger</h2>
             <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
               Anonymized <span className="italic text-[#b8860b]">Institutional Outcomes.</span>
             </h3>
@@ -55,7 +55,7 @@ const ImpactLedger: React.FC = () => {
               </div>
               
               <div className="mb-8 sm:mb-12">
-                <span className="text-[#b8860b] text-[8px] sm:text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-2 block">{c.sector}</span>
+                <span className="text-[#b8860b] text-[8px] sm:text-[10px] font-black uppercase sm:mb-2 block">{c.sector}</span>
                 <h4 className="text-xl sm:text-2xl font-bold text-white group-hover:text-[#b8860b] transition-colors leading-snug">
                   {c.challenge}
                 </h4>
@@ -63,13 +63,13 @@ const ImpactLedger: React.FC = () => {
 
               <div className="space-y-6 sm:space-y-8 mb-8 sm:mb-12">
                 <div>
-                  <div className="text-[8px] sm:text-[9px] uppercase font-black text-zinc-500 mb-2 sm:mb-3 tracking-widest">The Intervention:</div>
+                  <div className="text-[8px] sm:text-[9px] uppercase font-black text-zinc-500 mb-2 sm:mb-3 ">The Intervention:</div>
                   <p className="text-zinc-400 text-sm sm:text-base italic font-light leading-relaxed">
                     {c.intervention}
                   </p>
                 </div>
                 <div>
-                  <div className="text-[8px] sm:text-[9px] uppercase font-black text-zinc-500 mb-2 sm:mb-3 tracking-widest">The Outcome:</div>
+                  <div className="text-[8px] sm:text-[9px] uppercase font-black text-zinc-500 mb-2 sm:mb-3 ">The Outcome:</div>
                   <p className="text-white text-sm sm:text-base font-medium leading-relaxed">
                     {c.outcome}
                   </p>
@@ -78,7 +78,7 @@ const ImpactLedger: React.FC = () => {
 
               <div className="flex flex-wrap gap-3 sm:gap-4 pt-6 sm:pt-8 border-t border-white/5">
                 {c.stats.map((stat, sIdx) => (
-                  <span key={sIdx} className="text-[8px] sm:text-[10px] font-black uppercase text-[#b8860b] tracking-widest bg-[#b8860b]/5 px-2 sm:px-3 py-1 border border-[#b8860b]/20">
+                  <span key={sIdx} className="text-[8px] sm:text-[10px] font-black uppercase text-[#b8860b] bg-[#b8860b]/5 px-2 sm:px-3 py-1 border border-[#b8860b]/20">
                     {stat}
                   </span>
                 ))}
@@ -97,7 +97,7 @@ const ImpactLedger: React.FC = () => {
                 window.location.href = '/#intake';
               }
             }}
-            className="px-8 sm:px-12 py-4 sm:py-6 bg-transparent border border-zinc-700 text-white text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-500"
+            className="px-8 sm:px-12 py-4 sm:py-6 bg-transparent border border-zinc-700 text-white text-[9px] sm:text-[11px] font-black uppercase sm:hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-500"
           >
             Request Full Case Briefings
           </button>

@@ -32,7 +32,7 @@ const Portal: React.FC = () => {
           <div className="w-20 h-20 border-2 border-[#b8860b] rotate-45 mb-16 mx-auto flex items-center justify-center">
             <Lock className="w-8 h-8 text-[#b8860b] -rotate-45" />
           </div>
-          <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.5em] mb-4">Portal Locked</h2>
+          <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-4">Portal Locked</h2>
           <h1 className="text-4xl md:text-5xl font-bold mb-8">Corporate <br /><span className="italic text-[#b8860b]">Clearance Required.</span></h1>
           <p className="text-zinc-500 mb-12 text-sm italic font-light leading-relaxed">
             The Client Portal contains proprietary alignment analysis. To unlock your unique performance dashboard and initiate your evaluation, please request access credentials.
@@ -41,25 +41,25 @@ const Portal: React.FC = () => {
           <div className="space-y-6">
             <button 
               onClick={() => navigate('/intake')}
-              className="w-full py-6 bg-[#b8860b] text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all shadow-2xl"
+              className="w-full py-6 bg-[#b8860b] text-white text-[10px] font-black uppercase hover:bg-white hover:text-black transition-all shadow-2xl"
             >
               Request Access Credentials
             </button>
-            <p className="text-[9px] text-zinc-600 uppercase tracking-widest">Fiduciary Clearance System</p>
+            <p className="text-[9px] text-zinc-600 uppercase ">Fiduciary Clearance System</p>
             
             <button 
               onClick={() => {
                 setIsPaid(true);
                 localStorage.setItem('tulc_portal_access', 'true');
               }}
-              className="text-[8px] text-zinc-700 hover:text-zinc-500 transition-colors uppercase tracking-[0.2em] mt-12 block mx-auto underline"
+              className="text-[8px] text-zinc-700 hover:text-zinc-500 transition-colors uppercase mt-12 block mx-auto underline"
             >
               [ Simulation Only: Manual Unlock ]
             </button>
           </div>
           
           <div className="mt-20">
-            <Link to="/" className="text-zinc-600 hover:text-white transition-colors text-[9px] uppercase tracking-widest font-bold">
+            <Link to="/" className="text-zinc-600 hover:text-white transition-colors text-[9px] uppercase font-bold">
               Return to Surface Hub
             </Link>
           </div>
@@ -78,14 +78,14 @@ const Portal: React.FC = () => {
       <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/50 to-transparent z-20" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <Link to="/" className="inline-flex items-center gap-2 text-zinc-500 hover:text-[#b8860b] transition-colors text-[10px] uppercase tracking-[0.3em] font-black mb-12 group">
+        <Link to="/" className="inline-flex items-center gap-2 text-zinc-500 hover:text-[#b8860b] transition-colors text-[10px] uppercase font-black mb-12 group">
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           Exit Interface
         </Link>
 
         <header className="max-w-4xl mb-24 flex flex-col items-start gap-4">
           <div className="flex items-center gap-4">
-            <h2 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.5em]">Terminal Active</h2>
+            <h2 className="text-[#b8860b] text-[10px] font-black uppercase ">Terminal Active</h2>
             <div className="w-2 h-2 rounded-full bg-[#b8860b] animate-pulse" />
           </div>
           <h1 className="text-5xl md:text-8xl font-bold mb-12">The <br /><span className="italic text-[#b8860b]">Client Portal.</span></h1>
@@ -114,14 +114,14 @@ const Portal: React.FC = () => {
 
           <div className="space-y-8">
             <div className="p-8 border border-[#b8860b]/30 bg-[#b8860b]/5">
-              <h4 className="text-[#b8860b] text-[10px] font-black uppercase tracking-widest mb-4">Active Engagement Status</h4>
+              <h4 className="text-[#b8860b] text-[10px] font-black uppercase mb-4">Active Engagement Status</h4>
               <div className="flex justify-between items-end">
                 <div>
                   <div className="text-3xl font-bold mb-1 italic">Phase 01</div>
-                  <div className="text-[10px] text-zinc-500 uppercase tracking-widest">Structural Stabilization</div>
+                  <div className="text-[10px] text-zinc-500 uppercase ">Structural Stabilization</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-zinc-400 text-[10px] uppercase tracking-widest mb-1">Completion</div>
+                  <div className="text-zinc-400 text-[10px] uppercase mb-1">Completion</div>
                   <div className="w-32 h-1 bg-zinc-800">
                     <div className="w-1/4 h-full bg-[#b8860b]" />
                   </div>
@@ -130,11 +130,11 @@ const Portal: React.FC = () => {
             </div>
             
             <div className="p-8 border border-white/10 bg-white/[0.02]">
-              <h4 className="text-white text-[10px] font-black uppercase tracking-widest mb-6">Latest Diagnostic Dispatch</h4>
+              <h4 className="text-white text-[10px] font-black uppercase mb-6">Latest Diagnostic Dispatch</h4>
               <p className="text-zinc-400 text-sm italic leading-relaxed mb-8">
                 "The current leadership alignment is trending 12% below target standards. Operational adjustment is recommended in the Organizational Design domain."
               </p>
-              <button className="text-[10px] font-black uppercase tracking-[0.2em] text-[#b8860b] border-b border-[#b8860b]/30 pb-1">Read Full Dispatch →</button>
+              <button className="text-[10px] font-black uppercase text-[#b8860b] border-b border-[#b8860b]/30 pb-1">Read Full Dispatch →</button>
             </div>
           </div>
         </div>

@@ -2,10 +2,10 @@ import React from 'react';
 
 const Stat: React.FC<{ label: string; value: string; isFirst?: boolean; isLast?: boolean }> = ({ label, value, isFirst, isLast }) => (
   <div className={`group px-2 sm:px-4 md:px-8 ${!isFirst ? 'md:border-l border-white/10' : ''}`}>
-    <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-3 text-white group-hover:text-[#b8860b] transition-colors duration-700 tracking-tight">
+    <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-3 text-white group-hover:text-[#b8860b] transition-colors duration-700 ">
       {value}
     </div>
-    <div className="text-[8px] sm:text-[10px] md:text-[11px] uppercase text-[#b8860b] font-black leading-relaxed tracking-[0.2em] sm:tracking-[0.25em]">
+    <div className="text-[8px] sm:text-[10px] md:text-[11px] uppercase text-[#b8860b] font-black leading-relaxed sm:">
       {label}
     </div>
     <div className="w-6 sm:w-8 h-[1px] bg-[#b8860b]/30 mt-4 sm:mt-6 group-hover:w-full transition-all duration-700" />
@@ -29,7 +29,7 @@ const InstitutionalMetrics: React.FC = () => {
         <div className="mt-12 sm:mt-16 flex justify-center">
           <button 
             onClick={() => document.getElementById('scale-evidence')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-[8px] sm:text-[10px] font-black uppercase text-[#b8860b] tracking-[0.2em] sm:tracking-[0.3em] hover:text-white transition-colors flex items-center gap-2 sm:gap-3 group"
+            className="text-[8px] sm:text-[10px] font-black uppercase text-[#b8860b] sm:hover:text-white transition-colors flex items-center gap-2 sm:gap-3 group"
           >
             Examine the Dynamics of Scale <span className="group-hover:translate-x-2 transition-transform">→</span>
           </button>
