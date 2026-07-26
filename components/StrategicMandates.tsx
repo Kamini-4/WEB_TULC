@@ -123,13 +123,21 @@ const StrategicMandates: React.FC = () => {
                     ))}
                   </div>
 
-                  <button 
-                    onClick={() => navigate('/assessment')}
-                    className="w-full py-2.5 bg-zinc-900 text-white text-[9px] font-bold uppercase hover:bg-[#b8860b] transition-colors flex items-center justify-center gap-2 rounded-xs cursor-pointer"
-                  >
-                    <span>Request Brief</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </button>
+                  <div className="grid grid-cols-2 gap-2">
+                    <button 
+                      onClick={() => navigate('/intake')}
+                      className="py-2.5 bg-zinc-900 text-white text-[9px] font-bold uppercase hover:bg-[#b8860b] transition-colors flex items-center justify-center gap-1 rounded-xs cursor-pointer"
+                    >
+                      <span>Briefing</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </button>
+                    <button 
+                      onClick={() => navigate('/assessment')}
+                      className="py-2.5 bg-zinc-100 text-zinc-900 border border-zinc-200 text-[9px] font-bold uppercase hover:bg-zinc-200 transition-colors flex items-center justify-center gap-1 rounded-xs cursor-pointer"
+                    >
+                      <span>Audit</span>
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             ))}

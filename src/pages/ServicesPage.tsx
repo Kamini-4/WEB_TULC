@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { useNavigate, Link } from 'react-router-dom';
+import { ArrowRight, CheckCircle, Calculator, FileText, Layers, Shield } from 'lucide-react';
 import FAQ from '../../components/FAQ.tsx';
 
 interface Service {
@@ -116,6 +116,38 @@ const ServicesPage: React.FC = () => {
           <p className="text-sm sm:text-base text-zinc-700 font-light italic leading-relaxed">
             Every operational bottleneck is a structural design flaw. We partner with you at every step of your scaling journey—from initial substrate diagnostics to self-cohering enterprise governance—to replace tactical friction with permanent operational architecture.
           </p>
+
+          {/* Seamless Interlink Quick-Jump Bar */}
+          <div className="mt-8 pt-6 border-t border-zinc-200/80 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              to="/#domains"
+              className="px-3.5 py-1.5 bg-white border border-zinc-200 hover:border-[#b8860b] text-zinc-800 text-[10px] font-bold uppercase transition-all rounded-xs flex items-center gap-1.5 shadow-xs"
+            >
+              <Layers className="w-3 h-3 text-[#b8860b]" />
+              <span>5 Sovereign Domains</span>
+            </Link>
+            <Link
+              to="/assessment"
+              className="px-3.5 py-1.5 bg-[#b8860b] text-white hover:bg-black text-[10px] font-bold uppercase transition-all rounded-xs flex items-center gap-1.5 shadow-xs"
+            >
+              <Calculator className="w-3 h-3" />
+              <span>Diagnostic Friction Assessment</span>
+            </Link>
+            <Link
+              to="/library"
+              className="px-3.5 py-1.5 bg-white border border-zinc-200 hover:border-[#b8860b] text-zinc-800 text-[10px] font-bold uppercase transition-all rounded-xs flex items-center gap-1.5 shadow-xs"
+            >
+              <FileText className="w-3 h-3 text-[#b8860b]" />
+              <span>Strategic Research Library</span>
+            </Link>
+            <Link
+              to="/about"
+              className="px-3.5 py-1.5 bg-white border border-zinc-200 hover:border-[#b8860b] text-zinc-800 text-[10px] font-bold uppercase transition-all rounded-xs flex items-center gap-1.5 shadow-xs"
+            >
+              <Shield className="w-3 h-3 text-[#b8860b]" />
+              <span>Principal & Firm Pedigree</span>
+            </Link>
+          </div>
         </div>
 
         {/* 1. Kinetic Latency Analysis - The Cost of Inaction First */}

@@ -135,19 +135,37 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
           </div>
           
           <div>
-            <h5 className="text-white text-[9px] uppercase font-black mb-4 ">Philosophy</h5>
-            <ul className="text-white/50 text-[9px] uppercase space-y-2 font-bold ">
-              <li><Link to="/about" className="hover:text-[#b8860b] transition-colors uppercase">About the Firm</Link></li>
-              <li><Link to="/methodology" className="hover:text-[#b8860b] transition-colors uppercase">Strategic Alignment Protocol</Link></li>
+            <h5 className="text-white text-[9px] uppercase font-black mb-4 font-mono">Architecture</h5>
+            <ul className="text-white/50 text-[9px] uppercase space-y-2 font-bold font-mono">
+              <li><Link to="/#domains" className="hover:text-[#b8860b] transition-colors uppercase">5 Sovereign Domains</Link></li>
+              <li><Link to="/methodology" className="hover:text-[#b8860b] transition-colors uppercase">Strategic Protocol</Link></li>
               <li><Link to="/services" className="hover:text-[#b8860b] transition-colors uppercase">Services Spectrum</Link></li>
               <li><Link to="/mandates" className="hover:text-[#b8860b] transition-colors uppercase">Strategic Mandates</Link></li>
             </ul>
           </div>
           
           <div>
-            <h5 className="text-white text-[9px] uppercase font-black mb-4 ">Intelligence</h5>
-            <ul className="text-white/50 text-[9px] uppercase space-y-2 font-bold ">
-              <li><Link to="/library" className="hover:text-[#b8860b] transition-colors uppercase">Intellectual Authority</Link></li>
+            <h5 className="text-white text-[9px] uppercase font-black mb-4 font-mono">Diagnostics</h5>
+            <ul className="text-white/50 text-[9px] uppercase space-y-2 font-bold font-mono">
+              <li><Link to="/assessment" className="hover:text-[#b8860b] transition-colors uppercase">Inaction Tax Calculator</Link></li>
+              <li><Link to="/assessment" className="hover:text-[#b8860b] transition-colors uppercase">Domain Diagnostic Audit</Link></li>
+              <li><Link to="/intake" className="hover:text-[#b8860b] transition-colors uppercase">Executive Intake Portal</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 className="text-white text-[9px] uppercase font-black mb-4 font-mono">Registry</h5>
+            <ul className="text-white/50 text-[9px] uppercase space-y-2 font-bold font-mono">
+              <li><Link to="/library" className="hover:text-[#b8860b] transition-colors uppercase">Research Library</Link></li>
+              <li><Link to="/library" className="hover:text-[#b8860b] transition-colors uppercase">Patent White Papers</Link></li>
+              <li><Link to="/about" className="hover:text-[#b8860b] transition-colors uppercase">Principal Pedigree</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 className="text-white text-[9px] uppercase font-black mb-4 font-mono">Client Access</h5>
+            <ul className="text-white/50 text-[9px] uppercase space-y-2 font-bold font-mono">
+              <li><Link to="/portal" className="hover:text-[#b8860b] transition-colors uppercase">Client Portal</Link></li>
             </ul>
           </div>
         </div>

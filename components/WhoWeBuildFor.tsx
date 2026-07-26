@@ -1,6 +1,7 @@
 import React from 'react';
-import { Target, Users, Shield, ArrowUpRight } from 'lucide-react';
+import { Target, Users, Shield, ArrowUpRight, Calculator, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 const WhoWeBuildFor: React.FC = () => {
   const profiles = [
@@ -9,21 +10,27 @@ const WhoWeBuildFor: React.FC = () => {
       category: "High-Growth Founders",
       title: "The Visionary Trap",
       description: "Scaling past $10M+ but spending 40% of your time in meeting-tax loops and manual alignment checks instead of strategic command.",
-      outcome: "Autonomous alignment frameworks that guarantee standard quality execution without your live presence."
+      outcome: "Autonomous alignment frameworks that guarantee standard quality execution without your live presence.",
+      linkTrack: "/services",
+      trackName: "90-Day Kinetic Alignment"
     },
     {
       icon: <Users className="w-5 h-5 text-[#b8860b]" />,
       category: "Institutional Leaders",
       title: "Sovereign Operations",
       description: "Enterprise CEOs, family offices, and executives drowning in coordination drag, wanting to transition their teams to self-cohering operating systems.",
-      outcome: "Absolute alignment on mission targets, hard-coded accountability matrices, and zero-loss delegation."
+      outcome: "Absolute alignment on mission targets, hard-coded accountability matrices, and zero-loss delegation.",
+      linkTrack: "/services",
+      trackName: "Systemic Transformation"
     },
     {
       icon: <Shield className="w-5 h-5 text-[#b8860b]" />,
       category: "VC & PE Partners",
       title: "Portfolio Safeguarding",
       description: "Investors looking to audit, calibrate, and secure the operational capability of portfolio executive teams to ensure rapid decision velocity.",
-      outcome: "High-fidelity diagnostic telemetry and structured leadership guardrails to de-risk founder dependencies."
+      outcome: "High-fidelity diagnostic telemetry and structured leadership guardrails to de-risk founder dependencies.",
+      linkTrack: "/services",
+      trackName: "Portfolio Governance Track"
     }
   ];
 
@@ -114,14 +121,34 @@ const WhoWeBuildFor: React.FC = () => {
                 </p>
               </div>
 
-              <div className="pt-6 border-t border-zinc-200/60 group-hover:border-[#b8860b]/20 transition-colors">
-                <span className="text-[9px] font-black uppercase text-zinc-900 block mb-2">
-                  Alignment Outcome:
-                </span>
-                <p className="text-zinc-700 text-xs font-medium leading-relaxed flex items-start gap-2">
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#b8860b] shrink-0 mt-0.5 opacity-60 group-hover:opacity-100 transition-opacity" />
-                  <span>{profile.outcome}</span>
-                </p>
+              <div className="pt-6 border-t border-zinc-200/60 group-hover:border-[#b8860b]/20 transition-colors space-y-4">
+                <div>
+                  <span className="text-[9px] font-black uppercase text-zinc-900 block mb-2 font-mono">
+                    Alignment Outcome:
+                  </span>
+                  <p className="text-zinc-700 text-xs font-medium leading-relaxed flex items-start gap-2">
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#b8860b] shrink-0 mt-0.5 opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <span>{profile.outcome}</span>
+                  </p>
+                </div>
+
+                {/* Profile-Specific Direct Interlinks */}
+                <div className="pt-3 border-t border-zinc-200/40 flex items-center justify-between gap-2">
+                  <Link 
+                    to={profile.linkTrack}
+                    className="text-[9px] font-mono font-bold text-zinc-800 hover:text-[#b8860b] flex items-center gap-1 uppercase transition-colors"
+                  >
+                    <span>{profile.trackName}</span>
+                    <ArrowRight className="w-3 h-3 text-[#b8860b]" />
+                  </Link>
+                  <Link 
+                    to="/assessment"
+                    className="text-[8px] font-mono font-bold text-zinc-500 hover:text-[#b8860b] flex items-center gap-1 uppercase transition-colors"
+                  >
+                    <Calculator className="w-2.5 h-2.5 text-[#b8860b]" />
+                    <span>Audit Profile</span>
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}

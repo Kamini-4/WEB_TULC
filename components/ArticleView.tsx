@@ -266,7 +266,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
           </div>
 
           <footer className="mt-16 sm:mt-24 pt-8 sm:pt-12 border-t border-zinc-200">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 mb-8">
               <div>
                 <h4 className="text-[8px] sm:text-[10px] font-black uppercase text-[#b8860b] mb-3 sm:mb-4">Institutional Note</h4>
                 <p className="text-xs sm:text-sm text-zinc-500 italic">
@@ -277,12 +277,42 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
                 <button 
                   onClick={() => {
                     onClose();
-                    document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' });
+                    window.location.href = '/intake';
                   }}
-                  className="w-full md:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-[#b8860b] text-white text-[9px] sm:text-[10px] font-bold uppercase hover:bg-[#111111] transition-all shadow-lg "
+                  className="w-full md:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-[#b8860b] text-white text-[9px] sm:text-[10px] font-bold uppercase hover:bg-[#111111] transition-all shadow-lg cursor-pointer"
                 >
                   Initiate Yield Calibration
                 </button>
+              </div>
+            </div>
+
+            {/* Seamless Ecosystem Interlinks Matrix */}
+            <div className="p-6 bg-zinc-100 border border-zinc-200 rounded-xs flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[9px]">
+              <div className="text-zinc-600 uppercase font-bold text-center sm:text-left">
+                Next Architectural Steps:
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                <Link 
+                  to="/assessment" 
+                  onClick={onClose}
+                  className="px-3 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all"
+                >
+                  Audit Inaction Tax
+                </Link>
+                <Link 
+                  to="/services" 
+                  onClick={onClose}
+                  className="px-3 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all"
+                >
+                  Engagement Tracks
+                </Link>
+                <Link 
+                  to="/library" 
+                  onClick={onClose}
+                  className="px-3 py-1.5 bg-[#b8860b] text-white font-bold uppercase hover:bg-black transition-all"
+                >
+                  Research Registry
+                </Link>
               </div>
             </div>
           </footer>

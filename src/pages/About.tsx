@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Calculator, FileText, Layers, Shield } from 'lucide-react';
 import { Mail, Phone, Instagram, Linkedin } from '../../components/BrandIcons.tsx';
 import PrincipalDispatch from '../../components/PrincipalDispatch.tsx';
 import BrandLogo from '../../components/BrandLogo.tsx';
@@ -505,20 +506,60 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
         </div>
 
         {/* INSTITUTIONAL CREDO & FINAL CALL TO ACTION */}
-        <div className="bg-[#111111] p-10 text-white rounded-xs border border-[#b8860b]/20 mt-16 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="space-y-3 max-w-2xl">
-            <h4 className="text-[#b8860b] text-[10px] font-black uppercase font-mono">Institutional Credo</h4>
-            <p className="text-base italic font-serif font-light text-zinc-300 leading-relaxed">
-              "We do not focus on temporary coaching. We build durable operating guardrails. Solid architecture is the only way to reliably delegate strategic intent at scale."
-            </p>
+        <div className="bg-[#111111] p-8 sm:p-10 text-white rounded-xs border border-[#b8860b]/30 mt-16 flex flex-col gap-8 shadow-2xl">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-white/10 pb-6">
+            <div className="space-y-3 max-w-2xl text-left">
+              <h4 className="text-[#b8860b] text-[10px] font-black uppercase font-mono">Institutional Credo & Partnership Assurance</h4>
+              <p className="text-base sm:text-lg italic font-serif font-light text-zinc-200 leading-relaxed">
+                "We do not offer temporary advice. We co-implement alongside C-suite leaders to hard-code durable operating guardrails. Solid architecture is the only way to delegate strategic intent at scale with absolute fidelity."
+              </p>
+            </div>
+
+            <Link 
+              to="/intake"
+              className="shrink-0 bg-[#b8860b] text-white px-8 py-4 font-bold text-[10px] uppercase hover:bg-white hover:text-black transition-all shadow-xl flex items-center gap-2 rounded-xs"
+            >
+              <span>Initiate Executive Intake</span> 
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
-          <button 
-            onClick={() => onBriefClick('assessment')}
-            className="shrink-0 bg-[#b8860b] text-[#111111] px-8 py-4 font-black text-[10px] uppercase hover:bg-white transition-all shadow-xl flex items-center gap-3"
-          >
-            Initiate Executive Briefing <ArrowRight className="w-4 h-4" />
-          </button>
+          {/* Interlinks Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-4 font-mono">
+            <span className="text-[9px] text-zinc-400 uppercase font-bold">
+              Explore The Unbounded Architecture:
+            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              <Link 
+                to="/#domains" 
+                className="px-3 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-white/10 text-[9px] uppercase font-bold transition-all flex items-center gap-1.5 rounded-xs"
+              >
+                <Layers className="w-3 h-3 text-[#b8860b]" />
+                <span>5 Domains</span>
+              </Link>
+              <Link 
+                to="/services" 
+                className="px-3 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-white/10 text-[9px] uppercase font-bold transition-all flex items-center gap-1.5 rounded-xs"
+              >
+                <Shield className="w-3 h-3 text-[#b8860b]" />
+                <span>Mandate Tracks</span>
+              </Link>
+              <Link 
+                to="/assessment" 
+                className="px-3 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-white/10 text-[9px] uppercase font-bold transition-all flex items-center gap-1.5 rounded-xs"
+              >
+                <Calculator className="w-3 h-3 text-[#b8860b]" />
+                <span>Diagnostic Tool</span>
+              </Link>
+              <Link 
+                to="/library" 
+                className="px-3 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-white/10 text-[9px] uppercase font-bold transition-all flex items-center gap-1.5 rounded-xs"
+              >
+                <FileText className="w-3 h-3 text-[#b8860b]" />
+                <span>Research Library</span>
+              </Link>
+            </div>
+          </div>
         </div>
 
       </div>

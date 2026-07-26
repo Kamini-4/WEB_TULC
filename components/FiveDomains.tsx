@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Brain, Cpu, Zap, Shield, HeartCheck, Layers, ChevronRight, Award } from 'lucide-react';
+import { Brain, Cpu, Zap, Shield, HeartCheck, Layers, ChevronRight, Award, ArrowRight, FileText, Calculator } from 'lucide-react';
 
 interface Domain {
   id: string;
@@ -68,7 +69,7 @@ const domains: Domain[] = [
 
 const FiveDomains: React.FC = () => {
   const [selectedIdx, setSelectedIdx] = useState<number>(0);
-  const [viewMode, setViewMode] = useState<'grid' | 'focused'>('grid');
+  const navigate = useNavigate();
 
   return (
     <section 
@@ -190,6 +191,38 @@ const FiveDomains: React.FC = () => {
               </div>
             </motion.div>
           </AnimatePresence>
+
+          {/* Seamless Interlink Action Matrix */}
+          <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+            <div className="text-[10px] font-mono text-zinc-400 uppercase flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b]"></span>
+              <span>CALIBRATE DOMAIN 0{selectedIdx + 1} ({domains[selectedIdx].title.toUpperCase()}):</span>
+            </div>
+            
+            <div className="flex flex-wrap items-center gap-2">
+              <Link 
+                to="/assessment" 
+                className="px-3.5 py-2 bg-[#b8860b] hover:bg-white hover:text-black text-white text-[9px] font-bold uppercase transition-all flex items-center gap-1.5 rounded-xs"
+              >
+                <Calculator className="w-3 h-3" />
+                <span>Audit Domain in Assessment</span>
+              </Link>
+              <Link 
+                to="/services" 
+                className="px-3.5 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-white/10 text-[9px] font-bold uppercase transition-all flex items-center gap-1.5 rounded-xs"
+              >
+                <ArrowRight className="w-3 h-3 text-[#b8860b]" />
+                <span>View Engagement Tracks</span>
+              </Link>
+              <Link 
+                to="/library" 
+                className="px-3.5 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-white/10 text-[9px] font-bold uppercase transition-all flex items-center gap-1.5 rounded-xs"
+              >
+                <FileText className="w-3 h-3 text-[#b8860b]" />
+                <span>Read White Paper</span>
+              </Link>
+            </div>
+          </div>
         </div>
 
       </div>

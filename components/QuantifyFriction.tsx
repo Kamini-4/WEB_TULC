@@ -151,17 +151,35 @@ const QuantifyFriction: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mt-6 p-4 bg-[#b8860b]/5 border border-[#b8860b]/20 flex flex-col sm:flex-row items-center gap-4 justify-between">
-                  <div className="text-left">
-                    <h4 className="text-xs font-bold text-white uppercase mb-0.5">Audit Your Substrate</h4>
-                    <p className="text-[10px] text-zinc-400 italic">Request your Phase 0.0 Diagnostic to engineer absolute performance.</p>
+                <div className="mt-6 p-4 bg-[#b8860b]/5 border border-[#b8860b]/20 space-y-3">
+                  <div className="flex flex-col sm:flex-row items-center gap-4 justify-between">
+                    <div className="text-left">
+                      <h4 className="text-xs font-bold text-white uppercase mb-0.5">Audit Your Substrate</h4>
+                      <p className="text-[10px] text-zinc-400 italic">Request your Phase 0.0 Diagnostic to engineer absolute performance.</p>
+                    </div>
+                    <button 
+                      onClick={() => navigate('/intake')}
+                      className="w-full sm:w-auto px-5 py-2.5 bg-[#b8860b] text-white hover:bg-white hover:text-black text-[9px] font-black uppercase transition-all shrink-0 cursor-pointer"
+                    >
+                      Request Audit
+                    </button>
                   </div>
-                  <button 
-                    onClick={() => navigate('/intake')}
-                    className="w-full sm:w-auto px-5 py-2.5 bg-[#b8860b] text-white hover:bg-white hover:text-black text-[9px] font-black uppercase transition-all shrink-0 cursor-pointer"
-                  >
-                    Request Audit
-                  </button>
+
+                  {/* Seamless Interlink Matrix */}
+                  <div className="pt-2 border-t border-white/10 flex flex-wrap items-center justify-between text-[8px] font-mono uppercase">
+                    <button 
+                      onClick={() => navigate('/assessment')} 
+                      className="text-[#b8860b] hover:text-white transition-colors cursor-pointer flex items-center gap-1 font-bold"
+                    >
+                      <span>Run Full Diagnostic Assessment →</span>
+                    </button>
+                    <button 
+                      onClick={() => navigate('/library')} 
+                      className="text-zinc-400 hover:text-white transition-colors cursor-pointer flex items-center gap-1"
+                    >
+                      <span>Read "Cognitive Equity" White Paper →</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

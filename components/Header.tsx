@@ -90,9 +90,14 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
                   key={item.path}
                   to={item.path}
                   onClick={(e) => handleNavClick(item.path, e)}
-                  className="text-[9px] font-black uppercase text-[#111111] hover:text-[#b8860b] transition-colors "
+                  className={`text-[9px] font-black uppercase text-[#111111] hover:text-[#b8860b] transition-colors relative flex items-center gap-1 ${
+                    location.pathname === item.path ? 'text-[#b8860b]' : ''
+                  }`}
                 >
                   {item.label}
+                  {item.path === '/library' && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-pulse" title="Patent-filed Research Registry" />
+                  )}
                 </Link>
               )
             ))}

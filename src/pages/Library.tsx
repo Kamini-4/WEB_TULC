@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { Award, BookOpen, Shield, Calculator, ArrowRight, CheckCircle } from 'lucide-react';
 import Insights from '../../components/Insights.tsx';
 import Blog from '../../components/Blog.tsx';
 import { WHITE_PAPERS } from '../../data/whitepapers.ts';
@@ -575,21 +576,47 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
       className="bg-[#0a0a0a] min-h-screen text-white flex flex-col"
     >
       <div className="max-w-7xl w-full mx-auto px-6 pt-12 md:pt-16 pb-8">
-        <nav className="flex items-center gap-2 text-[8px] uppercase font-black text-zinc-500 mb-8">
-          <a href="/" className="hover:text-[#b8860b] transition-colors">Home</a>
+        <nav className="flex items-center gap-2 text-[8px] uppercase font-black text-zinc-500 mb-8 font-mono">
+          <Link to="/" className="hover:text-[#b8860b] transition-colors">Home</Link>
           <span className="text-zinc-700">/</span>
-          <span className="text-[#b8860b]">Library</span>
+          <span className="text-[#b8860b]">Executive Library & Research Registry</span>
         </nav>
-        <header className="mb-16">
-          <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-6">Intellectual Authority</h2>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            The Strategic <br />
-            <span className="italic text-[#b8860b]">Library.</span>
+        
+        <header className="mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-4">
+            <Award className="w-3.5 h-3.5 text-[#b8860b]" />
+            <span className="text-[#b8860b] text-[10px] font-black uppercase font-mono">
+              Provisional Patent-Filed Intellectual Substrate
+            </span>
+          </div>
+          
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif leading-tight text-white">
+            The Strategic <span className="italic text-[#b8860b] font-light">Library.</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-zinc-500 text-base italic font-light leading-relaxed">
-            A centralized repository of institutional intelligence, strategic alignment, and real-time leadership telemetry.
+          
+          <p className="mt-4 max-w-3xl text-zinc-300 text-sm sm:text-base italic font-light leading-relaxed">
+            A centralized repository of institutional intelligence, patent-filed strategic alignment protocols, and real-time leadership telemetry. Built for board members, founders, and C-suites who demand empirical rigor over advice.
           </p>
-          <div className="w-16 h-[2px] bg-[#b8860b] mt-8" />
+
+          {/* Intellectual Authority Proof Strip */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-white/10 font-mono">
+            <div className="p-3 bg-zinc-900/60 border border-white/5 rounded-xs">
+              <span className="text-[8px] text-zinc-500 uppercase block">Total Research Depth</span>
+              <span className="text-xs font-bold text-[#b8860b]">45+ Pages Briefings</span>
+            </div>
+            <div className="p-3 bg-zinc-900/60 border border-white/5 rounded-xs">
+              <span className="text-[8px] text-zinc-500 uppercase block">Governance System</span>
+              <span className="text-xs font-bold text-white">5 Sovereign Domains</span>
+            </div>
+            <div className="p-3 bg-zinc-900/60 border border-white/5 rounded-xs">
+              <span className="text-[8px] text-zinc-500 uppercase block">Friction Diagnostics</span>
+              <span className="text-xs font-bold text-[#b8860b]">Simulated Inaction Tax</span>
+            </div>
+            <div className="p-3 bg-zinc-900/60 border border-white/5 rounded-xs">
+              <span className="text-[8px] text-zinc-500 uppercase block">Registry Verification</span>
+              <span className="text-xs font-bold text-emerald-400">TULC-LIB-VERIFIED</span>
+            </div>
+          </div>
         </header>
       </div>
 
@@ -600,57 +627,152 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
       <Blog onArticleClick={onArticleClick} hideHeader />
 
       {/* White Papers Section */}
-      <div className="bg-[#0a0a0a] border-t border-white/5 py-16 md:py-24">
+      <div className="bg-[#0a0a0a] border-t border-white/10 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <h3 className="text-[10px] font-black uppercase text-zinc-400 mb-10 border-b border-white/10 pb-4">Architectural White Papers</h3>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-white/10 gap-4">
+            <div>
+              <span className="text-[#b8860b] text-[10px] font-black uppercase font-mono block mb-1">
+                Patent-Filed Frameworks
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-bold font-serif text-white">
+                Architectural White Papers
+              </h3>
+            </div>
+            <p className="text-zinc-400 text-xs italic font-light max-w-md">
+              Peer-level technical briefings explaining the systemic physics of coordination lag, cognitive burn rate, and institutional alignment.
+            </p>
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-10">
-            <div className="group bg-white/5 p-10 border border-white/10 hover:border-[#b8860b]/30 transition-all duration-700">
-              <span className="text-[#b8860b] text-[8px] uppercase font-black block mb-3">Dynamics of Alignment</span>
-              <h4 className="text-2xl font-bold text-white mb-5 group-hover:text-[#b8860b] transition-colors">Strategic Alignment Protocol: A Total Architectural Audit</h4>
-              <p className="text-zinc-500 italic font-light leading-relaxed mb-8 text-sm">
-                An in-depth 45-page exploration of coordination lag, strategic dilution, and the transition from individual dependence to organizational alignment.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button 
-                  onClick={() => setActivePaperKey('alignment_protocol')}
-                  className="text-[9px] font-black uppercase bg-[#b8860b] text-white px-6 py-3 hover:bg-white hover:text-black transition-all shadow-md"
-                >
-                  Read Online
-                </button>
-                <button 
-                  onClick={() => handleDownload('alignment_protocol')}
-                  className="text-[9px] font-black uppercase border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
-                >
-                  Print / Save PDF
-                </button>
+            {/* White Paper 01 */}
+            <div className="group bg-zinc-900/80 p-8 sm:p-10 border border-white/10 hover:border-[#b8860b]/50 transition-all duration-500 flex flex-col justify-between shadow-2xl relative">
+              <div className="absolute top-0 right-0 px-3 py-1 bg-[#b8860b]/20 text-[#b8860b] text-[8px] font-mono uppercase font-bold">
+                REF: TULC-WP-01
+              </div>
+              
+              <div>
+                <span className="text-[#b8860b] text-[9px] uppercase font-mono font-bold block mb-2">
+                  Dynamics of Alignment
+                </span>
+                <h4 className="text-2xl font-bold font-serif text-white mb-4 group-hover:text-[#b8860b] transition-colors leading-snug">
+                  Strategic Alignment Protocol: A Total Architectural Audit
+                </h4>
+                <p className="text-zinc-300 italic font-light leading-relaxed mb-8 text-xs sm:text-sm">
+                  An in-depth 45-page exploration of coordination lag, strategic dilution across organizational tiers, and the transition from individual founder dependency to automated alignment.
+                </p>
+              </div>
+
+              <div className="space-y-3 pt-6 border-t border-white/10">
+                <div className="flex flex-wrap gap-2">
+                  <button 
+                    onClick={() => setActivePaperKey('alignment_protocol')}
+                    className="text-[9px] font-black uppercase bg-[#b8860b] text-white px-5 py-2.5 hover:bg-white hover:text-black transition-all shadow-md cursor-pointer"
+                  >
+                    Read Online
+                  </button>
+                  <button 
+                    onClick={() => handleDownload('alignment_protocol')}
+                    className="text-[9px] font-black uppercase border border-white/20 text-zinc-200 px-5 py-2.5 hover:bg-white hover:text-black transition-all cursor-pointer"
+                  >
+                    Print / Save PDF
+                  </button>
+                </div>
+                
+                {/* Interlink CTA */}
+                <div className="pt-2 flex items-center justify-between">
+                  <Link 
+                    to="/assessment" 
+                    className="text-[9px] font-mono font-bold text-[#b8860b] hover:text-white transition-colors flex items-center gap-1 uppercase"
+                  >
+                    <Calculator className="w-3 h-3" />
+                    <span>Audit This Protocol in Assessment →</span>
+                  </Link>
+                </div>
               </div>
             </div>
 
-            <div className="group bg-white/5 p-10 border border-white/10 hover:border-[#b8860b]/30 transition-all duration-700">
-              <span className="text-[#b8860b] text-[8px] uppercase font-black block mb-3">Strategic Substrates</span>
-              <h4 className="text-2xl font-bold text-white mb-5 group-hover:text-[#b8860b] transition-colors">Cognitive Equity: Reclaiming the Architect's seat</h4>
-              <p className="text-zinc-500 italic font-light leading-relaxed mb-8 text-sm">
-                Quantifying the metabolic burn rate of leadership and the systemic return on architectural integrity.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button 
-                  onClick={() => setActivePaperKey('cognitive_equity')}
-                  className="text-[9px] font-black uppercase bg-[#b8860b] text-white px-6 py-3 hover:bg-white hover:text-black transition-all shadow-md"
-                >
-                  Read Online
-                </button>
-                <button 
-                  onClick={() => handleDownload('cognitive_equity')}
-                  className="text-[9px] font-black uppercase border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all"
-                >
-                  Print / Save PDF
-                </button>
+            {/* White Paper 02 */}
+            <div className="group bg-zinc-900/80 p-8 sm:p-10 border border-white/10 hover:border-[#b8860b]/50 transition-all duration-500 flex flex-col justify-between shadow-2xl relative">
+              <div className="absolute top-0 right-0 px-3 py-1 bg-[#b8860b]/20 text-[#b8860b] text-[8px] font-mono uppercase font-bold">
+                REF: TULC-WP-02
+              </div>
+
+              <div>
+                <span className="text-[#b8860b] text-[9px] uppercase font-mono font-bold block mb-2">
+                  Strategic Substrates
+                </span>
+                <h4 className="text-2xl font-bold font-serif text-white mb-4 group-hover:text-[#b8860b] transition-colors leading-snug">
+                  Cognitive Equity: Reclaiming the Architect's Seat
+                </h4>
+                <p className="text-zinc-300 italic font-light leading-relaxed mb-8 text-xs sm:text-sm">
+                  Quantifying the metabolic burn rate of leadership, calculating the hidden cost of micro-management friction, and engineering the systemic return on architectural integrity.
+                </p>
+              </div>
+
+              <div className="space-y-3 pt-6 border-t border-white/10">
+                <div className="flex flex-wrap gap-2">
+                  <button 
+                    onClick={() => setActivePaperKey('cognitive_equity')}
+                    className="text-[9px] font-black uppercase bg-[#b8860b] text-white px-5 py-2.5 hover:bg-white hover:text-black transition-all shadow-md cursor-pointer"
+                  >
+                    Read Online
+                  </button>
+                  <button 
+                    onClick={() => handleDownload('cognitive_equity')}
+                    className="text-[9px] font-black uppercase border border-white/20 text-zinc-200 px-5 py-2.5 hover:bg-white hover:text-black transition-all cursor-pointer"
+                  >
+                    Print / Save PDF
+                  </button>
+                </div>
+
+                {/* Interlink CTA */}
+                <div className="pt-2 flex items-center justify-between">
+                  <Link 
+                    to="/assessment" 
+                    className="text-[9px] font-mono font-bold text-[#b8860b] hover:text-white transition-colors flex items-center gap-1 uppercase"
+                  >
+                    <Calculator className="w-3 h-3" />
+                    <span>Calculate Your Inaction Tax →</span>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
 
+          {/* High-Converting Executive Action Banner */}
+          <div className="mt-16 p-8 sm:p-10 bg-gradient-to-r from-zinc-900 via-[#111111] to-zinc-900 border border-[#b8860b]/40 rounded-xs flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+            <div className="space-y-2 max-w-2xl text-left">
+              <span className="text-[9px] font-mono font-bold uppercase text-[#b8860b] block">
+                From Research To Hard-Coded Execution
+              </span>
+              <h4 className="text-xl sm:text-2xl font-bold font-serif text-white">
+                Ready to hard-code these protocols into your organization?
+              </h4>
+              <p className="text-zinc-300 text-xs sm:text-sm italic font-light leading-relaxed">
+                We do not hand off static recommendations. Our firm co-implements alongside your executive team to automate governance, reclaim bandwidth, and lock in operational sovereignty.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
+              <Link
+                to="/assessment"
+                className="px-6 py-3 bg-[#b8860b] text-white hover:bg-white hover:text-black text-[10px] font-bold uppercase transition-all text-center rounded-xs shadow-lg flex items-center justify-center gap-2"
+              >
+                <Calculator className="w-3.5 h-3.5" />
+                <span>Run Diagnostic Audit</span>
+              </Link>
+              <Link
+                to="/intake"
+                className="px-6 py-3 bg-zinc-800 text-zinc-200 hover:bg-zinc-700 border border-white/10 text-[10px] font-bold uppercase transition-all text-center rounded-xs flex items-center justify-center gap-2"
+              >
+                <span>Request Briefing</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#b8860b]" />
+              </Link>
+            </div>
+          </div>
+
           {/* Strategic Newsletter Placement - Library Terminal */}
-          <div className="mt-20 pt-16 border-t border-white/10 max-w-4xl mx-auto">
+          <div className="mt-16 pt-12 border-t border-white/10 max-w-4xl mx-auto">
             <Newsletter />
           </div>
         </div>
