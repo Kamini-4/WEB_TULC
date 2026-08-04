@@ -42,7 +42,7 @@ const HumanSubstrateManifesto: React.FC = () => {
               </div>
               <h3 className="text-sm font-bold text-white font-serif">Purely Human Diagnostic</h3>
               <p className="text-xs text-zinc-300 italic font-light leading-relaxed">
-                Maps the founder's cognitive bandwidth, emotional focus, and strategic bottlenecks. Includes our <strong className="text-white">Provisional Patent-Filed Assessment</strong> and <strong className="text-white">Voice & Handwriting Behavioral Stress Mapping</strong>.
+                Maps the founder's cognitive bandwidth, emotional focus, and strategic bottlenecks. Includes our <strong className="text-white">Provisional Patent-Pending Assessment</strong> and <strong className="text-white">Voice & Handwriting Behavioral Stress Mapping</strong>.
               </p>
             </div>
 
@@ -77,7 +77,7 @@ const HumanSubstrateManifesto: React.FC = () => {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 border-b border-white/10 pb-3">
               <div>
                 <span className="text-[9px] font-mono font-bold uppercase text-[#b8860b] block">
-                  Provisional Patent-Filed Framework
+                  Provisional Patent-Pending Framework
                 </span>
                 <h4 className="text-base font-bold font-serif text-white">
                   The 5 Sovereign Domains of Systemic Alignment

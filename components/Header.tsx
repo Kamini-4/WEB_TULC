@@ -96,7 +96,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
                 >
                   {item.label}
                   {item.path === '/library' && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-pulse" title="Patent-filed Research Registry" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-pulse" title="Patent-pending Research Registry" />
                   )}
                 </Link>
               )

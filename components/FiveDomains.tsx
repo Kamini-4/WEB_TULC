@@ -84,7 +84,7 @@ const FiveDomains: React.FC = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-3">
               <Award className="w-3.5 h-3.5 text-[#b8860b]" />
               <span className="text-[#b8860b] text-[10px] font-black uppercase font-mono">
-                Provisional Patent-Filed System
+                Provisional Patent-Pending System
               </span>
             </div>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-serif text-white">

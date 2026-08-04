@@ -51,7 +51,7 @@ const Hero: React.FC<HeroProps> = () => {
             <span className="text-[#111111] text-[10px] sm:text-[11px] font-black uppercase">The Unbounded Leadership Co.</span>
             <span className="text-zinc-300">|</span>
             <span className="text-[#b8860b] text-[10px] sm:text-[11px] font-mono font-bold uppercase flex items-center gap-1">
-              <Award className="w-3.5 h-3.5" /> Provisional Patent-Filed System
+              <Award className="w-3.5 h-3.5" /> Provisional Patent-Pending System
             </span>
           </motion.div>
 
@@ -72,7 +72,7 @@ const Hero: React.FC<HeroProps> = () => {
           <motion.div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 mb-8 max-w-4xl" variants={itemVariants}>
             <div className="flex items-center gap-2 px-3.5 py-2 bg-white border border-zinc-200 rounded-xs shadow-2xs text-[10px] sm:text-[11px] font-mono text-zinc-800">
               <FileCode2 className="w-3.5 h-3.5 text-[#b8860b]" />
-              <span><strong>Patent-Filed</strong> Substrate Assessment</span>
+              <span><strong>Patent-Pending</strong> Substrate Assessment</span>
             </div>
             <div className="flex items-center gap-2 px-3.5 py-2 bg-white border border-zinc-200 rounded-xs shadow-2xs text-[10px] sm:text-[11px] font-mono text-zinc-800">
               <Mic className="w-3.5 h-3.5 text-[#b8860b]" />

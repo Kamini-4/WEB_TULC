@@ -299,6 +299,80 @@ const Assessment: React.FC = () => {
   const voiceStreamRef = useRef<MediaStream | null>(null);
   const voiceAnimationRef = useRef<number | null>(null);
 
+  const startVoiceCalibration = async () => {
+    setMicState('calibrating');
+    try {
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        voiceStreamRef.current = stream;
+        setMicPermissionGranted(true);
+
+        const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+        if (AudioContextClass) {
+          const audioCtx = new AudioContextClass();
+          const analyser = audioCtx.createAnalyser();
+          analyser.fftSize = 64;
+          const source = audioCtx.createMediaStreamSource(stream);
+          source.connect(analyser);
+          voiceAnalyserNodeRef.current = analyser;
+
+          const canvas = voiceCanvasRef.current;
+          if (canvas) {
+            const ctx = canvas.getContext('2d');
+            const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+            const draw = () => {
+              voiceAnimationRef.current = requestAnimationFrame(draw);
+              analyser.getByteFrequencyData(dataArray);
+
+              let sum = 0;
+              for (let i = 0; i < dataArray.length; i++) {
+                sum += dataArray[i];
+              }
+              const avg = sum / dataArray.length;
+              setVoiceWaveLevel(avg);
+
+              if (ctx) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#09090b';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                const barWidth = (canvas.width / dataArray.length) * 1.5;
+                let x = 0;
+
+                for (let i = 0; i < dataArray.length; i++) {
+                  const barHeight = (dataArray[i] / 255) * canvas.height;
+                  ctx.fillStyle = '#b8860b';
+                  ctx.fillRect(x, canvas.height - barHeight, barWidth - 2, barHeight);
+                  x += barWidth;
+                }
+              }
+            };
+            draw();
+          }
+        }
+      }
+    } catch (err) {
+      console.warn("Microphone access unavailable, proceeding with simulated baseline calibration:", err);
+    }
+
+    setTimeout(() => {
+      setMicState('completed');
+      setVoiceCalibrated(true);
+    }, 2200);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (voiceStreamRef.current) {
+        voiceStreamRef.current.getTracks().forEach(t => t.stop());
+      }
+      if (voiceAnimationRef.current) {
+        cancelAnimationFrame(voiceAnimationRef.current);
+      }
+    };
+  }, []);
+
   // Playbook Interactive Add-on State
   const [showPlaybookOnboard, setShowPlaybookOnboard] = useState(false);
   const [playbookSubmitted, setPlaybookSubmitted] = useState(false);
@@ -552,32 +626,42 @@ const Assessment: React.FC = () => {
       const maxScore = 25;
       const percentage = (totalScoreValue / maxScore) * 100;
 
-      const result = await SovereignDB.saveAssessment({
-        userId: 'anonymous-sovereign',
-        name: identity.name,
-        email: identity.email,
-        organization: identity.organization,
-        context: context!,
-        answers: finalAnswers,
-        totalScore: totalScoreValue,
-        percentage,
-        domainScores: domainScores.map(d => ({ domain: d.domain, score: d.score }))
-      });
+      let savedId = 'local-' + Date.now();
+      try {
+        const result = await SovereignDB.saveAssessment({
+          userId: 'anonymous-sovereign',
+          name: identity.name || 'Executive Principal',
+          email: identity.email || 'anonymous@institution.com',
+          organization: identity.organization || 'Strategic Institution',
+          context: context || 'dynamic',
+          answers: finalAnswers,
+          totalScore: totalScoreValue,
+          percentage,
+          domainScores: domainScores.map(d => ({ domain: d.domain, score: d.score }))
+        });
+        if (result?.id) {
+          savedId = result.id;
+        }
+      } catch (dbError) {
+        console.warn("DB save non-blocking warning:", dbError);
+      }
 
-      if (result?.id) {
-        setAssessmentId(result.id);
-        
+      setAssessmentId(savedId);
+
+      try {
         await SovereignDB.sendContactEmail({
-          name: identity.name,
-          email: identity.email,
-          organization: identity.organization,
+          name: identity.name || 'Executive Principal',
+          email: identity.email || 'anonymous@institution.com',
+          organization: identity.organization || 'Strategic Institution',
           message: `Free Assessment Completed. Total Score: ${totalScoreValue}/25. Domain Scores: ${domainScores.map(d => `${d.domain}: ${d.score}`).join(', ')}`,
           type: 'ASSESSMENT_COMPLETED',
           assessmentData: {
             totalScore: totalScoreValue,
             domainScores: domainScores.map(d => ({ domain: d.domain, score: d.score }))
           }
-        }).catch(err => console.error("Assessment notify failed", err));
+        });
+      } catch (emailErr) {
+        console.warn("Assessment notification email send warning:", emailErr);
       }
 
       setTimeout(() => {
@@ -585,8 +669,11 @@ const Assessment: React.FC = () => {
         setIsSubmitting(false);
       }, 1000);
     } catch (error) {
-      console.error("Error saving assessment", error);
-      setIsSubmitting(false);
+      console.error("Error processing assessment:", error);
+      setTimeout(() => {
+        setStep('dossier');
+        setIsSubmitting(false);
+      }, 500);
     }
   };
 
@@ -905,13 +992,22 @@ const Assessment: React.FC = () => {
                 />
 
                 {micState === 'idle' && (
-                  <button
-                    type="button"
-                    onClick={startVoiceCalibration}
-                    className="w-full py-2.5 bg-[#b8860b] hover:bg-white hover:text-black font-bold uppercase text-[8px] sm:text-[9px] transition-all font-mono text-center block text-white"
-                  >
-                    Allow Microphone & Initiate Baseline Calibration
-                  </button>
+                  <div className="space-y-2">
+                    <button
+                      type="button"
+                      onClick={startVoiceCalibration}
+                      className="w-full py-2.5 bg-[#b8860b] hover:bg-white hover:text-black font-bold uppercase text-[8px] sm:text-[9px] transition-all font-mono text-center block text-white"
+                    >
+                      Allow Microphone & Initiate Baseline Calibration
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setStep('context')}
+                      className="w-full py-2 bg-transparent border border-zinc-800 hover:border-[#b8860b] text-zinc-400 hover:text-white font-mono text-[8px] uppercase transition-all"
+                    >
+                      Bypass Vocal Baseline & Proceed to Substrate Selection →
+                    </button>
+                  </div>
                 )}
 
                 {micState === 'calibrating' && (

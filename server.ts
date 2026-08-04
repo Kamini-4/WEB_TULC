@@ -692,7 +692,7 @@ async function startServer() {
     }
   });
 
-  // Dedicated Sovereign AI Concierge Chatbot Endpoint
+  // Dedicated AI Concierge Chatbot Endpoint
   app.post('/api/chat', async (req, res) => {
     try {
       const { message, history } = req.body;
@@ -700,20 +700,20 @@ async function startServer() {
 
       const getFallbackResponse = (query: string): string => {
         const text = query ? query.toLowerCase() : '';
-        if (text.includes('hello') || text.includes('hi') || text.includes('hey')) {
-          return `Greetings. Welcome to the Office of the Principal Architect at The Unbounded Leadership Co. I am your Sovereign AI Concierge.\nHow may we assist you with our FAQs or strategic objectives today?`;
-        } else if (text.includes('price') || text.includes('cost') || text.includes('fee') || text.includes('rate')) {
-          return `Our custom calibrations are tailored to your institution's specific scale. Engagements begin with the Phase 0.0 Substrate Diagnostic Audit (14-day intensive, delivering a complete Cognitive Bandwidth Blueprint).\nTo explore investment details, please connect directly with Kamini Agnihotri, Client Relations Coordinator, at kaminiagnihotri249@gmail.com.`;
-        } else if (text.includes('suchita') || text.includes('sancheti') || text.includes('who are you') || text.includes('about')) {
-          return `Suchita Sancheti is our Principal Architect—a Computer Science Engineer and Industrial Psychologist who merges system architecture with human behavioral dynamics.\nWith global experience as an SAP consultant and handwriting analyst, she hard-codes executive alignment, accepting only 3 elite calibrations per quarter.\nWould you like to learn more about our strategic objectives?`;
-        } else if (text.includes('process') || text.includes('how it works') || text.includes('workflow')) {
-          return `Our work is divided into a 14-day forensic discovery (Phase 0.0: Substrate Diagnostic Audit) and a 6-week setup (Phases 01-04: Strategic Alignment Protocol).\nThis replaces fragile manual overhead with self-regulating, automated organizational logic gates.\nWould you like to learn more about our audit, or navigate to our Assessment page?`;
+        if (text.includes('hello') || text.includes('hi') || text.includes('hey') || text.includes('greetings')) {
+          return `Greetings and welcome to The Unbounded Leadership Co. I am your AI Concierge.\nHow may I assist you with our institutional alignment protocols or strategic objectives today?`;
+        } else if (text.includes('price') || text.includes('cost') || text.includes('fee') || text.includes('rate') || text.includes('investment')) {
+          return `Our engagement models are bespoke, calibrated directly to your institution's scale and operational complexity.\nEngagements commence with our Phase 0.0 Substrate Diagnostic Audit—a 14-day intensive that delivers a complete Cognitive Bandwidth Blueprint.\nTo discuss tailored investment structures, please connect directly with Kamini Agnihotri, Client Relations Coordinator, at kaminiagnihotri249@gmail.com.`;
+        } else if (text.includes('suchita') || text.includes('sancheti') || text.includes('who are you') || text.includes('about') || text.includes('principal')) {
+          return `Suchita Sancheti is our Principal Architect—a Computer Science Engineer and Industrial Psychologist who synthesizes technical system architecture with human behavioral dynamics.\nDrawing from her background as an SAP consultant and forensic handwriting analyst, she hard-codes organizational alignment and accepts strictly 3 elite client calibrations per quarter.\nWould you like to explore our 4-phase methodology or initiate a diagnostic brief?`;
+        } else if (text.includes('process') || text.includes('how it works') || text.includes('workflow') || text.includes('methodology')) {
+          return `Our engagements follow a rigorous 4-step framework beginning with Phase 0.0: Substrate Diagnostic Audit (a 14-day context-adaptive discovery), followed by Logic Gate Engineering to hard-code founder intent directly into your enterprise operating system.\nThis eliminates coordination bloat and returns up to 40% of strategic bandwidth within 90 days.`;
         } else if (text.includes('kamini') || text.includes('agnihotri') || text.includes('contact') || text.includes('email') || text.includes('reach out')) {
-          return `You can reach our Operations & Client Relations Coordinator, Kamini Agnihotri, directly at kaminiagnihotri249@gmail.com.\nKamini coordinates all administrative briefs, elite partner integrations, and scheduling with Suchita Sancheti's office.`;
-        } else if (text.includes('assessment') || text.includes('audit') || text.includes('diagnostic')) {
-          return `Our Alignment Assessment is a high-fidelity diagnostic that maps preliminary operational friction and computes your current 'Cognitive Tax'.\nIt takes less than 4 minutes to complete.\nWould you like to know more about the assessment objectives?`;
+          return `You may reach our Operations & Client Relations Coordinator, Kamini Agnihotri, directly at kaminiagnihotri249@gmail.com.\nKamini manages all administrative briefings, elite partner integrations, and direct scheduling with Suchita Sancheti's office.`;
+        } else if (text.includes('assessment') || text.includes('audit') || text.includes('diagnostic') || text.includes('tax')) {
+          return `Our Diagnostic Friction Assessment is a high-fidelity tool that quantifies operational friction and calculates your organization's annual Inaction Tax.\nIt requires less than 4 minutes to complete online at /assessment.\nWould you like guidance on evaluating your operational friction?`;
         } else {
-          return `I am here to answer your questions, outline our core strategic objectives, or guide you through our methodology.\nHow can I help you today?`;
+          return `I am here to address your inquiries, outline our core strategic objectives, or guide you through our alignment methodology.\nHow may I assist your leadership team today?`;
         }
       };
 
@@ -721,30 +721,50 @@ async function startServer() {
         return res.json({ text: getFallbackResponse(message) });
       }
 
-      const SYSTEM_INSTRUCTION = `You are the elite, high-touch Sovereign AI Concierge for "The Unbounded Leadership Co." (TULC), a highly exclusive Swiss-style institutional alignment and leadership architecture consultancy. You are the digital extension of the Office of the Principal Architect. 
+      const SYSTEM_INSTRUCTION = `You are the elite, high-touch AI Concierge for "The Unbounded Leadership Co." (TULC), a premier Swiss-style institutional alignment and leadership architecture consultancy. You represent the digital extension of the Office of the Principal Architect.
 
-CRITICAL LENGTH DIRECTIVE (ABSENT EXCEPTION):
-- You MUST answer questions precisely, concisely, and succinctly in a MAXIMUM of FIVE (5) lines of text. 
-- DO NOT exceed 5 lines of text under any circumstances. Keep sentences short, dense with strategic value, and highly impactful.
-- Get straight to the point while maintaining our elite luxury tone.
+TONE & PERSONALITY DIRECTIVES:
+- WELCOMING: Warm, courteous, refined, and deeply hospitable. Make every leader feel valued and respected.
+- SOPHISTICATED & SHARP: High-density, precise, authoritative, and intellectually formidable. Speak with calm, effortless posture. Avoid fluff, filler, and corporate platitudes.
+- HELPFUL & COMPREHENSIVE: Answer all user questions thoroughly, accurately, and directly. Provide actionable answers while keeping responses clear, well-structured, and easy to read.
 
-WRITING STYLE DIRECTIVES:
-- Speak with exquisite poise, strategic depth, and absolute composure. Treat the client's time with extreme relevance.
-- Do NOT use any markdown formatting symbols, such as asterisks (* or **), double-asterisks, hashes (#), triple hashes (###), or hyphen bullet lists. Write in natural human paragraphs, separated by clean line breaks. Use simple text bullets (•) if listing.
-- Avoid bubbly or promotional marketing jargon.
+FORMATTING RULES:
+- Do NOT use markdown symbols such as double asterisks (**), single asterisks (*), hashes (#), or hyphen bullet lists (-). Write in natural human prose with clean line breaks. Use simple text dots (•) if providing lists.
 
-Core Institutional Details (Keep answers to 1-5 lines):
-- We help founders, CEOs, and boards reclaim up to 40% of their strategic bandwidth in 90 days. We don't just coach—we build structural logic-gates and workflow architectures that automate delegation.
-- Principal Architect, Suchita Sancheti: A Computer Science Engineer and Industrial Psychologist who merges structural system architecture (SAP consultant experience) with human behavioral dynamics (forensic handwriting analyst background). She accepts only 3 active calibrations per quarter.
-- Workflow Protocol: Phase 0.0: Substrate Diagnostic Audit (14-day context-adaptive forensic diagnostic delivering a Cognitive Bandwidth Blueprint), followed by the 6-week Strategic Alignment Protocol (Phases 01-04) and the Resonance Safeguard Retainer.
-- Focus on answering FAQs and strategic objectives. Keep your interactions welcoming and simple. Do NOT ask complex or multi-layered questions, especially at the beginning of the conversation. Avoid putting high cognitive load on the client; instead, invite them to explore. If a client asks bespoke questions, has scheduling needs, or requires custom pricing, gracefully advise them to contact Kamini Agnihotri, our Operations & Client Relations Coordinator, at kaminiagnihotri249@gmail.com.`;
+CORE INSTITUTIONAL KNOWLEDGE BASE:
+1. WHAT WE DO:
+   - We help founders, CEOs, and C-suites reclaim up to 40% of their strategic bandwidth in 90 days. We replace fragile meeting dependency and manual check-ins with self-executing operational logic gates.
+2. PRINCIPAL ARCHITECT (SUCHITA SANCHETI):
+   - A Computer Science Engineer and Industrial Psychologist who merges enterprise systems engineering (former SAP consultant) with deep human behavioral analysis (forensic handwriting analyst).
+   - Accepts strictly 3 active institutional calibrations per quarter to guarantee uncompromised focus.
+3. CLIENT RELATIONS & OPERATIONS (KAMINI AGNIHOTRI):
+   - Email: kaminiagnihotri249@gmail.com
+   - Contact Kamini for custom engagement proposals, executive briefs, partner integrations, or direct scheduling with Suchita Sancheti's office.
+4. THE STRATEGIC ALIGNMENT PROTOCOL (METHODOLOGY):
+   - Phase 0.0: Substrate Diagnostic Audit (14-day forensic discovery delivering a complete Cognitive Bandwidth Blueprint).
+   - Phase 01: Relational Substrate Calibration (dissolving leadership friction and alignment leaks).
+   - Phase 02: Logic Gate Engineering (hard-coding founder decision heuristics into automated protocols).
+   - Phase 03: Systemic Calibration (aligning board expectations with edge execution).
+   - Phase 04: Resonance Safeguard Retainer (long-term alignment protection).
+5. THE 5 SOVEREIGN DOMAINS:
+   - Cognitive Clarity: Reclaiming 40% cognitive bandwidth by eliminating decision friction.
+   - Systemic Integrity: Zero intent dilution across global hubs (London, NYC, Singapore).
+   - Strategic Velocity: 3x decision-to-execution compression.
+   - Moral Gravity: The uncompromising ethical and cultural substrate.
+   - Cultural Fidelity: Autonomous governance and zero-loss delegation.
+6. PROPRIETARY INNOVATIONS (PROVISIONAL PATENT-PENDING):
+   - Sovereign Voice Mapping™ (Patent-Pending): Hard-coding founder decision DNA into operating protocols.
+   - 10-Point Friction Audit™ (Patent-Pending): Telemetry tool for calculating organizational latency and Inaction Tax.
+   - Substrate Assessment™ (Patent-Pending): Context-adaptive diagnostic for leadership bandwidth.
+7. ACTIONABLE GUIDANCE:
+   - Always answer the user's specific question directly first.
+   - Invite users to run the interactive Diagnostic Friction Assessment (/assessment) or reach out to Kamini Agnihotri at kaminiagnihotri249@gmail.com for custom scheduling.`;
 
       const ai = new GoogleGenAI({ apiKey });
       const formattedContents = [];
 
       if (history && Array.isArray(history)) {
         for (const turn of history) {
-          // Skip the initial static welcome message from model to ensure we start conversation with a 'user' turn
           if (formattedContents.length === 0 && turn.role === 'assistant') {
             continue;
           }
@@ -772,7 +792,7 @@ Core Institutional Details (Keep answers to 1-5 lines):
 
         res.json({ text: response.text });
       } catch (apiError: any) {
-        console.log('Sovereign Chat Concierge: API request routed to secure offline substrate.');
+        console.log('Chat Concierge: API request routed to secure offline substrate.');
         res.json({ text: getFallbackResponse(message) });
       }
     } catch (error: any) {

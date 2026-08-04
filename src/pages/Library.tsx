@@ -586,7 +586,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-4">
             <Award className="w-3.5 h-3.5 text-[#b8860b]" />
             <span className="text-[#b8860b] text-[10px] font-black uppercase font-mono">
-              Provisional Patent-Filed Intellectual Substrate
+              Provisional Patent-Pending Intellectual Substrate
             </span>
           </div>
           
@@ -595,7 +595,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
           </h1>
           
           <p className="mt-4 max-w-3xl text-zinc-300 text-sm sm:text-base italic font-light leading-relaxed">
-            A centralized repository of institutional intelligence, patent-filed strategic alignment protocols, and real-time leadership telemetry. Built for board members, founders, and C-suites who demand empirical rigor over advice.
+            A centralized repository of institutional intelligence, patent-pending strategic alignment protocols, and real-time leadership telemetry. Built for board members, founders, and C-suites who demand empirical rigor over advice.
           </p>
 
           {/* Intellectual Authority Proof Strip */}
@@ -632,7 +632,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-white/10 gap-4">
             <div>
               <span className="text-[#b8860b] text-[10px] font-black uppercase font-mono block mb-1">
-                Patent-Filed Frameworks
+                Patent-Pending Frameworks
               </span>
               <h3 className="text-2xl sm:text-3xl font-bold font-serif text-white">
                 Architectural White Papers

@@ -333,7 +333,7 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
                       <span className="text-zinc-400 font-mono text-xs">01 /</span> The Architectural Thesis
                     </span>
                     <span className="text-[9px] font-mono font-bold uppercase text-[#b8860b] bg-[#b8860b]/10 px-2 py-0.5 border border-[#b8860b]/30">
-                      Patent-Filed Matrix
+                      Patent-Pending Matrix
                     </span>
                   </h3>
                   <p className="text-zinc-600 leading-relaxed font-light italic text-sm mb-3">

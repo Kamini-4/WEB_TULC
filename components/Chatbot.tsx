@@ -36,7 +36,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen: propIsOpen, setIsOpen: propSe
   const [history, setHistory] = useState<Message[]>([
     {
       role: 'assistant',
-      content: 'Welcome to The Unbounded Leadership Co. I am the Sovereign AI Concierge, here to answer your questions, outline our core strategic objectives, or guide you through our methodology.\n\nHow can I assist you with your leadership alignment today?',
+      content: 'Welcome to The Unbounded Leadership Co. I am your AI Concierge, here to answer your questions, outline our core strategic objectives, or guide you through our methodology.\n\nHow can I assist you with your leadership alignment today?',
       timestamp: new Date(),
     }
   ]);
@@ -132,7 +132,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen: propIsOpen, setIsOpen: propSe
                   <Bot className="w-4 h-4 text-[#b8860b]" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-black uppercase text-white">Sovereign Concierge</h4>
+                  <h4 className="text-xs font-black uppercase text-white">AI Concierge</h4>
                   <div className="flex items-center gap-1.5 mt-0.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     <span className="text-[9px] font-mono uppercase text-zinc-400">Institutional Channel</span>
@@ -252,7 +252,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen: propIsOpen, setIsOpen: propSe
           )}
         </div>
         <span className="text-[10px] font-black uppercase ">
-          {isOpen ? 'Close Concierge' : 'Sovereign Concierge'}
+          {isOpen ? 'Close Concierge' : 'AI Concierge'}
         </span>
         
         {/* Subtle border pulse when closed */}

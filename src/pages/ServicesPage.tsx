@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Calculator, FileText, Layers, Shield } from 'lucide-react';
 import FAQ from '../../components/FAQ.tsx';
+import OperationalDeliverablesMatrix from '../../components/OperationalDeliverablesMatrix.tsx';
 
 interface Service {
   id: string;
@@ -672,6 +673,9 @@ const ServicesPage: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* Operational Deliverables Matrix - Concrete Tangible Outputs */}
+        <OperationalDeliverablesMatrix />
 
         {/* 03. Low-Friction Modular Engagement Entry - Shifted from Home */}
         <div className="mt-16 md:mt-24 -mx-6 md:-mx-12">
