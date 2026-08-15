@@ -3,7 +3,7 @@ import { db } from '../src/firebase';
 import { SovereignDB } from '../lib/database.ts';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Shield, Zap, Layers, ArrowRight, Lock, Download, ChevronRight, AlertCircle, ExternalLink, AlertTriangle, TrendingDown, Check, Copy, Mic, Volume2 } from 'lucide-react';
+import { Shield, Zap, Layers, ArrowRight, Lock, Download, ChevronRight, AlertCircle, ExternalLink, AlertTriangle, TrendingDown, Check, Copy, Mic, Volume2, ZoomIn, ZoomOut, Maximize2, Minimize2, Eye, Sparkles, Move } from 'lucide-react';
 import BrandLogo from './BrandLogo';
 
 type ContextType = 'dynamic' | 'established' | 'generational';
@@ -285,6 +285,11 @@ const Assessment: React.FC = () => {
   const [assessmentId, setAssessmentId] = useState<string | null>(null);
   const [dossierId, setDossierId] = useState(() => Math.floor(Math.random() * 100000).toString().padStart(6, '0'));
   const [dossierPage, setDossierPage] = useState<number>(1);
+
+  // Smart Zoom & Inspector States
+  const [zoomLevel, setZoomLevel] = useState<number>(100);
+  const [isZoomInspectorOpen, setIsZoomInspectorOpen] = useState(false);
+  const [inspectorZoom, setInspectorZoom] = useState<number>(160);
 
   // Voice Calibration States
   const [voiceCalibrated, setVoiceCalibrated] = useState(false);
@@ -805,6 +810,580 @@ const Assessment: React.FC = () => {
     };
   };
 
+  const handleExportFullDossierPDF = () => {
+    const printWindow = window.open('', '_blank');
+    if (!printWindow) {
+      alert("Please allow popups in your browser to generate and print your PDF Dossier.");
+      return;
+    }
+
+    const rDetails = getReportDetails();
+    const domainScores = computeDomainScores(answers);
+    const totalScoreValue = domainScores.reduce((a, b) => a + b.score, 0);
+    const gradeTitle = getGrade();
+    const formattedDate = new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    let inactionTax = "$1,850,000 / year";
+    if (identity.organization?.toLowerCase().includes('50m') || identity.organization?.toLowerCase().includes('enterprise')) {
+      inactionTax = "$4,200,000 / year";
+    } else if (totalScoreValue < 12) {
+      inactionTax = "$3,650,000 / year";
+    } else if (totalScoreValue < 18) {
+      inactionTax = "$2,100,000 / year";
+    } else {
+      inactionTax = "$950,000 / year";
+    }
+
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>Confidential Strategic Dossier - ${identity.organization || 'Executive Client'}</title>
+          <style>
+            @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+            * { box-sizing: border-box; }
+            
+            body {
+              background-color: #fafaf6;
+              color: #111111;
+              font-family: 'Playfair Display', Georgia, serif;
+              margin: 0;
+              padding: 0;
+              -webkit-print-color-adjust: exact;
+              print-color-adjust: exact;
+            }
+
+            .page {
+              width: 100%;
+              max-width: 820px;
+              margin: 30px auto;
+              padding: 60px 70px;
+              background-color: #ffffff;
+              border: 1px solid #e5e5d8;
+              box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+              page-break-after: always;
+              position: relative;
+              min-height: 1050px;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            }
+
+            @media print {
+              body { background-color: #ffffff; }
+              .page {
+                box-shadow: none;
+                border: none;
+                margin: 0;
+                padding: 40px 50px;
+                max-width: 100%;
+                min-height: 100vh;
+                page-break-after: always;
+              }
+            }
+
+            /* Header & Footer */
+            .doc-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              border-bottom: 2px solid #b8860b;
+              padding-bottom: 12px;
+              margin-bottom: 30px;
+            }
+
+            .doc-brand {
+              font-family: 'Cinzel', serif;
+              font-size: 11px;
+              font-weight: 700;
+              text-transform: uppercase;
+              letter-spacing: 0.15em;
+              color: #111111;
+            }
+
+            .doc-badge {
+              font-family: 'JetBrains Mono', monospace;
+              font-size: 8px;
+              font-weight: 700;
+              text-transform: uppercase;
+              color: #b8860b;
+              background-color: #fafaf6;
+              border: 1px solid #b8860b;
+              padding: 4px 8px;
+            }
+
+            .doc-footer {
+              border-top: 1px solid #e5e5d8;
+              padding-top: 12px;
+              margin-top: 30px;
+              display: flex;
+              justify-content: space-between;
+              font-family: 'JetBrains Mono', monospace;
+              font-size: 8px;
+              color: #777777;
+              text-transform: uppercase;
+            }
+
+            /* Typography */
+            h1 {
+              font-family: 'Playfair Display', serif;
+              font-size: 32px;
+              font-weight: 700;
+              color: #111111;
+              line-height: 1.25;
+              margin: 15px 0 10px 0;
+            }
+
+            h2 {
+              font-family: 'Playfair Display', serif;
+              font-size: 20px;
+              font-weight: 700;
+              color: #111111;
+              margin: 20px 0 10px 0;
+              border-bottom: 1px solid #b8860b;
+              padding-bottom: 6px;
+            }
+
+            h3 {
+              font-family: 'Playfair Display', serif;
+              font-size: 15px;
+              font-weight: 700;
+              color: #b8860b;
+              margin: 15px 0 6px 0;
+            }
+
+            p, li {
+              font-size: 12px;
+              line-height: 1.65;
+              color: #222222;
+              margin-bottom: 10px;
+            }
+
+            .emphasis {
+              font-style: italic;
+              font-weight: 400;
+              color: #111111;
+            }
+
+            .highlight-box {
+              background-color: #fafaf6;
+              border-left: 3px solid #b8860b;
+              padding: 15px 20px;
+              margin: 15px 0;
+            }
+
+            .gold-card {
+              border: 1px solid #b8860b;
+              padding: 20px;
+              background-color: #fdfdfa;
+              margin: 15px 0;
+            }
+
+            .metric-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 15px;
+              margin: 20px 0;
+            }
+
+            .metric-card {
+              background-color: #fafaf6;
+              border: 1px solid #e5e5d8;
+              padding: 15px;
+              text-align: center;
+            }
+
+            .metric-val {
+              font-family: 'Cinzel', serif;
+              font-size: 26px;
+              font-weight: 700;
+              color: #b8860b;
+              margin-bottom: 4px;
+            }
+
+            .metric-lbl {
+              font-family: 'JetBrains Mono', monospace;
+              font-size: 8px;
+              text-transform: uppercase;
+              color: #666666;
+              font-weight: 700;
+            }
+
+            .domain-table {
+              width: 100%;
+              border-collapse: collapse;
+              margin: 20px 0;
+              font-family: 'Inter', sans-serif;
+              font-size: 11px;
+            }
+
+            .domain-table th {
+              background-color: #111111;
+              color: #ffffff;
+              text-align: left;
+              padding: 8px 12px;
+              font-family: 'JetBrains Mono', monospace;
+              font-size: 8px;
+              text-transform: uppercase;
+            }
+
+            .domain-table td {
+              padding: 10px 12px;
+              border-bottom: 1px solid #eeeeee;
+            }
+
+            .bar-bg {
+              background-color: #e5e5d8;
+              height: 6px;
+              width: 100px;
+              border-radius: 3px;
+              overflow: hidden;
+            }
+
+            .bar-fill {
+              background-color: #b8860b;
+              height: 100%;
+            }
+
+            .cover-frame {
+              border: 2px solid #b8860b;
+              padding: 40px;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              text-align: center;
+            }
+
+            .signature-block {
+              margin-top: 30px;
+              border-top: 1px dashed #b8860b;
+              padding-top: 20px;
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-end;
+            }
+
+            .signature-title {
+              font-family: 'Cinzel', serif;
+              font-size: 12px;
+              font-weight: 700;
+              color: #111111;
+            }
+
+            .seal-stamp {
+              border: 2px solid #b8860b;
+              padding: 8px 16px;
+              font-family: 'Cinzel', serif;
+              font-size: 9px;
+              font-weight: 700;
+              color: #b8860b;
+              text-transform: uppercase;
+              letter-spacing: 0.1em;
+            }
+          </style>
+        </head>
+        <body>
+          <!-- PAGE 1: COVER PAGE -->
+          <div class="page">
+            <div class="cover-frame">
+              <div>
+                <div class="doc-brand">The Unbounded Leadership Co.</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #b8860b; text-transform: uppercase; margin-top: 5px; font-weight: 700;">
+                  Office of the Principal Architect • Swiss Alignment Architecture
+                </div>
+              </div>
+
+              <div style="margin: 40px 0;">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase; color: #b8860b; letter-spacing: 0.2em; margin-bottom: 15px; font-weight: 700;">
+                  PROVISIONAL PATENT-PENDING INTELLECTUAL SUBSTRATE
+                </div>
+                <h1 style="font-size: 36px; margin-bottom: 20px; line-height: 1.15;">
+                  CONFIDENTIAL STRATEGIC DOSSIER
+                </h1>
+                <p class="emphasis" style="font-size: 14px; max-width: 500px; margin: 0 auto; color: #444444;">
+                  A bespoke institutional alignment analysis tracking cognitive tax, decision latency, and strategic organizational integrity.
+                </p>
+              </div>
+
+              <div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left; background-color: #fafaf6; border: 1px solid #e5e5d8; padding: 20px; font-family: 'Inter', sans-serif; font-size: 11px;">
+                  <div>
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #777; text-transform: uppercase; font-weight: 700;">Executive Principal</div>
+                    <div style="font-weight: 700; color: #111; margin-top: 2px;">${identity.name || 'Executive Principal'}</div>
+                  </div>
+                  <div>
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #777; text-transform: uppercase; font-weight: 700;">Enterprise Authority</div>
+                    <div style="font-weight: 700; color: #111; margin-top: 2px;">${identity.organization || 'Enterprise Entity'}</div>
+                  </div>
+                  <div>
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #777; text-transform: uppercase; font-weight: 700;">Calendar Benchmark</div>
+                    <div style="font-weight: 700; color: #111; margin-top: 2px;">${formattedDate}</div>
+                  </div>
+                  <div>
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #777; text-transform: uppercase; font-weight: 700;">Reference Registry</div>
+                    <div style="font-weight: 700; color: #b8860b; margin-top: 2px;">#TULC-DOSSIER-${dossierId}</div>
+                  </div>
+                </div>
+
+                <div class="seal-stamp" style="margin-top: 25px; display: inline-block;">
+                  VERIFIED DIAGNOSTIC DOSSIER
+                </div>
+              </div>
+            </div>
+
+            <div class="doc-footer">
+              <span>Classified Executive Briefing</span>
+              <span>The Unbounded Leadership Co.</span>
+            </div>
+          </div>
+
+          <!-- PAGE 2: EXECUTIVE MATURITY & FINANCIAL INACTION TAX -->
+          <div class="page">
+            <div>
+              <div class="doc-header">
+                <div class="doc-brand">Strategic Maturity & Capital Loss Audit</div>
+                <div class="doc-badge">Reference #${dossierId}</div>
+              </div>
+
+              <h2>01. Executive Maturity & Inaction Tax Model</h2>
+              <p class="emphasis">
+                Quantifying the exact monetary capital drained by operational friction, decision latency, and meeting saturation across management layers.
+              </p>
+
+              <div class="metric-grid">
+                <div class="metric-card">
+                  <div class="metric-val">${totalScoreValue} / 25</div>
+                  <div class="metric-lbl">Substrate Alignment Index</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-val" style="font-size: 20px;">${gradeTitle}</div>
+                  <div class="metric-lbl">Operational Standard</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-val" style="font-size: 20px; color: #b8860b;">${inactionTax}</div>
+                  <div class="metric-lbl">Annual Inaction Tax</div>
+                </div>
+              </div>
+
+              <div class="gold-card">
+                <h3>Executive Summary & Diagnostic Thesis</h3>
+                <p class="emphasis" style="font-size: 13px; line-height: 1.7; color: #111;">
+                  "${rDetails.priority}"
+                </p>
+              </div>
+
+              <h3>Quantified Capital Loss Vectors</h3>
+              <ul style="font-size: 11px; font-family: 'Inter', sans-serif; line-height: 1.7; color: #333; padding-left: 18px;">
+                <li><strong style="color: #111;">Manual Alignment Tax:</strong> Executive team consumes 15+ hours weekly re-explaining strategic vision and approving tactical choices.</li>
+                <li><strong style="color: #111;">Decision Cycle Latency:</strong> 3x decision-to-execution delay caused by ambiguous delegation guardrails and board cycle dependency.</li>
+                <li><strong style="color: #111;">Key-Person Exposure:</strong> Key strategic intent remains un-codified in founder memory, risking immediate stall upon key leadership shifts.</li>
+              </ul>
+            </div>
+
+            <div class="doc-footer">
+              <span>Page 02 • Financial & Bandwidth Audit</span>
+              <span>The Unbounded Leadership Co.</span>
+            </div>
+          </div>
+
+          <!-- PAGE 3: 5 SOVEREIGN DOMAINS BREAKDOWN -->
+          <div class="page">
+            <div>
+              <div class="doc-header">
+                <div class="doc-brand">The 5 Sovereign Domains Calibration</div>
+                <div class="doc-badge">Substrate Vector Matrix</div>
+              </div>
+
+              <h2>02. 5-Domain Alignment Calibration</h2>
+              <p class="emphasis">
+                Cross-mapping institutional health across the 5 locked enterprise vectors to isolate exact structural leaks.
+              </p>
+
+              <table class="domain-table">
+                <thead>
+                  <tr>
+                    <th>Domain Vector</th>
+                    <th>Score</th>
+                    <th>Visual Index</th>
+                    <th>Substrate Maturity Level</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${domainScores.map(d => `
+                    <tr>
+                      <td><strong style="color: #111; font-family: 'Playfair Display', serif; font-size: 12px;">${d.domain}</strong></td>
+                      <td><strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace;">${d.score} / 5</strong></td>
+                      <td>
+                        <div class="bar-bg">
+                          <div class="bar-fill" style="width: ${(d.score / 5) * 100}%;"></div>
+                        </div>
+                      </td>
+                      <td style="font-style: italic; color: #555;">
+                        ${d.score >= 4 ? 'Architectural Standard' : d.score >= 3 ? 'Systemic Alignment' : 'Manual Dependency'}
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+
+              <div class="highlight-box">
+                <h3 style="margin-top: 0;">Primary Structural Strength</h3>
+                <p class="emphasis" style="font-size: 12px; margin-bottom: 0;">
+                  <strong style="color: #111; font-style: normal;">${rDetails.strengthDomain}:</strong> ${rDetails.strength}
+                </p>
+              </div>
+
+              <div class="gold-card" style="margin-top: 15px;">
+                <h3 style="margin-top: 0;">Priority Attention Domains</h3>
+                <div style="font-size: 11px; color: #333; line-height: 1.6;">
+                  <p style="margin-bottom: 8px;"><strong style="color: #b8860b;">1. ${rDetails.attentionDomain1}:</strong> <span class="emphasis">${rDetails.refinement1}</span></p>
+                  <p style="margin-bottom: 0;"><strong style="color: #b8860b;">2. ${rDetails.attentionDomain2}:</strong> <span class="emphasis">${rDetails.refinement2}</span></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="doc-footer">
+              <span>Page 03 • 5-Domain Matrix</span>
+              <span>The Unbounded Leadership Co.</span>
+            </div>
+          </div>
+
+          <!-- PAGE 4: STRATEGIC PRESCRIPTIONS & ROADMAP -->
+          <div class="page">
+            <div>
+              <div class="doc-header">
+                <div class="doc-brand">Architectural Prescriptions & Roadmap</div>
+                <div class="doc-badge">Phase 0.0 - 04 Protocol</div>
+              </div>
+
+              <h2>03. Tailored Architectural Prescriptions</h2>
+              <p class="emphasis">
+                Replacing manual overhead with self-executing operational logic gates to recover strategic bandwidth within 90 days.
+              </p>
+
+              <div class="highlight-box">
+                <h3>Prescription A: ${rDetails.attentionDomain1} Calibration</h3>
+                <p class="emphasis" style="font-size: 12px; line-height: 1.65; margin-bottom: 0;">
+                  ${rDetails.prescription1}
+                </p>
+              </div>
+
+              <div class="highlight-box" style="margin-top: 15px;">
+                <h3>Prescription B: ${rDetails.attentionDomain2} Hard-Coding</h3>
+                <p class="emphasis" style="font-size: 12px; line-height: 1.65; margin-bottom: 0;">
+                  ${rDetails.prescription2}
+                </p>
+              </div>
+
+              <h2>04. The 4-Phase Implementation Architecture</h2>
+              <div style="font-size: 11px; font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; margin-top: 15px;">
+                <div style="border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 8px;">
+                  <strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;">Phase 0.0 • Substrate Diagnostic Audit (14 Days)</strong><br />
+                  Forensic analysis mapping decision friction, communication latency, and cognitive drain to deliver a complete Cognitive Bandwidth Blueprint.
+                </div>
+                <div style="border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 8px;">
+                  <strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;">Phase 01 • Relational Substrate Calibration (6 Weeks)</strong><br />
+                  Dissolving C-suite divergence, clarifying boundary conditions, and aligning C-suite expectations.
+                </div>
+                <div style="border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 8px;">
+                  <strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;">Phase 02 • Logic Gate Engineering</strong><br />
+                  Hard-coding founder decision heuristics into automated, pre-authorized operational logic gates.
+                </div>
+                <div>
+                  <strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;">Phase 03 & 04 • Systemic Calibration & Resonance Safeguard</strong><br />
+                  Deploying Weekly Pulse Telemetry dashboards and long-term retainer safeguards to preserve strategic fidelity across global offices.
+                </div>
+              </div>
+            </div>
+
+            <div class="doc-footer">
+              <span>Page 04 • Prescriptions & Roadmap</span>
+              <span>The Unbounded Leadership Co.</span>
+            </div>
+          </div>
+
+          <!-- PAGE 5: TACTICAL PLAYBOOK & INSTITUTIONAL SIGN-OFF -->
+          <div class="page">
+            <div>
+              <div class="doc-header">
+                <div class="doc-brand">Micro-Playbook & Certification</div>
+                <div class="doc-badge">Institutional Verification</div>
+              </div>
+
+              <h2>05. Operational Playbook & Verification</h2>
+              <p class="emphasis">
+                Specific circuit breakers and governance parameters configured for ${identity.organization || 'Executive Client'}.
+              </p>
+
+              ${playbookSubmitted ? `
+                <div class="gold-card">
+                  <h3 style="margin-top: 0;">Configured Executive Profile</h3>
+                  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-family: 'Inter', sans-serif; font-size: 10px; margin-top: 10px;">
+                    <div>
+                      <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #888; text-transform: uppercase; display: block;">Handover Horizon</span>
+                      <strong style="color: #111; font-style: italic;">${playbookAnswers.handoverHorizon}</strong>
+                    </div>
+                    <div>
+                      <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #888; text-transform: uppercase; display: block;">Focus Drain Point</span>
+                      <strong style="color: #111; font-style: italic;">${playbookAnswers.focusBottleneck}</strong>
+                    </div>
+                    <div>
+                      <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #888; text-transform: uppercase; display: block;">Key Risk Profile</span>
+                      <strong style="color: #111; font-style: italic;">${playbookAnswers.keyRiskLevel}</strong>
+                    </div>
+                  </div>
+                </div>
+              ` : ''}
+
+              <div class="highlight-box">
+                <h3>Immediate Circuit Breaker Directives</h3>
+                <ul style="font-size: 11px; font-family: 'Inter', sans-serif; line-height: 1.7; color: #333; padding-left: 18px; margin-bottom: 0;">
+                  <li><strong style="color: #111;">Protocol Quarantine:</strong> Require direct leads to submit 2-minute structured Loom briefings using strict decision parameter templates prior to scheduling live alignment syncs.</li>
+                  <li><strong style="color: #111;">Transaction Authority Guardrails:</strong> Legally pre-authorize operational expenditure and strategic decisions under $10,000 for secondary management layers.</li>
+                </ul>
+              </div>
+
+              <div class="signature-block">
+                <div>
+                  <div class="signature-title">Suchita Sancheti</div>
+                  <div style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #777; text-transform: uppercase; margin-top: 2px;">
+                    Principal Architect • Computer Science Engineer & Industrial Psychologist
+                  </div>
+                  <div style="font-family: 'Cinzel', serif; font-size: 10px; color: #111; margin-top: 5px; font-weight: 700;">
+                    The Unbounded Leadership Co.
+                  </div>
+                </div>
+
+                <div class="seal-stamp">
+                  OFFICIAL INSTITUTIONAL SEAL
+                </div>
+              </div>
+            </div>
+
+            <div class="doc-footer">
+              <span>Page 05 • Playbook & Certification</span>
+              <span>The Unbounded Leadership Co. • Confidential</span>
+            </div>
+          </div>
+        </body>
+      </html>
+    `;
+
+    printWindow.document.write(htmlContent);
+    printWindow.document.close();
+    
+    setTimeout(() => {
+      printWindow.focus();
+      printWindow.print();
+    }, 600);
+  };
+
   return (
     <section id="assessment" className="py-12 md:py-16 bg-[#f5f5f0] scroll-mt-28 md:scroll-mt-32 min-h-[650px] flex flex-col justify-center relative overflow-hidden">
       {/* Background Decorative Element */}
@@ -1318,7 +1897,7 @@ const Assessment: React.FC = () => {
                   <div className="flex-grow">
                     
                     {/* Header bar (consistent across pages) */}
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 pb-4 border-b border-white/10 gap-2 text-left">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 pb-4 border-b border-white/10 gap-3 text-left">
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-pulse" />
@@ -1328,15 +1907,69 @@ const Assessment: React.FC = () => {
                           Dossier <span className="text-[#b8860b]">{dossierId}</span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <span className="text-[8px] uppercase font-bold text-zinc-500 font-mono">Vertical Calibration Rank:</span>
-                        <span className="px-3 py-1 bg-white text-black text-[9px] font-black uppercase font-mono">
+
+                      {/* Smart Zoom Controls & Actions */}
+                      <div className="flex flex-wrap items-center gap-2">
+                        {/* Zoom Control Group */}
+                        <div className="flex items-center bg-black/60 border border-white/15 p-1 rounded-xs">
+                          <button
+                            type="button"
+                            onClick={() => setZoomLevel(prev => Math.max(100, prev - 25))}
+                            disabled={zoomLevel <= 100}
+                            className="p-1 hover:bg-zinc-800 text-zinc-300 disabled:opacity-30 transition-all cursor-pointer"
+                            title="Zoom Out"
+                          >
+                            <ZoomOut className="w-3.5 h-3.5" />
+                          </button>
+
+                          <span className="px-2 text-[9px] font-mono font-bold text-[#b8860b] min-w-[42px] text-center select-none">
+                            {zoomLevel}%
+                          </span>
+
+                          <button
+                            type="button"
+                            onClick={() => setZoomLevel(prev => Math.min(200, prev + 25))}
+                            disabled={zoomLevel >= 200}
+                            className="p-1 hover:bg-zinc-800 text-zinc-300 disabled:opacity-30 transition-all cursor-pointer"
+                            title="Zoom In"
+                          >
+                            <ZoomIn className="w-3.5 h-3.5" />
+                          </button>
+
+                          <button
+                            type="button"
+                            onClick={() => setIsZoomInspectorOpen(true)}
+                            className="ml-1 pl-1.5 border-l border-white/10 text-zinc-300 hover:text-white flex items-center gap-1 text-[8px] font-mono uppercase font-bold p-1 hover:bg-zinc-800 transition-all cursor-pointer"
+                            title="Open Fullscreen Smart Inspector"
+                          >
+                            <Maximize2 className="w-3 h-3 text-[#b8860b]" />
+                            <span className="hidden sm:inline">Inspect</span>
+                          </button>
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={handleExportFullDossierPDF}
+                          className="px-3.5 py-1.5 bg-[#b8860b] hover:bg-white hover:text-black text-white text-[9px] font-bold uppercase font-mono transition-all flex items-center gap-1.5 shadow-sm cursor-pointer"
+                          title="Download complete publication-grade Executive Dossier PDF"
+                        >
+                          <Download className="w-3 h-3 text-white" />
+                          <span>Export PDF</span>
+                        </button>
+
+                        <span className="px-3 py-1 bg-white text-black text-[9px] font-black uppercase font-mono hidden sm:inline">
                           {getGrade()}
                         </span>
                       </div>
                     </div>
 
-                    <div className="mt-4">
+                    <motion.div 
+                      className="mt-4 transition-transform duration-300 origin-top"
+                      style={{
+                        transform: zoomLevel !== 100 ? `scale(${zoomLevel / 100})` : 'none',
+                        marginBottom: zoomLevel > 100 ? `${(zoomLevel - 100) * 2}px` : '0px'
+                      }}
+                    >
                       {dossierPage === 1 && (
                         /* PAGE 1: COVER PAGE */
                         <div className="flex flex-col justify-center text-center py-6 px-4 space-y-6">
@@ -1591,10 +2224,11 @@ const Assessment: React.FC = () => {
                             </div>
                             {playbookSubmitted && (
                               <button
-                                onClick={() => window.print()}
-                                className="text-[8px] font-bold uppercase border border-white/20 px-3 py-1 bg-black text-white hover:bg-white hover:text-black transition-all flex items-center gap-1.5 font-mono"
+                                type="button"
+                                onClick={handleExportFullDossierPDF}
+                                className="text-[8px] font-bold uppercase border border-white/20 px-3 py-1 bg-[#b8860b] text-white hover:bg-white hover:text-black transition-all flex items-center gap-1.5 font-mono cursor-pointer"
                               >
-                                <Download className="w-3 h-3" /> Print
+                                <Download className="w-3 h-3" /> Download / Print PDF Dossier
                               </button>
                             )}
                           </div>
@@ -1833,7 +2467,7 @@ const Assessment: React.FC = () => {
                           </div>
                         </div>
                       )}
-                    </div>
+                    </motion.div>
                   </div>
 
                   {/* NAVIGATION PAGES CONTROLS (Static footer section, preventing layout shifts) */}
@@ -1841,7 +2475,7 @@ const Assessment: React.FC = () => {
                     <button
                       onClick={() => setDossierPage(prev => Math.max(1, prev - 1))}
                       disabled={dossierPage === 1}
-                      className="px-4 py-2 bg-black border border-white/10 hover:border-[#b8860b] text-[9px] font-bold uppercase disabled:opacity-30 transition-all font-mono"
+                      className="px-4 py-2 bg-black border border-white/10 hover:border-[#b8860b] text-[9px] font-bold uppercase disabled:opacity-30 transition-all font-mono cursor-pointer"
                     >
                       ← Prev Leaf
                     </button>
@@ -1851,7 +2485,7 @@ const Assessment: React.FC = () => {
                     <button
                       onClick={() => setDossierPage(prev => Math.min(8, prev + 1))}
                       disabled={dossierPage === 8}
-                      className="px-4 py-2 bg-black border border-white/10 hover:border-[#b8860b] text-[9px] font-bold uppercase disabled:opacity-30 transition-all font-mono"
+                      className="px-4 py-2 bg-black border border-white/10 hover:border-[#b8860b] text-[9px] font-bold uppercase disabled:opacity-30 transition-all font-mono cursor-pointer"
                     >
                       Next Leaf →
                     </button>
@@ -1900,6 +2534,127 @@ const Assessment: React.FC = () => {
               </motion.div>
             );
           })()}
+        </AnimatePresence>
+
+        {/* Full-Screen Smart Zoom Inspector Modal */}
+        <AnimatePresence>
+          {isZoomInspectorOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex flex-col justify-between p-4 md:p-8"
+            >
+              {/* Header Bar */}
+              <div className="flex justify-between items-center pb-4 border-b border-white/10 text-white font-mono z-10">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-[#b8860b]/20 border border-[#b8860b]/40 rounded-xs">
+                    <Eye className="w-5 h-5 text-[#b8860b]" />
+                  </div>
+                  <div>
+                    <div className="text-[10px] uppercase font-bold text-[#b8860b] flex items-center gap-1.5">
+                      <Sparkles className="w-3 h-3" /> Smart Optical Zoom Inspector
+                    </div>
+                    <div className="text-sm font-bold text-zinc-100">Dossier Leaf #{dossierPage} • HD Vector View</div>
+                  </div>
+                </div>
+
+                {/* Zoom & Action Controls */}
+                <div className="flex items-center gap-3">
+                  <div className="hidden sm:flex items-center gap-2 bg-zinc-900 border border-zinc-800 px-3 py-1.5 rounded-xs">
+                    <ZoomOut className="w-4 h-4 text-zinc-400 cursor-pointer hover:text-white" onClick={() => setInspectorZoom(prev => Math.max(100, prev - 25))} />
+                    <input
+                      type="range"
+                      min="100"
+                      max="300"
+                      step="10"
+                      value={inspectorZoom}
+                      onChange={(e) => setInspectorZoom(Number(e.target.value))}
+                      className="w-28 accent-[#b8860b] cursor-pointer"
+                    />
+                    <ZoomIn className="w-4 h-4 text-zinc-400 cursor-pointer hover:text-white" onClick={() => setInspectorZoom(prev => Math.min(300, prev + 25))} />
+                    <span className="text-xs font-bold text-[#b8860b] w-12 text-right">{inspectorZoom}%</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setIsZoomInspectorOpen(false)}
+                    className="px-4 py-2 bg-[#b8860b] hover:bg-white hover:text-black text-white text-xs font-bold uppercase transition-all flex items-center gap-2 cursor-pointer font-mono shadow-md"
+                  >
+                    <Minimize2 className="w-4 h-4" />
+                    <span>Close</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Pan Canvas */}
+              <div className="flex-grow my-4 relative overflow-hidden flex items-center justify-center border border-white/10 bg-[#070707] rounded-xs cursor-grab active:cursor-grabbing p-4">
+                <motion.div
+                  drag
+                  dragConstraints={{ left: -400, right: 400, top: -400, bottom: 400 }}
+                  style={{ scale: inspectorZoom / 100 }}
+                  transition={{ type: 'spring', stiffness: 220, damping: 25 }}
+                  className="p-8 md:p-12 max-w-4xl w-full bg-[#111111] border border-[#b8860b]/40 text-white shadow-2xl rounded-xs select-none"
+                >
+                  <div className="text-right text-[8px] font-mono text-[#b8860b] uppercase tracking-widest mb-4 flex items-center justify-end gap-1.5 border-b border-white/10 pb-2">
+                    <Move className="w-3 h-3 animate-pulse" /> Drag canvas to pan • Smart Zoom Active
+                  </div>
+
+                  {/* Content View */}
+                  <div className="space-y-4 font-serif">
+                    <div className="text-xs font-mono text-[#b8860b] uppercase tracking-wider">
+                      Executive Briefing • Leaf 0{dossierPage}
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-white leading-snug">
+                      {dossierPage === 1 && "CONFIDENTIAL STRATEGIC DOSSIER"}
+                      {dossierPage === 2 && `Primary Institutional Asset: ${rDetails.strengthDomain}`}
+                      {dossierPage === 3 && `Refinement Vector 01: ${rDetails.attentionDomain1}`}
+                      {dossierPage === 4 && `Refinement Vector 02: ${rDetails.attentionDomain2}`}
+                      {dossierPage === 5 && "Dynamic Recalibration Strategy"}
+                      {dossierPage === 6 && "Empirical Calibration & Real-Time Voice Cross-Map"}
+                      {dossierPage === 7 && "Alignment Micro-Playbook Calibrator"}
+                      {dossierPage === 8 && "Assessment Portal Direct Access"}
+                    </h2>
+
+                    <div className="text-sm text-zinc-300 leading-relaxed italic border-l-2 border-[#b8860b] pl-4 py-1">
+                      {dossierPage === 1 && "Bespoke institutional alignment audit calibrating cognitive tax, coordination latency, and organizational integrity."}
+                      {dossierPage === 2 && `"${refinedInsights[rDetails.strengthDomain]?.strength || rDetails.strength}"`}
+                      {dossierPage === 3 && `"${d1Ins?.refinement || rDetails.refinement1}"`}
+                      {dossierPage === 4 && `"${d2Ins?.refinement || rDetails.refinement2}"`}
+                      {dossierPage === 5 && "Selective recalibration targeting your two highest-friction domains for immediate operational recovery."}
+                      {dossierPage === 6 && `Aggregate Alignment Fidelity: ${Math.round((totalScoreValue / 50) * 100)}% • Cognitive Bandwidth Reclaimed: ${Math.round(80 + (totalScoreValue / 5))}%`}
+                      {dossierPage === 7 && "Operational circuit breakers and pre-approved transaction authorities hard-coded for your organization."}
+                      {dossierPage === 8 && "Continuous live telemetry and institutional verification badge ledger."}
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Leaf Switcher */}
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-3 pt-3 border-t border-white/10 text-white font-mono text-xs z-10">
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="text-zinc-500 uppercase text-[9px] mr-1">Leaf Navigation:</span>
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map(p => (
+                    <button
+                      key={p}
+                      onClick={() => setDossierPage(p)}
+                      className={`px-2.5 py-1 text-[10px] font-bold border transition-all cursor-pointer ${dossierPage === p ? 'bg-[#b8860b] text-white border-[#b8860b]' : 'bg-black text-zinc-400 border-zinc-800 hover:border-zinc-500'}`}
+                    >
+                      0{p}
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleExportFullDossierPDF}
+                  className="px-4 py-1.5 bg-[#b8860b] text-white hover:bg-white hover:text-black text-[10px] font-bold uppercase transition-all flex items-center gap-1.5 font-mono cursor-pointer shadow-sm"
+                >
+                  <Download className="w-3.5 h-3.5" /> Print Full PDF
+                </button>
+              </div>
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
     </section>

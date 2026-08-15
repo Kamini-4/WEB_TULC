@@ -441,22 +441,22 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-[#111111] text-white p-12 md:p-16 border border-[#b8860b]/20 relative overflow-hidden flex flex-col justify-between rounded-sm shadow-xl"
+            className="bg-[#111111] text-white p-10 md:p-14 border border-[#b8860b]/30 relative overflow-hidden flex flex-col justify-between rounded-xs shadow-2xl"
           >
             <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#b8860b]/10 to-transparent pointer-events-none" />
             <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-8">
-                <span className="text-lg">📊</span>
-                <span className="text-[#b8860b] text-[10px] font-black uppercase block">VISION</span>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-xl">🏛️</span>
+                <span className="text-[#b8860b] text-[10px] font-mono font-bold uppercase tracking-widest block">VISION</span>
               </div>
-              <p className="text-[#f5f5f0] text-lg md:text-xl leading-relaxed font-light italic border-l border-[#b8860b]/40 pl-6 mb-8 font-serif">
+              <p className="text-[#f5f5f0] text-lg md:text-xl leading-relaxed font-light italic border-l-2 border-[#b8860b] pl-6 mb-6 font-serif">
                 "To align human ambition with enduring organizational architecture — so that power, scale, and perpetuity compound as one, and what the world's greatest founders build today commands the future long after they have conquered it."
               </p>
             </div>
-            <div className="mt-8 pt-6 border-t border-white/5 relative z-10">
-              <span className="text-[9px] uppercase font-mono text-zinc-500 block mb-2">DESIGN INSIGHT & CALIBRATION</span>
-              <p className="text-[10px] text-zinc-400 italic font-mono leading-relaxed">
-                Aligning structure with execution — our methodology focuses on concrete, measurable gains in strategic velocity, eliminating coordination costs and organizational bottlenecks.
+            <div className="mt-8 pt-6 border-t border-white/10 relative z-10">
+              <span className="text-[9px] uppercase font-mono text-zinc-500 block mb-1">SYSTEMIC DESIGN THESIS</span>
+              <p className="text-[11px] text-zinc-400 italic font-mono leading-relaxed">
+                Aligning human ambition with institutional infrastructure — engineering enduring organizational architecture that compounds power, scale, and perpetuity across generations.
               </p>
             </div>
           </motion.div>
@@ -466,21 +466,21 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-[#111111] text-white p-12 md:p-16 border border-[#b8860b]/20 relative overflow-hidden flex flex-col justify-between rounded-sm shadow-xl"
+            className="bg-[#111111] text-white p-10 md:p-14 border border-[#b8860b]/30 relative overflow-hidden flex flex-col justify-between rounded-xs shadow-2xl"
           >
             <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#b8860b]/10 to-transparent pointer-events-none" />
             <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-8">
-                <span className="text-lg">🏛️</span>
-                <span className="text-[#b8860b] text-[10px] font-black uppercase block">MISSION</span>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-xl">🏛️</span>
+                <span className="text-[#b8860b] text-[10px] font-mono font-bold uppercase tracking-widest block">MISSION</span>
               </div>
-              <p className="text-white text-lg md:text-xl leading-relaxed font-light italic border-l border-[#b8860b]/40 pl-6 mb-6 font-serif">
+              <p className="text-[#f5f5f0] text-lg md:text-xl leading-relaxed font-light italic border-l-2 border-[#b8860b] pl-6 mb-6 font-serif">
                 "We work with the world's most consequential founders to architect the structural conditions for absolute organizational sovereignty. Across five foundational domains of systemic alignment, we dismantle operational dependency, dissolve leadership entropy, and engineer the precise infrastructure that allows an empire to grow, scale, and compound — with or without its founder at the helm."
               </p>
             </div>
-            <div className="mt-8 pt-6 border-t border-white/5 relative z-10">
-              <span className="text-[8px] uppercase font-black text-zinc-500 block mb-1">ALIGNMENT DOMAIN COVERAGE</span>
-              <span className="text-[9px] text-[#b8860b] uppercase font-bold font-mono">Cognitive Clarity • Systemic Integrity • Strategic Velocity • Moral Gravity • Cultural Fidelity</span>
+            <div className="mt-8 pt-6 border-t border-white/10 relative z-10">
+              <span className="text-[9px] uppercase font-mono text-zinc-500 block mb-1">5 SOVEREIGN DOMAINS OF SYSTEMIC ALIGNMENT</span>
+              <span className="text-[10px] text-[#b8860b] uppercase font-mono font-bold">Cognitive Clarity • Systemic Integrity • Strategic Velocity • Moral Gravity • Cultural Fidelity</span>
             </div>
           </motion.div>
         </div>

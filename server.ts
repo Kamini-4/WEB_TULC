@@ -13,15 +13,23 @@ async function startServer() {
   const app = express();
   const PORT = Number(process.env.PORT) || 3000;
   const isProd = process.env.NODE_ENV === 'production';
-  const isAISPreview = process.env.K_SERVICE === undefined || process.env.DISABLE_HMR === 'true';
+  const distExists = fs.existsSync(path.resolve(process.cwd(), 'dist')) || fs.existsSync(path.resolve(__dirname, 'dist'));
+  const useVite = !isProd || !distExists;
 
   app.use(express.json());
 
-  // Force development mode in AIS preview unless explicitly set to production
-  const useVite = !isProd && isAISPreview;
-
-  // SEO: Enforce HTTPS, non-www, and remove trailing slashes
+  // SEO: Enforce HTTPS, non-www, and remove trailing slashes for public page routes
   app.use((req, res, next) => {
+    // Skip SEO redirects for dev/vite paths and API routes
+    if (
+      req.path.startsWith('/api') ||
+      req.path.startsWith('/@') ||
+      req.path.startsWith('/node_modules') ||
+      req.path.startsWith('/src')
+    ) {
+      return next();
+    }
+
     const host = req.get('host');
     const pathName = req.path;
     const query = req.url.slice(req.path.length);
@@ -45,7 +53,7 @@ async function startServer() {
     }
 
     // Remove trailing slashes (except for root) to prevent duplicate content
-    if (pathName.length > 1 && pathName.endsWith('/')) {
+    if (pathName.length > 1 && pathName.endsWith('/') && !pathName.includes('.')) {
       newPath = pathName.slice(0, -1);
       redirect = true;
     }
@@ -953,6 +961,26 @@ Return EXACTLY a JSON object matching this schema (with no enclosing markdown wr
         appType: 'spa',
       });
       app.use(vite.middlewares);
+
+      // Handle SPA index.html fallback for client-side routing in dev
+      app.use('*', async (req, res, next) => {
+        const url = req.originalUrl;
+        if (url.startsWith('/api')) {
+          return next();
+        }
+        try {
+          const indexPath = path.resolve(process.cwd(), 'index.html');
+          if (!fs.existsSync(indexPath)) {
+            return res.status(404).send('index.html not found');
+          }
+          let html = fs.readFileSync(indexPath, 'utf-8');
+          html = await vite.transformIndexHtml(url, html);
+          res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
+        } catch (e: any) {
+          vite.ssrFixStacktrace?.(e);
+          next(e);
+        }
+      });
     } catch (e) {
       console.error('Vite failed to load, falling back to static serving', e);
       serveStatic(app);
