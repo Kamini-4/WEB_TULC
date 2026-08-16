@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sovereign Dossier // Suchita Sancheti // TULC</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&display=swap');
+    
+    :root {
+      --bg-color: #FAF9F5;
+      --text-color: #0A0A0A;
+      --accent-color: #C5A021;
+      --accent-dark: #8a6d1a;
+      --border-color: rgba(10, 10, 10, 0.1);
+      --card-bg: #FFFFFF;
+    }
+    
+    * {
+      font-family: 'Playfair Display', Georgia, serif !important;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-size: 12px;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    
+    .print-actions {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 249, 245, 0.98);
+      border-bottom: 1px solid var(--border-color);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+    
+    .btn {
+      background-color: var(--text-color);
+      color: var(--bg-color);
+      border: none;
+      padding: 8px 16px;
+      font-size: 10px;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif !important;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 2px;
+      transition: all 0.2s ease;
+    }
+    
+    .btn:hover {
+      background-color: var(--accent-color);
+      color: var(--text-color);
+    }
+    
+    .dossier-container {
+      max-width: 860px;
+      margin: 24px auto;
+      padding: 0 32px;
+    }
+    
+    .dossier-header {
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    .category-badge {
+      display: inline-block;
+      font-family: 'Playfair Display', serif !important;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--accent-dark);
+      background: rgba(197,160,33,0.1);
+      padding: 4px 12px;
+      border: 1px solid rgba(197,160,33,0.3);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    
+    .dossier-logo {
+      font-family: 'Playfair Display', serif !important;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 6px;
+    }
+    
+    .dossier-title {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 4px 0;
+      text-transform: uppercase;
+    }
+    
+    .dossier-subtitle {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: rgba(10, 10, 10, 0.6);
+      text-transform: uppercase;
+    }
+    
+    .metadata-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      background: var(--card-bg);
+      margin-bottom: 24px;
+    }
+    
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .meta-label {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: rgba(10, 10, 10, 0.5);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    
+    .meta-value {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    
+    .metrics-dashboard {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    
+    .metric-card {
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      padding: 14px 10px;
+      text-align: center;
+    }
+    
+    .metric-value {
+      font-size: 24px;
+      font-family: 'Playfair Display', serif !important;
+      font-weight: 700;
+      color: var(--text-color);
+      margin: 4px 0;
+    }
+    
+    .metric-title {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(10, 10, 10, 0.55);
+      text-transform: uppercase;
+    }
+    
+    .metric-sub {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 9.5px;
+      color: rgba(10, 10, 10, 0.6);
+      font-weight: 500;
+    }
+    
+    .narrative-section {
+      margin-bottom: 28px;
+      page-break-inside: avoid;
+    }
+    
+    .section-title {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 15px;
+      font-weight: 700;
+      border-bottom: 1.5px solid var(--text-color);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .section-num {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent-dark);
+    }
+    
+    .narrative-content {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 12px;
+      line-height: 1.65;
+      color: rgba(10, 10, 10, 0.9);
+    }
+    
+    .narrative-paragraph {
+      font-family: 'Playfair Display', serif !important;
+      font-style: italic !important;
+      font-size: 12px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      text-align: justify;
+    }
+    
+    .bullet-item {
+      font-family: 'Playfair Display', serif !important;
+      font-style: italic !important;
+      margin-left: 16px;
+      margin-bottom: 6px;
+      list-style-type: square;
+    }
+    
+    .subheading-container {
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+
+    .section-subheading {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      color: var(--accent-dark) !important;
+      margin-top: 14px !important;
+      margin-bottom: 6px !important;
+      display: block !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+      border-bottom: 1px solid rgba(197, 160, 33, 0.25);
+      padding-bottom: 3px;
+    }
+    
+    .domains-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    
+    .domain-card {
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      padding: 16px;
+      page-break-inside: avoid;
+    }
+
+    .domain-card.strength-card {
+      border: 1px solid var(--accent-color);
+      background: rgba(197, 160, 33, 0.03);
+    }
+    
+    .domain-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      border-bottom: 1px dashed var(--border-color);
+      padding-bottom: 8px;
+    }
+    
+    .domain-name {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    
+    .domain-score {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      background: var(--text-color);
+      color: var(--bg-color);
+      padding: 2px 6px;
+      font-size: 10px;
+    }
+    
+    .domain-status {
+      font-size: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1px 5px;
+      border: 1px solid var(--text-color);
+      margin-left: 8px;
+    }
+    
+    .domain-status.excellence {
+      background: #E6F4EA;
+      border-color: #34A853;
+      color: #137333;
+    }
+    
+    .domain-status.refinement {
+      background: #FEF7E0;
+      border-color: #FBBC04;
+      color: #B06000;
+    }
+    
+    .domain-body {
+      font-size: 11.5px;
+      color: rgba(10, 10, 10, 0.82);
+    }
+    
+    .domain-item {
+      margin-bottom: 8px;
+    }
+    
+    .domain-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px;
+      color: rgba(10,10,10,0.48);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .gold-box {
+      border: 1px solid var(--accent-color);
+      background: rgba(197, 160, 33, 0.05);
+      padding: 14px 18px;
+      margin-bottom: 24px;
+    }
+
+    .chart-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      padding: 16px;
+      margin-bottom: 24px;
+      page-break-inside: avoid;
+    }
+    
+    .list-container {
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .list-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: var(--accent-dark);
+    }
+
+    .vocal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    .vocal-item {
+      border: 1px solid var(--border-color);
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+    
+    .vocal-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px;
+      color: rgba(10, 10, 10, 0.5);
+      text-transform: uppercase;
+    }
+    
+    .vocal-val {
+      font-weight: 700;
+      font-size: 11px;
+    }
+    
+    .legal-footer {
+      border-top: 1px solid var(--text-color);
+      padding-top: 16px;
+      margin-top: 36px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.5px;
+      line-height: 1.6;
+      color: rgba(10, 10, 10, 0.45);
+      text-align: justify;
+      page-break-inside: avoid;
+    }
+
+    .seal-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    @media print {
+      body {
+        background-color: #FFFFFF;
+        color: #000000;
+      }
+      .print-actions {
+        display: none;
+      }
+      .dossier-container {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-actions">
+    <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.05em; color:rgba(10,10,10,0.6);">
+      TULC SECURE ARCHIVE // EXECUTIVE CALIBRATION DOSSIER
+    </div>
+    <div style="display:flex; gap:10px;">
+      <button class="btn" onclick="window.print()">Print Dossier / Save PDF</button>
+    </div>
+  </div>
+
+  <div class="dossier-container">
+    <header class="dossier-header">
+      <div class="category-badge">LEGACY ENTERPRISE SOVEREIGN DOSSIER // INSTITUTIONAL STABILITY & SYSTEMIC COMMAND</div>
+      <div class="dossier-logo">The Unbounded Leadership Co.</div>
+      <h1 class="dossier-title">Sovereign Systemic Dossier</h1>
+      <div class="dossier-subtitle">Executive Calibration & Institutional DNA Extraction</div>
+    </header>
+
+    <div class="metadata-grid">
+      <div class="meta-item">
+        <span class="meta-label">Prepared For</span>
+        <span class="meta-value">Suchita Sancheti</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Institutional Entity</span>
+        <span class="meta-value">TULC</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Strategic Role</span>
+        <span class="meta-value">APEX LEADER</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Dossier Fingerprint</span>
+        <span class="meta-value" style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0px;">res_1786797104483</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Strategic Foundation</span>
+        <span class="meta-value" style="color:var(--accent-dark);">Architect</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Codification Date</span>
+        <span class="meta-value">8/15/2026</span>
+      </div>
+    </div>
+
+    <!-- Metrics Dashboard -->
+    <div class="metrics-dashboard">
+      <div class="metric-card">
+        <span class="metric-title">Sovereign Index</span>
+        <div class="metric-value" style="color:#C5A021;">79.0%</div>
+        <span class="metric-sub">Cognitive Apex with Structural Latency and High Refraction Risk</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-title">Metabolic Burn</span>
+        <div class="metric-value" style="color: var(--text-color);">70.0%</div>
+        <span class="metric-sub">Elevated Load</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-title">Refraction Index</span>
+        <div class="metric-value">100.0%</div>
+        <span class="metric-sub">Signal Refraction</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-title">Survival Probability</span>
+        <div class="metric-value" style="color: #34A853;">
+          100%
+        </div>
+        <span class="metric-sub">Generational Health</span>
+      </div>
+    </div>
+
+    <!-- Visual Charts Panel -->
+    <div class="chart-container">
+      <!-- Radar Pentagon SVG -->
+      <div style="text-align: center;">
+        <div class="list-title">Sovereign Domain Radar (5 Axes)</div>
+        <svg viewBox="0 0 240 240" style="width: 100%; max-width: 200px; margin: 0 auto; display: block;">
+          <!-- Grid pentagons -->
+          <polygon points="120,40 196,95 167,185 73,185 44,95" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+          <polygon points="120,60 177,101 155,168 85,168 63,101" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+          <polygon points="120,80 158,107 143,152 97,152 82,107" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+          <!-- Axis lines -->
+          <line x1="120" y1="120" x2="120" y2="40" stroke="#d1d5db" stroke-width="1"/>
+          <line x1="120" y1="120" x2="196" y2="95" stroke="#d1d5db" stroke-width="1"/>
+          <line x1="120" y1="120" x2="167" y2="185" stroke="#d1d5db" stroke-width="1"/>
+          <line x1="120" y1="120" x2="73" y2="185" stroke="#d1d5db" stroke-width="1"/>
+          <line x1="120" y1="120" x2="44" y2="95" stroke="#d1d5db" stroke-width="1"/>
+          <!-- Plot polygon -->
+          <polygon points="120.0,64.0 173.3,102.7 152.9,165.3 87.1,165.3 66.7,102.7" fill="rgba(197, 160, 33, 0.25)" stroke="#C5A021" stroke-width="2.5"/>
+          <!-- Axis Labels -->
+          <text x="120" y="32" text-anchor="middle" font-size="7.5" font-family="JetBrains Mono" fill="#8a6d1a" font-weight="bold">CLARITY</text>
+          <text x="202" y="98" text-anchor="start" font-size="7.5" font-family="JetBrains Mono" fill="#8a6d1a" font-weight="bold">INTEGRITY</text>
+          <text x="172" y="196" text-anchor="start" font-size="7.5" font-family="JetBrains Mono" fill="#8a6d1a" font-weight="bold">VELOCITY</text>
+          <text x="68" y="196" text-anchor="end" font-size="7.5" font-family="JetBrains Mono" fill="#8a6d1a" font-weight="bold">MORAL GRAVITY</text>
+          <text x="38" y="98" text-anchor="end" font-size="7.5" font-family="JetBrains Mono" fill="#8a6d1a" font-weight="bold">FIDELITY</text>
+        </svg>
+      </div>
+
+      <!-- Domain Bar Vector Chart -->
+      <div>
+        <div class="list-title">Domain Score Calibrations</div>
+        <div style="display:flex; flex-direction:column; gap:8px; margin-top:8px;">
+          
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:8px; font-family:'JetBrains Mono'; margin-bottom:2px;">
+                  <span style="font-weight:bold; color:#1a1a1a;">COGNITIVE CLARITY</span>
+                  <span style="color:#C5A021; font-weight:bold;">5.0 / 5.0</span>
+                </div>
+                <div style="height:6px; background:#f3f4f6; border-radius:1px; overflow:hidden;">
+                  <div style="height:100%; width:100%; background:#C5A021;"></div>
+                </div>
+              </div>
+            
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:8px; font-family:'JetBrains Mono'; margin-bottom:2px;">
+                  <span style="font-weight:bold; color:#1a1a1a;">CULTURAL FIDELITY</span>
+                  <span style="color:#C5A021; font-weight:bold;">3.0 / 5.0</span>
+                </div>
+                <div style="height:6px; background:#f3f4f6; border-radius:1px; overflow:hidden;">
+                  <div style="height:100%; width:60%; background:#374151;"></div>
+                </div>
+              </div>
+            
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:8px; font-family:'JetBrains Mono'; margin-bottom:2px;">
+                  <span style="font-weight:bold; color:#1a1a1a;">STRATEGIC VELOCITY</span>
+                  <span style="color:#C5A021; font-weight:bold;">4.0 / 5.0</span>
+                </div>
+                <div style="height:6px; background:#f3f4f6; border-radius:1px; overflow:hidden;">
+                  <div style="height:100%; width:80%; background:#C5A021;"></div>
+                </div>
+              </div>
+            
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:8px; font-family:'JetBrains Mono'; margin-bottom:2px;">
+                  <span style="font-weight:bold; color:#1a1a1a;">SYSTEMIC INTEGRITY</span>
+                  <span style="color:#C5A021; font-weight:bold;">3.7 / 5.0</span>
+                </div>
+                <div style="height:6px; background:#f3f4f6; border-radius:1px; overflow:hidden;">
+                  <div style="height:100%; width:73.33333333333333%; background:#374151;"></div>
+                </div>
+              </div>
+            
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:8px; font-family:'JetBrains Mono'; margin-bottom:2px;">
+                  <span style="font-weight:bold; color:#1a1a1a;">MORAL GRAVITY</span>
+                  <span style="color:#C5A021; font-weight:bold;">4.0 / 5.0</span>
+                </div>
+                <div style="height:6px; background:#f3f4f6; border-radius:1px; overflow:hidden;">
+                  <div style="height:100%; width:80%; background:#C5A021;"></div>
+                </div>
+              </div>
+            
+        </div>
+      </div>
+    </div>
+
+    <!-- Gold Strengths & Positive Institutional Assets Box -->
+    <div class="gold-box">
+      <div class="list-title" style="color:#8a6d1a; margin-bottom:6px;">Sovereign Anchors & Positive Institutional Assets</div>
+      <p style="font-size:12px; line-height:1.6; margin:0; color:#1a1a1a;">
+        <strong>Core Anchors Identified:</strong> Primary operational conviction is strongest in 
+        <span style="color:#8a6d1a; font-weight:bold;">
+          Cognitive Clarity, Strategic Velocity, Moral Gravity
+        </span>.
+        These anchors represent immutable core virtues that insulate the institution, protecting your core intent during market turbulence.
+      </p>
+    </div>
+
+    <!-- Executive Summary -->
+    <div class="narrative-section">
+      <h2 class="section-title">
+        <span>Executive Summary Profile</span>
+        <span class="section-num">Calib-00</span>
+      </h2>
+      <div class="narrative-content" style="font-size: 12px; line-height: 1.6; color: rgba(10,10,10,0.9); font-style: italic; background:#ffffff; padding:12px; border-left:3px solid #C5A021;">
+        &ldquo;Suchita Sancheti // TULC&rdquo;
+      </div>
+    </div>
+
+    <!-- Section I -->
+    <div class="narrative-section">
+      <h2 class="section-title">
+        <span>Section I: Recognition & Presence</span>
+        <span class="section-num">Calib-01</span>
+      </h2>
+      <div class="narrative-content">
+        <p class="narrative-paragraph"><em>CALIBRATION_01 // THE APEX FREQUENCY. Your current institutional footprint is characterized by an exceptional concentration of cognitive power within the executive node. You are operating as a primary Architect of reality, where your raw focal energy acts as the fundamental driver for the entire organization. We identify this as a state of Cognitive Sovereignty, where the internal psychological law of the leader is the primary governing force. However, the physics of your presence currently functions as a manual override for the broader system. Operational Latency Risk: Your cognitive intent is currently acting as a manual override. You are absorbing the metabolic cost of execution with your personal willpower rather than automating it through organizational law. This is costing you 35% in strategic momentum. This diagnostic recognizes that while your Cognitive Clarity is at an absolute 5.0 peak, the institutional manifestation of that clarity is encountering resistance. You are currently in the Season of Expansion, where the transition from a single-mind engine to a distributed intelligence system is the critical path. The baseline of your institutional architecture is robust, yet it is currently operating at a high metabolic burn rate because the system relies on your constant calibration to maintain direction. We see the bedrock of your success in your ability to synthesize complex market variables into singular strategic vectors. This is your Alpha Signal, the purity of which is unparalleled among your peers. To evolve, we must move from a model of individual excellence to one of institutional perpetuity, where the architecture itself possesses the same high-fidelity decision-making capacity as you do. The current physics of your presence is a double-edged sword: it provides the intense gravity needed to hold a complex mission together, but it also creates a shadow of dependency where the system slows down the moment your direct focus shifts. We must address the Escalation Density, which remains high at 94/100, indicating that too many variables are still being pushed to your node for final adjudication. The objective of this audit is to recalibrate the machine to match the frequency of the architect.</em></p>
+      </div>
+    </div>
+
+    <!-- Section II -->
+    <div class="narrative-section">
+      <h2 class="section-title">
+        <span>Section II: Over-Indexed Magnification</span>
+        <span class="section-num">Calib-02</span>
+      </h2>
+      <div class="narrative-content">
+        <p class="narrative-paragraph"><em>CALIBRATION_02 // THE CHASSIS STRESS. The audit reveals a significant Over-Indexing on Cognitive Clarity, which has inadvertently created a structural bottleneck within your institutional OS. When a leader's clarity reaches the 5.0 intensity threshold, it often triggers The Authority Isolation Loop: Your absolute executive conviction has outrun your team's capability to absorb context. You are currently operating a One-Mind Engine—if your focal presence fades, the institutional signal immediately refracts into chaos. This is the Shadow of Virtue. Your strength—the ability to see the path with absolute precision—is currently starving the lower organizational tiers of the opportunity to develop their own navigational sensors. This creates a high Fidelity Variance, where the reasoning gap between your intent and the team's execution stands at 20/100. The metabolic drain coefficient here is substantial; energy is being wasted on re-explaining, re-aligning, and correcting deviations that should have been prevented by a more robust Cultural Fidelity. We quantify this as a loss of 70% in metabolic efficiency, as the internal energy of the firm is consumed by coordination rather than manifestation. To transform these virtues into immutable self-regulating systems, we must implement a Decentralized Context Protocol. This involves shifting from giving directives to distributing the mental models that generate those directives. By doing so, we reduce the Refraction Index—the degree to which strategic directives remain pure as they pass down management layers—which is currently at a critical 100/100, meaning the signal is almost entirely dependent on your active transmission. If we do not recalibrate, the system will continue to experience High Kinetic Burn, leading to systemic exhaustion where the architecture fails to keep pace with the market complexity you are successfully identifying. Your cognitive equity recovery is only at 56/100, meaning you are still spending nearly half of your bandwidth negotiating for compliance rather than driving the next frontier. This is a calibration opportunity to transition from the leader who does to the architect who designs a machine that does.</em></p>
+      </div>
+    </div>
+
+    <!-- Section III -->
+    <div class="narrative-section">
+      <h2 class="section-title">
+        <span>Section III: Seasonal Refinement</span>
+        <span class="section-num">Calib-03</span>
+      </h2>
+      <div class="narrative-content">
+        <p class="narrative-paragraph"><em>CALIBRATION_03 // THE SEASONAL HORIZON. Your current operational state is mapped to the Season of Expansion, a phase defined by the shift from Siege-based survival to the Engineering of Systemic Integrity. The audit identifies two primary intervention domains: Cultural Fidelity and Systemic Integrity. These are the critical friction points preventing generational scalability. Your Decision Latency and Velocity (DLV) is currently 43/100, indicating a significant time-to-execution delta that creates a dragging effect on your Strategic Velocity. This latency is a direct result of the Authority Isolation Loop identified on the previous page. Because the team lacks the high-fidelity context required to act autonomously, they hesitate, creating a feedback loop of escalation. Zero-Fault Telemetry Risk: When operational nodes fear punitive signal refraction, raw execution data is sanitized before reaching command level. This creates a Silence of Compliance that blinds executive command to systemic friction. Instituting zero-fault error telemetry and multi-perspective information flows is an architectural prerequisite to eliminate hidden operational drag. We see a Temporal Myopia Loop occurring within the middle management tiers, where short-term focus on task completion is preventing the long-term structural integrity required for your 10-year vision. The Entropy Threshold—the systemic capacity to absorb chaos—is 76.67/100, which is respectable but indicates the system is nearing its limit for complexity management without a fundamental OS upgrade. To address this, we must apply Second-Order Cybernetics to ensure the institutional intent remains vibrant across all nodes. This means designing the organization as a self-correcting system that gains from disorder (Antifragility). The refinement of Cultural Fidelity will involve the codification of your mental models into an Institutional DNA that acts as a source of truth in your absence. This is the shift from Compliance to Fidelity. When the system encounters a Black Swan, the resulting action must mirror your own reasoning without your physical presence being required. This is how we extend the Institutional Half-Life—the duration of intent-resonance if the Apex Leader shifts focus—which is currently estimated at 14 months. Our target is to push this to 60 months, ensuring that the machine you have built is capable of sustaining its trajectory through periods of market volatility and strategic shifts.</em></p>
+      </div>
+    </div>
+
+    <!-- Section IV -->
+    <div class="narrative-section">
+      <h2 class="section-title">
+        <span>Section IV: Vocal & Systemic Resonance</span>
+        <span class="section-num">Calib-04</span>
+      </h2>
+      <div class="narrative-content">
+        <p class="narrative-paragraph"><em>CALIBRATION_04 // THE ACOUSTIC SIGNATURE. The vocal analysis conducted during this audit reveals a Tonal Certainty of high intensity, consistent with your Cognitive Clarity score of 5.0. However, there is a detectable discordance between your internal certainty and the Rhythmic Consistency of your institutional output. Your vocal archetype is the Orchestrator—characterized by high pitch variance and a command-heavy ratio—yet the organizational cadence is sluggish. This suggests that while your command signal is clear at the source, it is being muffled by the structural insulation of the hierarchy. We observe a high Inflection Integrity, meaning your vocal signature transmits authority effectively, but the Signal-to-Noise Ratio (SNR) drops precipitously at the third tier of management. This indicates a Refraction Index problem: your voice is heard, but the logic behind the voice is lost in translation. The Cognitive Latency Mapping shows that your pauses are strategic and your cadence is deliberate, which should inspire confidence, but when this signal reaches nodes that lack Cultural Fidelity, it is interpreted as a vacuum that they fill with their own anxieties. This is where the Silence of Compliance originates. To fix this, your vocal resonance must be paired with a radical increase in Context Distribution. We must transform your acoustic signature from one of directive-giving to one of vision-casting that provides the team with the frequency they need to tune their own operations. Your Command Ratio is currently over-leveraged; the system needs to hear more of the reasoning and less of the requirement. This will increase the Fidelity Variance by allowing the team to mirror your rhythmic consistency in their own execution. We also detect a Metabolic Feedback Loop where your own energy is being used to pull the organization along. This is reflected in the vocal strain identified during high-intensity periods. By recalibrating the Systemic Integrity, we allow the machine to carry the load, freeing your vocal resonance to focus on the long-term strategic horizon. The objective is to reach a state of Tonal Harmony where the entire institution speaks with one voice, reflecting the same logic, the same urgency, and the same commitment to excellence that you embody personally.</em></p>
+      </div>
+    </div>
+
+    <!-- Section V -->
+    <div class="narrative-section">
+      <h2 class="section-title">
+        <span>Section V: The Institutional Decree</span>
+        <span class="section-num">Calib-05</span>
+      </h2>
+      <div class="narrative-content">
+        <p class="narrative-paragraph"><em>CALIBRATION_05 // THE GENERATIONAL DECREE. To ensure the perpetuity of TULC and your legacy, we propose a 10-year strategic blueprint focused on Structural Integration and Institutional Insulation. The goal is to transition from a leader-dependent organization to a self-regulating sovereign operating system. Year 1: The Recalibration. We will focus on reducing the Escalation Density by 40% through the implementation of a Contextual Governance Charter. This involves codifying your apex intent into a set of decision-making algorithms that can be utilized by every node in the organization. We will address the Operational Latency Risk by automating the most common strategic pivots, moving the metabolic cost from you to the system. Year 2-4: The Distributed Intelligence. We will focus on increasing Cultural Fidelity from 3.0 to 4.5. This will be achieved by creating a multi-perspective information flow that eliminates the Silence of Compliance. We will institute Zero-Fault Telemetry across all critical functions, ensuring that you have an unvarnished view of systemic physics. Year 5-10: The Institutional Perpetuity. In this phase, we apply the principles of Moral Gravity to ensure that the institutional DNA is immutable. Succession Vulnerability: Your current operational success is highly dependent on your physical presence. Your institution is governed by your presence rather than your immutable code. This is a generational risk for family offices and institutions tracking long-term continuity. We will develop a succession resonance profile that identifies leaders capable of amplifying your OS without distorting the signal. This is how we ensure that TULC survives for generations. The final Sovereign Mandate is clear: move beyond the manual override. You have built a powerful engine; now you must build the chassis that can handle the power. This path requires you to trade the comfort of direct control for the power of second-order observation. By designing a system that does not need you for its daily survival, you create the freedom to lead it toward its ultimate destiny. This is the hallmark of the Sovereign Architect. Your institutional alpha depends on this evolution. Proceed with the clinical precision that has defined your career thus far, and the result will be a legacy that remains vibrant across generations. This is the path to absolute, generational clarity.</em></p>
+      </div>
+    </div>
+
+    <!-- Pillar Analysis -->
+    <div class="narrative-section">
+      <h2 class="section-title">
+        <span>Pillars of Executive Physics</span>
+        <span class="section-num">Calib-06</span>
+      </h2>
+      <div class="domains-grid">
+        
+        <div class="domain-card strength-card">
+          <div class="domain-header">
+            <div>
+              <span class="domain-name" style="color:#8a6d1a;">Cognitive Clarity</span>
+              <span class="domain-status excellence">Sovereign</span>
+              
+              <span class="domain-status excellence" style="background:rgba(197,160,33,0.12); border-color:#C5A021; color:#8a6d1a;">ANCHOR STRENGTH</span>
+            </div>
+            <div class="domain-score" style="font-family:'JetBrains Mono', monospace; font-size:11px; background:#C5A021; color:#0A0A0A;">5.00/5.0</div>
+          </div>
+          <div class="domain-body">
+            <div class="domain-item">
+              <div class="domain-label">Soulful Reflection & Strategic Guidance</div>
+              <div style="font-family:'Playfair Display', serif; font-size:12px; line-height:1.6; color:rgba(10,10,10,0.9);">Your resonance in Cognitive Clarity is sovereign.</div>
+            </div>
+            <div class="domain-item" style="margin-top: 10px;">
+              <div class="domain-label">Institutional Impact Audit</div>
+              <div style="font-size:11.5px; line-height:1.5; color:rgba(10,10,10,0.8);">The internal psychological sovereignty and 'Apex Intent' of the leader. It measures the degree to which decision-making is anchored in a self-authored moral law rather than external validation or systemic inertia.</div>
+            </div>
+            <div class="domain-item" style="margin-top: 8px; font-style: italic; color: rgba(10,10,10,0.6);">
+              <div class="domain-label">Evidence Backing & Benchmarks</div>
+              <div style="font-size:10.5px; line-height:1.4;">Based on the 12D Vector Analysis of your strategic choices.</div>
+            </div>
+            
+          </div>
+        </div>
+      
+        <div class="domain-card ">
+          <div class="domain-header">
+            <div>
+              <span class="domain-name" style="">Cultural Fidelity</span>
+              <span class="domain-status refinement">Stable</span>
+              
+              
+            </div>
+            <div class="domain-score" style="font-family:'JetBrains Mono', monospace; font-size:11px; ">3.00/5.0</div>
+          </div>
+          <div class="domain-body">
+            <div class="domain-item">
+              <div class="domain-label">Soulful Reflection & Strategic Guidance</div>
+              <div style="font-family:'Playfair Display', serif; font-size:12px; line-height:1.6; color:rgba(10,10,10,0.9);">Your resonance in Cultural Fidelity is stable.</div>
+            </div>
+            <div class="domain-item" style="margin-top: 10px;">
+              <div class="domain-label">Institutional Impact Audit</div>
+              <div style="font-size:11.5px; line-height:1.5; color:rgba(10,10,10,0.8);">The distribution of strategic signal and 'Shared Reality' across the organization. It measures the replacement of traditional 'Control' with 'Context.'</div>
+            </div>
+            <div class="domain-item" style="margin-top: 8px; font-style: italic; color: rgba(10,10,10,0.6);">
+              <div class="domain-label">Evidence Backing & Benchmarks</div>
+              <div style="font-size:10.5px; line-height:1.4;">Based on the 12D Vector Analysis of your strategic choices.</div>
+            </div>
+            
+          </div>
+        </div>
+      
+        <div class="domain-card strength-card">
+          <div class="domain-header">
+            <div>
+              <span class="domain-name" style="color:#8a6d1a;">Strategic Velocity</span>
+              <span class="domain-status refinement">Stable</span>
+              
+              <span class="domain-status excellence" style="background:rgba(197,160,33,0.12); border-color:#C5A021; color:#8a6d1a;">ANCHOR STRENGTH</span>
+            </div>
+            <div class="domain-score" style="font-family:'JetBrains Mono', monospace; font-size:11px; background:#C5A021; color:#0A0A0A;">4.00/5.0</div>
+          </div>
+          <div class="domain-body">
+            <div class="domain-item">
+              <div class="domain-label">Soulful Reflection & Strategic Guidance</div>
+              <div style="font-family:'Playfair Display', serif; font-size:12px; line-height:1.6; color:rgba(10,10,10,0.9);">Your resonance in Strategic Velocity is stable.</div>
+            </div>
+            <div class="domain-item" style="margin-top: 10px;">
+              <div class="domain-label">Institutional Impact Audit</div>
+              <div style="font-size:11.5px; line-height:1.5; color:rgba(10,10,10,0.8);">The ability to identify and weaponize asymmetric arbitrage opportunities within market chaos. It measures 'Antifragility'—the capacity to gain from disorder.</div>
+            </div>
+            <div class="domain-item" style="margin-top: 8px; font-style: italic; color: rgba(10,10,10,0.6);">
+              <div class="domain-label">Evidence Backing & Benchmarks</div>
+              <div style="font-size:10.5px; line-height:1.4;">Based on the 12D Vector Analysis of your strategic choices.</div>
+            </div>
+            
+          </div>
+        </div>
+      
+        <div class="domain-card ">
+          <div class="domain-header">
+            <div>
+              <span class="domain-name" style="">Systemic Integrity</span>
+              <span class="domain-status refinement">Stable</span>
+              
+              
+            </div>
+            <div class="domain-score" style="font-family:'JetBrains Mono', monospace; font-size:11px; ">3.67/5.0</div>
+          </div>
+          <div class="domain-body">
+            <div class="domain-item">
+              <div class="domain-label">Soulful Reflection & Strategic Guidance</div>
+              <div style="font-family:'Playfair Display', serif; font-size:12px; line-height:1.6; color:rgba(10,10,10,0.9);">Your resonance in Systemic Integrity is stable.</div>
+            </div>
+            <div class="domain-item" style="margin-top: 10px;">
+              <div class="domain-label">Institutional Impact Audit</div>
+              <div style="font-size:11.5px; line-height:1.5; color:rgba(10,10,10,0.8);">The distance and time between 'Executive Intent' and 'Institutional Manifestation.' It measures the metabolic efficiency of the firm’s OS.</div>
+            </div>
+            <div class="domain-item" style="margin-top: 8px; font-style: italic; color: rgba(10,10,10,0.6);">
+              <div class="domain-label">Evidence Backing & Benchmarks</div>
+              <div style="font-size:10.5px; line-height:1.4;">Based on the 12D Vector Analysis of your strategic choices.</div>
+            </div>
+            
+          </div>
+        </div>
+      
+        <div class="domain-card strength-card">
+          <div class="domain-header">
+            <div>
+              <span class="domain-name" style="color:#8a6d1a;">Moral Gravity</span>
+              <span class="domain-status refinement">Stable</span>
+              
+              <span class="domain-status excellence" style="background:rgba(197,160,33,0.12); border-color:#C5A021; color:#8a6d1a;">ANCHOR STRENGTH</span>
+            </div>
+            <div class="domain-score" style="font-family:'JetBrains Mono', monospace; font-size:11px; background:#C5A021; color:#0A0A0A;">4.00/5.0</div>
+          </div>
+          <div class="domain-body">
+            <div class="domain-item">
+              <div class="domain-label">Soulful Reflection & Strategic Guidance</div>
+              <div style="font-family:'Playfair Display', serif; font-size:12px; line-height:1.6; color:rgba(10,10,10,0.9);">Your resonance in Moral Gravity is stable.</div>
+            </div>
+            <div class="domain-item" style="margin-top: 10px;">
+              <div class="domain-label">Institutional Impact Audit</div>
+              <div style="font-size:11.5px; line-height:1.5; color:rgba(10,10,10,0.8);">The codification of institutional DNA for dynastic perpetuity. It measures the degree to which the firm’s values are 'Immutable Laws' that survive the presence of the founder.</div>
+            </div>
+            <div class="domain-item" style="margin-top: 8px; font-style: italic; color: rgba(10,10,10,0.6);">
+              <div class="domain-label">Evidence Backing & Benchmarks</div>
+              <div style="font-size:10.5px; line-height:1.4;">Based on the 12D Vector Analysis of your strategic choices.</div>
+            </div>
+            
+          </div>
+        </div>
+      
+      </div>
+    </div>
+
+    <!-- Calibration HUD Variables -->
+    <div class="narrative-section" style="page-break-inside: avoid;">
+      <h2 class="section-title">
+        <span>Advanced Calibration Metrics</span>
+        <span class="section-num">Calib-07</span>
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px;">
+        <div class="vocal-item">
+          <span class="vocal-label">Institutional Half-Life</span>
+          <div class="vocal-val">14 Months - Moderate Decay Risk if focus shifts.</div>
+        </div>
+        <div class="vocal-item">
+          <span class="vocal-label">Black Swan Resilience</span>
+          <div class="vocal-val">Robust - The leadership architecture is optimized for market volatility through high strategic velocity.</div>
+        </div>
+        <div class="vocal-item">
+          <span class="vocal-label">Signal-To-Noise Ratio (SNR)</span>
+          <div class="vocal-val">0.20 - High Refraction in the organizational stack.</div>
+        </div>
+        <div class="vocal-item">
+          <span class="vocal-label">Autoimmune Harmony Risk</span>
+          <div class="vocal-val">Moderate - The high-density architecture may lead elite talent to feel redundant if context is not distributed.</div>
+        </div>
+      </div>
+      
+      
+        <div class="list-container" style="margin-bottom: 20px;">
+          <div class="list-title">The Ghost In The Machine (Positive Echoes)</div>
+          <p style="font-size:11.5px; line-height:1.6; margin:0; color:rgba(10,10,10,0.85);">Unintended high performance in peripheral departments due to the leader's intense focus on core clarity.</p>
+        </div>
+      
+    </div>
+
+    <!-- Vocal & Alignments -->
+    
+      <div class="list-container" style="page-break-inside: avoid; border-left: 2px solid var(--accent-color); background: rgba(197, 160, 33, 0.02); padding: 14px;">
+        <div class="list-title" style="color: var(--accent-dark); font-size: 13px; margin-bottom: 10px;">Acoustic Signature & Prosody Mapping (Biometric Telemetry & Cross-Synthesis)</div>
+        
+        <div style="margin-bottom: 14px; font-size: 11.5px; line-height: 1.6; color: rgba(10,10,10,0.9); font-family: 'Playfair Display', serif; font-style: italic; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+          &ldquo;The voice of a high-stakes architect whose command signal is clear but whose reasoning requires broader distribution to reduce refraction.&rdquo;
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 14px;">
+          <div class="vocal-item" style="padding: 10px; background: #FAF9F5; border: 1px solid var(--border-color);">
+            <span class="vocal-label" style="font-weight: 700; color: var(--accent-dark); font-size: 8.5px;">ACOUSTIC ARCHETYPE</span>
+            <div class="vocal-val" style="color: var(--text-color); font-size: 12.5px; font-weight: 700; text-transform: uppercase; margin: 2px 0;">Orchestrator</div>
+            <p style="font-size: 9px; color: rgba(10,10,10,0.65); margin: 2px 0 0 0; line-height: 1.3;">Primary vocal frequency, pitch envelope, & posture transmitting raw executive command.</p>
+          </div>
+
+          <div class="vocal-item" style="padding: 10px; background: #FAF9F5; border: 1px solid var(--border-color);">
+            <span class="vocal-label" style="font-weight: 700; color: var(--accent-dark); font-size: 8.5px;">COMMAND RATIO</span>
+            <div class="vocal-val" style="color: var(--text-color); font-size: 12.5px; font-weight: 700; margin: 2px 0;">High - 80% directive, 20% contextual.</div>
+            <p style="font-size: 9px; color: rgba(10,10,10,0.65); margin: 2px 0 0 0; line-height: 1.3;">Proportion of declarative directives vs. qualifying statements in discourse.</p>
+          </div>
+
+          <div class="vocal-item" style="padding: 10px; background: #FAF9F5; border: 1px solid var(--border-color);">
+            <span class="vocal-label" style="font-weight: 700; color: var(--accent-dark); font-size: 8.5px;">INFLECTION INTEGRITY</span>
+            <div class="vocal-val" style="color: var(--text-color); font-size: 12.5px; font-weight: 700; margin: 2px 0;">Exceptional - Tonal certainty remains constant regardless of complexity.</div>
+            <p style="font-size: 9px; color: rgba(10,10,10,0.65); margin: 2px 0 0 0; line-height: 1.3;">Pitch stability under questioning; absence of unmanaged hesitation or uptalk.</p>
+          </div>
+
+          <div class="vocal-item" style="padding: 10px; background: #FAF9F5; border: 1px solid var(--border-color);">
+            <span class="vocal-label" style="font-weight: 700; color: var(--accent-dark); font-size: 8.5px;">RHYTHMIC CONSISTENCY</span>
+            <div class="vocal-val" style="color: var(--text-color); font-size: 12.5px; font-weight: 700; margin: 2px 0;">Moderate - The internal logic is consistent, but the external execution cadence varies.</div>
+            <p style="font-size: 9px; color: rgba(10,10,10,0.65); margin: 2px 0 0 0; line-height: 1.3;">Cadence regulation under cognitive load. Steady pacing projects authority.</p>
+          </div>
+
+          <div class="vocal-item" style="padding: 10px; background: #FAF9F5; border: 1px solid var(--border-color);">
+            <span class="vocal-label" style="font-weight: 700; color: var(--accent-dark); font-size: 8.5px;">VOCAL–Q&A CONGRUENCE INDEX</span>
+            <div class="vocal-val" style="color: var(--accent-dark); font-size: 12.5px; font-weight: 800; margin: 2px 0;">94% Alignment</div>
+            <p style="font-size: 9px; color: rgba(10,10,10,0.65); margin: 2px 0 0 0; line-height: 1.3;">Cross-synthesizes written choice conviction with vocal prosody to measure alignment between stated intent and acoustic delivery.</p>
+          </div>
+
+          <div class="vocal-item" style="padding: 10px; background: #FAF9F5; border: 1px solid var(--border-color);">
+            <span class="vocal-label" style="font-weight: 700; color: var(--accent-dark); font-size: 8.5px;">ACOUSTIC AUTHORITY INDEX</span>
+            <div class="vocal-val" style="color: var(--text-color); font-size: 12.5px; font-weight: 700; margin: 2px 0;">53/100 Gravitas</div>
+            <p style="font-size: 9px; color: rgba(10,10,10,0.65); margin: 2px 0 0 0; line-height: 1.3;">Composite gravitas score derived from pitch resonance, harmonic power, and cadence steady-state.</p>
+          </div>
+        </div>
+
+        <div style="font-size: 9.5px; line-height: 1.45; color: rgba(10,10,10,0.85); background: rgba(197,160,33,0.06); padding: 10px 12px; border: 1px solid rgba(197,160,33,0.2); border-radius: 2px; margin-top: 6px;">
+          <strong style="color: var(--accent-dark); text-transform: uppercase; font-size: 8.5px; font-family: 'JetBrains Mono'; display: block; margin-bottom: 2px;">Acoustic Physics Rationale:</strong>
+          Vocal prosody acts as an un-sanitizable biometric indicator of leadership conviction. Fundamental frequencies and fundamental cadence transmit authority directly to subordinate management tiers, ensuring strategic directives filter down intact without signal refraction or institutional noise.
+        </div>
+      </div>
+    
+    
+    
+      <div class="list-container" style="border: 1px solid rgba(197, 160, 33, 0.3); background: rgba(197, 160, 33, 0.02);">
+        <div class="list-title" style="color: var(--accent-dark);">Detected Dissonances & Shadow Signals</div>
+        
+          <div style="display:flex; gap:8px; margin-bottom:6px; font-size:11.5px; line-height:1.5; color: rgba(10,10,10,0.85);">
+            <span style="color:var(--accent-dark); font-weight:bold;">&bull;</span>
+            <div>High Kinetic Burn: Risk of systemic exhaustion.</div>
+          </div>
+        
+      </div>
+    
+
+    <!-- Official Signature Panel & Sovereign Embossed Seal -->
+    <div class="seal-block">
+      <div style="display:flex; gap:24px; align-items:flex-end;">
+        <div>
+          <div style="height:32px; font-family:'Playfair Display', serif; font-size:16px; font-style:italic; color:#0A0A0A; border-bottom:1px solid #1a1a1a; width:160px; line-height:36px;">
+            Suchita Sancheti
+          </div>
+          <span style="font-size:8px; font-family:'Playfair Display', serif !important; color:#8a6d1a; font-weight:bold; display:block; margin-top:2px;">SOVEREIGN ARCHITECT</span>
+          <span style="font-size:7.5px; font-family:'Playfair Display', serif !important; color:#888;">The Unbounded Leadership Co.</span>
+        </div>
+        <div>
+          <div style="height:32px; border-bottom:1px solid #1a1a1a; width:160px;"></div>
+          <span style="font-size:8px; font-family:'Playfair Display', serif !important; color:#1a1a1a; font-weight:bold; display:block; margin-top:2px;">EXECUTIVE AUDITOR</span>
+          <span style="font-size:7.5px; font-family:'Playfair Display', serif !important; color:#888;">Institutional Alignment Board</span>
+        </div>
+      </div>
+
+      <!-- Gold Certified Embossed Seal -->
+      <div style="width:70px; height:70px; border:1px solid #C5A021; border-radius:50%; display:flex; align-items:center; justify-content:center; background:rgba(197,160,33,0.08); position:relative;">
+        <svg viewBox="0 0 100 100" style="width:100%; height:100%; text-transform:uppercase;">
+          <circle cx="50" cy="50" r="46" fill="none" stroke="#C5A021" stroke-width="1.5" stroke-dasharray="3 3" />
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#C5A021" stroke-width="0.8" />
+          <path id="txt-path-dossier" d="M 50,50 m -32,0 a 32,32 0 1,1 64,0 a 32,32 0 1,1 -64,0" fill="none" />
+          <text font-size="5" font-family="Playfair Display" font-weight="bold" fill="#8a6d1a">
+            <textPath href="#txt-path-dossier" startOffset="0%">• TULC SECURE • OFFICIAL SOVEREIGN SEAL • CODIFIED •</textPath>
+          </text>
+        </svg>
+        <div style="position:absolute; font-size:8px; font-family:'Playfair Display', serif !important; font-weight:bold; color:#8a6d1a; text-align:center;">SEAL</div>
+      </div>
+    </div>
+
+    <footer class="legal-footer">
+      <div style="font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:#8a6d1a; margin-bottom:6px;">
+        © 2026 The Unbounded Leadership Co. (TULC) • Proprietary Executive IP • All Rights Reserved
+      </div>
+      <div style="margin-bottom:6px;">
+        <strong>CONFIDENTIAL & PROPRIETARY INTELLECTUAL PROPERTY:</strong> This Sovereign Dossier, its underlying diagnostic frameworks (including the Sovereign Influence Index™, Executive Physics Engine™, and Triad Alignment Architecture™), numerical scoring algorithms, and strategic recalibration blueprints are the exclusive intellectual property of The Unbounded Leadership Co. This report is provided solely for the confidential internal evaluation of the authorized recipient and organization. Any unauthorized reproduction, redistribution, transmission, public display, or commercial exploitation without prior explicit written consent from The Unbounded Leadership Co. is strictly prohibited by law.
+      </div>
+      <div>
+        <strong>LEGAL DISCLAIMER:</strong> This assessment is a diagnostic tool for leadership development and does not constitute legal or financial advice.
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

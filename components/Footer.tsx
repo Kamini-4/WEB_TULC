@@ -147,7 +147,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
           <div>
             <h5 className="text-white text-[9px] uppercase font-black mb-4 font-mono">Diagnostics</h5>
             <ul className="text-white/50 text-[9px] uppercase space-y-2 font-bold font-mono">
-              <li><Link to="/assessment" className="hover:text-[#b8860b] transition-colors uppercase">Inaction Tax Calculator</Link></li>
+              <li><Link to="/cognitive-tax" className="hover:text-[#b8860b] transition-colors uppercase">Cognitive Tax Simulator</Link></li>
               <li><Link to="/assessment" className="hover:text-[#b8860b] transition-colors uppercase">Domain Diagnostic Audit</Link></li>
               <li><Link to="/intake" className="hover:text-[#b8860b] transition-colors uppercase">Executive Intake Portal</Link></li>
             </ul>

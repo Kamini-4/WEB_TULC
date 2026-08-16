@@ -13,6 +13,7 @@ import IntakePage from './src/pages/IntakePage.tsx';
 import Portal from './src/pages/Portal.tsx';
 import ServicesPage from './src/pages/ServicesPage.tsx';
 import MandatesPage from './src/pages/MandatesPage.tsx';
+import CognitiveTaxPage from './src/pages/CognitiveTaxPage.tsx';
 import ArticleView from './components/ArticleView.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import FloatingCTA from './components/FloatingCTA.tsx';
@@ -134,6 +135,17 @@ const App: React.FC = () => {
         case '/assessment':
           title = "The Systemic Yield Calibration | Strategic Substrate Diagnostic";
           description = "Complete the definitive 5-domain diagnostic to benchmark cognitive tax, institutional lag, and organizational alignment.";
+          image = "https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&q=80&w=1600";
+          break;
+        case '/mandates':
+          title = "Strategic Mandates | The Unbounded Leadership Co.";
+          description = "Executive mandates for high-stakes enterprise recalibration, board-level alignment, and structural sovereignty.";
+          image = "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600";
+          break;
+        case '/cognitive-tax':
+        case '/quantify-friction':
+          title = "Quantify Your Cognitive Tax | Strategic Simulation Engine";
+          description = "Isolate your firm's annual inaction tax, coordination drag, and leaked leadership equity with our interactive simulation engine.";
           image = "https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&q=80&w=1600";
           break;
         case '/library':
@@ -314,6 +326,8 @@ const App: React.FC = () => {
             <Route path="/portal" element={<Portal />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/mandates" element={<MandatesPage />} />
+            <Route path="/cognitive-tax" element={<CognitiveTaxPage />} />
+            <Route path="/quantify-friction" element={<CognitiveTaxPage />} />
           </Routes>
         </main>
         <Footer onLegalClick={handleLegalClick} />
