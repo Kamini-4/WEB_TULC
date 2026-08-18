@@ -76,7 +76,7 @@ const Hero: React.FC<HeroProps> = () => {
             </div>
             <div className="flex items-center gap-2 px-3.5 py-2 bg-white border border-zinc-200 rounded-xs shadow-2xs text-[10px] sm:text-[11px] font-mono text-zinc-800">
               <Mic className="w-3.5 h-3.5 text-[#b8860b]" />
-              <span><strong>Sub-Verbal & Voice</strong> Stress Mapping</span>
+              <span><strong>Executive Cognitive</strong> Stress Mapping</span>
             </div>
             <div className="flex items-center gap-2 px-3.5 py-2 bg-white border border-zinc-200 rounded-xs shadow-2xs text-[10px] sm:text-[11px] font-mono text-zinc-800">
               <Cpu className="w-3.5 h-3.5 text-[#b8860b]" />

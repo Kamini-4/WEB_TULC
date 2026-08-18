@@ -712,8 +712,10 @@ async function startServer() {
           return `Greetings and welcome to The Unbounded Leadership Co. I am your AI Concierge.\nHow may I assist you with our institutional alignment protocols or strategic objectives today?`;
         } else if (text.includes('price') || text.includes('cost') || text.includes('fee') || text.includes('rate') || text.includes('investment')) {
           return `Our engagement models are bespoke, calibrated directly to your institution's scale and operational complexity.\nEngagements commence with our Phase 0.0 Substrate Diagnostic Audit—a 14-day intensive that delivers a complete Cognitive Bandwidth Blueprint.\nTo discuss tailored investment structures, please connect directly with Kamini Agnihotri, Client Relations Coordinator, at kaminiagnihotri249@gmail.com.`;
+        } else if (text.includes('handwriting') || text.includes('graphology') || text.includes('script')) {
+          return `Forensic handwriting analysis is not an automated in-app feature; it is a core clinical strength of Principal Suchita Sancheti offered exclusively as a private, bespoke 1-on-1 executive consultation.\nLeaders wishing to include 1-on-1 handwriting and behavioral profiling in their executive engagement can request it directly during their intake briefing.`;
         } else if (text.includes('suchita') || text.includes('sancheti') || text.includes('who are you') || text.includes('about') || text.includes('principal')) {
-          return `Suchita Sancheti is our Principal Architect—a Computer Science Engineer and Industrial Psychologist who synthesizes technical system architecture with human behavioral dynamics.\nDrawing from her background as an SAP consultant and forensic handwriting analyst, she hard-codes organizational alignment and accepts strictly 3 elite client calibrations per quarter.\nWould you like to explore our 4-phase methodology or initiate a diagnostic brief?`;
+          return `Suchita Sancheti is our Principal Architect—a Computer Science Engineer and Industrial Psychologist who synthesizes technical system architecture with human behavioral dynamics.\nDrawing from her expertise as an SAP consultant and certified handwriting analyst (conducted in bespoke 1-on-1 sessions, separate from automated app tools), she hard-codes organizational alignment and accepts strictly 3 elite client calibrations per quarter.\nWould you like to explore our 4-phase methodology or initiate a diagnostic brief?`;
         } else if (text.includes('process') || text.includes('how it works') || text.includes('workflow') || text.includes('methodology')) {
           return `Our engagements follow a rigorous 4-step framework beginning with Phase 0.0: Substrate Diagnostic Audit (a 14-day context-adaptive discovery), followed by Logic Gate Engineering to hard-code founder intent directly into your enterprise operating system.\nThis eliminates coordination bloat and returns up to 40% of strategic bandwidth within 90 days.`;
         } else if (text.includes('kamini') || text.includes('agnihotri') || text.includes('contact') || text.includes('email') || text.includes('reach out')) {
@@ -743,7 +745,8 @@ CORE INSTITUTIONAL KNOWLEDGE BASE:
 1. WHAT WE DO:
    - We help founders, CEOs, and C-suites reclaim up to 40% of their strategic bandwidth in 90 days. We replace fragile meeting dependency and manual check-ins with self-executing operational logic gates.
 2. PRINCIPAL ARCHITECT (SUCHITA SANCHETI):
-   - A Computer Science Engineer and Industrial Psychologist who merges enterprise systems engineering (former SAP consultant) with deep human behavioral analysis (forensic handwriting analyst).
+   - A Computer Science Engineer and Industrial Psychologist who merges enterprise systems engineering (former SAP consultant) with deep human behavioral analysis (certified handwriting analyst).
+   - NOTE: Forensic handwriting analysis is Suchita's core personal strength and is offered exclusively through bespoke 1-on-1 consultations; it is NOT an automated in-app software feature.
    - Accepts strictly 3 active institutional calibrations per quarter to guarantee uncompromised focus.
 3. CLIENT RELATIONS & OPERATIONS (KAMINI AGNIHOTRI):
    - Email: kaminiagnihotri249@gmail.com

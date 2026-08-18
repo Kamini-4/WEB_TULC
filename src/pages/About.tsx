@@ -167,9 +167,9 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
 
             <div className="bg-white p-6 border border-zinc-200/80 shadow-sm hover:border-[#b8860b]/50 transition-all duration-300">
               <div className="text-[#b8860b] font-mono text-xs font-bold mb-3">PROBLEM 03</div>
-              <h4 className="font-bold text-[#111111] text-base mb-2">The Advice Drawer</h4>
+              <h4 className="font-bold text-[#111111] text-base mb-2">The Execution Gap</h4>
               <p className="text-zinc-600 text-xs leading-relaxed italic font-light">
-                You hired generic management consultants who left behind 100-page slide decks, but zero self-executing operational guardrails.
+                Strategic plans were formulated, yet without self-executing operational guardrails and logic gates, intent struggled to translate to frontline execution.
               </p>
             </div>
 
@@ -281,8 +281,8 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
                       <span className="font-medium text-zinc-900 text-xs italic">"We build unshakeable, enterprise-grade architecture that ensures your strategic vision propagates to the frontline with absolute zero-dilution fidelity."</span>
                     </div>
                     <div className="py-2.5 border-b border-zinc-100 flex flex-col items-start px-2 text-left">
-                      <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase mb-1">Sub-Verbal Profiling (Handwriting Analyst)</span>
-                      <span className="font-medium text-zinc-900 text-xs italic">"We run rapid, non-disruptive behavioral audits to uncover underlying motivators and verify deep alignment among key directors."</span>
+                      <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase mb-1">Behavioral Profiling (Certified Handwriting Analyst • 1-on-1 Practice)</span>
+                      <span className="font-medium text-zinc-900 text-xs italic">"Conducted personally by Suchita in bespoke 1-on-1 private sessions (separate from automated app software) to uncover latent behavioral stress and alignment dynamics."</span>
                     </div>
                   </div>
                 </div>

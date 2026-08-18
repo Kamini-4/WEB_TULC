@@ -19,7 +19,7 @@ const HumanSubstrateManifesto: React.FC = () => {
             Systems As <span className="text-[#b8860b] italic font-light">Codified Human Behavior.</span>
           </h2>
           <p className="text-zinc-400 text-xs sm:text-sm font-light italic leading-relaxed">
-            Why traditional advisory fails at scale. We do not hand off reports—we engineer your organization's permanent nervous system and partner with you through every phase of execution.
+            Engineering sustainable organizational architecture. We build self-regulating operational substrates and partner with leadership through every phase of implementation.
           </p>
         </div>
 
@@ -42,7 +42,7 @@ const HumanSubstrateManifesto: React.FC = () => {
               </div>
               <h3 className="text-sm font-bold text-white font-serif">Purely Human Diagnostic</h3>
               <p className="text-xs text-zinc-300 italic font-light leading-relaxed">
-                Maps the founder's cognitive bandwidth, emotional focus, and strategic bottlenecks. Includes our <strong className="text-white">Provisional Patent-Pending Assessment</strong> and <strong className="text-white">Voice & Handwriting Behavioral Stress Mapping</strong>.
+                Maps the founder's cognitive bandwidth, emotional focus, and strategic bottlenecks. Includes our <strong className="text-white">Provisional Patent-Pending Assessment</strong> and <strong className="text-white">Executive Cognitive Mapping</strong>. <span className="text-zinc-400 block mt-1 text-[11px]">(Note: 1-on-1 forensic handwriting analysis is a separate clinical consultation conducted personally by Suchita Sancheti).</span>
               </p>
             </div>
 

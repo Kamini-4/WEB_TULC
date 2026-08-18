@@ -48,8 +48,8 @@ const FAQ: React.FC = () => {
       answer: "Absolutely. T.U.L.C. operates under a strict Zero Data Retention (ZDR) mandate. All diagnostic data and strategic inputs are processed in transient volatile memory. We do not store, sell, or train public AI models on your private corporate telemetry. Your sovereign IP remains strictly yours, protected by our Privileged Disclosure framework."
     },
     {
-      question: "How is this different from hiring premium management consultants like McKinsey, Bain, or BCG?",
-      answer: "Traditional consulting firms deliver expensive, static slide decks containing recommendations that middle management struggles to execute. These decks quickly become outdated. T.U.L.C. does not sell recommendations; we engineer active, self-regulating corporate substrates. We install live operational logic gates and automated protocols directly into your company's infrastructure, ensuring absolute strategic fidelity and sustainable operational leverage."
+      question: "How does architectural substrate engineering complement traditional strategic advisory?",
+      answer: "Strategic advisory excels at defining market position and growth horizons, while architectural engineering focuses on execution infrastructure. T.U.L.C. bridges the gap between high-level strategy and frontline operations by engineering self-regulating corporate substrates. We install live operational logic gates and automated protocols directly into your operating infrastructure, ensuring absolute strategic fidelity and sustainable operational leverage."
     },
     {
       question: "Is the Yield Calibration or 'Strategic Alignment Audit' the complete process?",
@@ -61,7 +61,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "How do you reconcile systems architecture with human behavior and emotional burnout?",
-      answer: "We treat systems architecture simply as the skeleton; human cognitive alignment is the soul. Standard consultants write manuals that collect dust because they design systems for a perfect world, ignoring human behavior. We do the opposite. We treat human bandwidth, emotional peace, and decision-fatigue as the primary constraints of any enterprise. A pristine systems architecture that ignores human cognitive fatigue, incentives, and structural friction will suffer rapid operational drift and eventual collapse. Conversely, a purely 'human-centric' approach without systematic logic gates leads to perpetual meeting-tax and chaotic exception handling. We build system-level architectures exclusively to protect human strategic energy and liberate human creative energy."
+      answer: "We treat systems architecture as the structural framework; human cognitive alignment is the living core. Systems designed for an idealized vacuum often struggle because they overlook human cognitive bandwidth. We take the reverse approach: we treat human energy, emotional clarity, and decision fatigue as the foundational constraints of any enterprise. A systems architecture that honors human cognitive limits prevents operational drift, eliminates unnecessary meeting tax, and liberates executive creative energy."
     },
     {
       question: "How does the protocol integrate 'human wetware' with system hardware across the operational phases?",

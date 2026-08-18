@@ -21,12 +21,11 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
   };
 
   const navItems = [
-    { label: 'About', path: '/about' },
-    { label: 'Services', path: '/services' },
-    { label: 'Mandates', path: '/mandates' },
-    { label: 'Assessment', path: '/assessment' },
-    { label: 'Library', path: '/library' },
-    { label: 'Portal', path: '/portal' },
+    { label: 'Architecture', path: '/about' },
+    { label: 'Mandates & Services', path: '/services' },
+    { label: 'Diagnostic', path: '/assessment' },
+    { label: 'Dispatches', path: '/library' },
+    { label: 'Client Portal', path: '/portal', isPortal: true },
   ];
 
   const handleNavClick = (path: string, e: React.MouseEvent, external?: boolean) => {
@@ -90,11 +89,14 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
                   key={item.path}
                   to={item.path}
                   onClick={(e) => handleNavClick(item.path, e)}
-                  className={`text-[9px] font-black uppercase text-[#111111] hover:text-[#b8860b] transition-colors relative flex items-center gap-1 ${
+                  className={`text-[9px] font-black uppercase tracking-wider text-[#111111] hover:text-[#b8860b] transition-colors relative flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                     location.pathname === item.path ? 'text-[#b8860b]' : ''
                   }`}
                 >
-                  {item.label}
+                  {item.isPortal && (
+                    <span className="text-[10px] opacity-70">🔒</span>
+                  )}
+                  <span>{item.label}</span>
                   {item.path === '/library' && (
                     <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-pulse" title="Patent-pending Research Registry" />
                   )}
@@ -104,9 +106,9 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
           </div>
           <button 
             onClick={scrollToWaitlist}
-            className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 bg-[#111111] text-white hover:bg-black transition-all duration-500 shadow-xl text-[8px] sm:text-[10px] uppercase font-bold border border-white/10"
+            className="px-4 sm:px-6 md:px-7 py-2 sm:py-2.5 bg-[#111111] text-white hover:bg-[#b8860b] transition-all duration-300 shadow-md text-[8px] sm:text-[9px] uppercase font-bold border border-white/10 tracking-wider whitespace-nowrap shrink-0"
           >
-            REQUEST ACCESS
+            INITIATE CALIBRATION
           </button>
           
           {/* Mobile Menu Toggle */}
@@ -149,9 +151,9 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
             ))}
             <button 
               onClick={scrollToWaitlist}
-              className="mt-4 py-5 bg-[#111111] text-white text-xs font-black uppercase "
+              className="mt-4 py-4 bg-[#111111] text-white text-xs font-black uppercase tracking-wider"
             >
-              REQUEST SOVEREIGN ACCESS
+              INITIATE CALIBRATION
             </button>
           </div>
         </div>

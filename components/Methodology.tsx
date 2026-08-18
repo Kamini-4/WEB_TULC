@@ -122,9 +122,9 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             <div className="space-y-4 flex-grow">
               <span className="text-[10px] font-black uppercase text-[#b8860b] block">The Boardroom Soundbite</span>
               <blockquote className="text-zinc-200 text-base md:text-lg italic font-light leading-relaxed">
-                "Standard consultants write manuals that collect dust because they design systems for a perfect world, ignoring human behavior. We do the opposite. We treat human bandwidth, emotional peace, and decision-fatigue as the primary constraints of any enterprise.
+                "Processes falter when systems are designed for an idealized world rather than real human dynamics. We take a different approach: we treat human bandwidth, emotional clarity, and decision fatigue as the foundational constraints of any scaling enterprise.
                 <br /><br />
-                We build system-level architectures exclusively to protect human strategic energy. By phase 2 and 3, your frontline staff aren’t memorizing policy manuals; they are operating within customized 'logic gates' that make the correct strategic choice natural and effortless. In phase 4, we insulate your executive bandwidth entirely from daily firefighting. We don't just build systems; we build an organizational nervous system that keeps your human talent acting in perfect, autonomous harmony with your legacy."
+                We build system-level architectures exclusively to protect human strategic energy. Across our calibration phases, frontline teams operate within customized 'logic gates' that make the aligned strategic choice natural, clear, and repeatable. We insulate executive bandwidth from daily firefighting and build an organizational operating model where talent acts in autonomous harmony with the founding vision."
               </blockquote>
               <div className="pt-4 border-t border-white/5 flex justify-between items-center text-xs text-zinc-500 font-mono">
                 <span>Suchita Sancheti, Principal Architect</span>
