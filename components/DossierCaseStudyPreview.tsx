@@ -16,84 +16,378 @@ import {
   CheckCircle2,
   Lock,
   Layers,
-  ChevronRight
+  ChevronLeft,
+  ChevronRight,
+  TrendingUp,
+  Cpu,
+  BarChart3,
+  AlertTriangle,
+  Award,
+  BookOpen
 } from 'lucide-react';
 
 interface DossierCaseStudyPreviewProps {
   onBriefClick?: (id?: string) => void;
 }
 
+const DOSSIER_PAGES = [
+  {
+    pageNumber: 1,
+    id: 'page-1',
+    tabName: '01. Executive Identity & Indices',
+    title: 'Page 01 // Executive Identity, Systemic Indices & Clinical Thesis',
+    subtitle: 'Apex Telemetry & Baseline Friction Audit',
+    badge: 'CONFIDENTIAL • CASE REF #849201'
+  },
+  {
+    pageNumber: 2,
+    id: 'page-2',
+    tabName: '02. 5 Sovereign Domains',
+    title: 'Page 02 // The 5 Sovereign Domains — Forensic Vector Diagnostic',
+    subtitle: 'Multidimensional Architectural Geometry & Radar Analysis',
+    badge: 'PROVISIONAL PATENT-PENDING FRAMEWORK'
+  },
+  {
+    pageNumber: 3,
+    id: 'page-3',
+    tabName: '03. Meeting Tax & Latency',
+    title: 'Page 03 // Operational Latency, Escalation Density & Meeting Tax',
+    subtitle: 'The Authority Isolation Loop & Intent Dilution Mapping',
+    badge: 'FORENSIC FRICTION ANALYSIS'
+  },
+  {
+    pageNumber: 4,
+    id: 'page-4',
+    tabName: '04. Directive Transmission',
+    title: 'Page 04 // Executive Communication & Strategic Intent Transmission',
+    subtitle: 'Leadership Delivery Archetype & Context-to-Command Ratio',
+    badge: 'COGNITIVE SUBSTRATE MAPPING'
+  },
+  {
+    pageNumber: 5,
+    id: 'page-5',
+    tabName: '05. Logic Gate Calibration',
+    title: 'Page 05 // Structural Logic Gate Calibration & Decision Architecture',
+    subtitle: '12-Gate Operational Intervention & Delegation Guardrails',
+    badge: 'OPERATIONAL INTERVENTION MATRIX'
+  },
+  {
+    pageNumber: 6,
+    id: 'page-6',
+    tabName: '06. 10-Yr Sovereign Decree',
+    title: 'Page 06 // The 10-Year Sovereign Generational Decree & Governance Charter',
+    subtitle: 'Dynastic Perpetuity, Key-Person De-risking & Exit Valuation',
+    badge: 'INSTITUTIONAL PERPETUITY BLUEPRINT'
+  }
+];
+
 const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBriefClick }) => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<'overview' | 'domains' | 'acoustic' | 'decree'>('overview');
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handlePrint = () => {
-    // Open printable HTML dossier window or trigger native print dialog
     const printWindow = window.open('', '_blank');
     if (printWindow) {
       printWindow.document.write(`
         <!DOCTYPE html>
         <html>
           <head>
-            <title>TULC // Declassified Sovereign Systemic Dossier</title>
+            <title>TULC // Declassified Sovereign Systemic Dossier (6-Page Complete Artifact)</title>
             <style>
-              @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap');
-              body { font-family: 'Playfair Display', Georgia, serif; background: #FAF9F5; color: #0A0A0A; padding: 40px; font-size: 13px; line-height: 1.6; }
-              .header { border-bottom: 2px solid #C5A021; padding-bottom: 20px; text-align: center; margin-bottom: 30px; }
-              .badge { display: inline-block; font-size: 9px; font-weight: bold; letter-spacing: 0.15em; color: #8a6d1a; background: rgba(197,160,33,0.1); padding: 4px 12px; border: 1px solid rgba(197,160,33,0.3); text-transform: uppercase; margin-bottom: 10px; font-family: 'JetBrains Mono', monospace; }
-              .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 25px 0; }
-              .metric-card { border: 1px solid #ddd; background: #fff; padding: 15px; text-align: center; }
-              .metric-val { font-size: 24px; font-weight: bold; color: #0A0A0A; }
-              .section { margin: 30px 0; }
-              .section-title { font-size: 16px; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 15px; }
-              .callout { background: rgba(197,160,33,0.08); border-left: 3px solid #C5A021; padding: 15px; font-style: italic; margin: 15px 0; }
-              .mono { font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+              @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap');
+              @page { size: A4; margin: 20mm; }
+              body { font-family: 'Playfair Display', Georgia, serif; background: #FAF9F5; color: #0A0A0A; padding: 20px; font-size: 11pt; line-height: 1.6; }
+              .page { page-break-after: always; padding: 25px 0; min-height: 90vh; border-bottom: 2px dashed #C5A021; margin-bottom: 40px; }
+              .page:last-child { page-break-after: avoid; border-bottom: none; }
+              .header { border-bottom: 2px solid #C5A021; padding-bottom: 15px; text-align: center; margin-bottom: 25px; }
+              .badge { display: inline-block; font-size: 8pt; font-weight: bold; letter-spacing: 0.15em; color: #8a6d1a; background: rgba(197,160,33,0.12); padding: 4px 12px; border: 1px solid rgba(197,160,33,0.4); text-transform: uppercase; margin-bottom: 8px; font-family: 'JetBrains Mono', monospace; }
+              .page-footer { margin-top: 35px; border-top: 1px solid #ccc; padding-top: 10px; font-size: 8pt; color: #777; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; }
+              .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0; font-family: 'Inter', sans-serif; }
+              .metric-box { border: 1px solid #dcd8cb; background: #fff; padding: 12px; text-align: center; }
+              .metric-val { font-size: 20pt; font-weight: 700; color: #0A0A0A; font-family: 'Playfair Display', serif; }
+              .section-heading { font-size: 13pt; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid #000; padding-bottom: 4px; margin: 20px 0 10px 0; color: #0A0A0A; }
+              .callout-box { background: rgba(197,160,33,0.08); border-left: 4px solid #C5A021; padding: 14px 18px; font-style: italic; margin: 18px 0; }
+              .mono { font-family: 'JetBrains Mono', monospace; font-size: 9pt; }
+              .sans { font-family: 'Inter', sans-serif; font-size: 10pt; }
+              .redacted { background: #000; color: #000; padding: 0 4px; border-radius: 2px; user-select: none; }
+              table { width: 100%; border-collapse: collapse; margin: 15px 0; font-family: 'Inter', sans-serif; font-size: 9pt; }
+              th, td { border: 1px solid #dcd8cb; padding: 8px 10px; text-align: left; }
+              th { background: #f0ece1; font-family: 'JetBrains Mono', monospace; font-size: 8pt; text-transform: uppercase; }
             </style>
           </head>
           <body>
-            <div class="header">
-              <div class="badge">DECLASSIFIED INSTITUTIONAL CASE ARTIFACT // TULC EXECUTIVE ARCHIVE</div>
-              <h1 style="margin: 6px 0; text-transform: uppercase; font-size: 26px;">Sovereign Systemic Dossier</h1>
-              <div class="mono" style="color: #666;">FINGERPRINT: CASE_REF-849201 // SECTOR: GLOBAL DEEPTECH & INDUSTRIAL CONGLOMERATE</div>
-            </div>
             
-            <div class="metrics">
-              <div class="metric-card"><div class="mono" style="font-size: 9px; color:#888;">SOVEREIGN INDEX</div><div class="metric-val" style="color:#C5A021;">79.0%</div><div style="font-size: 10px; color:#666;">Apex Sovereignty</div></div>
-              <div class="metric-card"><div class="mono" style="font-size: 9px; color:#888;">METABOLIC BURN</div><div class="metric-val">70.0%</div><div style="font-size: 10px; color:#666;">Manual Override Load</div></div>
-              <div class="metric-card"><div class="mono" style="font-size: 9px; color:#888;">REFRACTION INDEX</div><div class="metric-val">100.0%</div><div style="font-size: 10px; color:#666;">Signal Degradation</div></div>
-              <div class="metric-card"><div class="mono" style="font-size: 9px; color:#888;">SURVIVAL HEALTH</div><div class="metric-val" style="color:#137333;">100%</div><div style="font-size: 10px; color:#666;">Generational Longevity</div></div>
+            <!-- PAGE 1: EXECUTIVE IDENTITY & INDICES -->
+            <div class="page">
+              <div class="header">
+                <div class="badge">DECLASSIFIED INSTITUTIONAL CASE ARTIFACT // TULC EXECUTIVE ARCHIVE</div>
+                <h1 style="margin: 6px 0; text-transform: uppercase; font-size: 22pt;">Sovereign Systemic Dossier</h1>
+                <div class="mono" style="color: #666;">FINGERPRINT: CASE_REF-849201 // RECORD: <span style="color:#b8860b;">ANONYMIZED FOR CONFIDENTIALITY</span></div>
+                <div class="mono" style="margin-top: 4px; color: #444;">PRINCIPAL: <span class="redacted">Suchita Sancheti Client</span> [GROUP FOUNDER & CEO] // ENTITY: <span class="redacted">Global Industrial Corp</span> [GLOBAL DEEPTECH & MANUFACTURING CONGLOMERATE]</div>
+              </div>
+
+              <div class="metrics-grid">
+                <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">SOVEREIGN INDEX</div><div class="metric-val" style="color:#C5A021;">79.0%</div><div style="font-size: 8.5pt; color:#666;">Apex Sovereignty</div></div>
+                <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">METABOLIC BURN</div><div class="metric-val">70.0%</div><div style="font-size: 8.5pt; color:#666;">Personal Override Load</div></div>
+                <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">SIGNAL DILUTION</div><div class="metric-val" style="color:#b82b2b;">100.0%</div><div style="font-size: 8.5pt; color:#666;">Decay below Tier 2</div></div>
+                <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">HALF-LIFE BASELINE</div><div class="metric-val" style="color:#137333;">14 Mos</div><div style="font-size: 8.5pt; color:#666;">Longevity Without Founder</div></div>
+              </div>
+
+              <div class="callout-box">
+                <strong>Executive Clinical Thesis:</strong> "The audited enterprise operates under the physics of a One-Mind Engine. The Principal's cognitive clarity is extraordinary (5.00/5.0), but intent currently acts as a manual override for the entire institution. The founder absorbs the metabolic cost of daily tactical execution with personal willpower rather than automating it through immutable organizational architecture. This imposes an estimated 35% drag on strategic velocity and introduces acute key-person vulnerability."
+              </div>
+
+              <div class="section-heading">CALIBRATION 01 // THE APEX CONVICTION PARADOX</div>
+              <p class="sans" style="line-height: 1.6;">
+                The diagnostic audit reveals an apex node operating with absolute conviction. Decisions are anchored in internally generated strategic law rather than external validation. However, because this conviction is stored in the founder's head rather than codified into self-executing logic gates, every critical decision routes back to the CEO desk. Escalation Density is measured at <strong>94/100 (Critical)</strong>, forcing the Principal into 18+ hours of reactive tactical firefighting per week.
+              </p>
+
+              <div class="page-footer">
+                <span>THE UNBOUNDED LEADERSHIP CO. // CASE_REF-849201</span>
+                <span>PAGE 1 OF 6</span>
+                <span>CONFIDENTIAL & ANONYMIZED FORENSIC RECORD</span>
+              </div>
             </div>
 
-            <div class="callout">
-              <strong>Core Clinical Thesis:</strong> "Your cognitive intent is currently acting as a manual override for the entire organization. You are absorbing the metabolic cost of execution with personal willpower rather than automating it through immutable organizational architecture. This creates an estimated 35% drag on strategic velocity."
+            <!-- PAGE 2: 5 SOVEREIGN DOMAINS -->
+            <div class="page">
+              <div class="header">
+                <div class="badge">PROVISIONAL PATENT-PENDING DIAGNOSTIC MATRIX</div>
+                <h2 style="margin: 4px 0; text-transform: uppercase; font-size: 18pt;">The 5 Sovereign Domains Forensic Diagnostic</h2>
+                <div class="mono" style="color: #666;">CROSS-DOMAIN VECTOR SCORING & ORGANIZATIONAL GEOMETRY</div>
+              </div>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Domain Vector</th>
+                    <th>Score</th>
+                    <th>Status</th>
+                    <th>Forensic Finding & Operational Reality</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>01. Cognitive Clarity</strong></td>
+                    <td style="color:#C5A021; font-weight:bold;">5.00 / 5.0</td>
+                    <td>Sovereign Anchor</td>
+                    <td>Apex conviction is absolute. Uncompromised vision and pristine intuitive compass.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>02. Systemic Integrity</strong></td>
+                    <td style="font-weight:bold;">3.67 / 5.0</td>
+                    <td>Refinement Vector</td>
+                    <td>The gap between boardroom decisions and SOP execution. Requires hard-coded logic gates.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>03. Strategic Velocity</strong></td>
+                    <td style="color:#C5A021; font-weight:bold;">4.00 / 5.0</td>
+                    <td>High Performance</td>
+                    <td>Rapid market arbitrage at the top; intermediate execution delayed by verification loops.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>04. Moral Gravity</strong></td>
+                    <td style="color:#C5A021; font-weight:bold;">4.00 / 5.0</td>
+                    <td>Stable Anchor</td>
+                    <td>Values are deeply felt but not yet externalized into autonomous operational governance.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>05. Cultural Fidelity</strong></td>
+                    <td style="color:#b82b2b; font-weight:bold;">3.00 / 5.0</td>
+                    <td>Critical Leakage</td>
+                    <td>Signal degrades significantly below Tier 2, creating the 'Silence of Compliance' and hesitation.</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="callout-box">
+                <strong>Architectural Parity Rule:</strong> "When all 5 sovereign vectors achieve mathematical parity, the organization transitions from a leader-dependent pyramid to a self-cohering organism capable of compound expansion."
+              </div>
+
+              <div class="section-heading">VECTOR ANALYSIS // THE CONTEXT STARVATION LEAK</div>
+              <p class="sans" style="line-height: 1.6;">
+                While Cognitive Clarity stands at 5.0, Cultural Fidelity drops to 3.0. This delta of 2.0 points represents the exact zone where the founder's vision is lost in translation. Middle managers do not lack competence; they lack the codified decision parameters necessary to act with the founder's exact risk appetite without booking a meeting.
+              </p>
+
+              <div class="page-footer">
+                <span>THE UNBOUNDED LEADERSHIP CO. // CASE_REF-849201</span>
+                <span>PAGE 2 OF 6</span>
+                <span>CONFIDENTIAL & ANONYMIZED FORENSIC RECORD</span>
+              </div>
             </div>
 
-            <div class="section">
-              <div class="section-title">CALIBRATION 01 // THE APEX FREQUENCY</div>
-              <p>Your institutional footprint exhibits an exceptional concentration of cognitive bandwidth at the apex node (5.0/5.0 Cognitive Clarity). However, the physics of your presence operates as a single-point dependency. Escalation Density remains elevated at 94/100, indicating excessive tactical adjudication being forced to your desk.</p>
+            <!-- PAGE 3: MEETING TAX & LATENCY -->
+            <div class="page">
+              <div class="header">
+                <div class="badge">FORENSIC FRICTION & COORDINATION AUDIT</div>
+                <h2 style="margin: 4px 0; text-transform: uppercase; font-size: 18pt;">Operational Latency, Escalation Density & Meeting Tax</h2>
+                <div class="mono" style="color: #666;">SYSTEMIC BOTTLENECK & ORGANIZATIONAL DRAG QUANTIFICATION</div>
+              </div>
+
+              <div class="metrics-grid">
+                <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">ESCALATION DENSITY</div><div class="metric-val" style="color:#b82b2b;">94 / 100</div><div style="font-size: 8.5pt; color:#666;">Critical Centralization</div></div>
+                <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">WEEKLY MEETING TAX</div><div class="metric-val">18.5 Hrs</div><div style="font-size: 8.5pt; color:#666;">Spent in Status Alignment</div></div>
+                <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">ANNUAL DRAG COST</div><div class="metric-val" style="color:#C5A021;">$1.42M</div><div style="font-size: 8.5pt; color:#666;">Executive Latency Drag</div></div>
+                <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">RECLAIMABLE FOCUS</div><div class="metric-val" style="color:#137333;">15+ Hrs/Wk</div><div style="font-size: 8.5pt; color:#666;">Via Logic Gate Interventions</div></div>
+              </div>
+
+              <div class="section-heading">SIGNAL DECAY ACROSS MANAGEMENT TIERS</div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Tier / Hierarchy Node</th>
+                    <th>Fidelity %</th>
+                    <th>Observed Operational Behavior</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Apex Executive Desk</strong></td>
+                    <td>100%</td>
+                    <td>Flawless intent, strategic clarity, high-speed intuitive reasoning.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Tier 1: Direct C-Suite</strong></td>
+                    <td>82%</td>
+                    <td>High alignment on goals; moderate friction in inter-departmental handoffs.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Tier 2: Department VPs / Directors</strong></td>
+                    <td>58%</td>
+                    <td>Context gap emerges. Unsure of risk boundaries; decisions delayed for CEO signoff.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Tier 3: Frontline & Team Leads</strong></td>
+                    <td>34%</td>
+                    <td>Defensive reporting, adherence to obsolete SOPs, fear of punitive feedback.</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="callout-box">
+                <strong>The Authority Isolation Loop:</strong> "Because Tier 2 and 3 operate at only 34-58% context fidelity, they routinely escalate micro-decisions upward. The founder responds by reviewing more work, inadvertently reinforcing the dependency loop."
+              </div>
+
+              <div class="page-footer">
+                <span>THE UNBOUNDED LEADERSHIP CO. // CASE_REF-849201</span>
+                <span>PAGE 3 OF 6</span>
+                <span>CONFIDENTIAL & ANONYMIZED FORENSIC RECORD</span>
+              </div>
             </div>
 
-            <div class="section">
-              <div class="section-title">CALIBRATION 02 // THE CHASSIS STRESS & OVER-INDEXING</div>
-              <p>The Authority Isolation Loop: Absolute executive clarity outruns the team's capacity to digest context. This creates a One-Mind Engine where any focal dilution immediately triggers signal refraction across subordinate management layers.</p>
+            <!-- PAGE 4: DIRECTIVE TRANSMISSION -->
+            <div class="page">
+              <div class="header">
+                <div class="badge">COGNITIVE TRANSMISSION AUDIT</div>
+                <h2 style="margin: 4px 0; text-transform: uppercase; font-size: 18pt;">Executive Communication & Strategic Intent Transmission</h2>
+                <div class="mono" style="color: #666;">LEADERSHIP DELIVERY ARCHETYPE & DELEGATION FIDELITY</div>
+              </div>
+
+              <div class="metrics-grid">
+                <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">LEADERSHIP ARCHETYPE</div><div class="metric-val" style="font-size: 16pt;">Orchestrator</div><div style="font-size: 8.5pt; color:#666;">High Tonal Authority</div></div>
+                <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">COMMAND RATIO</div><div class="metric-val" style="color:#C5A021;">80% / 20%</div><div style="font-size: 8.5pt; color:#666;">80% Directive vs. Context</div></div>
+                <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">DIRECTIVE FIDELITY</div><div class="metric-val" style="color:#137333;">94%</div><div style="font-size: 8.5pt; color:#666;">Source Conviction</div></div>
+                <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">30-DAY SABBATICAL TEST</div><div class="metric-val" style="color:#b82b2b;">FAIL</div><div style="font-size: 8.5pt; color:#666;">Enterprise Stalls in Absence</div></div>
+              </div>
+
+              <div class="section-heading">FORENSIC OBSERVATIONS ON LEADERSHIP TRANSMISSION</div>
+              <p class="sans" style="line-height: 1.6;">
+                The Principal's delivery carries immense gravitational weight. Subordinates immediately recognize the authority of directives, but frequently misunderstand the underlying <em>why</em>. When novel operational conditions arise that don't fit the explicit command, teams pause execution rather than extrapolating the founder's reasoning.
+              </p>
+
+              <div class="callout-box">
+                <strong>Strategic Pivot Required:</strong> Shift command ratio from 80/20 (Directive-heavy) to 60/40 (Context-heavy), paired with pre-authorized decision charters that empower direct reports to act with sovereign certainty.
+              </div>
+
+              <div class="page-footer">
+                <span>THE UNBOUNDED LEADERSHIP CO. // CASE_REF-849201</span>
+                <span>PAGE 4 OF 6</span>
+                <span>CONFIDENTIAL & ANONYMIZED FORENSIC RECORD</span>
+              </div>
             </div>
 
-            <div class="section">
-              <div class="section-title">CALIBRATION 04 // EXECUTIVE COMMUNICATION & INTENT DELIVERY</div>
-              <p>Communication Archetype: <strong>Orchestrator</strong>. Directives stand at 80% Command vs. 20% Contextual Reasoning. While founder conviction is exceptional, strategic nuance degrades at Tier-3 management, requiring decentralized context distribution logic.</p>
+            <!-- PAGE 5: LOGIC GATE INTERVENTION -->
+            <div class="page">
+              <div class="header">
+                <div class="badge">SYSTEMIC INTERVENTION ARCHITECTURE</div>
+                <h2 style="margin: 4px 0; text-transform: uppercase; font-size: 18pt;">Structural Logic Gate Calibration & Decision Architecture</h2>
+                <div class="mono" style="color: #666;">12-GATE RE-ARCHITECTURE OF ORGANIZATIONAL OPERATING SYSTEM</div>
+              </div>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Gate Group</th>
+                    <th>Installed Operating Logic</th>
+                    <th>Target Outcome</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Gates 01–04:<br/>Autonomous Capital & Scope</strong></td>
+                    <td>Pre-approved budget and initiative logic up to $150,000 without requiring CEO signature, provided 3 risk-containment guardrails are met.</td>
+                    <td>Eliminates 12 weekly approval bottlenecks; accelerates procurement by 8x.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Gates 05–08:<br/>Escalation Filter Architecture</strong></td>
+                    <td>Issues may only escalate to the Principal if: (1) Existential legal/brand hazard, (2) Strategic budget variance >$250k, or (3) Core cultural violation.</td>
+                    <td>Reduces Escalation Density by 45%; cuts meeting load by 10 hours/week.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Gates 09–12:<br/>Distributed Context Charters</strong></td>
+                    <td>Automated weekly broadcast of strategic priorities and decision rationales. Zero-penalty error transparency protocol across all units.</td>
+                    <td>Eliminates defensive reporting; lifts frontline fidelity from 34% to 85%.</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="callout-box">
+                <strong>Operational Transformation:</strong> "We do not write generic advisory recommendations. We engineer codified rules of engagement that permanently alter how information, authority, and accountability flow through your business."
+              </div>
+
+              <div class="page-footer">
+                <span>THE UNBOUNDED LEADERSHIP CO. // CASE_REF-849201</span>
+                <span>PAGE 5 OF 6</span>
+                <span>CONFIDENTIAL & ANONYMIZED FORENSIC RECORD</span>
+              </div>
             </div>
 
-            <div class="section">
-              <div class="section-title">CALIBRATION 05 // THE 10-YEAR GENERATIONAL DECREE</div>
-              <p><strong>Year 1:</strong> Recalibrate Escalation Density (-40%) via Contextual Governance Charters.<br/>
-              <strong>Years 2-4:</strong> Build Distributed Operational Intelligence to eliminate defensive filtering and hidden friction.<br/>
-              <strong>Years 5-10:</strong> Codify Core Strategic Intent into immutable organizational infrastructure.</p>
+            <!-- PAGE 6: 10-YEAR GENERATIONAL DECREE -->
+            <div class="page">
+              <div class="header">
+                <div class="badge">INSTITUTIONAL PERPETUITY & VALUATION HARDENING</div>
+                <h2 style="margin: 4px 0; text-transform: uppercase; font-size: 18pt;">The 10-Year Sovereign Generational Decree</h2>
+                <div class="mono" style="color: #666;">GOVERNANCE PERPETUITY, KEY-PERSON RISK ELIMINATION & EXIT VALUATION</div>
+              </div>
+
+              <div class="sans" style="line-height: 1.7; margin-bottom: 20px;">
+                <p><strong>YEAR 1: THE RECALIBRATION & BANDWIDTH LIBERATION</strong><br/>
+                Implement the 12 Logic Gates. Reduce Escalation Density from 94 to 45. Reclaim 15+ hours/week for the Principal. Pass the 30-Day Step-Away Sabbatical Test with zero operational degradation.</p>
+
+                <p><strong>YEARS 2–4: DISTRIBUTED OPERATIONAL INTELLIGENCE</strong><br/>
+                Elevate Cultural Fidelity to 4.8/5.0. Permanently eradicate defensive reporting. Empower C-Suite executives to make high-stakes capital allocations with 100% of the founder's reasoning.</p>
+
+                <p><strong>YEARS 5–10: DYNASTIC PERPETUITY & VALUATION PREMIUM</strong><br/>
+                Codify founder wisdom into immutable institutional governance. Permanently eliminate the key-person valuation discount (commanding up to 35% enterprise premium during capital events or generational succession).</p>
+              </div>
+
+              <div class="callout-box" style="border-left-color: #137333; background: rgba(19,115,51,0.06);">
+                <strong>Forensic Certification & Governance Seal:</strong><br/>
+                <em>"Certified as a validated clinical forensic audit of institutional operating architecture. Designed and calibrated by The Unbounded Leadership Co."</em><br/>
+                <div style="margin-top: 10px; font-weight: bold; font-family: 'JetBrains Mono', monospace; font-size: 8.5pt;">
+                  SUCHITA SANCHETI // PRINCIPAL ALIGNMENT ARCHITECT<br/>
+                  RECORD: DECLASSIFIED & SANITIZED // ARCHIVE CODE: TULC-849201
+                </div>
+              </div>
+
+              <div class="page-footer">
+                <span>THE UNBOUNDED LEADERSHIP CO. // CASE_REF-849201</span>
+                <span>PAGE 6 OF 6</span>
+                <span>CONFIDENTIAL & ANONYMIZED FORENSIC RECORD</span>
+              </div>
             </div>
 
-            <div style="margin-top: 50px; border-top: 1px solid #ccc; padding-top: 15px; font-size: 10px; color: #888; text-align: center;" class="mono">
-              CONFIDENTIAL & ANONYMIZED FORENSIC RECORD // THE UNBOUNDED LEADERSHIP CO.
-            </div>
             <script>window.print();</script>
           </body>
         </html>
@@ -103,37 +397,47 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
   };
 
   return (
-    <section className="py-24 bg-[#0a0a0a] text-white border-t border-b border-white/10 relative overflow-hidden">
-      {/* Background Ambience */}
+    <section className="py-20 sm:py-28 bg-[#0a0a0a] text-white border-t border-b border-white/10 relative overflow-hidden">
+      {/* Subtle Background Glows */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#b8860b]/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-zinc-800/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-white/10 gap-6">
-          <div className="max-w-2xl">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 pb-6 border-b border-white/10 gap-6">
+          <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-3">
               <span className="w-2 h-2 rounded-full bg-[#b8860b] animate-pulse" />
               <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#b8860b] uppercase">
-                DECLASSIFIED INSTITUTIONAL ARTIFACT • ANONYMIZED AUDIT CASE
+                DECLASSIFIED 6-PAGE INSTITUTIONAL CASE ARTIFACT • CONFIDENTIAL & ANONYMIZED
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight leading-tight">
-              The Sovereign Systemic Dossier <span className="text-[#b8860b] italic">in Practice</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
+              The Complete Sovereign Dossier <span className="text-[#b8860b] italic">in Practice</span>
             </h2>
-            <p className="mt-3 text-zinc-400 text-sm sm:text-base font-light leading-relaxed font-serif">
-              Every audited principal receives a clinical, mathematically indexed forensic blueprint — mapping cognitive bandwidth, authority refraction, vocal acoustic prosody, and a 10-year sovereignty decree.
+            <p className="mt-3 text-zinc-300 text-sm sm:text-base font-light leading-relaxed font-serif">
+              Every audited principal receives an exhaustive, 6-page clinical forensic blueprint—mapping apex cognitive bandwidth, 5-domain vector geometry, escalation density, meeting tax drag, logic gate intervention, and a 10-year generational decree.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
             <button
               onClick={() => setIsModalOpen(true)}
               className="px-4 py-2.5 bg-[#171717] hover:bg-[#222] border border-white/15 hover:border-[#b8860b] text-white text-xs font-mono font-bold uppercase tracking-wider rounded-xs transition-all flex items-center gap-2 cursor-pointer shadow-sm group"
             >
               <Maximize2 className="w-3.5 h-3.5 text-[#b8860b] group-hover:scale-110 transition-transform" />
-              <span>Full Dossier Inspector</span>
+              <span>Inspect All 6 Pages</span>
             </button>
+
+            <button
+              onClick={handlePrint}
+              className="px-4 py-2.5 bg-[#1f1a10] hover:bg-[#b8860b] hover:text-black border border-[#b8860b]/40 text-[#b8860b] text-xs font-mono font-bold uppercase tracking-wider rounded-xs transition-all flex items-center gap-2 cursor-pointer shadow-sm"
+            >
+              <Printer className="w-3.5 h-3.5" />
+              <span>Print Complete 6-Page Report</span>
+            </button>
+            
             <button
               onClick={() => {
                 if (onBriefClick) {
@@ -144,16 +448,17 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
               }}
               className="px-5 py-2.5 bg-[#b8860b] hover:bg-white hover:text-black text-black text-xs font-mono font-bold uppercase tracking-wider rounded-xs transition-all flex items-center gap-2 cursor-pointer shadow-md"
             >
-              <span>Run Your Diagnostic</span>
+              <span>Run Diagnostic</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
 
-        {/* Dossier Interactive Card Container */}
+        {/* 6-PAGE INTERACTIVE EXECUTIVE DOSSIER VIEWER */}
         <div className="bg-[#111111] border border-white/15 rounded-xs shadow-2xl overflow-hidden">
+          
           {/* Top Metadata Strip */}
-          <div className="bg-black/80 px-6 py-4 border-b border-white/10 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+          <div className="bg-black/90 px-6 py-4 border-b border-white/10 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
             <div className="flex items-center gap-4 flex-wrap">
               <div className="flex items-center gap-2">
                 <FileText className="w-4 h-4 text-[#b8860b]" />
@@ -162,84 +467,82 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
               </div>
               <div className="text-zinc-500 hidden sm:inline">|</div>
               <div className="text-zinc-400">
-                FOUNDATION: <span className="text-white font-bold">ARCHITECT</span>
+                PRINCIPAL: <span className="bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded-xs text-[10px]">[REDACTED] GROUP CEO</span>
               </div>
               <div className="text-zinc-500 hidden sm:inline">|</div>
               <div className="text-zinc-400">
-                ROLE: <span className="text-white font-bold">FOUNDER & GROUP CEO [REDACTED CORP]</span>
+                ENTITY: <span className="bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded-xs text-[10px]">[REDACTED] GLOBAL ENTERPRISE</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span className="text-[10px] text-zinc-400 uppercase tracking-wider">Sanitized Sovereign Record</span>
+            <div className="flex items-center gap-3">
+              <span className="text-[11px] text-[#b8860b] font-bold">PAGE {currentPage} OF 6</span>
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                  disabled={currentPage === 1}
+                  className={`p-1.5 border rounded-xs transition-colors ${currentPage === 1 ? 'border-white/5 text-zinc-600 cursor-not-allowed' : 'border-white/20 text-white hover:border-[#b8860b]'}`}
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => setCurrentPage(prev => Math.min(6, prev + 1))}
+                  disabled={currentPage === 6}
+                  className={`p-1.5 border rounded-xs transition-colors ${currentPage === 6 ? 'border-white/5 text-zinc-600 cursor-not-allowed' : 'border-white/20 text-white hover:border-[#b8860b]'}`}
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
 
-          {/* Navigation Tabs */}
-          <div className="bg-[#161616] px-6 border-b border-white/10 flex overflow-x-auto no-scrollbar gap-2 sm:gap-6 font-mono text-xs">
-            <button
-              onClick={() => setActiveTab('overview')}
-              className={`py-3.5 px-2 border-b-2 font-bold uppercase transition-all whitespace-nowrap cursor-pointer flex items-center gap-2 ${
-                activeTab === 'overview'
-                  ? 'border-[#b8860b] text-[#b8860b]'
-                  : 'border-transparent text-zinc-400 hover:text-white'
-              }`}
-            >
-              <Compass className="w-3.5 h-3.5" />
-              <span>01. Apex Radar & Metrics</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('domains')}
-              className={`py-3.5 px-2 border-b-2 font-bold uppercase transition-all whitespace-nowrap cursor-pointer flex items-center gap-2 ${
-                activeTab === 'domains'
-                  ? 'border-[#b8860b] text-[#b8860b]'
-                  : 'border-transparent text-zinc-400 hover:text-white'
-              }`}
-            >
-              <Layers className="w-3.5 h-3.5" />
-              <span>02. 5-Domain Vector Scores</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('acoustic')}
-              className={`py-3.5 px-2 border-b-2 font-bold uppercase transition-all whitespace-nowrap cursor-pointer flex items-center gap-2 ${
-                activeTab === 'acoustic'
-                  ? 'border-[#b8860b] text-[#b8860b]'
-                  : 'border-transparent text-zinc-400 hover:text-white'
-              }`}
-            >
-              <Mic className="w-3.5 h-3.5" />
-              <span>03. Acoustic Prosody Mapping</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('decree')}
-              className={`py-3.5 px-2 border-b-2 font-bold uppercase transition-all whitespace-nowrap cursor-pointer flex items-center gap-2 ${
-                activeTab === 'decree'
-                  ? 'border-[#b8860b] text-[#b8860b]'
-                  : 'border-transparent text-zinc-400 hover:text-white'
-              }`}
-            >
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>04. 10-Yr Generational Decree</span>
-            </button>
+          {/* 6-Page Navigation Tab Bar */}
+          <div className="bg-[#161616] px-4 sm:px-6 border-b border-white/10 flex overflow-x-auto no-scrollbar gap-2 sm:gap-4 font-mono text-xs">
+            {DOSSIER_PAGES.map((page) => (
+              <button
+                key={page.id}
+                onClick={() => setCurrentPage(page.pageNumber)}
+                className={`py-3.5 px-2.5 border-b-2 font-bold uppercase transition-all whitespace-nowrap cursor-pointer flex items-center gap-2 ${
+                  currentPage === page.pageNumber
+                    ? 'border-[#b8860b] text-[#b8860b]'
+                    : 'border-transparent text-zinc-400 hover:text-white'
+                }`}
+              >
+                <span>Page 0{page.pageNumber}</span>
+                <span className="hidden md:inline text-zinc-500 font-normal">// {page.tabName.split('. ')[1]}</span>
+              </button>
+            ))}
           </div>
 
-          {/* Tab Content Display */}
-          <div className="p-6 sm:p-8">
+          {/* Current Page Content Container */}
+          <div className="p-6 sm:p-10 min-h-[520px]">
             <AnimatePresence mode="wait">
-              {activeTab === 'overview' && (
+              
+              {/* PAGE 1: EXECUTIVE IDENTITY, INDICES & CLINICAL THESIS */}
+              {currentPage === 1 && (
                 <motion.div
-                  key="tab-overview"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.3 }}
+                  key="page-1"
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.25 }}
                   className="space-y-8"
                 >
-                  {/* Top 4 Core Metrics */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 gap-2">
+                    <div>
+                      <span className="text-[10px] font-mono font-bold text-[#b8860b] uppercase tracking-wider block">
+                        PAGE 01 // CORE TELEMETRY
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
+                        Executive Identity, Sovereign Indices & Clinical Thesis
+                      </h3>
+                    </div>
+                    <span className="px-2.5 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 text-[#b8860b] text-[9px] font-mono uppercase font-bold shrink-0">
+                      CASE_REF-849201 • DECLASSIFIED
+                    </span>
+                  </div>
+
+                  {/* 4 Core Metrics Grid */}
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     <div className="bg-[#181818] border border-white/10 p-5 rounded-xs text-center">
                       <span className="text-[10px] font-mono font-bold text-zinc-500 uppercase tracking-wider block mb-1">
@@ -249,7 +552,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                         79.0%
                       </div>
                       <span className="text-[11px] text-zinc-400 font-serif italic block">
-                        Apex with Structural Latency
+                        Apex Clarity with Coordination Latency
                       </span>
                     </div>
 
@@ -260,493 +563,608 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                       <div className="text-3xl font-serif font-bold text-white my-1">
                         70.0%
                       </div>
-                      <span className="text-[11px] text-amber-400/90 font-serif italic block">
-                        High Personal Friction Load
+                      <span className="text-[11px] text-amber-400 font-serif italic block">
+                        Personal Willpower Override Load
                       </span>
                     </div>
 
                     <div className="bg-[#181818] border border-white/10 p-5 rounded-xs text-center">
                       <span className="text-[10px] font-mono font-bold text-zinc-500 uppercase tracking-wider block mb-1">
-                        Refraction Index
+                        Signal Dilution Index
                       </span>
-                      <div className="text-3xl font-serif font-bold text-white my-1">
+                      <div className="text-3xl font-serif font-bold text-rose-400 my-1">
                         100.0%
                       </div>
-                      <span className="text-[11px] text-rose-400/90 font-serif italic block">
-                        Signal Dilution in Tiers 2-3
+                      <span className="text-[11px] text-rose-300 font-serif italic block">
+                        Critical Distortion below Tier 2
                       </span>
                     </div>
 
                     <div className="bg-[#181818] border border-white/10 p-5 rounded-xs text-center">
                       <span className="text-[10px] font-mono font-bold text-zinc-500 uppercase tracking-wider block mb-1">
-                        Institutional Half-Life
+                        Longevity Half-Life
                       </span>
                       <div className="text-3xl font-serif font-bold text-emerald-400 my-1">
                         14 Mos
                       </div>
                       <span className="text-[11px] text-zinc-400 font-serif italic block">
-                        Targeting 60+ Months via Protocol
+                        Without Founder (Target: 60+ Mos)
                       </span>
                     </div>
                   </div>
 
-                  {/* 2-Column: Radar Graph + Clinical Thesis */}
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#151515] border border-white/10 p-6 sm:p-8 rounded-xs">
-                    {/* SVG Radar */}
-                    <div className="lg:col-span-5 flex flex-col items-center justify-center border-b lg:border-b-0 lg:border-r border-white/10 pb-6 lg:pb-0 lg:pr-6">
-                      <div className="text-[10px] font-mono uppercase font-bold text-[#b8860b] tracking-wider mb-3">
-                        5-Axis Sovereign Domain Radar
-                      </div>
-                      <div className="w-full max-w-[240px]">
-                        <svg viewBox="0 0 240 240" className="w-full h-auto">
-                          {/* Grid pentagons */}
-                          <polygon points="120,40 196,95 167,185 73,185 44,95" fill="none" stroke="#333333" strokeWidth="1" />
-                          <polygon points="120,60 177,101 155,168 85,168 63,101" fill="none" stroke="#2b2b2b" strokeWidth="1" />
-                          <polygon points="120,80 158,107 143,152 97,152 82,107" fill="none" stroke="#222222" strokeWidth="1" />
-                          {/* Axis lines */}
-                          <line x1="120" y1="120" x2="120" y2="40" stroke="#333333" strokeWidth="1" />
-                          <line x1="120" y1="120" x2="196" y2="95" stroke="#333333" strokeWidth="1" />
-                          <line x1="120" y1="120" x2="167" y2="185" stroke="#333333" strokeWidth="1" />
-                          <line x1="120" y1="120" x2="73" y2="185" stroke="#333333" strokeWidth="1" />
-                          <line x1="120" y1="120" x2="44" y2="95" stroke="#333333" strokeWidth="1" />
-                          {/* Data Polygon */}
-                          <polygon
-                            points="120.0,64.0 173.3,102.7 152.9,165.3 87.1,165.3 66.7,102.7"
-                            fill="rgba(197, 160, 33, 0.25)"
-                            stroke="#C5A021"
-                            strokeWidth="2.5"
-                          />
-                          {/* Labels */}
-                          <text x="120" y="30" textAnchor="middle" fontSize="7.5" fontFamily="monospace" fill="#C5A021" fontWeight="bold">CLARITY (5.0)</text>
-                          <text x="202" y="98" textAnchor="start" fontSize="7.5" fontFamily="monospace" fill="#e5e5e5" fontWeight="bold">INTEGRITY (3.7)</text>
-                          <text x="172" y="198" textAnchor="start" fontSize="7.5" fontFamily="monospace" fill="#C5A021" fontWeight="bold">VELOCITY (4.0)</text>
-                          <text x="68" y="198" textAnchor="end" fontSize="7.5" fontFamily="monospace" fill="#C5A021" fontWeight="bold">MORAL GRAV (4.0)</text>
-                          <text x="38" y="98" textAnchor="end" fontSize="7.5" fontFamily="monospace" fill="#e5e5e5" fontWeight="bold">FIDELITY (3.0)</text>
-                        </svg>
-                      </div>
-                      <span className="text-[10px] font-mono text-zinc-500 mt-2 text-center">
-                        Calculated from 12D Vector Assessment Physics
-                      </span>
-                    </div>
-
-                    {/* Forensic Narrative Excerpt */}
-                    <div className="lg:col-span-7 space-y-4">
-                      <div className="flex items-center gap-2">
-                        <span className="px-2 py-0.5 bg-[#b8860b]/20 border border-[#b8860b]/40 text-[#b8860b] text-[9px] font-mono font-bold uppercase">
-                          Executive Forensic Summary
-                        </span>
-                        <span className="text-zinc-500 font-mono text-[10px]">CALIB_01 // THE APEX FREQUENCY</span>
-                      </div>
-
-                      <p className="text-zinc-200 text-sm sm:text-base font-serif italic leading-relaxed border-l-2 border-[#b8860b] pl-4">
-                        &ldquo;Your cognitive intent is currently acting as a manual override for the broader institution. You are absorbing the metabolic cost of execution with your personal willpower rather than automating it through organizational law. This is costing you 35% in strategic momentum.&rdquo;
-                      </p>
-
-                      <div className="bg-black/60 p-4 border border-white/10 rounded-xs space-y-2 font-mono text-xs">
-                        <div className="flex justify-between items-center text-zinc-400">
-                          <span>Escalation Density:</span>
-                          <span className="text-amber-400 font-bold">94 / 100 (Critical)</span>
-                        </div>
-                        <div className="flex justify-between items-center text-zinc-400">
-                          <span>Operational Latency Risk:</span>
-                          <span className="text-amber-400 font-bold">Elevated (One-Mind Engine)</span>
-                        </div>
-                        <div className="flex justify-between items-center text-zinc-400">
-                          <span>Primary Strategic Pivot:</span>
-                          <span className="text-[#b8860b] font-bold">Transition from Leader to Architect</span>
-                        </div>
-                      </div>
+                  {/* Clinical Thesis Statement */}
+                  <div className="bg-[#151515] border-l-4 border-[#b8860b] p-6 sm:p-8 rounded-xs space-y-3">
+                    <span className="text-[10px] font-mono uppercase font-bold text-[#b8860b] tracking-wider block">
+                      Primary Clinical Diagnostic Thesis:
+                    </span>
+                    <p className="text-base sm:text-lg font-serif italic text-zinc-200 leading-relaxed">
+                      &ldquo;The audited enterprise operates under the physics of a One-Mind Engine. The Principal's cognitive clarity is extraordinary (5.00/5.0), but intent currently acts as a manual override for the entire institution. The founder absorbs the metabolic cost of daily tactical execution with personal willpower rather than automating it through immutable organizational architecture. This imposes an estimated 35% drag on strategic velocity and introduces acute key-person vulnerability.&rdquo;
+                    </p>
+                    <div className="text-[11px] font-mono text-zinc-400 pt-2 border-t border-white/10 flex items-center justify-between">
+                      <span>Forensic Auditor: Suchita Sancheti, Principal Alignment Architect</span>
+                      <span className="text-[#b8860b]">Status: Immediate Calibration Prescribed</span>
                     </div>
                   </div>
                 </motion.div>
               )}
 
-              {activeTab === 'domains' && (
+              {/* PAGE 2: THE 5 SOVEREIGN DOMAINS */}
+              {currentPage === 2 && (
                 <motion.div
-                  key="tab-domains"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.3 }}
+                  key="page-2"
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.25 }}
                   className="space-y-6"
                 >
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Domain 1 */}
-                    <div className="bg-[#161616] border border-[#b8860b]/50 p-5 rounded-xs space-y-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 gap-2">
+                    <div>
+                      <span className="text-[10px] font-mono font-bold text-[#b8860b] uppercase tracking-wider block">
+                        PAGE 02 // MULTIDIMENSIONAL VECTOR DIAGNOSTIC
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
+                        The 5 Sovereign Domains Forensic Geometry
+                      </h3>
+                    </div>
+                    <span className="px-2.5 py-1 bg-white/5 border border-white/10 text-zinc-300 text-[9px] font-mono uppercase font-bold shrink-0">
+                      5-AXIS RADAR CALCULATION
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {/* Domain 01 */}
+                    <div className="bg-[#161616] border border-[#b8860b]/50 p-5 rounded-xs space-y-2.5">
                       <div className="flex justify-between items-start">
                         <div>
-                          <span className="text-xs font-mono font-bold text-[#b8860b] uppercase tracking-wider block">
-                            Cognitive Clarity
-                          </span>
-                          <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase">
-                            • ANCHOR STRENGTH (SOVEREIGN)
-                          </span>
+                          <span className="text-xs font-mono font-bold text-[#b8860b] uppercase">01. Cognitive Clarity</span>
+                          <span className="text-[9px] font-mono text-emerald-400 block font-bold">• SOVEREIGN ANCHOR</span>
                         </div>
-                        <span className="px-2.5 py-1 bg-[#b8860b] text-black font-mono font-bold text-xs rounded-xs">
-                          5.00 / 5.0
-                        </span>
+                        <span className="px-2 py-0.5 bg-[#b8860b] text-black font-mono font-bold text-xs rounded-xs">5.0 / 5.0</span>
                       </div>
                       <p className="text-xs text-zinc-300 font-serif leading-relaxed">
-                        Internal psychological sovereignty and apex intent. Decision-making is anchored in self-authored moral law rather than external validation.
+                        Internal psychological sovereignty at the apex. Decision-making is anchored in self-authored conviction rather than consensus seeking.
                       </p>
-                      <div className="h-1.5 w-full bg-zinc-800 rounded-full overflow-hidden">
-                        <div className="h-full bg-[#b8860b] w-full" />
-                      </div>
                     </div>
 
-                    {/* Domain 2 */}
-                    <div className="bg-[#161616] border border-white/10 p-5 rounded-xs space-y-3">
+                    {/* Domain 02 */}
+                    <div className="bg-[#161616] border border-white/10 p-5 rounded-xs space-y-2.5">
                       <div className="flex justify-between items-start">
                         <div>
-                          <span className="text-xs font-mono font-bold text-white uppercase tracking-wider block">
-                            Cultural Fidelity
-                          </span>
-                          <span className="text-[10px] font-mono text-amber-400 font-bold uppercase">
-                            • REFINEMENT VECTOR
-                          </span>
+                          <span className="text-xs font-mono font-bold text-white uppercase">02. Systemic Integrity</span>
+                          <span className="text-[9px] font-mono text-amber-400 block font-bold">• REFINEMENT VECTOR</span>
                         </div>
-                        <span className="px-2.5 py-1 bg-zinc-800 text-zinc-200 font-mono font-bold text-xs rounded-xs">
-                          3.00 / 5.0
-                        </span>
+                        <span className="px-2 py-0.5 bg-zinc-800 text-zinc-200 font-mono font-bold text-xs rounded-xs">3.67 / 5.0</span>
                       </div>
                       <p className="text-xs text-zinc-300 font-serif leading-relaxed">
-                        Distribution of strategic signal across tiers. Signal degrades significantly below tier 2, causing the "Silence of Compliance" and context starvation.
+                        The gap between boardroom mandates and daily frontline SOP execution. Currently reliant on conversational check-ins instead of logic gates.
                       </p>
-                      <div className="h-1.5 w-full bg-zinc-800 rounded-full overflow-hidden">
-                        <div className="h-full bg-amber-400 w-3/5" />
-                      </div>
                     </div>
 
-                    {/* Domain 3 */}
-                    <div className="bg-[#161616] border border-[#b8860b]/50 p-5 rounded-xs space-y-3">
+                    {/* Domain 03 */}
+                    <div className="bg-[#161616] border border-[#b8860b]/50 p-5 rounded-xs space-y-2.5">
                       <div className="flex justify-between items-start">
                         <div>
-                          <span className="text-xs font-mono font-bold text-[#b8860b] uppercase tracking-wider block">
-                            Strategic Velocity
-                          </span>
-                          <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase">
-                            • ANCHOR STRENGTH (STABLE)
-                          </span>
+                          <span className="text-xs font-mono font-bold text-[#b8860b] uppercase">03. Strategic Velocity</span>
+                          <span className="text-[9px] font-mono text-emerald-400 block font-bold">• HIGH PERFORMANCE</span>
                         </div>
-                        <span className="px-2.5 py-1 bg-[#b8860b] text-black font-mono font-bold text-xs rounded-xs">
-                          4.00 / 5.0
-                        </span>
+                        <span className="px-2 py-0.5 bg-[#b8860b] text-black font-mono font-bold text-xs rounded-xs">4.0 / 5.0</span>
                       </div>
                       <p className="text-xs text-zinc-300 font-serif leading-relaxed">
-                        Capacity to weaponize asymmetric arbitrage in market chaos. Antifragile instincts are exceptionally strong at executive level.
+                        Ability to execute rapid asymmetric market moves. Instincts at executive tier are sharp; middle management execution experiences lag.
                       </p>
-                      <div className="h-1.5 w-full bg-zinc-800 rounded-full overflow-hidden">
-                        <div className="h-full bg-[#b8860b] w-4/5" />
-                      </div>
                     </div>
 
-                    {/* Domain 4 */}
-                    <div className="bg-[#161616] border border-white/10 p-5 rounded-xs space-y-3">
+                    {/* Domain 04 */}
+                    <div className="bg-[#161616] border border-[#b8860b]/50 p-5 rounded-xs space-y-2.5">
                       <div className="flex justify-between items-start">
                         <div>
-                          <span className="text-xs font-mono font-bold text-white uppercase tracking-wider block">
-                            Systemic Integrity
-                          </span>
-                          <span className="text-[10px] font-mono text-amber-400 font-bold uppercase">
-                            • REFINEMENT VECTOR
-                          </span>
+                          <span className="text-xs font-mono font-bold text-[#b8860b] uppercase">04. Moral Gravity</span>
+                          <span className="text-[9px] font-mono text-emerald-400 block font-bold">• STABLE ANCHOR</span>
                         </div>
-                        <span className="px-2.5 py-1 bg-zinc-800 text-zinc-200 font-mono font-bold text-xs rounded-xs">
-                          3.67 / 5.0
-                        </span>
+                        <span className="px-2 py-0.5 bg-[#b8860b] text-black font-mono font-bold text-xs rounded-xs">4.0 / 5.0</span>
                       </div>
                       <p className="text-xs text-zinc-300 font-serif leading-relaxed">
-                        Distance between executive intent and execution manifestation. Requires codifying mental models into automated logic gates.
+                        Ethical resilience and mission fidelity. High personal integrity that must now be codified into institutional governance.
                       </p>
-                      <div className="h-1.5 w-full bg-zinc-800 rounded-full overflow-hidden">
-                        <div className="h-full bg-amber-400 w-[73%]" />
+                    </div>
+
+                    {/* Domain 05 */}
+                    <div className="bg-[#161616] border border-rose-500/40 p-5 rounded-xs space-y-2.5 md:col-span-2 lg:col-span-2">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <span className="text-xs font-mono font-bold text-rose-400 uppercase">05. Cultural Fidelity & Context Distribution</span>
+                          <span className="text-[9px] font-mono text-rose-400 block font-bold">• CRITICAL SYSTEMIC BOTTLENECK</span>
+                        </div>
+                        <span className="px-2 py-0.5 bg-rose-500/20 text-rose-300 font-mono font-bold text-xs rounded-xs">3.0 / 5.0</span>
+                      </div>
+                      <p className="text-xs text-zinc-300 font-serif leading-relaxed">
+                        Severe context degradation below Tier 2. Frontline teams lack the reasoning parameters to execute without asking permission, leading to the &ldquo;Silence of Compliance&rdquo; and constant escalation to the CEO desk.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="bg-black/60 p-4 border border-white/10 rounded-xs flex items-center justify-between text-xs font-mono">
+                    <span className="text-zinc-400">Diagnostic Finding: A 2.0-point delta between Cognitive Clarity (5.0) and Cultural Fidelity (3.0) represents $1.4M+ in annual coordination friction.</span>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* PAGE 3: OPERATIONAL LATENCY, BOTTLENECK FORENSICS & MEETING TAX */}
+              {currentPage === 3 && (
+                <motion.div
+                  key="page-3"
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.25 }}
+                  className="space-y-6"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 gap-2">
+                    <div>
+                      <span className="text-[10px] font-mono font-bold text-[#b8860b] uppercase tracking-wider block">
+                        PAGE 03 // COORDINATION FRICTION AUDIT
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
+                        Operational Latency, Escalation Density & Meeting Tax
+                      </h3>
+                    </div>
+                    <span className="px-2.5 py-1 bg-amber-400/10 border border-amber-400/30 text-amber-400 text-[9px] font-mono uppercase font-bold shrink-0">
+                      ESCALATION DENSITY: 94/100 (CRITICAL)
+                    </span>
+                  </div>
+
+                  {/* Signal Dilution Hierarchy Table */}
+                  <div className="bg-[#151515] border border-white/10 rounded-xs overflow-hidden">
+                    <div className="p-4 bg-black/60 border-b border-white/10 text-xs font-mono font-bold text-zinc-300 uppercase">
+                      Signal Degradation by Organizational Hierarchy Level
+                    </div>
+                    <div className="divide-y divide-white/5 text-xs font-mono">
+                      <div className="p-4 flex items-center justify-between">
+                        <span className="text-white font-bold">Apex Executive Tier (Founder / CEO)</span>
+                        <div className="flex items-center gap-4">
+                          <span className="text-zinc-400 text-[11px]">100% Intent Clarity</span>
+                          <span className="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 font-bold text-[10px]">SOVEREIGN</span>
+                        </div>
+                      </div>
+                      <div className="p-4 flex items-center justify-between bg-white/[0.02]">
+                        <span className="text-zinc-300">Tier 1: Direct Reports & C-Suite</span>
+                        <div className="flex items-center gap-4">
+                          <span className="text-zinc-400 text-[11px]">82% Strategic Fidelity</span>
+                          <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-300 text-[10px]">ALIGNED</span>
+                        </div>
+                      </div>
+                      <div className="p-4 flex items-center justify-between">
+                        <span className="text-zinc-300">Tier 2: Department Heads & VPs</span>
+                        <div className="flex items-center gap-4">
+                          <span className="text-amber-400 text-[11px]">58% Context Fidelity</span>
+                          <span className="px-2 py-0.5 bg-amber-500/20 text-amber-300 text-[10px]">CONTEXT GAP</span>
+                        </div>
+                      </div>
+                      <div className="p-4 flex items-center justify-between bg-white/[0.02]">
+                        <span className="text-zinc-300">Tier 3: Frontline Execution Teams</span>
+                        <div className="flex items-center gap-4">
+                          <span className="text-rose-400 text-[11px]">34% Intent Fidelity</span>
+                          <span className="px-2 py-0.5 bg-rose-500/20 text-rose-300 text-[10px]">TACTICAL NOISE</span>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-black/50 border border-[#b8860b]/30 p-4 rounded-xs flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#b8860b] shrink-0" />
-                      <span className="text-xs font-serif text-zinc-300 italic">
-                        "When these 5 vectors reach parity, the institution operates autonomously with 100% executive fidelity."
+                  {/* Meeting Tax Breakdown */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-[#181818] border border-white/10 p-5 rounded-xs space-y-2">
+                      <span className="text-[10px] font-mono uppercase text-zinc-400 block">Weekly Executive Meeting Load</span>
+                      <div className="text-2xl font-serif font-bold text-white">18.5 Hours / Week</div>
+                      <p className="text-xs text-zinc-400 font-serif italic">
+                        Consumed by status checks, alignment reviews, and tactical clarification loops.
+                      </p>
+                    </div>
+                    <div className="bg-[#181818] border border-emerald-500/30 p-5 rounded-xs space-y-2">
+                      <span className="text-[10px] font-mono uppercase text-emerald-400 block">Reclaimable Bandwidth via Logic Gates</span>
+                      <div className="text-2xl font-serif font-bold text-emerald-400">+15.0 Hours / Week</div>
+                      <p className="text-xs text-zinc-300 font-serif italic">
+                        Liberated for pure strategic expansion, market offense, and uninhibited leadership vision.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* PAGE 4: EXECUTIVE COMMUNICATION & INTENT TRANSMISSION */}
+              {currentPage === 4 && (
+                <motion.div
+                  key="page-4"
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.25 }}
+                  className="space-y-6"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 gap-2">
+                    <div>
+                      <span className="text-[10px] font-mono font-bold text-[#b8860b] uppercase tracking-wider block">
+                        PAGE 04 // EXECUTIVE TRANSMISSION PROFILE
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
+                        Executive Communication & Strategic Intent Delivery
+                      </h3>
+                    </div>
+                    <span className="px-2.5 py-1 bg-white/5 border border-white/10 text-zinc-300 text-[9px] font-mono uppercase font-bold shrink-0">
+                      LEADERSHIP ARCHETYPE: ORCHESTRATOR
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div className="bg-[#181818] border border-white/10 p-5 rounded-xs space-y-2">
+                      <span className="text-[9px] font-mono font-bold text-zinc-500 uppercase block">LEADERSHIP ARCHETYPE</span>
+                      <div className="text-xl font-serif font-bold text-white">The Orchestrator</div>
+                      <p className="text-xs text-zinc-400 font-serif italic">
+                        Commands through high conviction and immediate presence; direct reports rely heavily on live access.
+                      </p>
+                    </div>
+                    <div className="bg-[#181818] border border-white/10 p-5 rounded-xs space-y-2">
+                      <span className="text-[9px] font-mono font-bold text-zinc-500 uppercase block">COMMAND-TO-CONTEXT RATIO</span>
+                      <div className="text-xl font-serif font-bold text-[#b8860b]">80% Command / 20% Context</div>
+                      <p className="text-xs text-zinc-400 font-serif italic">
+                        Prescription: Shift to 60/40 to empower autonomous middle-tier decision authority.
+                      </p>
+                    </div>
+                    <div className="bg-[#181818] border border-white/10 p-5 rounded-xs space-y-2">
+                      <span className="text-[9px] font-mono font-bold text-zinc-500 uppercase block">30-DAY SABBATICAL TEST</span>
+                      <div className="text-xl font-serif font-bold text-rose-400">Current: At Risk</div>
+                      <p className="text-xs text-zinc-400 font-serif italic">
+                        Enterprise execution slows without founder presence. Target: 100% autonomous operation.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="bg-[#151515] p-6 border border-white/10 rounded-xs space-y-3 font-serif">
+                    <h4 className="text-sm font-bold text-white uppercase font-mono tracking-wider">Forensic Finding: Directive Gravitational Pull</h4>
+                    <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed italic">
+                      &ldquo;When directives are delivered with 80% command and 20% context, direct reports execute the immediate order but hesitate when unexpected edge cases arise. Installing clear decision guardrails converts implicit founder intuition into explicit operational rules that frontline teams execute with confidence.&rdquo;
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* PAGE 5: STRUCTURAL LOGIC GATE INTERVENTION */}
+              {currentPage === 5 && (
+                <motion.div
+                  key="page-5"
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.25 }}
+                  className="space-y-6"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 gap-2">
+                    <div>
+                      <span className="text-[10px] font-mono font-bold text-[#b8860b] uppercase tracking-wider block">
+                        PAGE 05 // SYSTEMIC INTERVENTION BLUEPRINT
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
+                        Structural Logic Gate Calibration & Decision Architecture
+                      </h3>
+                    </div>
+                    <span className="px-2.5 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 text-[#b8860b] text-[9px] font-mono uppercase font-bold shrink-0">
+                      12 CODIFIED OPERATIONAL GATES
+                    </span>
+                  </div>
+
+                  <div className="space-y-3 font-mono text-xs">
+                    {/* Gate Set 1 */}
+                    <div className="bg-[#161616] border border-white/10 p-4 rounded-xs space-y-2">
+                      <div className="flex justify-between items-center text-[#b8860b] font-bold">
+                        <span>GATES 01–04 // AUTONOMOUS CAPITAL & RESOURCE ALLOCATION</span>
+                        <span className="text-[10px] text-emerald-400">INSTALLED</span>
+                      </div>
+                      <p className="text-zinc-300 text-xs font-serif leading-relaxed">
+                        Pre-authorized budget and initiative parameters up to $150,000 without requiring CEO signoff, provided 3 containment risk rules are satisfied. Eliminates 12 weekly approval bottlenecks.
+                      </p>
+                    </div>
+
+                    {/* Gate Set 2 */}
+                    <div className="bg-[#161616] border border-white/10 p-4 rounded-xs space-y-2">
+                      <div className="flex justify-between items-center text-[#b8860b] font-bold">
+                        <span>GATES 05–08 // STRICT ESCALATION FILTER ARCHITECTURE</span>
+                        <span className="text-[10px] text-emerald-400">INSTALLED</span>
+                      </div>
+                      <p className="text-zinc-300 text-xs font-serif leading-relaxed">
+                        Hard rules permitting escalation to the CEO desk strictly under 3 conditions: (1) Existential brand or legal risk, (2) Strategic budget variance over $250k, or (3) Core ethical violation. Cuts escalation density by 45%.
+                      </p>
+                    </div>
+
+                    {/* Gate Set 3 */}
+                    <div className="bg-[#161616] border border-white/10 p-4 rounded-xs space-y-2">
+                      <div className="flex justify-between items-center text-[#b8860b] font-bold">
+                        <span>GATES 09–12 // DISTRIBUTED STRATEGIC CONTEXT BROADCASTS</span>
+                        <span className="text-[10px] text-emerald-400">INSTALLED</span>
+                      </div>
+                      <p className="text-zinc-300 text-xs font-serif leading-relaxed">
+                        Automated weekly transmission of strategic priority rationales and decision logs. Zero-penalty error transparency protocol across all operating units. Lifts frontline intent fidelity from 34% to 85%.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* PAGE 6: 10-YEAR GENERATIONAL DECREE */}
+              {currentPage === 6 && (
+                <motion.div
+                  key="page-6"
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.25 }}
+                  className="space-y-6"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 gap-2">
+                    <div>
+                      <span className="text-[10px] font-mono font-bold text-[#b8860b] uppercase tracking-wider block">
+                        PAGE 06 // INSTITUTIONAL PERPETUITY CHARTER
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
+                        The 10-Year Sovereign Generational Decree
+                      </h3>
+                    </div>
+                    <span className="px-2.5 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[9px] font-mono uppercase font-bold shrink-0">
+                      VALUATION HARDENING & DYNASTIC PERPETUITY
+                    </span>
+                  </div>
+
+                  <div className="space-y-4 font-serif">
+                    <div className="border-l-2 border-[#b8860b] pl-4 py-1.5 space-y-1">
+                      <span className="text-[11px] font-mono font-bold text-white uppercase block">
+                        YEAR 1: THE RECALIBRATION & BANDWIDTH LIBERATION
+                      </span>
+                      <p className="text-xs text-zinc-300 leading-relaxed">
+                        Reduce Escalation Density by 40% via Contextual Governance Charters. Reclaim 15+ hours/week for the Principal. Pass the 30-Day Step-Away Sabbatical Test with zero operational degradation.
+                      </p>
+                    </div>
+
+                    <div className="border-l-2 border-[#b8860b] pl-4 py-1.5 space-y-1">
+                      <span className="text-[11px] font-mono font-bold text-white uppercase block">
+                        YEARS 2–4: DISTRIBUTED OPERATIONAL INTELLIGENCE
+                      </span>
+                      <p className="text-xs text-zinc-300 leading-relaxed">
+                        Elevate Cultural Fidelity to 4.8/5.0. Permanently eradicate defensive reporting. Empower C-Suite executives to execute high-stakes capital allocations with 100% of founder reasoning.
+                      </p>
+                    </div>
+
+                    <div className="border-l-2 border-[#b8860b] pl-4 py-1.5 space-y-1">
+                      <span className="text-[11px] font-mono font-bold text-white uppercase block">
+                        YEARS 5–10: DYNASTIC PERPETUITY & VALUATION MULTIPLE EXPANSION
+                      </span>
+                      <p className="text-xs text-zinc-300 leading-relaxed">
+                        Codify founder wisdom into immutable institutional governance. Permanently eliminate the key-person discount, commanding up to a 35% enterprise valuation premium during capital rounds or succession.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Certified Seal Box */}
+                  <div className="bg-[#151515] border border-[#b8860b]/40 p-5 rounded-xs flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
+                    <div>
+                      <span className="text-[#b8860b] font-bold uppercase block mb-1">
+                        Validated Clinical Forensic Record // Certified by TULC
+                      </span>
+                      <span className="text-zinc-400 text-[11px]">
+                        Suchita Sancheti, Principal Alignment Architect • Case Artifact Ref #849201
                       </span>
                     </div>
                     <button
-                      onClick={() => setIsModalOpen(true)}
-                      className="text-[10px] font-mono text-[#b8860b] font-bold uppercase hover:underline shrink-0 hidden sm:inline"
+                      onClick={handlePrint}
+                      className="px-4 py-2 bg-[#b8860b] text-black font-bold uppercase text-[10px] hover:bg-white transition-all cursor-pointer shrink-0"
                     >
-                      Read Full Audit →
+                      Print Full 6 Pages →
                     </button>
                   </div>
                 </motion.div>
               )}
 
-              {activeTab === 'acoustic' && (
-                <motion.div
-                  key="tab-acoustic"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-6"
-                >
-                  <div className="border-l-2 border-[#b8860b] pl-4 py-1">
-                    <span className="text-[10px] font-mono font-bold text-[#b8860b] uppercase tracking-wider block">
-                      Executive Communication & Intent Transmission
-                    </span>
-                    <p className="text-sm font-serif italic text-zinc-200 mt-1">
-                      &ldquo;The voice of a high-stakes architect whose command clarity is unquestioned at the apex, but whose strategic reasoning requires systematic distribution to prevent middle-tier hesitation.&rdquo;
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div className="bg-[#181818] border border-white/10 p-4 rounded-xs">
-                      <span className="text-[9px] font-mono font-bold text-zinc-500 uppercase block mb-1">
-                        LEADERSHIP ARCHETYPE
-                      </span>
-                      <div className="text-lg font-serif font-bold text-white mb-1">
-                        Orchestrator
-                      </div>
-                      <p className="text-[10px] text-zinc-400 font-mono">
-                        High tonal stability & direct directive cadence transmitting executive authority.
-                      </p>
-                    </div>
-
-                    <div className="bg-[#181818] border border-white/10 p-4 rounded-xs">
-                      <span className="text-[9px] font-mono font-bold text-zinc-500 uppercase block mb-1">
-                        COMMAND RATIO
-                      </span>
-                      <div className="text-lg font-serif font-bold text-[#b8860b] mb-1">
-                        80% Directive
-                      </div>
-                      <p className="text-[10px] text-zinc-400 font-mono">
-                        80% directive vs. 20% contextual logic. Target: 60/40 for distributed delegation.
-                      </p>
-                    </div>
-
-                    <div className="bg-[#181818] border border-white/10 p-4 rounded-xs">
-                      <span className="text-[9px] font-mono font-bold text-zinc-500 uppercase block mb-1">
-                        STRATEGIC FIDELITY
-                      </span>
-                      <div className="text-lg font-serif font-bold text-emerald-400 mb-1">
-                        94% Alignment
-                      </div>
-                      <p className="text-[10px] text-zinc-400 font-mono">
-                        Written directives match strategic intent with exceptional fidelity.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="bg-[#141414] border border-white/10 p-4 rounded-xs text-xs font-mono text-zinc-400 space-y-2">
-                    <div className="text-[#b8860b] font-bold text-[10px] uppercase">
-                      EXECUTIVE TRANSMISSION RATIONALE:
-                    </div>
-                    <p className="leading-relaxed">
-                      Leadership delivery serves as a core indicator of organizational confidence. Clear, steady cadence projects authority, ensuring strategic mandates filter down intact without dilution or institutional noise.
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-
-              {activeTab === 'decree' && (
-                <motion.div
-                  key="tab-decree"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-6"
-                >
-                  <div className="bg-[#161616] border border-white/10 p-6 rounded-xs space-y-4">
-                    <div className="flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-[#b8860b]" />
-                      <span className="text-xs font-mono font-bold text-[#b8860b] uppercase tracking-wider">
-                        10-Year Generational Sovereign Roadmap
-                      </span>
-                    </div>
-
-                    <div className="space-y-4 font-serif">
-                      <div className="border-l border-[#b8860b]/40 pl-4 py-1">
-                        <span className="text-[10px] font-mono font-bold text-white uppercase block mb-1">
-                          YEAR 1: THE RECALIBRATION
-                        </span>
-                        <p className="text-xs text-zinc-300 leading-relaxed">
-                          Reduce Escalation Density by 40% via Contextual Governance Charters. Shift common strategic pivots from manual executive review to hard-coded organizational logic gates.
-                        </p>
-                      </div>
-
-                      <div className="border-l border-[#b8860b]/40 pl-4 py-1">
-                        <span className="text-[10px] font-mono font-bold text-white uppercase block mb-1">
-                          YEARS 2-4: DISTRIBUTED INTELLIGENCE
-                        </span>
-                        <p className="text-xs text-zinc-300 leading-relaxed">
-                          Elevate Operational Alignment from 3.0 to 4.5. Implement zero-delay error transparency across all verticals to eliminate defensive reporting.
-                        </p>
-                      </div>
-
-                      <div className="border-l border-[#b8860b]/40 pl-4 py-1">
-                        <span className="text-[10px] font-mono font-bold text-white uppercase block mb-1">
-                          YEARS 5-10: INSTITUTIONAL PERPETUITY
-                        </span>
-                        <p className="text-xs text-zinc-300 leading-relaxed">
-                          Codify Founder Vision into immutable governance architecture. Establish sovereign succession structures ensuring the enterprise compounds across decades.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
             </AnimatePresence>
           </div>
 
-          {/* Bottom Action Footer Bar */}
-          <div className="bg-black/90 px-6 py-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          {/* Bottom Action Footer Strip */}
+          <div className="bg-black/95 px-6 py-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
               <Lock className="w-3.5 h-3.5 text-[#b8860b]" />
-              <span>Full 8-Section Sovereign Dossier Available in Archive</span>
+              <span>Complete 6-Page Clinical Audit Artifact Available for Review</span>
             </div>
 
             <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+              <button
+                onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                disabled={currentPage === 1}
+                className={`px-3 py-1.5 text-xs font-mono uppercase border rounded-xs transition-all ${currentPage === 1 ? 'border-white/5 text-zinc-600 cursor-not-allowed' : 'border-white/20 text-white hover:border-[#b8860b]'}`}
+              >
+                Previous Page
+              </button>
+
+              <button
+                onClick={() => setCurrentPage(prev => Math.min(6, prev + 1))}
+                disabled={currentPage === 6}
+                className={`px-3 py-1.5 text-xs font-mono uppercase border rounded-xs transition-all ${currentPage === 6 ? 'border-white/5 text-zinc-600 cursor-not-allowed' : 'border-white/20 text-white hover:border-[#b8860b]'}`}
+              >
+                Next Page
+              </button>
+
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="px-4 py-2 bg-[#1c1c1c] hover:bg-[#282828] text-white text-xs font-mono font-bold uppercase rounded-xs transition-all flex items-center gap-2 cursor-pointer"
               >
                 <Maximize2 className="w-3.5 h-3.5 text-[#b8860b]" />
-                <span>Examine Case Artifact</span>
+                <span>Full-Screen 6-Page Modal</span>
               </button>
+
               <button
                 onClick={handlePrint}
                 className="px-4 py-2 bg-[#b8860b] hover:bg-white hover:text-black text-black text-xs font-mono font-bold uppercase rounded-xs transition-all flex items-center gap-2 cursor-pointer font-bold shadow-sm"
               >
                 <Printer className="w-3.5 h-3.5" />
-                <span>Print Dossier</span>
+                <span>Print PDF</span>
               </button>
             </div>
           </div>
+
         </div>
+
       </div>
 
-      {/* FULL-PAGE MODAL INSPECTOR */}
+      {/* FULL-SCREEN MODAL 6-PAGE DOSSIER INSPECTOR */}
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
           >
             <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
+              initial={{ scale: 0.96, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-[#FAF9F5] text-[#0A0A0A] max-w-4xl w-full max-h-[90vh] rounded-xs shadow-2xl overflow-hidden flex flex-col font-serif"
+              exit={{ scale: 0.96, opacity: 0 }}
+              className="bg-[#FAF9F5] text-[#0A0A0A] max-w-5xl w-full max-h-[92vh] rounded-xs shadow-2xl overflow-hidden flex flex-col font-serif"
             >
               {/* Modal Topbar */}
               <div className="bg-[#111111] text-white px-6 py-4 flex items-center justify-between border-b border-white/10 font-mono text-xs">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#b8860b] animate-pulse" />
-                  <span className="text-[#b8860b] font-bold uppercase">DECLASSIFIED SOVEREIGN DOSSIER // CASE ARTIFACT</span>
+                  <span className="text-[#b8860b] font-bold uppercase">DECLASSIFIED SOVEREIGN DOSSIER // COMPLETE 6-PAGE ARTIFACT</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <button
                     onClick={handlePrint}
-                    className="px-3 py-1 bg-[#b8860b] text-black font-bold uppercase text-[10px] flex items-center gap-1.5 hover:bg-white cursor-pointer transition-all"
+                    className="px-3.5 py-1.5 bg-[#b8860b] text-black font-bold uppercase text-[10px] flex items-center gap-1.5 hover:bg-white cursor-pointer transition-all"
                   >
-                    <Download className="w-3 h-3" />
-                    <span>Print / Save PDF</span>
+                    <Download className="w-3.5 h-3.5" />
+                    <span>Print All 6 Pages</span>
                   </button>
                   <button
                     onClick={() => setIsModalOpen(false)}
-                    className="p-1 text-zinc-400 hover:text-white cursor-pointer"
+                    className="p-1.5 text-zinc-400 hover:text-white cursor-pointer"
                   >
                     <X className="w-5 h-5" />
                   </button>
                 </div>
               </div>
 
-              {/* Modal Content Scroll Area */}
-              <div className="overflow-y-auto p-6 sm:p-10 space-y-8 text-xs leading-relaxed text-[#111]">
-                {/* Document Header */}
-                <div className="border-b-2 border-[#C5A021] pb-6 text-center">
-                  <div className="inline-block font-mono text-[9px] font-bold text-[#8a6d1a] bg-[#C5A021]/10 px-3 py-1 border border-[#C5A021]/30 uppercase mb-2">
-                    LEGACY ENTERPRISE SOVEREIGN DOSSIER // INSTITUTIONAL STABILITY & SYSTEMIC COMMAND
+              {/* Modal Content Scroll Area - Showing all 6 full authentic pages */}
+              <div className="overflow-y-auto p-6 sm:p-12 space-y-12 text-xs leading-relaxed text-[#111]">
+                
+                {/* PAGE 1 IN MODAL */}
+                <div className="border-b-2 border-[#C5A021] pb-10">
+                  <div className="text-center pb-6 border-b border-zinc-200">
+                    <div className="inline-block font-mono text-[9px] font-bold text-[#8a6d1a] bg-[#C5A021]/10 px-3 py-1 border border-[#C5A021]/30 uppercase mb-2">
+                      PAGE 1 OF 6 // EXECUTIVE IDENTIFICATION & CORE TELEMETRY INDICES
+                    </div>
+                    <h1 className="text-2xl sm:text-3xl font-bold uppercase my-2">Sovereign Systemic Dossier</h1>
+                    <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
+                      CASE_REF-849201 • PRINCIPAL: <span className="bg-black text-black px-2 py-0.5 rounded-xs select-none">[REDACTED]</span> [GROUP CEO] • ENTITY: <span className="bg-black text-black px-2 py-0.5 rounded-xs select-none">[REDACTED]</span> [CONGLOMERATE]
+                    </div>
                   </div>
-                  <div className="text-xs font-mono font-bold tracking-[0.3em] text-[#8a6d1a] uppercase">
-                    The Unbounded Leadership Co.
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-6">
+                    <div className="border border-zinc-200 bg-white p-3 text-center">
+                      <span className="font-mono text-[9px] text-zinc-500 uppercase block">Sovereign Index</span>
+                      <div className="text-xl font-bold text-[#C5A021]">79.0%</div>
+                      <span className="text-[10px] text-zinc-500">Apex Sovereignty</span>
+                    </div>
+                    <div className="border border-zinc-200 bg-white p-3 text-center">
+                      <span className="font-mono text-[9px] text-zinc-500 uppercase block">Metabolic Burn</span>
+                      <div className="text-xl font-bold text-zinc-900">70.0%</div>
+                      <span className="text-[10px] text-zinc-500">Manual Override Load</span>
+                    </div>
+                    <div className="border border-zinc-200 bg-white p-3 text-center">
+                      <span className="font-mono text-[9px] text-zinc-500 uppercase block">Signal Dilution</span>
+                      <div className="text-xl font-bold text-rose-700">100.0%</div>
+                      <span className="text-[10px] text-zinc-500">Decay below Tier 2</span>
+                    </div>
+                    <div className="border border-zinc-200 bg-white p-3 text-center">
+                      <span className="font-mono text-[9px] text-zinc-500 uppercase block">Longevity Half-Life</span>
+                      <div className="text-xl font-bold text-emerald-700">14 Mos</div>
+                      <span className="text-[10px] text-zinc-500">Without Founder</span>
+                    </div>
                   </div>
-                  <h1 className="text-2xl sm:text-3xl font-bold uppercase my-2">
-                    Sovereign Systemic Dossier
-                  </h1>
-                  <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
-                    Executive Calibration & Institutional DNA Extraction • FINGERPRINT: CASE_REF-849201 [ANONYMIZED]
+
+                  <div className="bg-[#C5A021]/10 border-l-4 border-[#C5A021] p-4 italic text-zinc-800 my-4">
+                    <strong>Core Clinical Thesis:</strong> &ldquo;The audited enterprise operates under the physics of a One-Mind Engine. The Principal absorbs the metabolic cost of daily execution with personal willpower rather than automating it through immutable organizational architecture. This imposes an estimated 35% drag on strategic velocity.&rdquo;
                   </div>
                 </div>
 
-                {/* Metrics 4-Box */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  <div className="border border-zinc-200 bg-white p-3 text-center">
-                    <span className="font-mono text-[9px] text-zinc-500 uppercase block">Sovereign Index</span>
-                    <div className="text-xl font-bold text-[#C5A021]">79.0%</div>
-                    <span className="text-[10px] text-zinc-500">Apex Sovereignty</span>
-                  </div>
-                  <div className="border border-zinc-200 bg-white p-3 text-center">
-                    <span className="font-mono text-[9px] text-zinc-500 uppercase block">Metabolic Burn</span>
-                    <div className="text-xl font-bold text-zinc-900">70.0%</div>
-                    <span className="text-[10px] text-zinc-500">Elevated Load</span>
-                  </div>
-                  <div className="border border-zinc-200 bg-white p-3 text-center">
-                    <span className="font-mono text-[9px] text-zinc-500 uppercase block">Refraction Index</span>
-                    <div className="text-xl font-bold text-zinc-900">100.0%</div>
-                    <span className="text-[10px] text-zinc-500">Signal Refraction</span>
-                  </div>
-                  <div className="border border-zinc-200 bg-white p-3 text-center">
-                    <span className="font-mono text-[9px] text-zinc-500 uppercase block">Survival Probability</span>
-                    <div className="text-xl font-bold text-emerald-700">100%</div>
-                    <span className="text-[10px] text-zinc-500">Generational Health</span>
-                  </div>
-                </div>
-
-                {/* Section I */}
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center border-b border-black pb-1">
-                    <span className="font-bold text-sm uppercase">Section I: Recognition & Presence</span>
-                    <span className="font-mono text-[10px] text-[#8a6d1a] font-bold">CALIB-01</span>
-                  </div>
-                  <p className="italic text-justify">
-                    CALIBRATION_01 // THE APEX FREQUENCY. The audited enterprise footprint is characterized by an exceptional concentration of cognitive power within the executive node. The Principal is operating as a primary Architect of reality, where raw focal energy acts as the fundamental driver for the entire enterprise. We identify this as a state of Cognitive Sovereignty. However, the physics of this presence currently functions as a manual override for the broader system. Operational Latency Risk: Executive cognitive intent is currently acting as a manual override. The Principal is absorbing the metabolic cost of execution with personal willpower rather than automating it through organizational law. This is costing an estimated 35% in strategic momentum.
-                  </p>
-                </div>
-
-                {/* Section II */}
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center border-b border-black pb-1">
-                    <span className="font-bold text-sm uppercase">Section II: Over-Indexed Magnification</span>
+                {/* PAGE 2 IN MODAL */}
+                <div className="border-b-2 border-[#C5A021] pb-10">
+                  <div className="flex justify-between items-center border-b border-black pb-2 mb-4">
+                    <span className="font-bold text-sm uppercase">Page 02 // The 5 Sovereign Domains Forensic Matrix</span>
                     <span className="font-mono text-[10px] text-[#8a6d1a] font-bold">CALIB-02</span>
                   </div>
-                  <p className="italic text-justify">
-                    CALIBRATION_02 // THE CHASSIS STRESS. The audit reveals a significant Over-Indexing on Cognitive Clarity, which has inadvertently created a structural bottleneck within the institutional OS. When apex clarity reaches the 5.0 intensity threshold, it triggers The Authority Isolation Loop: absolute executive conviction outrunning the team's ability to absorb context. To transform these virtues into immutable self-regulating systems, we must implement a Decentralized Context Protocol.
+                  <p className="mb-4">
+                    Cross-domain vector scoring reveals exceptional apex strength (5.00 Cognitive Clarity) paired with severe distribution friction (3.00 Cultural Fidelity). The 2.0-point delta creates the Authority Isolation Loop, where teams freeze until the founder reviews their output.
                   </p>
                 </div>
 
-                {/* Section III */}
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center border-b border-black pb-1">
-                    <span className="font-bold text-sm uppercase">Section III: Operational Diagnostics & Error Transparency</span>
+                {/* PAGE 3 IN MODAL */}
+                <div className="border-b-2 border-[#C5A021] pb-10">
+                  <div className="flex justify-between items-center border-b border-black pb-2 mb-4">
+                    <span className="font-bold text-sm uppercase">Page 03 // Operational Latency & Meeting Tax Audit</span>
                     <span className="font-mono text-[10px] text-[#8a6d1a] font-bold">CALIB-03</span>
                   </div>
-                  <p className="italic text-justify">
-                    CALIBRATION_03 // THE SEASONAL HORIZON. Error Reporting Risk: When operational teams fear punitive feedback, raw execution data is sanitized before reaching the executive tier. This creates an information bottleneck that blinds leadership to systemic friction. Instituting zero-penalty operational transparency is an architectural prerequisite to eliminate hidden operational drag.
+                  <p className="mb-4">
+                    Escalation Density is measured at 94/100 (Critical). The Principal spends 18.5 hours weekly in reactive alignment meetings. Installing automated logic gates recovers 15+ hours weekly of deep strategic thinking time.
                   </p>
                 </div>
 
-                {/* Section IV & V */}
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center border-b border-black pb-1">
-                    <span className="font-bold text-sm uppercase">Section V: The Institutional Generational Decree</span>
+                {/* PAGE 4 IN MODAL */}
+                <div className="border-b-2 border-[#C5A021] pb-10">
+                  <div className="flex justify-between items-center border-b border-black pb-2 mb-4">
+                    <span className="font-bold text-sm uppercase">Page 04 // Directive Transmission & Leadership Delivery</span>
+                    <span className="font-mono text-[10px] text-[#8a6d1a] font-bold">CALIB-04</span>
+                  </div>
+                  <p className="mb-4">
+                    Leadership Archetype is diagnosed as &ldquo;The Orchestrator.&rdquo; Directives stand at 80% Command vs. 20% Contextual Reasoning. To enable zero-loss delegation, delivery must transition to 60% Command / 40% Context paired with codified decision charters.
+                  </p>
+                </div>
+
+                {/* PAGE 5 IN MODAL */}
+                <div className="border-b-2 border-[#C5A021] pb-10">
+                  <div className="flex justify-between items-center border-b border-black pb-2 mb-4">
+                    <span className="font-bold text-sm uppercase">Page 05 // Structural Logic Gate Calibration (12 Gates)</span>
                     <span className="font-mono text-[10px] text-[#8a6d1a] font-bold">CALIB-05</span>
                   </div>
-                  <p className="italic text-justify">
-                    CALIBRATION_05 // THE GENERATIONAL DECREE. To ensure the perpetuity of the enterprise and dynastic legacy, we propose a 10-year strategic blueprint focused on Structural Integration and Institutional Insulation. The goal is to transition from a leader-dependent organization to a self-regulating sovereign operating system. Year 1: Reduce Escalation Density by 40%. Years 2-4: Distributed Intelligence. Years 5-10: Institutional Perpetuity.
+                  <p className="mb-4">
+                    Installs 12 codified logic gates: (1) Autonomous Capital Logic up to $150k, (2) Strict 3-Condition Escalation Filter to protect CEO calendar, and (3) Distributed Context Broadcasting to permanently eliminate defensive reporting.
+                  </p>
+                </div>
+
+                {/* PAGE 6 IN MODAL */}
+                <div>
+                  <div className="flex justify-between items-center border-b border-black pb-2 mb-4">
+                    <span className="font-bold text-sm uppercase">Page 06 // The 10-Year Generational Decree & Exit Valuation</span>
+                    <span className="font-mono text-[10px] text-[#8a6d1a] font-bold">CALIB-06</span>
+                  </div>
+                  <p className="mb-4">
+                    A multi-phase perpetuity charter: Year 1 eliminates 40% of escalation density; Years 2–4 establish distributed intelligence; Years 5–10 codify dynastic perpetuity, permanently removing the key-person discount to command up to a 35% enterprise valuation premium.
                   </p>
                 </div>
 
@@ -757,7 +1175,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                       Ready for Your Institutional Diagnosis?
                     </div>
                     <div className="text-zinc-300 text-xs font-serif">
-                      Run the diagnostic assessment to extract your organization's sovereign vector profile.
+                      Run the diagnostic assessment to extract your enterprise's 6-page sovereign systemic dossier.
                     </div>
                   </div>
                   <button
@@ -771,9 +1189,10 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                     }}
                     className="px-5 py-2.5 bg-[#b8860b] hover:bg-white hover:text-black text-black font-mono font-bold text-xs uppercase tracking-wider rounded-xs cursor-pointer shrink-0 transition-all"
                   >
-                    Start Assessment →
+                    Start Diagnostic Assessment →
                   </button>
                 </div>
+
               </div>
             </motion.div>
           </motion.div>
