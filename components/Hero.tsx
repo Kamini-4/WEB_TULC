@@ -143,24 +143,24 @@ const Hero: React.FC<HeroProps> = () => {
             variants={itemVariants}
           >
             <div className="flex flex-col items-center bg-[#111111] p-5 hover:bg-zinc-900 transition-colors">
-              <span className="text-xl sm:text-2xl font-extrabold text-[#b8860b] block mb-1">40% Deficit</span>
-              <span className="text-[9px] font-black uppercase text-zinc-300 block mb-1">Bandwidth Reclaimed</span>
-              <span className="text-[10px] text-zinc-400 italic font-light block text-center">Eliminate reactive review traps</span>
+              <span className="text-xl sm:text-2xl font-extrabold text-[#b8860b] block mb-1">+40% Bandwidth</span>
+              <span className="text-[9px] font-black uppercase text-zinc-300 block mb-1">Time & Focus Reclaimed</span>
+              <span className="text-[10px] text-zinc-400 italic font-light block text-center">15+ hrs/wk saved from reactive meetings</span>
             </div>
             <div className="flex flex-col items-center bg-[#111111] p-5 hover:bg-zinc-900 transition-colors">
               <span className="text-xl sm:text-2xl font-extrabold text-[#b8860b] block mb-1">100% Fidelity</span>
-              <span className="text-[9px] font-black uppercase text-zinc-300 block mb-1">Delegation Parity</span>
-              <span className="text-[10px] text-zinc-400 italic font-light block text-center">Zero strategic signal loss</span>
+              <span className="text-[9px] font-black uppercase text-zinc-300 block mb-1">Zero-Loss Delegation</span>
+              <span className="text-[10px] text-zinc-400 italic font-light block text-center">Your judgment executed at the edge</span>
             </div>
             <div className="flex flex-col items-center bg-[#111111] p-5 hover:bg-zinc-900 transition-colors">
               <span className="text-xl sm:text-2xl font-extrabold text-white block mb-1">Zero Risk</span>
               <span className="text-[9px] font-black uppercase text-zinc-300 block mb-1">Key-Person Protection</span>
-              <span className="text-[10px] text-zinc-400 italic font-light block text-center">Continuity without presence</span>
+              <span className="text-[10px] text-zinc-400 italic font-light block text-center">The 30-day step-away test passed</span>
             </div>
             <div className="flex flex-col items-center bg-[#111111] p-5 hover:bg-zinc-900 transition-colors">
               <span className="text-xl sm:text-2xl font-extrabold text-emerald-400 block mb-1">90 Days</span>
-              <span className="text-[9px] font-black uppercase text-zinc-300 block mb-1">Full Calibration</span>
-              <span className="text-[10px] text-zinc-400 italic font-light block text-center">Self-cohering governance</span>
+              <span className="text-[9px] font-black uppercase text-zinc-300 block mb-1">Systemic Calibration</span>
+              <span className="text-[10px] text-zinc-400 italic font-light block text-center">Permanent autonomous operating model</span>
             </div>
           </motion.div>
 

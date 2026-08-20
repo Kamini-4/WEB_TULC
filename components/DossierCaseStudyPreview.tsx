@@ -80,15 +80,15 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
             </div>
 
             <div class="section">
-              <div class="section-title">CALIBRATION 04 // VOCAL PROSODY & ACOUSTIC TELEMETRY</div>
-              <p>Acoustic Archetype: <strong>Orchestrator</strong>. Command Ratio stands at 80% Directive vs. 20% Contextual. While Inflection Integrity is exceptional, the Signal-to-Noise Ratio degrades at Tier-3 management, requiring decentralized context distribution.</p>
+              <div class="section-title">CALIBRATION 04 // EXECUTIVE COMMUNICATION & INTENT DELIVERY</div>
+              <p>Communication Archetype: <strong>Orchestrator</strong>. Directives stand at 80% Command vs. 20% Contextual Reasoning. While founder conviction is exceptional, strategic nuance degrades at Tier-3 management, requiring decentralized context distribution logic.</p>
             </div>
 
             <div class="section">
               <div class="section-title">CALIBRATION 05 // THE 10-YEAR GENERATIONAL DECREE</div>
               <p><strong>Year 1:</strong> Recalibrate Escalation Density (-40%) via Contextual Governance Charters.<br/>
-              <strong>Years 2-4:</strong> Build Distributed Intelligence & Zero-Fault Telemetry to eliminate the Silence of Compliance.<br/>
-              <strong>Years 5-10:</strong> Codify Moral Gravity into immutable organizational infrastructure.</p>
+              <strong>Years 2-4:</strong> Build Distributed Operational Intelligence to eliminate defensive filtering and hidden friction.<br/>
+              <strong>Years 5-10:</strong> Codify Core Strategic Intent into immutable organizational infrastructure.</p>
             </div>
 
             <div style="margin-top: 50px; border-top: 1px solid #ccc; padding-top: 15px; font-size: 10px; color: #888; text-align: center;" class="mono">
@@ -492,23 +492,23 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                 >
                   <div className="border-l-2 border-[#b8860b] pl-4 py-1">
                     <span className="text-[10px] font-mono font-bold text-[#b8860b] uppercase tracking-wider block">
-                      Biometric Vocal Telemetry & Cross-Synthesis
+                      Executive Communication & Intent Transmission
                     </span>
                     <p className="text-sm font-serif italic text-zinc-200 mt-1">
-                      &ldquo;The voice of a high-stakes architect whose command signal is clear at the source, but whose reasoning requires broader distribution to prevent middle-tier anxiety.&rdquo;
+                      &ldquo;The voice of a high-stakes architect whose command clarity is unquestioned at the apex, but whose strategic reasoning requires systematic distribution to prevent middle-tier hesitation.&rdquo;
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div className="bg-[#181818] border border-white/10 p-4 rounded-xs">
                       <span className="text-[9px] font-mono font-bold text-zinc-500 uppercase block mb-1">
-                        ACOUSTIC ARCHETYPE
+                        LEADERSHIP ARCHETYPE
                       </span>
                       <div className="text-lg font-serif font-bold text-white mb-1">
                         Orchestrator
                       </div>
                       <p className="text-[10px] text-zinc-400 font-mono">
-                        High pitch stability & command-heavy ratio transmitting executive authority.
+                        High tonal stability & direct directive cadence transmitting executive authority.
                       </p>
                     </div>
 
@@ -526,23 +526,23 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
 
                     <div className="bg-[#181818] border border-white/10 p-4 rounded-xs">
                       <span className="text-[9px] font-mono font-bold text-zinc-500 uppercase block mb-1">
-                        VOCAL CONGRUENCE
+                        STRATEGIC FIDELITY
                       </span>
                       <div className="text-lg font-serif font-bold text-emerald-400 mb-1">
                         94% Alignment
                       </div>
                       <p className="text-[10px] text-zinc-400 font-mono">
-                        Written conviction matches vocal prosody with exceptional fidelity.
+                        Written directives match strategic intent with exceptional fidelity.
                       </p>
                     </div>
                   </div>
 
                   <div className="bg-[#141414] border border-white/10 p-4 rounded-xs text-xs font-mono text-zinc-400 space-y-2">
                     <div className="text-[#b8860b] font-bold text-[10px] uppercase">
-                      ACOUSTIC PHYSICS RATIONALE:
+                      EXECUTIVE TRANSMISSION RATIONALE:
                     </div>
                     <p className="leading-relaxed">
-                      Vocal prosody acts as an un-sanitizable biometric indicator of leadership conviction. Fundamental frequencies and steady cadence project authority, ensuring strategic directives filter down intact without signal refraction or institutional noise.
+                      Leadership delivery serves as a core indicator of organizational confidence. Clear, steady cadence projects authority, ensuring strategic mandates filter down intact without dilution or institutional noise.
                     </p>
                   </div>
                 </motion.div>
@@ -580,7 +580,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                           YEARS 2-4: DISTRIBUTED INTELLIGENCE
                         </span>
                         <p className="text-xs text-zinc-300 leading-relaxed">
-                          Elevate Cultural Fidelity from 3.0 to 4.5. Implement Zero-Fault Telemetry across all verticals to permanently dismantle the Silence of Compliance.
+                          Elevate Operational Alignment from 3.0 to 4.5. Implement zero-delay error transparency across all verticals to eliminate defensive reporting.
                         </p>
                       </div>
 
@@ -589,7 +589,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                           YEARS 5-10: INSTITUTIONAL PERPETUITY
                         </span>
                         <p className="text-xs text-zinc-300 leading-relaxed">
-                          Codify Moral Gravity into immutable dynastic code. Establish sovereign succession resonance profiles ensuring the enterprise compounds across decades.
+                          Codify Founder Vision into immutable governance architecture. Establish sovereign succession structures ensuring the enterprise compounds across decades.
                         </p>
                       </div>
                     </div>
@@ -731,11 +731,11 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                 {/* Section III */}
                 <div className="space-y-2">
                   <div className="flex justify-between items-center border-b border-black pb-1">
-                    <span className="font-bold text-sm uppercase">Section III: Seasonal Refinement & Zero-Fault Telemetry</span>
+                    <span className="font-bold text-sm uppercase">Section III: Operational Diagnostics & Error Transparency</span>
                     <span className="font-mono text-[10px] text-[#8a6d1a] font-bold">CALIB-03</span>
                   </div>
                   <p className="italic text-justify">
-                    CALIBRATION_03 // THE SEASONAL HORIZON. Zero-Fault Telemetry Risk: When operational nodes fear punitive signal refraction, raw execution data is sanitized before reaching command level. This creates a Silence of Compliance that blinds executive command to systemic friction. Instituting zero-fault error telemetry is an architectural prerequisite to eliminate hidden operational drag.
+                    CALIBRATION_03 // THE SEASONAL HORIZON. Error Reporting Risk: When operational teams fear punitive feedback, raw execution data is sanitized before reaching the executive tier. This creates an information bottleneck that blinds leadership to systemic friction. Instituting zero-penalty operational transparency is an architectural prerequisite to eliminate hidden operational drag.
                   </p>
                 </div>
 

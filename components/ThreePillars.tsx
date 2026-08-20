@@ -35,13 +35,13 @@ const ThreePillars: React.FC = () => {
       title: 'Sovereign Voice Mapping (Patent Pending)',
       subtitle: 'Cognitive Authority Protection',
       icon: <Mic className="w-5 h-5" />,
-      tagline: 'Scale Your Leadership DNA Without Your Daily Physical Presence',
+      tagline: 'Scale Your Strategic Reasoning Without Burning Out Your Daily Schedule',
       gains: [
-        { label: 'Bandwidth Recovery', desc: 'Reclaim 15+ hours per week by replacing redundant oversight meetings with autonomous decision gates.' },
-        { label: 'Authority Parity', desc: 'Ensure delegated managers execute decisions with 100% of your risk-appetite and strategic precision.' },
-        { label: 'Organizational Autonomy', desc: 'Establish a self-governing operation that preserves and projects your exact vision and standards.' }
+        { label: 'Bandwidth Liberation', desc: 'Reclaim 15+ hours per week. Stop serving as the universal bottleneck and eliminate late-night context-switching.' },
+        { label: 'Zero-Loss Delegation', desc: 'Your leadership team executes high-stakes decisions with 100% of your judgment—without booking check-in meetings.' },
+        { label: 'The 30-Day Autonomy Test', desc: 'Step away from the business for 30 days with complete peace of mind, knowing operations maintain flawless momentum.' }
       ],
-      monetization: 'Translates personal decision-making frequency into a permanent asset, reducing dependency on individual founders.',
+      monetization: 'Transforms founder intuition into a permanent institutional asset, eliminating single-point key-person risk.',
       iconColor: 'text-[#b8860b]',
       borderColor: 'border-[#b8860b]/20'
     },
@@ -50,13 +50,13 @@ const ThreePillars: React.FC = () => {
       title: '10-Point Friction Audit (Patent Pending)',
       subtitle: 'Systemic Leakage Identification',
       icon: <CheckSquare className="w-5 h-5" />,
-      tagline: 'Audit Your True Executive Latency and Stop Costly Coordination Leakages',
+      tagline: 'Audit Your True Executive Latency and Stop Costly Coordination Drag',
       gains: [
-        { label: 'EBITDA Protection', desc: 'Pinpoint and recover up to 15% of annual operating margins lost to administrative drag and execution delay.' },
-        { label: 'Cognitive Tax Valuation', desc: 'Calculate the precise financial penalty your business pays daily for organizational friction.' },
-        { label: 'Execution Velocity', desc: 'Identify bottlenecks across the 5 core domains to accelerate time-to-market and decision cycles.' }
+        { label: 'EBITDA Margin Recovery', desc: 'Recover up to 15% of operating margins lost to slow decision cycles, meeting bloat, and alignment friction.' },
+        { label: 'Cognitive Tax Valuation', desc: 'Quantify the exact financial and emotional penalty your enterprise pays daily for organizational drag.' },
+        { label: 'Rapid Execution Velocity', desc: 'Compress multi-week approval cycles into real-time autonomous logic gates across your 5 core domains.' }
       ],
-      monetization: 'Pinpoints the exact systemic constraints preventing transition from firefighting to enterprise architecture.',
+      monetization: 'Pinpoints the exact systemic constraints preventing the transition from tactical firefighting to enterprise architecture.',
       iconColor: 'text-[#b8860b]',
       borderColor: 'border-[#b8860b]/20'
     },
@@ -65,13 +65,13 @@ const ThreePillars: React.FC = () => {
       title: 'Confidential Strategic Dossier (Patent Pending)',
       subtitle: 'The Alignment Premium Blueprint',
       icon: <FileText className="w-5 h-5" />,
-      tagline: 'A High-Stakes, Board-Ready Intelligence Report Valuing Your Growth Premium',
+      tagline: 'A Board-Ready Intelligence Report Valuing Your Enterprise Multiple',
       gains: [
-        { label: 'Actionable Calibrations', desc: 'Acquire clear structural prescriptions mapped to your specific growth stage and scale targets.' },
-        { label: 'Investment Validation', desc: 'Present board members with concrete telemetry on structural maturity and organizational alignment.' },
-        { label: 'Seamless Consultation Path', desc: 'Log verified telemetry directly with Suchita Sancheti’s office to fast-track Phase 0.0 Diagnostic Audit.' }
+        { label: 'Valuation Multiple Premium', desc: 'Eliminate key-person risk to command higher valuation multiples from VCs, PE buyers, and strategic acquirers.' },
+        { label: 'Targeted Calibration Roadmap', desc: 'Acquire clear structural prescriptions mapped to your exact scaling bottlenecks and headcount milestones.' },
+        { label: 'Direct Access Path', desc: 'Submit pre-calibrated diagnostic findings directly to Suchita Sancheti’s office to fast-track your Phase 0.0 Diagnostic Audit.' }
       ],
-      monetization: 'Serves as an immediate strategic asset valuing your efficiency gaps and providing a roadmap to capture that premium.',
+      monetization: 'Provides an immediate, boardroom-grade strategic asset valuing your efficiency gaps and detailing the exact roadmap to capture that premium.',
       iconColor: 'text-[#b8860b]',
       borderColor: 'border-[#b8860b]/20'
     }

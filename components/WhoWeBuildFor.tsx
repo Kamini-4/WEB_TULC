@@ -8,27 +8,27 @@ const WhoWeBuildFor: React.FC = () => {
     {
       icon: <Target className="w-5 h-5 text-[#b8860b]" />,
       category: "High-Growth Founders",
-      title: "The Visionary Trap",
-      description: "Scaling past $10M+ but spending 40% of your time in meeting-tax loops and manual alignment checks instead of strategic command.",
-      outcome: "Autonomous alignment frameworks that guarantee standard quality execution without your live presence.",
+      title: "The Visionary Bottleneck",
+      description: "Scaling past 50+ headcount but spending 40% of your week resolving operational misalignment instead of expanding market dominance.",
+      outcome: "Reclaim 15+ hours weekly. Your leadership team executes high-stakes decisions with 100% of your precision—without your daily involvement.",
       linkTrack: "/services",
       trackName: "90-Day Kinetic Alignment"
     },
     {
       icon: <Users className="w-5 h-5 text-[#b8860b]" />,
-      category: "Institutional Leaders",
-      title: "Sovereign Operations",
-      description: "Enterprise CEOs, family offices, and executives drowning in coordination drag, wanting to transition their teams to self-cohering operating systems.",
-      outcome: "Absolute alignment on mission targets, hard-coded accountability matrices, and zero-loss delegation.",
+      category: "Institutional CEOs & C-Suites",
+      title: "Coordination Drag & Meeting Tax",
+      description: "Enterprise CEOs and leadership teams trapped in consensus meetings, multi-layered approvals, and strategic intent decay across verticals.",
+      outcome: "Self-regulating operating logic gates that compress multi-week approval cycles into real-time autonomous execution.",
       linkTrack: "/services",
       trackName: "Systemic Transformation"
     },
     {
       icon: <Shield className="w-5 h-5 text-[#b8860b]" />,
-      category: "VC & PE Partners",
-      title: "Portfolio Safeguarding",
-      description: "Investors looking to audit, calibrate, and secure the operational capability of portfolio executive teams to ensure rapid decision velocity.",
-      outcome: "High-fidelity diagnostic telemetry and structured leadership guardrails to de-risk founder dependencies.",
+      category: "VC & PE Partners & Board Chairs",
+      title: "Key-Person Risk & Valuation Drag",
+      description: "Capital partners and board members needing to de-risk founder dependency, protect portfolio EBITDA margins, and command premium exit multiples.",
+      outcome: "Institutional operating architecture that permanently eliminates single-point founder risk and unlocks premium enterprise valuation.",
       linkTrack: "/services",
       trackName: "Portfolio Governance Track"
     }

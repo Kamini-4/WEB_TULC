@@ -37,7 +37,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "What exact scientific frameworks or methodologies are these audits based on?",
-      answer: "Our diagnostics and interventions are built on Second-Order Cybernetics (the study of self-regulating systems), John Sweller's Cognitive Load Theory, and first-principles Complexity Theory. We translate these academic disciplines into hard-coded organizational logic gates, ensuring your enterprise operates like a self-regulating cybernetic system rather than a chaotic hierarchy."
+      answer: "Our diagnostics and interventions are built on self-regulating systems theory, John Sweller's Cognitive Load Theory, and first-principles complexity science. We translate these frameworks into clear organizational logic gates, ensuring your enterprise operates like a self-regulating operating model rather than a chaotic hierarchy."
     },
     {
       question: "How does the 10-Point Friction Audit™ (Patent Pending) measure my organization's latency?",
@@ -64,8 +64,8 @@ const FAQ: React.FC = () => {
       answer: "We treat systems architecture as the structural framework; human cognitive alignment is the living core. Systems designed for an idealized vacuum often struggle because they overlook human cognitive bandwidth. We take the reverse approach: we treat human energy, emotional clarity, and decision fatigue as the foundational constraints of any enterprise. A systems architecture that honors human cognitive limits prevents operational drift, eliminates unnecessary meeting tax, and liberates executive creative energy."
     },
     {
-      question: "How does the protocol integrate 'human wetware' with system hardware across the operational phases?",
-      answer: "Across Phases 2 through 4, we integrate human wetware with system hardware through three primary vectors: 1) Cognitive Load & Bandwidth Optimization (Substrate): We do not add bureaucratic weight. Instead, we map the decision frequency of key leaders to identify exactly where human creative energy is being drained by low-level exception handling. 2) Behavioral Logic Gates (Alignment): Instead of relying on human willpower or endless 'alignment meetings,' we codify strategic intent into self-regulating operational gates. 3) Defending Against Structural Drift (Safeguards): Our long-term safeguards actively monitor 'human' shadow metrics, insulating the enterprise from decay and preserving absolute clarity of intent across generations. In short, we architect Sovereign Systems—automated protocols that liberate human vision, intuition, and leadership resonance."
+      question: "How does the protocol integrate human leadership with systemic architecture across the operational phases?",
+      answer: "Across Phases 2 through 4, we integrate human leadership dynamics with operational systems through three core pillars: 1) Cognitive Bandwidth Optimization: We map executive decision frequency to eliminate low-level exception handling and reclaim focus for high-stakes bets. 2) Behavioral Logic Gates: Instead of relying on brute willpower or endless check-in meetings, we codify founder intent into clear, self-executing operational guardrails. 3) Safeguards Against Drift: Our long-term safeguards actively monitor organizational health signals, insulating the enterprise from operational decay and preserving founder intent across generations. In short, we architect Sovereign Systems—automated protocols that liberate human vision, intuition, and strategic execution."
     }
   ];
 

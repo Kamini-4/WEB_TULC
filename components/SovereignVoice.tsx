@@ -10,9 +10,9 @@ export default function SovereignVoice({ onClose }: SovereignVoiceProps) {
   const [transcription, setTranscription] = useState<string[]>([]);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [telemetry, setTelemetry] = useState<string[]>([
-    "LINK: ESTABLISHED",
-    "SUBSTRATE: SCANNING",
-    "INTENT_LAYER: DETECTED",
+    "DIAGNOSTIC CHANNEL: ACTIVE",
+    "DECISION VECTOR: MAPPING",
+    "EXECUTIVE LATENCY: MEASURING",
   ]);
   
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -27,13 +27,13 @@ export default function SovereignVoice({ onClose }: SovereignVoiceProps) {
   useEffect(() => {
     if (status !== 'active') return;
     const items = [
-      "CALIBRATING VELOCITY...",
-      "RESONANCE: 94.2%",
-      "ARCHITECTURAL DRIFT: NEUTRALIZED",
-      "SIGNAL_PURITY: OPTIMAL",
-      "SUBSTRATE_STABILITY: SECURE",
-      "EXECUTING LOGIC PASS...",
-      "HARMONIZING INTENT...",
+      "CALIBRATING DECISION VELOCITY...",
+      "AUDITING MEETING TAX COEFFICIENT...",
+      "IDENTIFYING DELEGATION BOTTLENECK...",
+      "MEASURING STRATEGIC FIDELITY...",
+      "MAPPING COGNITIVE BANDWIDTH LEAKS...",
+      "EXTRACTING LOGIC GUARDRAILS...",
+      "SYNTHESIZING SOVEREIGN REPORT...",
     ];
     const interval = setInterval(() => {
       setTelemetry(prev => [items[Math.floor(Math.random() * items.length)], ...prev.slice(0, 7)]);

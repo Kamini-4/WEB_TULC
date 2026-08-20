@@ -17,6 +17,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
     email: '',
     organization: '',
     role: '',
+    scale: '50-200 Headcount',
     message: ''
   });
 
@@ -28,7 +29,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
     await SovereignDB.saveLead({
       name: formData.name,
       email: formData.email,
-      organization: formData.organization,
+      organization: `${formData.organization} [Scale: ${formData.scale}]`,
       role: formData.role,
       message: formData.message
     });
@@ -37,7 +38,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
       await SovereignDB.sendContactEmail({
         name: formData.name,
         email: formData.email,
-        organization: formData.organization,
+        organization: `${formData.organization} [Scale: ${formData.scale}]`,
         role: formData.role,
         message: formData.message,
         type: 'INTAKE_ENTRY'
@@ -185,15 +186,35 @@ const Waitlist: React.FC<WaitlistProps> = () => {
                 </div>
 
                 <div>
-                  <label className="text-[9px] font-black uppercase text-[#b8860b] block mb-1">Primary Bottleneck / Yield Target</label>
+                  <label className="text-[9px] font-black uppercase text-[#b8860b] block mb-1">Enterprise Scale / Structure</label>
+                  <select
+                    value={formData.scale}
+                    onChange={(e) => setFormData({...formData, scale: e.target.value})}
+                    className="w-full bg-black/40 border border-white/10 px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-[#b8860b] transition-colors rounded-xs"
+                  >
+                    <option value="10-50 Headcount" className="bg-zinc-900 text-white">10–50 Headcount (High-Growth Founder)</option>
+                    <option value="50-200 Headcount" className="bg-zinc-900 text-white">50–200 Headcount (Scaling Enterprise)</option>
+                    <option value="200+ Enterprise" className="bg-zinc-900 text-white">200+ Headcount (Institutional C-Suite)</option>
+                    <option value="VC / PE Portfolio" className="bg-zinc-900 text-white">VC / PE Portfolio Firm</option>
+                    <option value="Family Office / Holding" className="bg-zinc-900 text-white">Family Office / Dynastic Holding</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="text-[9px] font-black uppercase text-[#b8860b] block mb-1">Primary Strategic Bottleneck / Yield Target</label>
                   <textarea 
                     required
                     rows={3}
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    placeholder="Describe your current leadership friction or alignment goal..."
+                    placeholder="Describe where executive bandwidth is bleeding or your primary alignment goal..."
                     className="w-full bg-black/40 border border-white/10 p-3.5 text-xs text-white focus:outline-none focus:border-[#b8860b] transition-colors resize-none rounded-xs"
                   />
+                </div>
+
+                <div className="text-[10px] text-zinc-400 italic font-mono flex items-center gap-2">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
+                  <span>Strictly 3 private engagements accepted per quarter. All submissions protected under NDA.</span>
                 </div>
 
                 <button 
@@ -202,7 +223,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
                   className="w-full py-3.5 bg-white text-black hover:bg-[#b8860b] hover:text-white text-[10px] font-black uppercase transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
                 >
                   <Send className="w-3.5 h-3.5" />
-                  <span>{isSubmitting ? 'Transmitting...' : 'Transmit Inquiry'}</span>
+                  <span>{isSubmitting ? 'Transmitting...' : 'Submit Confidential Application'}</span>
                 </button>
               </form>
             )}

@@ -59,9 +59,9 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
           <PhaseCard 
             phase="01"
             title="Yield Calibration"
-            subtitle="The Diagnostic"
-            action="Deployment of the Alignment Assessment to map the operational execution maturity of your organization."
-            outcome="Identification of systemic constraints and coordination leakage points."
+            subtitle="The Diagnostic // Identifying Where Bandwidth Leaks"
+            action="Deploy our patent-pending Friction Assessment to calculate your exact executive latency and pinpoint where founder focus is drained."
+            outcome="Clear quantification of coordination drag and immediate identification of quick-win bandwidth recoveries."
             systemLayer="Continuous passive data scanning to establish baseline organizational execution telemetry."
             humanIntegration="We establish baseline trusted relationship vectors and map the active channels where executive directives suffer initial resistance or dilution."
             image="https://images.unsplash.com/photo-1507679799987-c7077948a7eb?auto=format&fit=crop&q=80&w=800"
@@ -70,33 +70,33 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
           <PhaseCard 
             phase="02"
             title="Strategic Domain Mapping"
-            subtitle="The Synthesis"
-            action="Generation of the Structural Alignment Report, isolating exactly 2 of the 5 global domains for immediate, targeted calibration based on your Phase 01 results."
-            outcome="A definitive operational blueprint focusing exclusively on those 2 domains for maximum executive bandwidth reclamation."
-            systemLayer="We map operational and decision-making workflows."
-            humanIntegration="We do not use arbitrary business templates. We perform a forensic diagnostic on the founder’s personal cognitive profile (their bias, velocity, and core vision). The resulting logic gates are a direct, systemic mirror of the founder’s organic thinking, ensuring the system feels natural, intuitive, and human-first."
+            subtitle="The Synthesis // Codifying Founder Judgment into Rules"
+            action="Isolate your 2 highest-friction domains (from the 5 Sovereign Domains) and map the founder's cognitive decision profile into concrete operational parameters."
+            outcome="A tailored operational architecture blueprint that ensures middle management acts with 100% of your strategic reasoning."
+            systemLayer="We map operational workflows and decision-making logic pathways."
+            humanIntegration="We do not use arbitrary templates. We perform a forensic diagnostic on the founder’s personal cognitive profile (risk bias, velocity, and core vision). The resulting logic gates are a direct mirror of the founder’s organic thinking, ensuring the system feels natural and intuitive."
             image="https://images.unsplash.com/photo-1518349619113-03114f06ac3a?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('02')}
           />
           <PhaseCard 
             phase="03"
             title="Architectural Intervention"
-            subtitle="The Calibration"
-            action="Tailored implementation of leadership protocols configured for your organization's specific requirements."
-            outcome="Elimination of coordination friction and acceleration of strategic response rates."
+            subtitle="The Calibration // Installing Self-Regulating Logic Gates"
+            action="Install 12+ customized operational logic gates directly into your operating model, replacing endless alignment meetings with clear automated parameters."
+            outcome="Frontline teams make confident, high-stakes decisions autonomously—liberating 15+ hours of weekly executive calendar space."
             systemLayer="We install 12+ customized logic gates to automate daily operational micro-decisions."
-            humanIntegration="This phase is entirely behavioral. We establish absolute alignment fidelity down to the frontline teams. By automating micro-decisions, we eliminate the constant 'meeting-tax' and alignment drag. Frontline teams are given systemic sovereignty—they no longer have to ask permission because the guardrails are clear, giving them trust, agency, and operational peace of mind."
+            humanIntegration="This phase is entirely behavioral. We establish absolute alignment fidelity down to frontline teams. By automating micro-decisions, we eliminate constant meeting tax. Frontline teams are given systemic sovereignty—they no longer have to ask permission because guardrails are clear, giving them trust, agency, and operational peace of mind."
             image="https://images.unsplash.com/photo-1504917595217-d4dc5f649e6b?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('03')}
           />
           <PhaseCard 
             phase="04"
             title="Strategic Integration"
-            subtitle="The Integration"
-            action="Implementing validated governance structures to guarantee high strategic intent fidelity."
-            outcome="Long-term operational resilience. Strategic decisions translate into reliable team performance."
+            subtitle="The Integration // Safeguarding Vision & Enabling Sabbatical"
+            action="Implement validated governance structures and continuous health monitoring to guarantee long-term execution fidelity."
+            outcome="Permanent organizational sovereignty. Operations compound smoothly whether the founder is in the room or away for 30 days."
             systemLayer="We establish continuous shadow metrics and automated drift detection."
-            humanIntegration="This phase acts as a psychological shield. It insulates the executive leadership team from background noise, allowing them to remain in a state of 'uninhibited vision.' Crucially, it de-risks succession planning: by externalizing the founder's wisdom into organizational logic, the business can seamlessly transition leadership to the next generation of stewards without losing its operational soul or strategic integrity."
+            humanIntegration="This phase acts as a psychological shield. It insulates the executive leadership team from background noise, allowing them to remain in a state of uninhibited vision. Crucially, it de-risks succession planning: by externalizing the founder's wisdom into organizational logic, the business scales smoothly without key-person bottlenecks."
             image="https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4OTQyNzI4OQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800"
             onBriefClick={() => onBriefClick('04')}
           />

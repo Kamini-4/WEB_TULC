@@ -169,9 +169,9 @@ const QUESTIONS: Question[] = [
         description: "We rely on reports and slideshows compiled by intermediate project leads, which frequently mask early issues until they trigger major alarms." 
       },
       { 
-        label: "Direct System Telemetry", 
+        label: "Direct Operational Data", 
         scores: { "Cognitive Clarity": 3, "Systemic Integrity": 5, "Strategic Velocity": 5, "Cultural Fidelity": 2 }, 
-        description: "We query live, unfiltered project and business telemetry systems directly, bypassing conversational layers to see raw reality in real-time." 
+        description: "We query live, unfiltered operational execution metrics directly, bypassing conversational layers to see raw reality in real-time." 
       }
     ]
   },
@@ -265,9 +265,9 @@ const QUESTIONS: Question[] = [
         description: "We send out detailed formal reports, awaiting formal approvals which take weeks of corporate lag." 
       },
       { 
-        label: "Translucent Ledger Telemetry", 
+        label: "Live Strategic Dashboard Visibility", 
         scores: { "Cognitive Clarity": 4, "Systemic Integrity": 5, "Strategic Velocity": 4 }, 
-        description: "They have direct, read-only dashboard visibility into operational telemetry, creating automated consensus and absolute alignment." 
+        description: "They have direct, real-time visibility into operational health and objective benchmarks, eliminating governance disputes and building instant confidence." 
       }
     ]
   }

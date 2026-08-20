@@ -533,7 +533,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 </div>
                 
                 <div class="cert-body">
-                  "This document certifies that the accompanying architectural parameters have been verified and logged inside the systemic registry. The recipient is granted a single-user, non-transferable, licensed viewing of high-stakes leadership frameworks mapped by The Unbounded Leadership Co. Any systemic execution outside the licensed perimeter falls under the second-order cybernetic compliance protocol."
+                  "This document certifies that the accompanying architectural parameters have been verified and logged inside the systemic registry. The recipient is granted a single-user, non-transferable, licensed viewing of high-stakes leadership frameworks mapped by The Unbounded Leadership Co. Any systemic execution outside the licensed perimeter falls under our proprietary institutional governance and IP protection framework."
                 </div>
                 
                 <div class="cert-meta">

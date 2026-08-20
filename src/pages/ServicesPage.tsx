@@ -26,58 +26,58 @@ const SERVICES_SPECTRUM: Service[] = [
     id: 'diagnostic',
     badge: 'Phase 0.0',
     title: 'Substrate Diagnostic Audit',
-    subtitle: 'Why: To Stop the Silent Hemorrhaging of Your Creative Energy',
+    subtitle: 'Stop Executive Latency & Pinpoint Hidden Bandwidth Leaks',
     duration: '14-Day Deep Engagement',
-    description: 'We care too much to let you guess where your power is leaking. This forensic audit maps your personal decision frequency, identifying exactly where operational friction is stealing your strategic peace. Stop paying the hidden Cognitive Tax today.',
+    description: 'A forensic diagnostic mapping your executive decision cycle times, identifying exactly where operational drag is consuming your strategic focus. Stop paying the invisible cognitive tax and reclaim up to 15 hours of weekly deep-thinking capacity.',
     price: 'Upon Request',
-    billingDetail: 'Exclusively structured for founders requiring immediate clarity.',
+    billingDetail: 'Exclusively structured for founders requiring immediate operational clarity.',
     features: [
-      'Pinpoint exactly where your original strategic intent gets diluted',
-      'Receive a custom-mapped Personal Cognitive Bandwidth Blueprint',
-      'Expose the 3 primary operational leakages draining your executive focus',
-      'A personal, private feedback briefing with Principal Suchita Sancheti',
-      'Full credit applied directly to full-scale protocol integration'
+      'Pinpoint exactly where strategic intent gets diluted down the organization',
+      'Receive your custom Personal Cognitive Bandwidth Blueprint',
+      'Expose the 3 primary operational bottlenecks draining executive focus',
+      'A private, 1-on-1 feedback briefing with Principal Suchita Sancheti',
+      'Full investment credit applied directly toward full-scale protocol integration'
     ],
-    ctaText: 'Reclaim Your Sanity Now',
+    ctaText: 'Initiate Diagnostic Intake',
     ctaAction: 'intake',
     isPopular: true
   },
   {
     id: 'alignment_protocol',
-    badge: 'Phase 01-04',
+    badge: 'Phases 01–04',
     title: 'Strategic Alignment Protocol',
-    subtitle: 'Why: To Turn Your Vision Into an Inevitable, Self-Governing Force',
+    subtitle: 'Hard-Code Founder Intent into Self-Executing Logic Gates',
     duration: '6-Week Architecture Setup',
-    description: 'Our core architectural intervention. We do not write standard recommendation reports; we hard-code your strategic DNA into self-regulating logic gates. We protect your legacy, so you can step out of the daily firefighter loop and return to pure, uninhibited vision.',
+    description: 'Our flagship architectural intervention. We hard-code your strategic reasoning directly into self-regulating operational logic gates. We protect your peace of mind so you can step out of daily firefighting and operate purely as the Aligned Architect of your legacy.',
     price: 'Upon Request',
-    billingDetail: 'A permanent operational vaccine. Only 1 opening remaining this quarter.',
+    billingDetail: 'A permanent operational operating system. Strictly capped client intake.',
     features: [
-      'Establish absolute alignment fidelity down to your frontline teams',
-      'Install 12+ customized logic gates to automate daily decision-making',
-      'Reclaim up to 40% of your strategic time in the first 90 days',
-      'Eradicate the constant meeting-tax and alignment drag forever',
-      'Unshakeable organizational permanence that runs autonomously'
+      'Establish 100% execution fidelity across frontline and middle management',
+      'Install 12+ customized logic gates to automate daily operational micro-decisions',
+      'Reclaim up to 40% of executive strategic bandwidth within 90 days',
+      'Eradicate recurring alignment meetings and coordination drag forever',
+      'Pass the 30-Day Step-Away Test with complete operational continuity'
     ],
-    ctaText: 'Secure Final Q2 Allocation',
+    ctaText: 'Apply for Protocol Calibration',
     ctaAction: 'intake'
   },
   {
     id: 'board_oversight',
     badge: 'Retainer',
     title: 'Resonance Safeguard Retainer',
-    subtitle: 'Why: Because True Permanence Requires Vigilant Stewardship',
+    subtitle: 'Continuous Health Monitoring & Long-Term Key-Person Insulation',
     duration: 'Ongoing Strategic Partnership',
-    description: 'We walk with you as long-term guardians of your strategic peace. Continuous shadow metrics, drift detection, and immediate intervention structures designed to defend your mental bandwidth against future organizational decay.',
+    description: 'Long-term stewardship of your enterprise operating substrate. Continuous operational health monitoring, drift prevention, and immediate intervention protocols designed to insulate your leadership team and protect enterprise valuation.',
     price: 'Upon Request',
-    billingDetail: 'Bespoke ongoing stewardship pricing. Subject to rigorous intake vetting.',
+    billingDetail: 'Bespoke ongoing governance partnership. Subject to intake qualification.',
     features: [
-      'Bi-annual corporate substrate integrity re-audits',
-      'Priority access to Suchita Sancheti for high-stakes decisions',
-      'Continuous structural health metrics & early drift alerts',
-      'De-risk succession planning and insulate enterprise value',
-      'Total cognitive insulation from operational noise'
+      'Bi-annual corporate operating substrate integrity audits',
+      'Direct, priority advisory access to Suchita Sancheti for high-stakes bets',
+      'Continuous early-warning drift alerts to catch friction before it compounds',
+      'De-risk succession planning and protect institutional EBITDA multiples',
+      'Permanent executive insulation from low-level operational noise'
     ],
-    ctaText: 'Apply for Partnership Intake',
+    ctaText: 'Apply for Retainer Partnership',
     ctaAction: 'intake'
   }
 ];
