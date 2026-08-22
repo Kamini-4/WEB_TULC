@@ -257,7 +257,7 @@ const ServicesPage: React.FC = () => {
                 <div className="p-3.5 bg-zinc-50 border border-zinc-200/80 rounded-xs">
                   <p className="text-[9px] text-zinc-500 font-bold uppercase mb-0.5">Quarterly Capacity Limit:</p>
                   <p className="text-xs text-[#b8860b] italic font-semibold">
-                    Accepting only <strong className="font-extrabold text-[#b8860b]">3 enterprise calibrations per quarter</strong>. Currently 2 slots are committed. Only 1 opening remains for Q2.
+                    Accepting only <strong className="font-extrabold text-[#b8860b]">3 enterprise mandates per quarter</strong>. 2 seats are committed for Q3. Only 1 opening remains.
                   </p>
                 </div>
               </div>

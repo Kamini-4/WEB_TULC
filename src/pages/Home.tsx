@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from '../../components/Hero.tsx';
 import HumanSubstrateManifesto from '../../components/HumanSubstrateManifesto.tsx';
+import ExecutiveFrictionScanner from '../../components/ExecutiveFrictionScanner.tsx';
 import PrincipalDispatch from '../../components/PrincipalDispatch.tsx';
 import DossierCaseStudyPreview from '../../components/DossierCaseStudyPreview.tsx';
 import Waitlist from '../../components/Waitlist.tsx';
@@ -18,19 +19,22 @@ const Home: React.FC<HomeProps> = ({ onBriefClick }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      {/* 01. Brand Vision & Core Pillars */}
+      {/* 01. Brand Vision & Personalized Executive Altitude Engine */}
       <Hero onBriefClick={onBriefClick} />
       
       {/* 02. Human-Embedded Architecture Methodology */}
       <HumanSubstrateManifesto />
 
-      {/* 03. Principal Strategic Video Dispatch */}
+      {/* 03. Netflix-Style Instant Friction Scanner (Interactive Micro-Diagnostics) */}
+      <ExecutiveFrictionScanner />
+
+      {/* 04. Principal Strategic Video Dispatch */}
       <PrincipalDispatch />
 
-      {/* 04. Declassified Sovereign Dossier Case Study Artifact */}
+      {/* 05. Declassified Sovereign Dossier Case Study Artifact */}
       <DossierCaseStudyPreview onBriefClick={onBriefClick} />
       
-      {/* 05. Direct Intake & Calendar Booking */}
+      {/* 06. Direct Intake & Calendar Booking */}
       <Waitlist />
     </motion.div>
   );

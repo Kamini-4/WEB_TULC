@@ -57,14 +57,17 @@ const Waitlist: React.FC<WaitlistProps> = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-[#b8860b] text-[10px] font-black uppercase block mb-2 font-mono">
-            Direct Intake & Consultation
-          </span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#b8860b] animate-pulse" />
+            <span className="text-[#b8860b] text-[10px] font-mono font-bold uppercase tracking-wider">
+              Q3 Intake: 1 Final Opening • 14-Day Audit Turnaround
+            </span>
+          </div>
           <h2 className="text-2xl sm:text-4xl font-bold font-serif text-white mb-3">
             Initiate Your Strategic <span className="text-[#b8860b] italic font-light">Calibration.</span>
           </h2>
           <p className="text-zinc-400 text-xs sm:text-sm font-light italic leading-relaxed">
-            Choose your preferred path to engage Suchita Sancheti, Principal Architect.
+            Choose your preferred path to engage Suchita Sancheti, Principal Architect. Includes the complete 6-Page Board Dossier—100% credited toward full-scale protocol integration.
           </p>
         </div>
 

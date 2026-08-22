@@ -639,12 +639,12 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                       <div className="flex justify-between items-start">
                         <div>
                           <span className="text-xs font-mono font-bold text-[#b8860b] uppercase">01. Cognitive Clarity</span>
-                          <span className="text-[9px] font-mono text-emerald-400 block font-bold">• SOVEREIGN ANCHOR</span>
+                          <span className="text-[9px] font-mono text-emerald-400 block font-bold">• SOVEREIGN ANCHOR (Founder Bandwidth)</span>
                         </div>
                         <span className="px-2 py-0.5 bg-[#b8860b] text-black font-mono font-bold text-xs rounded-xs">5.0 / 5.0</span>
                       </div>
                       <p className="text-xs text-zinc-300 font-serif leading-relaxed">
-                        Internal psychological sovereignty at the apex. Decision-making is anchored in self-authored conviction rather than consensus seeking.
+                        Absolute strategic vision at the top. The founder thinks in multi-million dollar moves with zero hesitation, but currently expends cognitive fuel approving operational minutiae.
                       </p>
                     </div>
 
@@ -653,12 +653,12 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                       <div className="flex justify-between items-start">
                         <div>
                           <span className="text-xs font-mono font-bold text-white uppercase">02. Systemic Integrity</span>
-                          <span className="text-[9px] font-mono text-amber-400 block font-bold">• REFINEMENT VECTOR</span>
+                          <span className="text-[9px] font-mono text-amber-400 block font-bold">• REFINEMENT VECTOR (Zero-Loss Delegation)</span>
                         </div>
                         <span className="px-2 py-0.5 bg-zinc-800 text-zinc-200 font-mono font-bold text-xs rounded-xs">3.67 / 5.0</span>
                       </div>
                       <p className="text-xs text-zinc-300 font-serif leading-relaxed">
-                        The gap between boardroom mandates and daily frontline SOP execution. Currently reliant on conversational check-ins instead of logic gates.
+                        The handoff friction gap. When projects are delegated, teams check in repeatedly or produce work that requires executive rework because decision rules are not codified.
                       </p>
                     </div>
 
@@ -667,12 +667,12 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                       <div className="flex justify-between items-start">
                         <div>
                           <span className="text-xs font-mono font-bold text-[#b8860b] uppercase">03. Strategic Velocity</span>
-                          <span className="text-[9px] font-mono text-emerald-400 block font-bold">• HIGH PERFORMANCE</span>
+                          <span className="text-[9px] font-mono text-emerald-400 block font-bold">• HIGH PERFORMANCE (Speed to Market)</span>
                         </div>
                         <span className="px-2 py-0.5 bg-[#b8860b] text-black font-mono font-bold text-xs rounded-xs">4.0 / 5.0</span>
                       </div>
                       <p className="text-xs text-zinc-300 font-serif leading-relaxed">
-                        Ability to execute rapid asymmetric market moves. Instincts at executive tier are sharp; middle management execution experiences lag.
+                        Ability to spot and execute market opportunities. Executive instincts are rapid; middle management execution drags due to multi-layer approval dependencies.
                       </p>
                     </div>
 
@@ -681,12 +681,12 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                       <div className="flex justify-between items-start">
                         <div>
                           <span className="text-xs font-mono font-bold text-[#b8860b] uppercase">04. Moral Gravity</span>
-                          <span className="text-[9px] font-mono text-emerald-400 block font-bold">• STABLE ANCHOR</span>
+                          <span className="text-[9px] font-mono text-emerald-400 block font-bold">• STABLE ANCHOR (Executive Conviction)</span>
                         </div>
                         <span className="px-2 py-0.5 bg-[#b8860b] text-black font-mono font-bold text-xs rounded-xs">4.0 / 5.0</span>
                       </div>
                       <p className="text-xs text-zinc-300 font-serif leading-relaxed">
-                        Ethical resilience and mission fidelity. High personal integrity that must now be codified into institutional governance.
+                        Deep personal founder integrity and values. The mandate now is codifying this ethical spine into automated compliance gates across business units.
                       </p>
                     </div>
 
@@ -695,18 +695,19 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                       <div className="flex justify-between items-start">
                         <div>
                           <span className="text-xs font-mono font-bold text-rose-400 uppercase">05. Cultural Fidelity & Context Distribution</span>
-                          <span className="text-[9px] font-mono text-rose-400 block font-bold">• CRITICAL SYSTEMIC BOTTLENECK</span>
+                          <span className="text-[9px] font-mono text-rose-400 block font-bold">• CRITICAL SYSTEMIC BOTTLENECK (No-BS Transparency)</span>
                         </div>
                         <span className="px-2 py-0.5 bg-rose-500/20 text-rose-300 font-mono font-bold text-xs rounded-xs">3.0 / 5.0</span>
                       </div>
                       <p className="text-xs text-zinc-300 font-serif leading-relaxed">
-                        Severe context degradation below Tier 2. Frontline teams lack the reasoning parameters to execute without asking permission, leading to the &ldquo;Silence of Compliance&rdquo; and constant escalation to the CEO desk.
+                        The 'Silence of Compliance'—teams nod in meetings, then fail to act autonomously or sugarcoat friction. Frontline teams lack the reasoning parameters to execute without asking permission, leading to constant escalations to the CEO desk.
                       </p>
                     </div>
                   </div>
 
-                  <div className="bg-black/60 p-4 border border-white/10 rounded-xs flex items-center justify-between text-xs font-mono">
-                    <span className="text-zinc-400">Diagnostic Finding: A 2.0-point delta between Cognitive Clarity (5.0) and Cultural Fidelity (3.0) represents $1.4M+ in annual coordination friction.</span>
+                  <div className="bg-black/60 p-4 border border-white/10 rounded-xs flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs font-mono gap-2">
+                    <span className="text-zinc-300 font-bold">Executive Diagnostic Finding:</span>
+                    <span className="text-[#b8860b]">A 2.0-point delta between Founder Clarity (5.0) and Team Communication (3.0) represents $1.4M+ in annual coordination drag.</span>
                   </div>
                 </motion.div>
               )}

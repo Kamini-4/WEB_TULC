@@ -2,23 +2,28 @@
 import React, { useEffect, useState } from 'react';
 import Markdown from 'react-markdown';
 import { Link } from 'react-router-dom';
-import { Share2, Link as LinkIcon, Mail, Check, X } from 'lucide-react';
+import { Share2, Link as LinkIcon, Mail, Check, X, ArrowRight, Play, Compass, BookOpen } from 'lucide-react';
 import { Linkedin } from './BrandIcons';
 import { PermanentArtwork } from './PermanentArtwork';
+import { INSTITUTIONAL_ARTICLES } from '../src/lib/articles.ts';
 
 interface Article {
   id?: string;
+  slug?: string;
   category: string;
   title: string;
   content: string[];
   date?: string;
   image?: string;
   timestamp?: number;
+  season?: string;
+  episode?: string;
 }
 
 interface ArticleViewProps {
   article: Article | null;
   onClose: () => void;
+  onSelectArticle?: (article: any) => void;
 }
 
 const getArticleStats = (article: Article) => {
@@ -32,7 +37,7 @@ const getArticleStats = (article: Article) => {
   };
 };
 
-const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
+const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSelectArticle }) => {
   const [copied, setCopied] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
   const [prevArticleId, setPrevArticleId] = useState<string | undefined>(undefined);
@@ -41,6 +46,12 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
     setPrevArticleId(article.id);
     setImageFailed(false);
   }
+
+  // Find next article in sequence (Binge / Episodic Engine)
+  const currentIndex = article ? INSTITUTIONAL_ARTICLES.findIndex(a => a.id === article.id || a.slug === article.slug) : -1;
+  const nextArticle = (currentIndex !== -1 && currentIndex < INSTITUTIONAL_ARTICLES.length - 1)
+    ? INSTITUTIONAL_ARTICLES[currentIndex + 1]
+    : (INSTITUTIONAL_ARTICLES.length > 0 ? INSTITUTIONAL_ARTICLES[0] : null);
 
   useEffect(() => {
     if (article) {
@@ -85,6 +96,12 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleNextArticleClick = () => {
+    if (nextArticle && onSelectArticle) {
+      onSelectArticle(nextArticle);
+    }
+  };
+
   const shareLinks = [
     {
       name: 'X',
@@ -99,8 +116,8 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
     {
       name: 'Email',
       icon: <Mail size={14} />,
-      url: `mailto:?subject=${encodeURIComponent(shareTitle)}&body=I thought you might find this interesting: ${encodeURIComponent(shareUrl)}`,
-    },
+      url: `mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(`Review this executive intelligence brief from The Unbounded Leadership Co.:\n\n${shareUrl}`)}`,
+    }
   ];
 
   const handleNativeShare = async () => {
@@ -113,6 +130,8 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
       } catch (err) {
         console.error('Error sharing:', err);
       }
+    } else {
+      handleCopyLink();
     }
   };
 
@@ -264,6 +283,44 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose }) => {
               </div>
             ))}
           </div>
+
+          {/* Netflix-Style "Up Next in Track" Binge Engine Card */}
+          {nextArticle && (
+            <div className="my-12 p-6 sm:p-8 bg-[#111111] text-white border border-[#b8860b]/40 rounded-xs shadow-xl relative overflow-hidden">
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#b8860b] animate-pulse" />
+                  <span className="text-[10px] font-mono uppercase font-bold text-[#b8860b] tracking-wider">
+                    UP NEXT IN THE EXECUTIVE ARCHIVE // EPISODIC SEQUENCE
+                  </span>
+                </div>
+                <span className="text-[9px] font-mono text-zinc-400">
+                  {getArticleStats(nextArticle).readTime} MIN READ
+                </span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-bold font-serif text-white mb-2">
+                {nextArticle.title}
+              </h3>
+
+              <p className="text-xs sm:text-sm text-zinc-300 font-serif italic mb-5 leading-relaxed">
+                {nextArticle.excerpt}
+              </p>
+
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/10">
+                <span className="text-[10px] font-mono text-zinc-400">
+                  Category: {nextArticle.category}
+                </span>
+                <button
+                  onClick={handleNextArticleClick}
+                  className="px-5 py-2.5 bg-[#b8860b] hover:bg-white hover:text-black text-black font-mono font-bold text-[10px] uppercase tracking-wider transition-all flex items-center gap-2 rounded-xs shadow-md cursor-pointer"
+                >
+                  <span>Continue to Next Brief</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          )}
 
           <footer className="mt-16 sm:mt-24 pt-8 sm:pt-12 border-t border-zinc-200">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 mb-8">

@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Award, FileCode2, Mic, Cpu } from 'lucide-react';
+import ExecutiveAltitudeFilter from './ExecutiveAltitudeFilter.tsx';
 
 interface HeroProps {
   onBriefClick?: (phaseId?: string) => void;
@@ -48,10 +49,10 @@ const Hero: React.FC<HeroProps> = () => {
           {/* Eyebrow & Institutional Credentials */}
           <motion.div className="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 py-1.5 bg-white/80 border border-zinc-200/90 rounded-full mb-5 shadow-2xs" variants={itemVariants}>
             <span className="w-2 h-2 rounded-full bg-[#b8860b] animate-pulse" />
-            <span className="text-[#111111] text-[10px] sm:text-[11px] font-black uppercase">The Unbounded Leadership Co.</span>
+            <span className="text-[#111111] text-[10px] sm:text-[11px] font-black uppercase">Q3 Advisory Cohort: 1 Slot Remaining</span>
             <span className="text-zinc-300">|</span>
             <span className="text-[#b8860b] text-[10px] sm:text-[11px] font-mono font-bold uppercase flex items-center gap-1">
-              <Award className="w-3.5 h-3.5" /> Provisional Patent-Pending System
+              <Award className="w-3.5 h-3.5" /> Strictly 3 Mandates / Quarter
             </span>
           </motion.div>
 
@@ -72,11 +73,11 @@ const Hero: React.FC<HeroProps> = () => {
           <motion.div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 mb-8 max-w-4xl" variants={itemVariants}>
             <div className="flex items-center gap-2 px-3.5 py-2 bg-white border border-zinc-200 rounded-xs shadow-2xs text-[10px] sm:text-[11px] font-mono text-zinc-800">
               <FileCode2 className="w-3.5 h-3.5 text-[#b8860b]" />
-              <span><strong>Patent-Pending</strong> Substrate Assessment</span>
+              <span><strong>14-Day Fast-Track:</strong> 6-Page Board Dossier</span>
             </div>
             <div className="flex items-center gap-2 px-3.5 py-2 bg-white border border-zinc-200 rounded-xs shadow-2xs text-[10px] sm:text-[11px] font-mono text-zinc-800">
               <Mic className="w-3.5 h-3.5 text-[#b8860b]" />
-              <span><strong>Executive Cognitive</strong> Stress Mapping</span>
+              <span><strong>Executive Bandwidth</strong> Leak Mapping</span>
             </div>
             <div className="flex items-center gap-2 px-3.5 py-2 bg-white border border-zinc-200 rounded-xs shadow-2xs text-[10px] sm:text-[11px] font-mono text-zinc-800">
               <Cpu className="w-3.5 h-3.5 text-[#b8860b]" />
@@ -85,56 +86,31 @@ const Hero: React.FC<HeroProps> = () => {
           </motion.div>
 
           {/* Direct Action CTAs */}
-          <motion.div className="flex flex-wrap gap-3 sm:gap-4 justify-center mb-10" variants={itemVariants}>
-            <a 
-              href="https://calendly.com/d/d3jb-kpx-r6q"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 bg-[#b8860b] text-white text-[10px] sm:text-[11px] font-black uppercase hover:bg-[#111111] transition-all duration-300 shadow-md inline-block text-center cursor-pointer font-bold"
-            >
-              Book Private Consult
-            </a>
-            <button 
-              onClick={() => navigate('/assessment')}
-              className="px-8 py-4 bg-white border border-zinc-300 text-[#111111] text-[10px] sm:text-[11px] font-black uppercase hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-300 shadow-xs cursor-pointer font-bold"
-            >
-              Audit Alignment Score
-            </button>
+          <motion.div className="flex flex-col items-center gap-2.5 mb-10" variants={itemVariants}>
+            <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
+              <a 
+                href="https://calendly.com/d/d3jb-kpx-r6q"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-[#b8860b] text-white text-[10px] sm:text-[11px] font-black uppercase hover:bg-[#111111] transition-all duration-300 shadow-md inline-block text-center cursor-pointer font-bold"
+              >
+                Book Private Consult
+              </a>
+              <button 
+                onClick={() => navigate('/assessment')}
+                className="px-8 py-4 bg-white border border-zinc-300 text-[#111111] text-[10px] sm:text-[11px] font-black uppercase hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-300 shadow-xs cursor-pointer font-bold"
+              >
+                Audit Alignment Score
+              </button>
+            </div>
+            <span className="text-[11px] text-zinc-600 font-mono italic">
+              ✦ Fast-Track 14-Day Diagnostic • Complete 6-Page Board Dossier Delivered
+            </span>
           </motion.div>
 
-          {/* Explicit Target Qualification Box ("Black Box" Styling) */}
-          <motion.div 
-            className="w-full max-w-5xl bg-[#111111] border border-[#b8860b]/30 p-6 sm:p-8 rounded-xs text-left mb-10 shadow-2xl relative overflow-hidden"
-            variants={itemVariants}
-          >
-            <div className="absolute top-0 right-0 px-3.5 py-1 bg-[#b8860b]/20 text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase font-mono">
-              Target Client Profile
-            </div>
-
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div className="space-y-2 max-w-xl">
-                <span className="text-[#b8860b] text-[9px] font-black uppercase font-mono block">Exclusively Built For</span>
-                <h3 className="text-lg sm:text-xl font-bold font-serif text-white">High-Growth Founders & Enterprise Leaders</h3>
-                <p className="text-zinc-300 text-xs sm:text-sm font-light italic leading-relaxed">
-                  Engineered specifically for executives running 20 to 500+ headcount enterprises who have scaled market presence but remain bogged down in daily operational alignment friction.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 shrink-0 pt-3 md:pt-0 border-t md:border-t-0 md:border-l border-white/10 md:pl-6 text-[11px] font-mono">
-                <div className="bg-white/5 p-3 rounded-xs border border-white/5">
-                  <span className="text-[#b8860b] font-bold block mb-0.5">VC-Backed CEOs</span>
-                  <span className="text-zinc-400 text-[10px] leading-tight block">Series A to Scale-Up</span>
-                </div>
-                <div className="bg-white/5 p-3 rounded-xs border border-white/5">
-                  <span className="text-[#b8860b] font-bold block mb-0.5">Enterprise Founders</span>
-                  <span className="text-zinc-400 text-[10px] leading-tight block">Multi-Crore Scale</span>
-                </div>
-                <div className="bg-white/5 p-3 rounded-xs border border-white/5">
-                  <span className="text-[#b8860b] font-bold block mb-0.5">Board Chairs</span>
-                  <span className="text-zinc-400 text-[10px] leading-tight block">Key-Person Protection</span>
-                </div>
-              </div>
-            </div>
+          {/* Executive Altitude Personalized Lens Engine */}
+          <motion.div className="w-full max-w-5xl" variants={itemVariants}>
+            <ExecutiveAltitudeFilter />
           </motion.div>
 
           {/* High-Impact Executive Yield Metrics (High-Attention Black Box Grid) */}
