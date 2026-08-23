@@ -33,241 +33,121 @@ declare global {
 const QUESTIONS: Question[] = [
   {
     text: {
-      dynamic: "When executing a high-stakes strategic pivot, how does your core intent translate into execution without creating immediate operational bottlenecks or leadership burnout?",
-      established: "During a major post-merger integration or structural transition, how does your strategic directive cascade to the front lines without losing fidelity or stalling operations?",
-      generational: "When a major transition of governing power of the family enterprise is initiated, how do your strategic mandates and core legacy remain uncompromised?"
+      dynamic: "What percentage of your leadership week is consumed by operational firefighting, slide deck reviews, and tactical check-ins vs. uncompromised strategic offense?",
+      established: "How much of executive committee bandwidth is drained by internal coordination reviews, alignment presentations, and manual status confirmations?",
+      generational: "How much time does the family council spend managing operational friction and trustee alignment vs. commanding generational asset strategy?"
     },
     options: [
       { 
-        label: "Direct Involvement", 
-        scores: { "Cognitive Clarity": 4, "Systemic Integrity": 1, "Strategic Velocity": 2 }, 
-        description: "We rely on frequent, high-touch coordination meetings led personally by me to keep everyone aligned." 
+        label: "Insulated Strategic Focus (<20% Firefighting)", 
+        scores: { "Cognitive Clarity": 5, "Systemic Integrity": 4, "Strategic Velocity": 4 }, 
+        description: "My desk is strictly insulated by invariant logic gates. I dedicate over 80% of my time exclusively to compound capital moves and market expansion." 
       },
       { 
-        label: "Rigid Playbooks", 
-        scores: { "Cognitive Clarity": 3, "Systemic Integrity": 4, "Strategic Velocity": 1 }, 
-        description: "Decisions are fully codified in static manual playbooks, resulting in clear delegation but a noticeable delay in reacting to swift market opportunities." 
-      },
-      { 
-        label: "Autonomous Containers", 
-        scores: { "Cognitive Clarity": 3, "Systemic Integrity": 5, "Strategic Velocity": 5, "Cultural Fidelity": 2 }, 
-        description: "Execution parameters are hard-coded into automated alignment gates. Strategic velocity is maximum, but the system occasionally operates with cold mechanical efficiency, threatening cultural warmth." 
-      }
-    ]
-  },
-  {
-    text: {
-      dynamic: "What happens to your operational rhythm if you are completely offline and unreachable for 30 consecutive days during a market disruption?",
-      established: "If the executive committee must run the primary business unit for 4 weeks without any direct communication from the principal, what is the impact on speed and standard of execution?",
-      generational: "If the family principal is suddenly incapacitated, how swiftly and autonomously do your governance and trust structures mobilize to maintain stability?"
-    },
-    options: [
-      { 
-        label: "Algorithmic Continuity", 
-        scores: { "Systemic Integrity": 5, "Strategic Velocity": 4, "Cultural Fidelity": 2 }, 
-        description: "The system runs flawlessly on pre-set parameters and automated software guards, though the original 'founder's touch' and cultural intensity begin to fade or experience edge drift." 
-      },
-      { 
-        label: "Hesitant Approvals", 
-        scores: { "Systemic Integrity": 3, "Strategic Velocity": 1, "Cognitive Clarity": 4 }, 
-        description: "Operations continue but critical approvals stall. The team hesitates to make major strategic moves to avoid potential misalignment with my vision." 
-      },
-      { 
-        label: "Ad-hoc Interventions", 
-        scores: { "Systemic Integrity": 1, "Strategic Velocity": 2, "Cultural Fidelity": 5 }, 
-        description: "Immediate friction occurs. The business relies heavily on my personal crisis management; without direct intervention, key accounts or strategic momentum would suffer." 
-      }
-    ]
-  },
-  {
-    text: {
-      dynamic: "When a high-performing lead operator acts in a way that violates core cultural tenets but continues to deliver exceptional short-term numbers, how does your system react?",
-      established: "If a highly profitable business division consistently exhibits behavior that deviates from your declared corporate values, how is this misalignment resolved?",
-      generational: "If an influential member of your inner circle or family council begins to compromise the family's long-term reputation for quick wins, how does your governance respond?"
-    },
-    options: [
-      { 
-        label: "Ethical Compromise", 
-        scores: { "Moral Gravity": 1, "Cultural Fidelity": 2, "Cognitive Clarity": 3 }, 
-        description: "Values are documented, but we must compromise occasionally to prevent immediate revenue loss while we work on coaching them." 
-      },
-      { 
-        label: "Embedded Reward Realignment", 
-        scores: { "Moral Gravity": 5, "Cultural Fidelity": 5, "Systemic Integrity": 4 }, 
-        description: "The deviation is resolved instantly and systematically because our reward structures and core parameters are topologically hard-coded to reward ethical alignment over raw volume." 
-      },
-      { 
-        label: "Direct Personal Admonishment", 
-        scores: { "Moral Gravity": 3, "Cultural Fidelity": 4, "Systemic Integrity": 2 }, 
-        description: "I would intervene personally to counsel the individual and enforce values, but the process is highly exhausting and relies entirely on my behavioral vigilance." 
-      }
-    ]
-  },
-  {
-    text: {
-      dynamic: "How does your organization calibrate and approve strategic investments or capital reallocations when sudden macroeconomic disruptions occur?",
-      established: "When evaluating high-capital division pivots under highly volatile market conditions, how are decisions authorized and risk managed?",
-      generational: "When family assets require rapid reallocation due to global political/market volatility, who initiates and verifies the move?"
-    },
-    options: [
-      { 
-        label: "Pre-authorized Guardrails", 
-        scores: { "Strategic Velocity": 5, "Systemic Integrity": 4, "Cognitive Clarity": 4 }, 
-        description: "We have pre-authorized 'autonomous maneuver parameters' with hard-coded risk metrics, allowing tactical leads to reallocate capital instantly within safe boundaries." 
-      },
-      { 
-        label: "Deliberate Manual Approvals", 
-        scores: { "Strategic Velocity": 2, "Systemic Integrity": 3, "Moral Gravity": 5 }, 
-        description: "The board or principal reviews and debates every transition manually. This protects capital from reckless decisions, but we frequently miss the ideal windows of opportunity." 
-      },
-      { 
-        label: "Speculative Realignment", 
-        scores: { "Strategic Velocity": 4, "Systemic Integrity": 1, "Moral Gravity": 2 }, 
-        description: "We pivot quickly because we have a tight-knit executive circle, but the decisions are highly speculative, often bypassing structured risk mitigation controls." 
-      }
-    ]
-  },
-  {
-    text: {
-      dynamic: "As you hire and scale your team, how does your founder's intensity and original execution standard replicate at the outermost edges of the organization?",
-      established: "How do you ensure that standard operating procedures are executed at the absolute highest tier across all distant business units without constant corporate inspection?",
-      generational: "How is the family's core philosophy and sense of stewardship transmitted and active in newly hired external executives or trustees?"
-    },
-    options: [
-      { 
-        label: "Programmatic Alignment", 
-        scores: { "Cultural Fidelity": 5, "Cognitive Clarity": 4, "Systemic Integrity": 4 }, 
-        description: "We have automated, high-frequency resonance loops and programmatic alignment gates built into our onboarding, ensuring high cultural fidelity with minimal manual input." 
-      },
-      { 
-        label: "Ad-hoc Local Standards", 
-        scores: { "Cultural Fidelity": 1, "Cognitive Clarity": 2, "Systemic Integrity": 2 }, 
-        description: "The standard is highly diluted at the edges. Outstanding execution is highly dependent on local leadership's personal talent and motivation, causing unpredictable variances." 
-      },
-      { 
-        label: "Personal Transmission Meetings", 
-        scores: { "Cultural Fidelity": 4, "Cognitive Clarity": 3, "Systemic Integrity": 1 }, 
-        description: "We achieve outstanding standards only through my direct oversight, heavy personal training, and frequent inspections, which limits our expansion capacity." 
-      }
-    ]
-  },
-  {
-    text: {
-      dynamic: "When verifying the exact state of progress on high-stakes outbound projects, how do you secure raw reality without relying on filtered manager reports?",
-      established: "How does the executive committee verify the true operational status of distant business units without being fed sanitized dashboard summaries?",
-      generational: "When the family council audits the actual performance of multiple portfolio holdings, how do you verify true reality over optimistic reports?"
-    },
-    options: [
-      { 
-        label: "Direct Manual Check-Ins", 
-        scores: { "Cognitive Clarity": 4, "Systemic Integrity": 1, "Strategic Velocity": 2 }, 
-        description: "We rely on 5+ hours of weekly status reports and direct personal review of key tasks to be 100% sure the parameters are correct." 
-      },
-      { 
-        label: "Filtered Manager Aggregations", 
-        scores: { "Cognitive Clarity": 2, "Systemic Integrity": 3, "Strategic Velocity": 2 }, 
-        description: "We rely on reports and slideshows compiled by intermediate project leads, which frequently mask early issues until they trigger major alarms." 
-      },
-      { 
-        label: "Direct Operational Data", 
-        scores: { "Cognitive Clarity": 3, "Systemic Integrity": 5, "Strategic Velocity": 5, "Cultural Fidelity": 2 }, 
-        description: "We query live, unfiltered operational execution metrics directly, bypassing conversational layers to see raw reality in real-time." 
-      }
-    ]
-  },
-  {
-    text: {
-      dynamic: "If your Head of Engineering or key operations lead resigned unexpectedly tomorrow, what happens to your product development pipeline?",
-      established: "If a crucial Division President or Chief Technical Director steps down, how long does the operation suffer before alignment is fully restored?",
-      generational: "If the designated next-in-line family member chooses to pursue another vision, what is the impact on your succession pipeline?"
-    },
-    options: [
-      { 
-        label: "High-Touch Firefighting", 
-        scores: { "Systemic Integrity": 1, "Strategic Velocity": 2, "Cultural Fidelity": 5 }, 
-        description: "Severe operational disruption occurs; I would have to dive back into the trenches myself to prevent a drop-off in product velocity." 
-      },
-      { 
-        label: "Recruitment Lag Delay", 
-        scores: { "Systemic Integrity": 2, "Strategic Velocity": 2, "Cognitive Clarity": 3 }, 
-        description: "We consult static resume binders or hire costly recruiters, leading to a 3-to-6 week delay where progress remains severely bottlenecked." 
-      },
-      { 
-        label: "Documented Shadow Delegates", 
-        scores: { "Systemic Integrity": 5, "Strategic Velocity": 4, "Cognitive Clarity": 4 }, 
-        description: "Pre-trained deputy operators step in immediately within pre-authorized guidelines, maintaining progress with zero operational lag." 
-      }
-    ]
-  },
-  {
-    text: {
-      dynamic: "When major product or growth divisions develop competing priorities, how long does it take for a binding priority alignment to be executed?",
-      established: "When conflicts arise between risk compliance and rapid execution layers, who resolves the block and after what delay?",
-      generational: "When the family council and the executive corporate board disagree on asset disposal or major pivots, how is the deadlock broken?"
-    },
-    options: [
-      { 
-        label: "Direct Executive Arbitration", 
-        scores: { "Cognitive Clarity": 2, "Systemic Integrity": 1, "Strategic Velocity": 1 }, 
-        description: "It escalates directly to me, requiring 10-14 days of meetings, intense deliberations, and manual consensus-building." 
-      },
-      { 
-        label: "Departmental Compromise Loops", 
-        scores: { "Cognitive Clarity": 1, "Systemic Integrity": 3, "Strategic Velocity": 2 }, 
-        description: "They compromise locally after several meeting series, which often dilutes the original standard of excellence." 
-      },
-      { 
-        label: "Programmatic Priority Matrix", 
-        scores: { "Cognitive Clarity": 4, "Systemic Integrity": 4, "Strategic Velocity": 5 }, 
-        description: "A pre-designed priority scoring matrix automatically arbitrates, enforcing an absolute decision within 24 hours." 
-      }
-    ]
-  },
-  {
-    text: {
-      dynamic: "How quickly can you shift 30% of your engineering or outbound capacity to capture an unexpected, high-yield market signal?",
-      established: "How fast can capital budgets and dedicated talent pools be reallocated across divisions to counter a surprise competitor play?",
-      generational: "When sudden political or tax changes threaten family liquidity, how fast can asset structures be realigned to insulate portfolio yield?"
-    },
-    options: [
-      { 
-        label: "Rigid Planning Cycles", 
-        scores: { "Cognitive Clarity": 2, "Systemic Integrity": 5, "Strategic Velocity": 1 }, 
-        description: "It is locked until the next quarterly or annual planning review cycle, missing the prime opportunity window." 
-      },
-      { 
-        label: "Protracted Board Debates", 
+        label: "Intermittent Reactive Drag (20% – 50% Firefighting)", 
         scores: { "Cognitive Clarity": 3, "Systemic Integrity": 3, "Strategic Velocity": 2 }, 
-        description: "Requires 14-21 days of proposal writing, cost audits, and intensive board debates to secure authorization." 
+        description: "We carve out strategic blocks, but frequent operational escalations and slide reviews pull leadership back into tactical weeds." 
       },
       { 
-        label: "Dynamic Reallocation Rules", 
-        scores: { "Cognitive Clarity": 5, "Systemic Integrity": 4, "Strategic Velocity": 5 }, 
-        description: "We shift capacity in under 12 hours based on pre-calculated threshold rules, capturing the window instantly." 
+        label: "Severe Coordination Tax (>50% Firefighting)", 
+        scores: { "Cognitive Clarity": 1, "Systemic Integrity": 1, "Strategic Velocity": 1 }, 
+        description: "Operational brushfires and manual coordination dominate the calendar; strategic initiatives are perpetually delayed." 
       }
     ]
   },
   {
     text: {
-      dynamic: "How are key investors or board members kept aligned during sudden high-stakes strategic product pivots?",
-      established: "During large-scale restructuring, how is institutional compliance and board confidence managed without distracting the CEO?",
-      generational: "How do you manage disputes between family heirs who hold equity but have zero involvement in operational governance?"
+      dynamic: "When you delegate a high-stakes strategic initiative to your senior leads, what is the default execution reality?",
+      established: "When a multi-division directive is assigned to intermediate business units, how does it execute without executive intervention?",
+      generational: "When high-capital mandates are handed over to portfolio managers or trustees, how faithfully do they execute without founder oversight?"
     },
     options: [
       { 
-        label: "Intense Personal Campaigns", 
-        scores: { "Cognitive Clarity": 2, "Systemic Integrity": 2, "Strategic Velocity": 1 }, 
-        description: "Requires a heavy manual campaign of personal calls, dinners, and customized presentations to prevent governance disputes." 
+        label: "Autonomous Zero-Loss Execution", 
+        scores: { "Systemic Integrity": 5, "Cognitive Clarity": 4, "Strategic Velocity": 5 }, 
+        description: "Executes autonomously within hard-coded boundary gates to my exact standards without requiring executive check-ins or rework." 
       },
       { 
-        label: "Delayed Reporting Loops", 
-        scores: { "Cognitive Clarity": 1, "Systemic Integrity": 4, "Strategic Velocity": 2 }, 
-        description: "We send out detailed formal reports, awaiting formal approvals which take weeks of corporate lag." 
+        label: "Hesitant Escalation Loops", 
+        scores: { "Systemic Integrity": 3, "Cognitive Clarity": 3, "Strategic Velocity": 2 }, 
+        description: "Managers execute cautiously, seeking multiple verbal check-ins and reassurance before committing to high-stakes decisions." 
       },
       { 
-        label: "Live Strategic Dashboard Visibility", 
-        scores: { "Cognitive Clarity": 4, "Systemic Integrity": 5, "Strategic Velocity": 4 }, 
-        description: "They have direct, real-time visibility into operational health and objective benchmarks, eliminating governance disputes and building instant confidence." 
+        label: "Execution Drift & Rework", 
+        scores: { "Systemic Integrity": 1, "Cognitive Clarity": 2, "Strategic Velocity": 1 }, 
+        description: "The initiative drifts off-target, forcing the executive desk to intervene, course-correct, and redo the work." 
+      }
+    ]
+  },
+  {
+    text: {
+      dynamic: "From the moment you decide on a critical market move, how many days or weeks does it take to see it live in the market?",
+      established: "How fast can dedicated budgets and talent pools be reallocated across divisions to capture an unexpected market opening?",
+      generational: "When sudden macroeconomic shifts threaten family capital, how swiftly do governance structures execute portfolio realignments?"
+    },
+    options: [
+      { 
+        label: "Immediate Deployment (Days)", 
+        scores: { "Strategic Velocity": 5, "Systemic Integrity": 4, "Cognitive Clarity": 4 }, 
+        description: "Rapid, high-conviction deployment within 24–72 hours via pre-authorized maneuver parameters and zero committee lag." 
+      },
+      { 
+        label: "Iterative Alignment (Weeks)", 
+        scores: { "Strategic Velocity": 3, "Systemic Integrity": 3, "Cognitive Clarity": 3 }, 
+        description: "Stalled by 2 to 4 weeks of cross-departmental alignment syncs, cost audits, and iterative review decks." 
+      },
+      { 
+        label: "Bureaucratic Stagnation (Months)", 
+        scores: { "Strategic Velocity": 1, "Systemic Integrity": 2, "Cognitive Clarity": 1 }, 
+        description: "Heavy review cycles lock the pivot until subsequent planning quarters, routinely missing prime market windows." 
+      }
+    ]
+  },
+  {
+    text: {
+      dynamic: "When senior managers face a high-stakes trade-off between hitting short-term targets and upholding core governance/values, how do they act?",
+      established: "If a profitable business unit exhibits behavior that compromises long-term institutional governance, how does your system resolve it?",
+      generational: "If an influential member of the inner circle compromises family reputation for quick returns, how does governance enforce standards?"
+    },
+    options: [
+      { 
+        label: "Inviolable Sovereign Governance", 
+        scores: { "Moral Gravity": 5, "Cultural Fidelity": 5, "Systemic Integrity": 4 }, 
+        description: "Managers possess sovereign conviction; our governance rules mathematically reward ethical fidelity and long-term equity over raw short-term volume." 
+      },
+      { 
+        label: "Upward Buck-Passing", 
+        scores: { "Moral Gravity": 3, "Cultural Fidelity": 3, "Systemic Integrity": 2 }, 
+        description: "Managers freeze and escalate the dilemma to the CEO desk to avoid personal accountability or political blowback." 
+      },
+      { 
+        label: "Compromised Standards", 
+        scores: { "Moral Gravity": 1, "Cultural Fidelity": 1, "Systemic Integrity": 1 }, 
+        description: "Values are bent to hit quarterly numbers, creating hidden ethical, legal, or reputational debt across the organization." 
+      }
+    ]
+  },
+  {
+    text: {
+      dynamic: "If a critical operational error occurs or your most vital key person resigns unexpectedly tomorrow, when and how does the enterprise stabilize?",
+      established: "When key department heads depart or distant operational milestones fail, how rapidly is reality surfaced and stabilized?",
+      generational: "If the designated principal is suddenly unavailable, how autonomously do succession frameworks maintain stability without valuation dips?"
+    },
+    options: [
+      { 
+        label: "Instant 15-Minute Transparency & Leader-Agnostic Substrate", 
+        scores: { "Cultural Fidelity": 5, "Systemic Integrity": 5, "Cognitive Clarity": 4 }, 
+        description: "Zero latency in surfacing reality; deputy operators and codified systems step in immediately with zero transition dip." 
+      },
+      { 
+        label: "Sugarcoated Weekly Reporting & Transition Strains", 
+        scores: { "Cultural Fidelity": 3, "Systemic Integrity": 2, "Cognitive Clarity": 3 }, 
+        description: "Bad news is softened during weekly syncs, and key departures create 3 to 6-week operational bottlenecks." 
+      },
+      { 
+        label: "Late Emergency Discovery & Key-Person Vulnerability", 
+        scores: { "Cultural Fidelity": 1, "Systemic Integrity": 1, "Cognitive Clarity": 1 }, 
+        description: "Errors stay concealed until full crisis point; operations rely 100% on specific heroes with extreme key-person risk." 
       }
     ]
   }
@@ -1401,12 +1281,12 @@ const Assessment: React.FC = () => {
               exit={{ opacity: 0, y: -20 }}
               className="text-center"
             >
-              <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-3 font-mono">End-to-End Diagnostic Audit</h2>
+              <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-3 font-mono">90-Second Sovereign Pulse • 5-Vector Audit</h2>
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-[#111111] leading-tight font-serif">
                 Capture Your <span className="italic text-[#b8860b]">Alignment Premium.</span>
               </h3>
               <p className="text-zinc-700 text-sm sm:text-base mb-8 font-light italic leading-relaxed max-w-2xl mx-auto">
-                Pinpoint the exact operational friction points draining up to 40% of your executive bandwidth and 15% of strategic fidelity per management layer. Complete this 3-minute diagnostic to generate your confidential Executive Dossier and personalized alignment roadmap.
+                Pinpoint the exact operational friction points draining up to 40% of your executive bandwidth and 15% of strategic fidelity per management layer. Complete this 90-second rapid diagnostic across the 5 Sovereign Domains to generate your confidential 6-Page Board Dossier.
               </p>
 
               {restoredSession && (
@@ -1722,7 +1602,7 @@ const Assessment: React.FC = () => {
             >
               <div className="flex justify-between items-center mb-6 md:mb-8 select-none">
                 <div className="flex flex-col text-left">
-                  <span className="text-[#b8860b] text-[10px] font-black uppercase ">Integrated Calibration {String(currentQuestion + 1).padStart(2, '0')}/10</span>
+                  <span className="text-[#b8860b] text-[10px] font-black uppercase ">Integrated Calibration {String(currentQuestion + 1).padStart(2, '0')}/05</span>
                   <div className="flex items-center gap-1.5 mt-1">
                     <span className="w-1 rounded-full bg-green-500 animate-pulse h-1" />
                     <span className="text-[7px] font-mono text-zinc-500 uppercase ">Real-Time Vocal Stress Alignment Tracking Active</span>
@@ -1798,7 +1678,7 @@ const Assessment: React.FC = () => {
             const dScores = computeDomainScores(answers);
             const totalScoreValue = dScores.reduce((a, b) => a + b.score, 0);
 
-            // Refills insights with politically correct, highly structured, CEO-caliber copy
+            // Refills insights with politically correct, highly structured, CEO-caliber copy engineered for high-stakes urgency
             const refinedInsights: Record<string, {
               definition: string;
               strength: string;
@@ -1809,68 +1689,68 @@ const Assessment: React.FC = () => {
               symptoms: string[];
             }> = {
               "Cognitive Clarity": {
-                definition: "The precise externalization of leadership's strategic algorithms to empower autonomous execution layers.",
-                strength: "Your enterprise demonstrates exceptional capability in crafting long-term mission parameters. You hold an outstanding creative compass, consistently identifying vital market horizons before they materialize.",
-                refinement: "To maximize this unique strategic advantage, we can ease the daily operational confirmation loops, allowing your core management team to execute on your high standards with complete autonomy.",
-                urgency: "Why Now: During rapid expansion, establishing systemic translation channels preserves the principal's focus for high-leverage decisions rather than constant tactical validation.",
-                objection: "Systemic Principle: True scaling is not achieved through extensive documentation or static corporate wikis, but by capturing core decision-making algorithms to empower delegation.",
-                benefit: "Strategic Bandwidth Reclaimed: Secure up to 15+ hours weekly to command compound market moves and permanently increase brand equity.",
+                definition: "The precise externalization of leadership's strategic algorithms to empower autonomous execution layers without manual founder intervention.",
+                strength: "Your enterprise demonstrates exceptional capability in crafting long-term strategic vectors. Your intuitive market compass is pristine, consistently anticipating compound market moves before competitors.",
+                refinement: "However, because this strategic law is held in your head rather than codified into immutable logic gates, your calendar is consumed by daily tactical approvals, slide deck reviews, and reactive firefighting.",
+                urgency: "Compounding Cost of Inaction: Every month without invariant alignment gates burns 60+ hours of founder bandwidth in redundant coordination, directly capping your enterprise valuation and speed to market.",
+                objection: "Systemic Principle: True scaling is never achieved through bloated documentation or endless syncs, but by encoding apex decision heuristics into self-executing delegation envelopes.",
+                benefit: "Strategic Bandwidth Reclaimed: Liberate up to 15+ hours weekly to command high-yield capital moves and permanent market dominance.",
                 symptoms: [
-                  "Executive team dedicating time to manual alignment check-ins to secure baseline parameters.",
-                  "Tactical executions experiencing minor coordination queues to align directly with leadership intent.",
-                  "High-performance operators seeking extra verifications to ensure flawless execution coherence."
+                  "Executive team dedicating 15+ hours weekly to manual alignment check-ins to confirm baseline intent.",
+                  "Tactical executions stalling in approval queues waiting for executive desk sign-off.",
+                  "High-performance operators seeking verbal reassurance to avoid personal decision risk."
                 ]
               },
               "Systemic Integrity": {
-                definition: "The structural self-regulation of corporate processes, shielding business continuity from natural human variances or individual heroics.",
-                strength: "You have built exemplary core loyalty and dedication across your executive circle. The company thrives on a foundational tier of exceptionally gifted and supportive leaders.",
-                refinement: "To ensure this premium talent pool is never overdrawn, we will construct organizational self-regulation, ensuring delivery matches top standards during peak demands.",
-                urgency: "Why Now: Infinite corporate longevity is realized when talented operators run within highly supportive, self-cohering structural systems.",
-                objection: "Strategic Alignment Framework: Structured systems do not imply rigid bureaucracy. They represent flexible, self-correcting containers that support organic growth and transition.",
-                benefit: "Systemic Protection: Stress-test operations to run autonomously for consecutive cycles, preserving brand equity and intellectual assets.",
+                definition: "The structural self-regulation of corporate processes, shielding business continuity from natural human variance or individual heroics.",
+                strength: "You have cultivated exemplary loyalty and dedication across your inner circle. Your core operators possess rare dedication and fight fiercely during high-stakes sprints.",
+                refinement: "However, the enterprise currently relies on heroic human willpower rather than invariant architecture. When you step away, operational velocity decelerates and execution fidelity degrades by up to 40%.",
+                urgency: "Compounding Cost of Inaction: Operating with key-person structural dependence imposes a 25–35% valuation penalty during capital events and leaves the enterprise vulnerable to key talent departures.",
+                objection: "Strategic Alignment Framework: Invariant systems do not mean bureaucratic red tape. They represent autonomous decision containers that allow top talent to execute at maximum velocity without asking permission.",
+                benefit: "Systemic Immunity: Stress-test operations to run autonomously for 30+ consecutive days without a single operational dip or founder override.",
                 symptoms: [
-                  "Elite team members routinely logging extra operational focus during peak high-stakes sprints.",
-                  "Departmental hand-offs experiencing subtle alignment steps under high-volume pressure limits.",
-                  "Key onboarding loops relying on relational transitions rather than programmatic playbooks."
+                  "Key leaders routinely working 60+ hour weeks to manually bridge gaps between departments.",
+                  "Handoff friction between business units causing 2-to-4 week execution delays on strategic initiatives.",
+                  "Core operating procedures living in individual heads rather than programmatic decision software."
                 ]
               },
               "Strategic Velocity": {
-                definition: "The speed index measuring how fast the company reallocates capital, talent, and resources to capture emerging market opportunities.",
-                strength: "Your team possesses unmatched localized response times. When high-stakes scenarios arise, your staff coordinates with massive concentration and instant corrective adjustments.",
-                refinement: "Our goal is to build this exceptional velocity into the default architecture of the firm so that agile execution exists as an effortless, structural norm.",
-                urgency: "Why Now: Market conditions reward maximum decision-to-execution speed, turning quiet operational momentum into your primary strategic weapon.",
-                objection: "Agility & Stewardship: High-velocity execution, guided by pre-authorized parameters and clear safety guardrails, reinforces standard compliance and risk posture.",
-                benefit: "Frictionless Response: Accelerate implementation indexes by up to 3.5x, establishing undisputed leadership across emerging market fronts.",
+                definition: "The speed index measuring how fast the enterprise reallocates capital, talent, and focus to capture emerging market windows.",
+                strength: "Your apex team possesses exceptional strategic agility. When market crises or major opportunities emerge, your instinctual response is swift, decisive, and formidable.",
+                refinement: "However, while decision velocity is instant at the top, execution speed across middle management is severely throttled by multi-tiered review cycles and consensus-seeking committees.",
+                urgency: "Compounding Cost of Inaction: A 3-week execution latency window allows competitors to capture prime market share and erodes up to $1.4M annually in executive coordination drag.",
+                objection: "Agility & Stewardship: High-velocity execution, guided by pre-authorized capital limits and clear risk guardrails, strengthens risk control rather than compromising governance.",
+                benefit: "Frictionless Response: Accelerate decision-to-market deployment by up to 3.5x, establishing undisputed category leadership.",
                 symptoms: [
-                  "Strategic maneuvers experiencing extended alignment loops across multiple stakeholders.",
-                  "Response times to rapid market developments occasionally reliant on traditional board cycles.",
-                  "Frontline teams seeking progressive verification steps before executing minor tactical transitions."
+                  "Strategic maneuvers taking weeks of cross-departmental alignment syncs before deployment.",
+                  "Capital reallocation trapped in quarterly review cycles rather than triggered by live market signals.",
+                  "Frontline execution teams pausing work to seek multi-tier signoffs on minor tactical variations."
                 ]
               },
               "Moral Gravity": {
-                definition: "The systemic alignment of operational processes with uncompromised ethics, trust, and brand values.",
-                strength: "The enterprise possesses an immaculate foundation of trust and values, making your brand highly respected and admired by elite global partners.",
-                refinement: "We are here to seamlessly embed this prestigious standing into the everyday workflow, making value alignment an automatic, self-regulating asset.",
-                urgency: "Why Now: Protecting your built reputation with structural safeguards ensures that quality standards are consistently maintained at the operational edge.",
-                objection: "Integrity Cohesion: By engineering values directly into automated workflows, moral alignment becomes a quiet baseline rather than an operational burden.",
-                benefit: "Quiet Compliance: Greatly reduce auditing noise while ensuring your organizational repute remains an unshakeable asset.",
+                definition: "The systemic alignment of operational processes with uncompromised ethics, governance, and institutional brand equity.",
+                strength: "The enterprise possesses an impeccable foundation of trust and values, making your brand highly respected and admired by elite institutional partners and clients.",
+                refinement: "However, ethical governance currently relies on the founder's personal vigilance. When middle management faces quarterly target pressure, there are no codified boundaries preventing short-term compromise.",
+                urgency: "Compounding Cost of Inaction: A single uncontained governance breach or reputational compromise can erase years of built trust and trigger severe institutional friction.",
+                objection: "Integrity Cohesion: By engineering values directly into automated workflows and reward structures, moral alignment becomes an unbreakable default rather than a managerial policing burden.",
+                benefit: "Quiet Compliance: Eliminate manual audit fatigue while ensuring your institutional reputation remains an unshakeable fortress.",
                 symptoms: [
-                  "Intermittent compliance audits requiring manual oversight from senior leadership.",
-                  "Customer delivery gates requiring personal quality checks to maintain absolute elite standards.",
-                  "Edge decision-making occasionally navigating trade-offs between urgent milestones and brand guidelines."
+                  "Senior leadership having to step in personally to adjudicate ethical or quality trade-offs.",
+                  "Customer delivery gates requiring personal executive checks to maintain pristine standards.",
+                  "Middle management occasionally passing ethical dilemmas upward to avoid taking personal responsibility."
                 ]
               },
               "Cultural Fidelity": {
-                definition: "The replication index measuring how precisely your original vision, passion, and high standards cascade to newly added layers.",
-                strength: "The core founding circle maintains immense pride and passion, carrying the company's initial flame with absolute devotion and enthusiasm.",
-                refinement: "We can calibrate the operational nervous system to programmatically cascade this original intensity down to the scaling edge, maintaining 100% excellence.",
-                urgency: "Why Now: Standardized integration paths guarantee that scaling your territory never dilutes the unique customer-facing magic of your brand.",
-                objection: "Sustaining Resonance: Systematizing culture does not replace human warmth; it provides the pristine environment where excellence and pride replicate by default.",
-                benefit: "Continuous Perpetuity: Build a high-resonance talent incubator that automatically onboards new members into a culture of peak standards.",
+                definition: "The replication index measuring how precisely your original vision, passion, and high standards cascade to newly added management layers.",
+                strength: "The core founding circle maintains immense pride and conviction, carrying the company's initial flame with absolute devotion and relentless passion.",
+                refinement: "However, signal fidelity drops precipitously below Tier 2. Frontline teams operate with only 34% of your original intent, resulting in the 'Silence of Compliance' where teams nod in meetings but hesitate in the field.",
+                urgency: "Compounding Cost of Inaction: Context starvation across middle management creates defensive reporting, disguised errors, and constant escalations back to the CEO desk.",
+                objection: "Sustaining Resonance: Systematizing culture does not dilute human connection; it creates the transparent substrate where excellence, truth, and pride replicate automatically.",
+                benefit: "Continuous Perpetuity: Build a self-cohering talent ecosystem that automatically inducts new leaders into a culture of peak standards with zero signal loss.",
                 symptoms: [
-                  "Noticeable alignment variances between long-standing partners and newer frontline hires.",
-                  "Strategic directives experiencing minor momentum loss of intent as they travel through departments.",
-                  "Frontline standard validation requiring active, hands-on principal attention to maintain quality."
+                  "Severe fidelity drop between boardroom strategy and frontline execution reality.",
+                  "Operational mistakes and missed targets concealed until they escalate into full emergencies.",
+                  "Frontline standard validation requiring continuous, exhausting executive oversight."
                 ]
               }
             };
@@ -1901,7 +1781,9 @@ const Assessment: React.FC = () => {
                       <div>
                         <div className="flex items-center gap-2 mb-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-pulse" />
-                          <span className="text-[#b8860b] text-[8px] font-bold uppercase font-mono">Confidential Briefing</span>
+                          <span className="text-[#b8860b] text-[8px] font-bold uppercase font-mono tracking-widest">
+                            PHASE 01 EMERGENCY TRIAGE • CONFIDENTIAL AUDIT
+                          </span>
                         </div>
                         <div className="text-sm font-bold uppercase font-mono">
                           Dossier <span className="text-[#b8860b]">{dossierId}</span>
@@ -1971,239 +1853,271 @@ const Assessment: React.FC = () => {
                       }}
                     >
                       {dossierPage === 1 && (
-                        /* PAGE 1: COVER PAGE */
-                        <div className="flex flex-col justify-center text-center py-6 px-4 space-y-6">
+                        /* PAGE 1: COVER PAGE & EMERGENCY TRIAGE THESIS */
+                        <div className="flex flex-col justify-center text-center py-4 px-4 space-y-5">
                           <div className="flex justify-center">
                             <BrandLogo size="md" variant="full" theme="dark" className="border-none bg-transparent shadow-none" />
                           </div>
                           <div>
-                            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 leading-tight">
-                              CONFIDENTIAL STRATEGIC DOSSIER
+                            <div className="inline-block px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[8px] font-mono uppercase font-bold tracking-widest mb-2">
+                              STAGE 1 RAPID TRIAGE DIAGNOSTIC • PRE-AUDIT SUMMARY
+                            </div>
+                            <h2 className="text-2xl sm:text-3xl font-bold text-white mt-1 leading-tight font-serif">
+                              CONFIDENTIAL SOVEREIGN DOSSIER
                             </h2>
-                            <p className="text-sm sm:text-base text-zinc-400 max-w-xl mx-auto italic font-light leading-relaxed mt-4">
-                              A bespoke alignment analysis tracking cognitive tax, coordination lag, and strategic organizational integrity calibrated for elite enterprise operations.
+                            <p className="text-xs sm:text-sm text-zinc-300 max-w-xl mx-auto italic font-light leading-relaxed mt-2 font-serif">
+                              &ldquo;The audited enterprise exhibits the physics of a <strong className="text-white font-semibold">One-Mind Engine</strong>. The Principal's strategic clarity is extraordinary, but intent currently acts as a manual override for the institution, imposing an estimated <span className="text-[#b8860b] font-bold">$1.4M+ in annual coordination drag</span> and 18.5 hrs/week in executive meeting tax.&rdquo;
                             </p>
                           </div>
-                          <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/5 text-left max-w-2xl mx-auto w-full text-[11px] font-mono text-zinc-400">
-                            <div>
-                              <span className="text-zinc-600 block uppercase text-[8px] font-bold mb-1">Source Principal</span>
+
+                          <div className="grid grid-cols-3 gap-3 pt-4 border-t border-white/10 text-left max-w-2xl mx-auto w-full text-[10px] font-mono text-zinc-400">
+                            <div className="bg-white/[0.02] p-2.5 border border-white/5">
+                              <span className="text-zinc-500 block uppercase text-[7px] font-bold mb-0.5">Audited Principal</span>
                               <span className="text-white italic">{identity.name || 'Executive Principal'}</span>
                             </div>
-                            <div>
-                              <span className="text-zinc-600 block uppercase text-[8px] font-bold mb-1">Enterprise Authority</span>
+                            <div className="bg-white/[0.02] p-2.5 border border-white/5">
+                              <span className="text-zinc-500 block uppercase text-[7px] font-bold mb-0.5">Enterprise Node</span>
                               <span className="text-white italic">{identity.organization || 'Elite Entity'}</span>
                             </div>
-                            <div>
-                              <span className="text-zinc-600 block uppercase text-[8px] font-bold mb-1">Maturity Ledger</span>
-                              <span className="text-[#b8860b] font-bold uppercase">{getGrade()} Standard</span>
+                            <div className="bg-white/[0.02] p-2.5 border border-white/5">
+                              <span className="text-zinc-500 block uppercase text-[7px] font-bold mb-0.5">Stage 1 Index</span>
+                              <span className="text-[#b8860b] font-bold uppercase">{getGrade()} ({Math.round((totalScoreValue / 25) * 100)}%)</span>
                             </div>
+                          </div>
+
+                          <div className="p-3 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-xs text-left max-w-2xl mx-auto w-full font-mono text-[9px] text-zinc-300">
+                            <span className="text-[#b8860b] font-bold uppercase block mb-1">
+                              ⚡ Mandate Verification Gate:
+                            </span>
+                            This 5-Vector Pulse identifies where your enterprise is actively leaking capital. To calculate your exact numerical escalation thresholds and engineer your custom 12 Logic Gates, advance to the <strong>10-Question Clinical Forensic Intake</strong>.
                           </div>
                         </div>
                       )}
 
                       {dossierPage === 2 && (
-                        /* PAGE 2: PRIMAL INSTITUTIONAL ASSET */
+                        /* PAGE 2: PRIMAL INSTITUTIONAL ASSET & THE 2.0-POINT DELTA */
                         <div className="space-y-4 py-2 text-left">
                           <span className="text-[9px] font-black uppercase text-[#b8860b] font-mono block">
-                            Module 01 // Core Resource Alignment
+                            Module 01 // Sovereign Anchor & Vector Delta
                           </span>
-                          <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                          <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight font-serif">
                             Primary Institutional Asset: <span className="text-[#b8860b]">{rDetails.strengthDomain}</span>
                           </h3>
-                          <div className="space-y-4">
-                            <p className="text-lg sm:text-xl text-zinc-100 italic leading-relaxed font-light">
+                          <div className="space-y-4 font-serif">
+                            <p className="text-base sm:text-lg text-zinc-100 italic leading-relaxed font-light pl-3 border-l-2 border-[#b8860b]">
                               "{refinedInsights[rDetails.strengthDomain]?.strength || rDetails.strength}"
                             </p>
-                            <p className="text-sm text-zinc-400 leading-relaxed font-light max-w-3xl">
-                              The diagnostic validates that you possess foundational greatness here. This core capability forms the cornerstone of your business scale. By recognizing and nurturing this natural gravity, the organization maintains stable strategic alignment. Our purpose is now to expand this success from a personal achievement into a recurring, autonomous system.
+                            
+                            <div className="grid sm:grid-cols-2 gap-4 pt-2 font-mono text-xs">
+                              <div className="p-3.5 bg-white/[0.02] border border-white/10 rounded-xs">
+                                <span className="text-[8px] uppercase text-emerald-400 font-bold block mb-1">Apex Anchor (Top-Down Clarity)</span>
+                                <span className="text-xl font-bold text-white block">5.0 / 5.0</span>
+                                <p className="text-[9px] text-zinc-400 font-serif italic mt-1">Founder vision is pristine and intuitive.</p>
+                              </div>
+                              <div className="p-3.5 bg-rose-500/10 border border-rose-500/30 rounded-xs">
+                                <span className="text-[8px] uppercase text-rose-400 font-bold block mb-1">Execution Substrate (Tier 2-3 Fidelity)</span>
+                                <span className="text-xl font-bold text-rose-400 block">3.0 / 5.0</span>
+                                <p className="text-[9px] text-zinc-400 font-serif italic mt-1">2.0-Point translation gap creates reliance on CEO override.</p>
+                              </div>
+                            </div>
+
+                            <p className="text-xs text-zinc-400 leading-relaxed font-light">
+                              The diagnostic confirms you possess immense visionary capital. However, because this wisdom exists in your mind rather than in self-executing organizational code, the firm’s scale is currently subsidized by <strong className="text-white">founder exhaustion</strong>.
                             </p>
                           </div>
                         </div>
                       )}
 
                       {dossierPage === 3 && (
-                        /* PAGE 3: CRITICAL ATTENTION FIELD 01 */
+                        /* PAGE 3: CRITICAL ATTENTION FIELD 01 // ACTIVE CAPITAL DRAIN */
                         <div className="space-y-4 py-2 text-left">
-                          <div className="text-[9px] font-black uppercase text-red-400 font-mono flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 bg-red-400 rounded-full animate-pulse" />
-                            Module 02 // Structural Refinement Domain 01
+                          <div className="text-[9px] font-black uppercase text-rose-400 font-mono flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 bg-rose-400 rounded-full animate-pulse" />
+                            Module 02 // Critical Systemic Leakage 01 [ACTIVE DRAIN]
                           </div>
-                          <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
-                            Refinement Area: <span className="text-[#b8860b]">{rDetails.attentionDomain1}</span>
+                          <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight font-serif">
+                            Primary Friction Vector: <span className="text-rose-400">{rDetails.attentionDomain1}</span>
                           </h3>
-                          <div className="space-y-3">
-                            <p className="text-base sm:text-lg text-zinc-200 italic leading-relaxed font-light">
+                          <div className="space-y-3 font-serif">
+                            <p className="text-sm sm:text-base text-zinc-200 italic leading-relaxed font-light pl-3 border-l-2 border-rose-400">
                               "{d1Ins?.refinement || rDetails.refinement1}"
                             </p>
-                            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-light">
+                            <p className="text-xs text-zinc-300 leading-relaxed font-mono bg-rose-950/20 border border-rose-900/40 p-2.5">
+                              ⚠️ <strong className="text-rose-400 uppercase text-[9px] block mb-0.5">Active Operational Bleed:</strong>
                               {d1Ins?.urgency || rDetails.domainInsights[rDetails.attentionDomain1]?.urgency}
                             </p>
-                            <div className="p-4 bg-white/[0.01] border border-white/5 rounded-xs mt-2">
-                              <span className="text-[8px] font-bold text-[#b8860b] uppercase block mb-2 font-mono">Forensic Symptoms Identified</span>
+                            <div className="p-3.5 bg-white/[0.01] border border-white/5 rounded-xs mt-2 font-mono">
+                              <span className="text-[8px] font-bold text-[#b8860b] uppercase block mb-2 font-mono">Observed Forensic Symptoms</span>
                               <div className="space-y-1.5">
                                 {(d1Ins?.symptoms || rDetails.symptoms1).slice(0, 3).map((s, idx) => (
                                   <div key={idx} className="flex gap-2 text-xs italic text-zinc-400 font-light items-start">
-                                    <span className="w-1 h-1 bg-[#b8860b] rounded-full mt-1.5 shrink-0" />
+                                    <span className="w-1 h-1 bg-rose-400 rounded-full mt-1.5 shrink-0" />
                                     <span>{s}</span>
                                   </div>
                                 ))}
                               </div>
+                            </div>
+                            <div className="text-[9px] font-mono text-zinc-400 italic">
+                              *Stage 1 isolated this symptom. Stage 2 (10-Question Deep Intake) calculates the exact mathematical trigger rules required to seal this leak.
                             </div>
                           </div>
                         </div>
                       )}
 
                       {dossierPage === 4 && (
-                        /* PAGE 4: CRITICAL ATTENTION FIELD 02 */
+                        /* PAGE 4: CRITICAL ATTENTION FIELD 02 & COMPOUNDING COST OF DELAY */
                         <div className="space-y-4 py-2 text-left">
-                          <div className="text-[9px] font-black uppercase text-red-400 font-mono flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 bg-red-400 rounded-full animate-pulse" />
-                            Module 03 // Structural Refinement Domain 02
+                          <div className="text-[9px] font-black uppercase text-amber-400 font-mono flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse" />
+                            Module 03 // Secondary Structural Vulnerability & Compounding Inaction Cost
                           </div>
-                          <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
-                            Refinement Area: <span className="text-[#b8860b]">{rDetails.attentionDomain2}</span>
+                          <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight font-serif">
+                            Vulnerability 02: <span className="text-[#b8860b]">{rDetails.attentionDomain2}</span>
                           </h3>
-                          <div className="space-y-3">
-                            <p className="text-base sm:text-lg text-zinc-200 italic leading-relaxed font-light">
-                              "{d2Ins?.refinement || rDetails.refinement2}"
-                            </p>
-                            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-light">
-                              {d2Ins?.urgency || rDetails.domainInsights[rDetails.attentionDomain2]?.urgency}
-                            </p>
-                            <div className="p-4 bg-white/[0.01] border border-white/5 rounded-xs mt-2">
-                              <span className="text-[8px] font-bold text-[#b8860b] uppercase block mb-2 font-mono">Forensic Symptoms Identified</span>
-                              <div className="space-y-1.5">
-                                {(d2Ins?.symptoms || rDetails.symptoms2).slice(0, 3).map((s, idx) => (
-                                  <div key={idx} className="flex gap-2 text-xs italic text-zinc-400 font-light items-start">
-                                    <span className="w-1 h-1 bg-[#b8860b] rounded-full mt-1.5 shrink-0" />
-                                    <span>{s}</span>
-                                  </div>
-                                ))}
+                          
+                          {/* Compounding Cost of Inaction Table */}
+                          <div className="bg-[#151515] border border-white/10 p-3 rounded-xs font-mono text-xs space-y-2">
+                            <span className="text-[8px] uppercase text-[#b8860b] font-bold block">The Compounding Cost of a 90-Day Delay</span>
+                            <div className="grid grid-cols-3 gap-2 text-[10px]">
+                              <div className="p-2 bg-black/40 border border-white/5">
+                                <span className="text-zinc-500 block text-[7px] uppercase font-bold">30-Day Delay</span>
+                                <span className="text-white font-bold block mt-0.5">74 hrs lost</span>
+                                <span className="text-zinc-400 text-[8px]">In CEO firefights</span>
+                              </div>
+                              <div className="p-2 bg-black/40 border border-white/5">
+                                <span className="text-zinc-500 block text-[7px] uppercase font-bold">60-Day Delay</span>
+                                <span className="text-amber-400 font-bold block mt-0.5">$230K drag</span>
+                                <span className="text-zinc-400 text-[8px]">Coordination waste</span>
+                              </div>
+                              <div className="p-2 bg-black/40 border border-rose-500/30">
+                                <span className="text-rose-400 block text-[7px] uppercase font-bold">90-Day Delay</span>
+                                <span className="text-rose-400 font-bold block mt-0.5">Key-Person Risk</span>
+                                <span className="text-zinc-400 text-[8px]">Acute flight danger</span>
                               </div>
                             </div>
+                          </div>
+
+                          <div className="p-3 bg-white/[0.01] border border-white/5 rounded-xs space-y-1 font-serif text-xs">
+                            <p className="text-zinc-300 italic font-light">
+                              &ldquo;{d2Ins?.refinement || rDetails.refinement2}&rdquo;
+                            </p>
+                            <p className="text-[10px] text-zinc-400 font-mono pt-1">
+                              Systemic Unlock: <span className="text-[#b8860b]">{d2Ins?.benefit}</span>
+                            </p>
                           </div>
                         </div>
                       )}
 
                       {dossierPage === 5 && (
-                        /* PAGE 5: STRATEGIC RECALIBRATION RESPONSE (Objections and Benefits) */
-                        <div className="space-y-4 py-2 text-left">
+                        /* PAGE 5: 12 LOGIC GATES ARCHITECTURE & UNSEALED BREACHES */
+                        <div className="space-y-3 py-1 text-left">
                           <span className="text-[9px] font-black uppercase text-[#b8860b] font-mono block">
-                            Module 04 // Dynamic Recalibration Strategy
+                            Module 04 // 12 Logic Gates Architecture & Unsealed Breaches
                           </span>
-                          <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight mb-1">
-                            Structural Alignment & Custom Recalibration
+                          <h3 className="text-lg sm:text-xl font-bold text-white leading-tight mb-1 font-serif">
+                            Codified Logic Gate Prescriptions
                           </h3>
-                          <p className="text-zinc-400 text-xs italic font-light leading-relaxed mb-4 pb-2 border-b border-white/5">
-                            Note: Our core Phases 01-04 Strategic Alignment Protocol works on <strong className="text-white font-semibold">exactly 2 out of the 5 global domains</strong> (the two lowest-scoring dimensions identified below) to ensure surgical execution focus, resource efficiency, and maximum ROI.
+                          <p className="text-zinc-400 text-[10px] italic font-serif leading-relaxed mb-2 pb-1 border-b border-white/5">
+                            We do not offer generic coaching. We install immutable operating logic gates that eliminate approval queues permanently:
                           </p>
-                          <div className="grid sm:grid-cols-2 gap-6">
-                            <div className="space-y-2.5">
-                              <h4 className="text-[10px] uppercase font-semibold text-zinc-300 font-mono">
-                                01. {rDetails.attentionDomain1}
-                              </h4>
-                              <p className="text-xs text-[#b8860b] italic leading-relaxed pl-3 border-l border-[#b8860b]/30">
-                                {d1Ins?.objection}
-                              </p>
-                              <p className="text-xs text-zinc-400 leading-relaxed font-light">
-                                <strong className="font-mono text-[9px] text-zinc-500 uppercase block mt-1">Systemic Unlock:</strong>
-                                {d1Ins?.benefit}
-                              </p>
+                          <div className="space-y-2 font-mono text-xs">
+                            <div className="p-2.5 bg-[#161616] border border-white/10 rounded-xs flex justify-between items-center">
+                              <div>
+                                <span className="text-[#b8860b] font-bold text-[10px] block">GATES 01–04 // AUTONOMOUS CAPITAL & DELEGATION ENVELOPES</span>
+                                <span className="text-zinc-400 text-[9px] font-serif">Pre-authorized signoff limits up to $150k under strict risk constraints.</span>
+                              </div>
+                              <span className="px-2 py-0.5 bg-rose-500/20 text-rose-400 text-[8px] font-bold uppercase shrink-0">UNSEALED</span>
                             </div>
-                            <div className="space-y-2.5">
-                              <h4 className="text-[10px] uppercase font-semibold text-zinc-300 font-mono">
-                                02. {rDetails.attentionDomain2}
-                              </h4>
-                              <p className="text-xs text-[#b8860b] italic leading-relaxed pl-3 border-l border-[#b8860b]/30">
-                                {d2Ins?.objection}
-                              </p>
-                              <p className="text-xs text-zinc-400 leading-relaxed font-light">
-                                <strong className="font-mono text-[9px] text-zinc-500 uppercase block mt-1">Systemic Unlock:</strong>
-                                {d2Ins?.benefit}
-                              </p>
+
+                            <div className="p-2.5 bg-[#161616] border border-white/10 rounded-xs flex justify-between items-center">
+                              <div>
+                                <span className="text-[#b8860b] font-bold text-[10px] block">GATES 05–08 // STRICT 3-CONDITION ESCALATION FILTER</span>
+                                <span className="text-zinc-400 text-[9px] font-serif">Issues route to CEO desk strictly under existential brand, budget, or ethical triggers.</span>
+                              </div>
+                              <span className="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-[8px] font-bold uppercase shrink-0">CALIBRATING</span>
+                            </div>
+
+                            <div className="p-2.5 bg-[#161616] border border-white/10 rounded-xs flex justify-between items-center">
+                              <div>
+                                <span className="text-[#b8860b] font-bold text-[10px] block">GATES 09–12 // ASYNCHRONOUS CONTEXT BROADCASTING</span>
+                                <span className="text-zinc-400 text-[9px] font-serif">Weekly strategic rationale logs + zero-penalty error transparency protocol.</span>
+                              </div>
+                              <span className="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 text-[8px] font-bold uppercase shrink-0">RECOMMENDED</span>
                             </div>
                           </div>
                         </div>
                       )}
 
                       {dossierPage === 6 && (
-                        /* PAGE 6: EMPIRICAL CALIBRATION INDICES & PRIORITY MATRIX WITH REAL-TIME VOICE USP */
-                        <div className="space-y-5 py-2 text-left">
+                        /* PAGE 6: EMPIRICAL TELEMETRY, VOICE USP & Q3 MANDATE SCARCITY */
+                        <div className="space-y-4 py-1 text-left">
                           <span className="text-[9px] font-black uppercase text-[#b8860b] font-mono block">
-                            Module 05 // Empirical Calibration & Real-Time Voice Cross-Map
+                            Module 05 // Empirical Calibration & Mandate Allocation
                           </span>
                           
-                          <div className="grid md:grid-cols-12 gap-6 items-start">
+                          <div className="grid md:grid-cols-12 gap-4 items-start">
                             {/* Column 1: Core Indices */}
-                            <div className="md:col-span-6 space-y-4">
-                              <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xs">
-                                <div className="text-[8px] uppercase font-black text-zinc-500 mb-1 font-mono">Aggregate Fidelity Index</div>
-                                <div className="flex items-end gap-1 mb-2">
-                                  <span className="text-3xl font-bold text-[#b8860b] font-mono">
-                                    {Math.round((totalScoreValue / 50) * 100)}
+                            <div className="md:col-span-6 space-y-3">
+                              <div className="p-3 bg-white/[0.02] border border-white/5 rounded-xs">
+                                <div className="text-[8px] uppercase font-black text-zinc-500 mb-0.5 font-mono">Aggregate Fidelity Index</div>
+                                <div className="flex items-end gap-1 mb-1">
+                                  <span className="text-2xl font-bold text-[#b8860b] font-mono">
+                                    {Math.round((totalScoreValue / 25) * 100)}
                                   </span>
-                                  <span className="text-xs text-zinc-600 mb-1 font-black">%</span>
+                                  <span className="text-xs text-zinc-600 mb-0.5 font-black">%</span>
                                 </div>
                                 <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
                                   <div 
-                                    style={{ width: `${Math.round((totalScoreValue / 50) * 100)}%` }}
+                                    style={{ width: `${Math.round((totalScoreValue / 25) * 100)}%` }}
                                     className="h-full bg-[#b8860b] transition-all duration-1000"
                                   />
                                 </div>
                               </div>
 
-                              <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xs">
-                                <div className="text-[8px] uppercase font-black text-zinc-500 mb-1 font-mono">Cognitive Bandwidth Reclaimed</div>
-                                <div className="flex items-end gap-1 mb-2">
-                                  <span className="text-3xl font-bold text-white font-mono">
-                                    {Math.round(80 + (totalScoreValue / 5))}
+                              <div className="p-3 bg-white/[0.02] border border-white/5 rounded-xs">
+                                <div className="text-[8px] uppercase font-black text-zinc-500 mb-0.5 font-mono">Reclaimable CEO Bandwidth</div>
+                                <div className="flex items-end gap-1 mb-1">
+                                  <span className="text-2xl font-bold text-white font-mono">
+                                    15.0+
                                   </span>
-                                  <span className="text-xs text-zinc-600 mb-1 font-black">%</span>
+                                  <span className="text-xs text-zinc-600 mb-0.5 font-black">hrs/week</span>
                                 </div>
                                 <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
                                   <div 
-                                    style={{ width: `${Math.round(80 + (totalScoreValue / 5))}%` }}
-                                    className="h-full bg-white transition-all duration-1000"
+                                    style={{ width: `85%` }}
+                                    className="h-full bg-emerald-400 transition-all duration-1000"
                                   />
                                 </div>
                               </div>
                             </div>
 
                             {/* Column 2: Voice USP profile */}
-                            <div className="md:col-span-6 p-4 bg-[#111] border border-[#b8860b]/20 text-white space-y-3 font-mono text-[10px]">
-                              <div className="flex justify-between items-center border-b border-white/15 pb-2">
-                                <span className="text-[#b8860b] font-bold uppercase text-[8px] ">Vocal Stress Analyzer Profile</span>
-                                <span className="text-emerald-400 font-bold text-[7px] uppercase bg-emerald-950 px-1.5 py-0.5 border border-emerald-900 animate-pulse">
-                                  ✓ SECURE SIGNAL MATCHED
+                            <div className="md:col-span-6 p-3 bg-[#111] border border-[#b8860b]/20 text-white space-y-2 font-mono text-[9px]">
+                              <div className="flex justify-between items-center border-b border-white/15 pb-1.5">
+                                <span className="text-[#b8860b] font-bold uppercase text-[8px]">Vocal Resonance Analyzer</span>
+                                <span className="text-emerald-400 font-bold text-[7px] uppercase bg-emerald-950 px-1.5 py-0.5 border border-emerald-900">
+                                  ✓ SECURE MATCH
                                 </span>
                               </div>
-                              <div className="space-y-1.5 text-zinc-300">
-                                <div className="flex justify-between">
-                                  <span className="text-zinc-500">Calibration Code:</span>
-                                  <span className="text-white font-bold">TULCV-VOX-09</span>
-                                </div>
+                              <div className="space-y-1 text-zinc-300">
                                 <div className="flex justify-between">
                                   <span className="text-zinc-500">Spectral Stress Index:</span>
                                   <span className="text-white font-bold">{voiceCalibrated ? "1.02x (Optimal)" : "Simulated 1.05x"}</span>
                                 </div>
                                 <div className="flex justify-between">
-                                  <span className="text-zinc-500">Avg Response Delay:</span>
-                                  <span className="text-white font-bold">1.48 seconds</span>
-                                </div>
-                                <div className="flex justify-between">
-                                  <span className="text-zinc-500">Vocal Resonance Parity:</span>
-                                  <span className="text-[#b8860b] font-black">96.8% Compliant</span>
+                                  <span className="text-zinc-500">Alignment Parity:</span>
+                                  <span className="text-[#b8860b] font-bold">96.8% Compliant</span>
                                 </div>
                               </div>
-                              <p className="text-[8px] italic text-zinc-500 leading-relaxed font-sans mt-2 border-t border-white/5 pt-2">
-                                *Systemic analysis indicates exceptional alignment parity between written decision nodes and baseline throat stress micro-vibrations, validating lack of conceptual strain.
-                              </p>
+                              <div className="p-2 bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[8px] font-sans italic mt-1">
+                                <strong>Institutional Scarcity Notice:</strong> Principal Suchita Sancheti accepts exactly 3 private client mandates per quarter (2 committed for Q3). Complete the 10-Question Intake to qualify for the final seat.
+                              </div>
                             </div>
                           </div>
 
-                          <div className="space-y-1 bg-[#1a140d]/30 border border-[#b8860b]/10 p-3 rounded-xs">
-                            <div className="text-[8px] uppercase font-black text-[#b8860b] font-mono mb-1">Office Priority Intervention Recommendation</div>
-                            <p className="text-zinc-200 text-xs italic font-light leading-relaxed">
+                          <div className="bg-[#1a140d]/40 border border-[#b8860b]/20 p-2.5 rounded-xs">
+                            <div className="text-[8px] uppercase font-black text-[#b8860b] font-mono mb-0.5">Priority Diagnostic Finding</div>
+                            <p className="text-zinc-200 text-xs italic font-serif leading-relaxed">
                               {rDetails.priority}
                             </p>
                           </div>
@@ -2216,10 +2130,10 @@ const Assessment: React.FC = () => {
                           <div className="flex items-center justify-between border-b border-white/10 pb-3">
                             <div>
                               <span className="text-[8px] uppercase font-mono font-bold text-[#b8860b] block">
-                                Dynamic Value Add-On Protocol
+                                Phase 01 Immediate Value Injection
                               </span>
-                              <h4 className="text-lg font-bold text-white leading-tight">
-                                Alignment Micro-Playbook Calibrator
+                              <h4 className="text-lg font-bold text-white leading-tight font-serif">
+                                Instant Tactical Circuit Breakers
                               </h4>
                             </div>
                             {playbookSubmitted && (
@@ -2235,15 +2149,15 @@ const Assessment: React.FC = () => {
 
                           {!playbookSubmitted ? (
                             !showPlaybookOnboard ? (
-                              <div className="space-y-4">
+                              <div className="space-y-4 font-serif">
                                 <p className="text-xs sm:text-sm text-zinc-300 italic font-light leading-relaxed">
-                                  Generate actionable operating parameters customized to your legacy preservation horizon and active constraints. Complete our brief 3-question profile to compile your tactical playbook.
+                                  Generate 2 immediate circuit breakers tailored to your organization. Answer these 3 rapid profile dimensions to compile your tactical bridge.
                                 </p>
                                 <button
                                   onClick={() => setShowPlaybookOnboard(true)}
-                                  className="px-6 py-3 bg-[#b8860b] hover:bg-white hover:text-black text-white text-[9px] font-bold uppercase transition-all font-mono"
+                                  className="px-6 py-3 bg-[#b8860b] hover:bg-white hover:text-black text-white text-[9px] font-bold uppercase transition-all font-mono cursor-pointer"
                                 >
-                                  Customize My Playbook ➔
+                                  Calibrate My Circuit Breakers ➔
                                 </button>
                               </div>
                             ) : (
@@ -2321,9 +2235,9 @@ const Assessment: React.FC = () => {
                                     }, 1500);
                                   }}
                                   disabled={isGeneratingPlaybook}
-                                  className="w-full px-6 py-3 bg-[#b8860b] hover:bg-white hover:text-black text-white text-[9px] font-bold uppercase transition-all font-mono"
+                                  className="w-full px-6 py-3 bg-[#b8860b] hover:bg-white hover:text-black text-white text-[9px] font-bold uppercase transition-all font-mono cursor-pointer"
                                 >
-                                  {isGeneratingPlaybook ? 'Compiling Playbook Framework...' : 'Authorize & Compile Playbook'}
+                                  {isGeneratingPlaybook ? 'Compiling Playbook Framework...' : 'Authorize & Compile Circuit Breakers'}
                                 </button>
                               </div>
                             )
@@ -2347,14 +2261,17 @@ const Assessment: React.FC = () => {
 
                               <div className="p-4 bg-black/40 border border-white/5 space-y-2 rounded-xs">
                                 <h5 className="text-[10px] font-bold text-[#b8860b] uppercase font-mono">
-                                  Action Protocol: Mitigating {rDetails.attentionDomain1}
+                                  Immediate Circuit Breakers for {rDetails.attentionDomain1}
                                 </h5>
-                                <p className="text-zinc-400 text-xs leading-relaxed font-light">
-                                  Based on your bottleneck ("{playbookAnswers.focusBottleneck}"), we prescribe a structural circuit breaker:
+                                <p className="text-zinc-400 text-xs leading-relaxed font-serif italic">
+                                  To instantly stem the bleed of "{playbookAnswers.focusBottleneck}", install these two rules tomorrow:
                                 </p>
-                                <div className="space-y-1.5 text-xs text-zinc-400 font-light pl-2">
-                                  <div>• <strong>Protocol Quarantine</strong>: Force leads to submit recorded Loom briefings following strict 2-minute parameter templates instead of scheduling long alignment sync calls.</div>
-                                  <div>• <strong>Transact Limits</strong>: Legally delegate any operational decisions under $10k to your secondary management layer, demanding zero review approvals.</div>
+                                <div className="space-y-1.5 text-xs text-zinc-300 font-serif pl-2">
+                                  <div>• <strong>Protocol Quarantine</strong>: Forbid verbal alignment syncs. Require leads to submit 2-minute structured Loom briefings answering the 3 core decision parameters.</div>
+                                  <div>• <strong>Transaction Authority Guardrails</strong>: Legally delegate any operational decision under $10,000 to Tier-2 leads without requiring your prior signoff.</div>
+                                </div>
+                                <div className="pt-2 border-t border-white/5 text-[9px] font-mono text-[#b8860b]">
+                                  Advance to Leaf 08 to qualify for the full 12-Gate Architectural Mandate.
                                 </div>
                               </div>
                             </div>
@@ -2363,34 +2280,37 @@ const Assessment: React.FC = () => {
                       )}
 
                       {dossierPage === 8 && (
-                        /* PAGE 8: UNLOCK VIP GATE & MORE DETAILS */
+                        /* PAGE 8: PRE-MANDATE VERIFICATION GATE & 10-QUESTION CLINICAL INTAKE */
                         <div className="space-y-3 py-1 text-left">
                           <div className="border-b border-white/10 pb-3 flex justify-between items-center">
                             <div>
                               <span className="text-[8px] uppercase font-mono font-bold text-[#b8860b] block">
-                                Strategic Alignment Verification Portal
+                                Stage 02 Mandate Unlock
                               </span>
-                              <h4 className="text-lg font-bold text-white leading-tight">
-                                Unlock Complete In-depth Assess & Roadmap
+                              <h4 className="text-lg font-bold text-white leading-tight font-serif">
+                                10-Question Clinical Reassessment & Private Board Briefing
                               </h4>
                             </div>
+                            <span className="px-2.5 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[8px] font-mono uppercase font-bold">
+                              1 OF 3 SEATS OPEN FOR Q3
+                            </span>
                           </div>
 
                           <div className="grid sm:grid-cols-12 gap-6 items-start pt-1">
                             <div className="sm:col-span-5 space-y-2 bg-white/[0.01] border border-white/5 p-3 rounded-xs font-mono">
-                              <span className="text-[8px] font-black uppercase text-[#b8860b] block">Locked Systems Modules</span>
-                              <div className="space-y-1 text-[10px] text-zinc-450 italic">
+                              <span className="text-[8px] font-black uppercase text-[#b8860b] block">Phase 2 Forensic Deliverables</span>
+                              <div className="space-y-1 text-[10px] text-zinc-400 italic font-serif">
                                 <div className="flex justify-between border-b border-white/5 py-1">
-                                  <span className="text-zinc-400">90-Day Strategic Roadmap</span>
-                                  <span className="text-[#b8860b]/70 font-semibold">[Locked]</span>
+                                  <span>10-Question Deep Architectural Intake</span>
+                                  <span className="text-emerald-400 font-mono text-[9px] font-bold">[Included]</span>
                                 </div>
                                 <div className="flex justify-between border-b border-white/5 py-1">
-                                  <span className="text-zinc-400">Structural Alignment Plan</span>
-                                  <span className="text-[#b8860b]/70 font-semibold">[Locked]</span>
+                                  <span>60-Min Private Board Briefing with Principal</span>
+                                  <span className="text-emerald-400 font-mono text-[9px] font-bold">[Included]</span>
                                 </div>
                                 <div className="flex justify-between py-1">
-                                  <span className="text-zinc-400">Decision Velocity Matrix</span>
-                                  <span className="text-[#b8860b]/70 font-semibold">[Locked]</span>
+                                  <span>14-Day Custom 12-Gate Architectural Blueprint</span>
+                                  <span className="text-[#b8860b] font-mono text-[9px] font-bold">[Phase 0.0]</span>
                                 </div>
                               </div>
                             </div>
@@ -2398,13 +2318,13 @@ const Assessment: React.FC = () => {
                             <div className="sm:col-span-7 space-y-3">
                               {!isPaid ? (
                                 <div className="space-y-3">
-                                  <p className="text-xs text-zinc-400 font-light leading-relaxed italic">
-                                    The dossier is a Strategic Preview. The full Strategic Alignment Model, reserved for verified leaders, unlocks the deep Architectural Assessment and custom Alignment Roadmap upon consultation. Submit a briefing request below to receive a customized pricing proposal and unlock your full digital roadmap immediately.
+                                  <p className="text-xs text-zinc-300 font-light leading-relaxed italic font-serif">
+                                    To protect advisory depth, Principal Suchita Sancheti takes on only 3 institutional mandates per quarter. Submit your direct coordinate below to access the deep 10-Question Reassessment and schedule your confidential 60-minute briefing.
                                   </p>
                                   
                                   <div className="p-4 bg-black/60 border border-zinc-800 text-left rounded-sm">
                                     <h6 className="text-[9px] font-bold uppercase text-[#b8860b] mb-2 font-mono flex items-center gap-1.5">
-                                      <Shield className="w-3 h-3 text-[#b8860b]" /> Request Custom Proposal & System Unlock
+                                      <Shield className="w-3 h-3 text-[#b8860b]" /> Authorize Stage-2 Reassessment & Private Briefing
                                     </h6>
                                     
                                     {!vipInvoiceSuccess ? (
@@ -2422,24 +2342,24 @@ const Assessment: React.FC = () => {
                                         <button
                                           type="submit"
                                           disabled={isSubmittingVIPWire}
-                                          className="w-full py-2.5 bg-[#b8860b] hover:bg-white hover:text-black font-mono font-bold uppercase text-[9px] text-white transition-all shadow-lg"
+                                          className="w-full py-2.5 bg-[#b8860b] hover:bg-white hover:text-black font-mono font-bold uppercase text-[9px] text-white transition-all shadow-lg cursor-pointer"
                                         >
-                                          {isSubmittingVIPWire ? "Transmitting..." : "Submit Inquiry & Unlock Report"}
+                                          {isSubmittingVIPWire ? "Securing Mandate Coordinate..." : "Submit Coordinate & Unlock Deep Assessment"}
                                         </button>
                                       </form>
                                     ) : (
-                                      <div className="p-2 bg-[#b8860b]/10 border border-[#b8860b]/20 text-center rounded-xs">
+                                      <div className="p-2.5 bg-[#b8860b]/10 border border-[#b8860b]/20 text-center rounded-xs">
                                         <Check className="w-4 h-4 text-[#b8860b] mx-auto mb-1" />
-                                        <span className="text-[8px] font-mono uppercase text-white font-bold block">Inquiry Submitted</span>
-                                        <p className="text-[9px] text-zinc-400 italic">
-                                          Your request has been registered. Kamini Agnihotri (Operations & Client Relations Coordinator, kaminiagnihotri249@gmail.com) is compiling details. A customized alignment brief and pricing proposal will reach you within 4 hours.
+                                        <span className="text-[8px] font-mono uppercase text-white font-bold block">Coordinate Registered</span>
+                                        <p className="text-[9px] text-zinc-300 italic font-serif">
+                                          Your briefing request is logged. Kamini Agnihotri (Client Relations Coordinator) will confirm your executive session within 4 hours.
                                         </p>
                                         <button
                                           type="button"
                                           onClick={() => setIsPaid(true)}
-                                          className="mt-2 w-full py-1 bg-white/10 hover:bg-[#b8860b] text-white font-mono text-[8px] uppercase transition-all"
+                                          className="mt-2 w-full py-1.5 bg-white/10 hover:bg-[#b8860b] hover:text-black text-white font-mono text-[8px] uppercase transition-all cursor-pointer font-bold"
                                         >
-                                          Continue to Full Report
+                                          Advance Directly to 10-Question Portal
                                         </button>
                                       </div>
                                     )}
@@ -2448,18 +2368,17 @@ const Assessment: React.FC = () => {
                               ) : (
                                 <div className="space-y-3 animate-fade-in text-center py-2">
                                   <div className="p-3 bg-[#b8860b]/10 border border-[#b8860b]/30">
-                                    <div className="text-[9px] uppercase text-[#b8860b] font-mono font-bold">Authority Calibrated & Certified</div>
-                                    <p className="text-xs text-zinc-400 italic font-light mt-1">Alignment Portal assessment is fully unlocked on your client terminal node.</p>
+                                    <div className="text-[9px] uppercase text-[#b8860b] font-mono font-bold">10-Question Clinical Portal Unlocked</div>
+                                    <p className="text-xs text-zinc-300 italic font-light mt-1 font-serif">Your direct executive node is authorized for the in-depth architectural intake.</p>
                                   </div>
 
                                   <a 
                                     href="https://ai.studio/apps/bc205532-cdb0-43d3-a8fb-919809372614"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group relative px-6 py-4 bg-[#b8860b] text-white text-[11px] font-bold uppercase hover:bg-white hover:text-black transition-all shadow-xl flex items-center justify-center gap-2 overflow-hidden text-center mx-auto no-underline"
+                                    className="group relative px-6 py-4 bg-[#b8860b] text-black font-mono font-bold uppercase text-[10px] hover:bg-white transition-all shadow-xl flex items-center justify-center gap-2 overflow-hidden text-center mx-auto no-underline cursor-pointer"
                                   >
-                                    <span>Access Indepth Assessment Portal</span>
-                                    <ArrowRight className="w-4 h-4" />
+                                    <span>Begin 10-Question Clinical Assessment ➔</span>
                                   </a>
                                 </div>
                               )}
@@ -2479,8 +2398,8 @@ const Assessment: React.FC = () => {
                     >
                       ← Prev Leaf
                     </button>
-                    <span className="text-[10px] font-mono text-zinc-500 uppercase">
-                      Page {dossierPage.toString().padStart(2, '0')} of 08
+                    <span className="text-[10px] font-mono text-[#b8860b] uppercase font-bold">
+                      Leaf {dossierPage.toString().padStart(2, '0')} of 08
                     </span>
                     <button
                       onClick={() => setDossierPage(prev => Math.min(8, prev + 1))}
@@ -2492,8 +2411,8 @@ const Assessment: React.FC = () => {
                   </div>
 
                   <div className="mt-4 pt-2 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-2 select-none text-[8px] font-mono text-zinc-600 uppercase ">
-                    <span>Calibration Target Email: {identity.email}</span>
-                    <span>TULC Protocol Verification Registry</span>
+                    <span>Calibration Target: {identity.email}</span>
+                    <span>TULC Phase 01 Emergency Triage Record</span>
                   </div>
 
                   {/* EMBED WIDGET (Renders nicely below nav controls on page 8 only or when desired, but keeping to prevent layout disruptions) */}
