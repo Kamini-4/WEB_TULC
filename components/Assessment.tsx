@@ -1233,7 +1233,7 @@ const Assessment: React.FC = () => {
                 <div>
                   <div class="signature-title">Suchita Sancheti</div>
                   <div style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #777; text-transform: uppercase; margin-top: 2px;">
-                    Principal Architect • Computer Science Engineer & Industrial Psychologist
+                    Founder & Enterprise Architect • Computer Science Engineer & Industrial Psychologist
                   </div>
                   <div style="font-family: 'Cinzel', serif; font-size: 10px; color: #111; margin-top: 5px; font-weight: 700;">
                     The Unbounded Leadership Co.
@@ -2110,7 +2110,7 @@ const Assessment: React.FC = () => {
                                 </div>
                               </div>
                               <div className="p-2 bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[8px] font-sans italic mt-1">
-                                <strong>Institutional Scarcity Notice:</strong> Principal Suchita Sancheti accepts exactly 3 private client mandates per quarter (2 committed for Q3). Complete the 10-Question Intake to qualify for the final seat.
+                                <strong>Institutional Scarcity Notice:</strong> Suchita Sancheti accepts exactly 3 private client mandates per quarter (2 committed for Q3). Complete the 10-Question Intake to qualify for the final seat.
                               </div>
                             </div>
                           </div>
@@ -2305,7 +2305,7 @@ const Assessment: React.FC = () => {
                                   <span className="text-emerald-400 font-mono text-[9px] font-bold">[Included]</span>
                                 </div>
                                 <div className="flex justify-between border-b border-white/5 py-1">
-                                  <span>60-Min Private Board Briefing with Principal</span>
+                                  <span>60-Min Private Board Briefing with Suchita Sancheti</span>
                                   <span className="text-emerald-400 font-mono text-[9px] font-bold">[Included]</span>
                                 </div>
                                 <div className="flex justify-between py-1">
@@ -2319,7 +2319,7 @@ const Assessment: React.FC = () => {
                               {!isPaid ? (
                                 <div className="space-y-3">
                                   <p className="text-xs text-zinc-300 font-light leading-relaxed italic font-serif">
-                                    To protect advisory depth, Principal Suchita Sancheti takes on only 3 institutional mandates per quarter. Submit your direct coordinate below to access the deep 10-Question Reassessment and schedule your confidential 60-minute briefing.
+                                    To protect advisory depth, Suchita Sancheti takes on only 3 institutional mandates per quarter. Submit your direct coordinate below to access the deep 10-Question Reassessment and schedule your confidential 60-minute briefing.
                                   </p>
                                   
                                   <div className="p-4 bg-black/60 border border-zinc-800 text-left rounded-sm">

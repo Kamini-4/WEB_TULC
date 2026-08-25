@@ -229,11 +229,11 @@ const StrategicMandates: React.FC = () => {
 
                   <div className="bg-white/5 p-3.5 border border-white/5 rounded-xs space-y-1">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-white block">Principal Review Guarantee</span>
+                      <span className="text-[10px] font-bold text-white block">Executive Review Guarantee</span>
                       <UserCheck className="w-3.5 h-3.5 text-[#b8860b]" />
                     </div>
                     <p className="text-xs text-zinc-300 italic font-light leading-relaxed">
-                      Every diagnostic enquiry is personally evaluated by Principal Architect Suchita Sancheti for absolute strategic fidelity.
+                      Every diagnostic enquiry is personally evaluated by Founder Suchita Sancheti for absolute strategic fidelity.
                     </p>
                   </div>
 

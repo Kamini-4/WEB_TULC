@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
 import { Share2, Link as LinkIcon, Mail, Check, X, ArrowRight, Play, Compass, BookOpen } from 'lucide-react';
 import { Linkedin } from './BrandIcons';
@@ -64,14 +65,61 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSelectArt
       document.title = `${article.title} | Suchita Sancheti | TULC`;
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
-        metaDesc.setAttribute('content', article.content[0].substring(0, 160) + '...');
+        metaDesc.setAttribute('content', article.content[0]?.substring(0, 160) + '...');
       }
+
+      // Inject dynamic Article JSON-LD Schema
+      const scriptId = 'article-json-ld';
+      let scriptTag = document.getElementById(scriptId) as HTMLScriptElement | null;
+      if (!scriptTag) {
+        scriptTag = document.createElement('script');
+        scriptTag.id = scriptId;
+        scriptTag.type = 'application/ld+json';
+        document.head.appendChild(scriptTag);
+      }
+
+      const articleUrl = `https://theunboundedleadership.com/library/${article.slug || article.id || ''}`;
+      const articleSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        'headline': article.title,
+        'description': article.content[0]?.substring(0, 200) || '',
+        'author': {
+          '@type': 'Person',
+          'name': 'Suchita Sancheti',
+          'jobTitle': 'Founder & Enterprise Architect',
+          'url': 'https://theunboundedleadership.com/about'
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'The Unbounded Leadership Co.',
+          'url': 'https://theunboundedleadership.com',
+          'logo': {
+            '@type': 'ImageObject',
+            'url': 'https://theunboundedleadership.com/og-image.jpg'
+          }
+        },
+        'mainEntityOfPage': {
+          '@type': 'WebPage',
+          '@id': articleUrl
+        },
+        'url': articleUrl,
+        'datePublished': article.date || '2026-01-01',
+        'articleSection': article.category || 'Institutional Dispatch',
+        'inLanguage': 'en-US'
+      };
+
+      scriptTag.text = JSON.stringify(articleSchema);
 
       return () => { 
         document.body.style.overflow = 'unset'; 
         document.title = previousTitle;
         if (metaDesc && previousDesc) {
           metaDesc.setAttribute('content', previousDesc);
+        }
+        const existingScript = document.getElementById(scriptId);
+        if (existingScript) {
+          existingScript.remove();
         }
       };
     } else {
@@ -152,7 +200,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSelectArt
             "author": {
               "@type": "Person",
               "name": "Suchita Sancheti",
-              "jobTitle": "Principal Architect",
+              "jobTitle": "Founder & Enterprise Architect",
               "url": "https://theunboundedleadership.com/about"
             },
             "publisher": {
@@ -272,14 +320,41 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSelectArt
             {article.content.map((paragraph, idx) => (
               <div key={idx} className="mb-6 sm:mb-8">
                 <Markdown
+                  remarkPlugins={[remarkGfm]}
                   components={{
                     a: ({ node, ...props }) => {
                       const isInternal = props.href?.startsWith('/');
                       if (isInternal) {
                         return <Link to={props.href!} className="text-[#b8860b] hover:underline font-bold" onClick={onClose}>{props.children}</Link>;
                       }
-                      return <a {...props} className="text-[#b8860b] hover:underline" target="_blank" rel="noopener noreferrer" />;
+                      return <a {...props} className="text-[#b8860b] hover:underline font-semibold" target="_blank" rel="noopener noreferrer" />;
                     },
+                    h2: ({ node, ...props }) => (
+                      <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#111111] mt-8 mb-4 border-b border-[#b8860b]/30 pb-2" {...props} />
+                    ),
+                    h3: ({ node, ...props }) => (
+                      <h3 className="text-xl sm:text-2xl font-bold font-serif text-[#111111] mt-6 mb-3" {...props} />
+                    ),
+                    p: ({ node, ...props }) => (
+                      <p className="text-zinc-800 text-base sm:text-lg leading-relaxed mb-3 font-serif" {...props} />
+                    ),
+                    ul: ({ node, ...props }) => (
+                      <ul className="space-y-2 my-4 list-disc pl-6 text-zinc-800 font-serif text-base sm:text-lg" {...props} />
+                    ),
+                    table: ({ node, ...props }) => (
+                      <div className="my-8 overflow-x-auto border border-zinc-300 rounded-xs shadow-sm bg-white">
+                        <table className="w-full text-left text-sm text-zinc-800 divide-y divide-zinc-200" {...props} />
+                      </div>
+                    ),
+                    thead: ({ node, ...props }) => (
+                      <thead className="bg-zinc-100 text-zinc-900 font-mono text-xs uppercase" {...props} />
+                    ),
+                    th: ({ node, ...props }) => (
+                      <th className="px-4 py-3 font-bold border-b border-zinc-200" {...props} />
+                    ),
+                    td: ({ node, ...props }) => (
+                      <td className="px-4 py-3 border-b border-zinc-100 font-sans" {...props} />
+                    ),
                   }}
                 >
                   {paragraph}

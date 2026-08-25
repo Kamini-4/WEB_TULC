@@ -123,7 +123,7 @@ const HumanSubstrateManifesto: React.FC = () => {
                 "We do not build machines; we build an organizational nervous system that protects, insulates, and multiplies human strategic energy."
               </p>
               <span className="text-[10px] text-[#b8860b] font-mono uppercase block mt-1">
-                — Suchita Sancheti, Principal Architect
+                — Suchita Sancheti, Founder & Enterprise Architect
               </span>
             </div>
             <button 

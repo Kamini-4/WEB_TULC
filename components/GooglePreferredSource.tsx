@@ -129,7 +129,7 @@ export const GooglePreferredSource: React.FC<GooglePreferredSourceProps> = ({
           </div>
 
           <p className="text-zinc-400 text-xs font-serif italic leading-relaxed mb-5">
-            Add <strong className="text-white font-semibold">The Unbounded Leadership Co.</strong> directly to your Google Search & Discover preferred source list to ensure Principal Suchita Sancheti’s proprietary white papers, mathematical logic gate research, and executive dispatches are surfaced first.
+            Add <strong className="text-white font-semibold">The Unbounded Leadership Co.</strong> directly to your Google Search & Discover preferred source list to ensure Founder Suchita Sancheti’s proprietary white papers, mathematical logic gate research, and executive dispatches are surfaced first.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">

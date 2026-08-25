@@ -130,7 +130,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
       ? `Strategic Performance Inquiry // ${outreachForm.targetCompany}` 
       : "Strategic Growth Inquiry";
       
-    const initialBody = `Dear ${outreachForm.targetName || 'Principal'},\n\nI have been observing your progress at ${outreachForm.targetCompany || 'your institution'} as you navigate current scaling thresholds. The strategic friction inherent to rapid execution can often result in significant cognitive tax.\n\nLet us benchmark your institutional substrate under active pressure protocols.\n\nWith respect,\n\nSuchita Sancheti\nPrincipal Architect\nThe Unbounded Leadership Co.`;
+    const initialBody = `Dear ${outreachForm.targetName || 'Leader'},\n\nI have been observing your progress at ${outreachForm.targetCompany || 'your institution'} as you navigate current scaling thresholds. The strategic friction inherent to rapid execution can often result in significant cognitive tax.\n\nLet us benchmark your institutional substrate under active pressure protocols.\n\nWith respect,\n\nSuchita Sancheti\nFounder & Enterprise Architect\nThe Unbounded Leadership Co.`;
 
     setGeneratedOutreach({
       brief: "Custom manual alignment draft designed exclusively by Suchita Sancheti.",
@@ -522,7 +522,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
             <p style="font-family: 'Cinzel', serif; font-size: 11px; font-weight: bold; text-transform: uppercase; color: #b8860b; margin: 0 0 10px 0;">Sovereign Security Authorization Seal</p>
             <p style="font-size: 11px; font-family: 'Inter', sans-serif; color: #777; margin: 0; line-height: 1.6;">
               This diagnostic docket carries an authorized digital signature registered in the Private Sovereign Registry of The Unbounded Leadership Co.<br/>
-              Receipt Index ID: <strong>TULC-REC-${Math.floor(Math.random() * 900000 + 100000)}</strong> • Principal Architect: <strong>Suchita Sancheti</strong>
+              Receipt Index ID: <strong>TULC-REC-${Math.floor(Math.random() * 900000 + 100000)}</strong> • Founder: <strong>Suchita Sancheti</strong>
             </p>
           </div>
 
