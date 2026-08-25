@@ -99,7 +99,7 @@ const App: React.FC = () => {
 
   // Dynamic SEO & Open Graph Metadata Calibration Engine
   useEffect(() => {
-    let title = "The Unbounded Leadership Co. | Suchita Sancheti | Office of the Principal Architect";
+    let title = "The Unbounded Leadership Co. | Suchita Sancheti | Enterprise Architecture";
     let description = "Architectural interventions for elite founder-led enterprises. Reclaim 40% strategic bandwidth and engineer absolute organizational alignment.";
     let image = "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600";
     let url = `https://theunboundedleadership.com${location.pathname}`;
@@ -113,7 +113,7 @@ const App: React.FC = () => {
     } else {
       switch (location.pathname) {
         case '/':
-          title = "The Unbounded Leadership Co. | Suchita Sancheti | Office of the Principal Architect";
+          title = "The Unbounded Leadership Co. | Suchita Sancheti | Enterprise Architecture";
           description = "Architectural interventions for elite founder-led enterprises. Reclaim 40% strategic bandwidth and engineer absolute organizational alignment under Suchita Sancheti.";
           image = "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600";
           break;

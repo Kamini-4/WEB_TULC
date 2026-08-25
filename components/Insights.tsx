@@ -11,7 +11,7 @@ interface InsightsProps {
   hideHeader?: boolean;
 }
 
-const articles = INSTITUTIONAL_ARTICLES.filter(a => a.id.startsWith('INT-01'));
+const articles = INSTITUTIONAL_ARTICLES.slice(0, 3);
 
 const getArticleStats = (article: any) => {
   const text = Array.isArray(article.content) ? article.content.join(' ') : (article.content || '');

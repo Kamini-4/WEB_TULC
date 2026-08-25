@@ -13,7 +13,7 @@ interface BlogProps {
 }
 
 
-const INITIAL_POSTS = INSTITUTIONAL_ARTICLES.filter(a => a.id.startsWith('INT-00'));
+const INITIAL_POSTS = INSTITUTIONAL_ARTICLES;
 
 const getArticleStats = (post: any) => {
   const text = Array.isArray(post.content) ? post.content.join(' ') : (post.content || '');
@@ -104,10 +104,6 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
               }}
               className="registry-card group cursor-pointer flex flex-col h-full relative isolate p-2"
             >
-              <div className="absolute top-0 left-0 text-[40px] md:text-[60px] font-bold text-white/[0.02] select-none pointer-events-none group-hover:text-[#b8860b]/[0.05] transition-colors duration-700 -z-10 translate-y-[-10%] md:translate-y-[-20%]">
-                {post.id}
-              </div>
-              
               {post.image && (
                 <div className="mb-6 overflow-hidden bg-[#1a1a1a] aspect-[16/10] relative border border-white/5 group-hover:border-[#b8860b]/20 transition-all duration-700">
                   {failedImages[post.id] ? (

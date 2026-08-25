@@ -127,7 +127,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
                 We build system-level architectures exclusively to protect human strategic energy. Across our calibration phases, frontline teams operate within customized 'logic gates' that make the aligned strategic choice natural, clear, and repeatable. We insulate executive bandwidth from daily firefighting and build an organizational operating model where talent acts in autonomous harmony with the founding vision."
               </blockquote>
               <div className="pt-4 border-t border-white/5 flex justify-between items-center text-xs text-zinc-500 font-mono">
-                <span>Suchita Sancheti, Principal Architect</span>
+                <span>Suchita Sancheti, Founder & Alignment Architect</span>
                 <span>DURATION: 1:45</span>
               </div>
             </div>

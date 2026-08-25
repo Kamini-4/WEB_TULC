@@ -376,7 +376,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                 <strong>Forensic Certification & Governance Seal:</strong><br/>
                 <em>"Certified as a validated clinical forensic audit of institutional operating architecture. Designed and calibrated by The Unbounded Leadership Co."</em><br/>
                 <div style="margin-top: 10px; font-weight: bold; font-family: 'JetBrains Mono', monospace; font-size: 8.5pt;">
-                  SUCHITA SANCHETI // PRINCIPAL ALIGNMENT ARCHITECT<br/>
+                  SUCHITA SANCHETI // FOUNDER & ALIGNMENT ARCHITECT<br/>
                   RECORD: DECLASSIFIED & SANITIZED // ARCHIVE CODE: TULC-849201
                 </div>
               </div>
@@ -602,7 +602,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                       &ldquo;The audited enterprise operates under the physics of a One-Mind Engine. The Principal's cognitive clarity is extraordinary (5.00/5.0), but intent currently acts as a manual override for the entire institution. The founder absorbs the metabolic cost of daily tactical execution with personal willpower rather than automating it through immutable organizational architecture. This imposes an estimated 35% drag on strategic velocity and introduces acute key-person vulnerability.&rdquo;
                     </p>
                     <div className="text-[11px] font-mono text-zinc-400 pt-2 border-t border-white/10 flex items-center justify-between">
-                      <span>Forensic Auditor: Suchita Sancheti, Principal Alignment Architect</span>
+                      <span>Forensic Auditor: Suchita Sancheti, Founder & Alignment Architect</span>
                       <span className="text-[#b8860b]">Status: Immediate Calibration Prescribed</span>
                     </div>
                   </div>
@@ -971,7 +971,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                         Validated Clinical Forensic Record // Certified by TULC
                       </span>
                       <span className="text-zinc-400 text-[11px]">
-                        Suchita Sancheti, Principal Alignment Architect • Case Artifact Ref #849201
+                        Suchita Sancheti, Founder & Alignment Architect • Case Artifact Ref #849201
                       </span>
                     </div>
                     <button

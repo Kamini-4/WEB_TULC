@@ -7,10 +7,9 @@ interface ArtworkProps {
 }
 
 export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className = "w-full h-full" }) => {
-  // Normalize ID for comparison
-  const normId = id ? id.toUpperCase() : 'GENERIC';
+  // Normalize ID / Slug for mapping
+  const normId = id ? id.toLowerCase().replace(/^int-/, '') : 'generic';
 
-  // Aesthetic Definitions
   // Aesthetic Definitions
   const bgDark = "#111111";
   const bgCard = "#1c1c1a"; // Warm, luxurious museum charcoal
@@ -48,7 +47,8 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
     );
 
     switch (normId) {
-      case 'INT-010': // The Architecture of Authority
+      case 'architecture-of-authority':
+      case '010': // The Architecture of Authority
         return (
           <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             {renderDefs('010')}
@@ -79,12 +79,13 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
 
             {/* Absolute Minimal Tech Labels */}
             <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">SCALE: SYSTEMIC AUTHORITY V1.0</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">MODEL: INT-010 // ARCHITECTURE_OVER_BRAND</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">MODEL: ARCHITECTURE OVER BRAND</text>
             <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">SYSTEMS REGISTRY // LND.NYC.SGP</text>
           </svg>
         );
 
-      case 'INT-011': // Strategic Substrates
+      case 'strategic-substrates':
+      case '011': // Strategic Substrates
         return (
           <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             {renderDefs('011')}
@@ -117,12 +118,13 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
 
             {/* Technical labeling */}
             <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">AEO PROTOCOL: HIGH-FIDELITY COHERENCE</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">SUBSTRATE VERIFICATION: ACTIVE [INT-011]</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">SUBSTRATE VERIFICATION: ACTIVE</text>
             <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">INTELLIGENCE LATENCY MATRIX: 0.00ms</text>
           </svg>
         );
 
-      case 'INT-012': // Sovereign Leadership
+      case 'aligned-leadership':
+      case '012': // Sovereign Leadership
         return (
           <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             {renderDefs('012')}
@@ -156,12 +158,13 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
 
             {/* Minimal metadata text */}
             <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">SIGNAL SYSTEM INDEX: CALIBRATED</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">SOVEREIGN CORE: CYBERNETIC_HARMONY [INT-012]</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">SOVEREIGN CORE: CYBERNETIC HARMONY</text>
             <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">SYSTEMS INTEGRITY OPTIMIZER // 100%</text>
           </svg>
         );
 
-      case 'INT-001': // The Founder's Dilemma
+      case 'founders-dilemma':
+      case '001': // The Founder's Dilemma
         return (
           <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             {renderDefs('001')}
@@ -192,13 +195,14 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             </g>
 
             {/* Metadata labels */}
-            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">TRANSITION MATRIX: RE-ENGINEERED [INT-001]</text>
+            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">TRANSITION MATRIX: RE-ENGINEERED</text>
             <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">FOUNDER DECOUPLING: FIDUCIARY EXCELLENCE STABILIZER</text>
             <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">INTELLIGENCE REGISTRY // SUCCESSION ACTV</text>
           </svg>
         );
 
-      case 'INT-002': // The Cognitive Tax of Leadership
+      case 'cognitive-tax-of-leadership':
+      case '002': // The Cognitive Tax of Leadership
         return (
           <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             {renderDefs('002')}
@@ -234,7 +238,8 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
           </svg>
         );
 
-      case 'INT-003': // Bridging Strategy-Execution Gap
+      case 'bridging-strategy-execution-gap':
+      case '003': // Bridging Strategy-Execution Gap
         return (
           <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             {renderDefs('003')}
@@ -271,11 +276,12 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
 
             {/* Labels */}
             <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">FIDUCIARY ALIGNMENT COEFFICIENT: 99.8% FLAWLESS</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">SOVEREIGN BOARD INTEGRITY SYSTEM [INT-003]</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">SOVEREIGN BOARD INTEGRITY SYSTEM</text>
           </svg>
         );
 
-      case 'INT-004': // Executive Bandwidth / Cognitive Equity
+      case 'reclaiming-strategic-bandwidth':
+      case '004': // Executive Bandwidth / Cognitive Equity
         return (
           <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             {renderDefs('004')}
@@ -308,12 +314,13 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             </g>
 
             <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">COGNITIVE ASSET VALUE: HIGHLY STABLE</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">EXECUTIVE COGNITIVE EQUITIES SYSTEM [INT-004]</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">EXECUTIVE COGNITIVE EQUITIES SYSTEM</text>
             <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">INTELLIGENCE METRIC // THE UNBOUNDED CO.</text>
           </svg>
         );
 
-      case 'INT-005': // Institutional Lag: The Invisible Coefficient
+      case 'institutional-lag':
+      case '005': // Institutional Lag: The Invisible Coefficient
         return (
           <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             {renderDefs('005')}
@@ -342,11 +349,12 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             </g>
 
             <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">COEFFICIENT OF FRICTION: TULC RESOLVED</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">INSTITUTIONAL LAG DECOUPLER [INT-005]</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">INSTITUTIONAL LAG DECOUPLER</text>
           </svg>
         );
 
-      case 'INT-006': // Engineering Strategic Bandwidth: Reclaiming Decision Capacity
+      case 'engineering-strategic-bandwidth':
+      case '006': // Engineering Strategic Bandwidth: Reclaiming Decision Capacity
         return (
           <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             {renderDefs('006')}
@@ -380,12 +388,13 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             </g>
 
             <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">COGNITIVE ASSET RECLAMATION: VELOCITY STACK</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">STRATEGIC CAPACITY ENGINEERING PROTOCOL [INT-006]</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">STRATEGIC CAPACITY ENGINEERING PROTOCOL</text>
             <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">INTELLIGENCE STACK V4.0</text>
           </svg>
         );
 
-      case 'INT-007': // Sovereign Authority vs Reactive Management
+      case 'aligned-authority-vs-reactive-management':
+      case '007': // Sovereign Authority vs Reactive Management
         return (
           <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             {renderDefs('007')}
@@ -426,11 +435,12 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             </g>
 
             <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">TAXONOMY ALIGNMENT: SOVEREIGN SYSTEMATIC</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">AUTHORITY OVER EMERGENCY PROTOCOLS [INT-007]</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">AUTHORITY OVER EMERGENCY PROTOCOLS</text>
           </svg>
         );
 
-      case 'INT-008': // The Dynamics of Inevitability
+      case 'dynamics-of-inevitability':
+      case '008': // The Dynamics of Inevitability
         return (
           <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             {renderDefs('008')}
@@ -459,12 +469,13 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             </g>
 
             <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">STRUCTURAL EFFICIENCY COEFFICIENT: INEVITABLE</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">THE DYNAMICS OF INEVITABILITY ARCHITECTURE [INT-008]</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">THE DYNAMICS OF INEVITABILITY ARCHITECTURE</text>
             <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">SYSTEMS DOMINATE TALENT // TULC DISPATCH</text>
           </svg>
         );
 
-      case 'INT-009': // The Cost of Organizational Latency
+      case 'cost-of-organizational-latency':
+      case '009': // The Cost of Organizational Latency
         return (
           <svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             {renderDefs('009')}
@@ -497,7 +508,7 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
               <text x="300" y="115" fill="#ff4d4d" fontSize="8" fontFamily="monospace" opacity="0.7" textAnchor="middle">INACTION WINDOW (48H+)</text>
 
               {/* Sovereign Absolute Zero-Latency Target (Committed edge alignment) */}
-              <text x="450" y="250" fill={gold} fontSize="8" fontFamily="monospace" className="font-bold">SOVEREIGN PROTOCOL target (ZERO TAX)</text>
+              <text x="450" y="250" fill={gold} fontSize="8" fontFamily="monospace" className="font-bold">SOVEREIGN PROTOCOL TARGET (ZERO TAX)</text>
               <rect x="420" y="195" width="130" height="15" rx="3" fill="rgba(223, 186, 107, 0.1)" stroke={gold} strokeWidth="1.5" />
               
               {/* Connecting light beam showing instant transition */}
@@ -508,8 +519,8 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             </g>
 
             <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">FIDUCIARY LOSS MATRIX: CORRECTED</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">MEASURING & NEUTRALIZING THE INACTION TAX [INT-009]</text>
-            <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">LATENCY MATRIX RESOLVED // ZERO_TEMPORAL_DRIFT</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">MEASURING & NEUTRALIZING THE INACTION TAX</text>
+            <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">LATENCY MATRIX RESOLVED // ZERO TEMPORAL DRIFT</text>
           </svg>
         );
 

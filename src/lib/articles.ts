@@ -13,15 +13,16 @@ export interface Article {
 
 export const INSTITUTIONAL_ARTICLES: Article[] = [
   // =========================================================================
-  // INSIGHTS SECTION (INT-010 to INT-012)
+  // ARCHITECTURAL & STRATEGIC DISPATCHES
   // =========================================================================
   {
-    id: "INT-010",
+    id: "architecture-of-authority",
     slug: "architecture-of-authority",
     category: "Systems Design",
     title: "The Architecture of Authority: Why Systems Outperform Personal Brands",
     excerpt: "Why scaling beyond founder charisma requires hard-coding authority into organizational logic gates and autonomous operational substrates.",
     image: "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
     content: [
       "## What Is the Architecture of Institutional Authority?",
       "The architecture of institutional authority is the systemic codification of leadership decision heuristics into autonomous operational protocols.",
@@ -59,9 +60,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-011",
+    id: "strategic-substrates",
     slug: "strategic-substrates",
     category: "Cognitive Architecture",
+    date: "Executive Briefing",
     title: "Strategic Substrates: The Invisible Tax of Latent Inefficiency",
     excerpt: "How aligning mental models at the board level yields compounding institutional velocity and neutralizes the hidden costs of leadership friction.",
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
@@ -101,9 +103,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-012",
+    id: "aligned-leadership",
     slug: "aligned-leadership",
     category: "Future of Governance",
+    date: "Executive Briefing",
     title: "Aligned Leadership: Designing for Anti-Fragility in the Age of AI",
     excerpt: "Transitioning from individual management effort to systemic intelligence as the core competitive advantage in modern enterprise governance.",
     image: "https://images.unsplash.com/photo-1449156003053-c30bc2016421?auto=format&fit=crop&q=80&w=1600",
@@ -142,15 +145,11 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "Initiate an enterprise governance review through our [Sovereign Advisory Intake](/intake)."
     ]
   },
-
-  // =========================================================================
-  // REGISTRY / BLOG SECTION (INT-001 to INT-016)
-  // =========================================================================
   {
-    id: "INT-001",
+    id: "founders-dilemma",
     slug: "founders-dilemma",
     category: "Succession Architecture",
-    date: "Q1 2026",
+    date: "Executive Briefing",
     title: "The Founder's Dilemma: Architecting Institutional Permanence Beyond the Individual",
     excerpt: "Why 50% of CEO successions fail within 18 months and how you can build a leadership substrate that preserves legacy through systemic alignment.",
     image: "https://images.unsplash.com/photo-1577086664693-894d8405334a?auto=format&fit=crop&q=80&w=1600",
@@ -192,10 +191,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-002",
+    id: "cognitive-tax-of-leadership",
     slug: "cognitive-tax-of-leadership",
     category: "Cognitive Efficiency",
-    date: "Dispatch 08",
+    date: "Executive Briefing",
     title: "The Cognitive Tax of Leadership: Reclaiming 40% of Your Strategic Bandwidth",
     excerpt: "Executive burnout is an architectural design flaw, not a personal failure. Learn how to eliminate tactical noise and maximize your strategic yield.",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600",
@@ -236,10 +235,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-003",
+    id: "bridging-strategy-execution-gap",
     slug: "bridging-strategy-execution-gap",
     category: "Governance Calibration",
-    date: "Special Report",
+    date: "Executive Briefing",
     title: "Bridging the Strategy-Execution Gap: A Fiduciary Guide to Board Alignment",
     excerpt: "Why 67% of well-formulated strategies fail and how to calibrate the gap between Board expectations and operational reality for 2.5x outperformance.",
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
@@ -281,10 +280,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-004",
+    id: "reclaiming-strategic-bandwidth",
     slug: "reclaiming-strategic-bandwidth",
     category: "Executive Effectiveness",
-    date: "Dispatch 12",
+    date: "Executive Briefing",
     title: "Reclaiming Strategic Bandwidth: The Executive's Only Real Currency",
     excerpt: "Why busiest leaders are often strategically bankrupt — and how to architect your return to high-value command.",
     image: "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600",
@@ -326,10 +325,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-005",
+    id: "institutional-lag",
     slug: "institutional-lag",
     category: "Systems Architecture",
-    date: "AEO/GEO Protocol",
+    date: "Executive Briefing",
     title: "Institutional Lag: The Invisible Coefficient of Leadership Friction",
     excerpt: "Why the distance between executive intent and operational execution is the most critical metric for the modern CEO.",
     image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1600",
@@ -371,10 +370,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-006",
+    id: "engineering-strategic-bandwidth",
     slug: "engineering-strategic-bandwidth",
     category: "Bandwidth Reclamation",
-    date: "Executive Intelligence",
+    date: "Executive Briefing",
     title: "Engineering Strategic Bandwidth: Reclaiming Decision Capacity at Scale",
     excerpt: "Reclaiming up to 40% of your cognitive capacity by neutralizing tactical noise and stabilizing institutional logic.",
     image: "https://images.unsplash.com/photo-1507537297325-5f9037f3796d?auto=format&fit=crop&q=80&w=1600",
@@ -416,10 +415,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-007",
+    id: "aligned-authority-vs-reactive-management",
     slug: "aligned-authority-vs-reactive-management",
     category: "Governance Calibration",
-    date: "Special Dispatch",
+    date: "Executive Briefing",
     title: "Aligned Leadership vs. Reactive Management: A New Alignment Taxonomy",
     excerpt: "Transitioning from heroic intervention to architectural command as the core pillar of institutional survival.",
     image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1600",
@@ -461,10 +460,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-008",
+    id: "dynamics-of-inevitability",
     slug: "dynamics-of-inevitability",
     category: "Cognitive Alignment",
-    date: "Architecture Report",
+    date: "Executive Briefing",
     title: "The Dynamics of Inevitability: Why Systems Outperform Individual Talent",
     excerpt: "How to engineer an organization where strategic success is a natural consequence of the structural design, not personal effort.",
     image: "https://images.unsplash.com/photo-1508108712903-4947ef9b2ef7?auto=format&fit=crop&q=80&w=1600",
@@ -506,10 +505,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-009",
+    id: "cost-of-organizational-latency",
     slug: "cost-of-organizational-latency",
     category: "Structural Integrity",
-    date: "Diagnostic Entry",
+    date: "Executive Briefing",
     title: "The Cost of Organizational Latency: Measuring the Inaction Tax",
     excerpt: "Qualifying and neutralizing the hidden friction that erodes fiduciary value in global enterprises.",
     image: "https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&q=80&w=1600",
@@ -551,10 +550,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-013",
+    id: "transitioning-founder-to-chairman",
     slug: "transitioning-founder-to-chairman",
     category: "Succession Architecture",
-    date: "Special Brief",
+    date: "Executive Briefing",
     title: "Transitioning from Founder to Chairman: The Systems Blueprint for High-Growth Enterprises",
     excerpt: "How to transition from founder to active chairman without initiating operational drift or valuation collapse. This systems-level roadmap is optimized for board members, VCs, and multi-generational principals.",
     image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1600",
@@ -597,10 +596,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-014",
+    id: "ceo-burnout-systems-failure",
     slug: "ceo-burnout-systems-failure",
     category: "Cognitive Efficiency",
-    date: "Research Report",
+    date: "Executive Briefing",
     title: "CEO Burnout is a Systems Design Failure: A Blueprint for Reclaiming 40% Bandwidth",
     excerpt: "Executive exhaustion is rarely a matter of workload. It is the friction of a misaligned operating substrate. Learn how elite scale-up founders can systematically reclaim their cognitive equity.",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600",
@@ -642,10 +641,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-0031",
+    id: "delegators-paradox-scale-quality",
     slug: "delegators-paradox-scale-quality",
     category: "Delegation Dynamics",
-    date: "Dispatch 15",
+    date: "Executive Briefing",
     title: "The Delegator's Paradox: Scaling Operational Decisions Without Lowering Your Quality Standards",
     excerpt: "Why classic hands-off delegation backfires for detail-obsessed founders, and how to build high-fidelity decision logic gates that run on your exact values.",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600",
@@ -687,10 +686,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-0032",
+    id: "operational-friction-ebitda-leakage",
     slug: "operational-friction-ebitda-leakage",
     category: "Systems Audit",
-    date: "Dispatch 16",
+    date: "Executive Briefing",
     title: "Calculating Your Executive Latency: How Administrative Friction and Meeting Bloat Bleed Up to 15% EBITDA",
     excerpt: "A mathematical breakdown of coordination taxes in fast-scaling firms and a checklist to recover up to 15 hours of weekly strategic capacity.",
     image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1600",
@@ -734,10 +733,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-0033",
+    id: "scaling-leadership-dna-sovereign-voice",
     slug: "scaling-leadership-dna-sovereign-voice",
     category: "Sovereign Leadership",
-    date: "Dispatch 17",
+    date: "Executive Briefing",
     title: "The Physics of Aligned Leadership: Replicating Your Strategic Intuition in Delegated Executives",
     excerpt: "How to build a sovereign voice mapping that lets your executive team execute with 100% of your risk appetite and strategic vision.",
     image: "https://images.unsplash.com/photo-1507537297325-5f9037f3796d?auto=format&fit=crop&q=80&w=1600",
@@ -779,10 +778,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-015",
+    id: "from-strategic-intent-to-operational-architecture",
     slug: "from-strategic-intent-to-operational-architecture",
     category: "Strategic Architecture",
-    date: "Executive Intelligence",
+    date: "Executive Briefing",
     title: "Bridging the Strategic-to-Operational Divide: From Strategic Formulation to Enterprise Infrastructure",
     excerpt: "Strategy formulation sets high-level direction, but enterprise scale requires active execution infrastructure. Here is how T.U.L.C. builds durable, self-regulating operational substrates.",
     image: "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600",
@@ -824,7 +823,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    id: "INT-016",
+    id: "vc-portfolio-coordination-drag",
     slug: "vc-portfolio-coordination-drag",
     category: "Sovereign Capital",
     date: "Board Intelligence",
@@ -870,8 +869,52 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
   }
 ];
 
+// Legacy ID mapping dictionary for backward compatibility
+const LEGACY_ID_MAP: Record<string, string> = {
+  "int-010": "architecture-of-authority",
+  "int-011": "strategic-substrates",
+  "int-012": "aligned-leadership",
+  "int-001": "founders-dilemma",
+  "int-002": "cognitive-tax-of-leadership",
+  "int-003": "bridging-strategy-execution-gap",
+  "int-004": "reclaiming-strategic-bandwidth",
+  "int-005": "institutional-lag",
+  "int-006": "engineering-strategic-bandwidth",
+  "int-007": "aligned-authority-vs-reactive-management",
+  "int-008": "dynamics-of-inevitability",
+  "int-009": "cost-of-organizational-latency",
+  "int-013": "transitioning-founder-to-chairman",
+  "int-014": "ceo-burnout-systems-failure",
+  "int-0031": "delegators-paradox-scale-quality",
+  "int-0032": "operational-friction-ebitda-leakage",
+  "int-0033": "scaling-leadership-dna-sovereign-voice",
+  "int-015": "from-strategic-intent-to-operational-architecture",
+  "int-016": "vc-portfolio-coordination-drag"
+};
+
 export const getArticleByIdOrSlug = (idOrSlug: string): Article | undefined => {
-  return INSTITUTIONAL_ARTICLES.find(a => a.id === idOrSlug || a.slug === idOrSlug);
+  if (!idOrSlug) return undefined;
+  const clean = idOrSlug.trim().toLowerCase();
+  
+  // Direct match on id or slug
+  const directMatch = INSTITUTIONAL_ARTICLES.find(
+    a => a.id.toLowerCase() === clean || a.slug.toLowerCase() === clean
+  );
+  if (directMatch) return directMatch;
+
+  // Legacy ID mapping match
+  if (LEGACY_ID_MAP[clean]) {
+    const legacySlug = LEGACY_ID_MAP[clean];
+    const legacyMatch = INSTITUTIONAL_ARTICLES.find(a => a.slug === legacySlug);
+    if (legacyMatch) return legacyMatch;
+  }
+
+  // Title slug match fallback
+  return INSTITUTIONAL_ARTICLES.find(a => {
+    const titleSlug = a.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    return titleSlug === clean;
+  });
 };
 
 export const getArticleById = getArticleByIdOrSlug;
+

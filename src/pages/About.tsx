@@ -305,7 +305,7 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
             <div className="md:col-span-7 space-y-10">
               <div className="space-y-6 text-[#111111]">
                 <h3 className="text-xl font-bold text-[#111111] border-b border-[#b8860b]/20 pb-2">
-                  Suchita Sancheti — Founder & Principal Architect
+                  Suchita Sancheti — Founder & Enterprise Architect
                 </h3>
 
                 <p className="text-2xl text-zinc-800 leading-relaxed font-semibold italic text-[#b8860b] font-serif">

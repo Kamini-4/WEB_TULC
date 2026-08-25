@@ -626,11 +626,8 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
         </header>
       </div>
 
-      {/* Core Articles & Pulse */}
-      <Insights onArticleClick={onArticleClick} hideHeader />
-
-      {/* Dynamic Dispatches */}
-      <Blog onArticleClick={onArticleClick} hideHeader />
+      {/* Dynamic Dispatches & Articles First */}
+      <Blog onArticleClick={onArticleClick} hideHeader={false} />
 
       {/* White Papers Section */}
       <div className="bg-[#0a0a0a] border-t border-white/10 py-16 md:py-24">

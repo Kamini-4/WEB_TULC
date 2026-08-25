@@ -5,7 +5,7 @@ const FAQ: React.FC = () => {
   const faqs = [
     {
       question: "Who is Suchita Sancheti, and how does T.U.L.C. operate?",
-      answer: "Suchita Sancheti is an elite enterprise architect, computer science engineer, and industrial psychologist. Serving as the Principal of The Unbounded Leadership Co. (T.U.L.C.), she builds self-regulating corporate architectures for elite founders, venture capitalists, and CEOs to systematically reduce decision delays by 40% in 90 days."
+      answer: "Suchita Sancheti is an elite enterprise architect, computer science engineer, and industrial psychologist. Serving as the Founder of The Unbounded Leadership Co. (T.U.L.C.), she builds self-regulating corporate architectures for elite founders, venture capitalists, and CEOs to systematically reduce decision delays by 40% in 90 days."
     },
     {
       question: "Why does decision-making slow down as my company scales? (The Coordination Tax)",

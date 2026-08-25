@@ -115,7 +115,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 sm:gap-12 mb-10 sm:mb-12 border-t border-white/5 pt-8 sm:pt-10">
           <div className="col-span-2">
             <div className="text-xl sm:text-2xl font-bold mb-3 text-white ">THE UNBOUNDED</div>
-            <div className="text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase mb-4">Suchita Sancheti | Principal Architect</div>
+            <div className="text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase mb-4">Suchita Sancheti | Founder & Enterprise Architect</div>
             <p className="text-white/60 text-[9px] sm:text-[10px] leading-relaxed max-w-sm uppercase font-black mb-4 sm:mb-6 leading-loose">
               Re-architecting leadership operating systems for global organizational scaling.
             </p>

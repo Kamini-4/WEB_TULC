@@ -226,7 +226,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSelectArt
         <div className="sticky top-0 bg-[#f5f5f0] border-b border-zinc-200 z-20 flex justify-between items-center px-4 sm:px-8 py-4 sm:py-6">
           <div className="flex items-center gap-3 sm:gap-4">
             <span className="text-[8px] sm:text-[10px] font-black uppercase text-[#b8860b]">{article.category}</span>
-            {article.id && <span className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-400">Dispatch {article.id}</span>}
+            <span className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-400">Institutional Briefing</span>
           </div>
           <div className="flex items-center gap-4 sm:gap-6">
             <div className="hidden sm:flex items-center gap-2 border-r border-zinc-200 pr-3">
