@@ -1164,8 +1164,8 @@ const Assessment: React.FC = () => {
               <h2>04. The 4-Phase Implementation Architecture</h2>
               <div style="font-size: 11px; font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; margin-top: 15px;">
                 <div style="border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 8px;">
-                  <strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;">Phase 0.0 • Substrate Diagnostic Audit (14 Days)</strong><br />
-                  Forensic analysis mapping decision friction, communication latency, and cognitive drain to deliver a complete Cognitive Bandwidth Blueprint.
+                  <strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;">Phase 0.0 • 10-Node Structural Triangulation Audit (48-Hr Readout)</strong><br />
+                  Forensic analysis across 10 vital enterprise nodes (Apex Founder, CXOs, Legal Guardians, Veterans, Edge Operators) mapping intent-to-execution gaps to deliver a custom Cognitive Bandwidth Blueprint.
                 </div>
                 <div style="border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 8px;">
                   <strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;">Phase 01 • Relational Substrate Calibration (6 Weeks)</strong><br />
@@ -2309,7 +2309,7 @@ const Assessment: React.FC = () => {
                                   <span className="text-emerald-400 font-mono text-[9px] font-bold">[Included]</span>
                                 </div>
                                 <div className="flex justify-between py-1">
-                                  <span>14-Day Custom 12-Gate Architectural Blueprint</span>
+                                  <span>10-Node Custom 12-Gate Architectural Blueprint</span>
                                   <span className="text-[#b8860b] font-mono text-[9px] font-bold">[Phase 0.0]</span>
                                 </div>
                               </div>

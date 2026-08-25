@@ -271,7 +271,7 @@ const ExecutiveFrictionScanner: React.FC = () => {
                   {/* Immediate Action Bar */}
                   <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
                     <span className="text-[10px] font-mono text-zinc-400">
-                      Included in the 14-Day Sovereign Diagnostic Audit
+                      Included in the 10-Node Institutional Triangulation Audit
                     </span>
                     <button
                       onClick={() => navigate('/assessment')}

@@ -6,6 +6,7 @@ import { Share2, Link as LinkIcon, Mail, Check, X, ArrowRight, Play, Compass, Bo
 import { Linkedin } from './BrandIcons';
 import { PermanentArtwork } from './PermanentArtwork';
 import { INSTITUTIONAL_ARTICLES } from '../src/lib/articles.ts';
+import { GooglePreferredSource } from './GooglePreferredSource';
 
 interface Article {
   id?: string;
@@ -180,6 +181,9 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSelectArt
             {article.id && <span className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-400">Dispatch {article.id}</span>}
           </div>
           <div className="flex items-center gap-4 sm:gap-6">
+            <div className="hidden sm:flex items-center gap-2 border-r border-zinc-200 pr-3">
+              <GooglePreferredSource variant="compact" />
+            </div>
             <div className="hidden sm:flex items-center gap-2 border-r border-zinc-200 pr-4 mr-2">
               <span className="text-[8px] font-black uppercase text-zinc-400 ">Share:</span>
               {shareLinks.map((link) => (
@@ -341,6 +345,11 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSelectArt
                   Initiate Yield Calibration
                 </button>
               </div>
+            </div>
+
+            {/* Google Preferred Source Integration */}
+            <div className="mb-6">
+              <GooglePreferredSource variant="inline" />
             </div>
 
             {/* Seamless Ecosystem Interlinks Matrix */}

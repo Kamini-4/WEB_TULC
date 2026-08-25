@@ -73,7 +73,7 @@ const Hero: React.FC<HeroProps> = () => {
           <motion.div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 mb-8 max-w-4xl" variants={itemVariants}>
             <div className="flex items-center gap-2 px-3.5 py-2 bg-white border border-zinc-200 rounded-xs shadow-2xs text-[10px] sm:text-[11px] font-mono text-zinc-800">
               <FileCode2 className="w-3.5 h-3.5 text-[#b8860b]" />
-              <span><strong>14-Day Fast-Track:</strong> 6-Page Board Dossier</span>
+              <span><strong>10-Node Audit:</strong> 6-Page Board Dossier</span>
             </div>
             <div className="flex items-center gap-2 px-3.5 py-2 bg-white border border-zinc-200 rounded-xs shadow-2xs text-[10px] sm:text-[11px] font-mono text-zinc-800">
               <Mic className="w-3.5 h-3.5 text-[#b8860b]" />
@@ -104,7 +104,7 @@ const Hero: React.FC<HeroProps> = () => {
               </button>
             </div>
             <span className="text-[11px] text-zinc-600 font-mono italic">
-              ✦ Fast-Track 14-Day Diagnostic • Complete 6-Page Board Dossier Delivered
+              ✦ 10-Node Triangulation Audit • Complete 6-Page Board Dossier Delivered
             </span>
           </motion.div>
 

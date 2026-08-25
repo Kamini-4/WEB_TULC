@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Phone, Instagram, Linkedin } from './BrandIcons';
+import { GooglePreferredSource } from './GooglePreferredSource';
 
 interface FooterProps {
   onLegalClick: (type: 'disclosure' | 'terms' | 'disclaimer') => void;
@@ -69,8 +70,8 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
                   <div className="text-[8px] text-zinc-500 font-mono uppercase">Fortune 500 & Unicorn Principals</div>
                 </div>
                 <div>
-                  <div className="text-[10px] font-black text-white uppercase ">14-Day Velocity Audit</div>
-                  <div className="text-[8px] text-zinc-500 font-mono uppercase">Immediate Logic Diagnostics</div>
+                  <div className="text-[10px] font-black text-white uppercase ">10-Node Triangulation Audit</div>
+                  <div className="text-[8px] text-zinc-500 font-mono uppercase">Apex → Edge Telemetry</div>
                 </div>
                 <div>
                   <div className="text-[10px] font-black text-[#b8860b] uppercase ">3 Client Limit / Qtr</div>
@@ -84,7 +85,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
                 onClick={() => navigate('/assessment')}
                 className="w-full px-5 py-3 bg-[#b8860b] text-white hover:bg-white hover:text-black text-[9px] font-black uppercase transition-all duration-300 font-bold shadow-[0_0_30px_rgba(184,134,11,0.15)] text-center cursor-pointer"
               >
-                1. Start Private Calibration (15m)
+                1. Start Private Calibration (90s)
               </button>
               <button 
                 onClick={() => navigate('/intake')}
@@ -100,10 +101,11 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
               >
                 3. Book Direct Briefing Segment
               </a>
-              <div className="text-center">
+              <div className="flex items-center justify-between pt-1">
                 <span className="text-[8px] font-mono uppercase text-zinc-500">
-                  🔒 Zero-Knowledge secure protocol. Data never trains models.
+                  🔒 Zero-Knowledge secure protocol.
                 </span>
+                <GooglePreferredSource variant="compact" />
               </div>
             </div>
           </div>

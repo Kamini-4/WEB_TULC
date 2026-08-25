@@ -30,8 +30,8 @@ As enterprise-scale institutions expand, communication vectors increase exponent
 
 We design and deliver three highly calibrated, premium commercial offerings. All pricing is disclosed strictly **Upon Request** through formal client vetting.
 
-### Phase 0.0: Substrate Diagnostic Audit (14-Day Deep Engagement)
-- **Workload Requirement:** Exactly 3 hours of the principal leader's time (divided into 3 sessions of 60 minutes each).
+### Phase 0.0: 10-Node Institutional Triangulation Audit (48-Hr Readout)
+- **Workload Requirement:** Asynchronous 10-question pulse across 10 vital nodes (The Apex Founder, 2-3 CXOs, Legal Guardians, Veterans, and 2-3 Edge Operators).
 - **Deliverables:**
   - *Personal Cognitive Bandwidth Blueprint:* A detailed, forensic breakdown of the leader's cognitive capacity, identifying the top 3 structural leaks draining energy.
   - *Friction Index Score:* A mathematical benchmark quantifying organizational latency across 10 critical vectors.
@@ -114,8 +114,8 @@ A: No. We do not ingest passive audio or require hours of recordings. Instead, w
 ### Q: Can T.U.L.C. integrate with our existing tools (Slack, Teams, Notion, Jira)?
 A: Yes. We do not ask your team to adopt new software. We integrate directly into your current communication and project management substrates. We redesign the reporting structures, automated alert routing, and escalation filters inside your existing stack. This eliminates up to 80% of communication noise and ensures that information flowing to you is pre-filtered for absolute strategic relevance.
 
-### Q: What is the time commitment required from me (the Founder/CEO) during the 14-Day Audit?
-A: We strictly respect your bandwidth. The entire Phase 0.0 Diagnostic Audit requires exactly three hours of your direct time: a 60-minute initial context briefing, a 60-minute Adversarial Mapping interview, and a 60-minute private feedback briefing to deliver your Cognitive Bandwidth Blueprint. All other telemetry and background data gathering are handled asynchronously with your operations team.
+### Q: How does the 10-Node Institutional Triangulation Audit work?
+A: We deploy an asynchronous 10-question forensic diagnostic simultaneously across 10 vital nodes: The Apex Founder, 2-3 CXOs, Legal Guardians, Veterans, and 2-3 Edge Operators. In under 48 hours, our proprietary engine cross-maps the exact 2.0-point translation gap between boardroom intent and frontline reality with zero operational disruption.
 
 ### Q: What does a 'metabolic leak' or 'Cognitive Tax' look like on a day-to-day basis?
 A: Day-to-day, a metabolic leak manifests as: constant status-update meetings that produce no actual strategic advancement, middle managers constantly escalating trade-offs they should handle autonomously, and key executives waiting days for your approval before taking action. This inaction tax slows down your company's momentum, causes key talent burnout, and silently dilutes enterprise value.

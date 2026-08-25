@@ -45,7 +45,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen: propIsOpen, setIsOpen: propSe
 
   const SUGGESTIONS = [
     { label: 'How does the workflow work?', query: 'Please detail your exact 4-step institutional calibration workflow.' },
-    { label: 'Tell me about Phase 0.0 Audit', query: 'What does the 14-day Phase 0.0 Substrate Diagnostic Audit entail?' },
+    { label: 'Tell me about Phase 0.0 Audit', query: 'What does the 10-Node Institutional Triangulation Audit entail?' },
     { label: 'How can Suchita help me?', query: 'How does Suchita\'s engineer and industrial psychologist background help reclaim my bandwidth?' },
     { label: 'How do we begin?', query: 'What is the first step to initiate our diagnostic alignment?' }
   ];

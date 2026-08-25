@@ -1,78 +1,155 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { useNavigate, Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Calculator, FileText, Layers, Shield } from 'lucide-react';
+import { 
+  ArrowRight, 
+  CheckCircle, 
+  Calculator, 
+  FileText, 
+  Layers, 
+  Shield, 
+  Brain, 
+  GitMerge, 
+  Cpu, 
+  Users, 
+  Lock, 
+  TrendingUp, 
+  Sparkles,
+  ChevronRight
+} from 'lucide-react';
 import FAQ from '../../components/FAQ.tsx';
 import OperationalDeliverablesMatrix from '../../components/OperationalDeliverablesMatrix.tsx';
+import { GooglePreferredSource } from '../../components/GooglePreferredSource.tsx';
 
 interface Service {
   id: string;
   badge: string;
+  tier: string;
   title: string;
   subtitle: string;
   duration: string;
+  targetAudience: string;
   description: string;
   price: string;
   billingDetail: string;
   features: string[];
   ctaText: string;
   ctaAction: 'payment' | 'intake';
-  paymentUrl?: string;
   isPopular?: boolean;
 }
 
-const SERVICES_SPECTRUM: Service[] = [
+const THREE_SUBSTRATES = [
+  {
+    id: 'cognitive',
+    number: '01',
+    name: 'The Cognitive Substrate',
+    tagline: "The Founder's Apex Heuristics & Decision Envelopes",
+    icon: Brain,
+    description: "The mental operating system of the founder. When a company scales past 50 people, the founder's raw intuitive judgment becomes the primary bottleneck. We mathematically codify your implicit trade-offs, risk thresholds, and capital allocation criteria into explicit, transferable decision parameters.",
+    metrics: [
+      { label: 'Reclaimed Bandwidth', value: '15+ Hrs/Week' },
+      { label: 'Decision Latency Reduction', value: '78%' },
+      { label: 'CEO Burnout Protection', value: 'Permanent' }
+    ],
+    symptoms: 'Constant Slack approvals, double-checking executive work, feeling like the sole problem-solver in the room.'
+  },
+  {
+    id: 'relational',
+    number: '02',
+    name: 'The Relational Substrate',
+    tagline: 'Middle-Management Friction & Translation Fidelity',
+    icon: GitMerge,
+    description: "The human transmission layer between the C-Suite and the frontline. Intent decays by ~15% at every organizational tier. We eliminate interpersonal political drag, align incentives mathematically, and establish 100% translation fidelity so direct reports execute with the exact judgment of the founder.",
+    metrics: [
+      { label: 'Execution Parity', value: '100% Zero-Loss' },
+      { label: 'Coordination Meeting Cut', value: 'Up to 60%' },
+      { label: 'Cross-Functional Speed', value: '3.4x Velocity' }
+    ],
+    symptoms: 'Recurring status meetings that resolve nothing, passive escalation of trade-offs, finger-pointing across departments.'
+  },
+  {
+    id: 'structural',
+    number: '03',
+    name: 'The Structural Substrate',
+    tagline: 'The 12 Invariant Logic Gates & Autonomous Operating Code',
+    icon: Cpu,
+    description: "The autonomous architecture embedded into your daily tools. We hard-code 12 immutable Logic Gates directly into your communications, ERP, and workflows—enabling autonomous capital deployment, automated escalation filters, and asynchronous broadcasts that run seamlessly without founder intervention.",
+    metrics: [
+      { label: 'Autonomous Gateways', value: '12 Logic Gates' },
+      { label: 'Step-Away Continuity', value: '30+ Days Verified' },
+      { label: 'Valuation Multiple Moat', value: '+35% Enterprise Value' }
+    ],
+    symptoms: 'Company stalls when founder takes a 2-week vacation, unsealed capital approvals leaking cash, reliance on key-person memory.'
+  }
+];
+
+const TEN_NODES = [
+  { role: 'The Apex Chair & CEO', count: '1 Stakeholder', focus: 'Strategic Intent, Sovereign Horizon, Capital Thresholds' },
+  { role: 'Key C-Suite (COO, CFO, CTO)', count: '2–3 Stakeholders', focus: 'Operational Friction, Allocation Drag, Resource Contention' },
+  { role: 'Legal & Governance Guardians', count: '1–2 Stakeholders', focus: 'Fiduciary Envelopes, Regulatory Exposure, Risk Perimeter' },
+  { role: 'Long-Tenured Institutional Memory', count: '1–2 Stakeholders', focus: 'Cultural Drift, Historical Bottlenecks, Tacit Workarounds' },
+  { role: 'Frontline Edge Delivery Operators', count: '2–3 Stakeholders', focus: 'Customer Telemetry, Ground-Level Latency, Daily Friction' }
+];
+
+const COMMERCIAL_MANDATES: Service[] = [
   {
     id: 'diagnostic',
-    badge: 'Phase 0.0',
-    title: 'Substrate Diagnostic Audit',
-    subtitle: 'Stop Executive Latency & Pinpoint Hidden Bandwidth Leaks',
-    duration: '14-Day Deep Engagement',
-    description: 'A forensic diagnostic mapping your executive decision cycle times, identifying exactly where operational drag is consuming your strategic focus. Stop paying the invisible cognitive tax and reclaim up to 15 hours of weekly deep-thinking capacity.',
+    badge: 'Phase 0.0 • High-Velocity Entry',
+    tier: 'Mandate I',
+    title: '10-Node Institutional Triangulation Audit',
+    subtitle: 'Zero-Disruption Cross-Sectional Telemetry & Bandwidth Blueprint',
+    duration: '10-Stakeholder Pulse • 48-Hour Clinical Readout',
+    targetAudience: 'Founders & Board Chairs requiring empirical proof before full institutional integration.',
+    description: 'A forensic diagnostic mapping decision cycle times across the 10 vital nervous nodes of your enterprise. Mathematically exposes the exact 2.0-point translation gap between boardroom intent and frontline reality with zero operational disruption.',
     price: 'Upon Request',
-    billingDetail: 'Exclusively structured for founders requiring immediate operational clarity.',
+    billingDetail: '100% investment credit applied directly toward full-scale protocol integration.',
     features: [
-      'Pinpoint exactly where strategic intent gets diluted down the organization',
-      'Receive your custom Personal Cognitive Bandwidth Blueprint',
-      'Expose the 3 primary operational bottlenecks draining executive focus',
-      'A private, 1-on-1 feedback briefing with Principal Suchita Sancheti',
-      'Full investment credit applied directly toward full-scale protocol integration'
+      'Simultaneous 10-node cross-sectional telemetry (Apex → CXOs → Legal → Veterans → Edge)',
+      'Quantified 6-Page Confidential Board Dossier & Cognitive Bandwidth Blueprint',
+      'Pinpoint the 3 primary unsealed logic gates draining founder bandwidth',
+      'Private 60-Minute Adversarial & Feedback Briefing with Principal Suchita Sancheti',
+      'Full investment credit applied directly toward 90-Day Sovereign Transformation'
     ],
-    ctaText: 'Initiate Diagnostic Intake',
+    ctaText: 'Initiate 10-Node Diagnostic Intake',
     ctaAction: 'intake',
     isPopular: true
   },
   {
     id: 'alignment_protocol',
-    badge: 'Phases 01–04',
-    title: 'Strategic Alignment Protocol',
-    subtitle: 'Hard-Code Founder Intent into Self-Executing Logic Gates',
-    duration: '6-Week Architecture Setup',
-    description: 'Our flagship architectural intervention. We hard-code your strategic reasoning directly into self-regulating operational logic gates. We protect your peace of mind so you can step out of daily firefighting and operate purely as the Aligned Architect of your legacy.',
+    badge: 'Phases 01–03 • Core Transformation',
+    tier: 'Mandate II',
+    title: 'The Sovereign Enterprise Transformation',
+    subtitle: 'Full 3-Substrate Calibration & 12 Logic Gates Installation',
+    duration: '90-Day Comprehensive Architecture Setup',
+    targetAudience: 'Growth-stage enterprises ($10M–$250M+ ARR) seeking permanent liberation from founder bottlenecks.',
+    description: 'Our flagship architectural intervention. We re-engineer the Cognitive, Relational, and Structural substrates of your firm. We hard-code your strategic reasoning directly into 12 self-regulating operational logic gates—guaranteeing 100% execution fidelity.',
     price: 'Upon Request',
-    billingDetail: 'A permanent operational operating system. Strictly capped client intake.',
+    billingDetail: 'Permanent operational operating system. Strictly capped to 3 clients per quarter.',
     features: [
       'Establish 100% execution fidelity across frontline and middle management',
-      'Install 12+ customized logic gates to automate daily operational micro-decisions',
+      'Install all 12 customized logic gates to automate daily operational micro-decisions',
       'Reclaim up to 40% of executive strategic bandwidth within 90 days',
-      'Eradicate recurring alignment meetings and coordination drag forever',
-      'Pass the 30-Day Step-Away Test with complete operational continuity'
+      'Eradicate recurring alignment meetings and coordination drag permanently',
+      'Pass the rigorous 30-Day Step-Away Test with complete operational continuity',
+      'Institutionalize key-person insulation to maximize EBITDA exit multiples'
     ],
-    ctaText: 'Apply for Protocol Calibration',
+    ctaText: 'Apply for Sovereign Transformation',
     ctaAction: 'intake'
   },
   {
     id: 'board_oversight',
-    badge: 'Retainer',
-    title: 'Resonance Safeguard Retainer',
-    subtitle: 'Continuous Health Monitoring & Long-Term Key-Person Insulation',
-    duration: 'Ongoing Strategic Partnership',
+    badge: 'Ongoing Institutional Stewardship',
+    tier: 'Mandate III',
+    title: 'Resonance Safeguard & Board Retainer',
+    subtitle: 'Continuous Telemetry, Substrate Health & M&A Drift Insulation',
+    duration: 'Annual Strategic Retainer (Quarterly Audits)',
+    targetAudience: 'Family Offices, Private Equity sponsors, and post-scale enterprise Boards.',
     description: 'Long-term stewardship of your enterprise operating substrate. Continuous operational health monitoring, drift prevention, and immediate intervention protocols designed to insulate your leadership team and protect enterprise valuation.',
     price: 'Upon Request',
-    billingDetail: 'Bespoke ongoing governance partnership. Subject to intake qualification.',
+    billingDetail: 'Bespoke ongoing governance partnership. Subject to strict intake vetting.',
     features: [
       'Bi-annual corporate operating substrate integrity audits',
-      'Direct, priority advisory access to Suchita Sancheti for high-stakes bets',
+      'Direct, priority advisory access to Suchita Sancheti for high-stakes strategic bets',
       'Continuous early-warning drift alerts to catch friction before it compounds',
       'De-risk succession planning and protect institutional EBITDA multiples',
       'Permanent executive insulation from low-level operational noise'
@@ -89,7 +166,7 @@ const ServicesPage: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleCtaClick = (service: Service) => {
+  const handleCtaClick = (_service: Service) => {
     navigate('/intake');
   };
 
@@ -98,353 +175,350 @@ const ServicesPage: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="bg-[#f5f5f0] min-h-screen pt-4 md:pt-10 pb-16"
+      className="bg-[#f5f5f0] min-h-screen pt-4 md:pt-10 pb-16 text-left"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
-        {/* Header Section - Client Reality First */}
-        <div className="mb-12 text-center max-w-4xl mx-auto">
+        {/* =========================================================
+            HERO SECTION: EXECUTIVE ORIENTATION & AUTHORITY
+        ========================================================= */}
+        <div className="mb-14 text-center max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-2 mb-3">
             <span className="w-8 h-px bg-[#b8860b]" />
-            <h2 className="text-[#b8860b] text-xs font-black uppercase ">Targeted Enterprise Interventions</h2>
+            <h2 className="text-[#b8860b] text-[10px] sm:text-xs font-mono font-black uppercase tracking-widest">
+              Sovereign Enterprise Architecture
+            </h2>
             <span className="w-8 h-px bg-[#b8860b]" />
           </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight font-serif text-[#111111]">
-            Is Your Enterprise Losing Velocity <br />
-            <span className="text-[#b8860b] italic font-light">To Hidden Alignment Friction?</span>
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight font-serif text-[#111111]">
+            Hard-Code Founder Intent Directly <br />
+            <span className="text-[#b8860b] italic font-light">Into Your Enterprise Substrate.</span>
           </h1>
-          <div className="h-1 w-16 bg-[#b8860b] mx-auto mb-5"></div>
-          <p className="text-sm sm:text-base text-zinc-700 font-light italic leading-relaxed">
-            Every operational bottleneck is a structural design flaw. We partner with you at every step of your scaling journey—from initial substrate diagnostics to self-cohering enterprise governance—to replace tactical friction with permanent operational architecture.
+          
+          <div className="h-1 w-16 bg-[#b8860b] mx-auto mb-5" />
+          
+          <p className="text-sm sm:text-base text-zinc-700 font-serif italic leading-relaxed max-w-3xl mx-auto">
+            Traditional consulting treats symptoms with meetings and decks. We re-engineer the <strong>Three Foundational Substrates</strong> of your organization—transforming human coordination drag into permanent, self-executing operational architecture.
           </p>
 
-          {/* Seamless Interlink Quick-Jump Bar */}
+          {/* Quick-Jump Interlink Bar */}
           <div className="mt-8 pt-6 border-t border-zinc-200/80 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              to="/#domains"
-              className="px-3.5 py-1.5 bg-white border border-zinc-200 hover:border-[#b8860b] text-zinc-800 text-[10px] font-bold uppercase transition-all rounded-xs flex items-center gap-1.5 shadow-xs"
+            <a
+              href="#substrates"
+              className="px-3.5 py-1.5 bg-white border border-zinc-200 hover:border-[#b8860b] text-zinc-800 text-[10px] font-mono font-bold uppercase transition-all rounded-xs flex items-center gap-1.5 shadow-xs"
+            >
+              <Brain className="w-3 h-3 text-[#b8860b]" />
+              <span>01. The 3 Substrates</span>
+            </a>
+            <a
+              href="#mandates"
+              className="px-3.5 py-1.5 bg-white border border-zinc-200 hover:border-[#b8860b] text-zinc-800 text-[10px] font-mono font-bold uppercase transition-all rounded-xs flex items-center gap-1.5 shadow-xs"
             >
               <Layers className="w-3 h-3 text-[#b8860b]" />
-              <span>5 Sovereign Domains</span>
-            </Link>
+              <span>02. Commercial Mandates</span>
+            </a>
+            <a
+              href="#ten-nodes"
+              className="px-3.5 py-1.5 bg-white border border-zinc-200 hover:border-[#b8860b] text-zinc-800 text-[10px] font-mono font-bold uppercase transition-all rounded-xs flex items-center gap-1.5 shadow-xs"
+            >
+              <Users className="w-3 h-3 text-[#b8860b]" />
+              <span>03. 10-Node Triangulation</span>
+            </a>
             <Link
               to="/assessment"
-              className="px-3.5 py-1.5 bg-[#b8860b] text-white hover:bg-black text-[10px] font-bold uppercase transition-all rounded-xs flex items-center gap-1.5 shadow-xs"
+              className="px-3.5 py-1.5 bg-[#b8860b] text-white hover:bg-black text-[10px] font-mono font-bold uppercase transition-all rounded-xs flex items-center gap-1.5 shadow-xs"
             >
               <Calculator className="w-3 h-3" />
-              <span>Diagnostic Friction Assessment</span>
-            </Link>
-            <Link
-              to="/library"
-              className="px-3.5 py-1.5 bg-white border border-zinc-200 hover:border-[#b8860b] text-zinc-800 text-[10px] font-bold uppercase transition-all rounded-xs flex items-center gap-1.5 shadow-xs"
-            >
-              <FileText className="w-3 h-3 text-[#b8860b]" />
-              <span>Strategic Research Library</span>
-            </Link>
-            <Link
-              to="/about"
-              className="px-3.5 py-1.5 bg-white border border-zinc-200 hover:border-[#b8860b] text-zinc-800 text-[10px] font-bold uppercase transition-all rounded-xs flex items-center gap-1.5 shadow-xs"
-            >
-              <Shield className="w-3 h-3 text-[#b8860b]" />
-              <span>Principal & Firm Pedigree</span>
+              <span>90-Sec Friction Scan</span>
             </Link>
           </div>
         </div>
 
-        {/* 1. Kinetic Latency Analysis - The Cost of Inaction First */}
-        <section className="mb-12 max-w-5xl mx-auto bg-zinc-950 text-white border border-red-900/30 p-6 sm:p-8 relative overflow-hidden shadow-2xl">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-radial-gradient from-red-950/20 to-transparent pointer-events-none" />
-          <div className="absolute -left-12 -bottom-12 w-48 h-48 bg-gradient-to-tr from-[#b8860b]/5 to-transparent pointer-events-none" />
-          
-          <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <div className="lg:col-span-7 space-y-4">
-              <span className="text-red-400 text-[10px] font-mono font-black uppercase block flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" /> Diagnostic Reality Check
+        {/* =========================================================
+            SECTION 1: THE THREE FOUNDATIONAL SUBSTRATES (FIRST)
+        ========================================================= */}
+        <section id="substrates" className="mb-20 scroll-mt-20">
+          <div className="mb-10 text-center max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-3">
+              <Sparkles className="w-3 h-3 text-[#b8860b]" />
+              <span className="text-[#b8860b] text-[9px] font-mono font-bold uppercase tracking-wider">
+                Foundational Science
               </span>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold font-serif text-white leading-tight">
-                The Cost of Latency:<br />
-                Where Board Directives <span className="text-red-400 italic font-light">Lose Fidelity.</span>
-              </h3>
-              
-              <div className="h-[2px] w-16 bg-red-800" />
-              
-              <p className="text-zinc-300 text-sm leading-relaxed italic font-light">
-                You built this company to create enterprise value. Instead, <strong className="text-white font-medium">operational firefighting dominates your calendar</strong>. 
-              </p>
-              
-              <p className="text-zinc-400 text-xs leading-relaxed italic font-light">
-                Trapped in the "Heroic Solver" loop, stepping away for 30 days causes growth to plateau, leadership teams to stall, and operations to slide into coordination drag. 
-              </p>
-
-              <p className="text-zinc-400 text-xs leading-relaxed italic font-light">
-                This is a <strong className="text-white">compounding erosion of your exit valuation and your personal peace</strong>. Every hour spent resolving executive alignment errors is stolen from compounding your ultimate strategic advantage.
-              </p>
             </div>
-            
-            <div className="lg:col-span-5 bg-zinc-900/90 border border-red-900/30 p-5 md:p-6 space-y-4 rounded-xs relative shadow-xl">
-              <span className="text-[9px] font-mono font-bold text-red-400 uppercase block">Structural Inaction Impact Index</span>
-              
-              <div className="space-y-3 font-mono text-[11px]">
-                <div className="flex justify-between items-start border-b border-zinc-800/60 pb-2">
-                  <span className="text-zinc-500 uppercase text-left">Estimated Annual Leakage:</span>
-                  <span className="text-red-400 font-bold text-right">~₹2.4 Cr to ₹15 Cr</span>
-                </div>
-                <div className="flex justify-between items-start border-b border-zinc-800/60 pb-2">
-                  <span className="text-zinc-500 uppercase text-left">Fidelity Decay Rate:</span>
-                  <span className="text-red-400 font-bold text-right">15% Loss per Org Layer</span>
-                </div>
-                <div className="flex justify-between items-start border-b border-zinc-800/60 pb-2">
-                  <span className="text-zinc-500 uppercase text-left">Key-Person Discount:</span>
-                  <span className="text-red-400 font-bold text-right">Up to 35% Valuation Penalty</span>
-                </div>
-                <div className="flex justify-between items-start">
-                  <span className="text-zinc-500 uppercase text-left">Cognitive Deficit:</span>
-                  <span className="text-red-400 font-bold text-right">40% Wasted Bandwidth</span>
-                </div>
-              </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 font-serif">
+              The Three Core <span className="text-[#b8860b] italic font-light">Substrates</span>
+            </h2>
+            <p className="text-zinc-600 text-xs sm:text-sm font-serif italic mt-2">
+              Every enterprise bottleneck, coordination failure, or valuation discount lives within one of these three layers. We calibrate all three.
+            </p>
+          </div>
 
-              <div className="bg-red-950/30 border border-red-800/40 p-3 text-xs italic font-light text-zinc-300">
-                "Delaying calibration is an active decision to continue leaking your life’s work. Solid architecture is the only permanent antidote."
-              </div>
+          <div className="grid lg:grid-cols-3 gap-8">
+            {THREE_SUBSTRATES.map((sub) => {
+              const Icon = sub.icon;
+              return (
+                <div 
+                  key={sub.id}
+                  className="bg-white border border-zinc-200/90 rounded-xs p-7 shadow-sm hover:border-[#b8860b] transition-all duration-300 relative flex flex-col justify-between group"
+                >
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-zinc-200 via-[#b8860b]/40 to-zinc-200 group-hover:from-[#b8860b] group-hover:to-[#b8860b] transition-all" />
+                  
+                  <div>
+                    {/* Number & Icon */}
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="text-3xl font-serif font-black text-zinc-200 group-hover:text-[#b8860b]/30 transition-colors">
+                        {sub.number}
+                      </span>
+                      <div className="w-12 h-12 rounded-xs bg-zinc-50 border border-zinc-200 flex items-center justify-center text-[#b8860b] group-hover:bg-[#b8860b] group-hover:text-white transition-all shadow-2xs">
+                        <Icon className="w-6 h-6" />
+                      </div>
+                    </div>
 
-              <button 
+                    {/* Titles */}
+                    <h3 className="text-xl font-bold font-serif text-zinc-900 mb-1 leading-tight">
+                      {sub.name}
+                    </h3>
+                    <p className="text-xs font-mono font-bold text-[#b8860b] uppercase tracking-wider mb-4">
+                      {sub.tagline}
+                    </p>
+
+                    {/* Core Description */}
+                    <p className="text-zinc-600 text-xs sm:text-sm font-serif italic leading-relaxed mb-6">
+                      {sub.description}
+                    </p>
+                  </div>
+
+                  <div>
+                    {/* Benchmark Metrics Grid */}
+                    <div className="p-4 bg-zinc-50 border border-zinc-150 rounded-xs mb-5 space-y-2 font-mono text-xs">
+                      <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-wider block">
+                        Architectural Target
+                      </span>
+                      {sub.metrics.map((metric, idx) => (
+                        <div key={idx} className="flex justify-between items-center text-[11px] border-b border-zinc-200/60 pb-1.5 last:border-0 last:pb-0">
+                          <span className="text-zinc-600">{metric.label}:</span>
+                          <span className="font-bold text-zinc-900">{metric.value}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Uncalibrated Symptom */}
+                    <div className="p-3 bg-red-50/50 border border-red-200/50 rounded-xs text-[11px] font-serif text-red-950 italic">
+                      <strong className="font-sans font-bold uppercase text-[9px] text-red-800 block not-italic mb-0.5">
+                        Active Friction Indicator:
+                      </strong>
+                      "{sub.symptoms}"
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* =========================================================
+            SECTION 2: THE 10-NODE TRIANGULATION ARCHITECTURE
+        ========================================================= */}
+        <section id="ten-nodes" className="mb-20 max-w-5xl mx-auto bg-zinc-950 text-white border border-[#b8860b]/40 p-8 sm:p-10 shadow-2xl relative overflow-hidden rounded-xs scroll-mt-20">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-radial-gradient from-[#b8860b]/20 to-transparent pointer-events-none" />
+          
+          <div className="relative z-10">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-8">
+              <div>
+                <span className="text-[#b8860b] text-[10px] font-mono font-black uppercase tracking-widest block mb-1">
+                  Proprietary Diagnostic Engine
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-bold font-serif text-white">
+                  The 10-Node Institutional Triangulation Protocol
+                </h3>
+              </div>
+              <div className="px-3.5 py-1.5 bg-[#b8860b]/20 border border-[#b8860b]/50 text-[#b8860b] text-[10px] font-mono font-bold uppercase rounded-xs shrink-0">
+                Zero Disruption • 48-Hour Readout
+              </div>
+            </div>
+
+            <p className="text-zinc-300 text-sm font-serif italic leading-relaxed mb-8 max-w-3xl">
+              We do not conduct slow, multi-week consulting interviews that disrupt operations. Instead, our proprietary software engine deploys an asynchronous 10-question forensic pulse simultaneously across the <strong>10 vital nervous nodes of your enterprise</strong>, cross-mapping the exact mathematical delta between Apex intent and edge execution:
+            </p>
+
+            {/* Stakeholder Node Matrix */}
+            <div className="grid md:grid-cols-2 gap-4 mb-8">
+              {TEN_NODES.map((node, idx) => (
+                <div key={idx} className="p-4 bg-zinc-900/90 border border-white/10 rounded-xs flex items-start gap-3.5">
+                  <span className="w-6 h-6 rounded-full bg-[#b8860b]/20 border border-[#b8860b]/40 text-[#b8860b] font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                    {idx + 1}
+                  </span>
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <h4 className="text-white font-bold text-xs uppercase font-mono">{node.role}</h4>
+                      <span className="text-[#b8860b] text-[9px] font-mono uppercase font-bold">{node.count}</span>
+                    </div>
+                    <p className="text-zinc-400 text-xs font-serif italic">{node.focus}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom Callout */}
+            <div className="p-4 bg-black/60 border border-[#b8860b]/30 rounded-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="text-left">
+                <span className="text-emerald-400 text-[10px] font-mono font-bold uppercase block">
+                  ✓ Instant Mathematical Translation Index
+                </span>
+                <p className="text-zinc-300 text-xs font-serif italic">
+                  Isolates the 2.0-point translation decay and specifies which of the 12 Logic Gates are unsealed.
+                </p>
+              </div>
+              <button
                 onClick={() => navigate('/assessment')}
-                className="w-full py-3 bg-red-950 border border-red-700/60 hover:bg-red-900 hover:border-red-500 text-white text-[9px] font-black uppercase transition-all"
+                className="w-full sm:w-auto px-6 py-3 bg-[#b8860b] hover:bg-white hover:text-black text-black font-mono font-bold text-[10px] uppercase tracking-wider rounded-xs transition-all shadow-md shrink-0 cursor-pointer"
               >
-                Benchmark Your Drift Coefficient
+                Run Phase 01 Diagnostic Pulse
               </button>
             </div>
           </div>
         </section>
 
-        {/* 2. Start With Why / Psychological Care Section */}
-        <div className="mb-12 max-w-5xl mx-auto bg-white border border-zinc-200/80 p-6 sm:p-8 shadow-sm relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-2.5 h-full bg-[#b8860b]" />
-          <div className="space-y-4">
-            <span className="text-[#b8860b] text-[10px] font-black uppercase block">Our Foundation: Why We Architect</span>
-            
-            <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 leading-tight font-serif">
-              We believe your creative genius is too precious to be consumed by tactical friction.
-            </h3>
-            
-            <p className="text-zinc-600 text-xs sm:text-sm md:text-sm lg:text-base leading-relaxed italic font-light">
-              <strong>Why we do what we do:</strong> The traditional corporate world measures success by endurance—how many fires you can extinguish, how much fatigue you can carry. We reject this. We exist because we care deeply about the human behind the title. Elite leadership is not a test of physical survival, but an art of pure strategic transmission. Our entire architecture is built to protect your peace of mind, restore your bandwidth, and ensure your vision executes with absolute fidelity.
+        {/* =========================================================
+            SECTION 3: THE 3 COMMERCIAL ENGAGEMENT MANDATES
+        ========================================================= */}
+        <section id="mandates" className="mb-20 scroll-mt-20">
+          <div className="mb-10 text-center max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-3">
+              <Shield className="w-3 h-3 text-[#b8860b]" />
+              <span className="text-[#b8860b] text-[9px] font-mono font-bold uppercase tracking-wider">
+                Engagement Structures
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 font-serif">
+              Select Your Institutional <span className="text-[#b8860b] italic font-light">Mandate.</span>
+            </h2>
+            <p className="text-zinc-600 text-xs sm:text-sm font-serif italic mt-2">
+              Structured for high-growth enterprise founders, VCs, and CEOs seeking immediate cognitive bandwidth reclamation.
             </p>
-            
-            <div className="grid md:grid-cols-2 gap-6 pt-6 border-t border-zinc-100">
-              <div className="space-y-3">
-                <h4 className="text-xs sm:text-sm font-bold text-zinc-900 uppercase ">The Hidden Costs You Pay Daily:</h4>
-                <ul className="space-y-2 text-xs text-zinc-600 italic font-light">
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-red-700 font-bold text-sm leading-none">•</span>
-                    <span><strong>Decay of Strategic Bandwidth:</strong> Up to 40% of cognitive energy is consumed correcting alignment errors rather than inventing the future.</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-red-700 font-bold text-sm leading-none">•</span>
-                    <span><strong>Intent Dilution Tax:</strong> Direct reports execute a diluted version of your strategic vision down the hierarchy.</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-red-700 font-bold text-sm leading-none">•</span>
-                    <span><strong>Decision Fatigue:</strong> Compounding psychological exhaustion that slowly drains your personal creative engine.</span>
-                  </li>
-                </ul>
+          </div>
+
+          {/* Pricing & Mandates Grid */}
+          <div className="grid lg:grid-cols-3 gap-8 items-stretch mb-12">
+            {COMMERCIAL_MANDATES.map((service) => {
+              const isPopular = service.isPopular;
+              return (
+                <div 
+                  key={service.id}
+                  className={`flex flex-col relative h-full transition-all duration-500 rounded-xs border p-7 sm:p-8 bg-white ${
+                    isPopular 
+                      ? 'border-[#b8860b] shadow-[0_20px_50px_rgba(184,134,11,0.14)] ring-1 ring-[#b8860b]' 
+                      : 'border-zinc-200 hover:border-[#b8860b]/60 shadow-sm'
+                  }`}
+                >
+                  {isPopular && (
+                    <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#b8860b] text-white text-[8px] font-mono font-black uppercase tracking-wider rounded-full shadow-md">
+                      Recommended Initial Engagement
+                    </span>
+                  )}
+
+                  <div className="mb-6">
+                    <div className="flex justify-between items-center mb-3">
+                      <span className="text-[10px] font-mono font-black uppercase text-[#b8860b] px-2.5 py-1 bg-[#b8860b]/10 rounded-xs">
+                        {service.badge}
+                      </span>
+                      <span className="text-[10px] font-mono uppercase font-bold text-zinc-400">
+                        {service.tier}
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-zinc-900 mb-1 leading-tight font-serif">
+                      {service.title}
+                    </h3>
+                    <p className="text-xs text-[#b8860b] italic mb-3 font-semibold font-serif">
+                      {service.subtitle}
+                    </p>
+                    <div className="px-2.5 py-1 bg-zinc-100 border border-zinc-200 text-zinc-700 text-[10px] font-mono uppercase rounded-xs mb-4 inline-block">
+                      ⏱ {service.duration}
+                    </div>
+                    <p className="text-zinc-600 text-xs sm:text-sm font-serif italic leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 pb-6 border-t border-zinc-100 my-auto">
+                    <span className="text-[9px] uppercase font-mono font-bold text-zinc-400 block mb-1">
+                      Investment Structure
+                    </span>
+                    <div className="text-2xl sm:text-3xl font-extrabold font-serif text-zinc-900">
+                      {service.price}
+                    </div>
+                    <span className="text-[11px] text-zinc-500 font-serif italic mt-1 block">
+                      {service.billingDetail}
+                    </span>
+                  </div>
+
+                  <div className="space-y-3 mb-8">
+                    <span className="text-[9px] uppercase font-mono font-bold text-zinc-400 block">
+                      Architectural Deliverables
+                    </span>
+                    <ul className="space-y-2.5">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 text-xs text-zinc-700 font-serif italic leading-snug">
+                          <CheckCircle className="w-4 h-4 text-[#b8860b] shrink-0 mt-0.5" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <button
+                    onClick={() => handleCtaClick(service)}
+                    className={`w-full py-4 text-[10px] font-mono font-bold uppercase tracking-wider transition-all mt-auto rounded-xs shadow-md cursor-pointer ${
+                      isPopular
+                        ? 'bg-[#111111] hover:bg-[#b8860b] text-white'
+                        : 'border border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white'
+                    }`}
+                  >
+                    <span className="flex items-center justify-center gap-2">
+                      {service.ctaText} <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Quarterly Capacity Banner */}
+          <div className="max-w-4xl mx-auto bg-white border border-[#b8860b]/40 p-6 rounded-xs shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-[#b8860b]/10 border border-[#b8860b]/30 flex items-center justify-center shrink-0">
+                <Lock className="w-5 h-5 text-[#b8860b]" />
               </div>
-              <div className="space-y-3">
-                <h4 className="text-xs sm:text-sm font-bold text-zinc-900 uppercase ">Strict Engagement Capacity:</h4>
-                <p className="text-xs text-zinc-600 italic font-light leading-relaxed mb-2">
-                  To preserve absolute signal quality and zero-dilution focus, Principal Suchita Sancheti maintains strict limits on client onboarding.
+              <div>
+                <span className="text-[#b8860b] text-[9px] font-mono uppercase font-bold tracking-widest block">
+                  Strict Institutional Scarcity
+                </span>
+                <p className="text-zinc-800 text-xs sm:text-sm font-serif italic">
+                  Accepting only <strong className="text-zinc-950 font-bold">3 enterprise mandates per quarter</strong>. 2 seats committed for Q3. <strong>Only 1 opening remains.</strong>
                 </p>
-                <div className="p-3.5 bg-zinc-50 border border-zinc-200/80 rounded-xs">
-                  <p className="text-[9px] text-zinc-500 font-bold uppercase mb-0.5">Quarterly Capacity Limit:</p>
-                  <p className="text-xs text-[#b8860b] italic font-semibold">
-                    Accepting only <strong className="font-extrabold text-[#b8860b]">3 enterprise mandates per quarter</strong>. 2 seats are committed for Q3. Only 1 opening remains.
-                  </p>
-                </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* 3. The Structural Divergence Index (Uncalibrated vs. Calibrated) */}
-        <section className="mb-16 max-w-5xl mx-auto bg-white border border-zinc-200/80 p-6 sm:p-8 shadow-md relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#b8860b]/10 to-transparent pointer-events-none" />
-          
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <span className="text-[#b8860b] text-[10px] font-black uppercase block mb-2 font-mono">Operations Diagnostic</span>
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-zinc-900 leading-tight font-serif">The Structural Divergence Index</h3>
-            <p className="text-zinc-500 text-xs italic font-medium mt-1">
-              Side-by-side comparison of uncalibrated friction nodes versus custom-architected systemic governance.
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            {/* Contrast Header */}
-            <div className="grid md:grid-cols-2 gap-4 pb-3 border-b border-zinc-200 text-center font-mono uppercase text-[10px] font-black hidden md:grid">
-              <div className="text-red-700 bg-red-50/50 py-2 border border-red-200/40 rounded-xs flex items-center justify-center gap-2">
-                <span>✕</span> Uncalibrated Operating Model (Friction & Drag)
-              </div>
-              <div className="text-emerald-700 bg-emerald-50/50 py-2 border border-emerald-200/40 rounded-xs flex items-center justify-center gap-2">
-                <span>✓</span> Calibrated Sovereign Model (Autopilot Execution)
-              </div>
-            </div>
-
-            {/* Contrast Row 1 */}
-            <div className="space-y-1.5">
-              <span className="text-[10px] font-black text-zinc-400 uppercase block font-mono">01. Founder / CEO Bandwidth</span>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="p-4 bg-red-50/20 border border-red-200/30 rounded-xs relative">
-                  <div className="absolute top-4 right-4 text-red-500 text-xs font-bold font-mono">DRAG</div>
-                  <h4 className="text-xs font-bold text-red-800 uppercase mb-1">Cognitive Insolvency</h4>
-                  <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
-                    Founder trapped spending <strong>60+ hours per week</strong> handling reactive firefighting, double-checking work, and resolving recurring team friction.
-                  </p>
-                </div>
-                <div className="p-4 bg-emerald-50/20 border border-emerald-200/30 rounded-xs relative">
-                  <div className="absolute top-4 right-4 text-emerald-600 text-xs font-bold font-mono">CALIBRATED</div>
-                  <h4 className="text-xs font-bold text-emerald-800 uppercase mb-1">Cognitive Liberation</h4>
-                  <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
-                    <strong>Reclaims up to 40% of strategic bandwidth</strong> in 90 days. Permanently insulated from daily operational noise.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Contrast Row 2 */}
-            <div className="space-y-1.5">
-              <span className="text-[10px] font-black text-zinc-400 uppercase block font-mono">02. Delegation Fidelity</span>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="p-4 bg-red-50/20 border border-red-200/30 rounded-xs relative">
-                  <div className="absolute top-4 right-4 text-red-500 text-xs font-bold font-mono">DRAG</div>
-                  <h4 className="text-xs font-bold text-red-800 uppercase mb-1">Intent Dilution Tax</h4>
-                  <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
-                    Strategic intent decays by <strong>~15% with every org layer</strong>. Direct reports execute a diluted version of your original vision.
-                  </p>
-                </div>
-                <div className="p-4 bg-emerald-50/20 border border-emerald-200/30 rounded-xs relative">
-                  <div className="absolute top-4 right-4 text-emerald-600 text-xs font-bold font-mono">CALIBRATED</div>
-                  <h4 className="text-xs font-bold text-emerald-800 uppercase mb-1">Zero-Dilution Parity</h4>
-                  <p className="text-zinc-600 text-xs italic font-light leading-relaxed">
-                    Strategic reasoning hardcoded directly into <strong>self-cohering decision parameters</strong>. Direct reports execute with 100% precision.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <button
+              onClick={() => navigate('/intake')}
+              className="px-5 py-2.5 bg-[#111111] hover:bg-[#b8860b] text-white font-mono text-[9px] uppercase font-bold tracking-wider rounded-xs transition-colors shrink-0 cursor-pointer"
+            >
+              Verify Intake Availability
+            </button>
           </div>
         </section>
 
-        {/* 4. NOW PRESENT THE SERVICE SPECTRUM / BUYING MENU */}
-        <div className="mb-10 text-center max-w-3xl mx-auto">
-          <span className="text-[#b8860b] text-[10px] font-black uppercase block mb-2 font-mono">Architectural Solution Menu</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#111111] font-serif">
-            Select Your Calibration <span className="text-[#b8860b] italic font-light">Protocol.</span>
-          </h2>
-          <p className="text-xs text-zinc-500 italic font-medium mt-2">
-            Structured for high-growth enterprise founders, VCs, and CEOs seeking immediate cognitive bandwidth reclamation.
-          </p>
-        </div>
-
-        {/* Pricing Matrix / Buying Menus */}
-        <div className="grid lg:grid-cols-3 gap-6 items-stretch mb-16">
-          {SERVICES_SPECTRUM.map((service) => {
-            const isDiag = service.id === 'diagnostic';
-            return (
-              <div 
-                key={service.id} 
-                className={`flex flex-col relative h-full transition-all duration-500 rounded-sm border p-6 bg-white ${
-                  service.isPopular 
-                    ? 'border-[#b8860b] shadow-[0_15px_40px_rgba(184,134,11,0.12)] ring-1 ring-[#b8860b]/30' 
-                    : 'border-zinc-200 hover:border-[#b8860b]/50 shadow-sm'
-                }`}
-              >
-                {service.isPopular && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#b8860b] text-white text-[8px] font-black uppercase rounded-full shadow-md">
-                    Immediate Activation Available
-                  </span>
-                )}
-
-                <div className="mb-6">
-                  <div className="flex justify-between items-center mb-3">
-                    <span className="text-[10px] font-black uppercase text-[#b8860b] px-2.5 py-1 bg-[#b8860b]/10 rounded-xs font-mono">
-                      {service.badge}
-                    </span>
-                    <span className="text-[10px] uppercase font-bold text-zinc-400 ">
-                      {service.duration}
-                    </span>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 mb-1 leading-tight font-serif">{service.title}</h3>
-                  <p className="text-xs text-[#b8860b] italic mb-4 font-semibold">{service.subtitle}</p>
-                  <p className="text-zinc-600 text-xs sm:text-sm italic font-light leading-relaxed">{service.description}</p>
-                </div>
-
-                <div className="my-auto pt-4 pb-6 border-t border-zinc-100/80">
-                  <span className="text-[10px] uppercase font-black text-zinc-400 block mb-2 font-mono">Investment Terms</span>
-                  <div className="flex items-baseline gap-2">
-                    <span className={`text-2xl sm:text-3xl font-extrabold ${isDiag ? 'text-[#b8860b]' : 'text-zinc-900 font-bold'}`}>
-                      {service.price}
-                    </span>
-                  </div>
-                  <span className="text-[10px] text-zinc-500 italic mt-1 block">{service.billingDetail}</span>
-                </div>
-
-                <div className="space-y-2 mb-6">
-                  <span className="text-[9px] uppercase font-black text-zinc-400 block font-mono">Structural Deliverables</span>
-                  <ul className="space-y-2.5">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex gap-2.5 text-xs text-zinc-700 italic font-light leading-snug">
-                        <CheckCircle className="w-4 h-4 text-[#b8860b] shrink-0 mt-0.5" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <button
-                  onClick={() => handleCtaClick(service)}
-                  className={`w-full py-4 text-[10px] font-black uppercase transition-all mt-auto shadow-md ${
-                    service.isPopular
-                      ? 'bg-[#111111] text-white hover:bg-[#b8860b]'
-                      : 'border border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-white'
-                  }`}
-                >
-                  <span className="flex items-center justify-center gap-2">
-                    {service.ctaText} <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                </button>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Private Calibration Baseline Banner */}
-        <div className="mb-10 md:mb-12 max-w-5xl mx-auto bg-gradient-to-r from-[#111111] to-[#1a1a1a] p-5 sm:p-6 md:p-8 border border-[#b8860b]/30 shadow-xl relative overflow-hidden text-left flex flex-col md:flex-row items-center justify-between gap-4 rounded-sm">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#b8860b]/20 to-transparent pointer-events-none" />
-          <div className="space-y-1.5 max-w-xl">
-            <div className="inline-flex items-center gap-2 px-2 py-0.5 bg-[#b8860b]/20 border border-[#b8860b]/30 text-[#b8860b] text-[8px] font-black uppercase rounded-xs font-mono">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-ping" /> Private Alignment Baseline
-            </div>
-            <h3 className="text-base sm:text-lg md:text-xl font-bold text-white ">
-              Quantify Your Current Leadership Friction
-            </h3>
-            <p className="text-zinc-400 text-xs italic font-light leading-relaxed">
-              Formally gauge your organization's decision latency coefficient and map your current cognitive bandwidth preservation score. Protected under the highest standard of institutional non-disclosure.
-            </p>
-          </div>
-          <button
-            onClick={() => navigate('/assessment')}
-            className="w-full md:w-auto px-6 py-3 bg-[#b8860b] hover:bg-white hover:text-zinc-900 text-white text-[8px] sm:text-[9px] font-black uppercase transition-all shrink-0 shadow-lg border border-[#b8860b] hover:border-white"
-          >
-            Start Free Assessment
-          </button>
-        </div>
-
-        {/* Specialized Advisory Modality - 1-on-1 Forensic Handwriting Analysis */}
-        <section className="mb-12 max-w-5xl mx-auto bg-white border border-[#b8860b]/40 p-6 sm:p-8 shadow-sm relative overflow-hidden rounded-xs">
+        {/* =========================================================
+            SECTION 4: FORENSIC HANDWRITING ADVISORY MODALITY
+        ========================================================= */}
+        <section className="mb-20 max-w-5xl mx-auto bg-white border border-[#b8860b]/40 p-6 sm:p-8 shadow-sm relative overflow-hidden rounded-xs">
           <div className="absolute top-0 left-0 w-2 h-full bg-[#b8860b]" />
           
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-zinc-100 pb-4 mb-5">
             <div>
               <span className="text-[#b8860b] text-[9px] font-mono font-black uppercase tracking-wider block">
-                SPECIALIZED EXECUTIVE MODALITY // SEPARATE ADVISORY PRACTICE
+                SPECIALIZED EXECUTIVE MODALITY // BESPOKE ADVISORY PRACTICE
               </span>
               <h3 className="text-xl sm:text-2xl font-bold font-serif text-zinc-900 mt-1">
                 Bespoke 1-on-1 Forensic Handwriting & Behavioral Profiling
@@ -499,78 +573,16 @@ const ServicesPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Operational Deliverables Matrix - Concrete Tangible Outputs */}
+        {/* Operational Deliverables Matrix */}
         <OperationalDeliverablesMatrix />
 
-        {/* 03. Low-Friction Modular Engagement Entry - Shifted from Home */}
-        <div className="mt-16 md:mt-24 -mx-6 md:-mx-12">
-          <section className="py-24 sm:py-32 bg-[#111111] text-white overflow-hidden relative">
-            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: `radial-gradient(circle at 2px 2px, #b8860b 1px, transparent 0)`, backgroundSize: '40px 40px' }} />
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
-              <div className="grid lg:grid-cols-12 gap-16 md:gap-24 items-center">
-                <div className="lg:col-span-7 text-left">
-                  <h2 className="text-[#b8860b] text-[10px] font-black uppercase mb-6">Modular Entry Track</h2>
-                  <h3 className="text-4xl md:text-6xl font-bold mb-8 leading-[1.1]">
-                    Neutralize <span className="italic text-[#b8860b]">Risk.</span> <br />
-                    Verify the <span className="italic font-light">Signal.</span>
-                  </h3>
-                  <p className="text-zinc-200 text-base md:text-lg leading-relaxed mb-10 italic font-light max-w-2xl">
-                    For principals requiring architectural proof before full institutional integration. A 14-day high-fidelity diagnostic of your leadership substrate.
-                  </p>
-                  <div className="grid sm:grid-cols-2 gap-6 mb-10">
-                    <div className="flex items-start gap-4">
-                      <div className="w-6 h-px bg-[#b8860b] mt-3" />
-                      <div>
-                        <h4 className="font-bold text-xs uppercase mb-1">Cognitive Calibration</h4>
-                        <p className="text-[11px] text-zinc-400 italic">Mapping your personal decision frequency.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <div className="w-6 h-px bg-[#b8860b] mt-3" />
-                      <div>
-                        <h4 className="font-bold text-xs uppercase mb-1">Logic Leak Audit</h4>
-                        <p className="text-[11px] text-zinc-400 italic">Identifying the 30% bandwidth drain.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                    <button 
-                      onClick={() => navigate('/intake')}
-                      className="px-8 py-4 bg-[#b8860b] text-white text-[9px] font-black uppercase hover:bg-white hover:text-black transition-all shadow-[0_0_50px_rgba(184,134,11,0.2)]"
-                    >
-                      Inquire for Diagnostic Audit
-                    </button>
-                    <div>
-                      <div className="text-[9px] font-black uppercase text-[#b8860b] mb-0.5">Pricing Model</div>
-                      <div className="text-[9px] font-bold text-zinc-400 uppercase ">Upon Request</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="lg:col-span-5">
-                  <div className="aspect-[4/5] bg-zinc-900 border border-white/10 p-1 flex flex-col items-center justify-center relative group">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-[#b8860b]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                    <div className="w-12 h-12 border-2 border-[#b8860b] mb-6 rotate-45 flex items-center justify-center">
-                      <div className="w-4 h-4 bg-[#b8860b]/50 animate-pulse" />
-                    </div>
-                    <h4 className="text-xl font-bold italic mb-2">Phase 0.0</h4>
-                    <div className="text-[9px] font-black uppercase text-[#b8860b] mb-6">Diagnostic Protocol</div>
-                    <ul className="text-center space-y-2 text-zinc-300 text-xs italic font-light">
-                      <li>Institutional Telemetry Scan</li>
-                      <li>Principal Logic Synthesis</li>
-                      <li>Substrate Integrity Report</li>
-                      <li>Execution Velocity Map</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+        {/* Google Preferred Sources Integration Card */}
+        <div className="my-16 max-w-5xl mx-auto">
+          <GooglePreferredSource variant="card" />
         </div>
 
-
-
         {/* Strategic Objection Handling - FAQ */}
-        <div className="mt-16 md:mt-24 -mx-6 md:-mx-12">
+        <div className="mt-16 md:mt-24 -mx-4 sm:-mx-6 md:-mx-12">
           <FAQ />
         </div>
 

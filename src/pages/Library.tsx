@@ -7,6 +7,7 @@ import Insights from '../../components/Insights.tsx';
 import Blog from '../../components/Blog.tsx';
 import { WHITE_PAPERS } from '../../data/whitepapers.ts';
 import Newsletter from '../../components/Newsletter.tsx';
+import { GooglePreferredSource } from '../../components/GooglePreferredSource.tsx';
 
 interface LibraryProps {
   onArticleClick: (article: any) => void;
@@ -616,6 +617,11 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               <span className="text-[8px] text-zinc-500 uppercase block">Registry Verification</span>
               <span className="text-xs font-bold text-emerald-400">TULC-LIB-VERIFIED</span>
             </div>
+          </div>
+
+          {/* Google Preferred Sources Integration Bar */}
+          <div className="mt-8">
+            <GooglePreferredSource variant="inline" />
           </div>
         </header>
       </div>

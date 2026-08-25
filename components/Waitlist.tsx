@@ -60,7 +60,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-3">
             <span className="w-2 h-2 rounded-full bg-[#b8860b] animate-pulse" />
             <span className="text-[#b8860b] text-[10px] font-mono font-bold uppercase tracking-wider">
-              Q3 Intake: 1 Final Opening • 14-Day Audit Turnaround
+              Q3 Intake: 1 Final Opening • 10-Node Triangulation Audit
             </span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-bold font-serif text-white mb-3">

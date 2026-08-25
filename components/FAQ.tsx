@@ -24,8 +24,8 @@ const FAQ: React.FC = () => {
       answer: "Yes. We do not ask your team to adopt new software. We integrate directly into your current communication and project management substrates. We redesign the reporting structures, automated alert routing, and escalation filters inside your existing stack. This eliminates up to 80% of communication noise and ensures that information flowing to you is pre-filtered for absolute strategic relevance."
     },
     {
-      question: "What is the time commitment required from me (the Founder/CEO) during the 14-Day Audit?",
-      answer: "We strictly respect your bandwidth. The entire Phase 0.0 Diagnostic Audit requires exactly three hours of your direct time: a 60-minute initial context briefing, a 60-minute Adversarial Mapping interview, and a 60-minute private feedback briefing to deliver your Cognitive Bandwidth Blueprint. All other telemetry and background data gathering are handled asynchronously with your operations team."
+      question: "How does the 10-Node Institutional Triangulation Audit operate across our team?",
+      answer: "We do not conduct slow, disruptive multi-week consulting audits. We deploy an asynchronous 10-question forensic diagnostic simultaneously across the 10 vital nervous nodes of your enterprise: The Apex Founder/CEO, 2–3 Key CXOs, Legal & Governance Guardians, Long-tenured Institutional Veterans, and 2–3 Edge Delivery Operators. In under 48 hours, our proprietary engine mathematically cross-maps the exact 2.0-point translation gap between boardroom intent and edge execution, isolating unsealed logic gates without operational disruption."
     },
     {
       question: "What does a 'metabolic leak' or 'Cognitive Tax' look like on a day-to-day basis?",
