@@ -67,7 +67,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
             Initiate Your Strategic <span className="text-[#b8860b] italic font-light">Calibration.</span>
           </h2>
           <p className="text-zinc-400 text-xs sm:text-sm font-light italic leading-relaxed">
-            Choose your preferred path to engage Suchita Sancheti, Founder & Alignment Architect. Includes the complete 6-Page Board Dossier—100% credited toward full-scale protocol integration.
+            Choose your preferred path to engage Suchita Sancheti, Founder & Alignment Architect. Includes the complete Sovereign Board Dossier—100% credited toward full-scale protocol integration.
           </p>
         </div>
 

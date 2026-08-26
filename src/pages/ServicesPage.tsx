@@ -14,10 +14,11 @@ import {
 } from 'lucide-react';
 import FAQ from '../../components/FAQ.tsx';
 
-interface ServiceSubstrate {
+interface ServiceCategory {
   id: string;
   badge: string;
   tier: string;
+  categoryName: string;
   name: string;
   hook: string;
   outcomeMetric: string;
@@ -31,11 +32,12 @@ interface ServiceSubstrate {
   isRecommended?: boolean;
 }
 
-const SERVICE_SUBSTRATES: ServiceSubstrate[] = [
+const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     id: 'diagnostic',
     badge: 'Phase 0.0 • Diagnostic Entry',
-    tier: 'Substrate I',
+    tier: 'Category 01',
+    categoryName: 'Diagnostic & Forensic Architecture',
     name: '10-Node Triangulation Audit',
     hook: 'Mathematically isolate your 2.0-point translation gap and decision leaks in under 48 hours.',
     outcomeMetric: '48-Hour Forensic Blueprint',
@@ -45,7 +47,7 @@ const SERVICE_SUBSTRATES: ServiceSubstrate[] = [
     investmentNote: '100% credited toward full institutional engagement',
     coreHighlights: [
       'Simultaneous 10-node telemetry across Apex, C-Suite, Legal & Edge',
-      'Confidential 6-Page Board Dossier & Decision Leak Map',
+      'Confidential Sovereign Board Dossier & Decision Leak Map',
       'Pinpoint the exact 3 unsealed logic gates draining executive energy',
       'Private 60-Minute Adversarial & Readout Briefing with Suchita Sancheti'
     ],
@@ -53,9 +55,32 @@ const SERVICE_SUBSTRATES: ServiceSubstrate[] = [
     ctaText: 'Run 10-Node Diagnostic'
   },
   {
+    id: 'transformation',
+    badge: 'Phases 01–03 • Core Installation',
+    tier: 'Category 02',
+    categoryName: 'Enterprise Logic Gate Transformation',
+    name: '90-Day Sovereign Transformation',
+    hook: 'Hard-code your decision logic into 12 self-regulating operational gates to guarantee 100% execution fidelity.',
+    outcomeMetric: '40% Bandwidth Reclaimed in 90 Days',
+    idealFor: 'Enterprises ($10M–$250M+ ARR) suffering from coordination bloat and constant CEO bottlenecking.',
+    commitment: '90-Day Comprehensive Installation',
+    investmentTier: 'Upon Request',
+    investmentNote: 'Permanent operational infrastructure setup',
+    coreHighlights: [
+      'Install 12 custom invariant logic gates to automate routine trade-offs',
+      'Eradicate recurring alignment meetings and middle-management friction',
+      'Reclaim up to 40% of executive strategic bandwidth in 90 days',
+      'Pass the 30-Day Step-Away Test with zero operational degradation',
+      'Institutionalize key-person insulation to maximize EBITDA exit multiples'
+    ],
+    psychologicalAnchor: 'A structural overhaul that turns heroic founder intervention into permanent, self-executing systems.',
+    ctaText: 'Apply for 90-Day Transformation'
+  },
+  {
     id: 'retainer',
     badge: '★ Board Recommended • Highest Institutional Yield',
-    tier: 'Substrate III',
+    tier: 'Category 03',
+    categoryName: 'Sovereign Governance & Board Oversight',
     name: 'The Sovereign Retainer & Board Seat',
     hook: 'Permanent executive insulation, real-time drift prevention, and compounding valuation protection.',
     outcomeMetric: 'Continuous 100% Fidelity & Alpha',
@@ -73,27 +98,6 @@ const SERVICE_SUBSTRATES: ServiceSubstrate[] = [
     psychologicalAnchor: 'The definitive choice for elite leaders. Secures long-term enterprise value while freeing the CEO to operate purely in vision and capital allocation.',
     ctaText: 'Secure Sovereign Retainer Partnership',
     isRecommended: true
-  },
-  {
-    id: 'transformation',
-    badge: 'Phases 01–03 • Core Architecture',
-    tier: 'Substrate II',
-    name: '90-Day Sovereign Transformation',
-    hook: 'Hard-code your decision logic into 12 self-regulating operational gates to guarantee 100% execution fidelity.',
-    outcomeMetric: '40% Bandwidth Reclaimed in 90 Days',
-    idealFor: 'Enterprises ($10M–$250M+ ARR) suffering from coordination bloat and constant CEO bottlenecking.',
-    commitment: '90-Day Comprehensive Installation',
-    investmentTier: 'Upon Request',
-    investmentNote: 'Permanent operational infrastructure setup',
-    coreHighlights: [
-      'Install 12 custom invariant logic gates to automate routine trade-offs',
-      'Eradicate recurring alignment meetings and middle-management friction',
-      'Reclaim up to 40% of executive strategic bandwidth in 90 days',
-      'Pass the 30-Day Step-Away Test with zero operational degradation',
-      'Institutionalize key-person insulation to maximize EBITDA exit multiples'
-    ],
-    psychologicalAnchor: 'A structural overhaul that turns heroic founder intervention into permanent, self-executing systems.',
-    ctaText: 'Apply for 90-Day Transformation'
   }
 ];
 
@@ -103,11 +107,11 @@ const ServicesPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     const previousTitle = document.title;
-    document.title = 'Mandates & Services | The Three Sovereign Substrates | TULC';
+    document.title = 'Mandates & Services | The Three Institutional Service Categories | TULC';
     const metaDesc = document.querySelector('meta[name="description"]');
     const prevDesc = metaDesc?.getAttribute('content');
     if (metaDesc) {
-      metaDesc.setAttribute('content', 'Hard-code founder intent directly into your enterprise substrate. Discover our 3 Sovereign Services: 10-Node Triangulation Audit, 90-Day Transformation, and Sovereign Retainer.');
+      metaDesc.setAttribute('content', 'Hard-code founder intent directly into your enterprise substrate. Discover our 3 Sovereign Service Categories: Diagnostic & Forensic Audit, 90-Day Transformation, and Sovereign Retainer.');
     }
     return () => {
       document.title = previousTitle;
@@ -127,7 +131,7 @@ const ServicesPage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
         {/* =========================================================
-            HEADER: PSYCHOLOGICAL VALUE ANCHOR
+            HEADER: 3 SERVICE CATEGORIES (AT THE VERY BEGINNING)
         ========================================================= */}
         <div className="mb-6 text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-2">
@@ -138,20 +142,20 @@ const ServicesPage: React.FC = () => {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 leading-tight font-serif text-[#111111]">
-            Our Three Sovereign <span className="text-[#b8860b] italic font-light">Substrates.</span>
+            Our Three Sovereign <span className="text-[#b8860b] italic font-light">Service Categories.</span>
           </h1>
           
           <p className="text-xs sm:text-sm text-zinc-700 font-serif italic leading-relaxed max-w-2xl mx-auto">
-            We do not sell generic consulting hours. We provide three battle-tested architectural substrates engineered to eliminate executive bottlenecks, protect capital, and guarantee continuous institutional execution.
+            We do not sell generic advisory hours. We provide three battle-tested architectural categories engineered to eliminate executive bottlenecks, protect capital, and guarantee continuous institutional execution.
           </p>
         </div>
 
         {/* =========================================================
-            THE 3 SERVICE SUBSTRATES (RIGHT AT THE VERY TOP)
+            THE 3 SERVICE CATEGORIES GRID (FRONT & CENTER)
         ========================================================= */}
         <section className="mb-8">
           <div className="grid lg:grid-cols-3 gap-5 items-stretch">
-            {SERVICE_SUBSTRATES.map((service) => {
+            {SERVICE_CATEGORIES.map((service) => {
               const isRec = service.isRecommended;
               return (
                 <div 
@@ -169,9 +173,14 @@ const ServicesPage: React.FC = () => {
                       <span>Most Value & Institutional Protection</span>
                     </div>
                   ) : (
-                    <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-zinc-400 block mb-1">
-                      {service.tier}
-                    </span>
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-zinc-400 block">
+                        {service.tier}
+                      </span>
+                      <span className="text-[8px] font-mono uppercase text-[#b8860b] font-semibold">
+                        {service.categoryName}
+                      </span>
+                    </div>
                   )}
 
                   {/* Header info */}

@@ -75,6 +75,26 @@
         "metadata": { "type": "object" }
       },
       "required": ["type", "recipient", "sender", "subject", "status", "timestamp"]
+    },
+    "PortalLicense": {
+      "title": "PortalLicense",
+      "description": "An organization-wide passkey granting multi-user access to the Sovereign Audit assessment application for an active window.",
+      "type": "object",
+      "properties": {
+        "key": { "type": "string", "description": "Unique institutional access key (e.g. TULC-BETA-7821-X9K)." },
+        "organization": { "type": "string", "description": "Name of the client institution or beta organization." },
+        "contactEmail": { "type": "string", "format": "email", "description": "Primary executive email address." },
+        "tier": { "type": "string", "enum": ["BETA", "TIER_1_DIAGNOSTIC", "TIER_2_SPRINT", "TIER_3_SOVEREIGN_RETAINER", "CUSTOM"], "description": "Service tier or pass type." },
+        "validityDays": { "type": "number", "description": "Duration in days the license remains valid." },
+        "createdAt": { "type": "number", "description": "Creation timestamp in milliseconds." },
+        "expiresAt": { "type": "number", "description": "Expiration timestamp in milliseconds." },
+        "status": { "type": "string", "enum": ["active", "revoked", "expired"], "description": "Current status of the passkey." },
+        "accessCount": { "type": "number", "description": "Number of times this key has been used to access the portal." },
+        "lastAccessedAt": { "type": "number", "description": "Timestamp of most recent access." },
+        "issuedBy": { "type": "string", "description": "Issuer identity or admin email." },
+        "notes": { "type": "string", "description": "Internal administrative notes." }
+      },
+      "required": ["key", "organization", "contactEmail", "tier", "validityDays", "createdAt", "expiresAt", "status"]
     }
   },
   "firestore": {
@@ -97,6 +117,10 @@
     "email_logs": {
       "schema": "EmailLog",
       "description": "Collection of sent and failed email outbound logs for administrative auditing."
+    },
+    "portal_licenses": {
+      "schema": "PortalLicense",
+      "description": "Collection of organization passkeys for multi-user portal access."
     }
   }
 }

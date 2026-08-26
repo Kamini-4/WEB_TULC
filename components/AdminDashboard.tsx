@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SovereignDB, LeadEntry, AssessmentEntry, BlogEntry, EmailLogEntry } from '../lib/database.ts';
+import { SovereignDB, LeadEntry, AssessmentEntry, BlogEntry, EmailLogEntry, PortalLicenseEntry, PortalTierType } from '../lib/database.ts';
 import { auth, signInWithGoogle } from '../src/firebase.ts';
 import { DISPATCH_TOPICS } from '../data/thoughtLeadershipContent.ts';
 import { 
@@ -19,7 +19,14 @@ import {
   Activity, 
   Fingerprint, 
   Briefcase,
-  Check
+  Check,
+  Key,
+  Copy,
+  Send,
+  RefreshCw,
+  Sparkles,
+  Building2,
+  Clock
 } from 'lucide-react';
 
 interface AdminDashboardProps {
@@ -27,11 +34,40 @@ interface AdminDashboardProps {
 }
 
 const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
-  const [data, setData] = useState<{leads: LeadEntry[], assessments: AssessmentEntry[], blog: BlogEntry[], emailLogs: EmailLogEntry[]}>({ leads: [], assessments: [], blog: [], emailLogs: [] });
-  const [activeTab, setActiveTab] = useState<'leads' | 'analytics' | 'registry' | 'outreach' | 'email_logs'>('leads');
+  const [data, setData] = useState<{
+    leads: LeadEntry[];
+    assessments: AssessmentEntry[];
+    blog: BlogEntry[];
+    emailLogs: EmailLogEntry[];
+    licenses: PortalLicenseEntry[];
+  }>({ leads: [], assessments: [], blog: [], emailLogs: [], licenses: [] });
+  const [activeTab, setActiveTab] = useState<'leads' | 'analytics' | 'registry' | 'outreach' | 'email_logs' | 'licenses'>('leads');
   const [newPost, setNewPost] = useState({ category: '', title: '', excerpt: '', content: '' });
   const [recentlyAddedUrl, setRecentlyAddedUrl] = useState<string | null>(null);
   const [isBroadcasting, setIsBroadcasting] = useState<string | null>(null);
+
+  // License Generator State
+  const [licenseForm, setLicenseForm] = useState<{
+    orgName: string;
+    contactEmail: string;
+    tier: PortalTierType;
+    validityDays: number;
+    customKey: string;
+    notes: string;
+    sendEmail: boolean;
+  }>({
+    orgName: '',
+    contactEmail: '',
+    tier: 'BETA',
+    validityDays: 14,
+    customKey: '',
+    notes: '',
+    sendEmail: true
+  });
+  const [isGeneratingLicense, setIsGeneratingLicense] = useState(false);
+  const [lastGeneratedLicense, setLastGeneratedLicense] = useState<PortalLicenseEntry | null>(null);
+  const [copiedKeyId, setCopiedKeyId] = useState<string | null>(null);
+  const [isResendingEmail, setIsResendingEmail] = useState<string | null>(null);
 
   // Executive Outreach Copilot State
   const [outreachForm, setOutreachForm] = useState({
@@ -333,6 +369,10 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
       });
     }
 
+    const unsubLicenses = SovereignDB.subscribeToPortalLicenses((licenses) => {
+      setData(prev => ({ ...prev, licenses }));
+    });
+
     const unsubBlog = SovereignDB.subscribeToBlog((blog) => {
       setData(prev => ({ ...prev, blog }));
     });
@@ -342,8 +382,162 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
       unsubAssessments();
       unsubEmailLogs();
       unsubBlog();
+      unsubLicenses();
     };
   }, [isAuthenticated, firebaseUser]);
+
+  // Generate Institutional Passkey Helper
+  const generateRandomKey = (tier: PortalTierType, customPrefix?: string) => {
+    if (customPrefix && customPrefix.trim()) {
+      return customPrefix.trim().toUpperCase();
+    }
+    const prefixMap: Record<string, string> = {
+      'BETA': 'TULC-BETA',
+      'TIER_1_DIAGNOSTIC': 'TULC-APEX',
+      'TIER_2_SPRINT': 'TULC-SPRINT',
+      'TIER_3_SOVEREIGN_RETAINER': 'TULC-SOVEREIGN',
+      'CUSTOM': 'TULC-AUTH'
+    };
+    const p = prefixMap[tier] || 'TULC-KEY';
+    const randNum = Math.floor(1000 + Math.random() * 9000);
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let randCode = '';
+    for (let i = 0; i < 3; i++) {
+      randCode += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return `${p}-${randNum}-${randCode}`;
+  };
+
+  const handleGenerateLicense = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!licenseForm.orgName.trim() || !licenseForm.contactEmail.trim()) {
+      alert('Please provide both the Organization Name and Contact Email.');
+      return;
+    }
+
+    setIsGeneratingLicense(true);
+    setLastGeneratedLicense(null);
+
+    const generatedKey = generateRandomKey(licenseForm.tier, licenseForm.customKey);
+    const now = Date.now();
+    const durationMs = Number(licenseForm.validityDays) * 24 * 60 * 60 * 1000;
+    const expiresAt = now + durationMs;
+
+    const licensePayload: Omit<PortalLicenseEntry, 'id'> = {
+      key: generatedKey,
+      organization: licenseForm.orgName.trim(),
+      contactEmail: licenseForm.contactEmail.trim().toLowerCase(),
+      tier: licenseForm.tier,
+      validityDays: Number(licenseForm.validityDays),
+      createdAt: now,
+      expiresAt: expiresAt,
+      status: 'active',
+      accessCount: 0,
+      lastAccessedAt: null,
+      issuedBy: firebaseUser?.email || 'suchita135sancheti@gmail.com',
+      notes: licenseForm.notes.trim()
+    };
+
+    try {
+      const savedDoc = await SovereignDB.savePortalLicense(licensePayload);
+      const fullLicense: PortalLicenseEntry = {
+        id: savedDoc?.id || `LIC-${Date.now()}`,
+        ...licensePayload
+      };
+
+      setLastGeneratedLicense(fullLicense);
+
+      // If email dispatch is requested, trigger through backend endpoint
+      if (licenseForm.sendEmail) {
+        try {
+          await fetch('/api/portal/email-passkey', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              key: generatedKey,
+              organization: fullLicense.organization,
+              contactEmail: fullLicense.contactEmail,
+              tier: fullLicense.tier,
+              validityDays: fullLicense.validityDays,
+              expiresAt: fullLicense.expiresAt,
+              customNotes: fullLicense.notes
+            })
+          });
+        } catch (emailErr) {
+          console.error('Email dispatch non-blocking error:', emailErr);
+        }
+      }
+
+      // Reset form fields
+      setLicenseForm(prev => ({
+        ...prev,
+        orgName: '',
+        contactEmail: '',
+        customKey: '',
+        notes: ''
+      }));
+
+      alert(`PASSKEY ISSUED FOR ${fullLicense.organization}:\nKey: ${generatedKey}\nActive Window: ${fullLicense.validityDays} Days\nDirect Portal URL ready.`);
+    } catch (err: any) {
+      console.error('Error generating portal license:', err);
+      alert(`License generation failed: ${err.message || err}`);
+    } finally {
+      setIsGeneratingLicense(false);
+    }
+  };
+
+  const handleCopyPortalLink = (key: string, id: string) => {
+    const portalUrl = `${window.location.origin}/portal?key=${encodeURIComponent(key)}`;
+    navigator.clipboard.writeText(portalUrl);
+    setCopiedKeyId(id);
+    setTimeout(() => setCopiedKeyId(null), 2500);
+  };
+
+  const handleToggleLicenseStatus = async (license: PortalLicenseEntry) => {
+    const newStatus = license.status === 'active' ? 'revoked' : 'active';
+    const confirmMsg = newStatus === 'revoked'
+      ? `Revoke access passkey for ${license.organization}? Multi-user clients using key "${license.key}" will be locked out.`
+      : `Reactivate access passkey for ${license.organization}?`;
+    
+    if (window.confirm(confirmMsg)) {
+      await SovereignDB.updatePortalLicenseStatus(license.id, newStatus);
+    }
+  };
+
+  const handleResendLicenseEmail = async (license: PortalLicenseEntry) => {
+    setIsResendingEmail(license.id);
+    try {
+      const response = await fetch('/api/portal/email-passkey', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          key: license.key,
+          organization: license.organization,
+          contactEmail: license.contactEmail,
+          tier: license.tier,
+          validityDays: license.validityDays,
+          expiresAt: license.expiresAt,
+          customNotes: license.notes
+        })
+      });
+      const resData = await response.json();
+      if (response.ok && resData.success) {
+        alert(`Passkey credentials resent to ${license.contactEmail} for ${license.organization}.`);
+      } else {
+        throw new Error(resData.error || 'Failed to dispatch email');
+      }
+    } catch (err: any) {
+      alert(`Resend failed: ${err.message || err}`);
+    } finally {
+      setIsResendingEmail(null);
+    }
+  };
+
+  const handleDeleteLicense = async (license: PortalLicenseEntry) => {
+    if (window.confirm(`Permanently delete passkey "${license.key}" for ${license.organization}? This action is irreversible.`)) {
+      await SovereignDB.deletePortalLicense(license.id);
+    }
+  };
 
   const handleAddPost = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -663,6 +857,18 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               className={`text-[10px] font-bold uppercase px-4 py-2 ${activeTab === 'email_logs' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
             >
               Email Tracker
+            </button>
+            <button 
+              onClick={() => setActiveTab('licenses')}
+              className={`text-[10px] font-bold uppercase px-4 py-2 flex items-center gap-1.5 ${activeTab === 'licenses' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
+            >
+              <Key className="w-3 h-3" />
+              <span>Passkeys & Licenses</span>
+              {data.licenses.length > 0 && (
+                <span className="bg-[#b8860b]/20 text-[#b8860b] text-[9px] px-1.5 py-0.2 rounded-full font-mono">
+                  {data.licenses.filter(l => l.status === 'active').length}
+                </span>
+              )}
             </button>
           </div>
         </div>
@@ -1565,6 +1771,407 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                 </div>
               )}
             </div>
+          </div>
+        )}
+
+        {activeTab === 'licenses' && (
+          <div className="space-y-8 animate-fade-in text-neutral-900 font-inter">
+            {/* Top Metrics Summary */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="bg-white border border-zinc-200 p-6 shadow-sm rounded-sm">
+                <span className="text-[9px] font-black uppercase text-[#b8860b] block mb-1">Total Passkeys Issued</span>
+                <span className="text-3xl font-bold font-mono text-[#111111]">{data.licenses.length}</span>
+                <p className="text-[10px] text-zinc-400 mt-1 font-mono">Multi-user organization licenses</p>
+              </div>
+
+              <div className="bg-white border border-zinc-200 p-6 shadow-sm rounded-sm">
+                <span className="text-[9px] font-black uppercase text-green-700 block mb-1">Active Windows</span>
+                <span className="text-3xl font-bold font-mono text-green-700">
+                  {data.licenses.filter(l => l.status === 'active' && Date.now() <= l.expiresAt).length}
+                </span>
+                <p className="text-[10px] text-zinc-400 mt-1 font-mono">Unrestricted portal entry</p>
+              </div>
+
+              <div className="bg-white border border-zinc-200 p-6 shadow-sm rounded-sm">
+                <span className="text-[9px] font-black uppercase text-amber-700 block mb-1">Expired / Revoked</span>
+                <span className="text-3xl font-bold font-mono text-amber-700">
+                  {data.licenses.filter(l => l.status === 'revoked' || Date.now() > l.expiresAt).length}
+                </span>
+                <p className="text-[10px] text-zinc-400 mt-1 font-mono">Requires renewal or extension</p>
+              </div>
+
+              <div className="bg-white border border-zinc-200 p-6 shadow-sm rounded-sm">
+                <span className="text-[9px] font-black uppercase text-blue-700 block mb-1">Total Portal Logins</span>
+                <span className="text-3xl font-bold font-mono text-blue-700">
+                  {data.licenses.reduce((acc, l) => acc + (l.accessCount || 0), 0)}
+                </span>
+                <p className="text-[10px] text-zinc-400 mt-1 font-mono">Cumulative client sessions</p>
+              </div>
+            </div>
+
+            {/* Main Action Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              
+              {/* Form: Generate New Passkey */}
+              <div className="lg:col-span-1 bg-white border border-zinc-200 p-6 shadow-sm rounded-sm">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-zinc-100">
+                  <div>
+                    <h3 className="text-xs font-black uppercase text-[#111111] flex items-center gap-2">
+                      <Key className="w-3.5 h-3.5 text-[#b8860b]" />
+                      Generate Passkey
+                    </h3>
+                    <p className="text-[10px] text-zinc-400 font-mono mt-0.5">Issue new client authorization window</p>
+                  </div>
+                  <Sparkles className="w-4 h-4 text-[#b8860b]" />
+                </div>
+
+                <form onSubmit={handleGenerateLicense} className="space-y-4 text-xs">
+                  <div>
+                    <label className="block text-[9px] font-black uppercase text-zinc-500 mb-1">
+                      Organization Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Apex Global Capital"
+                      value={licenseForm.orgName}
+                      onChange={(e) => setLicenseForm({ ...licenseForm, orgName: e.target.value })}
+                      className="w-full px-3 py-2 bg-zinc-50 border border-zinc-200 focus:outline-none focus:border-[#b8860b] text-zinc-900 rounded-sm font-sans"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[9px] font-black uppercase text-zinc-500 mb-1">
+                      Executive Contact Email *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="e.g. principal@apexcapital.com"
+                      value={licenseForm.contactEmail}
+                      onChange={(e) => setLicenseForm({ ...licenseForm, contactEmail: e.target.value })}
+                      className="w-full px-3 py-2 bg-zinc-50 border border-zinc-200 focus:outline-none focus:border-[#b8860b] text-zinc-900 rounded-sm font-mono"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[9px] font-black uppercase text-zinc-500 mb-1">
+                      Service / Mandate Tier
+                    </label>
+                    <select
+                      value={licenseForm.tier}
+                      onChange={(e) => {
+                        const newTier = e.target.value as PortalTierType;
+                        let defaultDays = 14;
+                        if (newTier === 'BETA') defaultDays = 14;
+                        else if (newTier === 'TIER_1_DIAGNOSTIC') defaultDays = 14;
+                        else if (newTier === 'TIER_2_SPRINT') defaultDays = 90;
+                        else if (newTier === 'TIER_3_SOVEREIGN_RETAINER') defaultDays = 365;
+                        else defaultDays = 30;
+
+                        setLicenseForm({
+                          ...licenseForm,
+                          tier: newTier,
+                          validityDays: defaultDays
+                        });
+                      }}
+                      className="w-full px-3 py-2 bg-zinc-50 border border-zinc-200 focus:outline-none focus:border-[#b8860b] text-zinc-900 rounded-sm text-xs"
+                    >
+                      <option value="BETA">🎟️ Beta Testing Access (Free Trial - 14 Days)</option>
+                      <option value="TIER_1_DIAGNOSTIC">🥉 Tier 1: Phase 0.0 Diagnostic Audit (14 Days)</option>
+                      <option value="TIER_2_SPRINT">🥈 Tier 2: 90-Day Protocol Transformation (90 Days)</option>
+                      <option value="TIER_3_SOVEREIGN_RETAINER">🥇 Tier 3: Sovereign Retainer & Board Seat (365 Days)</option>
+                      <option value="CUSTOM">⚙️ Custom Engagement Window</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-[9px] font-black uppercase text-zinc-500 mb-1">
+                      Validity Window (Days)
+                    </label>
+                    <input
+                      type="number"
+                      min="1"
+                      max="730"
+                      required
+                      value={licenseForm.validityDays}
+                      onChange={(e) => setLicenseForm({ ...licenseForm, validityDays: Number(e.target.value) })}
+                      className="w-full px-3 py-2 bg-zinc-50 border border-zinc-200 focus:outline-none focus:border-[#b8860b] text-zinc-900 rounded-sm font-mono"
+                    />
+                    <span className="text-[10px] text-zinc-400 font-mono mt-0.5 block">
+                      Expires: {new Date(Date.now() + licenseForm.validityDays * 86400000).toLocaleDateString()}
+                    </span>
+                  </div>
+
+                  <div>
+                    <label className="block text-[9px] font-black uppercase text-zinc-500 mb-1">
+                      Custom Passkey Code (Optional)
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Leave blank to auto-generate"
+                      value={licenseForm.customKey}
+                      onChange={(e) => setLicenseForm({ ...licenseForm, customKey: e.target.value.toUpperCase() })}
+                      className="w-full px-3 py-2 bg-zinc-50 border border-zinc-200 focus:outline-none focus:border-[#b8860b] text-zinc-900 rounded-sm font-mono uppercase text-xs"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[9px] font-black uppercase text-zinc-500 mb-1">
+                      Private Administrative Notes
+                    </label>
+                    <textarea
+                      rows={2}
+                      placeholder="e.g. Free beta cohort #1. Board sponsor: Suchita Sancheti."
+                      value={licenseForm.notes}
+                      onChange={(e) => setLicenseForm({ ...licenseForm, notes: e.target.value })}
+                      className="w-full px-3 py-2 bg-zinc-50 border border-zinc-200 focus:outline-none focus:border-[#b8860b] text-zinc-900 rounded-sm font-sans text-xs resize-none"
+                    />
+                  </div>
+
+                  <div className="pt-2 border-t border-zinc-100 flex items-center justify-between">
+                    <label className="flex items-center gap-2 cursor-pointer select-none text-[11px] text-zinc-700">
+                      <input
+                        type="checkbox"
+                        checked={licenseForm.sendEmail}
+                        onChange={(e) => setLicenseForm({ ...licenseForm, sendEmail: e.target.checked })}
+                        className="rounded border-zinc-300 text-[#b8860b] focus:ring-[#b8860b]"
+                      />
+                      <span>Email credentials to client automatically</span>
+                    </label>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isGeneratingLicense}
+                    className="w-full py-3 bg-[#b8860b] hover:bg-[#a07409] text-white text-[10px] uppercase font-black tracking-widest text-center transition-all flex items-center justify-center gap-2 rounded-sm shadow-sm cursor-pointer disabled:opacity-50"
+                  >
+                    {isGeneratingLicense ? (
+                      <>
+                        <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                        <span>Generating & Dispatching...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Key className="w-3.5 h-3.5" />
+                        <span>Issue & Authorize Passkey</span>
+                      </>
+                    )}
+                  </button>
+                </form>
+
+                {/* Last Generated Quick Card */}
+                {lastGeneratedLicense && (
+                  <div className="mt-6 p-4 bg-[#111111] text-white border border-[#b8860b] rounded-sm animate-fade-in">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[9px] font-mono text-[#b8860b] uppercase tracking-widest">
+                        ✓ Passkey Active
+                      </span>
+                      <button
+                        onClick={() => handleCopyPortalLink(lastGeneratedLicense.key, 'last-gen')}
+                        className="text-[9px] text-zinc-300 hover:text-white flex items-center gap-1 font-mono underline"
+                      >
+                        {copiedKeyId === 'last-gen' ? <Check className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+                        {copiedKeyId === 'last-gen' ? 'Copied Link' : 'Copy Direct URL'}
+                      </button>
+                    </div>
+                    <div className="font-mono text-sm font-bold text-white tracking-widest">
+                      {lastGeneratedLicense.key}
+                    </div>
+                    <div className="text-[10px] text-zinc-400 mt-1 font-mono">
+                      {lastGeneratedLicense.organization} • Valid until {new Date(lastGeneratedLicense.expiresAt).toLocaleDateString()}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Table / Ledger of All Passkeys */}
+              <div className="lg:col-span-2 space-y-6">
+                
+                {/* Active Passes Ledger */}
+                <div className="bg-white border border-zinc-200 rounded-sm shadow-sm">
+                  <div className="p-6 border-b border-zinc-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                      <h3 className="text-xs font-black uppercase text-[#111111]">Institutional Passkey Ledger</h3>
+                      <p className="text-[10px] text-zinc-400 font-mono mt-0.5">Multi-user access control & telemetry</p>
+                    </div>
+                    <div className="text-[10px] text-zinc-500 font-mono">
+                      Target App: <a href="https://sovereign-audit-the-institutional-stress-test-942902734370.us-west1.run.app" target="_blank" rel="noreferrer" className="text-[#b8860b] underline font-bold">Cloud Run App ↗</a>
+                    </div>
+                  </div>
+
+                  {data.licenses.length === 0 ? (
+                    <div className="p-12 text-center text-zinc-400 italic text-xs">
+                      No client access passkeys have been generated yet. Use the tool on the left to issue your first key.
+                    </div>
+                  ) : (
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-left text-xs text-zinc-600 font-inter">
+                        <thead className="bg-zinc-50 text-[9px] font-black uppercase text-zinc-400 border-b border-zinc-200">
+                          <tr>
+                            <th className="px-6 py-4">Status</th>
+                            <th className="px-6 py-4">Passkey</th>
+                            <th className="px-6 py-4">Organization & Email</th>
+                            <th className="px-6 py-4">Tier</th>
+                            <th className="px-6 py-4">Window Expiration</th>
+                            <th className="px-6 py-4">Usage</th>
+                            <th className="px-6 py-4 text-right">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-zinc-100 font-sans">
+                          {data.licenses.map((lic) => {
+                            const isExpired = Date.now() > lic.expiresAt;
+                            const isActive = lic.status === 'active' && !isExpired;
+
+                            return (
+                              <tr key={lic.id} className="hover:bg-zinc-50/50 transition-colors">
+                                
+                                {/* Status */}
+                                <td className="px-6 py-4 whitespace-nowrap">
+                                  {lic.status === 'revoked' ? (
+                                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-bold uppercase bg-rose-50 text-rose-700 border border-rose-200">
+                                      Revoked
+                                    </span>
+                                  ) : isExpired ? (
+                                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-bold uppercase bg-amber-50 text-amber-700 border border-amber-200">
+                                      Expired
+                                    </span>
+                                  ) : (
+                                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-bold uppercase bg-green-50 text-green-700 border border-green-200">
+                                      Active
+                                    </span>
+                                  )}
+                                </td>
+
+                                {/* Passkey */}
+                                <td className="px-6 py-4 whitespace-nowrap font-mono text-[11px] font-bold text-zinc-900">
+                                  <div className="flex items-center gap-2">
+                                    <span className="bg-zinc-100 px-2 py-1 border border-zinc-200 rounded tracking-wider">
+                                      {lic.key}
+                                    </span>
+                                    <button
+                                      title="Copy Direct Portal URL"
+                                      onClick={() => handleCopyPortalLink(lic.key, lic.id)}
+                                      className="p-1 hover:bg-zinc-200 rounded text-zinc-500 hover:text-black transition-colors"
+                                    >
+                                      {copiedKeyId === lic.id ? (
+                                        <Check className="w-3.5 h-3.5 text-green-600" />
+                                      ) : (
+                                        <Copy className="w-3.5 h-3.5" />
+                                      )}
+                                    </button>
+                                  </div>
+                                </td>
+
+                                {/* Org & Email */}
+                                <td className="px-6 py-4">
+                                  <div className="font-bold text-zinc-900 text-xs">{lic.organization}</div>
+                                  <div className="text-[10px] text-zinc-400 font-mono">{lic.contactEmail}</div>
+                                  {lic.notes && (
+                                    <div className="text-[9px] text-zinc-500 italic mt-0.5 line-clamp-1">"{lic.notes}"</div>
+                                  )}
+                                </td>
+
+                                {/* Tier */}
+                                <td className="px-6 py-4 whitespace-nowrap">
+                                  <span className="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-mono font-bold uppercase bg-zinc-100 text-zinc-700 border border-zinc-200">
+                                    {lic.tier.replace(/_/g, ' ')}
+                                  </span>
+                                </td>
+
+                                {/* Expiration */}
+                                <td className="px-6 py-4 whitespace-nowrap font-mono text-[10px]">
+                                  <div className={isExpired ? 'text-rose-600 font-bold' : 'text-zinc-600'}>
+                                    {new Date(lic.expiresAt).toLocaleDateString()}
+                                  </div>
+                                  <div className="text-[9px] text-zinc-400">
+                                    {isExpired ? 'Ended' : `${Math.ceil((lic.expiresAt - Date.now()) / (1000 * 60 * 60 * 24))}d remaining`}
+                                  </div>
+                                </td>
+
+                                {/* Usage */}
+                                <td className="px-6 py-4 whitespace-nowrap font-mono text-[10px]">
+                                  <span className="font-bold text-zinc-900">{lic.accessCount || 0}</span> logins
+                                  {lic.lastAccessedAt && (
+                                    <div className="text-[8px] text-zinc-400">
+                                      Last: {new Date(lic.lastAccessedAt).toLocaleDateString()}
+                                    </div>
+                                  )}
+                                </td>
+
+                                {/* Actions */}
+                                <td className="px-6 py-4 whitespace-nowrap text-right space-x-2">
+                                  <button
+                                    title="Resend Passkey Email to Client"
+                                    disabled={isResendingEmail === lic.id}
+                                    onClick={() => handleResendLicenseEmail(lic)}
+                                    className="p-1.5 bg-zinc-100 hover:bg-[#b8860b] hover:text-white rounded text-zinc-600 transition-colors inline-flex items-center gap-1 text-[9px] font-bold uppercase disabled:opacity-50"
+                                  >
+                                    <Send className="w-3 h-3" />
+                                    <span>{isResendingEmail === lic.id ? 'Sending...' : 'Email'}</span>
+                                  </button>
+
+                                  <button
+                                    title={lic.status === 'active' ? 'Revoke Passkey' : 'Reactivate Passkey'}
+                                    onClick={() => handleToggleLicenseStatus(lic)}
+                                    className={`px-2 py-1 rounded text-[9px] font-bold uppercase transition-colors ${
+                                      lic.status === 'active'
+                                        ? 'bg-amber-50 text-amber-700 hover:bg-amber-100'
+                                        : 'bg-green-50 text-green-700 hover:bg-green-100'
+                                    }`}
+                                  >
+                                    {lic.status === 'active' ? 'Revoke' : 'Reactivate'}
+                                  </button>
+
+                                  <button
+                                    title="Delete Passkey Record"
+                                    onClick={() => handleDeleteLicense(lic)}
+                                    className="p-1.5 text-zinc-400 hover:text-rose-600 hover:bg-rose-50 rounded transition-colors inline-flex items-center"
+                                  >
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                  </button>
+                                </td>
+
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </div>
+
+                {/* Master Clearance Information for Admins */}
+                <div className="bg-[#111111] text-zinc-300 p-6 border border-[#b8860b]/40 rounded-sm space-y-3">
+                  <div className="flex items-center gap-2 text-[#b8860b]">
+                    <Shield className="w-4 h-4" />
+                    <h4 className="font-mono text-xs font-bold uppercase tracking-wider">
+                      Master Clearance Backdoor Coordinates
+                    </h4>
+                  </div>
+                  <p className="text-xs text-zinc-400 leading-relaxed font-light">
+                    For internal review, testing, or instant board demonstrations by Suchita Sancheti, the following master keys bypass all expiration timers:
+                  </p>
+                  <div className="flex flex-wrap gap-3 font-mono text-xs">
+                    <span className="bg-black border border-white/20 text-[#b8860b] px-3 py-1.5 rounded">
+                      TULC-MASTER
+                    </span>
+                    <span className="bg-black border border-white/20 text-[#b8860b] px-3 py-1.5 rounded">
+                      TULC-ARCHITECT-2026
+                    </span>
+                    <span className="bg-black border border-white/20 text-[#b8860b] px-3 py-1.5 rounded">
+                      SOVEREIGN-CLEARANCE
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-zinc-500">
+                    Clients using any valid passkey are redirected seamlessly to <code className="text-zinc-300">https://sovereign-audit-the-institutional-stress-test-942902734370.us-west1.run.app</code> in the same browser window without popup blockers or external navigation tabs.
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
         )}
       </div>

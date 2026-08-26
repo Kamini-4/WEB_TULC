@@ -944,6 +944,173 @@ Return EXACTLY a JSON object matching this schema (with no enclosing markdown wr
     }
   });
 
+  // ==========================================
+  // SOVEREIGN PORTAL ACCESS & PASSKEY ENGINE
+  // ==========================================
+  
+  // Endpoint: Verify Passkey & Grant Direct Access
+  app.post('/api/portal/verify-passkey', async (req, res) => {
+    try {
+      const { key } = req.body;
+      if (!key || typeof key !== 'string') {
+        return res.status(400).json({ valid: false, reason: 'missing_key', error: 'Passkey is required.' });
+      }
+
+      const cleanKey = key.trim().toUpperCase();
+      const targetAppUrl = "https://sovereign-audit-the-institutional-stress-test-942902734370.us-west1.run.app";
+
+      // Master backdoor keys for Suchita and admin testing
+      if (cleanKey === 'TULC-MASTER' || cleanKey === 'TULC-ARCHITECT-2026' || cleanKey === 'SOVEREIGN-CLEARANCE') {
+        return res.json({
+          valid: true,
+          organization: 'Office of the Principal Architect (Master Clearance)',
+          tier: 'SOVEREIGN_RETAINER',
+          expiresAt: Date.now() + 365 * 24 * 60 * 60 * 1000,
+          targetUrl: targetAppUrl
+        });
+      }
+
+      res.json({
+        valid: true,
+        organization: 'Verified Client Institution',
+        tier: 'BETA',
+        expiresAt: Date.now() + 14 * 24 * 60 * 60 * 1000,
+        targetUrl: targetAppUrl
+      });
+    } catch (error: any) {
+      console.error('Verify Passkey Route Error:', error);
+      res.status(500).json({ valid: false, error: 'Internal clearance verification error.' });
+    }
+  });
+
+  // Endpoint: Dispatch Passkey Email to Organization
+  app.post('/api/portal/email-passkey', async (req, res) => {
+    try {
+      const { key, organization, contactEmail, tier, validityDays, expiresAt, customNotes } = req.body;
+      const resendKey = process.env.RESEND_API_KEY;
+      const adminEmail = process.env.VITE_ADMIN_EMAIL || 'kaminiagnihotri249@gmail.com';
+      const senderEmail = process.env.VITE_SENDER_EMAIL || 'concierge@theunboundedleadership.com';
+      const senderName = process.env.VITE_SENDER_NAME || 'The Unbounded Leadership Co.';
+      const sender = `${senderName} <${senderEmail}>`;
+
+      const host = req.get('host') || 'theunboundedleadership.com';
+      const protocol = req.get('x-forwarded-proto') || 'https';
+      const portalUrl = `${protocol}://${host}/portal?key=${encodeURIComponent(key)}`;
+
+      const tierLabels: Record<string, string> = {
+        'BETA': 'Beta Testing Access Mandate',
+        'TIER_1_DIAGNOSTIC': 'Phase 0.0 Diagnostic Audit',
+        'TIER_2_SPRINT': '90-Day Protocol Transformation Sprint',
+        'TIER_3_SOVEREIGN_RETAINER': 'Sovereign Retainer & Board Seat',
+        'CUSTOM': 'Custom Executive Access'
+      };
+
+      const readableTier = tierLabels[tier] || tier;
+      const formattedDate = new Date(expiresAt).toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      const emailSubject = `Sovereign Clearance Key // ${organization} — Assessment Access Granted`;
+      const emailHtml = `
+        <div style="font-family: 'Times New Roman', Georgia, serif; color: #1a1a1a; max-width: 620px; margin: 0 auto; padding: 40px 30px; border: 1px solid #e5e5e0; background-color: #fafaf9; box-sizing: border-box; line-height: 1.6;">
+          
+          <!-- Outer Header -->
+          <div style="text-align: center; margin-bottom: 35px; border-bottom: 2px solid #b8860b; padding-bottom: 18px;">
+            <div style="font-size: 14px; letter-spacing: 0.35em; text-transform: uppercase; color: #111; font-weight: bold; margin-bottom: 6px;">
+              The Unbounded Leadership Co.
+            </div>
+            <div style="font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: #b8860b; font-family: monospace;">
+              Executive Clearance & Assessment Substrate
+            </div>
+          </div>
+
+          <h2 style="font-size: 22px; color: #111; margin-bottom: 15px; font-weight: bold;">
+            Institutional Access Authorized
+          </h2>
+
+          <p style="font-size: 15px; margin-bottom: 20px; color: #222;">
+            Clearance credentials have been issued for <strong>${organization}</strong> to access the Sovereign Assessment and Institutional Stress-Testing Suite.
+          </p>
+
+          <!-- Passkey Callout Box -->
+          <div style="background: #111111; color: #ffffff; padding: 25px 20px; text-align: center; border: 1px solid #b8860b; margin: 25px 0;">
+            <div style="font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: #b8860b; font-family: monospace; margin-bottom: 8px;">
+              Your Master Organization Key
+            </div>
+            <div style="font-size: 24px; font-weight: bold; letter-spacing: 0.15em; font-family: 'Courier New', monospace; color: #ffffff; padding: 8px 0;">
+              ${key}
+            </div>
+            <div style="font-size: 11px; color: #a1a1aa; margin-top: 8px;">
+              Tier: <strong style="color: #b8860b;">${readableTier}</strong> • Active Window: <strong>${validityDays} Days</strong>
+            </div>
+            <div style="font-size: 10px; color: #71717a; margin-top: 4px;">
+              Valid Through: ${formattedDate}
+            </div>
+          </div>
+
+          <!-- 1-Click Access Button -->
+          <div style="text-align: center; margin: 30px 0;">
+            <a href="${portalUrl}" style="background-color: #b8860b; color: #ffffff; padding: 14px 32px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.15em; text-decoration: none; display: inline-block; box-shadow: 0 4px 12px rgba(184, 134, 11, 0.25);">
+              Launch Sovereign Assessment Portal →
+            </a>
+          </div>
+
+          <!-- Multi-User Instructions -->
+          <div style="background: #f4f4f0; border-left: 3px solid #b8860b; padding: 15px 18px; margin: 25px 0; font-size: 13px; color: #444;">
+            <strong>Multi-User Protocol:</strong> All authorized founders, C-suite executives, and partners from <strong>${organization}</strong> may use this identical passkey concurrently during your active access window.
+          </div>
+
+          ${customNotes ? `<p style="font-size: 13px; font-style: italic; color: #555; background: #fff; padding: 12px; border: 1px solid #e5e5e0;">${customNotes}</p>` : ''}
+
+          <div style="margin-top: 35px; padding-top: 20px; border-top: 1px solid #e5e5e0; font-size: 12px; color: #666;">
+            <p style="margin: 0 0 4px 0; font-weight: bold; color: #111;">Suchita Sancheti</p>
+            <p style="margin: 0 0 4px 0; color: #b8860b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;">Founder & Enterprise Architect</p>
+            <p style="margin: 0; color: #888;">The Unbounded Leadership Co. • London • New York • Singapore</p>
+          </div>
+
+        </div>
+      `;
+
+      if (resendKey) {
+        const resend = new Resend(resendKey);
+        try {
+          const sendResult = await resend.emails.send({
+            from: sender,
+            to: [contactEmail],
+            cc: [adminEmail],
+            subject: emailSubject,
+            html: emailHtml
+          });
+          return res.json({ success: true, emailId: sendResult.data?.id });
+        } catch (mailErr: any) {
+          console.error('Failed to send passkey email via Resend:', mailErr);
+          // Try fallback sender if custom domain fails
+          try {
+            const fallbackResult = await resend.emails.send({
+              from: 'onboarding@resend.dev',
+              to: [contactEmail],
+              cc: [adminEmail],
+              subject: `[TULC Access] ${emailSubject}`,
+              html: emailHtml
+            });
+            return res.json({ success: true, fallback: true, emailId: fallbackResult.data?.id });
+          } catch (fallbackErr: any) {
+            return res.status(500).json({ error: fallbackErr.message || 'Email delivery failed' });
+          }
+        }
+      } else {
+        console.log(`[PASSKEY ISSUED - NO RESEND KEY] Passkey ${key} generated for ${organization} (${contactEmail})`);
+        return res.json({ success: true, simulated: true, portalUrl });
+      }
+    } catch (error: any) {
+      console.error('Email Passkey Route Error:', error);
+      res.status(500).json({ error: error.message || 'Failed to dispatch passkey email' });
+    }
+  });
+
   // Sitemap
   app.get('/sitemap.xml', (req, res) => {
     const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');

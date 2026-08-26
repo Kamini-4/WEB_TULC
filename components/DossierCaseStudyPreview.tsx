@@ -93,7 +93,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
         <!DOCTYPE html>
         <html>
           <head>
-            <title>TULC // Declassified Sovereign Systemic Dossier (6-Page Complete Artifact)</title>
+            <title>TULC // Declassified Sovereign Systemic Dossier (Complete Board Artifact)</title>
             <style>
               @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap');
               @page { size: A4; margin: 20mm; }
@@ -410,14 +410,14 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
             <div className="flex items-center gap-2 mb-3">
               <span className="w-2 h-2 rounded-full bg-[#b8860b] animate-pulse" />
               <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#b8860b] uppercase">
-                DECLASSIFIED 6-PAGE INSTITUTIONAL CASE ARTIFACT • CONFIDENTIAL & ANONYMIZED
+                DECLASSIFIED INSTITUTIONAL CASE ARTIFACT • CONFIDENTIAL & ANONYMIZED
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
               The Complete Sovereign Dossier <span className="text-[#b8860b] italic">in Practice</span>
             </h2>
             <p className="mt-3 text-zinc-300 text-sm sm:text-base font-light leading-relaxed font-serif">
-              Every audited principal receives an exhaustive, 6-page clinical forensic blueprint—mapping apex cognitive bandwidth, 5-domain vector geometry, escalation density, meeting tax drag, logic gate intervention, and a 10-year generational decree.
+              Every audited principal receives an exhaustive clinical forensic blueprint—mapping apex cognitive bandwidth, 5-domain vector geometry, escalation density, meeting tax drag, logic gate intervention, and a generational institutional decree.
             </p>
           </div>
 
@@ -427,7 +427,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
               className="px-4 py-2.5 bg-[#171717] hover:bg-[#222] border border-white/15 hover:border-[#b8860b] text-white text-xs font-mono font-bold uppercase tracking-wider rounded-xs transition-all flex items-center gap-2 cursor-pointer shadow-sm group"
             >
               <Maximize2 className="w-3.5 h-3.5 text-[#b8860b] group-hover:scale-110 transition-transform" />
-              <span>Inspect All 6 Pages</span>
+              <span>Inspect Full Artifact</span>
             </button>
 
             <button
@@ -435,7 +435,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
               className="px-4 py-2.5 bg-[#1f1a10] hover:bg-[#b8860b] hover:text-black border border-[#b8860b]/40 text-[#b8860b] text-xs font-mono font-bold uppercase tracking-wider rounded-xs transition-all flex items-center gap-2 cursor-pointer shadow-sm"
             >
               <Printer className="w-3.5 h-3.5" />
-              <span>Print Complete 6-Page Report</span>
+              <span>Print Complete Dossier</span>
             </button>
             
             <button
@@ -496,7 +496,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
             </div>
           </div>
 
-          {/* 6-Page Navigation Tab Bar */}
+          {/* Dossier Navigation Tab Bar */}
           <div className="bg-[#161616] px-4 sm:px-6 border-b border-white/10 flex overflow-x-auto no-scrollbar gap-2 sm:gap-4 font-mono text-xs">
             {DOSSIER_PAGES.map((page) => (
               <button
@@ -991,7 +991,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
           <div className="bg-black/95 px-6 py-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
               <Lock className="w-3.5 h-3.5 text-[#b8860b]" />
-              <span>Complete 6-Page Clinical Audit Artifact Available for Review</span>
+              <span>Complete Clinical Audit Artifact Available for Review</span>
             </div>
 
             <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
@@ -1016,7 +1016,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                 className="px-4 py-2 bg-[#1c1c1c] hover:bg-[#282828] text-white text-xs font-mono font-bold uppercase rounded-xs transition-all flex items-center gap-2 cursor-pointer"
               >
                 <Maximize2 className="w-3.5 h-3.5 text-[#b8860b]" />
-                <span>Full-Screen 6-Page Modal</span>
+                <span>Full-Screen Modal</span>
               </button>
 
               <button
@@ -1033,7 +1033,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
 
       </div>
 
-      {/* FULL-SCREEN MODAL 6-PAGE DOSSIER INSPECTOR */}
+      {/* FULL-SCREEN MODAL DOSSIER INSPECTOR */}
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
@@ -1052,7 +1052,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
               <div className="bg-[#111111] text-white px-6 py-4 flex items-center justify-between border-b border-white/10 font-mono text-xs">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#b8860b] animate-pulse" />
-                  <span className="text-[#b8860b] font-bold uppercase">DECLASSIFIED SOVEREIGN DOSSIER // COMPLETE 6-PAGE ARTIFACT</span>
+                  <span className="text-[#b8860b] font-bold uppercase">DECLASSIFIED SOVEREIGN DOSSIER // COMPLETE CASE ARTIFACT</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <button
@@ -1060,7 +1060,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                     className="px-3.5 py-1.5 bg-[#b8860b] text-black font-bold uppercase text-[10px] flex items-center gap-1.5 hover:bg-white cursor-pointer transition-all"
                   >
                     <Download className="w-3.5 h-3.5" />
-                    <span>Print All 6 Pages</span>
+                    <span>Print Complete Dossier</span>
                   </button>
                   <button
                     onClick={() => setIsModalOpen(false)}
@@ -1176,7 +1176,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                       Ready for Your Institutional Diagnosis?
                     </div>
                     <div className="text-zinc-300 text-xs font-serif">
-                      Run the diagnostic assessment to extract your enterprise's 6-page sovereign systemic dossier.
+                      Run the diagnostic assessment to extract your enterprise's sovereign systemic dossier.
                     </div>
                   </div>
                   <button

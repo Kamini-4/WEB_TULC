@@ -90,6 +90,19 @@ service cloud.firestore {
              (data.timestamp is number || data.timestamp is timestamp);
     }
 
+    // Portal License Validation
+    function isValidPortalLicense(data) {
+      return data.keys().hasAll(['key', 'organization', 'contactEmail', 'tier', 'validityDays', 'createdAt', 'expiresAt', 'status']) &&
+             data.key is string && data.key.size() > 0 && data.key.size() < 100 &&
+             data.organization is string && data.organization.size() > 0 && data.organization.size() < 200 &&
+             isValidEmail(data.contactEmail) &&
+             data.tier in ['BETA', 'TIER_1_DIAGNOSTIC', 'TIER_2_SPRINT', 'TIER_3_SOVEREIGN_RETAINER', 'CUSTOM'] &&
+             data.validityDays is number &&
+             data.createdAt is number &&
+             data.expiresAt is number &&
+             data.status in ['active', 'revoked', 'expired'];
+    }
+
     // Rules
     match /leads/{leadId} {
       allow create: if isValidLead(request.resource.data);
@@ -114,6 +127,11 @@ service cloud.firestore {
     match /email_logs/{logId} {
       allow create: if isValidEmailLog(request.resource.data);
       allow read, update, delete: if isAdmin();
+    }
+
+    match /portal_licenses/{licenseId} {
+      allow read, write: if isAdmin();
+      allow get: if true;
     }
 
     match /users/{userId} {

@@ -1286,7 +1286,7 @@ const Assessment: React.FC = () => {
                 Capture Your <span className="italic text-[#b8860b]">Alignment Premium.</span>
               </h3>
               <p className="text-zinc-700 text-sm sm:text-base mb-8 font-light italic leading-relaxed max-w-2xl mx-auto">
-                Pinpoint the exact operational friction points draining up to 40% of your executive bandwidth and 15% of strategic fidelity per management layer. Complete this 90-second rapid diagnostic across the 5 Sovereign Domains to generate your confidential 6-Page Board Dossier.
+                Pinpoint the exact operational friction points draining up to 40% of your executive bandwidth and 15% of strategic fidelity per management layer. Complete this 90-second rapid diagnostic across the 5 Sovereign Domains to generate your confidential Sovereign Board Dossier.
               </p>
 
               {restoredSession && (

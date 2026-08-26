@@ -61,6 +61,24 @@ export interface EmailLogEntry {
   metadata?: Record<string, any>;
 }
 
+export type PortalTierType = 'BETA' | 'TIER_1_DIAGNOSTIC' | 'TIER_2_SPRINT' | 'TIER_3_SOVEREIGN_RETAINER' | 'CUSTOM';
+
+export interface PortalLicenseEntry {
+  id: string;
+  key: string;
+  organization: string;
+  contactEmail: string;
+  tier: PortalTierType;
+  validityDays: number;
+  createdAt: number;
+  expiresAt: number;
+  status: 'active' | 'revoked' | 'expired';
+  accessCount: number;
+  lastAccessedAt: number | null;
+  issuedBy?: string;
+  notes?: string;
+}
+
 enum OperationType {
   CREATE = 'create',
   UPDATE = 'update',
@@ -344,6 +362,109 @@ export const SovereignDB = {
         metadata: { name: payload.name || 'N/A', organization: payload.organization || 'N/A', type: payload.type }
       });
       throw error;
+    }
+  },
+
+  // Portal License Management
+  savePortalLicense: async (data: Omit<PortalLicenseEntry, 'id'>) => {
+    const path = 'portal_licenses';
+    try {
+      const docRef = await addDoc(collection(db, path), {
+        ...data,
+      });
+      return { id: docRef.id, ...data };
+    } catch (error) {
+      handleFirestoreError(error, OperationType.CREATE, path);
+    }
+  },
+
+  updatePortalLicenseStatus: async (id: string, status: 'active' | 'revoked' | 'expired') => {
+    const path = 'portal_licenses';
+    try {
+      const { updateDoc, doc } = await import('firebase/firestore');
+      await updateDoc(doc(db, path, id), { status });
+    } catch (error) {
+      handleFirestoreError(error, OperationType.UPDATE, path);
+    }
+  },
+
+  deletePortalLicense: async (id: string) => {
+    const path = `portal_licenses/${id}`;
+    try {
+      await deleteDoc(doc(db, 'portal_licenses', id));
+    } catch (error) {
+      handleFirestoreError(error, OperationType.DELETE, path);
+    }
+  },
+
+  subscribeToPortalLicenses: (callback: (licenses: PortalLicenseEntry[]) => void) => {
+    const path = 'portal_licenses';
+    const q = query(collection(db, path), orderBy('createdAt', 'desc'));
+    return onSnapshot(q, (snapshot) => {
+      const licenses = snapshot.docs.map(doc => {
+        const data = doc.data();
+        return { ...data, id: doc.id } as PortalLicenseEntry;
+      });
+      callback(licenses);
+    }, (error) => {
+      handleFirestoreError(error, OperationType.LIST, path);
+    });
+  },
+
+  verifyPortalKey: async (passkey: string) => {
+    const trimmedKey = passkey.trim().toUpperCase();
+    try {
+      const response = await fetch('/api/portal/verify-passkey', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key: trimmedKey })
+      });
+      const resData = await response.json();
+      return resData;
+    } catch (err: any) {
+      console.error('Server passkey verification failed, checking direct fallback:', err);
+      // Client-side fallback query
+      try {
+        const { getDocs, query, collection, where, updateDoc, doc, increment } = await import('firebase/firestore');
+        const q = query(collection(db, 'portal_licenses'), where('key', '==', trimmedKey));
+        const snap = await getDocs(q);
+        if (snap.empty) {
+          return { valid: false, reason: 'invalid', error: 'Unrecognized institutional access key.' };
+        }
+        const docItem = snap.docs[0];
+        const lic = docItem.data() as PortalLicenseEntry;
+        const now = Date.now();
+        if (lic.status === 'revoked') {
+          return { valid: false, reason: 'revoked', error: 'This institutional key has been revoked by administration.' };
+        }
+        if (now > lic.expiresAt || lic.status === 'expired') {
+          return { 
+            valid: false, 
+            reason: 'expired', 
+            organization: lic.organization, 
+            expiresAt: lic.expiresAt,
+            error: `Your institutional access window for ${lic.organization} expired on ${new Date(lic.expiresAt).toLocaleDateString()}.` 
+          };
+        }
+        // Increment access count
+        try {
+          await updateDoc(doc(db, 'portal_licenses', docItem.id), {
+            accessCount: increment(1),
+            lastAccessedAt: now
+          });
+        } catch (incrementErr) {
+          console.warn("Failed to increment license access count:", incrementErr);
+        }
+        return {
+          valid: true,
+          organization: lic.organization,
+          tier: lic.tier,
+          expiresAt: lic.expiresAt,
+          targetUrl: "https://sovereign-audit-the-institutional-stress-test-942902734370.us-west1.run.app"
+        };
+      } catch (clientErr) {
+        return { valid: false, reason: 'error', error: 'Unable to complete verification check. Please retry.' };
+      }
     }
   }
 };
