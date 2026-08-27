@@ -17,15 +17,15 @@ export interface AltitudeProfile {
 
 const altitudeProfiles: AltitudeProfile[] = [
   {
-    id: "family-office",
-    label: "Single-Family Office & Holding Chair",
-    role: "Preserving multi-generational wealth, board continuity & sovereign governance",
-    primaryRisk: "Key-Person & Succession Fragility",
-    coreVulnerability: "Generational capital transition relies on informal founder knowledge rather than codified decision gates.",
-    keyDomainPriority: "Domain 05: Cultural Fidelity & Domain 04: Moral Gravity",
-    typicalCoordinationDrag: "25–35% Valuation discount applied by institutional acquirers for key-person dependency.",
-    immediateIntervention: "Install Leader-Agnostic Succession Substrate and codified investment logic gates to ensure generational perpetuity.",
-    benchmarkOutcome: "Zero transition dip across leadership shifts; 100% codified board-level intent."
+    id: "conglomerate",
+    label: "Enterprise Conglomerate & Group CEO",
+    role: "Fiduciary governance across multiple business units, geographies & boards",
+    primaryRisk: "Context Dilution & The Silence of Compliance",
+    coreVulnerability: "Board directives lose up to 66% of strategic fidelity by Tier 3 frontline execution; defensive reporting hides operational drag.",
+    keyDomainPriority: "Domain 01: Cognitive Clarity & Domain 05: Cultural Fidelity",
+    typicalCoordinationDrag: "$1.4M–$3.2M annual leakage in coordination drag and delayed strategic pivots.",
+    immediateIntervention: "Install Asynchronous Telemetry Broadcasting and 15-Minute Zero-Delay Error Channels.",
+    benchmarkOutcome: "Real-time enterprise-wide fidelity; elimination of defensive status reporting."
   },
   {
     id: "scaleup",
@@ -39,15 +39,15 @@ const altitudeProfiles: AltitudeProfile[] = [
     benchmarkOutcome: "2.5x Decision-to-execution velocity and +15 reclaimed CEO hours/week for market offense."
   },
   {
-    id: "conglomerate",
-    label: "Enterprise Conglomerate & Group CEO",
-    role: "Fiduciary governance across multiple business units, geographies & boards",
-    primaryRisk: "Context Dilution & The Silence of Compliance",
-    coreVulnerability: "Board directives lose up to 66% of strategic fidelity by Tier 3 frontline execution; defensive reporting hides operational drag.",
-    keyDomainPriority: "Domain 01: Cognitive Clarity & Domain 05: Cultural Fidelity",
-    typicalCoordinationDrag: "$1.4M–$3.2M annual leakage in coordination drag and delayed strategic pivots.",
-    immediateIntervention: "Install Asynchronous Telemetry Broadcasting and 15-Minute Zero-Delay Error Channels.",
-    benchmarkOutcome: "Real-time enterprise-wide fidelity; elimination of defensive status reporting."
+    id: "family-office",
+    label: "Single-Family Office & Holding Chair",
+    role: "Preserving multi-generational wealth, board continuity & sovereign governance",
+    primaryRisk: "Key-Person & Succession Fragility",
+    coreVulnerability: "Generational capital transition relies on informal founder knowledge rather than codified decision gates.",
+    keyDomainPriority: "Domain 05: Cultural Fidelity & Domain 04: Moral Gravity",
+    typicalCoordinationDrag: "25–35% Valuation discount applied by institutional acquirers for key-person dependency.",
+    immediateIntervention: "Install Leader-Agnostic Succession Substrate and codified investment logic gates to ensure generational perpetuity.",
+    benchmarkOutcome: "Zero transition dip across leadership shifts; 100% codified board-level intent."
   }
 ];
 
@@ -56,10 +56,10 @@ interface Props {
 }
 
 const ExecutiveAltitudeFilter: React.FC<Props> = ({ onSelectProfile }) => {
-  const [selectedId, setSelectedId] = useState<string>("scaleup");
+  const [selectedId, setSelectedId] = useState<string>("conglomerate");
   const navigate = useNavigate();
 
-  const profile = altitudeProfiles.find(p => p.id === selectedId) || altitudeProfiles[1];
+  const profile = altitudeProfiles.find(p => p.id === selectedId) || altitudeProfiles[0];
 
   const handleSelect = (p: AltitudeProfile) => {
     setSelectedId(p.id);
@@ -97,7 +97,7 @@ const ExecutiveAltitudeFilter: React.FC<Props> = ({ onSelectProfile }) => {
             >
               <div className="flex items-center justify-between mb-1.5">
                 <span className="text-[9px] font-mono uppercase text-[#b8860b] font-bold">
-                  {p.id === 'family-office' ? 'FAMILY OFFICE' : p.id === 'scaleup' ? 'SCALE-UP' : 'CONGLOMERATE'}
+                  {p.id === 'conglomerate' ? 'CONGLOMERATE' : p.id === 'scaleup' ? 'SCALE-UP' : 'FAMILY OFFICE'}
                 </span>
                 {isSelected && <CheckCircle className="w-3.5 h-3.5 text-[#b8860b]" />}
               </div>

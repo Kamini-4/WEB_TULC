@@ -4,8 +4,33 @@ Disallow: /admin
 Disallow: /private
 Disallow: /api
 
-# Sitemaps
-Sitemap: https://theunboundedleadership.com/sitemap.xml
+# AI Crawlers & LLMs Full Access
+User-agent: GPTBot
+Allow: /
 
-# Security
-Security: https://theunboundedleadership.com/.well-known/security.txt
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemaps & Knowledge Graph Endpoints
+Sitemap: https://theunboundedleadership.com/sitemap.xml

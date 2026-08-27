@@ -84,7 +84,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
     name: 'The Sovereign Retainer & Board Seat',
     hook: 'Permanent executive insulation, real-time drift prevention, and compounding valuation protection.',
     outcomeMetric: 'Continuous 100% Fidelity & Alpha',
-    idealFor: 'High-growth CEOs, Family Offices, and Board Chairs who refuse to let operational drag dilute enterprise valuation.',
+    idealFor: 'Enterprise Conglomerates, High-Growth Scale-Ups, and Family Offices / Board Chairs who refuse to let operational drag dilute enterprise valuation.',
     commitment: 'Quarterly Audits • Dedicated Priority Hotline • Board Integration',
     investmentTier: 'Annual Retainer',
     investmentNote: 'Guaranteed highest ROI — continuous executive insulation and strategic arbitrage',
