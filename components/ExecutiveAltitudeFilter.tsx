@@ -46,7 +46,7 @@ const altitudeProfiles: AltitudeProfile[] = [
     coreVulnerability: "Generational capital transition relies on informal founder knowledge rather than codified decision gates.",
     keyDomainPriority: "Domain 05: Cultural Fidelity & Domain 04: Moral Gravity",
     typicalCoordinationDrag: "25–35% Valuation discount applied by institutional acquirers for key-person dependency.",
-    immediateIntervention: "Install Leader-Agnostic Succession Substrate and codified investment logic gates to ensure generational perpetuity.",
+    immediateIntervention: "Install Leader-Agnostic Succession Substrate and codified investment execution protocols to ensure generational perpetuity.",
     benchmarkOutcome: "Zero transition dip across leadership shifts; 100% codified board-level intent."
   }
 ];

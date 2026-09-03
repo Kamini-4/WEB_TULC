@@ -74,17 +74,17 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             action="Isolate your 2 highest-friction domains (from the 5 Sovereign Domains) and map the founder's cognitive decision profile into concrete operational parameters."
             outcome="A tailored operational architecture blueprint that ensures middle management acts with 100% of your strategic reasoning."
             systemLayer="We map operational workflows and decision-making logic pathways."
-            humanIntegration="We do not use arbitrary templates. We perform a forensic diagnostic on the founder’s personal cognitive profile (risk bias, velocity, and core vision). The resulting logic gates are a direct mirror of the founder’s organic thinking, ensuring the system feels natural and intuitive."
+            humanIntegration="We do not use arbitrary templates. We perform a forensic diagnostic on the founder’s personal cognitive profile (risk bias, velocity, and core vision). The resulting execution protocols are a direct mirror of the founder’s organic thinking, ensuring the system feels natural and intuitive."
             image="https://images.unsplash.com/photo-1518349619113-03114f06ac3a?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('02')}
           />
           <PhaseCard 
             phase="03"
             title="Architectural Intervention"
-            subtitle="The Calibration // Installing Self-Regulating Logic Gates"
-            action="Install 12+ customized operational logic gates directly into your operating model, replacing endless alignment meetings with clear automated parameters."
+            subtitle="The Calibration // Installing Self-Regulating Execution Protocols"
+            action="Install 12+ customized operational execution protocols directly into your operating model, replacing endless alignment meetings with clear automated parameters."
             outcome="Frontline teams make confident, high-stakes decisions autonomously—liberating 15+ hours of weekly executive calendar space."
-            systemLayer="We install 12+ customized logic gates to automate daily operational micro-decisions."
+            systemLayer="We install 12+ customized execution protocols to automate daily operational micro-decisions."
             humanIntegration="This phase is entirely behavioral. We establish absolute alignment fidelity down to frontline teams. By automating micro-decisions, we eliminate constant meeting tax. Frontline teams are given systemic sovereignty—they no longer have to ask permission because guardrails are clear, giving them trust, agency, and operational peace of mind."
             image="https://images.unsplash.com/photo-1504917595217-d4dc5f649e6b?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('03')}
@@ -124,7 +124,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
               <blockquote className="text-zinc-200 text-base md:text-lg italic font-light leading-relaxed">
                 "Processes falter when systems are designed for an idealized world rather than real human dynamics. We take a different approach: we treat human bandwidth, emotional clarity, and decision fatigue as the foundational constraints of any scaling enterprise.
                 <br /><br />
-                We build system-level architectures exclusively to protect human strategic energy. Across our calibration phases, frontline teams operate within customized 'logic gates' that make the aligned strategic choice natural, clear, and repeatable. We insulate executive bandwidth from daily firefighting and build an organizational operating model where talent acts in autonomous harmony with the founding vision."
+                We build system-level architectures exclusively to protect human strategic energy. Across our calibration phases, frontline teams operate within customized 'execution protocols' that make the aligned strategic choice natural, clear, and repeatable. We insulate executive bandwidth from daily firefighting and build an organizational operating model where talent acts in autonomous harmony with the founding vision."
               </blockquote>
               <div className="pt-4 border-t border-white/5 flex justify-between items-center text-xs text-zinc-500 font-mono">
                 <span>Suchita Sancheti, Founder & Alignment Architect</span>

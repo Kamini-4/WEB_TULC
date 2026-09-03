@@ -20,13 +20,13 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     slug: "architecture-of-authority",
     category: "Systems Design",
     title: "The Architecture of Authority: Why Systems Outperform Personal Brands",
-    excerpt: "Why scaling beyond founder charisma requires hard-coding authority into organizational logic gates and autonomous operational substrates.",
+    excerpt: "Why scaling beyond founder charisma requires hard-coding authority into organizational execution protocols and autonomous operational substrates.",
     image: "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600",
     date: "Executive Briefing",
     content: [
       "## What Is the Architecture of Institutional Authority?",
       "The architecture of institutional authority is the systemic codification of leadership decision heuristics into autonomous operational protocols.",
-      "This structural transition replaces charismatic founder bottlenecking with self-governing organizational logic gates.",
+      "This structural transition replaces charismatic founder bottlenecking with self-governing organizational execution protocols.",
       "Organizations that rely exclusively on hero-led decision making experience severe execution drag as transaction volume increases.",
       "According to [Harvard Business School Research](https://hbswk.hbs.edu/), companies with institutionalized decision architectures achieve 34% higher valuation resilience during leadership transitions.",
       
@@ -36,10 +36,10 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "Firms tethered to founder presence lose an average of 22% in strategic momentum during rapid growth phases.",
       "Data compiled in [McKinsey Organization Studies](https://www.mckinsey.com/) indicates that decentralized decision rules increase frontline execution speed by up to 2.5x.",
 
-      "### How Do Systemic Logic Gates Compare to Traditional Management?",
-      "Systemic logic gates standardize executive criteria into verifiable rules rather than subjective managerial consensus.",
+      "### How Do Systemic Execution Protocols Compare to Traditional Management?",
+      "Systemic execution protocols standardize executive criteria into verifiable rules rather than subjective managerial consensus.",
       
-      "| Strategic Metric | Hero-Led Founder Model | Systemic Logic Gate Model |",
+      "| Strategic Metric | Hero-Led Founder Model | Systemic Execution Protocol Model |",
       "| :--- | :--- | :--- |",
       "| **Decision Velocity** | Bottlenecked by CEO availability | Autonomous within pre-set risk gates |",
       "| **Intent Dilution** | 15% loss per management tier | Zero variance across global offices |",
@@ -49,7 +49,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### What Are the Core Pillars of Autonomous Authority?",
       "Autonomous authority is established through three foundational structural pillars:",
       "- **Cognitive Clarity:** Eliminating tactical noise through algorithmic triage to preserve executive bandwidth.",
-      "- **Invariant Logic Gates:** Hard-coding investment, product, and operational criteria into non-negotiable rules.",
+      "- **Invariant Execution Protocols:** Hard-coding investment, product, and operational criteria into non-negotiable rules.",
       "- **Zero-Latency Execution:** Aligning board mandates with operational edge units through automated feedback loops.",
 
       "### How Does an Enterprise Implement This Alignment Protocol?",
@@ -113,7 +113,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     content: [
       "## What Is Aligned Leadership in the Era of Artificial Intelligence?",
       "Aligned leadership is the architectural discipline of governing enterprise substrates where human judgment and synthetic intelligence operate in structured harmony.",
-      "Rather than treating artificial intelligence as a bolt-on productivity tool, aligned leaders engineer foundational logic gates that govern AI inputs and operational outputs.",
+      "Rather than treating artificial intelligence as a bolt-on productivity tool, aligned leaders engineer foundational execution protocols that govern AI inputs and operational outputs.",
       "According to analysis by [Stanford Institute for Human-Centered AI (HAI)](https://hai.stanford.edu/), organizations with formal AI governance architectures achieve 4x higher strategic throughput.",
 
       "### Why Do Traditional Management Models Fail When Deploying AI?",
@@ -127,7 +127,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
 
       "| Dimension | Legacy Management Model | Autonomous Systems Governance |",
       "| :--- | :--- | :--- |",
-      "| **AI Integration** | Fragmented tools and manual oversight | Unified substrate with automated logic gates |",
+      "| **AI Integration** | Fragmented tools and manual oversight | Unified substrate with automated execution protocols |",
       "| **Decision Latency** | Days to weeks for cross-department approvals | Near zero-latency within certified risk limits |",
       "| **Strategic Fidelity** | High drift across management layers | Invariant alignment with founder intent |",
       "| **Throughput Multiplier** | 1.1x to 1.3x incremental gain | 4.0x institutional velocity increase |",
@@ -172,7 +172,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
 
       "| Succession Factor | Personality Matching Approach | Structural Succession Architecture |",
       "| :--- | :--- | :--- |",
-      "| **Succession Basis** | Subjective cultural fit and charisma | Codified decision heuristics and logic gates |",
+      "| **Succession Basis** | Subjective cultural fit and charisma | Codified decision heuristics and execution protocols |",
       "| **Transition Volatility** | 15% to 20% decline in shareholder value | Zero valuation drop; uninterrupted momentum |",
       "| **Authority Transfer** | Ambiguous political power struggle | Transparent, protocol-driven authority gates |",
       "| **Organizational Memory** | Lost upon founder departure | Hard-coded into institutional operational substrates |",
@@ -207,14 +207,14 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
 
       "### Why Is Executive Burnout a Structural Rather Than Psychological Failure?",
       "Executive burnout is a structural failure caused by fragile organizational designs that require continuous heroic intervention to function.",
-      "When clear operational logic gates do not exist, all exceptions and conflicts escalate directly to the chief executive's desk.",
+      "When clear operational execution protocols do not exist, all exceptions and conflicts escalate directly to the chief executive's desk.",
       "This constant firefighting prevents leaders from engaging in high-leverage capital allocation and long-range planning.",
       "Research published by the [American Psychological Association](https://www.apa.org/) confirms that chronic decision friction impairs executive functioning and increases decision fatigue by over 45%.",
 
-      "### How Does Heroic Intervention Compare to Autonomous Logic Gates?",
-      "Autonomous logic gates resolve routine operational variance without executive involvement.",
+      "### How Does Heroic Intervention Compare to Autonomous Execution Protocols?",
+      "Autonomous execution protocols resolve routine operational variance without executive involvement.",
 
-      "| Operational Dimension | Heroic Intervention Model | Autonomous Logic Gate Model |",
+      "| Operational Dimension | Heroic Intervention Model | Autonomous Execution Protocol Model |",
       "| :--- | :--- | :--- |",
       "| **Weekly Tactical Time** | 20+ hours lost to escalations | Under 3 hours spent on critical exceptions |",
       "| **Executive Mindset** | Reactive firefighting and fatigue | Proactive architectural design and capital allocation |",
@@ -224,7 +224,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### What Steps Enable Bandwidth Reclamation for C-Suite Leaders?",
       "Bandwidth reclamation is achieved through systematic substrate stabilization:",
       "- **Friction Diagnostics:** Auditing calendar commitments and identifying operational noise vectors.",
-      "- **Decision Boundary Codification:** Creating binary logic gates for capital allocation, hiring, and product releases.",
+      "- **Decision Boundary Codification:** Creating binary execution protocols for capital allocation, hiring, and product releases.",
       "- **Autonomous Exception Routing:** Establishing delegation triggers that empower middle management within defined risk envelopes.",
 
       "### How Can Executives Reclaim 40% Strategic Bandwidth Today?",
@@ -247,7 +247,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "## Why Do 67% of Well-Formulated Strategies Fail to Achieve Intended Results?",
       "67% of well-formulated corporate strategies fail because board-level strategic intent suffers severe signal decay as it traverses operational tiers.",
       "This strategy-execution gap creates an invisible governance tax that erodes up to 15% of annual enterprise EBITDA.",
-      "Strategic disconnect occurs when boards communicate high-level milestones without installing the underlying operational logic gates.",
+      "Strategic disconnect occurs when boards communicate high-level milestones without installing the underlying operational execution protocols.",
       "According to comprehensive research by the [Boston Consulting Group (BCG)](https://www.bcg.com/), companies that establish high structural alignment achieve 2.5x higher shareholder returns over a 5-year cycle.",
 
       "### What Causes Signal Dilution Between the Boardroom and the Operational Edge?",
@@ -261,7 +261,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
 
       "| Governance Attribute | Fragmented Governance | Calibrated Substrate Model |",
       "| :--- | :--- | :--- |",
-      "| **Strategy Translation** | Subjective quarterly memos | Codified operational logic gates |",
+      "| **Strategy Translation** | Subjective quarterly memos | Codified operational execution protocols |",
       "| **Execution Fidelity** | 50% signal decay at the edge | 99% fidelity across global business units |",
       "| **EBITDA Impact** | 15% erosion via coordination drag | 15% margin protection and capital velocity |",
       "| **Shareholder Return** | Market parity | 2.5x peer outperformance over 5 years |",
@@ -269,7 +269,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### What Are the Essential Elements of a Board Alignment Protocol?",
       "A board alignment protocol incorporates three core governance mechanisms:",
       "- **Mental Model Synchronization:** Calibrating risk metrics and opportunity filters between board members and the CEO.",
-      "- **Operational Logic Gates:** Hard-coding strategic priorities into daily operational workflows and resource allocations.",
+      "- **Operational Execution Protocols:** Hard-coding strategic priorities into daily operational workflows and resource allocations.",
       "- **Early-Warning Telemetry:** Tracking execution fidelity in real-time rather than relying on delayed quarterly reports.",
 
       "### How Can Boards Bridge the Execution Divide?",
@@ -306,7 +306,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
 
       "| Approach | Traditional Calendar Management | Architectural Substrate Engineering |",
       "| :--- | :--- | :--- |",
-      "| **Core Focus** | Packing meetings efficiently | Eliminating meetings through logic gates |",
+      "| **Core Focus** | Packing meetings efficiently | Eliminating meetings through execution protocols |",
       "| **Systemic Fix** | Personal behavioral adjustment | Institutional operational redesign |",
       "| **Scalability** | Fails as company headcount doubles | Compounds efficiency as organization expands |",
       "| **Bandwidth Yield** | Marginal (5% to 10% schedule relief) | Asymmetric (15 to 20 weekly hours reclaimed) |",
@@ -379,9 +379,9 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     image: "https://images.unsplash.com/photo-1507537297325-5f9037f3796d?auto=format&fit=crop&q=80&w=1600",
     timestamp: 1709712000000,
     content: [
-      "## How Do Autonomous Logic Gates Reclaim Executive Decision Capacity?",
-      "Autonomous logic gates reclaim executive decision capacity by automatically processing over 80% of routine organizational variance without manual executive intervention.",
-      "By filtering operational noise at the middle-management tier, logic gates ensure that only critical strategic vectors reach executive leadership.",
+      "## How Do Autonomous Execution Protocols Reclaim Executive Decision Capacity?",
+      "Autonomous execution protocols reclaim executive decision capacity by automatically processing over 80% of routine organizational variance without manual executive intervention.",
+      "By filtering operational noise at the middle-management tier, execution protocols ensure that only critical strategic vectors reach executive leadership.",
       "This systemic architecture creates cognitive equity, allowing leaders to focus exclusively on high-stakes capital allocation and expansion.",
       "Research published by the [Center for Creative Leadership (CCL)](https://www.ccl.org/) shows that leaders operating with optimized decision frameworks experience 45% less cognitive fatigue.",
 
@@ -391,21 +391,21 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "Fixing individual performance without redesigning the underlying system produces temporary, unsustainable improvements.",
       "According to studies in the [Academy of Management Journal](https://journals.aom.org/journal/amj), 85% of workplace execution bottlenecks stem from system design flaws rather than employee capability.",
 
-      "### How Does Manual Decision Triage Compare to Autonomous Logic Gates?",
-      "Autonomous logic gates hard-code executive heuristics directly into the organizational operating system.",
+      "### How Does Manual Decision Triage Compare to Autonomous Execution Protocols?",
+      "Autonomous execution protocols hard-code executive heuristics directly into the organizational operating system.",
 
-      "| Governance Characteristic | Manual Decision Triage | Autonomous Logic Gates |",
+      "| Governance Characteristic | Manual Decision Triage | Autonomous Execution Protocols |",
       "| :--- | :--- | :--- |",
       "| **Executive Involvement** | Required for all operational deviations | Required only for systemic anomalies |",
       "| **Decision Latency** | Days to weeks pending executive review | Real-time automated execution |",
       "| **Scalability** | Linear bottleneck bound by CEO hours | Exponential scale across all business units |",
       "| **Cognitive Yield** | Chronic executive burnout | 40% reclaimed strategic capacity |",
 
-      "### What Are the Core Steps to Hard-Code Decision Logic Gates?",
-      "Hard-coding decision logic gates involves three rigorous engineering phases:",
+      "### What Are the Core Steps to Hard-Code Decision Execution Protocols?",
+      "Hard-coding decision execution protocols involves three rigorous engineering phases:",
       "- **Heuristic Extraction:** Mapping the specific filters and risk ratios used by the founder during critical decisions.",
-      "- **Binary Protocol Codification:** Translating extracted heuristics into clear if-then logic gates for management.",
-      "- **Substrate Integration:** Embedding logic gates into enterprise software, KPIs, and capital deployment workflows.",
+      "- **Binary Protocol Codification:** Translating extracted heuristics into clear if-then execution protocols for management.",
+      "- **Substrate Integration:** Embedding execution protocols into enterprise software, KPIs, and capital deployment workflows.",
 
       "### How Can Founders Reclaim Cognitive Equity?",
       "Founders reclaim cognitive equity by commissioning structural diagnostics and formalizing their decision architecture.",
@@ -441,7 +441,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
 
       "| Dimension | Reactive Management Model | Aligned Sovereign Architecture |",
       "| :--- | :--- | :--- |",
-      "| **Operational Driver** | Heroic personal effort and daily triage | Autonomous logic gates and protocols |",
+      "| **Operational Driver** | Heroic personal effort and daily triage | Autonomous execution protocols and protocols |",
       "| **Institutional Fragility** | High key-person risk and bottlenecking | Anti-fragile; thrives under complexity |",
       "| **Leadership Role** | Hands-on tactical manager | Sovereign systems architect |",
       "| **Enterprise Valuation** | Discounted due to founder dependency | Premium multiple in private and public markets |",
@@ -498,7 +498,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- **Cognitive Equity Allocation:** Freeing executive leaders from operational friction to drive asymmetric market moves.",
 
       "### How Can Executives Build Systems of Inevitability?",
-      "Executives build systems of inevitability by commissioning structural audits and replacing manual interventions with formal logic gates.",
+      "Executives build systems of inevitability by commissioning structural audits and replacing manual interventions with formal execution protocols.",
       "The Unbounded Leadership Co. designs sovereign operating frameworks that make market leadership structurally inevitable.",
       "Evaluate your enterprise velocity with our [Strategic Inaction Tax Diagnostic](/assessment).",
       "Explore comprehensive advisory options on our [Services & Substrates Page](/services)."
@@ -522,12 +522,12 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
 
       "### Why Does Organizational Entropy Accelerate During Rapid Scaling?",
       "Organizational entropy accelerates during rapid scaling because internal communication channels expand exponentially with headcount.",
-      "Without codified decision logic gates, newly hired managers invent redundant coordination meetings and informal approval gates.",
+      "Without codified decision execution protocols, newly hired managers invent redundant coordination meetings and informal approval gates.",
       "This bureaucratic bloat creates institutional amnesia and slows execution speed to a crawl.",
       "Studies in [MIT Sloan Management Review](https://sloanreview.mit.edu/) show that corporate complexity costs global enterprises over $3 trillion annually in lost productivity.",
 
       "### How Does Latency Tax Compare to High-Fidelity Execution Substrates?",
-      "High-fidelity execution substrates eliminate latency tax by deploying verifiable operational logic gates.",
+      "High-fidelity execution substrates eliminate latency tax by deploying verifiable operational execution protocols.",
 
       "| Financial & Operational Vector | High-Latency Enterprise | High-Fidelity Substrate Model |",
       "| :--- | :--- | :--- |",
@@ -539,7 +539,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### What Are the Three Stages of Latency Neutralization?",
       "Neutralizing the inaction tax requires a disciplined three-stage remediation protocol:",
       "- **Telemetry Audit:** Mapping the exact dollar and calendar cost of internal approval bottlenecks.",
-      "- **Logic Gate Codification:** Replacing bureaucratic committees with explicit, binary decision thresholds.",
+      "- **Execution Protocol Codification:** Replacing bureaucratic committees with explicit, binary decision thresholds.",
       "- **Autonomous Execution:** Empowering cross-functional edge teams with sovereign operating mandates.",
 
       "### How Can CEOs Calculate and Eliminate Their Inaction Tax?",
@@ -569,7 +569,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "The Leadership Threshold Model is an architectural governance framework that partitions enterprise decisions into three strict logic brackets:",
       "- **Leadership Limits:** Non-negotiable capital, brand, and risk parameters that escalate exclusively to the Office of the Chairman.",
       "- **Collaborative Boundaries:** Strategic arenas where the CEO and Chairman co-author direction through pre-set filters.",
-      "- **Delegation Triggers:** Autonomous logic gates where the CEO and management team execute with 100% authority and zero founder oversight.",
+      "- **Delegation Triggers:** Autonomous execution protocols where the CEO and management team execute with 100% authority and zero founder oversight.",
       "This structural separation eliminates founder-CEO friction and preserves enterprise continuity.",
 
       "### How Does Informal Transition Compare to the Leadership Threshold Model?",
@@ -606,7 +606,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     timestamp: 1710144000000,
     content: [
       "## Why Is CEO Burnout a Systems Design Failure Rather Than a Personal Flaw?",
-      "CEO burnout is a systems design failure caused by missing operational logic gates that force the chief executive to act as the company's sole exception handler.",
+      "CEO burnout is a systems design failure caused by missing operational execution protocols that force the chief executive to act as the company's sole exception handler.",
       "When enterprise operating models lack codified decision rules, every minor operational anomaly escalates directly to the CEO.",
       "This continuous metabolic intervention drains up to 40% of strategic bandwidth and causes severe decision fatigue.",
       "According to medical and organizational research in [The Lancet](https://www.thelancet.com/), chronic executive cognitive overload degrades strategic decision quality by over 50%.",
@@ -623,14 +623,14 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "| Intervention Type | Standard Executive Coaching & Wellness | Substrate Systems Engineering |",
       "| :--- | :--- | :--- |",
       "| **Root Focus** | Mindfulness, meditation, and stress management | Eliminating operational friction and noise |",
-      "| **Operational Impact** | Zero reduction in inbound meeting load | 40% reduction in meetings via logic gates |",
+      "| **Operational Impact** | Zero reduction in inbound meeting load | 40% reduction in meetings via execution protocols |",
       "| **Scalability** | Fragile under intense market pressure | Anti-fragile; scales seamlessly as company grows |",
       "| **Strategic Bandwidth** | Temporary relief | 15 to 20 hours weekly permanently reclaimed |",
 
       "### What Protocol Eliminates Executive Cognitive Overload?",
       "Eliminating executive cognitive overload requires a three-part systemic protocol:",
       "- **Friction Audit:** Identifying every recurring escalation and mapping its root systemic cause.",
-      "- **Logic Gate Deployment:** Translating executive criteria into binary operational rules for department leaders.",
+      "- **Execution Protocol Deployment:** Translating executive criteria into binary operational rules for department leaders.",
       "- **Autonomous Operating Rhythm:** Establishing structured governance cycles that replace daily ad-hoc firefighting.",
 
       "### How Can CEOs Reclaim Their Strategic Bandwidth Today?",
@@ -646,7 +646,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     category: "Delegation Dynamics",
     date: "Executive Briefing",
     title: "The Delegator's Paradox: Scaling Operational Decisions Without Lowering Your Quality Standards",
-    excerpt: "Why classic hands-off delegation backfires for detail-obsessed founders, and how to build high-fidelity decision logic gates that run on your exact values.",
+    excerpt: "Why classic hands-off delegation backfires for detail-obsessed founders, and how to build high-fidelity decision execution protocols that run on your exact values.",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600",
     timestamp: 1710230400000,
     content: [
@@ -663,7 +663,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "Studies in [Organizational Science](https://pubsonline.informs.org/journal/orsc) show that heuristic-based delegation reduces execution errors by 60% compared to task-based instructions.",
 
       "### How Does Traditional Hands-Off Delegation Compare to Sovereign Heuristic Mapping?",
-      "Sovereign heuristic mapping hard-codes founder intuition into precise, executable logic gates.",
+      "Sovereign heuristic mapping hard-codes founder intuition into precise, executable execution protocols.",
 
       "| Delegation Vector | Traditional Hands-Off Delegation | Sovereign Heuristic Mapping |",
       "| :--- | :--- | :--- |",
@@ -675,8 +675,8 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### What Are the Key Steps in Sovereign Heuristic Mapping?",
       "Sovereign heuristic mapping executes through three disciplined steps:",
       "- **Heuristic Extraction:** Documenting the founder's implicit criteria for product design, hiring, and capital allocation.",
-      "- **Binary Gate Formulation:** Converting qualitative criteria into unambiguous pass-fail operational logic gates.",
-      "- **Operational Stress Testing:** Running real-world enterprise scenarios through logic gates to verify 100% fidelity.",
+      "- **Binary Gate Formulation:** Converting qualitative criteria into unambiguous pass-fail operational execution protocols.",
+      "- **Operational Stress Testing:** Running real-world enterprise scenarios through execution protocols to verify 100% fidelity.",
 
       "### How Can Visionary Founders Scale Quality Without Micromanaging?",
       "Visionary founders scale quality by codifying their unique operating DNA into sovereign decision substrates.",
@@ -710,7 +710,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "High executive latency directly suppresses company return on invested capital.",
 
       "### How Does a High-Friction Enterprise Compare to an Optimized Substrate?",
-      "Optimized substrates eliminate coordination bloat by replacing alignment meetings with verified logic gates.",
+      "Optimized substrates eliminate coordination bloat by replacing alignment meetings with verified execution protocols.",
 
       "| Financial & Operational Metric | High-Friction Enterprise | Optimized Substrate Model |",
       "| :--- | :--- | :--- |",
@@ -759,7 +759,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
 
       "| Governance Dimension | Cultural Alignment Approach | Sovereign Voice Mapping Model |",
       "| :--- | :--- | :--- |",
-      "| **Guidance Format** | Abstract inspirational values | Concrete, verifiable decision logic gates |",
+      "| **Guidance Format** | Abstract inspirational values | Concrete, verifiable decision execution protocols |",
       "| **Execution Consistency** | High subjective variance across teams | 100% parity with founder strategic intent |",
       "| **Decision Velocity** | Slowed by consensus seeking and debate | High velocity via pre-approved logic rules |",
       "| **Founder Scalability** | Founder remains an operational bottleneck | Founder presence fully decoupled from scale |",
@@ -789,22 +789,22 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     content: [
       "## Why Does Strategic Formulation Fail Without Enterprise Infrastructure?",
       "Strategic formulation fails without enterprise infrastructure because abstract roadmaps cannot execute themselves across complex cross-functional teams.",
-      "Without hard-coded operational logic gates, high-level corporate strategy dissolves into daily tactical friction and competing departmental priorities.",
+      "Without hard-coded operational execution protocols, high-level corporate strategy dissolves into daily tactical friction and competing departmental priorities.",
       "Building self-regulating operational substrates ensures that executive vision reliably translates into daily execution fidelity.",
       "According to strategy implementation benchmarks by [McKinsey & Company](https://www.mckinsey.com/), over 60% of corporate strategies fall short of revenue targets due to infrastructure deficits.",
 
-      "### What Are Operational Logic Gates and How Do They Enforce Strategy?",
-      "Operational logic gates are automated checkpoint protocols embedded directly into enterprise workflows that require initiatives to meet explicit strategic criteria before receiving resources.",
+      "### What Are Operational Execution Protocols and How Do They Enforce Strategy?",
+      "Operational execution protocols are automated checkpoint protocols embedded directly into enterprise workflows that require initiatives to meet explicit strategic criteria before receiving resources.",
       "These gates prevent scope creep, resource misallocation, and operational drift without requiring constant executive oversight.",
-      "When projects fail to satisfy logic gate thresholds, they are automatically paused or recalibrated.",
-      "Research in [California Management Review](https://cmr.berkeley.edu/) demonstrates that structural logic gates increase project completion velocity by 40%.",
+      "When projects fail to satisfy execution protocol thresholds, they are automatically paused or recalibrated.",
+      "Research in [California Management Review](https://cmr.berkeley.edu/) demonstrates that structural execution protocols increase project completion velocity by 40%.",
 
       "### How Does Traditional Strategy Consulting Compare to Substrate Engineering?",
       "Substrate engineering builds permanent execution infrastructure rather than delivering temporary slide decks.",
 
       "| Engagement Vector | Traditional Strategy Consulting | T.U.L.C. Substrate Engineering |",
       "| :--- | :--- | :--- |",
-      "| **Deliverable** | Static PowerPoint presentation and report | Permanent, self-regulating operational logic gates |",
+      "| **Deliverable** | Static PowerPoint presentation and report | Permanent, self-regulating operational execution protocols |",
       "| **Execution Support** | Disengages prior to execution phase | Embeds logic directly into operating infrastructure |",
       "| **Institutional Memory** | Lost when external consultants leave | Hard-coded into permanent enterprise architecture |",
       "| **Strategic Fidelity** | High signal decay over time | 99% execution fidelity maintained indefinitely |",
@@ -812,7 +812,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### What Are the Three Stages of Substrate Infrastructure Deployment?",
       "Deploying enterprise substrate infrastructure follows three disciplined phases:",
       "- **Strategic Decomposition:** Breaking high-level corporate mandates into discrete, testable operational parameters.",
-      "- **Logic Gate Integration:** Installing decision gates across capital allocation, product development, and hiring workflows.",
+      "- **Execution Protocol Integration:** Installing decision gates across capital allocation, product development, and hiring workflows.",
       "- **Autonomous Telemetry Setup:** Establishing real-time visibility dashboards to monitor execution velocity.",
 
       "### How Can Leadership Teams Build Permanent Execution Infrastructure?",

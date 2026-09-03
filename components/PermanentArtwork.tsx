@@ -216,7 +216,7 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
               <path d="M 80 250 Q 160 80 240 300 T 400 250" stroke={platinum} strokeWidth="0.75" opacity="0.6" />
             </g>
 
-            {/* The Hard-Coded Strategic Logic Gate (The Prism Lens) */}
+            {/* The Hard-Coded Strategic Execution Protocol (The Prism Lens) */}
             <polygon points="400,130 435,250 400,370 365,250" fill="rgba(223, 186, 107, 0.05)" stroke={gold} strokeWidth="2" filter="url(#002-glow)" />
             <line x1="400" y1="80" x2="400" y2="420" stroke={gold} strokeWidth="0.75" strokeDasharray="8,8" />
             
@@ -296,7 +296,7 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
               <rect x="10" y="70" width="80" height="12" rx="4" fill={platinum} opacity="0.4" />
               <text x="510" y="80" fill={platinum} fontSize="9" fontFamily="monospace" opacity="0.5">83.3% AUTONOMOUS</text>
 
-              {/* Lane 2: Business Firefighting (Suppressed with local logic gates) */}
+              {/* Lane 2: Business Firefighting (Suppressed with local execution protocols) */}
               <text x="10" y="140" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.6">MIDDLE MANAGEMENT ESCALATION (BUFFERED)</text>
               <rect x="10" y="150" width="480" height="12" rx="4" fill="rgba(255,255,255,0.05)" />
               <rect x="10" y="150" width="120" height="12" rx="4" fill={platinum} opacity="0.3" />
@@ -363,7 +363,7 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
 
             {/* Sophisticated decision logic network (Matrix alignment) */}
             <g transform="translate(140, 60)">
-              {/* Input logic gates */}
+              {/* Input execution protocols */}
               <circle cx="120" cy="180" r="40" stroke={platinum} strokeWidth="0.75" opacity="0.2" />
               <line x1="120" y1="140" x2="120" y2="220" stroke={platinum} strokeWidth="0.5" opacity="0.3" />
               <line x1="80" y1="180" x2="160" y2="180" stroke={platinum} strokeWidth="0.5" opacity="0.3" />

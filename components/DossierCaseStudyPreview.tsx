@@ -66,8 +66,8 @@ const DOSSIER_PAGES = [
   {
     pageNumber: 5,
     id: 'page-5',
-    tabName: '05. Logic Gate Calibration',
-    title: 'Page 05 // Structural Logic Gate Calibration & Decision Architecture',
+    tabName: '05. Execution Protocol Calibration',
+    title: 'Page 05 // Structural Execution Protocol Calibration & Decision Architecture',
     subtitle: '12-Gate Operational Intervention & Delegation Guardrails',
     badge: 'OPERATIONAL INTERVENTION MATRIX'
   },
@@ -140,7 +140,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
 
               <div class="section-heading">CALIBRATION 01 // THE APEX CONVICTION PARADOX</div>
               <p class="sans" style="line-height: 1.6;">
-                The diagnostic audit reveals an apex node operating with absolute conviction. Decisions are anchored in internally generated strategic law rather than external validation. However, because this conviction is stored in the founder's head rather than codified into self-executing logic gates, every critical decision routes back to the CEO desk. Escalation Density is measured at <strong>94/100 (Critical)</strong>, forcing the Principal into 18+ hours of reactive tactical firefighting per week.
+                The diagnostic audit reveals an apex node operating with absolute conviction. Decisions are anchored in internally generated strategic law rather than external validation. However, because this conviction is stored in the founder's head rather than codified into self-executing execution protocols, every critical decision routes back to the CEO desk. Escalation Density is measured at <strong>94/100 (Critical)</strong>, forcing the Principal into 18+ hours of reactive tactical firefighting per week.
               </p>
 
               <div class="page-footer">
@@ -178,7 +178,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                     <td><strong>02. Systemic Integrity</strong></td>
                     <td style="font-weight:bold;">3.67 / 5.0</td>
                     <td>Refinement Vector</td>
-                    <td>The gap between boardroom decisions and SOP execution. Requires hard-coded logic gates.</td>
+                    <td>The gap between boardroom decisions and SOP execution. Requires hard-coded execution protocols.</td>
                   </tr>
                   <tr>
                     <td><strong>03. Strategic Velocity</strong></td>
@@ -229,7 +229,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                 <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">ESCALATION DENSITY</div><div class="metric-val" style="color:#b82b2b;">94 / 100</div><div style="font-size: 8.5pt; color:#666;">Critical Centralization</div></div>
                 <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">WEEKLY MEETING TAX</div><div class="metric-val">18.5 Hrs</div><div style="font-size: 8.5pt; color:#666;">Spent in Status Alignment</div></div>
                 <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">ANNUAL DRAG COST</div><div class="metric-val" style="color:#C5A021;">$1.42M</div><div style="font-size: 8.5pt; color:#666;">Executive Latency Drag</div></div>
-                <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">RECLAIMABLE FOCUS</div><div class="metric-val" style="color:#137333;">15+ Hrs/Wk</div><div style="font-size: 8.5pt; color:#666;">Via Logic Gate Interventions</div></div>
+                <div class="metric-box"><div class="mono" style="font-size: 7.5pt; color:#888;">RECLAIMABLE FOCUS</div><div class="metric-val" style="color:#137333;">15+ Hrs/Wk</div><div style="font-size: 8.5pt; color:#666;">Via Execution Protocol Interventions</div></div>
               </div>
 
               <div class="section-heading">SIGNAL DECAY ACROSS MANAGEMENT TIERS</div>
@@ -307,11 +307,11 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
               </div>
             </div>
 
-            <!-- PAGE 5: LOGIC GATE INTERVENTION -->
+            <!-- PAGE 5: EXECUTION PROTOCOL INTERVENTION -->
             <div class="page">
               <div class="header">
                 <div class="badge">SYSTEMIC INTERVENTION ARCHITECTURE</div>
-                <h2 style="margin: 4px 0; text-transform: uppercase; font-size: 18pt;">Structural Logic Gate Calibration & Decision Architecture</h2>
+                <h2 style="margin: 4px 0; text-transform: uppercase; font-size: 18pt;">Structural Execution Protocol Calibration & Decision Architecture</h2>
                 <div class="mono" style="color: #666;">12-GATE RE-ARCHITECTURE OF ORGANIZATIONAL OPERATING SYSTEM</div>
               </div>
 
@@ -363,7 +363,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
 
               <div class="sans" style="line-height: 1.7; margin-bottom: 20px;">
                 <p><strong>YEAR 1: THE RECALIBRATION & BANDWIDTH LIBERATION</strong><br/>
-                Implement the 12 Logic Gates. Reduce Escalation Density from 94 to 45. Reclaim 15+ hours/week for the Principal. Pass the 30-Day Step-Away Sabbatical Test with zero operational degradation.</p>
+                Implement the 12 Execution Protocols. Reduce Escalation Density from 94 to 45. Reclaim 15+ hours/week for the Principal. Pass the 30-Day Step-Away Sabbatical Test with zero operational degradation.</p>
 
                 <p><strong>YEARS 2–4: DISTRIBUTED OPERATIONAL INTELLIGENCE</strong><br/>
                 Elevate Cultural Fidelity to 4.8/5.0. Permanently eradicate defensive reporting. Empower C-Suite executives to make high-stakes capital allocations with 100% of the founder's reasoning.</p>
@@ -417,7 +417,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
               The Complete Sovereign Dossier <span className="text-[#b8860b] italic">in Practice</span>
             </h2>
             <p className="mt-3 text-zinc-300 text-sm sm:text-base font-light leading-relaxed font-serif">
-              Every audited principal receives an exhaustive clinical forensic blueprint—mapping apex cognitive bandwidth, 5-domain vector geometry, escalation density, meeting tax drag, logic gate intervention, and a generational institutional decree.
+              Every audited principal receives an exhaustive clinical forensic blueprint—mapping apex cognitive bandwidth, 5-domain vector geometry, escalation density, meeting tax drag, execution protocol intervention, and a generational institutional decree.
             </p>
           </div>
 
@@ -783,7 +783,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                       </p>
                     </div>
                     <div className="bg-[#181818] border border-emerald-500/30 p-5 rounded-xs space-y-2">
-                      <span className="text-[10px] font-mono uppercase text-emerald-400 block">Reclaimable Bandwidth via Logic Gates</span>
+                      <span className="text-[10px] font-mono uppercase text-emerald-400 block">Reclaimable Bandwidth via Execution Protocols</span>
                       <div className="text-2xl font-serif font-bold text-emerald-400">+15.0 Hours / Week</div>
                       <p className="text-xs text-zinc-300 font-serif italic">
                         Liberated for pure strategic expansion, market offense, and uninhibited leadership vision.
@@ -850,7 +850,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                 </motion.div>
               )}
 
-              {/* PAGE 5: STRUCTURAL LOGIC GATE INTERVENTION */}
+              {/* PAGE 5: STRUCTURAL EXECUTION PROTOCOL INTERVENTION */}
               {currentPage === 5 && (
                 <motion.div
                   key="page-5"
@@ -866,7 +866,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                         PAGE 05 // SYSTEMIC INTERVENTION BLUEPRINT
                       </span>
                       <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
-                        Structural Logic Gate Calibration & Decision Architecture
+                        Structural Execution Protocol Calibration & Decision Architecture
                       </h3>
                     </div>
                     <span className="px-2.5 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 text-[#b8860b] text-[9px] font-mono uppercase font-bold shrink-0">
@@ -1132,7 +1132,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                     <span className="font-mono text-[10px] text-[#8a6d1a] font-bold">CALIB-03</span>
                   </div>
                   <p className="mb-4">
-                    Escalation Density is measured at 94/100 (Critical). The Principal spends 18.5 hours weekly in reactive alignment meetings. Installing automated logic gates recovers 15+ hours weekly of deep strategic thinking time.
+                    Escalation Density is measured at 94/100 (Critical). The Principal spends 18.5 hours weekly in reactive alignment meetings. Installing automated execution protocols recovers 15+ hours weekly of deep strategic thinking time.
                   </p>
                 </div>
 
@@ -1150,11 +1150,11 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                 {/* PAGE 5 IN MODAL */}
                 <div className="border-b-2 border-[#C5A021] pb-10">
                   <div className="flex justify-between items-center border-b border-black pb-2 mb-4">
-                    <span className="font-bold text-sm uppercase">Page 05 // Structural Logic Gate Calibration (12 Gates)</span>
+                    <span className="font-bold text-sm uppercase">Page 05 // Structural Execution Protocol Calibration (12 Gates)</span>
                     <span className="font-mono text-[10px] text-[#8a6d1a] font-bold">CALIB-05</span>
                   </div>
                   <p className="mb-4">
-                    Installs 12 codified logic gates: (1) Autonomous Capital Logic up to $150k, (2) Strict 3-Condition Escalation Filter to protect CEO calendar, and (3) Distributed Context Broadcasting to permanently eliminate defensive reporting.
+                    Installs 12 codified execution protocols: (1) Autonomous Capital Logic up to $150k, (2) Strict 3-Condition Escalation Filter to protect CEO calendar, and (3) Distributed Context Broadcasting to permanently eliminate defensive reporting.
                   </p>
                 </div>
 

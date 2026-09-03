@@ -36,7 +36,7 @@ const domains: Domain[] = [
     founderTerm: "Zero-Loss Delegation",
     coreQuestion: "When you hand off a major initiative, does it execute to your exact standards—or do you have to step in and fix it?",
     symptom: "Constant check-in meetings, execution drift, and rework because middle managers lack codified decision parameters.",
-    benefit: "Hard-codes founder intent into automated operational logic gates so teams execute with your exact risk appetite without asking permission.",
+    benefit: "Hard-codes founder intent into automated operational execution protocols so teams execute with your exact risk appetite without asking permission.",
     outcome: "Cross-functional directives and SOPs execute autonomously with zero quality degradation or need for manual founder intervention.",
     vision: "A self-cohering organizational engine that operates at peak fidelity regardless of executive physical presence.",
     icon: <Cpu className="w-4 h-4 text-[#b8860b]" />

@@ -121,7 +121,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
             </p>
             <div className="flex flex-col gap-2 font-mono text-[9px] text-zinc-400">
               <span className="text-[7px] font-black uppercase text-zinc-650 block mb-0.5">Direct Paths</span>
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2">
+              <a href="https://www.linkedin.com/company/theunboundedleadership" target="_blank" rel="noopener noreferrer" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2">
                 <Linkedin className="w-3 h-3 text-[#b8860b] shrink-0" />
                 <span>linkedin.com/company/theunboundedleadership</span>
               </a>
@@ -129,6 +129,24 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
                 <Instagram className="w-3 h-3 text-[#b8860b] shrink-0" />
                 <span>instagram.com/transformingleadership</span>
               </a>
+              <div className="pt-0.5 flex items-center gap-2">
+                <a 
+                  href="https://www.f6s.com/member/suchita-sancheti?follow=1" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title="Follow Suchita Sancheti on F6S"
+                  className="hover:opacity-85 transition-opacity inline-block"
+                >
+                  <img 
+                    src="https://www.f6s.com/images/f6s-follow-secondary.png" 
+                    width="78" 
+                    height="22" 
+                    alt="Follow Suchita Sancheti on F6S" 
+                    referrerPolicy="no-referrer"
+                    style={{ width: '78px', height: '22px', padding: '0px', margin: '0px' }}
+                  />
+                </a>
+              </div>
               <a href="mailto:kaminiagnihotri249@gmail.com" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2">
                 <Mail className="w-3 h-3 text-[#b8860b] shrink-0" />
                 <span>Assistant: kaminiagnihotri249@gmail.com</span>

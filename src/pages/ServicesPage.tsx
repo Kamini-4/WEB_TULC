@@ -48,7 +48,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
     coreHighlights: [
       'Simultaneous 10-node telemetry across Apex, C-Suite, Legal & Edge',
       'Confidential Sovereign Board Dossier & Decision Leak Map',
-      'Pinpoint the exact 3 unsealed logic gates draining executive energy',
+      'Pinpoint the exact 3 unsealed execution protocols draining executive energy',
       'Private 60-Minute Adversarial & Readout Briefing with Suchita Sancheti'
     ],
     psychologicalAnchor: 'Low-friction entry that eliminates risk with a 100% fee credit applied to ongoing architecture.',
@@ -58,7 +58,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
     id: 'transformation',
     badge: 'Phases 01–03 • Core Installation',
     tier: 'Category 02',
-    categoryName: 'Enterprise Logic Gate Transformation',
+    categoryName: 'Enterprise Execution Protocol Transformation',
     name: '90-Day Sovereign Transformation',
     hook: 'Hard-code your decision logic into 12 self-regulating operational gates to guarantee 100% execution fidelity.',
     outcomeMetric: '40% Bandwidth Reclaimed in 90 Days',
@@ -67,7 +67,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
     investmentTier: 'Upon Request',
     investmentNote: 'Permanent operational infrastructure setup',
     coreHighlights: [
-      'Install 12 custom invariant logic gates to automate routine trade-offs',
+      'Install 12 custom invariant execution protocols to automate routine trade-offs',
       'Eradicate recurring alignment meetings and middle-management friction',
       'Reclaim up to 40% of executive strategic bandwidth in 90 days',
       'Pass the 30-Day Step-Away Test with zero operational degradation',
@@ -342,7 +342,7 @@ const ServicesPage: React.FC = () => {
                 <span>03. Valuation Alpha</span>
               </div>
               <p className="text-zinc-600 italic leading-relaxed text-[11px]">
-                Enterprises with hard-coded logic gates and decoupled founder dependency command up to 35% higher exit multiples in private markets.
+                Enterprises with hard-coded execution protocols and decoupled founder dependency command up to 35% higher exit multiples in private markets.
               </p>
             </div>
           </div>

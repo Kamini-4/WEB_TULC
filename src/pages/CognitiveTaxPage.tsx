@@ -492,7 +492,7 @@ const CognitiveTaxPage: React.FC = () => {
                         {metrics.strategicVelocityMultiplier}x Overhead
                       </div>
                       <span className="text-[10px] text-zinc-400 font-serif italic">
-                        vs. Autonomous Logic Gate
+                        vs. Autonomous Execution Protocol
                       </span>
                     </div>
                   </div>
@@ -556,7 +556,7 @@ const CognitiveTaxPage: React.FC = () => {
                       Target: Sovereign OS
                     </span>
                     <ul className="space-y-1.5 text-zinc-800 text-[11px] font-serif font-medium">
-                      <li>• Hard-coded logic gates</li>
+                      <li>• Hard-coded execution protocols</li>
                       <li>• 40% strategic bandwidth reclaimed</li>
                       <li>• Pure signal resonance</li>
                       <li>• 60+ month institutional half-life</li>

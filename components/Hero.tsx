@@ -81,7 +81,7 @@ const Hero: React.FC<HeroProps> = () => {
             </div>
             <div className="flex items-center gap-2 px-3.5 py-2 bg-white border border-zinc-200 rounded-xs shadow-2xs text-[10px] sm:text-[11px] font-mono text-zinc-800">
               <Cpu className="w-3.5 h-3.5 text-[#b8860b]" />
-              <span><strong>Human-Embedded</strong> Logic Gates</span>
+              <span><strong>Human-Embedded</strong> Execution Protocols</span>
             </div>
           </motion.div>
 
@@ -175,9 +175,9 @@ const Hero: React.FC<HeroProps> = () => {
                   <span className="text-[10px] font-black uppercase text-[#b8860b] font-mono">Phase 02</span>
                   <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] group-hover:scale-150 transition-transform" />
                 </div>
-                <h3 className="text-base font-bold text-zinc-900 mb-1.5 font-serif group-hover:text-[#b8860b] transition-colors">Logic Gate Engineering</h3>
+                <h3 className="text-base font-bold text-zinc-900 mb-1.5 font-serif group-hover:text-[#b8860b] transition-colors">Execution Protocol Engineering</h3>
                 <p className="text-xs text-zinc-600 italic font-light leading-relaxed">
-                  Hard-coding strategic rules and founder reasoning into operational logic gates for 100% execution fidelity.
+                  Hard-coding strategic rules and founder reasoning into operational execution protocols for 100% execution fidelity.
                 </p>
               </div>
 

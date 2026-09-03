@@ -41,7 +41,7 @@ const QUESTIONS: Question[] = [
       { 
         label: "Insulated Strategic Focus (<20% Firefighting)", 
         scores: { "Cognitive Clarity": 5, "Systemic Integrity": 4, "Strategic Velocity": 4 }, 
-        description: "My desk is strictly insulated by invariant logic gates. I dedicate over 80% of my time exclusively to compound capital moves and market expansion." 
+        description: "My desk is strictly insulated by invariant execution protocols. I dedicate over 80% of my time exclusively to compound capital moves and market expansion." 
       },
       { 
         label: "Intermittent Reactive Drag (20% – 50% Firefighting)", 
@@ -1144,7 +1144,7 @@ const Assessment: React.FC = () => {
 
               <h2>03. Tailored Architectural Prescriptions</h2>
               <p class="emphasis">
-                Replacing manual overhead with self-executing operational logic gates to recover strategic bandwidth within 90 days.
+                Replacing manual overhead with self-executing operational execution protocols to recover strategic bandwidth within 90 days.
               </p>
 
               <div class="highlight-box">
@@ -1172,8 +1172,8 @@ const Assessment: React.FC = () => {
                   Dissolving C-suite divergence, clarifying boundary conditions, and aligning C-suite expectations.
                 </div>
                 <div style="border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 8px;">
-                  <strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;">Phase 02 • Logic Gate Engineering</strong><br />
-                  Hard-coding founder decision heuristics into automated, pre-authorized operational logic gates.
+                  <strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;">Phase 02 • Execution Protocol Engineering</strong><br />
+                  Hard-coding founder decision heuristics into automated, pre-authorized operational execution protocols.
                 </div>
                 <div>
                   <strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;">Phase 03 & 04 • Systemic Calibration & Resonance Safeguard</strong><br />
@@ -1691,7 +1691,7 @@ const Assessment: React.FC = () => {
               "Cognitive Clarity": {
                 definition: "The precise externalization of leadership's strategic algorithms to empower autonomous execution layers without manual founder intervention.",
                 strength: "Your enterprise demonstrates exceptional capability in crafting long-term strategic vectors. Your intuitive market compass is pristine, consistently anticipating compound market moves before competitors.",
-                refinement: "However, because this strategic law is held in your head rather than codified into immutable logic gates, your calendar is consumed by daily tactical approvals, slide deck reviews, and reactive firefighting.",
+                refinement: "However, because this strategic law is held in your head rather than codified into immutable execution protocols, your calendar is consumed by daily tactical approvals, slide deck reviews, and reactive firefighting.",
                 urgency: "Compounding Cost of Inaction: Every month without invariant alignment gates burns 60+ hours of founder bandwidth in redundant coordination, directly capping your enterprise valuation and speed to market.",
                 objection: "Systemic Principle: True scaling is never achieved through bloated documentation or endless syncs, but by encoding apex decision heuristics into self-executing delegation envelopes.",
                 benefit: "Strategic Bandwidth Reclaimed: Liberate up to 15+ hours weekly to command high-yield capital moves and permanent market dominance.",
@@ -1889,7 +1889,7 @@ const Assessment: React.FC = () => {
                             <span className="text-[#b8860b] font-bold uppercase block mb-1">
                               ⚡ Mandate Verification Gate:
                             </span>
-                            This 5-Vector Pulse identifies where your enterprise is actively leaking capital. To calculate your exact numerical escalation thresholds and engineer your custom 12 Logic Gates, advance to the <strong>10-Question Clinical Forensic Intake</strong>.
+                            This 5-Vector Pulse identifies where your enterprise is actively leaking capital. To calculate your exact numerical escalation thresholds and engineer your custom 12 Execution Protocols, advance to the <strong>10-Question Clinical Forensic Intake</strong>.
                           </div>
                         </div>
                       )}
@@ -2009,16 +2009,16 @@ const Assessment: React.FC = () => {
                       )}
 
                       {dossierPage === 5 && (
-                        /* PAGE 5: 12 LOGIC GATES ARCHITECTURE & UNSEALED BREACHES */
+                        /* PAGE 5: 12 EXECUTION PROTOCOLS ARCHITECTURE & UNSEALED BREACHES */
                         <div className="space-y-3 py-1 text-left">
                           <span className="text-[9px] font-black uppercase text-[#b8860b] font-mono block">
-                            Module 04 // 12 Logic Gates Architecture & Unsealed Breaches
+                            Module 04 // 12 Execution Protocols Architecture & Unsealed Breaches
                           </span>
                           <h3 className="text-lg sm:text-xl font-bold text-white leading-tight mb-1 font-serif">
-                            Codified Logic Gate Prescriptions
+                            Codified Execution Protocol Prescriptions
                           </h3>
                           <p className="text-zinc-400 text-[10px] italic font-serif leading-relaxed mb-2 pb-1 border-b border-white/5">
-                            We do not offer generic coaching. We install immutable operating logic gates that eliminate approval queues permanently:
+                            We do not offer generic coaching. We install immutable operating execution protocols that eliminate approval queues permanently:
                           </p>
                           <div className="space-y-2 font-mono text-xs">
                             <div className="p-2.5 bg-[#161616] border border-white/10 rounded-xs flex justify-between items-center">

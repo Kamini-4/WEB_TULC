@@ -129,7 +129,7 @@ export const GooglePreferredSource: React.FC<GooglePreferredSourceProps> = ({
           </div>
 
           <p className="text-zinc-400 text-xs font-serif italic leading-relaxed mb-5">
-            Add <strong className="text-white font-semibold">The Unbounded Leadership Co.</strong> directly to your Google Search & Discover preferred source list to ensure Founder Suchita Sancheti’s proprietary white papers, mathematical logic gate research, and executive dispatches are surfaced first.
+            Add <strong className="text-white font-semibold">The Unbounded Leadership Co.</strong> directly to your Google Search & Discover preferred source list to ensure Founder Suchita Sancheti’s proprietary white papers, mathematical execution protocol research, and executive dispatches are surfaced first.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -231,7 +231,7 @@ const GooglePreferenceModal: React.FC<ModalProps> = ({
         </div>
 
         <p className="text-zinc-300 text-xs sm:text-sm font-serif italic leading-relaxed mb-6">
-          Google Search enables enterprise principals to explicitly designate trusted research domains. By adding <strong>{domain}</strong> to your Google source preferences, all executive dispatches, strategic white papers, and mathematical logic gate case studies will automatically rank higher in your personal Google Search and Discover feeds.
+          Google Search enables enterprise principals to explicitly designate trusted research domains. By adding <strong>{domain}</strong> to your Google source preferences, all executive dispatches, strategic white papers, and mathematical execution protocol case studies will automatically rank higher in your personal Google Search and Discover feeds.
         </p>
 
         <div className="space-y-3 mb-6 font-mono text-xs">

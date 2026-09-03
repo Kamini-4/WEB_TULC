@@ -192,7 +192,7 @@ const StrategicMandates: React.FC = () => {
                   </div>
 
                   <div className="bg-white/5 p-3.5 border border-white/5 rounded-xs space-y-1">
-                    <span className="text-[10px] font-bold text-white block">Behavioral Logic Gates</span>
+                    <span className="text-[10px] font-bold text-white block">Behavioral Execution Protocols</span>
                     <p className="text-xs text-zinc-300 italic font-light leading-relaxed">
                       Codifies founder intent into self-regulating operational gates, aligning human incentives with structural workflow.
                     </p>

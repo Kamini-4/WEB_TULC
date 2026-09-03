@@ -52,9 +52,9 @@ const HumanSubstrateManifesto: React.FC = () => {
                 <span>Phase 02: Alignment Protocol</span>
                 <Cpu className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-white font-serif">Logic Gate Engineering</h3>
+              <h3 className="text-sm font-bold text-white font-serif">Execution Protocol Engineering</h3>
               <p className="text-xs text-zinc-300 italic font-light leading-relaxed">
-                Hard-codes human DNA into self-regulating organizational logic gates. We establish non-negotiable cultural postures and automated exception-handling channels to eliminate micromanagement.
+                Hard-codes human DNA into self-regulating organizational execution protocols. We establish non-negotiable cultural postures and automated exception-handling channels to eliminate micromanagement.
               </p>
             </div>
 

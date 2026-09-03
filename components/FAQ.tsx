@@ -13,7 +13,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "What is Sovereign Voice Mapping™ (Patent Pending), and how does it delegate high-stakes decisions?",
-      answer: "Standard delegation fails because it transfers tasks, not the founder's mental criteria. Sovereign Voice Mapping™ (Patent Pending) is a proprietary, scientific process where we extract your precise strategic heuristics, risk tolerance, and decision-making filters, codifying them into automated operational logic gates. This allows your executive team to execute decisions with 100% of your exact values and risk appetite autonomously, keeping you in pure strategic design."
+      answer: "Standard delegation fails because it transfers tasks, not the founder's mental criteria. Sovereign Voice Mapping™ (Patent Pending) is a proprietary, scientific process where we extract your precise strategic heuristics, risk tolerance, and decision-making filters, codifying them into automated operational execution protocols. This allows your executive team to execute decisions with 100% of your exact values and risk appetite autonomously, keeping you in pure strategic design."
     },
     {
       question: "How does the 'Sovereign Voice Mapping' process work in practice? Do I have to record hours of audio?",
@@ -25,7 +25,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "How does the 10-Node Institutional Triangulation Audit operate across our team?",
-      answer: "We do not conduct slow, disruptive multi-week consulting audits. We deploy an asynchronous 10-question forensic diagnostic simultaneously across the 10 vital nervous nodes of your enterprise: The Apex Founder/CEO, 2–3 Key CXOs, Legal & Governance Guardians, Long-tenured Institutional Veterans, and 2–3 Edge Delivery Operators. In under 48 hours, our proprietary engine mathematically cross-maps the exact 2.0-point translation gap between boardroom intent and edge execution, isolating unsealed logic gates without operational disruption."
+      answer: "We do not conduct slow, disruptive multi-week consulting audits. We deploy an asynchronous 10-question forensic diagnostic simultaneously across the 10 vital nervous nodes of your enterprise: The Apex Founder/CEO, 2–3 Key CXOs, Legal & Governance Guardians, Long-tenured Institutional Veterans, and 2–3 Edge Delivery Operators. In under 48 hours, our proprietary engine mathematically cross-maps the exact 2.0-point translation gap between boardroom intent and edge execution, isolating unsealed execution protocols without operational disruption."
     },
     {
       question: "What does a 'metabolic leak' or 'Cognitive Tax' look like on a day-to-day basis?",
@@ -37,7 +37,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "What exact scientific frameworks or methodologies are these audits based on?",
-      answer: "Our diagnostics and interventions are built on self-regulating systems theory, John Sweller's Cognitive Load Theory, and first-principles complexity science. We translate these frameworks into clear organizational logic gates, ensuring your enterprise operates like a self-regulating operating model rather than a chaotic hierarchy."
+      answer: "Our diagnostics and interventions are built on self-regulating systems theory, John Sweller's Cognitive Load Theory, and first-principles complexity science. We translate these frameworks into clear organizational execution protocols, ensuring your enterprise operates like a self-regulating operating model rather than a chaotic hierarchy."
     },
     {
       question: "How does the 10-Point Friction Audit™ (Patent Pending) measure my organization's latency?",
@@ -49,7 +49,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "How does architectural substrate engineering complement traditional strategic advisory?",
-      answer: "Strategic advisory excels at defining market position and growth horizons, while architectural engineering focuses on execution infrastructure. T.U.L.C. bridges the gap between high-level strategy and frontline operations by engineering self-regulating corporate substrates. We install live operational logic gates and automated protocols directly into your operating infrastructure, ensuring absolute strategic fidelity and sustainable operational leverage."
+      answer: "Strategic advisory excels at defining market position and growth horizons, while architectural engineering focuses on execution infrastructure. T.U.L.C. bridges the gap between high-level strategy and frontline operations by engineering self-regulating corporate substrates. We install live operational execution protocols and automated protocols directly into your operating infrastructure, ensuring absolute strategic fidelity and sustainable operational leverage."
     },
     {
       question: "Is the Yield Calibration or 'Strategic Alignment Audit' the complete process?",
@@ -65,7 +65,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "How does the protocol integrate human leadership with systemic architecture across the operational phases?",
-      answer: "Across Phases 2 through 4, we integrate human leadership dynamics with operational systems through three core pillars: 1) Cognitive Bandwidth Optimization: We map executive decision frequency to eliminate low-level exception handling and reclaim focus for high-stakes bets. 2) Behavioral Logic Gates: Instead of relying on brute willpower or endless check-in meetings, we codify founder intent into clear, self-executing operational guardrails. 3) Safeguards Against Drift: Our long-term safeguards actively monitor organizational health signals, insulating the enterprise from operational decay and preserving founder intent across generations. In short, we architect Sovereign Systems—automated protocols that liberate human vision, intuition, and strategic execution."
+      answer: "Across Phases 2 through 4, we integrate human leadership dynamics with operational systems through three core pillars: 1) Cognitive Bandwidth Optimization: We map executive decision frequency to eliminate low-level exception handling and reclaim focus for high-stakes bets. 2) Behavioral Execution Protocols: Instead of relying on brute willpower or endless check-in meetings, we codify founder intent into clear, self-executing operational guardrails. 3) Safeguards Against Drift: Our long-term safeguards actively monitor organizational health signals, insulating the enterprise from operational decay and preserving founder intent across generations. In short, we architect Sovereign Systems—automated protocols that liberate human vision, intuition, and strategic execution."
     }
   ];
 

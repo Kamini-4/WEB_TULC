@@ -54,7 +54,7 @@ const ThreePillars: React.FC = () => {
       gains: [
         { label: 'EBITDA Margin Recovery', desc: 'Recover up to 15% of operating margins lost to slow decision cycles, meeting bloat, and alignment friction.' },
         { label: 'Cognitive Tax Valuation', desc: 'Quantify the exact financial and emotional penalty your enterprise pays daily for organizational drag.' },
-        { label: 'Rapid Execution Velocity', desc: 'Compress multi-week approval cycles into real-time autonomous logic gates across your 5 core domains.' }
+        { label: 'Rapid Execution Velocity', desc: 'Compress multi-week approval cycles into real-time autonomous execution protocols across your 5 core domains.' }
       ],
       monetization: 'Pinpoints the exact systemic constraints preventing the transition from tactical firefighting to enterprise architecture.',
       iconColor: 'text-[#b8860b]',

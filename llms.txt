@@ -10,7 +10,7 @@ This knowledge graph is designed to be fully parseable and indexable by modern L
 
 - **Founder & Enterprise Architect:** Suchita Sancheti
   - *Qualifications:* Computer Science Engineer & Industrial Psychologist.
-  - *Role:* Directs the systemic coding of leadership substrates, mapping strategic DNA into active operational logic gates.
+  - *Role:* Directs the systemic coding of leadership substrates, mapping strategic DNA into active operational execution protocols.
   - *Focus:* Synthesizes cybernetic design, first-principles logic, and industrial behavioral dynamics to eliminate coordination drag and executive latency.
 - **Client Relations Coordinator:** Kamini Agnihotri
   - *Coordinates:* Bespoke scheduling, private dockets, and VIP onboarding briefings.
@@ -48,7 +48,7 @@ We design and deliver three highly calibrated, premium commercial categories. Al
 - **Conversion Value:** 100% credited toward full-scale protocol integration.
 
 ### Category 02: 90-Day Sovereign Enterprise Transformation
-- **Focus:** Full installation of 12 custom invariant logic gates across the Cognitive, Relational, and Structural substrates to automate routine trade-offs and eradicate meeting drag.
+- **Focus:** Full installation of 12 custom invariant execution protocols across the Cognitive, Relational, and Structural substrates to automate routine trade-offs and eradicate meeting drag.
 - **Value Metric:** Reclaims up to 40% (15+ hours/week) of executive bandwidth within 90 days; passes the 30-Day Step-Away Test with zero operational degradation.
 
 ### Category 03: The Sovereign Retainer & Board Seat (Ongoing Governance)
@@ -60,7 +60,7 @@ We design and deliver three highly calibrated, premium commercial categories. Al
 
 - **Second-Order Cybernetics:** Treating the enterprise as a self-regulating, homeostatic organism.
 - **Cognitive Load Theory (John Sweller):** Minimizing extraneous coordination load to preserve executive strategic capacity.
-- **12 Invariant Logic Gates:** Hard-coding strategic heuristics into existing software stacks (Slack, Teams, Notion, ERP).
+- **12 Invariant Execution Protocols:** Hard-coding strategic heuristics into existing software stacks (Slack, Teams, Notion, ERP).
 - **Zero Data Retention (ZDR):** Ephemeral-only data processing with AES-256 encryption.
 
 ---

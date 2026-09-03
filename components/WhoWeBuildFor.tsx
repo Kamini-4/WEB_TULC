@@ -19,7 +19,7 @@ const WhoWeBuildFor: React.FC = () => {
       category: "Institutional CEOs & C-Suites",
       title: "Coordination Drag & Meeting Tax",
       description: "Enterprise CEOs and leadership teams trapped in consensus meetings, multi-layered approvals, and strategic intent decay across verticals.",
-      outcome: "Self-regulating operating logic gates that compress multi-week approval cycles into real-time autonomous execution.",
+      outcome: "Self-regulating operating execution protocols that compress multi-week approval cycles into real-time autonomous execution.",
       linkTrack: "/services",
       trackName: "Systemic Transformation"
     },

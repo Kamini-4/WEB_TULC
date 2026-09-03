@@ -26,7 +26,7 @@ const frictionScenarios: FrictionCard[] = [
     financialDrain: "Dilutes CEO strategic bandwidth by 35%",
     rootFailure: "Lack of Invariant Heuristic Filters; managers don't know the exact risk tolerance parameters of the apex desk.",
     installedGate: "Gate 01: Pre-Verified Assumption Matrices",
-    clinicalFix: "Replaces manual slide-by-slide reviews with standardized logic gates that require managers to verify core assumptions against hard-coded financial heuristics before submission.",
+    clinicalFix: "Replaces manual slide-by-slide reviews with standardized execution protocols that require managers to verify core assumptions against hard-coded financial heuristics before submission.",
     domainRef: "Domain 01: Cognitive Clarity"
   },
   {
@@ -115,7 +115,7 @@ const ExecutiveFrictionScanner: React.FC = () => {
               The Daily Leaks You Suffer. <span className="text-[#b8860b] italic font-light">The Installed Fixes.</span>
             </h2>
             <p className="text-zinc-400 text-xs sm:text-sm font-sans mt-2 leading-relaxed">
-              Hover or tap any operational friction point below to instantly preview the hidden metabolic burn, root systemic failure, and the codified logic gate that neutralizes it.
+              Hover or tap any operational friction point below to instantly preview the hidden metabolic burn, root systemic failure, and the codified execution protocol that neutralizes it.
             </p>
           </div>
 
@@ -255,7 +255,7 @@ const ExecutiveFrictionScanner: React.FC = () => {
                         <div className="flex items-center gap-2 text-[#b8860b]">
                           <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
                           <span className="text-[10px] font-mono uppercase font-bold tracking-wider">
-                            Installed Sovereign Logic Gate:
+                            Installed Sovereign Execution Protocol:
                           </span>
                         </div>
                         <span className="text-[9px] font-mono px-2 py-0.5 bg-[#b8860b] text-black font-bold rounded-xs">

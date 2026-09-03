@@ -38,7 +38,8 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
       "url": "https://theunboundedleadership.com/about",
       "sameAs": [
         "https://www.linkedin.com/company/theunboundedleadership",
-        "https://www.instagram.com/transformingleadership"
+        "https://www.instagram.com/transformingleadership",
+        "https://www.f6s.com/member/suchita-sancheti"
       ]
     }
   };
@@ -169,7 +170,7 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
               <div className="text-[#b8860b] font-mono text-xs font-bold mb-3">PROBLEM 03</div>
               <h4 className="font-bold text-[#111111] text-base mb-2">The Execution Gap</h4>
               <p className="text-zinc-600 text-xs leading-relaxed italic font-light">
-                Strategic plans were formulated, yet without self-executing operational guardrails and logic gates, intent struggled to translate to frontline execution.
+                Strategic plans were formulated, yet without self-executing operational guardrails and execution protocols, intent struggled to translate to frontline execution.
               </p>
             </div>
 
@@ -270,7 +271,7 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
                   <div className="space-y-2 text-zinc-800 font-serif text-sm">
                     <div className="py-2.5 border-y border-zinc-100 flex flex-col items-start px-2 text-left">
                       <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase mb-1">Systems Logic (Computer Science Engineer)</span>
-                      <span className="font-medium text-zinc-900 text-xs italic">"We map your corporate workflows as precise, high-frequency logic gates—turning vague mandates into explicit, self-executing system actions."</span>
+                      <span className="font-medium text-zinc-900 text-xs italic">"We map your corporate workflows as precise, high-frequency execution protocols—turning vague mandates into explicit, self-executing system actions."</span>
                     </div>
                     <div className="py-2.5 border-b border-zinc-100 flex flex-col items-start px-2 text-left">
                       <span className="text-zinc-500 text-[10px] font-sans font-bold uppercase mb-1">Human Alignment (Industrial Psychologist)</span>
@@ -304,9 +305,27 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
             {/* Biography Narrative - Positioning Suchita Sancheti & TULC */}
             <div className="md:col-span-7 space-y-10">
               <div className="space-y-6 text-[#111111]">
-                <h3 className="text-xl font-bold text-[#111111] border-b border-[#b8860b]/20 pb-2">
-                  Suchita Sancheti — Founder & Enterprise Architect
-                </h3>
+                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#b8860b]/20 pb-3">
+                  <h3 className="text-xl font-bold text-[#111111]">
+                    Suchita Sancheti — Founder & Enterprise Architect
+                  </h3>
+                  <a 
+                    href="https://www.f6s.com/member/suchita-sancheti?follow=1" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    title="Follow Suchita Sancheti on F6S"
+                    className="inline-flex items-center hover:opacity-80 transition-opacity"
+                  >
+                    <img 
+                      src="https://www.f6s.com/images/f6s-follow-secondary.png" 
+                      width="78" 
+                      height="22" 
+                      alt="Follow Suchita Sancheti on F6S" 
+                      referrerPolicy="no-referrer"
+                      style={{ width: '78px', height: '22px', padding: '0px', margin: '0px' }}
+                    />
+                  </a>
+                </div>
 
                 <p className="text-2xl text-zinc-800 leading-relaxed font-semibold italic text-[#b8860b] font-serif">
                   "You do not need advice to file away in a drawer. You need a system that makes strategic misalignment and operational drag mathematically impossible."
@@ -405,9 +424,9 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
             <h3 className="text-xl md:text-2xl font-bold mt-2 font-serif text-[#f5f5f0]">Secure Communication Channels</h3>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs font-mono text-zinc-400">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono text-zinc-400">
             <a 
-              href="https://www.linkedin.com" 
+              href="https://www.linkedin.com/company/theunboundedleadership" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:text-white transition-all flex items-center gap-3 border border-white/5 p-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
@@ -423,6 +442,24 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
             >
               <Instagram className="w-4 h-4 text-[#b8860b] shrink-0" />
               <span className="truncate">@transformingleadership</span>
+            </a>
+            <a 
+              href="https://www.f6s.com/member/suchita-sancheti?follow=1" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              title="Follow Suchita Sancheti on F6S"
+              className="hover:text-white transition-all flex items-center justify-between gap-3 border border-white/5 p-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+            >
+              <span className="truncate">f6s.com/member/suchita-sancheti</span>
+              <img 
+                src="https://www.f6s.com/images/f6s-follow-secondary.png" 
+                width="78" 
+                height="22" 
+                alt="Follow Suchita Sancheti on F6S" 
+                referrerPolicy="no-referrer"
+                style={{ width: '78px', height: '22px', padding: '0px', margin: '0px' }}
+                className="shrink-0"
+              />
             </a>
             <a 
               href="mailto:kaminiagnihotri249@gmail.com" 
