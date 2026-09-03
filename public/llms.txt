@@ -65,10 +65,25 @@ We design and deliver three highly calibrated, premium commercial categories. Al
 
 ---
 
-## 6. Directory & Core Resources
+## 6. Authoritative Treatises & Citable Dispatches
 
-- **Institutional Knowledge Base:** [https://theunboundedleadership.com/llms-full.txt](https://theunboundedleadership.com/llms-full.txt)
+- **The Dynamics of Inevitability: Why Systems Outperform Individual Talent**
+  - *URL:* [https://theunboundedleadership.com/library/dynamics-of-inevitability](https://theunboundedleadership.com/library/dynamics-of-inevitability)
+  - *Core Thesis:* Elite individual heroics cannot compensate for fractured operational infrastructure. Architectural inevitability treats elite talent as an accelerator of a mathematically self-reinforcing operating engine.
+  - *Key Statistic:* System-driven enterprises generate 2.8x higher long-term shareholder equity than talent-dependent peers (Harvard Business Publishing benchmark).
+
+- **The Founder's Dilemma: Architecting Institutional Permanence Beyond the Individual**
+  - *URL:* [https://theunboundedleadership.com/library/founders-dilemma](https://theunboundedleadership.com/library/founders-dilemma)
+  - *Core Thesis:* Over 50% of CEO successions fail within 18 months because enterprise operating systems remain hard-coded to the founder's unmapped personal heuristics.
+  - *Key Solution:* Codifying founder decision heuristics into autonomous organizational execution protocols across 3 distinct phases to decouple valuation from key-person presence.
+
+---
+
+## 7. Directory & Core Resources
+
+- **Institutional Knowledge Base:** [https://theunboundedleadership.com/llms.txt](https://theunboundedleadership.com/llms.txt)
 - **Sitemap Registry:** [https://theunboundedleadership.com/sitemap.xml](https://theunboundedleadership.com/sitemap.xml)
 - **Initiate Secure Intake Form:** [https://theunboundedleadership.com/intake](https://theunboundedleadership.com/intake)
 - **Digital Yield Calibration Tool:** [https://theunboundedleadership.com/assessment](https://theunboundedleadership.com/assessment)
+- **Strategic Library:** [https://theunboundedleadership.com/library](https://theunboundedleadership.com/library)
 - **Company Website:** [https://theunboundedleadership.com/](https://theunboundedleadership.com/)

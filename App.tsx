@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate, useParams, Navigate } from 'react-router-dom';
 import { db } from './src/firebase.ts';
 import Header from './components/Header.tsx';
 import Footer from './components/Footer.tsx';
@@ -328,6 +328,9 @@ const App: React.FC = () => {
             <Route path="/mandates" element={<MandatesPage />} />
             <Route path="/cognitive-tax" element={<CognitiveTaxPage />} />
             <Route path="/quantify-friction" element={<CognitiveTaxPage />} />
+            <Route path="/founders-dilemma" element={<Navigate to="/library/founders-dilemma" replace />} />
+            <Route path="/the-founders-dilemma" element={<Navigate to="/library/founders-dilemma" replace />} />
+            <Route path="/dynamics-of-inevitability" element={<Navigate to="/library/dynamics-of-inevitability" replace />} />
           </Routes>
         </main>
         <Footer onLegalClick={handleLegalClick} />
