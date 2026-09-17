@@ -72,8 +72,8 @@ async function startServer() {
   console.log('--- Institutional Environment Check ---');
   console.log(`RESEND_API_KEY: ${process.env.RESEND_API_KEY ? 'CALIBRATED' : 'MISSING'}`);
   console.log(`GEMINI_API_KEY: ${process.env.GEMINI_API_KEY ? 'CALIBRATED' : 'MISSING'}`);
-  console.log(`VITE_ADMIN_EMAIL: ${process.env.VITE_ADMIN_EMAIL || 'DEFAULT (kaminiagnihotri249@gmail.com)'}`);
-  console.log(`VITE_SENDER_EMAIL: ${process.env.VITE_SENDER_EMAIL || 'DEFAULT (concierge@theunboundedleadership.com)'}`);
+  console.log(`VITE_ADMIN_EMAIL: ${process.env.VITE_ADMIN_EMAIL || 'DEFAULT (suchita@theunboundedleadership.com)'}`);
+  console.log(`VITE_SENDER_EMAIL: ${process.env.VITE_SENDER_EMAIL || 'DEFAULT (suchita@theunboundedleadership.com)'}`);
   console.log('----------------------------------------');
 
   // Diagnostic: Check if dist folder exists and list files
@@ -204,7 +204,7 @@ async function startServer() {
       doc += `\n\n---\n\n`;
     });
     
-    doc += `\n*End of Compilation. Protected by Institutional Copyright. For dynamic integration, contact Kamini Agnihotri at kaminiagnihotri249@gmail.com.*`;
+    doc += `\n*End of Compilation. Protected by Institutional Copyright. For dynamic integration, contact Suchita Sancheti at suchita@theunboundedleadership.com.*`;
     res.send(doc);
   });
 
@@ -281,8 +281,8 @@ async function startServer() {
     try {
       const { name, email, organization, role, message, type, selected_date, selected_time } = req.body;
       const resendKey = process.env.RESEND_API_KEY;
-      const adminEmail = process.env.VITE_ADMIN_EMAIL || 'kaminiagnihotri249@gmail.com';
-      const senderEmail = process.env.VITE_SENDER_EMAIL || 'concierge@theunboundedleadership.com';
+      const adminEmail = process.env.VITE_ADMIN_EMAIL || 'suchita@theunboundedleadership.com';
+      const senderEmail = process.env.VITE_SENDER_EMAIL || 'suchita@theunboundedleadership.com';
       const senderName = process.env.VITE_SENDER_NAME || 'The Unbounded Leadership Co.';
       // Note: If the domain above is not verified in Resend, these will fail.
       const sender = `${senderName} <${senderEmail}>`; 
@@ -393,8 +393,8 @@ async function startServer() {
           
           <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee;">
             <p style="font-size: 14px; margin: 0;">Sincerely,</p>
-            <p style="font-size: 14px; font-weight: bold; margin: 5px 0 0 0; color: #b8860b;">Kamini Agnihotri (kaminiagnihotri249@gmail.com)</p>
-            <p style="font-size: 12px; font-weight: bold; margin: 0; color: #999; text-transform: uppercase; letter-spacing: 0.1em;">Principal Architect</p>
+            <p style="font-size: 14px; font-weight: bold; margin: 5px 0 0 0; color: #b8860b;">Suchita Sancheti (suchita@theunboundedleadership.com)</p>
+            <p style="font-size: 12px; font-weight: bold; margin: 0; color: #999; text-transform: uppercase; letter-spacing: 0.1em;">Founder & Principal Architect</p>
             <p style="font-size: 12px; color: #999; margin: 5px 0 0 0;">London • Singapore • New York</p>
           </div>
           
@@ -539,8 +539,8 @@ async function startServer() {
       }
 
       const resend = new Resend(resendKey);
-      const adminEmail = process.env.VITE_ADMIN_EMAIL || 'kaminiagnihotri249@gmail.com';
-      const senderEmail = process.env.VITE_SENDER_EMAIL || 'concierge@theunboundedleadership.com';
+      const adminEmail = process.env.VITE_ADMIN_EMAIL || 'suchita@theunboundedleadership.com';
+      const senderEmail = process.env.VITE_SENDER_EMAIL || 'suchita@theunboundedleadership.com';
       const senderName = process.env.VITE_SENDER_NAME || 'The Unbounded Leadership Co.';
       const sender = `${senderName} <${senderEmail}>`;
 
@@ -601,8 +601,8 @@ async function startServer() {
           <!-- Closing Signature -->
           <div style="margin-top: 50px; padding-top: 25px; border-top: 1px solid #e5e5e0;">
             <p style="font-size: 15px; margin: 0; font-family: 'Times New Roman', Georgia, serif;">Sincerely,</p>
-            <p style="font-size: 15px; font-weight: bold; margin: 6px 0 0 0; color: #b8860b; font-family: 'Times New Roman', Georgia, serif;">Kamini Agnihotri (kaminiagnihotri249@gmail.com)</p>
-            <p style="font-size: 11px; font-weight: bold; margin: 0; color: #7f7f75; text-transform: uppercase; letter-spacing: 0.1em; font-family: Arial, sans-serif;">Principal Architect</p>
+            <p style="font-size: 15px; font-weight: bold; margin: 6px 0 0 0; color: #b8860b; font-family: 'Times New Roman', Georgia, serif;">Suchita Sancheti (suchita@theunboundedleadership.com)</p>
+            <p style="font-size: 11px; font-weight: bold; margin: 0; color: #7f7f75; text-transform: uppercase; letter-spacing: 0.1em; font-family: Arial, sans-serif;">Founder & Principal Architect</p>
             <p style="font-size: 11px; color: #a3a39e; margin: 3px 0 0 0; font-family: Arial, sans-serif;">London • Singapore • New York</p>
           </div>
 
@@ -711,7 +711,7 @@ async function startServer() {
         if (text.includes('hello') || text.includes('hi') || text.includes('hey') || text.includes('greetings')) {
           return `Greetings and welcome to The Unbounded Leadership Co. I am your AI Concierge.\nHow may I assist you with our institutional alignment protocols or strategic objectives today?`;
         } else if (text.includes('price') || text.includes('cost') || text.includes('fee') || text.includes('rate') || text.includes('investment')) {
-          return `Our engagement models are bespoke, calibrated directly to your institution's scale and operational complexity.\nEngagements commence with our Phase 0.0 10-Node Institutional Triangulation Audit—a high-fidelity diagnostic across Apex, CXOs, Legal, Veterans, and Edge Operators delivering a complete Cognitive Bandwidth Blueprint in under 48 hours.\nTo discuss tailored investment structures, please connect directly with Kamini Agnihotri, Client Relations Coordinator, at kaminiagnihotri249@gmail.com.`;
+          return `Our engagement models are bespoke, calibrated directly to your institution's scale and operational complexity.\nEngagements commence with our Phase 0.0 10-Node Institutional Triangulation Audit—a high-fidelity diagnostic across Apex, CXOs, Legal, Veterans, and Edge Operators delivering a complete Cognitive Bandwidth Blueprint in under 48 hours.\nTo discuss tailored investment structures, please connect directly with the Office of Suchita Sancheti at suchita@theunboundedleadership.com.`;
         } else if (text.includes('handwriting') || text.includes('graphology') || text.includes('script')) {
           return `Forensic handwriting analysis is not an automated in-app feature; it is a core clinical strength of Founder Suchita Sancheti offered exclusively as a private, bespoke 1-on-1 executive consultation.\nLeaders wishing to include 1-on-1 handwriting and behavioral profiling in their executive engagement can request it directly during their intake briefing.`;
         } else if (text.includes('suchita') || text.includes('sancheti') || text.includes('who are you') || text.includes('about') || text.includes('founder')) {
@@ -719,7 +719,7 @@ async function startServer() {
         } else if (text.includes('process') || text.includes('how it works') || text.includes('workflow') || text.includes('methodology')) {
           return `Our engagements follow a rigorous 4-step framework beginning with Phase 0.0: 10-Node Institutional Triangulation Audit (a rapid 48-hr cross-sectional diagnostic across Apex and frontline edge), followed by Logic Gate Engineering to hard-code founder intent directly into your enterprise operating system.\nThis eliminates coordination bloat and returns up to 40% of strategic bandwidth within 90 days.`;
         } else if (text.includes('kamini') || text.includes('agnihotri') || text.includes('contact') || text.includes('email') || text.includes('reach out')) {
-          return `You may reach our Operations & Client Relations Coordinator, Kamini Agnihotri, directly at kaminiagnihotri249@gmail.com.\nKamini manages all administrative briefings, elite partner integrations, and direct scheduling with Suchita Sancheti's office.`;
+          return `You may reach Suchita Sancheti and the Office of the Principal directly at suchita@theunboundedleadership.com.\nOur office coordinates all administrative briefings, elite partner calibrations, and direct consultations with Suchita Sancheti.`;
         } else if (text.includes('assessment') || text.includes('audit') || text.includes('diagnostic') || text.includes('tax')) {
           return `Our Diagnostic Friction Assessment is a high-fidelity tool that quantifies operational friction and calculates your organization's annual Inaction Tax.\nIt requires less than 4 minutes to complete online at /assessment.\nWould you like guidance on evaluating your operational friction?`;
         } else {
@@ -748,9 +748,9 @@ CORE INSTITUTIONAL KNOWLEDGE BASE:
    - A Computer Science Engineer and Industrial Psychologist who merges enterprise systems engineering (former SAP consultant) with deep human behavioral analysis (certified handwriting analyst).
    - NOTE: Forensic handwriting analysis is Suchita's core personal strength and is offered exclusively through bespoke 1-on-1 consultations; it is NOT an automated in-app software feature.
    - Accepts strictly 3 active institutional calibrations per quarter to guarantee uncompromised focus.
-3. CLIENT RELATIONS & OPERATIONS (KAMINI AGNIHOTRI):
-   - Email: kaminiagnihotri249@gmail.com
-   - Contact Kamini for custom engagement proposals, executive briefs, partner integrations, or direct scheduling with Suchita Sancheti's office.
+3. OFFICE OF THE PRINCIPAL ARCHITECT & DIRECT CONTACT:
+   - Email: suchita@theunboundedleadership.com
+   - Contact Suchita Sancheti directly for custom engagement proposals, executive briefs, partner calibrations, and confidential institutional scheduling.
 4. THE STRATEGIC ALIGNMENT PROTOCOL (METHODOLOGY):
    - Phase 0.0: 10-Node Institutional Triangulation Audit (48-hr forensic cross-section delivering a complete Cognitive Bandwidth Blueprint).
    - Phase 01: Relational Substrate Calibration (dissolving leadership friction and alignment leaks).
@@ -769,7 +769,7 @@ CORE INSTITUTIONAL KNOWLEDGE BASE:
    - Substrate Assessment™ (Patent-Pending): Context-adaptive diagnostic for leadership bandwidth.
 7. ACTIONABLE GUIDANCE:
    - Always answer the user's specific question directly first.
-   - Invite users to run the interactive Diagnostic Friction Assessment (/assessment) or reach out to Kamini Agnihotri at kaminiagnihotri249@gmail.com for custom scheduling.`;
+   - Invite users to run the interactive Diagnostic Friction Assessment (/assessment) or reach out to Suchita Sancheti at suchita@theunboundedleadership.com for custom scheduling.`;
 
       const ai = new GoogleGenAI({ apiKey });
       const formattedContents = [];
@@ -874,7 +874,7 @@ CORE INSTITUTIONAL KNOWLEDGE BASE:
           cta = `I recommend starting with our 4-minute Alignment Assessment to quantify your exact cognitive tax. Let me know if you would like me to set up a priority diagnostic line.`;
         }
 
-        const body = `${intro}\n\n${point1}\n\n${point2}\n\n${cta}\n\nWith respect,\n\nKamini Agnihotri\nOperations & Client Relations Coordinator\nThe Unbounded Leadership Co.\nkaminiagnihotri249@gmail.com\n\n(Draft synthesized via TULC Outbound Copilot fallback protocol)`;
+        const body = `${intro}\n\n${point1}\n\n${point2}\n\n${cta}\n\nWith respect,\n\nSuchita Sancheti\nFounder & Principal Architect\nThe Unbounded Leadership Co.\nsuchita@theunboundedleadership.com\n\n(Draft synthesized via TULC Outbound Copilot protocol)`;
 
         return { brief, subject, body };
       };
@@ -884,7 +884,7 @@ CORE INSTITUTIONAL KNOWLEDGE BASE:
       }
 
       const ai = new GoogleGenAI({ apiKey });
-      const prompt = `You are a world-class institutional growth advisor and lead strategist for "The Unbounded Leadership Co.", a high-end Swiss-style leadership architecture consultancy run by Principal Architect Kamini Agnihotri (kaminiagnihotri249@gmail.com).
+      const prompt = `You are a world-class institutional growth advisor and lead strategist for "The Unbounded Leadership Co.", a high-end Swiss-style leadership architecture consultancy run by Founder & Principal Architect Suchita Sancheti (suchita@theunboundedleadership.com).
 Our consultancy specializes in helping CEOs, Founders, and elite executive teams reclaim up to 40% of their "cognitive bandwidth" and transition from heroic firefighting ("Hero") to systemic continuity ("Architect").
 
 Your goal is to engineer a bespoke, highly sophisticated "Cold Dispatch" (outbound email) to trigger an immediate diagnostic conversation.
@@ -906,7 +906,7 @@ ${pastedContext ? `- Raw Copy-Pasted Target Profile Bio or Webpage Context:\n"""
 Strategic Instruction for Personalization:
 1. If LinkedIn URL, Website URL or Raw Copied bio is provided, you must prioritize aligning your pitch to these specific company and personal facts.
 2. If Google Search Grounding is active, search for recent news, funding, key products, or personal perspectives regarding ${targetName} at ${targetCompany}. Use these exact insights to anchor your email.
-3. ${embedResearch ? `CRITICAL PERSONALIZATION MANDATE: You MUST explicitly weave and embed specific, real-world verified facts about ${targetName} or ${targetCompany} directly into the paragraphs of the email body. For example: reference a recent product launch, a podcast comment, an article they wrote, their historic career background, or a specific scaling milestone. The draft must show meticulous homework, proving Kamini Agnihotri (kaminiagnihotri249@gmail.com) did authentic high-individual research before reaching out.` : 'Anchor your hook into general institutional context.'}
+3. ${embedResearch ? `CRITICAL PERSONALIZATION MANDATE: You MUST explicitly weave and embed specific, real-world verified facts about ${targetName} or ${targetCompany} directly into the paragraphs of the email body. For example: reference a recent product launch, a podcast comment, an article they wrote, their historic career background, or a specific scaling milestone. The draft must show meticulous homework, proving Suchita Sancheti (suchita@theunboundedleadership.com) did authentic high-individual research before reaching out.` : 'Anchor your hook into general institutional context.'}
 4. Anchor your hook into their actual context (e.g., "Given your recent scaling thresholds at ${targetCompany} following your new products" or "I noticed your perspective on..."). Avoid generic flattery. Keep it intellectually honest and elite.
 5. The letter must address them as an equal or peer analyst. Position our 4-minute "Institutional Diagnostic" as the ultimate diagnostic protocol. The subject line must be elegant and high-stakes.
 
@@ -914,7 +914,7 @@ Return EXACTLY a JSON object matching this schema (with no enclosing markdown wr
 {
   "brief": "A 1-sentence strategic analysis explaining why this specific executive at this company faces the targeted bottleneck dynamically referencing your findings.",
   "subject": "A compelling, high-stakes subject line designed to achieve high open rates with global elite principals.",
-  "body": "The complete, highly personalized outbound email body, structured beautifully with clean paragraph breaks, starting with a respectful greeting (Dear [Name] or appropriate) and ending with a signature from Kamini Agnihotri (kaminiagnihotri249@gmail.com), Principal Architect of The Unbounded Leadership Co."
+  "body": "The complete, highly personalized outbound email body, structured beautifully with clean paragraph breaks, starting with a respectful greeting (Dear [Name] or appropriate) and ending with a signature from Suchita Sancheti (suchita@theunboundedleadership.com), Founder & Principal Architect of The Unbounded Leadership Co."
 }`;
 
       const config: any = {
@@ -988,8 +988,8 @@ Return EXACTLY a JSON object matching this schema (with no enclosing markdown wr
     try {
       const { key, organization, contactEmail, tier, validityDays, expiresAt, customNotes } = req.body;
       const resendKey = process.env.RESEND_API_KEY;
-      const adminEmail = process.env.VITE_ADMIN_EMAIL || 'kaminiagnihotri249@gmail.com';
-      const senderEmail = process.env.VITE_SENDER_EMAIL || 'concierge@theunboundedleadership.com';
+      const adminEmail = process.env.VITE_ADMIN_EMAIL || 'suchita@theunboundedleadership.com';
+      const senderEmail = process.env.VITE_SENDER_EMAIL || 'suchita@theunboundedleadership.com';
       const senderName = process.env.VITE_SENDER_NAME || 'The Unbounded Leadership Co.';
       const sender = `${senderName} <${senderEmail}>`;
 

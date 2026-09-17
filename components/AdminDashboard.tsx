@@ -251,7 +251,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setFirebaseUser(user);
-      if (user && (user.email === 'suchita135sancheti@gmail.com' || user.email === 'kaminiagnihotri249@gmail.com')) {
+      if (user && (user.email === 'suchita135sancheti@gmail.com' || user.email === 'suchita@theunboundedleadership.com' || user.email === 'kaminiagnihotri249@gmail.com')) {
         setIsAuthenticated(true);
         sessionStorage.setItem('tulc_sovereign_auth', 'true');
       }
@@ -321,7 +321,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               await SovereignDB.saveEmailLog({
                 type: 'newsletter_broadcast',
                 recipient: item.recipient,
-                sender: item.sender || 'concierge@theunboundedleadership.com',
+                sender: item.sender || 'suchita@theunboundedleadership.com',
                 subject: item.subject,
                 status: item.success ? 'sent' : 'failed',
                 error: item.error || null,
@@ -434,7 +434,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
       status: 'active',
       accessCount: 0,
       lastAccessedAt: null,
-      issuedBy: firebaseUser?.email || 'suchita135sancheti@gmail.com',
+      issuedBy: firebaseUser?.email || 'suchita@theunboundedleadership.com',
       notes: licenseForm.notes.trim()
     };
 

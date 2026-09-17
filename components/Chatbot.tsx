@@ -104,7 +104,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen: propIsOpen, setIsOpen: propSe
       console.error('Chat error:', error);
       setHistory(prev => [...prev, {
         role: 'assistant',
-        content: 'Greetings. The digital concierge link is currently operating on our secure backup channel.\nFor prioritized scheduling, custom diagnostic proposals, or to coordinate directly with Suchita Sancheti\'s office, please contact Kamini Agnihotri at kaminiagnihotri249@gmail.com.',
+        content: 'Greetings. The digital concierge link is currently operating on our secure backup channel.\nFor prioritized scheduling, custom diagnostic proposals, or to coordinate directly with Suchita Sancheti\'s office, please contact suchita@theunboundedleadership.com.',
         timestamp: new Date()
       }]);
     } finally {

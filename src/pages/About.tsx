@@ -401,16 +401,16 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
               <div className="bg-white p-8 border border-zinc-200 shadow-sm space-y-4">
                 <div className="flex items-center gap-4 border-b border-zinc-100 pb-4">
                   <div className="w-12 h-12 bg-[#111] border border-[#b8860b] flex items-center justify-center rounded-xs shrink-0 font-serif text-white font-bold">
-                    KA
+                    SS
                   </div>
                   <div>
                     <h4 className="text-[#b8860b] text-[8px] font-black uppercase ">Office of the Principal Architect</h4>
-                    <p className="text-base font-semibold text-[#111111] font-serif font-medium">Kamini Agnihotri — kaminiagnihotri249@gmail.com</p>
-                    <p className="text-[10px] font-mono text-zinc-500 uppercase ">Operations & Client Relations Coordinator</p>
+                    <p className="text-base font-semibold text-[#111111] font-serif font-medium">Suchita Sancheti — suchita@theunboundedleadership.com</p>
+                    <p className="text-[10px] font-mono text-zinc-500 uppercase ">Founder & Principal Systems Architect</p>
                   </div>
                 </div>
                 <p className="text-zinc-600 leading-relaxed font-light italic text-xs">
-                  Within the Office of the Principal, Kamini Agnihotri manages operational flow, client scheduling, confidential communications, administrative protocols, and executive accounts.
+                  Direct institutional coordinate for founder consultations, sovereign leadership architecture, confidential diagnostics, and retained advisory dockets.
                 </p>
               </div>
             </div>
@@ -462,11 +462,11 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
               />
             </a>
             <a 
-              href="mailto:kaminiagnihotri249@gmail.com" 
+              href="mailto:suchita@theunboundedleadership.com" 
               className="hover:text-white transition-all flex items-center gap-3 border border-white/5 p-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors font-sans font-medium"
             >
               <Mail className="w-4 h-4 text-[#b8860b] shrink-0" />
-              <span className="truncate">Assistant: kaminiagnihotri249@gmail.com</span>
+              <span className="truncate">suchita@theunboundedleadership.com</span>
             </a>
           </div>
         </div>

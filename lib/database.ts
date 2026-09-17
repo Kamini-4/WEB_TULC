@@ -326,7 +326,7 @@ export const SovereignDB = {
           await SovereignDB.saveEmailLog({
             type: 'contact_admin',
             recipient: result.adminEmail.recipient,
-            sender: result.adminEmail.sender || 'concierge@theunboundedleadership.com',
+            sender: result.adminEmail.sender || 'suchita@theunboundedleadership.com',
             subject: result.adminEmail.subject,
             status: result.adminEmail.success ? 'sent' : 'failed',
             error: result.adminEmail.error || null,
@@ -338,7 +338,7 @@ export const SovereignDB = {
           await SovereignDB.saveEmailLog({
             type: 'contact_user',
             recipient: result.userEmail.recipient,
-            sender: result.userEmail.sender || 'concierge@theunboundedleadership.com',
+            sender: result.userEmail.sender || 'suchita@theunboundedleadership.com',
             subject: result.userEmail.subject,
             status: result.userEmail.success ? 'sent' : 'failed',
             error: result.userEmail.error || null,
@@ -354,7 +354,7 @@ export const SovereignDB = {
       await SovereignDB.saveEmailLog({
         type: 'contact_admin',
         recipient: payload.email || 'unknown',
-        sender: 'concierge@theunboundedleadership.com',
+        sender: 'suchita@theunboundedleadership.com',
         subject: `Form Submission: ${payload.type || 'Intake'}`,
         status: 'failed',
         error: error instanceof Error ? error.message : String(error),

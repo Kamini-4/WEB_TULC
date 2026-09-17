@@ -147,9 +147,9 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
                   />
                 </a>
               </div>
-              <a href="mailto:kaminiagnihotri249@gmail.com" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2">
+              <a href="mailto:suchita@theunboundedleadership.com" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2">
                 <Mail className="w-3 h-3 text-[#b8860b] shrink-0" />
-                <span>Assistant: kaminiagnihotri249@gmail.com</span>
+                <span>suchita@theunboundedleadership.com</span>
               </a>
             </div>
           </div>
