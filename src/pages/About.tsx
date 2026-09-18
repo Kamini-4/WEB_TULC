@@ -3,7 +3,6 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calculator, FileText, Layers, Shield } from 'lucide-react';
 import { Mail, Phone, Instagram, Linkedin } from '../../components/BrandIcons.tsx';
-import PrincipalDispatch from '../../components/PrincipalDispatch.tsx';
 import BrandLogo from '../../components/BrandLogo.tsx';
 import WhoWeBuildFor from '../../components/WhoWeBuildFor.tsx';
 import ScaleEvidence from '../../components/ScaleEvidence.tsx';
@@ -522,12 +521,58 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
           </motion.div>
         </div>
 
-        {/* HIGH FIDELITY VIDEO BRIEFING SECTION */}
-        <section className="mb-20 -mx-6 md:-mx-12 border-t border-b border-zinc-200">
-          <div className="py-4 bg-[#f2f2eb] text-center text-xs text-[#b8860b] font-mono uppercase font-semibold">
-            ✦ HIGH FIDELITY VIDEO BRIEFING ✦
+        {/* ARCHITECTURAL PEDIGREE & SOVEREIGN COVENANT */}
+        <section className="mb-20 bg-[#111111] text-white p-8 md:p-12 border border-[#b8860b]/30 rounded-xs shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#b8860b]/10 blur-3xl rounded-full pointer-events-none" />
+          
+          <div className="relative z-10 max-w-4xl mx-auto space-y-6 text-center md:text-left">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-4">
+              <div>
+                <span className="text-[#b8860b] text-[10px] font-mono font-bold uppercase tracking-widest block">
+                  INSTITUTIONAL PEDIGREE & ARCHITECTURAL FOUNDATION
+                </span>
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mt-1">
+                  Computer Science Systems Logic × Industrial Organizational Psychology
+                </h3>
+              </div>
+              <span className="px-3 py-1 bg-[#b8860b]/20 border border-[#b8860b]/40 text-[#b8860b] text-[10px] font-mono font-bold uppercase shrink-0">
+                Direct Principal Mandate
+              </span>
+            </div>
+
+            <p className="text-zinc-300 text-sm sm:text-base font-serif italic font-light leading-relaxed">
+              Suchita Sancheti does not approach scaling bottlenecks as HR matters or generic coaching problems. By integrating rigorous computer science systems architecture—proven in high-stakes SAP enterprise integrations—with clinical industrial psychology, she isolates operational latency at its mathematical root.
+            </p>
+
+            <div className="grid sm:grid-cols-3 gap-4 pt-4 font-mono text-xs text-zinc-300">
+              <div className="bg-black/50 border border-white/10 p-4 rounded-xs">
+                <span className="text-[#b8860b] font-bold block mb-1">01. Algorithmic Precision</span>
+                <span className="text-[11px] text-zinc-400">Decision heuristics hard-coded into organizational execution gates.</span>
+              </div>
+              <div className="bg-black/50 border border-white/10 p-4 rounded-xs">
+                <span className="text-[#b8860b] font-bold block mb-1">02. Cognitive Liberation</span>
+                <span className="text-[11px] text-zinc-400">Reclaims up to 40% of founder bandwidth within 90 calendar days.</span>
+              </div>
+              <div className="bg-black/50 border border-white/10 p-4 rounded-xs">
+                <span className="text-[#b8860b] font-bold block mb-1">03. Generational Sovereignty</span>
+                <span className="text-[11px] text-zinc-400">Neutralizes key-person dependency for maximum enterprise exit multiple.</span>
+              </div>
+            </div>
+
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <span className="text-xs font-mono text-zinc-400">
+                Direct coordinate: <strong className="text-white">suchita@theunboundedleadership.com</strong>
+              </span>
+              <a
+                href="https://calendly.com/d/d3jb-kpx-r6q"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-[#b8860b] text-black font-mono font-bold text-xs uppercase tracking-wider rounded-xs hover:bg-white transition-all shadow-md"
+              >
+                Schedule Private Executive Intake →
+              </a>
+            </div>
           </div>
-          <PrincipalDispatch />
         </section>
 
         {/* CLIENT ALIGNMENT PROFILES & PROOF OF SCALE */}

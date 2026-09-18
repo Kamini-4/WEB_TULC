@@ -108,14 +108,9 @@ const Hero: React.FC<HeroProps> = () => {
             </span>
           </motion.div>
 
-          {/* Executive Altitude Personalized Lens Engine */}
-          <motion.div className="w-full max-w-5xl" variants={itemVariants}>
-            <ExecutiveAltitudeFilter />
-          </motion.div>
-
           {/* High-Impact Executive Yield Metrics (High-Attention Black Box Grid) */}
           <motion.div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-px bg-zinc-800 border border-zinc-800 shadow-2xl overflow-hidden w-full max-w-5xl mb-12 rounded-xs"
+            className="grid grid-cols-2 md:grid-cols-4 gap-px bg-zinc-800 border border-zinc-800 shadow-2xl overflow-hidden w-full max-w-5xl mb-10 rounded-xs"
             variants={itemVariants}
           >
             <div className="flex flex-col items-center bg-[#111111] p-5 hover:bg-zinc-900 transition-colors">
@@ -140,61 +135,9 @@ const Hero: React.FC<HeroProps> = () => {
             </div>
           </motion.div>
 
-          {/* Structured 3 Core Pillars Section */}
-          <motion.div className="w-full text-left max-w-5xl" variants={itemVariants}>
-            <div className="flex items-center justify-between mb-5 pb-2 border-b border-zinc-300">
-              <span className="text-[10px] font-black uppercase text-[#b8860b]">The 3 Pillars of Alignment Architecture</span>
-              <button 
-                onClick={() => navigate('/services')}
-                className="text-[9px] font-bold uppercase text-zinc-600 hover:text-[#b8860b] transition-colors"
-              >
-                View Full Protocols &rarr;
-              </button>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-5">
-              <div 
-                onClick={() => navigate('/services')}
-                className="bg-white border border-zinc-200 p-5 rounded-xs hover:border-[#b8860b]/60 transition-all cursor-pointer group shadow-xs hover:shadow-md"
-              >
-                <div className="flex items-center justify-between mb-2.5">
-                  <span className="text-[10px] font-black uppercase text-[#b8860b] font-mono">Phase 01</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] group-hover:scale-150 transition-transform" />
-                </div>
-                <h3 className="text-base font-bold text-zinc-900 mb-1.5 font-serif group-hover:text-[#b8860b] transition-colors">Substrate Audit</h3>
-                <p className="text-xs text-zinc-600 italic font-light leading-relaxed">
-                  Forensic analysis of institutional lag, decision bottlenecks, and cognitive leaks across leadership layers.
-                </p>
-              </div>
-
-              <div 
-                onClick={() => navigate('/services')}
-                className="bg-white border border-zinc-200 p-5 rounded-xs hover:border-[#b8860b]/60 transition-all cursor-pointer group shadow-xs hover:shadow-md"
-              >
-                <div className="flex items-center justify-between mb-2.5">
-                  <span className="text-[10px] font-black uppercase text-[#b8860b] font-mono">Phase 02</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] group-hover:scale-150 transition-transform" />
-                </div>
-                <h3 className="text-base font-bold text-zinc-900 mb-1.5 font-serif group-hover:text-[#b8860b] transition-colors">Execution Protocol Engineering</h3>
-                <p className="text-xs text-zinc-600 italic font-light leading-relaxed">
-                  Hard-coding strategic rules and founder reasoning into operational execution protocols for 100% execution fidelity.
-                </p>
-              </div>
-
-              <div 
-                onClick={() => navigate('/services')}
-                className="bg-white border border-zinc-200 p-5 rounded-xs hover:border-[#b8860b]/60 transition-all cursor-pointer group shadow-xs hover:shadow-md"
-              >
-                <div className="flex items-center justify-between mb-2.5">
-                  <span className="text-[10px] font-black uppercase text-[#b8860b] font-mono">Phase 03</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] group-hover:scale-150 transition-transform" />
-                </div>
-                <h3 className="text-base font-bold text-zinc-900 mb-1.5 font-serif group-hover:text-[#b8860b] transition-colors">Institutional Calibration</h3>
-                <p className="text-xs text-zinc-600 italic font-light leading-relaxed">
-                  Embedding trust resonance and self-cohering team accountability to ensure momentum without founder presence.
-                </p>
-              </div>
-            </div>
+          {/* Executive Altitude Personalized Lens Engine */}
+          <motion.div className="w-full max-w-5xl" variants={itemVariants}>
+            <ExecutiveAltitudeFilter />
           </motion.div>
 
         </motion.div>

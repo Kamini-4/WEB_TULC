@@ -28,6 +28,7 @@ import {
 
 interface DossierCaseStudyPreviewProps {
   onBriefClick?: (id?: string) => void;
+  briefingMode?: boolean;
 }
 
 const DOSSIER_PAGES = [
@@ -81,7 +82,7 @@ const DOSSIER_PAGES = [
   }
 ];
 
-const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBriefClick }) => {
+const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBriefClick, briefingMode = false }) => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -454,7 +455,94 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
           </div>
         </div>
 
-        {/* 6-PAGE INTERACTIVE EXECUTIVE DOSSIER VIEWER */}
+        {/* 6-PAGE INTERACTIVE EXECUTIVE DOSSIER VIEWER OR CONDENSED BRIEFING CARD */}
+        {briefingMode ? (
+          <div className="bg-[#111111] border border-[#b8860b]/40 rounded-xs shadow-2xl p-6 sm:p-10 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#b8860b]/10 blur-3xl rounded-full pointer-events-none" />
+
+            {/* Header Metadata */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-white/10 gap-3">
+              <div className="flex items-center gap-3 flex-wrap">
+                <span className="px-2.5 py-1 bg-[#b8860b]/20 text-[#b8860b] border border-[#b8860b]/30 text-[10px] font-mono font-bold uppercase tracking-wider">
+                  CONFIDENTIAL ARCHIVE // CASE REF #849201
+                </span>
+                <span className="text-zinc-400 text-xs font-mono">
+                  Principal: <strong className="text-white">Group CEO</strong> • Multi-Entity Enterprise ($65M+ Rev / 5,000+ Team)
+                </span>
+              </div>
+              <div className="text-[11px] font-mono text-zinc-400">
+                Audited by: <span className="text-[#b8860b] font-bold">The Unbounded Leadership Co.</span>
+              </div>
+            </div>
+
+            {/* Core Findings & Metrics Grid */}
+            <div className="py-6 grid lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7 space-y-4">
+                <div className="text-[10px] font-mono font-bold uppercase text-[#b8860b] tracking-wider">
+                  CLINICAL PATHOLOGY & TRANSFORMATION
+                </div>
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white leading-snug">
+                  Eradicating the Authority Isolation Loop & $1.42M Coordination Tax
+                </h3>
+                <p className="text-zinc-300 text-sm font-serif italic font-light leading-relaxed">
+                  &ldquo;Because Tier 2 and Tier 3 leaders operated with only 34–58% context fidelity, routine decisions were escalated upward daily. The CEO spent 18.5 hrs/week in status alignment, inadvertently reinforcing dependency. By installing 12 autonomous execution gates, we converted heroic founder intervention into self-executing operational governance.&rdquo;
+                </p>
+                <div className="p-3.5 bg-black/70 border border-[#b8860b]/30 rounded-xs text-xs font-mono text-zinc-300 flex items-center gap-3">
+                  <span className="text-[#b8860b] text-base">✦</span>
+                  <span><strong>The 2.0-Point Delta:</strong> Founder cognitive clarity scored 5.0, but cultural fidelity was 3.0. Codified execution protocols bridged the context gap.</span>
+                </div>
+              </div>
+
+              {/* 4 Quantitative Proof Metrics */}
+              <div className="lg:col-span-5 grid grid-cols-2 gap-3">
+                <div className="bg-black/60 border border-white/10 p-4 rounded-xs">
+                  <span className="text-[9px] font-mono text-zinc-400 uppercase block mb-1">Reclaimed Focus</span>
+                  <span className="text-2xl sm:text-3xl font-serif font-bold text-[#b8860b] block">+35%</span>
+                  <span className="text-[10px] font-mono text-zinc-400">15+ hrs/wk saved from firefighting</span>
+                </div>
+                <div className="bg-black/60 border border-white/10 p-4 rounded-xs">
+                  <span className="text-[9px] font-mono text-zinc-400 uppercase block mb-1">Drag Eradicated</span>
+                  <span className="text-2xl sm:text-3xl font-serif font-bold text-emerald-400 block">$1.42M</span>
+                  <span className="text-[10px] font-mono text-zinc-400">Annual coordination waste saved</span>
+                </div>
+                <div className="bg-black/60 border border-white/10 p-4 rounded-xs">
+                  <span className="text-[9px] font-mono text-zinc-400 uppercase block mb-1">Decisions Sealed</span>
+                  <span className="text-2xl sm:text-3xl font-serif font-bold text-white block">12 Gates</span>
+                  <span className="text-[10px] font-mono text-zinc-400">Autonomous execution protocols</span>
+                </div>
+                <div className="bg-black/60 border border-white/10 p-4 rounded-xs">
+                  <span className="text-[9px] font-mono text-zinc-400 uppercase block mb-1">Exit Multiple</span>
+                  <span className="text-2xl sm:text-3xl font-serif font-bold text-[#b8860b] block">+35%</span>
+                  <span className="text-[10px] font-mono text-zinc-400">Key-person risk discounted to 0</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Actions */}
+            <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
+                <FileText className="w-4 h-4 text-[#b8860b]" />
+                <span>6-Page Dossier: Apex Indices, 5-Domain Vector Diagnostic, Meeting Tax Audit, & 10-Yr Decree</span>
+              </div>
+              <div className="flex flex-wrap items-center gap-3">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="px-6 py-3 bg-[#b8860b] text-black hover:bg-white text-xs font-mono font-black uppercase tracking-wider rounded-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg font-bold"
+                >
+                  <Maximize2 className="w-4 h-4" />
+                  <span>Inspect Complete 6-Page Board Dossier</span>
+                </button>
+                <button
+                  onClick={handlePrint}
+                  className="px-4 py-3 bg-zinc-900 hover:bg-zinc-800 border border-white/20 text-zinc-300 hover:text-white text-xs font-mono font-bold uppercase tracking-wider rounded-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <Printer className="w-4 h-4" />
+                  <span>Print Dossier</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : (
         <div className="bg-[#111111] border border-white/15 rounded-xs shadow-2xl overflow-hidden">
           
           {/* Top Metadata Strip */}
@@ -1030,6 +1118,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
           </div>
 
         </div>
+        )}
 
       </div>
 

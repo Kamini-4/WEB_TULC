@@ -1068,7 +1068,8 @@ Return EXACTLY a JSON object matching this schema (with no enclosing markdown wr
           <div style="margin-top: 35px; padding-top: 20px; border-top: 1px solid #e5e5e0; font-size: 12px; color: #666;">
             <p style="margin: 0 0 4px 0; font-weight: bold; color: #111;">Suchita Sancheti</p>
             <p style="margin: 0 0 4px 0; color: #b8860b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;">Founder & Enterprise Architect</p>
-            <p style="margin: 0; color: #888;">The Unbounded Leadership Co. • London • New York • Singapore</p>
+            <p style="margin: 0 0 4px 0; color: #888;">The Unbounded Leadership Co. • London • New York • Singapore</p>
+            <p style="margin: 0; color: #666; font-size: 11px;">Official Inquiries: <a href="mailto:suchita@theunboundedleadership.com" style="color: #b8860b; text-decoration: none;">suchita@theunboundedleadership.com</a></p>
           </div>
 
         </div>
@@ -1079,31 +1080,53 @@ Return EXACTLY a JSON object matching this schema (with no enclosing markdown wr
         try {
           const sendResult = await resend.emails.send({
             from: sender,
+            reply_to: senderEmail,
             to: [contactEmail],
             cc: [adminEmail],
             subject: emailSubject,
             html: emailHtml
           });
-          return res.json({ success: true, emailId: sendResult.data?.id });
+          return res.json({ 
+            success: true, 
+            emailId: sendResult.data?.id,
+            sender: senderEmail,
+            recipient: contactEmail,
+            key
+          });
         } catch (mailErr: any) {
           console.error('Failed to send passkey email via Resend:', mailErr);
           // Try fallback sender if custom domain fails
           try {
             const fallbackResult = await resend.emails.send({
               from: 'onboarding@resend.dev',
+              reply_to: senderEmail,
               to: [contactEmail],
               cc: [adminEmail],
               subject: `[TULC Access] ${emailSubject}`,
               html: emailHtml
             });
-            return res.json({ success: true, fallback: true, emailId: fallbackResult.data?.id });
+            return res.json({ 
+              success: true, 
+              fallback: true, 
+              emailId: fallbackResult.data?.id,
+              sender: 'suchita@theunboundedleadership.com (via onboarding@resend.dev)',
+              recipient: contactEmail,
+              key
+            });
           } catch (fallbackErr: any) {
             return res.status(500).json({ error: fallbackErr.message || 'Email delivery failed' });
           }
         }
       } else {
-        console.log(`[PASSKEY ISSUED - NO RESEND KEY] Passkey ${key} generated for ${organization} (${contactEmail})`);
-        return res.json({ success: true, simulated: true, portalUrl });
+        console.log(`[PASSKEY ISSUED - NO RESEND KEY] Passkey ${key} generated for ${organization} (${contactEmail}) from ${senderEmail}`);
+        return res.json({ 
+          success: true, 
+          simulated: true, 
+          portalUrl,
+          sender: senderEmail,
+          recipient: contactEmail,
+          key
+        });
       }
     } catch (error: any) {
       console.error('Email Passkey Route Error:', error);

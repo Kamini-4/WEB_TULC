@@ -65,8 +65,15 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
     sendEmail: true
   });
   const [isGeneratingLicense, setIsGeneratingLicense] = useState(false);
-  const [lastGeneratedLicense, setLastGeneratedLicense] = useState<PortalLicenseEntry | null>(null);
+  const [lastGeneratedLicense, setLastGeneratedLicense] = useState<{
+    license: PortalLicenseEntry;
+    emailDispatched: boolean;
+    emailSender: string;
+    emailRecipient: string;
+    emailError?: string | null;
+  } | null>(null);
   const [copiedKeyId, setCopiedKeyId] = useState<string | null>(null);
+  const [copiedTokenId, setCopiedTokenId] = useState<string | null>(null);
   const [isResendingEmail, setIsResendingEmail] = useState<string | null>(null);
 
   // Executive Outreach Copilot State
@@ -445,12 +452,14 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
         ...licensePayload
       };
 
-      setLastGeneratedLicense(fullLicense);
+      let emailDispatched = false;
+      let emailError: string | null = null;
+      let emailSender = 'suchita@theunboundedleadership.com';
 
       // If email dispatch is requested, trigger through backend endpoint
       if (licenseForm.sendEmail) {
         try {
-          await fetch('/api/portal/email-passkey', {
+          const emailRes = await fetch('/api/portal/email-passkey', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -463,10 +472,61 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               customNotes: fullLicense.notes
             })
           });
-        } catch (emailErr) {
+          const emailData = await emailRes.json();
+          if (emailRes.ok && emailData.success) {
+            emailDispatched = true;
+            emailSender = emailData.sender || 'suchita@theunboundedleadership.com';
+            try {
+              await SovereignDB.saveEmailLog({
+                type: 'passkey_dispatch',
+                recipient: fullLicense.contactEmail,
+                sender: 'suchita@theunboundedleadership.com',
+                subject: `Sovereign Clearance Key // ${fullLicense.organization} — Assessment Access Granted`,
+                status: 'sent',
+                resendId: emailData.emailId || null,
+                error: null,
+                metadata: {
+                  key: generatedKey,
+                  organization: fullLicense.organization,
+                  tier: fullLicense.tier
+                }
+              });
+            } catch (logErr) {
+              console.error('Email log error:', logErr);
+            }
+          } else {
+            emailError = emailData.error || 'Failed to dispatch email';
+            try {
+              await SovereignDB.saveEmailLog({
+                type: 'passkey_dispatch',
+                recipient: fullLicense.contactEmail,
+                sender: 'suchita@theunboundedleadership.com',
+                subject: `Sovereign Clearance Key // ${fullLicense.organization} — Assessment Access Granted`,
+                status: 'failed',
+                resendId: null,
+                error: emailError,
+                metadata: {
+                  key: generatedKey,
+                  organization: fullLicense.organization
+                }
+              });
+            } catch (logErr) {
+              console.error('Email log error:', logErr);
+            }
+          }
+        } catch (emailErr: any) {
           console.error('Email dispatch non-blocking error:', emailErr);
+          emailError = emailErr.message || 'Email delivery network error';
         }
       }
+
+      setLastGeneratedLicense({
+        license: fullLicense,
+        emailDispatched,
+        emailSender,
+        emailRecipient: fullLicense.contactEmail,
+        emailError
+      });
 
       // Reset form fields
       setLicenseForm(prev => ({
@@ -477,13 +537,18 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
         notes: ''
       }));
 
-      alert(`PASSKEY ISSUED FOR ${fullLicense.organization}:\nKey: ${generatedKey}\nActive Window: ${fullLicense.validityDays} Days\nDirect Portal URL ready.`);
     } catch (err: any) {
       console.error('Error generating portal license:', err);
       alert(`License generation failed: ${err.message || err}`);
     } finally {
       setIsGeneratingLicense(false);
     }
+  };
+
+  const handleCopyKey = (key: string, id: string) => {
+    navigator.clipboard.writeText(key);
+    setCopiedTokenId(id);
+    setTimeout(() => setCopiedTokenId(null), 2500);
   };
 
   const handleCopyPortalLink = (key: string, id: string) => {
@@ -522,7 +587,26 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
       });
       const resData = await response.json();
       if (response.ok && resData.success) {
-        alert(`Passkey credentials resent to ${license.contactEmail} for ${license.organization}.`);
+        try {
+          await SovereignDB.saveEmailLog({
+            type: 'passkey_dispatch',
+            recipient: license.contactEmail,
+            sender: 'suchita@theunboundedleadership.com',
+            subject: `Sovereign Clearance Key // ${license.organization} — Assessment Access Granted`,
+            status: 'sent',
+            resendId: resData.emailId || null,
+            error: null,
+            metadata: {
+              key: license.key,
+              organization: license.organization,
+              tier: license.tier,
+              resend: true
+            }
+          });
+        } catch (logErr) {
+          console.error('Email log error:', logErr);
+        }
+        alert(`Access Key ${license.key} successfully dispatched to ${license.contactEmail} from suchita@theunboundedleadership.com.`);
       } else {
         throw new Error(resData.error || 'Failed to dispatch email');
       }
@@ -531,6 +615,34 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
     } finally {
       setIsResendingEmail(null);
     }
+  };
+
+  const handleOpenMailtoForLicense = (lic: PortalLicenseEntry) => {
+    const portalUrl = `${window.location.origin}/portal?key=${encodeURIComponent(lic.key)}`;
+    const subject = `Sovereign Clearance Key // ${lic.organization} — Assessment Access Granted`;
+    const body = `Dear ${lic.organization} Leadership Team,
+
+Clearance credentials have been authorized for your executive team to access the Sovereign Assessment and Institutional Stress-Testing Suite.
+
+MASTER ACCESS TOKEN:
+${lic.key}
+
+PORTAL 1-CLICK ACCESS LINK:
+${portalUrl}
+
+Tier: ${lic.tier.replace(/_/g, ' ')}
+Active Window: ${lic.validityDays} Days (Valid through ${new Date(lic.expiresAt).toLocaleDateString()})
+
+Multi-User Protocol: All authorized founders, C-suite executives, and partners from ${lic.organization} may use this identical token concurrently during your active access window.
+
+${lic.notes ? `Administrative Note: ${lic.notes}\n\n` : ''}Sincerely,
+
+Suchita Sancheti (suchita@theunboundedleadership.com)
+Founder & Principal Enterprise Architect
+The Unbounded Leadership Co.
+London • New York • Singapore`;
+
+    handleLaunchMailto(subject, body, lic.contactEmail);
   };
 
   const handleDeleteLicense = async (license: PortalLicenseEntry) => {
@@ -863,7 +975,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               className={`text-[10px] font-bold uppercase px-4 py-2 flex items-center gap-1.5 ${activeTab === 'licenses' ? 'text-[#b8860b] border-b-2 border-[#b8860b]' : 'text-zinc-400'}`}
             >
               <Key className="w-3 h-3" />
-              <span>Passkeys & Licenses</span>
+              <span>Tokens & Passkeys</span>
               {data.licenses.length > 0 && (
                 <span className="bg-[#b8860b]/20 text-[#b8860b] text-[9px] px-1.5 py-0.2 rounded-full font-mono">
                   {data.licenses.filter(l => l.status === 'active').length}
@@ -1698,10 +1810,10 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
             <div className="bg-zinc-50 border border-zinc-200 p-6 rounded-sm text-xs text-zinc-600 space-y-2">
               <h4 className="font-bold text-[#b8860b] uppercase text-[10px]">RECIPIENT & DOMAIN VERIFICATION GUIDE:</h4>
               <p>
-                1. <strong>Free-tier constraint:</strong> If you are using Resend's free tier, you can only send emails to the address you signed up with (the verified owner email <strong>suchita135sancheti@gmail.com</strong>) unless you verify your domain.
+                1. <strong>Official Communication Node:</strong> Outbound email dispatches and client access keys are sent from <strong>suchita@theunboundedleadership.com</strong>.
               </p>
               <p>
-                2. <strong>Domain Configuration:</strong> To send emails to external clients, verify your domain (e.g. <code>theunboundedleadership.com</code>) under the "Domains" tab in your Resend Dashboard. Once active, set <code>VITE_SENDER_EMAIL</code> and <code>VITE_ADMIN_EMAIL</code> to matching addresses.
+                2. <strong>Domain Configuration:</strong> To verify deliverability to executive clients, maintain active DKIM/SPF records for <code>theunboundedleadership.com</code> under the Resend Dashboard. Outbound credentials and test tokens automatically CC <code>suchita@theunboundedleadership.com</code>.
               </p>
             </div>
 
@@ -1809,6 +1921,143 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
               </div>
             </div>
 
+            {/* Spotlight Banner: Newly Generated Token Showcase */}
+            {lastGeneratedLicense && (
+              <div className="bg-[#111111] text-white border-2 border-[#b8860b] rounded-sm p-6 shadow-xl animate-fade-in relative overflow-hidden">
+                <div className="absolute top-4 right-4">
+                  <button 
+                    onClick={() => setLastGeneratedLicense(null)}
+                    className="text-zinc-500 hover:text-white p-1 rounded transition-colors"
+                    title="Dismiss Banner"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/10 pr-8">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-mono font-bold uppercase tracking-wider">
+                      <span className="w-2 h-2 rounded-full bg-green-400 animate-ping" />
+                      Token Generated & Active
+                    </span>
+                    <span className="text-zinc-300 text-xs font-mono">
+                      Client: <strong className="text-white">{lastGeneratedLicense.license.organization}</strong> ({lastGeneratedLicense.license.contactEmail})
+                    </span>
+                  </div>
+                  <div className="text-[11px] text-zinc-400 font-mono">
+                    Tier: <span className="text-[#b8860b] font-bold">{lastGeneratedLicense.license.tier}</span> • Valid for {lastGeneratedLicense.license.validityDays} Days (Until {new Date(lastGeneratedLicense.license.expiresAt).toLocaleDateString()})
+                  </div>
+                </div>
+
+                {/* Token Display and Copy Actions */}
+                <div className="mt-5 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+                  <div className="lg:col-span-7 bg-black/80 border border-[#b8860b]/40 rounded p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                      <span className="block text-[9px] font-mono text-[#b8860b] uppercase tracking-widest mb-1">
+                        Clearance Access Token / Key
+                      </span>
+                      <span className="font-mono text-xl sm:text-2xl font-black text-white tracking-widest select-all">
+                        {lastGeneratedLicense.license.key}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => handleCopyKey(lastGeneratedLicense.license.key, 'spotlight-token')}
+                      className={`px-4 py-2.5 rounded text-xs font-bold font-mono uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer whitespace-nowrap ${
+                        copiedTokenId === 'spotlight-token'
+                          ? 'bg-green-600 text-white'
+                          : 'bg-[#b8860b] hover:bg-[#a07409] text-white shadow'
+                      }`}
+                    >
+                      {copiedTokenId === 'spotlight-token' ? (
+                        <>
+                          <Check className="w-4 h-4 text-white" />
+                          <span>Key Copied!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-4 h-4" />
+                          <span>Copy Token Key</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  <div className="lg:col-span-5 flex flex-col sm:flex-row gap-2">
+                    <button
+                      onClick={() => handleCopyPortalLink(lastGeneratedLicense.license.key, 'spotlight-link')}
+                      className={`flex-1 px-4 py-3 rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-2 border transition-all cursor-pointer ${
+                        copiedKeyId === 'spotlight-link'
+                          ? 'border-green-500 bg-green-500/10 text-green-400'
+                          : 'border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 text-zinc-200'
+                      }`}
+                    >
+                      {copiedKeyId === 'spotlight-link' ? (
+                        <>
+                          <Check className="w-4 h-4 text-green-400" />
+                          <span>Portal Link Copied!</span>
+                        </>
+                      ) : (
+                        <>
+                          <ExternalLink className="w-4 h-4 text-[#b8860b]" />
+                          <span>Copy Direct URL</span>
+                        </>
+                      )}
+                    </button>
+                    
+                    <button
+                      disabled={isResendingEmail === lastGeneratedLicense.license.id}
+                      onClick={() => handleResendLicenseEmail(lastGeneratedLicense.license)}
+                      className="px-3.5 py-3 rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 transition-all cursor-pointer disabled:opacity-50"
+                      title="Dispatch credentials via official mail (suchita@theunboundedleadership.com)"
+                    >
+                      <Mail className="w-4 h-4 text-[#b8860b]" />
+                      <span>{isResendingEmail === lastGeneratedLicense.license.id ? 'Sending...' : 'Send Email'}</span>
+                    </button>
+
+                    <button
+                      onClick={() => handleOpenMailtoForLicense(lastGeneratedLicense.license)}
+                      className="px-3 py-3 rounded text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 transition-all cursor-pointer"
+                      title="Open pre-drafted dispatch in desktop/web mail client"
+                    >
+                      <Send className="w-3.5 h-3.5 text-zinc-400" />
+                      <span>Mail Client</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Email Dispatch Notice Strip */}
+                <div className="mt-4 pt-3 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between text-[11px] font-mono text-zinc-400 gap-2">
+                  <div className="flex items-center gap-2">
+                    {lastGeneratedLicense.emailDispatched ? (
+                      <>
+                        <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0" />
+                        <span>
+                          Dispatched via official mail: <strong className="text-white">suchita@theunboundedleadership.com</strong> → <strong className="text-zinc-200">{lastGeneratedLicense.emailRecipient}</strong> (CC: suchita@theunboundedleadership.com)
+                        </span>
+                      </>
+                    ) : lastGeneratedLicense.emailError ? (
+                      <>
+                        <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
+                        <span className="text-amber-300">
+                          Email delivery status: {lastGeneratedLicense.emailError}. You can copy the token key above or forward directly from suchita@theunboundedleadership.com.
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <Mail className="w-4 h-4 text-zinc-400 shrink-0" />
+                        <span>
+                          Official Sender: <strong className="text-white">suchita@theunboundedleadership.com</strong> (Recipient: {lastGeneratedLicense.emailRecipient})
+                        </span>
+                      </>
+                    )}
+                  </div>
+                  <div className="text-[10px] text-zinc-500">
+                    Logged in Email Tracker • Firebase Secured
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Main Action Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               
@@ -1818,9 +2067,9 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                   <div>
                     <h3 className="text-xs font-black uppercase text-[#111111] flex items-center gap-2">
                       <Key className="w-3.5 h-3.5 text-[#b8860b]" />
-                      Generate Passkey
+                      Generate Access Token
                     </h3>
-                    <p className="text-[10px] text-zinc-400 font-mono mt-0.5">Issue new client authorization window</p>
+                    <p className="text-[10px] text-zinc-400 font-mono mt-0.5">Issue client key & dispatch via official email</p>
                   </div>
                   <Sparkles className="w-4 h-4 text-[#b8860b]" />
                 </div>
@@ -1937,7 +2186,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                         onChange={(e) => setLicenseForm({ ...licenseForm, sendEmail: e.target.checked })}
                         className="rounded border-zinc-300 text-[#b8860b] focus:ring-[#b8860b]"
                       />
-                      <span>Email credentials to client automatically</span>
+                      <span>Send key via official mail (<strong className="font-mono">suchita@theunboundedleadership.com</strong>)</span>
                     </label>
                   </div>
 
@@ -1949,37 +2198,48 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                     {isGeneratingLicense ? (
                       <>
                         <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-                        <span>Generating & Dispatching...</span>
+                        <span>Generating & Dispatching via suchita@...</span>
                       </>
                     ) : (
                       <>
                         <Key className="w-3.5 h-3.5" />
-                        <span>Issue & Authorize Passkey</span>
+                        <span>Issue Token & Send to Client</span>
                       </>
                     )}
                   </button>
                 </form>
 
-                {/* Last Generated Quick Card */}
+                {/* Last Generated Quick Card in Sidebar */}
                 {lastGeneratedLicense && (
                   <div className="mt-6 p-4 bg-[#111111] text-white border border-[#b8860b] rounded-sm animate-fade-in">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-[9px] font-mono text-[#b8860b] uppercase tracking-widest">
-                        ✓ Passkey Active
+                        ✓ Token Active
                       </span>
-                      <button
-                        onClick={() => handleCopyPortalLink(lastGeneratedLicense.key, 'last-gen')}
-                        className="text-[9px] text-zinc-300 hover:text-white flex items-center gap-1 font-mono underline"
-                      >
-                        {copiedKeyId === 'last-gen' ? <Check className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
-                        {copiedKeyId === 'last-gen' ? 'Copied Link' : 'Copy Direct URL'}
-                      </button>
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => handleCopyKey(lastGeneratedLicense.license.key, 'sidebar-key')}
+                          className="text-[9px] text-[#b8860b] hover:text-white flex items-center gap-1 font-mono underline"
+                          title="Copy Key Only"
+                        >
+                          {copiedTokenId === 'sidebar-key' ? <Check className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+                          {copiedTokenId === 'sidebar-key' ? 'Key Copied' : 'Copy Key'}
+                        </button>
+                        <button
+                          onClick={() => handleCopyPortalLink(lastGeneratedLicense.license.key, 'sidebar-link')}
+                          className="text-[9px] text-zinc-300 hover:text-white flex items-center gap-1 font-mono underline"
+                          title="Copy Direct URL"
+                        >
+                          {copiedKeyId === 'sidebar-link' ? <Check className="w-3 h-3 text-green-400" /> : <ExternalLink className="w-3 h-3" />}
+                          {copiedKeyId === 'sidebar-link' ? 'Link Copied' : 'Copy URL'}
+                        </button>
+                      </div>
                     </div>
                     <div className="font-mono text-sm font-bold text-white tracking-widest">
-                      {lastGeneratedLicense.key}
+                      {lastGeneratedLicense.license.key}
                     </div>
                     <div className="text-[10px] text-zinc-400 mt-1 font-mono">
-                      {lastGeneratedLicense.organization} • Valid until {new Date(lastGeneratedLicense.expiresAt).toLocaleDateString()}
+                      {lastGeneratedLicense.license.organization} • Valid until {new Date(lastGeneratedLicense.license.expiresAt).toLocaleDateString()}
                     </div>
                   </div>
                 )}
@@ -1992,8 +2252,8 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                 <div className="bg-white border border-zinc-200 rounded-sm shadow-sm">
                   <div className="p-6 border-b border-zinc-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
-                      <h3 className="text-xs font-black uppercase text-[#111111]">Institutional Passkey Ledger</h3>
-                      <p className="text-[10px] text-zinc-400 font-mono mt-0.5">Multi-user access control & telemetry</p>
+                      <h3 className="text-xs font-black uppercase text-[#111111]">Institutional Tokens & Passkeys Ledger</h3>
+                      <p className="text-[10px] text-zinc-400 font-mono mt-0.5">Multi-user access control, instant copying & dispatch status</p>
                     </div>
                     <div className="text-[10px] text-zinc-500 font-mono">
                       Target App: <a href="https://sovereign-audit-the-institutional-stress-test-942902734370.us-west1.run.app" target="_blank" rel="noreferrer" className="text-[#b8860b] underline font-bold">Cloud Run App ↗</a>
@@ -2010,8 +2270,8 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                         <thead className="bg-zinc-50 text-[9px] font-black uppercase text-zinc-400 border-b border-zinc-200">
                           <tr>
                             <th className="px-6 py-4">Status</th>
-                            <th className="px-6 py-4">Passkey</th>
-                            <th className="px-6 py-4">Organization & Email</th>
+                            <th className="px-6 py-4">Passkey / Token</th>
+                            <th className="px-6 py-4">Organization & Contact</th>
                             <th className="px-6 py-4">Tier</th>
                             <th className="px-6 py-4">Window Expiration</th>
                             <th className="px-6 py-4">Usage</th>
@@ -2043,21 +2303,36 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                                   )}
                                 </td>
 
-                                {/* Passkey */}
+                                {/* Passkey / Token with instant copy */}
                                 <td className="px-6 py-4 whitespace-nowrap font-mono text-[11px] font-bold text-zinc-900">
-                                  <div className="flex items-center gap-2">
-                                    <span className="bg-zinc-100 px-2 py-1 border border-zinc-200 rounded tracking-wider">
-                                      {lic.key}
-                                    </span>
+                                  <div className="flex items-center gap-1.5">
                                     <button
-                                      title="Copy Direct Portal URL"
+                                      onClick={() => handleCopyKey(lic.key, lic.id)}
+                                      title="Click to copy Token Key"
+                                      className="bg-zinc-100 hover:bg-zinc-200 px-2 py-1 border border-zinc-200 rounded tracking-wider transition-colors text-zinc-900 text-[11px] font-bold"
+                                    >
+                                      {lic.key}
+                                    </button>
+                                    <button
+                                      title="Copy Token Key"
+                                      onClick={() => handleCopyKey(lic.key, lic.id)}
+                                      className="p-1 hover:bg-zinc-200 rounded text-zinc-500 hover:text-black transition-colors"
+                                    >
+                                      {copiedTokenId === lic.id ? (
+                                        <Check className="w-3.5 h-3.5 text-green-600" />
+                                      ) : (
+                                        <Copy className="w-3.5 h-3.5" />
+                                      )}
+                                    </button>
+                                    <button
+                                      title="Copy Direct 1-Click Portal Link"
                                       onClick={() => handleCopyPortalLink(lic.key, lic.id)}
                                       className="p-1 hover:bg-zinc-200 rounded text-zinc-500 hover:text-black transition-colors"
                                     >
                                       {copiedKeyId === lic.id ? (
                                         <Check className="w-3.5 h-3.5 text-green-600" />
                                       ) : (
-                                        <Copy className="w-3.5 h-3.5" />
+                                        <ExternalLink className="w-3.5 h-3.5" />
                                       )}
                                     </button>
                                   </div>
@@ -2067,6 +2342,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                                 <td className="px-6 py-4">
                                   <div className="font-bold text-zinc-900 text-xs">{lic.organization}</div>
                                   <div className="text-[10px] text-zinc-400 font-mono">{lic.contactEmail}</div>
+                                  <div className="text-[9px] text-[#b8860b] font-mono mt-0.5">Sender: suchita@theunboundedleadership.com</div>
                                   {lic.notes && (
                                     <div className="text-[9px] text-zinc-500 italic mt-0.5 line-clamp-1">"{lic.notes}"</div>
                                   )}
@@ -2100,15 +2376,24 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
                                 </td>
 
                                 {/* Actions */}
-                                <td className="px-6 py-4 whitespace-nowrap text-right space-x-2">
+                                <td className="px-6 py-4 whitespace-nowrap text-right space-x-1.5">
                                   <button
-                                    title="Resend Passkey Email to Client"
+                                    title="Send or resend token key to client from suchita@theunboundedleadership.com"
                                     disabled={isResendingEmail === lic.id}
                                     onClick={() => handleResendLicenseEmail(lic)}
                                     className="p-1.5 bg-zinc-100 hover:bg-[#b8860b] hover:text-white rounded text-zinc-600 transition-colors inline-flex items-center gap-1 text-[9px] font-bold uppercase disabled:opacity-50"
                                   >
                                     <Send className="w-3 h-3" />
-                                    <span>{isResendingEmail === lic.id ? 'Sending...' : 'Email'}</span>
+                                    <span>{isResendingEmail === lic.id ? 'Sending...' : 'Send Key'}</span>
+                                  </button>
+
+                                  <button
+                                    title="Open draft in desktop or web mail client (from suchita@theunboundedleadership.com)"
+                                    onClick={() => handleOpenMailtoForLicense(lic)}
+                                    className="p-1.5 bg-zinc-100 hover:bg-zinc-200 rounded text-zinc-600 transition-colors inline-flex items-center gap-1 text-[9px] font-bold uppercase"
+                                  >
+                                    <Mail className="w-3 h-3" />
+                                    <span>Mail</span>
                                   </button>
 
                                   <button

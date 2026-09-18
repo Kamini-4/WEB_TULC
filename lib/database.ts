@@ -51,7 +51,7 @@ export interface BlogEntry {
 export interface EmailLogEntry {
   id: string;
   timestamp: number;
-  type: 'contact_admin' | 'contact_user' | 'newsletter_broadcast';
+  type: 'contact_admin' | 'contact_user' | 'newsletter_broadcast' | 'passkey_dispatch';
   recipient: string;
   sender: string;
   subject: string;

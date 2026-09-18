@@ -82,7 +82,7 @@ service cloud.firestore {
     // Email Logs Validation
     function isValidEmailLog(data) {
       return data.keys().hasAll(['type', 'recipient', 'sender', 'subject', 'status', 'timestamp']) &&
-             data.type in ['contact_admin', 'contact_user', 'newsletter_broadcast'] &&
+             data.type in ['contact_admin', 'contact_user', 'newsletter_broadcast', 'passkey_dispatch'] &&
              data.recipient is string && data.recipient.size() < 300 &&
              data.sender is string && data.sender.size() < 300 &&
              data.subject is string && data.subject.size() < 1000 &&

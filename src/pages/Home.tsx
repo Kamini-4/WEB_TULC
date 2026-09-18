@@ -1,6 +1,5 @@
 import React from 'react';
 import Hero from '../../components/Hero.tsx';
-import HumanSubstrateManifesto from '../../components/HumanSubstrateManifesto.tsx';
 import ExecutiveFrictionScanner from '../../components/ExecutiveFrictionScanner.tsx';
 import PrincipalDispatch from '../../components/PrincipalDispatch.tsx';
 import DossierCaseStudyPreview from '../../components/DossierCaseStudyPreview.tsx';
@@ -17,24 +16,21 @@ const Home: React.FC<HomeProps> = ({ onBriefClick }) => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.6 }}
     >
-      {/* 01. Brand Vision & Personalized Executive Altitude Engine */}
+      {/* 01. Brand Vision, Institutional Scarcity & Altitude Filter */}
       <Hero onBriefClick={onBriefClick} />
-      
-      {/* 02. Human-Embedded Architecture Methodology */}
-      <HumanSubstrateManifesto />
 
-      {/* 03. Netflix-Style Instant Friction Scanner (Interactive Micro-Diagnostics) */}
+      {/* 02. Interactive Micro-Diagnostics & Friction Scanner */}
       <ExecutiveFrictionScanner />
 
-      {/* 04. Principal Strategic Video Dispatch */}
+      {/* 03. Principal Strategic Video Dispatch */}
       <PrincipalDispatch />
 
-      {/* 05. Declassified Sovereign Dossier Case Study Artifact */}
-      <DossierCaseStudyPreview onBriefClick={onBriefClick} />
+      {/* 04. Declassified Sovereign Dossier (Condensed Executive Briefing Card + Full Modal) */}
+      <DossierCaseStudyPreview onBriefClick={onBriefClick} briefingMode={true} />
       
-      {/* 06. Direct Intake & Calendar Booking */}
+      {/* 05. Direct Intake & Calendar Booking */}
       <Waitlist />
     </motion.div>
   );

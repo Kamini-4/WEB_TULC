@@ -64,7 +64,7 @@
       "description": "A record of an outbound email dispatch, tracking successful delivery and detailed failure diagnostics.",
       "type": "object",
       "properties": {
-        "type": { "type": "string", "enum": ["contact_admin", "contact_user", "newsletter_broadcast"] },
+        "type": { "type": "string", "enum": ["contact_admin", "contact_user", "newsletter_broadcast", "passkey_dispatch"] },
         "recipient": { "type": "string", "format": "email" },
         "sender": { "type": "string" },
         "subject": { "type": "string" },
