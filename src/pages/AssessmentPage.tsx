@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Assessment from '../../components/Assessment.tsx';
+import ExecutiveFrictionScanner from '../../components/ExecutiveFrictionScanner.tsx';
 import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,6 +17,11 @@ const AssessmentPage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 py-2 md:py-4">
         <div id="assessment" className="scroll-mt-28 md:scroll-mt-32">
           <Assessment onCtaClick={() => navigate('/intake')} />
+        </div>
+
+        {/* Forensic Friction Scenarios Diagnostic */}
+        <div className="mt-12 pt-8 border-t border-zinc-200">
+          <ExecutiveFrictionScanner />
         </div>
       </div>
     </motion.div>

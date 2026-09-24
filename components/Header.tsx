@@ -21,10 +21,11 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
   };
 
   const navItems = [
-    { label: 'Architecture', path: '/about' },
-    { label: 'Mandates & Services', path: '/services' },
-    { label: 'Diagnostic', path: '/assessment' },
-    { label: 'Dispatches', path: '/library' },
+    { label: 'How It Works', path: '/about' },
+    { label: 'Advisory & Mandates', path: '/services' },
+    { label: 'Operating Toolkits', path: '/shop', isShop: true },
+    { label: 'Bandwidth Audit', path: '/assessment' },
+    { label: 'Executive Insights', path: '/library' },
     { label: 'Client Portal', path: '/portal', isPortal: true },
   ];
 
@@ -96,6 +97,9 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
                   {item.isPortal && (
                     <span className="text-[10px] opacity-70">🔒</span>
                   )}
+                  {item.isShop && (
+                    <span className="px-1 py-0.2 bg-[#b8860b]/15 text-[#b8860b] text-[7px] font-mono rounded-2xs border border-[#b8860b]/30">VAULT</span>
+                  )}
                   <span>{item.label}</span>
                   {item.path === '/library' && (
                     <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-pulse" title="Patent-pending Research Registry" />
@@ -108,7 +112,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
             onClick={scrollToWaitlist}
             className="px-4 sm:px-6 md:px-7 py-2 sm:py-2.5 bg-[#111111] text-white hover:bg-[#b8860b] transition-all duration-300 shadow-md text-[8px] sm:text-[9px] uppercase font-bold border border-white/10 tracking-wider whitespace-nowrap shrink-0"
           >
-            INITIATE CALIBRATION
+            BOOK CONSULTATION
           </button>
           
           {/* Mobile Menu Toggle */}
@@ -153,7 +157,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
               onClick={scrollToWaitlist}
               className="mt-4 py-4 bg-[#111111] text-white text-xs font-black uppercase tracking-wider"
             >
-              INITIATE CALIBRATION
+              BOOK CONSULTATION
             </button>
           </div>
         </div>

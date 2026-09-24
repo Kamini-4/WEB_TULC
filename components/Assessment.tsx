@@ -2110,7 +2110,7 @@ const Assessment: React.FC = () => {
                                 </div>
                               </div>
                               <div className="p-2 bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[8px] font-sans italic mt-1">
-                                <strong>Institutional Scarcity Notice:</strong> Suchita Sancheti accepts exactly 3 private client mandates per quarter (2 committed for Q3). Complete the 10-Question Intake to qualify for the final seat.
+                                <strong>Institutional Scarcity Notice:</strong> Suchita Sancheti accepts exactly 3 private client mandates per quarter (2 committed for Q3). Complete the 10-Question Intake to qualify for the final mandate.
                               </div>
                             </div>
                           </div>
@@ -2292,7 +2292,7 @@ const Assessment: React.FC = () => {
                               </h4>
                             </div>
                             <span className="px-2.5 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[8px] font-mono uppercase font-bold">
-                              1 OF 3 SEATS OPEN FOR Q3
+                              1 OF 3 MANDATES OPEN FOR Q3
                             </span>
                           </div>
 

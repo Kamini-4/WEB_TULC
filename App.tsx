@@ -14,6 +14,7 @@ import Portal from './src/pages/Portal.tsx';
 import ServicesPage from './src/pages/ServicesPage.tsx';
 import MandatesPage from './src/pages/MandatesPage.tsx';
 import CognitiveTaxPage from './src/pages/CognitiveTaxPage.tsx';
+import ShopPage from './src/pages/Shop.tsx';
 import ArticleView from './components/ArticleView.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import FloatingCTA from './components/FloatingCTA.tsx';
@@ -147,6 +148,11 @@ const App: React.FC = () => {
           title = "Quantify Your Cognitive Tax | Strategic Simulation Engine";
           description = "Isolate your firm's annual inaction tax, coordination drag, and leaked leadership equity with our interactive simulation engine.";
           image = "https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&q=80&w=1600";
+          break;
+        case '/shop':
+          title = "The Sovereign Leverage Vault | Turnkey Leadership Operational Weapons";
+          description = "Battle-tested digital leverage assets. Reclaim 15+ hours of calendar sludge weekly, eliminate key-person dependency, and command enterprise velocity. Early bird allocations available.";
+          image = "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600";
           break;
         case '/library':
           title = "The Registry of Institutional Dispatches | Strategic Library";
@@ -325,6 +331,7 @@ const App: React.FC = () => {
             <Route path="/intake" element={<IntakePage />} />
             <Route path="/portal" element={<Portal />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/shop" element={<ShopPage />} />
             <Route path="/mandates" element={<MandatesPage />} />
             <Route path="/cognitive-tax" element={<CognitiveTaxPage />} />
             <Route path="/quantify-friction" element={<CognitiveTaxPage />} />

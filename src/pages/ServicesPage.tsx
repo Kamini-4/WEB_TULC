@@ -13,6 +13,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import FAQ from '../../components/FAQ.tsx';
+import ExecutiveAltitudeFilter from '../../components/ExecutiveAltitudeFilter.tsx';
 
 interface ServiceCategory {
   id: string;
@@ -60,7 +61,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
     tier: 'Category 02',
     categoryName: 'Enterprise Execution Protocol Transformation',
     name: '90-Day Sovereign Transformation',
-    hook: 'Hard-code your decision logic into 12 self-regulating operational gates to guarantee 100% execution fidelity.',
+    hook: 'Hard-code your decision logic into 12 self-regulating operational gates to enforce high-precision execution fidelity.',
     outcomeMetric: '40% Bandwidth Reclaimed in 90 Days',
     idealFor: 'Enterprises ($10M–$250M+ ARR) suffering from coordination bloat and constant CEO bottlenecking.',
     commitment: '90-Day Comprehensive Installation',
@@ -146,7 +147,7 @@ const ServicesPage: React.FC = () => {
           </h1>
           
           <p className="text-xs sm:text-sm text-zinc-700 font-serif italic leading-relaxed max-w-2xl mx-auto">
-            We do not sell generic advisory hours. We provide three battle-tested architectural categories engineered to eliminate executive bottlenecks, protect capital, and guarantee continuous institutional execution.
+            We do not sell generic advisory hours. We provide three battle-tested architectural categories engineered to eliminate executive bottlenecks, protect capital, and sustain continuous institutional execution.
           </p>
         </div>
 
@@ -287,7 +288,7 @@ const ServicesPage: React.FC = () => {
                 <Lock className="w-3.5 h-3.5 text-[#b8860b]" />
               </div>
               <p className="text-zinc-800 text-xs font-serif italic">
-                Strict Institutional Intake: We accept only <strong className="text-zinc-950 font-bold">3 enterprise mandates per quarter</strong>. 2 seats committed for Q3. <strong>Only 1 opening remains.</strong>
+                Strict Institutional Intake: We accept only <strong className="text-zinc-950 font-bold">3 enterprise mandates per quarter</strong>. 2 mandates committed for Q3. <strong>Only 1 opening remains.</strong>
               </p>
             </div>
             <button
@@ -297,6 +298,11 @@ const ServicesPage: React.FC = () => {
               Verify Intake Availability
             </button>
           </div>
+        </section>
+
+        {/* Tailored Institutional Altitude Selector */}
+        <section className="mb-8">
+          <ExecutiveAltitudeFilter />
         </section>
 
         {/* =========================================================

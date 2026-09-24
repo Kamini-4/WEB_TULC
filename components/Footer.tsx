@@ -185,6 +185,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
           <div>
             <h5 className="text-white text-[9px] uppercase font-black mb-4 font-mono">Client Access</h5>
             <ul className="text-white/50 text-[9px] uppercase space-y-2 font-bold font-mono">
+              <li><Link to="/shop" className="hover:text-[#b8860b] transition-colors uppercase text-[#b8860b]">Operating Toolkits (Shop)</Link></li>
               <li><Link to="/portal" className="hover:text-[#b8860b] transition-colors uppercase">Client Portal</Link></li>
             </ul>
           </div>

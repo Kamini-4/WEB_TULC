@@ -430,8 +430,8 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "Aligned leadership transforms the executive role from an operational solver into a sovereign enterprise architect.",
       "According to governance analysis by [Deloitte Insights](https://www2.deloitte.com/us/en/insights.html), architected governance models achieve 3x greater operational stability during macroeconomic turbulence.",
 
-      "### Why Does the Heroic Management Model Guarantee Organizational Fragility?",
-      "The heroic management model guarantees fragility because the entire firm's throughput is capped by the cognitive and physical limits of a few individuals.",
+      "### Why Does the Heroic Management Model Create Organizational Fragility?",
+      "The heroic management model introduces systemic fragility because the entire firm's throughput is capped by the cognitive and physical limits of a few individuals.",
       "When key leaders become the primary problem solvers, middle management loses decision autonomy and execution muscle.",
       "Hero-dependent companies experience severe valuation discounts when preparing for private equity exits or public listings.",
       "Research published by the [INSEAD Corporate Governance Centre](https://www.insead.edu/centres/corporate-governance) demonstrates that institutionalized governance increases transaction multiples by up to 25%.",
@@ -680,7 +680,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
 
       "### How Can Visionary Founders Scale Quality Without Micromanaging?",
       "Visionary founders scale quality by codifying their unique operating DNA into sovereign decision substrates.",
-      "The Unbounded Leadership Co. builds enterprise logic architectures that guarantee execution excellence.",
+      "The Unbounded Leadership Co. builds enterprise logic architectures designed to drive execution excellence.",
       "Assess your organizational delegation friction using our [Inaction Tax Calculator](/assessment).",
       "Initiate a sovereign advisory engagement through the [Institutional Intake Desk](/intake)."
     ]

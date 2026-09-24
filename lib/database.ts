@@ -9,9 +9,30 @@ import {
   orderBy, 
   onSnapshot,
   getDocFromServer,
-  serverTimestamp
+  serverTimestamp,
+  limit,
+  where
 } from 'firebase/firestore';
 import { db, auth } from '../src/firebase.ts';
+import { reportClientError } from '../src/lib/apiClient.ts';
+
+// In-memory query cache for read-heavy operations
+const queryCache = new Map<string, { data: any; timestamp: number }>();
+const CACHE_TTL_MS = 30000; // 30 seconds TTL
+
+function getFromCache<T>(key: string): T | null {
+  const item = queryCache.get(key);
+  if (!item) return null;
+  if (Date.now() - item.timestamp > CACHE_TTL_MS) {
+    queryCache.delete(key);
+    return null;
+  }
+  return item.data as T;
+}
+
+function setToCache<T>(key: string, data: T): void {
+  queryCache.set(key, { data, timestamp: Date.now() });
+}
 
 export interface LeadEntry {
   id: string;
@@ -203,7 +224,8 @@ export const SovereignDB = {
 
   subscribeToLeads: (callback: (leads: LeadEntry[]) => void) => {
     const path = 'leads';
-    const q = query(collection(db, path), orderBy('timestamp', 'desc'));
+    if (!auth.currentUser) return () => {};
+    const q = query(collection(db, path), orderBy('timestamp', 'desc'), limit(50));
     return onSnapshot(q, (snapshot) => {
       const leads = snapshot.docs.map(doc => {
         const data = doc.data();
@@ -219,7 +241,8 @@ export const SovereignDB = {
 
   subscribeToAssessments: (callback: (assessments: AssessmentEntry[]) => void) => {
     const path = 'assessments';
-    const q = query(collection(db, path), orderBy('timestamp', 'desc'));
+    if (!auth.currentUser) return () => {};
+    const q = query(collection(db, path), orderBy('timestamp', 'desc'), limit(50));
     return onSnapshot(q, (snapshot) => {
       const assessments = snapshot.docs.map(doc => {
         const data = doc.data();
@@ -234,13 +257,19 @@ export const SovereignDB = {
 
   subscribeToBlog: (callback: (posts: BlogEntry[]) => void) => {
     const path = 'blog';
-    const q = query(collection(db, path), orderBy('timestamp', 'desc'));
+    const cacheKey = 'blog_posts_cached';
+    const cached = getFromCache<BlogEntry[]>(cacheKey);
+    if (cached) {
+      callback(cached);
+    }
+    const q = query(collection(db, path), orderBy('timestamp', 'desc'), limit(30));
     return onSnapshot(q, (snapshot) => {
       const posts = snapshot.docs.map(doc => {
         const data = doc.data();
         const timestamp = data.timestamp?.toMillis ? data.timestamp.toMillis() : data.timestamp;
         return { ...data, id: doc.id, timestamp } as BlogEntry;
       });
+      setToCache(cacheKey, posts);
       callback(posts);
     }, (error) => {
       handleFirestoreError(error, OperationType.LIST, path);
@@ -298,7 +327,8 @@ export const SovereignDB = {
 
   subscribeToEmailLogs: (callback: (logs: EmailLogEntry[]) => void) => {
     const path = 'email_logs';
-    const q = query(collection(db, path), orderBy('timestamp', 'desc'));
+    if (!auth.currentUser) return () => {};
+    const q = query(collection(db, path), orderBy('timestamp', 'desc'), limit(50));
     return onSnapshot(q, (snapshot) => {
       const logs = snapshot.docs.map(doc => {
         const data = doc.data();
@@ -399,7 +429,8 @@ export const SovereignDB = {
 
   subscribeToPortalLicenses: (callback: (licenses: PortalLicenseEntry[]) => void) => {
     const path = 'portal_licenses';
-    const q = query(collection(db, path), orderBy('createdAt', 'desc'));
+    if (!auth.currentUser) return () => {};
+    const q = query(collection(db, path), orderBy('createdAt', 'desc'), limit(50));
     return onSnapshot(q, (snapshot) => {
       const licenses = snapshot.docs.map(doc => {
         const data = doc.data();
@@ -420,51 +451,230 @@ export const SovereignDB = {
         body: JSON.stringify({ key: trimmedKey })
       });
       const resData = await response.json();
+
+      // If verified directly as valid (e.g. Master Clearance)
+      if (resData.valid) {
+        return resData;
+      }
+
+      // If rejected with an explicit error (e.g., invalid format)
+      if (resData.reason === 'invalid_format' || resData.reason === 'missing_key') {
+        return resData;
+      }
+
+      // If requires institutional database verification
+      if (resData.requiresDbLookup || !response.ok) {
+        return await SovereignDB.verifyLicenseInDatabase(trimmedKey);
+      }
+
       return resData;
     } catch (err: any) {
-      console.error('Server passkey verification failed, checking direct fallback:', err);
-      // Client-side fallback query
-      try {
-        const { getDocs, query, collection, where, updateDoc, doc, increment } = await import('firebase/firestore');
-        const q = query(collection(db, 'portal_licenses'), where('key', '==', trimmedKey));
-        const snap = await getDocs(q);
-        if (snap.empty) {
-          return { valid: false, reason: 'invalid', error: 'Unrecognized institutional access key.' };
-        }
-        const docItem = snap.docs[0];
-        const lic = docItem.data() as PortalLicenseEntry;
-        const now = Date.now();
-        if (lic.status === 'revoked') {
-          return { valid: false, reason: 'revoked', error: 'This institutional key has been revoked by administration.' };
-        }
-        if (now > lic.expiresAt || lic.status === 'expired') {
-          return { 
-            valid: false, 
-            reason: 'expired', 
-            organization: lic.organization, 
-            expiresAt: lic.expiresAt,
-            error: `Your institutional access window for ${lic.organization} expired on ${new Date(lic.expiresAt).toLocaleDateString()}.` 
-          };
-        }
-        // Increment access count
-        try {
-          await updateDoc(doc(db, 'portal_licenses', docItem.id), {
-            accessCount: increment(1),
-            lastAccessedAt: now
-          });
-        } catch (incrementErr) {
-          console.warn("Failed to increment license access count:", incrementErr);
-        }
-        return {
-          valid: true,
-          organization: lic.organization,
-          tier: lic.tier,
-          expiresAt: lic.expiresAt,
-          targetUrl: "https://sovereign-audit-the-institutional-stress-test-942902734370.us-west1.run.app"
-        };
-      } catch (clientErr) {
-        return { valid: false, reason: 'error', error: 'Unable to complete verification check. Please retry.' };
+      console.warn('Server passkey verification unreachable, falling back to database check:', err);
+      return await SovereignDB.verifyLicenseInDatabase(trimmedKey);
+    }
+  },
+
+  verifyLicenseInDatabase: async (trimmedKey: string) => {
+    try {
+      const { getDocs, query, collection, where, updateDoc, doc, increment } = await import('firebase/firestore');
+      const q = query(collection(db, 'portal_licenses'), where('key', '==', trimmedKey));
+      const snap = await getDocs(q);
+
+      if (snap.empty) {
+        return { valid: false, reason: 'invalid', error: 'Unrecognized institutional access key.' };
       }
+
+      const docItem = snap.docs[0];
+      const lic = docItem.data() as PortalLicenseEntry;
+      const now = Date.now();
+
+      if (lic.status === 'revoked') {
+        return { valid: false, reason: 'revoked', error: 'This institutional key has been revoked by administration.' };
+      }
+
+      if (now > lic.expiresAt || lic.status === 'expired') {
+        return { 
+          valid: false, 
+          reason: 'expired', 
+          organization: lic.organization, 
+          expiresAt: lic.expiresAt,
+          error: `Your institutional access window for ${lic.organization} expired on ${new Date(lic.expiresAt).toLocaleDateString()}.` 
+        };
+      }
+
+      // Increment access count
+      try {
+        await updateDoc(doc(db, 'portal_licenses', docItem.id), {
+          accessCount: increment(1),
+          lastAccessedAt: now
+        });
+      } catch (incrementErr) {
+        console.warn("Failed to increment license access count:", incrementErr);
+      }
+
+      return {
+        valid: true,
+        organization: lic.organization,
+        tier: lic.tier,
+        expiresAt: lic.expiresAt,
+        targetUrl: "https://sovereign-audit-the-institutional-stress-test-942902734370.us-west1.run.app"
+      };
+    } catch (clientErr) {
+      console.error("Client license verification check failed:", clientErr);
+      return { valid: false, reason: 'error', error: 'Unable to complete verification check. Please check permissions.' };
+    }
+  },
+
+  // ====================================================
+  // DUPLICATE PREVENTION & RESILIENT SUBSCRIPTION
+  // ====================================================
+  checkExistingSubscription: async (email: string): Promise<boolean> => {
+    try {
+      const normalizedEmail = email.trim().toLowerCase();
+      const localSubs = localStorage.getItem('tulc_subscribers_cache');
+      if (localSubs) {
+        const parsed: string[] = JSON.parse(localSubs);
+        if (parsed.includes(normalizedEmail)) {
+          return true;
+        }
+      }
+      return false;
+    } catch {
+      return false;
+    }
+  },
+
+  subscribeNewsletter: async (email: string) => {
+    const normalizedEmail = email.trim().toLowerCase();
+
+    // Call server API endpoint with atomic deduplication & timeout handling
+    const response = await fetch('/api/newsletter/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: normalizedEmail })
+    });
+
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.error || 'Failed to complete subscription request.');
+    }
+
+    const data = await response.json();
+
+    // Update client-side cache
+    try {
+      const localSubs = localStorage.getItem('tulc_subscribers_cache');
+      const list: string[] = localSubs ? JSON.parse(localSubs) : [];
+      if (!list.includes(normalizedEmail)) {
+        list.push(normalizedEmail);
+        localStorage.setItem('tulc_subscribers_cache', JSON.stringify(list));
+      }
+    } catch {
+      // Ignore localStorage quotas
+    }
+
+    return data;
+  },
+
+  // ====================================================
+  // PAGINATED ENTITY QUERIES
+  // ====================================================
+  fetchPaginatedLeads: async (pageSize = 10, page = 1): Promise<{ items: LeadEntry[]; total: number }> => {
+    const path = 'leads';
+    const cacheKey = `paginated_leads_${page}_${pageSize}`;
+    const cached = getFromCache<{ items: LeadEntry[]; total: number }>(cacheKey);
+    if (cached) return cached;
+
+    try {
+      const snapshot = await getDocs(query(collection(db, path), orderBy('timestamp', 'desc'), limit(100)));
+      const all = snapshot.docs.map(d => {
+        const data = d.data();
+        const timestamp = data.timestamp?.toMillis ? data.timestamp.toMillis() : data.timestamp;
+        return { ...data, id: d.id, timestamp } as LeadEntry;
+      });
+
+      const startIndex = (page - 1) * pageSize;
+      const items = all.slice(startIndex, startIndex + pageSize);
+      const result = { items, total: all.length };
+      setToCache(cacheKey, result);
+      return result;
+    } catch (error) {
+      handleFirestoreError(error, OperationType.LIST, path);
+      return { items: [], total: 0 };
+    }
+  },
+
+  fetchPaginatedAssessments: async (pageSize = 10, page = 1): Promise<{ items: AssessmentEntry[]; total: number }> => {
+    const path = 'assessments';
+    const cacheKey = `paginated_assessments_${page}_${pageSize}`;
+    const cached = getFromCache<{ items: AssessmentEntry[]; total: number }>(cacheKey);
+    if (cached) return cached;
+
+    try {
+      const snapshot = await getDocs(query(collection(db, path), orderBy('timestamp', 'desc'), limit(100)));
+      const all = snapshot.docs.map(d => {
+        const data = d.data();
+        const timestamp = data.timestamp?.toMillis ? data.timestamp.toMillis() : data.timestamp;
+        return { ...data, id: d.id, timestamp } as AssessmentEntry;
+      });
+
+      const startIndex = (page - 1) * pageSize;
+      const items = all.slice(startIndex, startIndex + pageSize);
+      const result = { items, total: all.length };
+      setToCache(cacheKey, result);
+      return result;
+    } catch (error) {
+      handleFirestoreError(error, OperationType.LIST, path);
+      return { items: [], total: 0 };
+    }
+  },
+
+  fetchPaginatedEmailLogs: async (pageSize = 10, page = 1): Promise<{ items: EmailLogEntry[]; total: number }> => {
+    const path = 'email_logs';
+    const cacheKey = `paginated_email_logs_${page}_${pageSize}`;
+    const cached = getFromCache<{ items: EmailLogEntry[]; total: number }>(cacheKey);
+    if (cached) return cached;
+
+    try {
+      const snapshot = await getDocs(query(collection(db, path), orderBy('timestamp', 'desc'), limit(100)));
+      const all = snapshot.docs.map(d => {
+        const data = d.data();
+        const timestamp = data.timestamp?.toMillis ? data.timestamp.toMillis() : data.timestamp;
+        return { ...data, id: d.id, timestamp } as EmailLogEntry;
+      });
+
+      const startIndex = (page - 1) * pageSize;
+      const items = all.slice(startIndex, startIndex + pageSize);
+      const result = { items, total: all.length };
+      setToCache(cacheKey, result);
+      return result;
+    } catch (error) {
+      handleFirestoreError(error, OperationType.LIST, path);
+      return { items: [], total: 0 };
+    }
+  },
+
+  fetchPaginatedLicenses: async (pageSize = 10, page = 1): Promise<{ items: PortalLicenseEntry[]; total: number }> => {
+    const path = 'portal_licenses';
+    const cacheKey = `paginated_licenses_${page}_${pageSize}`;
+    const cached = getFromCache<{ items: PortalLicenseEntry[]; total: number }>(cacheKey);
+    if (cached) return cached;
+
+    try {
+      const snapshot = await getDocs(query(collection(db, path), orderBy('createdAt', 'desc'), limit(100)));
+      const all = snapshot.docs.map(d => {
+        const data = d.data();
+        return { ...data, id: d.id } as PortalLicenseEntry;
+      });
+
+      const startIndex = (page - 1) * pageSize;
+      const items = all.slice(startIndex, startIndex + pageSize);
+      const result = { items, total: all.length };
+      setToCache(cacheKey, result);
+      return result;
+    } catch (error) {
+      handleFirestoreError(error, OperationType.LIST, path);
+      return { items: [], total: 0 };
     }
   }
 };

@@ -363,6 +363,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
     let unsubLeads = () => {};
     let unsubAssessments = () => {};
     let unsubEmailLogs = () => {};
+    let unsubLicenses = () => {};
 
     if (firebaseUser) {
       unsubLeads = SovereignDB.subscribeToLeads((leads) => {
@@ -374,11 +375,10 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
       unsubEmailLogs = SovereignDB.subscribeToEmailLogs((emailLogs) => {
         setData(prev => ({ ...prev, emailLogs }));
       });
+      unsubLicenses = SovereignDB.subscribeToPortalLicenses((licenses) => {
+        setData(prev => ({ ...prev, licenses }));
+      });
     }
-
-    const unsubLicenses = SovereignDB.subscribeToPortalLicenses((licenses) => {
-      setData(prev => ({ ...prev, licenses }));
-    });
 
     const unsubBlog = SovereignDB.subscribeToBlog((blog) => {
       setData(prev => ({ ...prev, blog }));
@@ -1920,6 +1920,30 @@ London • New York • Singapore`;
                 <p className="text-[10px] text-zinc-400 mt-1 font-mono">Cumulative client sessions</p>
               </div>
             </div>
+
+            {!firebaseUser && (
+              <div className="bg-amber-50/40 border border-amber-300/60 p-6 rounded-sm flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs font-inter text-[#4d3c0c]">
+                <div>
+                  <h4 className="font-extrabold uppercase text-[#b8860b]">🔐 Client Registry Secure Encryption Gate</h4>
+                  <p className="text-zinc-600 mt-1 max-w-2xl leading-relaxed">
+                    Institutional passkeys and client license ledgers are cryptographically shielded. To initiate a secure decryption sync and manage passkeys, please authenticate via your Google Admin account.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    try {
+                      await signInWithGoogle();
+                    } catch (err: any) {
+                      alert(`Google Admin login failed: ${err.message || err}`);
+                    }
+                  }}
+                  className="px-5 py-3 bg-[#b8860b] hover:bg-amber-600 text-white font-black text-[10px] uppercase transition-all rounded-sm flex items-center justify-center gap-2 cursor-pointer shrink-0"
+                >
+                  <Fingerprint className="w-4 h-4" /> Authenticate Google Admin
+                </button>
+              </div>
+            )}
 
             {/* Spotlight Banner: Newly Generated Token Showcase */}
             {lastGeneratedLicense && (
