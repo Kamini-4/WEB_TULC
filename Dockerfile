@@ -16,8 +16,8 @@ RUN npm install --omit=dev
 # Set the environment variable for production
 ENV NODE_ENV=production
 
-# Expose the port
-EXPOSE 3000
+# Expose the port (Cloud Run defaults to 8080)
+EXPOSE 8080 3000
 
 # Start the application
 CMD ["node", "server.js"]

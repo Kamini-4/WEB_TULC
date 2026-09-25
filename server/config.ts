@@ -11,7 +11,7 @@ export interface ServerConfig {
 }
 
 export const config: ServerConfig = {
-  port: 3000,
+  port: process.env.PORT ? parseInt(process.env.PORT, 10) : 3000,
   isProd: process.env.NODE_ENV === 'production',
   adminEmail: process.env.VITE_ADMIN_EMAIL || 'suchita@theunboundedleadership.com',
   senderEmail: process.env.VITE_SENDER_EMAIL || 'suchita@theunboundedleadership.com',
