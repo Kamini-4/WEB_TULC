@@ -14,7 +14,7 @@ const getNextTargetDate = () => {
 
 const Countdown: React.FC = () => {
   const targetDate = React.useMemo(() => getNextTargetDate(), []);
-  const targetLabel = targetDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+  const targetLabel = targetDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -46,39 +46,28 @@ const Countdown: React.FC = () => {
   }, [targetDate]);
 
   return (
-    <div className="bg-[#111111] text-white py-2 px-4 border-b border-[#b8860b]/20 relative z-[60]">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8">
-        <div className="flex items-center gap-3">
-          <span className="text-[#b8860b] text-[10px] sm:text-[8px] font-black uppercase ">Institutional Intake Window</span>
-          <div className="h-[1px] w-4 bg-[#b8860b]/30"></div>
-          <span className="text-[10px] sm:text-[9px] font-bold uppercase text-zinc-400">Closing {targetLabel}</span>
+    <div className="bg-[#0e0e0e] text-zinc-300 py-1 sm:py-1.5 px-4 border-b border-[#b8860b]/20 relative z-[60] select-none">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 text-[10px] sm:text-[11px] font-mono">
+        <div className="flex items-center gap-2 truncate">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-pulse shrink-0" />
+          <span className="text-[#b8860b] font-bold uppercase tracking-wider shrink-0">Executive Intake</span>
+          <span className="text-zinc-600 hidden xs:inline">•</span>
+          <span className="text-zinc-300 truncate">Window Closes {targetLabel}</span>
         </div>
         
-        <div className="flex items-center gap-4 sm:gap-6">
-          <div className="flex flex-col items-center">
-            <span className="text-[16px] sm:text-[14px] font-black tabular-nums">{timeLeft.days.toString().padStart(2, '0')}</span>
-            <span className="text-[7px] sm:text-[6px] uppercase font-bold text-[#b8860b] ">Days</span>
-          </div>
-          <span className="text-[#b8860b]/30 font-light">:</span>
-          <div className="flex flex-col items-center">
-            <span className="text-[16px] sm:text-[14px] font-black tabular-nums">{timeLeft.hours.toString().padStart(2, '0')}</span>
-            <span className="text-[7px] sm:text-[6px] uppercase font-bold text-[#b8860b] ">Hrs</span>
-          </div>
-          <span className="text-[#b8860b]/30 font-light">:</span>
-          <div className="flex flex-col items-center">
-            <span className="text-[16px] sm:text-[14px] font-black tabular-nums">{timeLeft.minutes.toString().padStart(2, '0')}</span>
-            <span className="text-[7px] sm:text-[6px] uppercase font-bold text-[#b8860b] ">Min</span>
-          </div>
-          <span className="text-[#b8860b]/30 font-light">:</span>
-          <div className="flex flex-col items-center">
-            <span className="text-[16px] sm:text-[14px] font-black tabular-nums text-[#b8860b]">{timeLeft.seconds.toString().padStart(2, '0')}</span>
-            <span className="text-[7px] sm:text-[6px] uppercase font-bold text-[#b8860b] ">Sec</span>
-          </div>
+        <div className="flex items-center gap-1 font-semibold tracking-wider shrink-0 text-white">
+          <span className="bg-white/10 px-1.5 py-0.5 rounded text-[10px] sm:text-[11px] tabular-nums">{timeLeft.days}d</span>
+          <span className="text-[#b8860b] font-bold">:</span>
+          <span className="bg-white/10 px-1.5 py-0.5 rounded text-[10px] sm:text-[11px] tabular-nums">{timeLeft.hours}h</span>
+          <span className="text-[#b8860b] font-bold">:</span>
+          <span className="bg-white/10 px-1.5 py-0.5 rounded text-[10px] sm:text-[11px] tabular-nums">{timeLeft.minutes}m</span>
+          <span className="text-[#b8860b] font-bold">:</span>
+          <span className="bg-[#b8860b]/20 text-[#b8860b] px-1.5 py-0.5 rounded text-[10px] sm:text-[11px] tabular-nums">{timeLeft.seconds}s</span>
         </div>
 
-        <div className="hidden md:flex items-center gap-3">
-          <div className="h-[1px] w-4 bg-[#b8860b]/30"></div>
-          <span className="text-[8px] font-black uppercase text-[#b8860b] animate-pulse">Strategic Urgency Active</span>
+        <div className="hidden md:flex items-center gap-2 text-zinc-400 text-[10px] uppercase tracking-wider shrink-0">
+          <span className="text-zinc-600">•</span>
+          <span className="text-[#b8860b]/90 font-medium">Strictly 3 Mandates / Qtr</span>
         </div>
       </div>
     </div>
