@@ -72,7 +72,7 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
   }, []);
 
   return (
-    <section id="registry" className={`${hideHeader ? 'py-12' : 'py-20 sm:py-24'} bg-[#111111] text-[#f5f5f0] overflow-hidden isolate transition-all duration-500`}>
+    <section id="registry" className={`${hideHeader ? 'pt-2 pb-12 sm:pb-16' : 'py-16 sm:py-20'} bg-transparent text-[#f5f5f0] overflow-hidden isolate transition-all duration-500`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {!hideHeader && (
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 gap-8">
@@ -183,11 +183,11 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
               
               <div className="registry-separator mb-4 sm:mb-6 relative z-10"></div>
               
-              <h4 className="registry-title text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6 leading-snug relative z-10">
+              <h4 className="registry-title text-base sm:text-lg lg:text-xl font-bold font-serif mb-2.5 sm:mb-3 leading-snug relative z-10">
                 {post.title}
               </h4>
               
-              <p className="text-zinc-400 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 italic font-light flex-grow relative z-10">
+              <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 italic font-light flex-grow relative z-10">
                 {post.excerpt}
               </p>
               

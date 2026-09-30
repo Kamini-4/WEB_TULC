@@ -225,10 +225,10 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                   )}
                 </div>
               </div>
-              <h4 className="text-xl font-bold text-white mb-3 group-hover:text-[#b8860b] transition-colors leading-snug">
+              <h4 className="text-base sm:text-lg font-bold font-serif text-white mb-2 group-hover:text-[#b8860b] transition-colors leading-snug">
                 {article.title}
               </h4>
-              <p className="text-zinc-500 text-sm leading-relaxed mb-4 font-normal italic line-clamp-2">
+              <p className="text-zinc-500 text-xs sm:text-sm leading-relaxed mb-4 font-normal italic line-clamp-2">
                 {article.excerpt}
               </p>
               <div className="w-8 h-px bg-white/10 group-hover:w-full group-hover:bg-[#b8860b] transition-all duration-700" />

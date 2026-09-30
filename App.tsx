@@ -337,6 +337,9 @@ const App: React.FC = () => {
             <Route path="/portal" element={<Portal />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/shop" element={<ShopPage />} />
+            <Route path="/toolkits" element={<ShopPage />} />
+            <Route path="/toolkit" element={<ShopPage />} />
+            <Route path="/store" element={<ShopPage />} />
             <Route path="/mandates" element={<MandatesPage />} />
             <Route path="/cognitive-tax" element={<CognitiveTaxPage />} />
             <Route path="/quantify-friction" element={<CognitiveTaxPage />} />

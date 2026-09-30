@@ -142,43 +142,44 @@ export const ShopPage: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-12 sm:pt-16 pb-14 sm:pb-20 border-b border-zinc-200/80 overflow-hidden">
+      <section className="relative pt-10 sm:pt-14 pb-10 sm:pb-14 border-b border-zinc-200/80 overflow-hidden">
         <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#b8860b]/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl space-y-5">
+          <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#111111] text-[#b8860b] border border-[#b8860b]/40 text-[8px] sm:text-[9px] font-mono uppercase tracking-widest font-black">
-              <Trophy className="w-3.5 h-3.5" /> The Executive Sovereign Arsenal
+              <Trophy className="w-3.5 h-3.5" /> The Executive Sovereign Shop & Toolkits
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#111111] tracking-tight leading-[1.08]">
-              Eliminate The Bottleneck. <br />
-              <span className="italic text-[#b8860b] font-light">Lead By Architecture. Reclaim Your Enterprise.</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight leading-[1.08] font-serif">
+              The Sovereign Shop & Toolkits. <br />
+              <span className="italic text-[#b8860b] font-light">Turnkey Leadership Workspaces & Operational Weapons.</span>
             </h1>
 
-            {/* Strategic Leadership Quote Box */}
-            <div className="p-4 bg-white border-l-4 border-[#b8860b] rounded-r-xs shadow-xs text-xs sm:text-sm italic font-serif text-zinc-800 leading-relaxed">
-              "High-leverage leadership isn't about working more hours; it's about building superior systems. If you spend your week resolving tactical fires, the issue isn't your team's dedication—it is the absence of clear operational filters. Upgrade the architecture, and bandwidth follows."
-            </div>
+            <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed font-serif italic">
+              Pre-engineered Notion & Coda master workspaces, decision filters, and delegation gates. Reclaim 15+ hours of executive bandwidth weekly with instant 1-click team deployment.
+            </p>
 
-            {/* Strategic Leadership Directives */}
-            <div className="space-y-2 pt-1">
-              <div className="text-[9px] font-mono uppercase tracking-widest text-[#b8860b] font-bold">
-                Target Enterprise Outcomes:
-              </div>
-              <ul className="grid sm:grid-cols-3 gap-2.5 text-xs text-zinc-800">
-                <li className="flex items-start gap-2 bg-white border border-zinc-200/90 p-3 rounded-xs shadow-2xs">
-                  <CheckCircle2 className="w-4 h-4 text-[#b8860b] shrink-0 mt-0.5" />
-                  <span className="leading-snug"><strong className="font-semibold text-[#111111]">15+ Hours Reclaimed:</strong> Strip low-leverage coordination from your weekly schedule.</span>
-                </li>
-                <li className="flex items-start gap-2 bg-white border border-zinc-200/90 p-3 rounded-xs shadow-2xs">
-                  <CheckCircle2 className="w-4 h-4 text-[#b8860b] shrink-0 mt-0.5" />
-                  <span className="leading-snug"><strong className="font-semibold text-[#111111]">30-Day Decoupling:</strong> Protect revenue continuity when leadership is offline.</span>
-                </li>
-                <li className="flex items-start gap-2 bg-white border border-zinc-200/90 p-3 rounded-xs shadow-2xs">
-                  <CheckCircle2 className="w-4 h-4 text-[#b8860b] shrink-0 mt-0.5" />
-                  <span className="leading-snug"><strong className="font-semibold text-[#111111]">72-Hour Decision Speed:</strong> Replace consensus delays with single-point ownership.</span>
-                </li>
-              </ul>
+            {/* Quick Navigation Anchors */}
+            <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-[9px] uppercase font-bold">
+              <a 
+                href="#bundle-section"
+                className="px-3 py-1.5 bg-[#b8860b] text-white hover:bg-black transition-colors rounded-2xs flex items-center gap-1 shadow-xs"
+              >
+                <Flame className="w-3 h-3" />
+                <span>Sovereign Vault Bundle (Save 60%)</span>
+              </a>
+              <a 
+                href="#products"
+                className="px-3 py-1.5 bg-white border border-zinc-300 text-zinc-800 hover:border-[#b8860b] transition-colors rounded-2xs flex items-center gap-1"
+              >
+                <span>Browse All 5 Toolkits ↓</span>
+              </a>
+              <a 
+                href="#calculator"
+                className="px-3 py-1.5 bg-white border border-zinc-300 text-zinc-800 hover:border-[#b8860b] transition-colors rounded-2xs flex items-center gap-1"
+              >
+                <span>ROI Calculator ↓</span>
+              </a>
             </div>
 
             {/* Currency Bar & Trust Signals */}
@@ -200,106 +201,8 @@ export const ShopPage: React.FC = () => {
       </section>
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-16 sm:space-y-20">
-        {/* Section 1: The Leverage Architecture Matrix (Operational Truth -> The Architecture -> The Outcome) */}
-        <section>
-          <div className="mb-6">
-            <span className="font-mono text-[8px] uppercase tracking-widest text-[#b8860b] font-black block mb-1">
-              THE LEVERAGE CODEX
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#111111]">
-              The Operational Truth vs. The Delivered Outcome
-            </h2>
-            <p className="text-xs sm:text-sm text-zinc-600 font-light mt-1">
-              Where uncodified teams get caught in reactive loops, strategic leaders install clear operating systems and compound executive velocity.
-            </p>
-          </div>
-          <GoldenCircleGraphic onSelectProduct={(id) => {
-            const p = SHOP_PRODUCTS.find(item => item.id === id);
-            if (p) setInspectingProduct(p);
-          }} />
-        </section>
-
-        {/* Section 2: ROI Bandwidth Calculator */}
-        <section>
-          <div className="mb-6">
-            <span className="font-mono text-[8px] uppercase tracking-widest text-[#b8860b] font-black block mb-1">
-              COLD EMPIRICAL DATA
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#111111]">
-              Quantify The Financial Cost of Operational Drag
-            </h2>
-            <p className="text-xs sm:text-sm text-zinc-600 font-light mt-1">
-              See what executive time actually costs when absorbed by tactical triage instead of strategic leverage.
-            </p>
-          </div>
-          <RoiCalculator 
-            currency={currency}
-            onCurrencyChange={setCurrency}
-            onUnlockVault={() => setCheckoutItem(SOVEREIGN_VAULT_BUNDLE)} 
-          />
-        </section>
-
-        {/* Section 3: The 5 Digital Leverage Products */}
-        <section id="products">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
-            <div>
-              <span className="font-mono text-[8px] uppercase tracking-widest text-[#b8860b] font-black block mb-1">
-                EXECUTIVE PRODUCTION CATALOG (5 WEAPONS)
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#111111]">
-                Turnkey Operational Weapons
-              </h2>
-              <p className="text-xs sm:text-sm text-zinc-600 font-light mt-1">
-                Each asset eliminates one fatal vector of founder dependency with mathematical certainty.
-              </p>
-            </div>
-
-            {/* Filter & Currency Controls */}
-            <div className="flex flex-wrap items-center gap-3 self-start">
-              {/* Category Filter Pills */}
-              <div className="flex flex-wrap gap-1.5 p-1 bg-zinc-200/60 rounded-xs border border-zinc-300/60">
-                {categories.map((cat) => (
-                  <button
-                    key={cat.id}
-                    onClick={() => setSelectedCategory(cat.id)}
-                    className={`px-3 py-1 text-[9px] font-mono uppercase font-bold tracking-wider transition-all rounded-2xs cursor-pointer ${
-                      selectedCategory === cat.id
-                        ? 'bg-[#111111] text-white shadow-xs'
-                        : 'text-zinc-600 hover:text-black'
-                    }`}
-                  >
-                    {cat.label}
-                  </button>
-                ))}
-              </div>
-
-              {/* Currency Selector for Catalog */}
-              <CurrencySelector
-                currentCurrency={currency}
-                onCurrencyChange={setCurrency}
-                size="sm"
-                variant="light"
-              />
-            </div>
-          </div>
-
-          {/* Product Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {filteredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onInspect={(p) => setInspectingProduct(p)}
-                onAcquire={(p) => setCheckoutItem(p)}
-                currencySymbol={currencySymbols[currency]}
-                currencyPrice={getProductPrice(product, currency)}
-              />
-            ))}
-          </div>
-        </section>
-
-        {/* Section 4: The Sovereign Leverage Vault Bundle (Money-Bringing Showcase) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-16 sm:space-y-20">
+        {/* Section 1: The Sovereign Leverage Vault Bundle (Flagship Money-Bringing Spotlight) */}
         <section id="bundle-section" className="border-2 border-[#b8860b] bg-[#111111] text-white p-6 sm:p-10 md:p-12 rounded-xs shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#b8860b]/15 blur-[120px] rounded-full pointer-events-none" />
           
@@ -431,6 +334,104 @@ export const ShopPage: React.FC = () => {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Section 2: The 5 Digital Leverage Products (Toolkits Catalog) */}
+        <section id="products">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <span className="font-mono text-[8px] uppercase tracking-widest text-[#b8860b] font-black block mb-1">
+                EXECUTIVE PRODUCTION CATALOG (5 WEAPONS)
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#111111] font-serif">
+                Turnkey Operational Toolkits
+              </h2>
+              <p className="text-xs sm:text-sm text-zinc-600 font-light mt-1">
+                Each toolkit eliminates one fatal vector of founder dependency with mathematical certainty.
+              </p>
+            </div>
+
+            {/* Filter & Currency Controls */}
+            <div className="flex flex-wrap items-center gap-3 self-start">
+              {/* Category Filter Pills */}
+              <div className="flex flex-wrap gap-1.5 p-1 bg-zinc-200/60 rounded-xs border border-zinc-300/60">
+                {categories.map((cat) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => setSelectedCategory(cat.id)}
+                    className={`px-3 py-1 text-[9px] font-mono uppercase font-bold tracking-wider transition-all rounded-2xs cursor-pointer ${
+                      selectedCategory === cat.id
+                        ? 'bg-[#111111] text-white shadow-xs'
+                        : 'text-zinc-600 hover:text-black'
+                    }`}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Currency Selector for Catalog */}
+              <CurrencySelector
+                currentCurrency={currency}
+                onCurrencyChange={setCurrency}
+                size="sm"
+                variant="light"
+              />
+            </div>
+          </div>
+
+          {/* Product Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {filteredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                onInspect={(p) => setInspectingProduct(p)}
+                onAcquire={(p) => setCheckoutItem(p)}
+                currencySymbol={currencySymbols[currency]}
+                currencyPrice={getProductPrice(product, currency)}
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* Section 3: ROI Bandwidth Calculator */}
+        <section id="calculator">
+          <div className="mb-6">
+            <span className="font-mono text-[8px] uppercase tracking-widest text-[#b8860b] font-black block mb-1">
+              COLD EMPIRICAL DATA
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#111111] font-serif">
+              Quantify The Financial Cost of Operational Drag
+            </h2>
+            <p className="text-xs sm:text-sm text-zinc-600 font-light mt-1">
+              See what executive time actually costs when absorbed by tactical triage instead of strategic leverage.
+            </p>
+          </div>
+          <RoiCalculator 
+            currency={currency}
+            onCurrencyChange={setCurrency}
+            onUnlockVault={() => setCheckoutItem(SOVEREIGN_VAULT_BUNDLE)} 
+          />
+        </section>
+
+        {/* Section 4: The Leverage Architecture Matrix (Operational Truth -> The Architecture -> The Outcome) */}
+        <section>
+          <div className="mb-6">
+            <span className="font-mono text-[8px] uppercase tracking-widest text-[#b8860b] font-black block mb-1">
+              THE LEVERAGE CODEX
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#111111] font-serif">
+              The Operational Truth vs. The Delivered Outcome
+            </h2>
+            <p className="text-xs sm:text-sm text-zinc-600 font-light mt-1">
+              Where uncodified teams get caught in reactive loops, strategic leaders install clear operating systems and compound executive velocity.
+            </p>
+          </div>
+          <GoldenCircleGraphic onSelectProduct={(id) => {
+            const p = SHOP_PRODUCTS.find(item => item.id === id);
+            if (p) setInspectingProduct(p);
+          }} />
         </section>
 
         {/* Section 5: Institutional FAQs */}

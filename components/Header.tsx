@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
   const navItems = [
     { label: 'How It Works', path: '/methodology' },
     { label: 'Services', path: '/services' },
-    { label: 'Toolkits', path: '/shop' },
+    { label: 'Shop', path: '/shop' },
     { label: 'Insights', path: '/library' },
   ];
 
@@ -85,15 +85,16 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
                   key={item.path}
                   to={item.path}
                   onClick={(e) => handleNavClick(item.path, e)}
-                  className={`text-[11px] xl:text-[12px] font-mono uppercase tracking-wider transition-all duration-200 relative py-1 flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
+                  style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                  className={`text-sm xl:text-base font-serif font-bold tracking-wide transition-all duration-200 relative py-1 flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                     isActive 
-                      ? 'text-[#b8860b] font-bold' 
-                      : 'text-zinc-650 hover:text-[#111111] font-medium'
+                      ? 'text-[#b8860b] font-black' 
+                      : 'text-[#111111] hover:text-[#b8860b]'
                   }`}
                 >
                   <span>{item.label}</span>
                   {isActive && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-[#b8860b]" />
+                    <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#b8860b]" />
                   )}
                 </Link>
               );
@@ -104,16 +105,18 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
           <div className="hidden sm:flex items-center gap-3 shrink-0">
             <Link 
               to="/portal"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-[10px] xl:text-[11px] font-mono uppercase tracking-wider text-zinc-600 hover:text-[#b8860b] border border-zinc-300/80 hover:border-[#b8860b] rounded-xs transition-all duration-200 bg-white/60"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs xl:text-sm font-serif font-bold tracking-wide text-[#111111] hover:text-[#b8860b] border border-zinc-300 hover:border-[#b8860b] rounded-xs transition-all duration-200 bg-white"
               title="Client Portal Access"
             >
-              <Lock className="w-2.5 h-2.5 text-[#b8860b]" />
+              <Lock className="w-3 h-3 text-[#b8860b]" />
               <span>Portal</span>
             </Link>
 
             <button 
               onClick={scrollToWaitlist}
-              className="inline-flex items-center justify-center px-4 lg:px-5 py-2 bg-[#111111] hover:bg-[#b8860b] text-white text-[9px] sm:text-[10px] xl:text-[11px] font-mono font-bold uppercase tracking-widest transition-all duration-300 shadow-xs cursor-pointer border border-black/20"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+              className="inline-flex items-center justify-center px-4 lg:px-5 py-2 bg-[#111111] hover:bg-[#b8860b] text-white text-xs xl:text-sm font-serif font-bold tracking-wide transition-all duration-300 shadow-sm cursor-pointer border border-black/20"
             >
               Book Consultation
             </button>
@@ -148,7 +151,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
                   key={item.path}
                   to={item.path}
                   onClick={(e) => handleNavClick(item.path, e)}
-                  className={`text-base sm:text-lg font-bold uppercase tracking-wide border-b border-zinc-200/80 pb-2.5 flex items-center justify-between transition-colors ${
+                  className={`text-lg sm:text-xl font-extrabold font-serif tracking-wide border-b border-zinc-200/80 pb-3 flex items-center justify-between transition-colors ${
                     isActive ? 'text-[#b8860b]' : 'text-[#111111] hover:text-[#b8860b]'
                   }`}
                 >
@@ -165,9 +168,9 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
             })}
 
             <Link 
-              to="/assessment"
+              to="/assessment" 
               onClick={(e) => handleNavClick('/assessment', e)}
-              className="text-base sm:text-lg font-bold uppercase tracking-wide border-b border-zinc-200/80 pb-2.5 flex items-center justify-between text-zinc-800 hover:text-[#b8860b]"
+              className="text-lg sm:text-xl font-extrabold font-serif tracking-wide border-b border-zinc-200/80 pb-3 flex items-center justify-between text-[#111111] hover:text-[#b8860b]"
             >
               <span>90-Sec Diagnostic</span>
               <span className="text-zinc-400 text-sm font-mono">→</span>

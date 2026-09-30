@@ -576,61 +576,51 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="bg-[#0a0a0a] min-h-screen text-white flex flex-col"
     >
-      <div className="max-w-7xl w-full mx-auto px-6 pt-12 md:pt-16 pb-8">
-        <nav className="flex items-center gap-2 text-[8px] uppercase font-black text-zinc-500 mb-8 font-mono">
+      {/* 01. COMPACT EXECUTIVE HEADER (MINIMAL VERTICAL FOOTPRINT) */}
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 pt-4 sm:pt-6 pb-2">
+        <nav className="flex items-center gap-2 text-[9px] uppercase font-mono text-zinc-500 mb-2">
           <Link to="/" className="hover:text-[#b8860b] transition-colors">Home</Link>
           <span className="text-zinc-700">/</span>
-          <span className="text-[#b8860b]">Executive Library & Research Registry</span>
+          <span className="text-[#b8860b] font-bold">Executive Insights & Dispatches</span>
         </nav>
         
-        <header className="mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-4">
-            <Award className="w-3.5 h-3.5 text-[#b8860b]" />
-            <span className="text-[#b8860b] text-[10px] font-black uppercase font-mono">
-              Provisional Patent-Pending Intellectual Substrate
+        <header className="mb-2">
+          <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-1.5">
+            <Award className="w-3 h-3 text-[#b8860b]" />
+            <span className="text-[#b8860b] text-[9px] font-mono font-bold uppercase tracking-widest">
+              Executive Intelligence Archive
             </span>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif leading-tight text-white">
-            The Strategic <span className="italic text-[#b8860b] font-light">Library.</span>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif leading-tight text-white mb-1">
+            The Strategic <span className="italic text-[#b8860b] font-light">Dispatches.</span>
           </h1>
           
-          <p className="mt-4 max-w-3xl text-zinc-300 text-sm sm:text-base italic font-light leading-relaxed">
-            A centralized repository of institutional intelligence, patent-pending strategic alignment protocols, and real-time leadership telemetry. Built for board members, founders, and C-suites who demand empirical rigor over advice.
+          <p className="max-w-3xl text-zinc-300 text-xs sm:text-sm font-serif italic leading-relaxed">
+            Forensic research on leadership substrate physics, cognitive tax, and institutional sovereignty. Select any dispatch to read immediately.
           </p>
-
-          {/* Intellectual Authority Proof Strip */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-white/10 font-mono">
-            <div className="p-3 bg-zinc-900/60 border border-white/5 rounded-xs">
-              <span className="text-[8px] text-zinc-500 uppercase block">Total Research Depth</span>
-              <span className="text-xs font-bold text-[#b8860b]">45+ Pages Briefings</span>
-            </div>
-            <div className="p-3 bg-zinc-900/60 border border-white/5 rounded-xs">
-              <span className="text-[8px] text-zinc-500 uppercase block">Governance System</span>
-              <span className="text-xs font-bold text-white">5 Sovereign Domains</span>
-            </div>
-            <div className="p-3 bg-zinc-900/60 border border-white/5 rounded-xs">
-              <span className="text-[8px] text-zinc-500 uppercase block">Friction Diagnostics</span>
-              <span className="text-xs font-bold text-[#b8860b]">Simulated Inaction Tax</span>
-            </div>
-            <div className="p-3 bg-zinc-900/60 border border-white/5 rounded-xs">
-              <span className="text-[8px] text-zinc-500 uppercase block">Registry Verification</span>
-              <span className="text-xs font-bold text-emerald-400">TULC-LIB-VERIFIED</span>
-            </div>
-          </div>
-
-          {/* Google Preferred Sources Integration Bar */}
-          <div className="mt-8">
-            <GooglePreferredSource variant="inline" />
-          </div>
         </header>
       </div>
 
-      {/* Dynamic Dispatches & Articles First */}
-      <Blog onArticleClick={onArticleClick} hideHeader={false} />
+      {/* 02. VALUE FIRST: Dynamic Dispatches & Articles Visible Above The Fold (Zero Scroll) */}
+      <Blog onArticleClick={onArticleClick} hideHeader={true} />
 
-      {/* White Papers Section */}
-      <div className="bg-[#0a0a0a] border-t border-white/10 py-16 md:py-24">
+      {/* 03. ADD NEWSLETTER THING HERE: Direct Subscriber Gateway */}
+      <section className="py-12 sm:py-16 bg-[#0d0d0d] border-t border-white/10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <Newsletter />
+        </div>
+      </section>
+
+      {/* 04. THEN ASK TO BE A SOURCE: Google Preferred Source Integration */}
+      <section className="py-12 sm:py-16 bg-[#0a0a0a] border-t border-white/10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <GooglePreferredSource variant="card" />
+        </div>
+      </section>
+
+      {/* 05. White Papers Section */}
+      <div className="bg-[#080808] border-t border-white/10 py-14 sm:py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-white/10 gap-4">
             <div>
@@ -657,10 +647,10 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 <span className="text-[#b8860b] text-[9px] uppercase font-mono font-bold block mb-2">
                   Dynamics of Alignment
                 </span>
-                <h4 className="text-2xl font-bold font-serif text-white mb-4 group-hover:text-[#b8860b] transition-colors leading-snug">
+                <h4 className="text-lg sm:text-xl font-bold font-serif text-white mb-3 group-hover:text-[#b8860b] transition-colors leading-snug">
                   Strategic Alignment Protocol: A Total Architectural Audit
                 </h4>
-                <p className="text-zinc-300 italic font-light leading-relaxed mb-8 text-xs sm:text-sm">
+                <p className="text-zinc-300 italic font-light leading-relaxed mb-6 text-xs sm:text-sm">
                   An in-depth 45-page exploration of coordination lag, strategic dilution across organizational tiers, and the transition from individual founder dependency to automated alignment.
                 </p>
               </div>
@@ -704,10 +694,10 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 <span className="text-[#b8860b] text-[9px] uppercase font-mono font-bold block mb-2">
                   Strategic Substrates
                 </span>
-                <h4 className="text-2xl font-bold font-serif text-white mb-4 group-hover:text-[#b8860b] transition-colors leading-snug">
+                <h4 className="text-lg sm:text-xl font-bold font-serif text-white mb-3 group-hover:text-[#b8860b] transition-colors leading-snug">
                   Cognitive Equity: Reclaiming the Architect's Seat
                 </h4>
-                <p className="text-zinc-300 italic font-light leading-relaxed mb-8 text-xs sm:text-sm">
+                <p className="text-zinc-300 italic font-light leading-relaxed mb-6 text-xs sm:text-sm">
                   Quantifying the metabolic burn rate of leadership, calculating the hidden cost of micro-management friction, and engineering the systemic return on architectural integrity.
                 </p>
               </div>
@@ -772,11 +762,6 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 <ArrowRight className="w-3.5 h-3.5 text-[#b8860b]" />
               </Link>
             </div>
-          </div>
-
-          {/* Strategic Newsletter Placement - Library Terminal */}
-          <div className="mt-16 pt-12 border-t border-white/10 max-w-4xl mx-auto">
-            <Newsletter />
           </div>
         </div>
       </div>
