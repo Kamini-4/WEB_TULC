@@ -247,21 +247,24 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSelectArt
                   }}
                   className="p-2 text-zinc-400 hover:text-[#b8860b] transition-colors"
                   title={`Share on ${link.name}`}
+                  aria-label={`Share on ${link.name}`}
                 >
                   {link.icon}
                 </a>
               ))}
               <button 
                 onClick={handleCopyLink}
-                className="p-2 text-zinc-400 hover:text-[#b8860b] transition-colors"
+                className="p-2 text-zinc-400 hover:text-[#b8860b] transition-colors cursor-pointer"
                 title="Copy Link"
+                aria-label="Copy Link"
               >
                 {copied ? <Check size={14} className="text-green-600" /> : <LinkIcon size={14} />}
               </button>
             </div>
             <button 
               onClick={onClose}
-              className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-500 hover:text-[#111111] transition-colors"
+              className="text-[8px] sm:text-[10px] font-black uppercase text-zinc-500 hover:text-[#111111] transition-colors cursor-pointer"
+              aria-label="Close Archive"
             >
               Close Archive [Esc]
             </button>

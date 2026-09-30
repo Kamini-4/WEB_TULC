@@ -117,8 +117,10 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
           
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden p-2 text-[#111111]"
+            className="md:hidden p-2 text-[#111111] cursor-pointer"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMenuOpen}
           >
             <div className="w-5 h-px bg-[#111111] mb-1.5"></div>
             <div className="w-5 h-px bg-[#111111] mb-1.5"></div>
@@ -155,10 +157,18 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
             ))}
             <button 
               onClick={scrollToWaitlist}
-              className="mt-4 py-4 bg-[#111111] text-white text-xs font-black uppercase tracking-wider"
+              className="mt-4 py-4 bg-[#111111] text-white text-xs font-black uppercase tracking-wider cursor-pointer"
             >
               BOOK CONSULTATION
             </button>
+            <div className="flex flex-col gap-2 pt-2 border-t border-zinc-200 text-xs">
+              <a href="tel:+919325346704" aria-label="Call Direct: +91 9325346704" className="text-[#b8860b] font-bold py-2">
+                📞 Call: +91 9325346704
+              </a>
+              <a href="mailto:suchita@theunboundedleadership.com" aria-label="Email suchita@theunboundedleadership.com" className="text-zinc-600 font-bold py-1">
+                ✉️ suchita@theunboundedleadership.com
+              </a>
+            </div>
           </div>
         </div>
       )}

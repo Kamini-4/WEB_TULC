@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Mail, Phone, Instagram, Linkedin } from './BrandIcons';
+import { Mail, Phone, Instagram, Linkedin, Twitter, Youtube, MapPin } from './BrandIcons';
 import { GooglePreferredSource } from './GooglePreferredSource';
 
 interface FooterProps {
@@ -47,7 +47,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
           </div>
         </div>
 
-        {/* Major Final CTA Block - Spaced Smartly & Designed for Peak Conversion */}
+        {/* Major Final CTA Block */}
         <div className="border border-[#b8860b]/30 p-6 sm:p-8 md:p-10 mb-8 sm:mb-12 bg-gradient-to-b from-white/[0.02] to-transparent relative overflow-hidden rounded-xs text-left">
           <div className="absolute top-0 right-0 p-3 font-mono text-[7px] text-[#b8860b] uppercase font-black bg-[#b8860b]/10">Direct Action Gateway</div>
           <div className="relative z-10 grid lg:grid-cols-12 gap-6 items-center">
@@ -63,7 +63,6 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
                 Elite leadership operates with systems precision, not guesswork. Align with the Principal Architect to reclaim up to 40% of your strategic capacity.
               </p>
               
-              {/* High-converting Trust Factors/Stats underneath the paragraph */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-3 border-t border-white/5">
                 <div>
                   <div className="text-[10px] font-black text-white uppercase ">98% Retainer Renewal</div>
@@ -111,6 +110,62 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
           </div>
         </div>
 
+        {/* Verified Headquarters & Google Business Profile Embed Block */}
+        <div className="border border-white/10 bg-white/[0.02] p-5 sm:p-6 mb-10 rounded-xs">
+          <div className="grid lg:grid-cols-12 gap-6 items-center">
+            <div className="lg:col-span-5 space-y-3">
+              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 border border-[#b8860b]/30 bg-[#b8860b]/10 text-[9px] font-mono uppercase text-[#b8860b]">
+                <MapPin className="w-3 h-3" />
+                <span>Verified Google Business Profile &amp; Location</span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold font-serif text-white">
+                The Unbounded Leadership Co.
+              </h3>
+              <p className="text-zinc-400 text-xs leading-relaxed font-light">
+                Boutique executive consultancy delivering institutional leadership architecture and governance advisory. Direct telephone, digital briefings, and verified Google Business Profile.
+              </p>
+              <div className="space-y-1.5 text-xs font-mono text-zinc-300 pt-1">
+                <div><span className="text-zinc-500 uppercase text-[9px] block sm:inline sm:mr-2">Direct Telephone:</span> <a href="tel:+919325346704" aria-label="Call +91 9325346704" className="text-[#b8860b] hover:underline font-bold">+91 9325346704</a></div>
+                <div><span className="text-zinc-500 uppercase text-[9px] block sm:inline sm:mr-2">Principal Email:</span> <a href="mailto:suchita@theunboundedleadership.com" aria-label="Email Suchita Sancheti" className="text-white hover:underline">suchita@theunboundedleadership.com</a></div>
+                <div><span className="text-zinc-500 uppercase text-[9px] block sm:inline sm:mr-2">Operating Hours:</span> Mon–Fri, 09:00 – 18:00 IST (Global Mandates)</div>
+              </div>
+              <div className="pt-2 flex flex-wrap gap-2.5">
+                <a
+                  href="https://business.google.com/n/14240239232288232619/searchprofile?hl=en-GB"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View Google Business Profile"
+                  className="inline-flex items-center gap-2 px-3 py-2 bg-[#b8860b] hover:bg-white text-black text-[10px] font-bold uppercase tracking-wider transition-all"
+                >
+                  <MapPin className="w-3 h-3" />
+                  <span>Google Business Profile</span>
+                </a>
+                <a
+                  href="https://maps.google.com/?q=The+Unbounded+Leadership+Co."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open location in Google Maps"
+                  className="inline-flex items-center gap-2 px-3 py-2 border border-zinc-700 hover:border-[#b8860b] text-white hover:text-[#b8860b] text-[10px] font-bold uppercase tracking-wider transition-all"
+                >
+                  <span>Open in Google Maps</span>
+                </a>
+              </div>
+            </div>
+            <div className="lg:col-span-7 overflow-hidden rounded border border-white/10 bg-zinc-900/60 h-52 sm:h-64 relative">
+              <iframe
+                title="The Unbounded Leadership Co. Google Maps Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15129.588827926887!2d73.8477967!3d18.5204303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1711440000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'grayscale(0.85) invert(0.92) contrast(1.1)' }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+        </div>
+
         {/* Global Navigation Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 sm:gap-12 mb-10 sm:mb-12 border-t border-white/5 pt-8 sm:pt-10">
           <div className="col-span-2">
@@ -119,15 +174,35 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
             <p className="text-white/60 text-[9px] sm:text-[10px] leading-relaxed max-w-sm uppercase font-black mb-4 sm:mb-6 leading-loose">
               Re-architecting leadership operating systems for global organizational scaling.
             </p>
-            <div className="flex flex-col gap-2 font-mono text-[9px] text-zinc-400">
-              <span className="text-[7px] font-black uppercase text-zinc-650 block mb-0.5">Direct Paths</span>
-              <a href="https://www.linkedin.com/company/theunboundedleadership" target="_blank" rel="noopener noreferrer" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2">
-                <Linkedin className="w-3 h-3 text-[#b8860b] shrink-0" />
-                <span>linkedin.com/company/theunboundedleadership</span>
+            <div className="flex flex-col gap-2 font-mono text-[9px] text-zinc-300">
+              <span className="text-[7px] font-black uppercase text-zinc-500 block mb-0.5">Verified Contact &amp; Channels</span>
+              <a href="tel:+919325346704" aria-label="Call +91 9325346704" className="hover:text-[#b8860b] text-zinc-300 transition-colors flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
+                <span className="font-bold">+91 9325346704</span>
               </a>
-              <a href="https://www.instagram.com/transformingleadership" target="_blank" rel="noopener noreferrer" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2">
-                <Instagram className="w-3 h-3 text-[#b8860b] shrink-0" />
-                <span>instagram.com/transformingleadership</span>
+              <a href="mailto:suchita@theunboundedleadership.com" aria-label="Email suchita@theunboundedleadership.com" className="hover:text-[#b8860b] text-zinc-300 transition-colors flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
+                <span>suchita@theunboundedleadership.com</span>
+              </a>
+              <a href="https://business.google.com/n/14240239232288232619/searchprofile?hl=en-GB" target="_blank" rel="noopener noreferrer" aria-label="Google Business Profile" className="hover:text-[#b8860b] text-zinc-300 transition-colors flex items-center gap-2">
+                <MapPin className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
+                <span>Google Business Profile (Verified)</span>
+              </a>
+              <a href="https://www.linkedin.com/company/theunboundedleadership" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="hover:text-[#b8860b] text-zinc-300 transition-colors flex items-center gap-2">
+                <Linkedin className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
+                <span>LinkedIn / The Unbounded Leadership</span>
+              </a>
+              <a href="https://www.instagram.com/transformingleadership" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile" className="hover:text-[#b8860b] text-zinc-300 transition-colors flex items-center gap-2">
+                <Instagram className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
+                <span>Instagram / @transformingleadership</span>
+              </a>
+              <a href="https://twitter.com/UnboundedLead" target="_blank" rel="noopener noreferrer" aria-label="Twitter profile" className="hover:text-[#b8860b] text-zinc-300 transition-colors flex items-center gap-2">
+                <Twitter className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
+                <span>Twitter / @UnboundedLead</span>
+              </a>
+              <a href="https://www.youtube.com/@TheUnboundedLeadership" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel" className="hover:text-[#b8860b] text-zinc-300 transition-colors flex items-center gap-2">
+                <Youtube className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
+                <span>YouTube / @TheUnboundedLeadership</span>
               </a>
               <div className="pt-0.5 flex items-center gap-2">
                 <a 
@@ -135,6 +210,7 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
                   target="_blank" 
                   rel="noopener noreferrer"
                   title="Follow Suchita Sancheti on F6S"
+                  aria-label="Follow Suchita Sancheti on F6S"
                   className="hover:opacity-85 transition-opacity inline-block"
                 >
                   <img 
@@ -147,10 +223,6 @@ const Footer: React.FC<FooterProps> = ({ onLegalClick }) => {
                   />
                 </a>
               </div>
-              <a href="mailto:suchita@theunboundedleadership.com" className="hover:text-[#b8860b] text-zinc-350 transition-colors flex items-center gap-2">
-                <Mail className="w-3 h-3 text-[#b8860b] shrink-0" />
-                <span>suchita@theunboundedleadership.com</span>
-              </a>
             </div>
           </div>
           

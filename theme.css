@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
 :root {
   --beige: #fdfdfb; /* Slightly warmer, softer beige for "at home" feel */
   --beige-dark: #f5f5f0;

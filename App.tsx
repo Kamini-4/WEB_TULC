@@ -15,6 +15,7 @@ import ServicesPage from './src/pages/ServicesPage.tsx';
 import MandatesPage from './src/pages/MandatesPage.tsx';
 import CognitiveTaxPage from './src/pages/CognitiveTaxPage.tsx';
 import ShopPage from './src/pages/Shop.tsx';
+import NotFoundPage from './src/pages/NotFoundPage.tsx';
 import ArticleView from './components/ArticleView.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import FloatingCTA from './components/FloatingCTA.tsx';
@@ -100,68 +101,72 @@ const App: React.FC = () => {
 
   // Dynamic SEO & Open Graph Metadata Calibration Engine
   useEffect(() => {
-    let title = "The Unbounded Leadership Co. | Suchita Sancheti | Enterprise Architecture";
-    let description = "Architectural interventions for elite founder-led enterprises. Reclaim 40% strategic bandwidth and engineer absolute organizational alignment.";
+    let title = "The Unbounded Leadership Co. | Executive Consulting";
+    let description = "Definitive executive consultancy and leadership architecture firm for elite leaders, driving institutional alignment, cognitive clarity, and structural growth.";
     let image = "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600";
     let url = `https://theunboundedleadership.com${location.pathname}`;
 
     if (activeArticle) {
-       title = `${activeArticle.title} | The Unbounded Leadership Co.`;
+       title = `${activeArticle.title.length > 32 ? activeArticle.title.slice(0, 32) + '...' : activeArticle.title} | Unbounded`;
        const plainContent = activeArticle.content && activeArticle.content[0] ? activeArticle.content[0].replace(/[#*`_]/g, '') : '';
-       description = activeArticle.excerpt || plainContent || description;
+       description = `${(activeArticle.excerpt || plainContent || description).slice(0, 120)} Leadership architecture intelligence.`;
        image = activeArticle.image || image;
        url = `https://theunboundedleadership.com/library/${activeArticle.slug || activeArticle.id}`;
     } else {
       switch (location.pathname) {
         case '/':
-          title = "The Unbounded Leadership Co. | Suchita Sancheti | Enterprise Architecture";
-          description = "Architectural interventions for elite founder-led enterprises. Reclaim 40% strategic bandwidth and engineer absolute organizational alignment under Suchita Sancheti.";
+          title = "The Unbounded Leadership Co. | Executive Consulting";
+          description = "Definitive executive consultancy and leadership architecture firm for elite leaders, driving institutional alignment, cognitive clarity, and structural growth.";
           image = "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600";
           break;
         case '/about':
-          title = "Our Alignment Covenant | The Unbounded Leadership Co.";
-          description = "We work with the world's most consequential founders to architect the structural conditions for absolute organizational sovereignty under Suchita Sancheti.";
+          title = "Principal Pedigree & Philosophy | The Unbounded Leadership";
+          description = "Boutique leadership architecture consultancy for consequential founders and CXOs, engineering institutional permanence and eliminating operational drag.";
           image = "https://images.unsplash.com/photo-1486444038473-ac89ae3f74f8?auto=format&fit=crop&q=80&w=1600";
           break;
         case '/services':
-          title = "Strategic Alignment Services | Strategic Architecture";
-          description = "Explore our target consulting engagement protocols: Substrate Auditing, Logic Gate Engineering, and Aligned Handover.";
+          title = "Strategic Alignment Services | Executive Architecture";
+          description = "Explore target consulting engagement protocols: Substrate Auditing, Logic Gate Engineering, and Aligned Handover for enterprise scaling.";
           image = "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600";
           break;
         case '/methodology':
-          title = "The Physics of Scale | Our Core Leadership Methodology";
-          description = "Align human ambition with enduring organizational architecture. Reclaim 40% of cognitive capacity and neutralize institutional lag.";
+          title = "The Alignment Protocol | Leadership Architecture";
+          description = "Formulaic Alignment Protocol for institutional stability: Baseline Audit, Structural Transformation, and Sustained Alignment for scaling enterprises.";
           image = "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1600";
           break;
         case '/assessment':
-          title = "The Systemic Yield Calibration | Strategic Substrate Diagnostic";
-          description = "Complete the definitive 5-domain diagnostic to benchmark cognitive tax, institutional lag, and organizational alignment.";
+          title = "Yield Calibration Audit | Institutional Diagnostic";
+          description = "High-fidelity executive diagnostic to benchmark organizational alignment, cognitive tax, and institutional lag across five critical business substrates.";
           image = "https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&q=80&w=1600";
           break;
         case '/mandates':
           title = "Strategic Mandates | The Unbounded Leadership Co.";
-          description = "Executive mandates for high-stakes enterprise recalibration, board-level alignment, and structural sovereignty.";
+          description = "High-stakes advisory mandates for enterprise recalibration, board-level alignment, and structural sovereignty. Strictly three mandates accepted per quarter.";
           image = "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600";
           break;
         case '/cognitive-tax':
         case '/quantify-friction':
-          title = "Quantify Your Cognitive Tax | Strategic Simulation Engine";
-          description = "Isolate your firm's annual inaction tax, coordination drag, and leaked leadership equity with our interactive simulation engine.";
+          title = "Quantify Your Cognitive Tax | Simulation Engine";
+          description = "Interactive simulation engine to calculate annual inaction tax, coordination friction, and leadership equity drained by systemic organizational bottlenecks.";
           image = "https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&q=80&w=1600";
           break;
         case '/shop':
-          title = "The Sovereign Leverage Vault | Turnkey Leadership Operational Weapons";
-          description = "Battle-tested digital leverage assets. Reclaim 15+ hours of calendar sludge weekly, eliminate key-person dependency, and command enterprise velocity. Early bird allocations available.";
+          title = "The Sovereign Leverage Vault | Operating Toolkits";
+          description = "Turnkey operational toolkits and battle-tested leverage assets to eliminate calendar sludge, key-person dependency, and accelerate decision velocity.";
           image = "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600";
           break;
         case '/library':
-          title = "The Registry of Institutional Dispatches | Strategic Library";
-          description = "A curated archive of strategic essays, research briefings, and whitepapers on systems design and executive performance.";
+          title = "Executive Insights & Research | The Unbounded Leadership";
+          description = "Strategic library of leadership architecture dispatches and white papers on organizational design, cognitive clarity, and institutional alignment.";
           image = "https://images.unsplash.com/photo-1507537297325-5f9037f3796d?auto=format&fit=crop&q=80&w=1600";
+          break;
+        case '/intake':
+          title = "Executive Mandate Intake | The Unbounded Leadership";
+          description = "Submit confidential inquiry to the Principal Architect regarding strategic advisory, enterprise restructuring, or board alignment mandates.";
           break;
         default:
           if (location.pathname.startsWith('/library/')) {
-            title = "Registry Dispatch | The Unbounded Leadership Co.";
+            title = "Executive Dispatch | The Unbounded Leadership Co.";
           }
           break;
       }
@@ -338,6 +343,7 @@ const App: React.FC = () => {
             <Route path="/founders-dilemma" element={<Navigate to="/library/founders-dilemma" replace />} />
             <Route path="/the-founders-dilemma" element={<Navigate to="/library/founders-dilemma" replace />} />
             <Route path="/dynamics-of-inevitability" element={<Navigate to="/library/dynamics-of-inevitability" replace />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer onLegalClick={handleLegalClick} />
