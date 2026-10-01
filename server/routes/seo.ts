@@ -31,7 +31,11 @@ seoRouter.get('/sitemap.xml', (req, res) => {
   <url><loc>${host}/services</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>${host}/methodology</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>${host}/assessment</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>${host}/toolkits</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>${host}/systems</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>${host}/shop</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>${host}/operational-vault</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>${host}/vault</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>${host}/library</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>${host}/intake</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   ${articleUrls}

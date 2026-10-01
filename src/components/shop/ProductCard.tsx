@@ -140,7 +140,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               <span className="font-mono text-[9px] text-[#b8860b] font-bold shrink-0 mt-0.5">
                 •
               </span>
-              <span className="text-[11px] font-medium leading-snug line-clamp-1">
+              <span className="text-[11px] font-medium leading-snug">
                 {mod.title}
               </span>
             </li>

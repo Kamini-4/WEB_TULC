@@ -42,20 +42,20 @@ const SERVICES: ServiceItem[] = [
     investmentNote: '100% credited toward The Sovereign Retainer',
     keyBenefits: [
       {
-        title: 'Expose Decision Leaks',
-        description: 'Pinpoints where founder intent stalls between boardroom and frontlines.'
+        title: 'Expose Hidden Decision Leaks',
+        description: 'Pinpoints exactly where founder intent stalls between the boardroom and frontlines, eliminating approval logjams.'
       },
       {
         title: 'Zero Operational Drag',
-        description: '100% asynchronous 10-node cross-section with zero team or calendar drag.'
+        description: '100% asynchronous 10-node cross-sectional diagnosis executed without disrupting your leadership calendar.'
       },
       {
-        title: 'Unseal Broken Protocols',
-        description: 'Reveals the 3 specific systems draining 15+ hours of executive energy.'
+        title: 'Unseal Broken Operating Protocols',
+        description: 'Reveals the 3 specific systemic bottlenecks draining 15+ hours of executive energy each week.'
       },
       {
-        title: '100% Risk-Free Credit',
-        description: 'Full audit fee is credited toward full installation if you proceed.'
+        title: '100% Investment Credit',
+        description: 'Your complete diagnostic fee is applied 100% as a direct credit toward full system installation.'
       }
     ],
     ctaText: 'Run 10-Node Diagnostic'
@@ -70,20 +70,20 @@ const SERVICES: ServiceItem[] = [
     investmentNote: 'Permanent operational infrastructure setup',
     keyBenefits: [
       {
-        title: 'Reclaim 15+ Hours/Week',
-        description: 'Permanently kill low-value reviews, status syncs & micromanagement.'
+        title: 'Reclaim 15+ Hours Weekly',
+        description: 'Permanently eliminates low-value operational reviews, redundant status syncs, and founder micromanagement.'
       },
       {
-        title: '12 Invariant Protocols',
-        description: 'Codifies executive judgment so directors make autonomous calls safely.'
+        title: '12 Invariant Governance Protocols',
+        description: 'Codifies executive decision thresholds into written architecture so VPs make autonomous calls safely.'
       },
       {
-        title: 'Pass 30-Day Step-Away',
-        description: 'Enterprise operates seamlessly without daily founder intervention.'
+        title: '30-Day Founder Absence Certification',
+        description: 'Proves your business functions seamlessly with zero performance loss when you step away for 30 continuous days.'
       },
       {
-        title: 'Maximize Valuation Multiple',
-        description: 'Eradicates founder key-person risk to defend EBITDA multiples at exit.'
+        title: 'Valuation & Multiple Protection',
+        description: 'Eradicates single-point key-person risk to defend your EBITDA multiples in eventual transactions or funding rounds.'
       }
     ],
     ctaText: 'Apply for 90-Day OS'
@@ -100,23 +100,27 @@ const SERVICES: ServiceItem[] = [
     keyBenefits: [
       {
         title: 'Permanent Drift Immunity ($3M+ Shield)',
-        description: '78% of unmonitored systems silently decay in 180 days. Bi-annual audits prevent regression.'
+        description: '78% of unmonitored systems silently decay within 180 days. Bi-annual audits prevent regression and protect EBITDA multiples.'
       },
       {
         title: '24/7 Priority Red Phone with Suchita Sancheti',
-        description: 'Direct on-call counsel for high-stakes M&A, board votes, capital bets, and executive disputes.'
+        description: 'Direct on-call strategic counsel for high-stakes M&A negotiations, board votes, executive hires, and critical capital allocation.'
       },
       {
         title: 'Reclaim 20+ Hours Weekly For Life',
-        description: 'Complete sovereign insulation from operational noise. You preside as Fiduciary Source.'
+        description: 'Complete sovereign insulation from operational noise, low-level reviews, and daily Slack fires. You preside cleanly as Fiduciary Source.'
       },
       {
         title: '+35% EBITDA Valuation Alpha',
-        description: 'Decouples founder key-person drag to command premier private equity multiples.'
+        description: 'Decouples founder key-person drag to command premier institutional valuation multiples upon acquisition or private equity recapitalization.'
       },
       {
-        title: 'All Protocols & Audits Included',
-        description: 'Zero hidden billings. Continuous telemetry and 12 protocol updates for your leadership team.'
+        title: 'All Protocols, Workspaces & Audits Included',
+        description: 'Zero nickel-and-diming. Full enterprise access to all current and future operational frameworks, telemetry suites, and team calibrations.'
+      },
+      {
+        title: 'Quarterly Board Alignment Docket',
+        description: 'Independent structural audit heatmaps and governance risk reports delivered directly to your board of directors and advisory committee.'
       }
     ],
     ctaText: 'Request Private Vetting for Board Seat'
@@ -242,17 +246,17 @@ const ServicesPage: React.FC = () => {
                       </span>
                     </div>
 
-                    {/* Key Benefits List */}
+                    {/* Key Benefits List - Full Value Display A to Z */}
                     <div className="space-y-2 mb-4">
                       <span className={`text-[8px] uppercase font-mono font-bold tracking-wider block ${isApex ? 'text-[#b8860b]' : 'text-zinc-400'}`}>
-                        {isApex ? '★ Sovereign Deliverables:' : 'Core Deliverables:'}
+                        {isApex ? '★ Sovereign Deliverables (All Included):' : 'Core Deliverables:'}
                       </span>
                       
-                      <div className="space-y-1.5">
-                        {service.keyBenefits.slice(0, 3).map((benefit, idx) => (
-                          <div key={idx} className="flex items-start gap-2 text-xs leading-snug">
+                      <div className="space-y-2">
+                        {service.keyBenefits.map((benefit, idx) => (
+                          <div key={idx} className="flex items-start gap-2 text-xs leading-relaxed">
                             <CheckCircle className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isApex ? 'text-[#b8860b]' : 'text-zinc-800'}`} />
-                            <div className="line-clamp-2">
+                            <div>
                               <strong className={`font-sans font-semibold ${isApex ? 'text-white' : 'text-zinc-900'}`}>
                                 {benefit.title}:
                               </strong>{' '}

@@ -71,7 +71,7 @@ export const GoldenCircleGraphic: React.FC<GoldenCircleGraphicProps> = ({ onSele
           <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#b8860b]/20 border border-[#b8860b]/40 text-[#b8860b] text-[8px] font-mono uppercase tracking-widest font-black mb-2">
             <Flame className="w-3.5 h-3.5 text-[#b8860b]" /> The Executive Reality Check
           </div>
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white">
             Diagnose The Architecture. <span className="italic text-[#b8860b] font-light">Deploy The Outcome.</span>
           </h3>
           <p className="text-xs sm:text-sm text-zinc-400 mt-1 max-w-2xl font-light leading-relaxed">

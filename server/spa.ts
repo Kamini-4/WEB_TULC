@@ -100,10 +100,10 @@ export function hydrateHtmlMetadata(html: string, url: string): string {
     hydratedHtml = hydratedHtml
       .replace(/<title>.*?<\/title>/i, '<title>Quantify Your Cognitive Tax | Simulation Engine</title>')
       .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Interactive simulation engine to calculate annual inaction tax, coordination friction, and leadership equity drained by systemic organizational bottlenecks.">');
-  } else if (url.includes('/shop')) {
+  } else if (url.includes('/toolkits') || url.includes('/toolkit') || url.includes('/systems') || url.includes('/shop') || url.includes('/vault') || url.includes('/operational-vault')) {
     hydratedHtml = hydratedHtml
-      .replace(/<title>.*?<\/title>/i, '<title>The Sovereign Leverage Vault | Operating Toolkits</title>')
-      .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Turnkey operational toolkits and battle-tested leverage assets to eliminate calendar sludge, key-person dependency, and accelerate decision velocity.">');
+      .replace(/<title>.*?<\/title>/i, '<title>Founder Toolkits | Turnkey Digital Leadership Workspaces</title>')
+      .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Plug-and-play Notion & Coda master workspaces, decision matrices, and delegation runbooks to eliminate founder bottlenecks and reclaim 15+ weekly hours.">');
   } else if (url.includes('/contact') || url.includes('/intake')) {
     hydratedHtml = hydratedHtml
       .replace(/<title>.*?<\/title>/i, '<title>Executive Mandate Intake | The Unbounded Leadership</title>')
@@ -122,10 +122,19 @@ const VALID_STATIC_ROUTES = new Set([
   '/mandates',
   '/cognitive-tax',
   '/quantify-friction',
+  '/toolkits',
+  '/toolkit',
+  '/systems',
   '/shop',
+  '/vault',
+  '/operational-vault',
+  '/store',
   '/portal',
   '/intake',
   '/library',
+  '/blogs',
+  '/blog',
+  '/articles',
   '/founders-dilemma',
   '/the-founders-dilemma',
   '/dynamics-of-inevitability',
@@ -137,7 +146,12 @@ export function isRecognizedAppRoute(pathname: string): boolean {
   if (VALID_STATIC_ROUTES.has(cleanPath)) {
     return true;
   }
-  if (cleanPath.startsWith('/library/')) {
+  if (
+    cleanPath.startsWith('/library/') ||
+    cleanPath.startsWith('/blogs/') ||
+    cleanPath.startsWith('/blog/') ||
+    cleanPath.startsWith('/articles/')
+  ) {
     return true;
   }
   return false;

@@ -36,8 +36,8 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({
     const annualEquityWastedUsd = hoursLostWeekly * hourlyRate * annualWeeks;
     const annualEquityWasted = annualEquityWastedUsd * mult;
 
-    // Investment cost: Single asset (~$245) or Complete Vault ($890)
-    const vaultCostUsd = 890;
+    // Investment cost: Single asset (~$145) or Complete Vault ($495)
+    const vaultCostUsd = 495;
     const vaultCost = vaultCostUsd * mult;
 
     const roiMultiple = Math.round(annualEquityWastedUsd / vaultCostUsd);
@@ -68,7 +68,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({
   return (
     <div className="border border-zinc-200/80 bg-white/80 backdrop-blur-md p-6 sm:p-8 md:p-10 rounded-sm shadow-sm relative overflow-hidden">
       {/* Subtle Glow */}
-      <div className="absolute -top-24 -left-24 w-80 h-80 bg-[#b8860b]/5 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-0 w-80 h-80 bg-[#b8860b]/5 blur-[100px] rounded-full pointer-events-none" />
 
       {/* Title & Currency Switcher */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-zinc-200/60 mb-8">
@@ -76,7 +76,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({
           <div className="inline-flex items-center gap-2 text-[#b8860b] text-[8px] font-mono uppercase tracking-widest font-black mb-1">
             <Zap className="w-3 h-3" /> Empirical Cognitive Equity Audit
           </div>
-          <h3 className="text-xl sm:text-2xl font-bold text-[#111111] tracking-tight">
+          <h3 className="text-xl sm:text-2xl font-bold text-[#111111]">
             Calculate Your Bandwidth Reclamation ROI
           </h3>
           <p className="text-xs text-zinc-600 font-light mt-0.5">
@@ -165,7 +165,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({
               <div className="text-[8px] font-mono uppercase tracking-widest text-zinc-400 font-bold mb-1">
                 Annual Cognitive Capital Leaked
               </div>
-              <div className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#b8860b] tracking-tight font-mono">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#b8860b] font-mono">
                 {sym}{formatNumber(stats.annualEquityWasted)}
               </div>
               <div className="text-[10px] text-zinc-400 font-mono mt-1">

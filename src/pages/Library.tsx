@@ -581,19 +581,19 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
         <nav className="flex items-center gap-2 text-[9px] uppercase font-mono text-zinc-500 mb-2">
           <Link to="/" className="hover:text-[#b8860b] transition-colors">Home</Link>
           <span className="text-zinc-700">/</span>
-          <span className="text-[#b8860b] font-bold">Executive Insights & Dispatches</span>
+          <span className="text-[#b8860b] font-bold">Executive Blogs & Dispatches</span>
         </nav>
         
         <header className="mb-2">
           <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-1.5">
             <Award className="w-3 h-3 text-[#b8860b]" />
             <span className="text-[#b8860b] text-[9px] font-mono font-bold uppercase tracking-widest">
-              Executive Intelligence Archive
+              Executive Blog & Intelligence Archive
             </span>
           </div>
           
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif leading-tight text-white mb-1">
-            The Strategic <span className="italic text-[#b8860b] font-light">Dispatches.</span>
+            Strategic Blogs & <span className="italic text-[#b8860b] font-light">Dispatches.</span>
           </h1>
           
           <p className="max-w-3xl text-zinc-300 text-xs sm:text-sm font-serif italic leading-relaxed">

@@ -118,6 +118,17 @@ async function startServer() {
     console.log(`[INSTITUTIONAL_BACKEND] Server initialized on http://0.0.0.0:${PORT} [${isProd ? 'PRODUCTION' : 'DEVELOPMENT'}]`);
   });
 
+  // Protect against port collision (EADDRINUSE) during builds or concurrent process execution
+  server.on('error', (err: any) => {
+    if (err.code === 'EADDRINUSE') {
+      console.warn(`[PORT_PROTECTION] Port ${PORT} is occupied by an active runtime. Gracefully yielding without crashing.`);
+      process.exit(0);
+    } else {
+      console.error('[INSTITUTIONAL_BACKEND_ERROR]', err);
+      process.exit(1);
+    }
+  });
+
   // Graceful shutdown protocol
   const shutdown = (signal: string) => {
     console.log(`[SHUTDOWN] Received ${signal}. Draining connections gracefully...`);

@@ -150,9 +150,14 @@ const App: React.FC = () => {
           description = "Interactive simulation engine to calculate annual inaction tax, coordination friction, and leadership equity drained by systemic organizational bottlenecks.";
           image = "https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&q=80&w=1600";
           break;
+        case '/toolkits':
+        case '/toolkit':
+        case '/systems':
         case '/shop':
-          title = "The Sovereign Leverage Vault | Operating Toolkits";
-          description = "Turnkey operational toolkits and battle-tested leverage assets to eliminate calendar sludge, key-person dependency, and accelerate decision velocity.";
+        case '/vault':
+        case '/operational-vault':
+          title = "Founder Toolkits | Turnkey Digital Leadership Workspaces";
+          description = "Plug-and-play Notion & Coda master workspaces, decision matrices, and delegation runbooks to eliminate founder bottlenecks and reclaim 15+ weekly hours.";
           image = "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600";
           break;
         case '/library':
@@ -331,14 +336,23 @@ const App: React.FC = () => {
             <Route path="/about" element={<About onBriefClick={handleBriefClick} />} />
             <Route path="/library" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
             <Route path="/library/:articleId" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
+            <Route path="/blogs" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
+            <Route path="/blogs/:articleId" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
+            <Route path="/blog" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
+            <Route path="/blog/:articleId" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
+            <Route path="/articles" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
+            <Route path="/articles/:articleId" element={<Library onArticleClick={(a) => handleOpenArticle(a, navigate)} />} />
             <Route path="/methodology" element={<MethodologyPage onBriefClick={handleBriefClick} />} />
             <Route path="/assessment" element={<AssessmentPage />} />
             <Route path="/intake" element={<IntakePage />} />
             <Route path="/portal" element={<Portal />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/shop" element={<ShopPage />} />
+            <Route path="/vault" element={<ShopPage />} />
+            <Route path="/operational-vault" element={<ShopPage />} />
             <Route path="/toolkits" element={<ShopPage />} />
             <Route path="/toolkit" element={<ShopPage />} />
+            <Route path="/systems" element={<ShopPage />} />
             <Route path="/store" element={<ShopPage />} />
             <Route path="/mandates" element={<MandatesPage />} />
             <Route path="/cognitive-tax" element={<CognitiveTaxPage />} />

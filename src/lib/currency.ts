@@ -76,13 +76,13 @@ export const getBundlePrice = (bundle: BundleProduct, currency: CurrencyCode): n
 
 export const getBundleOriginalPrice = (bundle: BundleProduct, currency: CurrencyCode): number => {
   switch (currency) {
-    case 'EUR': return 2050;
-    case 'GBP': return 1775;
-    case 'INR': return 187497;
-    case 'AED': return 8172;
+    case 'EUR': return 1350;
+    case 'GBP': return 1150;
+    case 'INR': return 119999;
+    case 'AED': return 5320;
     case 'USD':
     default:
-      return bundle.pricing.originalUsd || 2200;
+      return bundle.pricing.originalUsd || 1450;
   }
 };
 

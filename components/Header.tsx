@@ -23,8 +23,8 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
   const navItems = [
     { label: 'How It Works', path: '/methodology' },
     { label: 'Services', path: '/services' },
-    { label: 'Shop', path: '/shop' },
-    { label: 'Insights', path: '/library' },
+    { label: 'Toolkits', path: '/toolkits' },
+    { label: 'Blogs', path: '/library' },
   ];
 
   const handleNavClick = (path: string, e: React.MouseEvent, external?: boolean) => {
@@ -79,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
         <nav className="flex items-center gap-4 lg:gap-6 xl:gap-8 ml-auto">
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navItems.map((item) => {
-              const isActive = location.pathname === item.path;
+              const isActive = location.pathname === item.path || (item.path === '/toolkits' && (location.pathname === '/shop' || location.pathname === '/systems' || location.pathname === '/vault' || location.pathname === '/operational-vault'));
               return (
                 <Link 
                   key={item.path}
@@ -145,7 +145,7 @@ const Header: React.FC<HeaderProps> = ({ onAdminTrigger }) => {
             </span>
 
             {navItems.map((item) => {
-              const isActive = location.pathname === item.path;
+              const isActive = location.pathname === item.path || (item.path === '/toolkits' && (location.pathname === '/shop' || location.pathname === '/systems' || location.pathname === '/vault' || location.pathname === '/operational-vault'));
               return (
                 <Link 
                   key={item.path}

@@ -130,7 +130,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             <div className="flex items-center gap-2 text-[#b8860b] text-[8px] font-mono uppercase font-black mb-1">
               <Lock className="w-3 h-3" /> Secure Institutional Ingress • Early Bird Allocation
             </div>
-            <h3 className="text-xl font-bold tracking-tight text-white">
+            <h3 className="text-xl font-bold text-white">
               {step === 'checkout' ? 'Lock In Your Early Bird License' : 'Vault Access Granted • Sovereign License Activated'}
             </h3>
             <p className="text-xs text-zinc-400 font-light mt-0.5">

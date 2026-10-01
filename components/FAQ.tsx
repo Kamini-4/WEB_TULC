@@ -44,8 +44,8 @@ const FAQ: React.FC = () => {
       answer: "Our signature 10-Point Friction Audit™ (Patent Pending) analyzes ten critical vectors of organizational friction, including decision cycle times, middle-management autonomy thresholds, meeting frequency, and intent dilution. By mathematically benchmarking your executive latency, we pinpoint the exact structural leaks draining your strategic capacity and design a clear path to reclaim up to 15 hours of weekly schedule."
     },
     {
-      question: "Is our company's private strategy, voice mapping, and corporate data safe? (Security & Zero Retention)",
-      answer: "Absolutely. T.U.L.C. operates under a strict Zero Data Retention (ZDR) mandate. All diagnostic data and strategic inputs are processed in transient volatile memory. We do not store, sell, or train public AI models on your private corporate telemetry. Your sovereign IP remains strictly yours, protected by our Privileged Disclosure framework."
+      question: "What is the Zero-Data Retention Mandate?",
+      answer: "The Zero-Data Retention (ZDR) Mandate is our non-negotiable security protocol for institutional clients, boards, and sovereign founders. All diagnostic telemetry, cognitive interviews, decision thresholds, and proprietary corporate architectures are processed in transient volatile memory and protected under strict confidentiality. We never store, sell, or train public AI models on your private corporate telemetry. Client data and proprietary operational parameters are permanently scrubbed post-mandate under our Fiduciary Non-Disclosure framework."
     },
     {
       question: "How does architectural substrate engineering complement traditional strategic advisory?",

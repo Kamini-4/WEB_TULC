@@ -91,6 +91,110 @@ export interface ShopProduct {
 
 export const SHOP_PRODUCTS: ShopProduct[] = [
   {
+    id: 'asset-00-founder-severance-starter-pack',
+    assetNumber: 'ENTRY WEAPON',
+    title: 'The 72-Hour Founder Severance Protocol & Delegation Filter',
+    tagline: 'An agile, low-risk operational filter to test your firm’s autonomy. Cut micro-decision drag and empower team leads under $5,000.',
+    category: 'Bandwidth Architecture',
+    badge: 'Starter Gateway • Under $100',
+    format: 'Notion Quick-Deploy + Delegation Triage Tree + PDF Checklist',
+    formatIcon: 'FileCode',
+    installTime: '15 minutes flat',
+    timeToResult: 'Within 24 hours',
+    targetAudience: 'Founders and managing partners seeking an immediate, low-friction tool to stop fielding tactical approvals.',
+    coreProblemSolved: 'Establishes clear delegation ceilings and decision filters so your leadership team resolves operational problems autonomously.',
+    harshTruth: {
+      brutalReality: 'If your team asks permission for expenditures under $5,000 or basic process adjustments, you do not have a team—you have a bottleneck centered directly on your inbox.',
+      egoTrap: 'Believing that signing off on every tactical invoice or copy change maintains quality, when in reality it trains your executive bench to abdicate responsibility.',
+      unfilteredDiagnosis: 'The fastest path to executive burnout is acting as the universal approval checkpoint for a company with capable department leads.'
+    },
+    theWeapon: {
+      leverageMechanism: 'A binary Single-Page Delegation Covenant and 72-Hour Severance Audit that forces decisions downward with mathematical governance.',
+      rulesOfEngagement: [
+        'Rule 1: Under $5,000 expenditure with clear ROI requires zero executive sign-off.',
+        'Rule 2: Type-2 reversible decisions are executed without prior permission.',
+        'Rule 3: If an issue escalates to your desk, the lead must submit 2 viable solutions and a chosen path.'
+      ],
+      executiveLaw: 'Delegate authority, not just tasks. When you withhold decision rights, you purchase operational inertia with your own life.'
+    },
+    theOutcome: {
+      tangibleResult: 'Immediately eliminate 4 to 8 hours of tactical approvals and low-level inquiries each week.',
+      immediateImpact: 'Empowered team leads who make decisions with owner-level conviction while your mental bandwidth stays preserved.',
+      deliverables: [
+        'Interactive Notion Delegation Filter (1-Click Workspace Duplicate)',
+        'Printable Executive Delegation Covenant Template',
+        '72-Hour Founder Absence Readiness Audit',
+        'Word-for-Word Team Delegation Rollout Script'
+      ],
+      modules: [
+        {
+          number: '01',
+          title: 'The Expenditure & Authority Matrix',
+          subtitle: 'Define Clear Spending & Hiring Ceilings',
+          description: 'A pre-calibrated matrix assigning exact fiscal and strategic approval limits across VPs, managers, and team leads.',
+          deliverables: ['Authorization threshold table', 'Exception protocol sheet'],
+          keyInsight: '80% of approval pings can be permanently eliminated with explicit numerical thresholds.'
+        },
+        {
+          number: '02',
+          title: 'The 72-Hour Severance Test',
+          subtitle: 'Audit Team Autonomy in 3 Days',
+          description: 'A structured 72-hour trial run where founders step back from Slack and email to expose operational fragility safely.',
+          deliverables: ['Severance simulation checklist', 'Post-test vulnerability diagnostic'],
+          keyInsight: 'You cannot fix what breaks in your absence until you deliberately step back to let it surface.'
+        }
+      ]
+    },
+    why: {
+      unspokenPain: 'Micro-approvals secretly bleed the mental stamina required for high-stakes enterprise strategy.',
+      coreBelief: 'Great leaders construct self-governing guardrails rather than personal tollbooths.',
+      philosophicalShift: 'From approving daily details to designing the parameters within which high-performers thrive.'
+    },
+    how: {
+      systemicMechanism: 'Binary decision logic and pre-authorized delegation parameters that protect founder cognition.',
+      architecturalRules: [
+        'Decide once: create the parameter so you never have to answer the question again.',
+        'Reward autonomous decisions even when minor errors occur.'
+      ],
+      governancePrinciple: 'Autonomy without guardrails is anarchy; guardrails without autonomy is prison.'
+    },
+    what: {
+      tangibleAsset: 'Instant-access Notion workspace and PDF delegation contract with team rollout scripts.',
+      includedFiles: [
+        'Notion Delegation Master Workspace',
+        'Printable Executive Covenant Guide',
+        '72-Hour Severance Simulation Protocol'
+      ],
+      modules: []
+    },
+    earlyBird: {
+      badge: 'Starter Gateway • Save 50%',
+      discountPercent: 50,
+      seatsRemaining: 8,
+      originalPriceUsd: 150,
+      earlyBirdPriceUsd: 75,
+      bonusTitle: 'Bonus: The 1-Page Delegation Contract Template',
+      bonusValue: '$95 Value Included Free',
+      expirationNote: 'Introductory gateway allocation open at $75.'
+    },
+    pricing: {
+      usd: 75,
+      originalUsd: 150,
+      eur: 69,
+      gbp: 59,
+      inr: 5999,
+      aed: 275,
+      estimatedBandwidthSavingsAnnualUsd: 95000
+    },
+    socialProof: {
+      quote: 'Installing this single delegation protocol cleared 6 hours of invoice and contract approvals out of my week immediately.',
+      author: 'Karan Mehra',
+      title: 'Founder & CEO, ScaleOps Logistics',
+      metric: '6 Hours Saved First Week'
+    },
+    guaranteeText: 'The TULC Performance Commitment: Deploy this delegation filter with your managers. If you do not reclaim immediate focus within 14 days, contact our advisory desk for an immediate full refund.'
+  },
+  {
     id: 'asset-01-bandwidth-reclamation-os',
     assetNumber: '01/05',
     title: 'The 15-Hour Founder Bandwidth Reclamation OS',
@@ -205,20 +309,20 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       badge: 'Early Bird Tier • Save 50%',
       discountPercent: 50,
       seatsRemaining: 4,
-      originalPriceUsd: 490,
-      earlyBirdPriceUsd: 245,
+      originalPriceUsd: 290,
+      earlyBirdPriceUsd: 145,
       bonusTitle: 'Bonus: The 15-Minute Executive Morning Ritual Guide',
       bonusValue: '$195 Value Included Free',
-      expirationNote: 'Only 4 licenses remaining at $245. Auto-reverts to $490 once allocation closes.'
+      expirationNote: 'Only 4 licenses remaining at $145. Auto-reverts to $290 once allocation closes.'
     },
 
     pricing: {
-      usd: 245,
-      originalUsd: 490,
-      eur: 225,
-      gbp: 195,
-      inr: 19999,
-      aed: 899,
+      usd: 145,
+      originalUsd: 290,
+      eur: 135,
+      gbp: 115,
+      inr: 11999,
+      aed: 535,
       estimatedBandwidthSavingsAnnualUsd: 360000
     },
 
@@ -346,20 +450,20 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       badge: 'Early Bird Tier • Save 50%',
       discountPercent: 50,
       seatsRemaining: 3,
-      originalPriceUsd: 790,
-      earlyBirdPriceUsd: 395,
+      originalPriceUsd: 390,
+      earlyBirdPriceUsd: 195,
       bonusTitle: 'Bonus: Private Equity Continuity Due Diligence Checklist',
       bonusValue: '$295 Value Included Free',
-      expirationNote: 'Only 3 licenses available at this entry rate.'
+      expirationNote: 'Only 3 licenses available at $195.'
     },
 
     pricing: {
-      usd: 395,
-      originalUsd: 790,
-      eur: 365,
-      gbp: 315,
-      inr: 32999,
-      aed: 1449,
+      usd: 195,
+      originalUsd: 390,
+      eur: 180,
+      gbp: 155,
+      inr: 15999,
+      aed: 715,
       estimatedBandwidthSavingsAnnualUsd: 520000
     },
 
@@ -487,20 +591,20 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       badge: 'Early Bird Tier • Save 50%',
       discountPercent: 50,
       seatsRemaining: 5,
-      originalPriceUsd: 590,
-      earlyBirdPriceUsd: 295,
+      originalPriceUsd: 290,
+      earlyBirdPriceUsd: 145,
       bonusTitle: 'Bonus: The 72-Hour Conflict Resolution Playbook',
       bonusValue: '$245 Value Included Free',
-      expirationNote: 'Only 5 allocation licenses open before price locks at $590.'
+      expirationNote: 'Only 5 allocation licenses open before price locks at $290.'
     },
 
     pricing: {
-      usd: 295,
-      originalUsd: 590,
-      eur: 275,
-      gbp: 235,
-      inr: 24999,
-      aed: 1085,
+      usd: 145,
+      originalUsd: 290,
+      eur: 135,
+      gbp: 115,
+      inr: 11999,
+      aed: 535,
       estimatedBandwidthSavingsAnnualUsd: 280000
     },
 
@@ -628,20 +732,20 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       badge: 'Early Bird Tier • Save 50%',
       discountPercent: 50,
       seatsRemaining: 2,
-      originalPriceUsd: 690,
-      earlyBirdPriceUsd: 345,
+      originalPriceUsd: 390,
+      earlyBirdPriceUsd: 195,
       bonusTitle: 'Bonus: The Executive Severance & Clean Exit Protocol',
       bonusValue: '$295 Value Included Free',
-      expirationNote: 'Strictly 2 licenses left at $345.'
+      expirationNote: 'Strictly 2 licenses left at $195.'
     },
 
     pricing: {
-      usd: 345,
-      originalUsd: 690,
-      eur: 320,
-      gbp: 275,
-      inr: 28999,
-      aed: 1269,
+      usd: 195,
+      originalUsd: 390,
+      eur: 180,
+      gbp: 155,
+      inr: 15999,
+      aed: 715,
       estimatedBandwidthSavingsAnnualUsd: 400000
     },
 
@@ -771,20 +875,20 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       badge: 'Early Bird Tier • Save 50%',
       discountPercent: 50,
       seatsRemaining: 3,
-      originalPriceUsd: 990,
-      earlyBirdPriceUsd: 495,
-      bonusTitle: 'Bonus: 1-on-1 Diagnostic Architecture Review Voucher',
-      bonusValue: '$500 Value Included Free',
-      expirationNote: 'Only 3 enterprise licenses remain at this intake tier.'
+      originalPriceUsd: 390,
+      earlyBirdPriceUsd: 195,
+      bonusTitle: 'Bonus: Board-Ready Executive Summary Deck Template',
+      bonusValue: '$195 Value Included Free',
+      expirationNote: 'Only 3 licenses available at $195.'
     },
 
     pricing: {
-      usd: 495,
-      originalUsd: 990,
-      eur: 460,
-      gbp: 395,
-      inr: 41999,
-      aed: 1819,
+      usd: 195,
+      originalUsd: 390,
+      eur: 180,
+      gbp: 155,
+      inr: 15999,
+      aed: 715,
       estimatedBandwidthSavingsAnnualUsd: 650000
     },
 
@@ -821,42 +925,43 @@ export interface BundleProduct {
 }
 
 export const SOVEREIGN_VAULT_BUNDLE: BundleProduct = {
-  id: 'tulc-sovereign-vault-complete-suite',
-  title: 'The Complete Sovereign Leverage Vault (All 5 Assets)',
-  tagline: 'The complete operating architecture for enterprise founders. Transition your entire firm to sovereign velocity.',
-  badge: 'Early Bird Bundle: 60% Off • Only 6 Vaults Left',
-  description: 'Instant enterprise-wide access to all 5 TULC Digital Leverage Assets. Reclaims 15+ hours weekly, eliminates key-person dependency, cuts decision cycle times to 72 hours, locks down C-suite performance, and equips your board with empirical telemetry.',
+  id: 'tulc-complete-founder-systems-suite',
+  title: 'The Complete Founder Systems Suite (All Digital Toolkits)',
+  tagline: 'The complete digital operating system for high-growth founders. Replace daily operational fires with permanent written architecture.',
+  badge: 'Complete Suite: 65% Off • Only 6 Bundles Left',
+  description: 'Instant access to every digital toolkit in the library. Pre-built Notion workspaces, Coda templates, decision matrices, onboarding codexes, and team diagnostics. Ready to duplicate with 1 click.',
   pricing: {
-    usd: 890,
-    originalUsd: 2200,
-    savingsUsd: 1310,
-    eur: 820,
-    gbp: 710,
-    inr: 74999,
-    aed: 3269
+    usd: 495,
+    originalUsd: 1450,
+    savingsUsd: 955,
+    eur: 460,
+    gbp: 395,
+    inr: 39999,
+    aed: 1819
   },
   earlyBird: {
-    badge: 'Founder Early Bird • Save $1,310',
-    discountPercent: 60,
+    badge: 'Founder Early Bird • Save $955',
+    discountPercent: 65,
     seatsRemaining: 6,
-    originalPriceUsd: 2200,
-    earlyBirdPriceUsd: 890,
-    bonusTitle: 'VIP Masterclass + Master Enterprise Workspace',
-    bonusValue: '$1,250 Value Included Free',
-    expirationNote: 'Only 6 Sovereign Vaults remaining at $890 before this tier is permanently closed.'
+    originalPriceUsd: 1450,
+    earlyBirdPriceUsd: 495,
+    bonusTitle: 'Master Unified Notion Workspace + Digital Bonus Pack',
+    bonusValue: '$590 Value Included Free',
+    expirationNote: 'Only 6 complete system suites remaining at $495 before this tier closes.'
   },
   includes: [
+    'Asset 00: The 72-Hour Founder Severance Protocol & Delegation Filter',
     'Asset 01: The 15-Hour Founder Bandwidth Reclamation OS (Notion & Coda Master)',
-    'Asset 02: The 30-Day Decoupling Runbook & Continuity Insurance (PDF + Notion Vault)',
+    'Asset 02: The 30-Day Decoupling Runbook & Continuity System (PDF + Notion Vault)',
     'Asset 03: The Cross-Functional Decision Guardrails Matrix (Figma + Miro Boards)',
-    'Asset 04: The C-Suite Onboarding Codex (4-Document Executive Pack)',
-    'Asset 05: The Sovereign Diagnostic & Executive Assessment Suite'
+    'Asset 04: The Executive Onboarding Codex (4-Document Management Pack)',
+    'Asset 05: The Team Operational Diagnostic & Assessment Suite'
   ],
   bonuses: [
-    'Bonus 1: The Master Enterprise Unified Index (All 5 systems unified in one command Notion workspace) — $350 Value',
-    'Bonus 2: 75-Minute "Physics of Scale" Architecture Video Masterclass with Suchita Sancheti — $400 Value',
-    'Bonus 3: VIP Priority Architecture Review Voucher — Direct asynchronous review of your completed systems — $500 Value',
-    'Bonus 4: Lifetime Updates, New Module Drops & Future Revisions Forever'
+    'Bonus 1: The Master Enterprise Unified Index (All toolkits pre-connected in a single command Notion workspace) — $250 Value',
+    'Bonus 2: The Plug-and-Play Delegation Agreement & Decision Tree (Digital PDF + DOCX) — $145 Value',
+    'Bonus 3: The Board-Ready Executive Summary Presentation Template (Figma & Slides) — $195 Value',
+    'Bonus 4: Lifetime Digital Updates, Template Revisions & New Module Drops Forever'
   ],
-  guaranteeText: 'The TULC 30-Day Performance Commitment: Deploy these 5 assets across your firm. If your leadership team does not gain demonstrable operational clarity, reclaimed bandwidth, and accelerated velocity within 30 days, notify us for a prompt, unconditional full refund. We measure our success entirely by the value delivered to your enterprise.'
+  guaranteeText: '30-Day Digital Performance Guarantee: Duplicate these templates into your company. If they do not save your leadership team hours of weekly operational drag within 30 days, simply notify us for an unconditional full refund. No questions asked.'
 };

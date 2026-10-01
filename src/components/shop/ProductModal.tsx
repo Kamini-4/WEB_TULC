@@ -88,7 +88,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
               </span>
             </div>
 
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-white">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white">
               {product.title}
             </h2>
             <p className="text-xs sm:text-sm text-zinc-300 font-light mt-1 max-w-2xl">
