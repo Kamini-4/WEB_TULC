@@ -197,7 +197,7 @@ export default function SovereignVoice({ onClose }: SovereignVoiceProps) {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[120] flex flex-col items-center justify-center bg-[#0a0b14] text-[#f5f5f0] p-6 md:p-10 font-inter">
+    <div className="fixed inset-0 z-[120] flex flex-col items-center justify-center bg-[#0a0b14] text-[#f5f5f0] p-6 md:p-10 font-serif">
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`, backgroundSize: '60px 60px' }} />
 
       <div className="absolute top-12 left-12">

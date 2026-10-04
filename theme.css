@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@theme {
+  --font-sans: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'Playfair Display', Georgia, serif;
+}
+
 :root {
   --beige: #fdfdfb; /* Slightly warmer, softer beige for "at home" feel */
   --beige-dark: #f5f5f0;
@@ -15,20 +21,79 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body, input, textarea, select, button {
-  font-family: 'Playfair Display', Georgia, serif;
-}
-
-.font-mono, [class*="font-mono"], code, pre, kbd, samp {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
-}
-
-.font-sans, [class*="font-sans"] {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-}
-
-.font-serif, [class*="font-serif"] {
+/* Strict Universal Playfair Display Enforcement */
+*, *::before, *::after,
+html, body, input, textarea, select, button, a, p, span,
+h1, h2, h3, h4, h5, h6, div, li, ul, ol, table, th, td,
+code, pre, kbd, samp, small, b, strong, em, i, svg, text, svg text {
   font-family: 'Playfair Display', Georgia, serif !important;
+}
+
+.font-mono, [class*="font-mono"],
+.font-sans, [class*="font-sans"],
+.font-serif, [class*="font-serif"],
+.font-inter, [class*="font-inter"] {
+  font-family: 'Playfair Display', Georgia, serif !important;
+}
+
+/* Size Calibration: Micro-labels and Badges in Playfair Display */
+/* Playfair Display has high-contrast strokes; small sizes are calibrated for optimal legibility */
+.text-\[8px\], [class*="text-\[8px\]"] {
+  font-size: 10px !important;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.text-\[8\.5px\], [class*="text-\[8.5px\]"], .text-\[9px\], [class*="text-\[9px\]"] {
+  font-size: 10.5px !important;
+  letter-spacing: 0.07em;
+  font-weight: 600;
+}
+
+.text-\[10px\], [class*="text-\[10px\]"] {
+  font-size: 11px !important;
+  letter-spacing: 0.06em;
+}
+
+/* Headings Calibration for Playfair Display */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  text-rendering: optimizeLegibility;
+  line-height: 1.15;
+}
+
+/* Tabular & Numerical Figures in Playfair Display */
+.font-mono, [class*="font-mono"], table, th, td, .tabular-nums {
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: 0.04em;
+}
+
+/* Italic Calibration for Playfair Display */
+/* Playfair Display's italics have iconic cursive swashes and calligraphic angles */
+em, i, .italic, [class*="italic"], cite {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-style: italic !important;
+  padding-right: 0.03em; /* Prevents terminal stroke clipping in tight containers */
+}
+
+/* Blockquotes & Pull Quotes in Italic */
+blockquote, q {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+/* Code & Specimen Blocks in Playfair Display */
+code, pre, kbd, samp {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-style: italic;
+  font-size: 0.95em;
+  letter-spacing: 0.03em;
+}
+
+/* Uppercase tracking calibration for Playfair Display */
+.uppercase {
+  letter-spacing: 0.08em;
 }
 
 body {

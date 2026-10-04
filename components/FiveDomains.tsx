@@ -102,7 +102,7 @@ const FiveDomains: React.FC = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif text-white tracking-tight">
               The 5 Sovereign <span className="text-[#b8860b] italic font-light">Domains.</span>
             </h2>
-            <p className="text-zinc-400 text-xs sm:text-sm font-sans mt-2 leading-relaxed">
+            <p className="text-zinc-400 text-xs sm:text-sm font-serif mt-2 leading-relaxed">
               We translate founder intuition into permanent operating architecture. Select any domain below to inspect the daily friction we eliminate and the 90-day benchmark outcomes we install.
             </p>
           </div>
@@ -165,7 +165,7 @@ const FiveDomains: React.FC = () => {
                       </span>
                     </div>
                     <h3 className="text-2xl sm:text-3xl font-bold font-serif text-white mt-0.5">
-                      {domains[selectedIdx].title} <span className="text-zinc-400 font-sans font-normal text-lg sm:text-xl">({domains[selectedIdx].founderTerm})</span>
+                      {domains[selectedIdx].title} <span className="text-zinc-400 font-serif font-normal text-lg sm:text-xl">({domains[selectedIdx].founderTerm})</span>
                     </h3>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ const FiveDomains: React.FC = () => {
                       The Daily Bleed (Friction)
                     </span>
                   </div>
-                  <p className="text-xs text-zinc-300 font-sans leading-relaxed">
+                  <p className="text-xs text-zinc-300 font-serif leading-relaxed">
                     {domains[selectedIdx].symptom}
                   </p>
                 </div>
@@ -206,7 +206,7 @@ const FiveDomains: React.FC = () => {
                       The Installed Solution
                     </span>
                   </div>
-                  <p className="text-xs text-zinc-200 font-sans leading-relaxed">
+                  <p className="text-xs text-zinc-200 font-serif leading-relaxed">
                     {domains[selectedIdx].benefit}
                   </p>
                 </div>

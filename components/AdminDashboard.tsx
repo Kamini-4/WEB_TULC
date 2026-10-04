@@ -724,32 +724,33 @@ London • New York • Singapore`;
         <head>
           <title>Diagnostic Dossier: ${entry.name}</title>
           <style>
-            @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;900&family=JetBrains+Mono&display=swap');
-            body { font-family: 'Playfair Display', serif; padding: 60px; line-height: 1.6; color: #111111; background-color: #ffffff; }
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+            * { box-sizing: border-box; font-family: 'Playfair Display', Georgia, serif !important; }
+            body { font-family: 'Playfair Display', Georgia, serif !important; padding: 60px; line-height: 1.6; color: #111111; background-color: #ffffff; }
             .header { border-bottom: 2px solid #b8860b; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
-            .logo { font-family: 'Cinzel', serif; font-size: 14px;  text-transform: uppercase; color: #111; font-weight: bold; }
-            .title { font-size: 30px; font-weight: bold; margin: 15px 0 5px 0; font-family: 'Cinzel', serif; }
-            .category { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 900;  text-transform: uppercase; color: #b8860b; }
+            .logo { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; color: #111; font-weight: bold; }
+            .title { font-size: 32px; font-weight: bold; margin: 15px 0 5px 0; font-family: 'Playfair Display', Georgia, serif; }
+            .category { font-family: 'Playfair Display', Georgia, serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #b8860b; }
             
-            .meta-grid { display: grid; grid-template-cols: 1fr 1fr; gap: 20px; margin-bottom: 40px; font-family: 'Inter', sans-serif; font-size: 12px; border-bottom: 1px solid #eee; padding-bottom: 30px; }
+            .meta-grid { display: grid; grid-template-cols: 1fr 1fr; gap: 20px; margin-bottom: 40px; font-family: 'Playfair Display', Georgia, serif; font-size: 12.5px; border-bottom: 1px solid #eee; padding-bottom: 30px; }
             .meta-item { display: flex; flex-direction: column; }
-            .meta-lbl { font-weight: 900; color: #888; text-transform: uppercase;  font-size: 9px; margin-bottom: 4px; }
+            .meta-lbl { font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.08em; font-size: 9.5px; margin-bottom: 4px; }
             .meta-val { font-weight: bold; }
 
             .score-card { background-color: #fafaf6; border: 1px solid #e5e5d8; padding: 25px; margin-bottom: 45px; }
-            .score-num { font-size: 40px; font-weight: bold; font-family: 'Cinzel', serif; color: #b8860b; }
-            .grade-title { font-family: 'Cinzel', serif; font-size: 18px; font-weight: bold; text-transform: uppercase; margin-top: 10px; }
-            .grade-desc { font-size: 13px; color: #555; font-style: italic; }
+            .score-num { font-size: 42px; font-weight: bold; font-family: 'Playfair Display', Georgia, serif; color: #b8860b; }
+            .grade-title { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 10px; }
+            .grade-desc { font-size: 13.5px; color: #555; font-style: italic; }
 
-            .section-title { font-family: 'Cinzel', serif; font-size: 15px; font-weight: bold; text-transform: uppercase;  border-bottom: 1px solid #b8860b; padding-bottom: 8px; margin-top: 40px; margin-bottom: 20px; }
-            .domain-row { display: grid; grid-template-cols: 150px 100px 1fr; gap: 20px; margin-bottom: 15px; font-family: 'Inter', sans-serif; font-size: 11px; align-items: center; border-bottom: 1px solid #f9f9f9; padding-bottom: 10px; }
+            .section-title { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid #b8860b; padding-bottom: 8px; margin-top: 40px; margin-bottom: 20px; }
+            .domain-row { display: grid; grid-template-cols: 150px 100px 1fr; gap: 20px; margin-bottom: 15px; font-family: 'Playfair Display', Georgia, serif; font-size: 12px; align-items: center; border-bottom: 1px solid #f9f9f9; padding-bottom: 10px; }
             .domain-name { font-weight: bold; color: #111; }
             .domain-score-box { background-color: #eee; height: 6px; border-radius: 3px; position: relative; overflow: hidden; }
             .domain-score-fill { background-color: #b8860b; height: 100%; }
             .choice-desc { font-style: italic; color: #555; }
             
             .cert-box { border: 1px dashed #b8860b; padding: 25px; margin-top: 60px; text-align: center; }
-            .footer { margin-top: 80px; border-top: 1px solid #eee; padding-top: 20px; font-size: 8px; color: #999; text-align: center; font-family: 'Inter', sans-serif;  }
+            .footer { margin-top: 80px; border-top: 1px solid #eee; padding-top: 20px; font-size: 9px; font-style: italic; color: #999; text-align: center; font-family: 'Playfair Display', Georgia, serif; }
           </style>
         </head>
         <body>
@@ -2290,7 +2291,7 @@ London • New York • Singapore`;
                     </div>
                   ) : (
                     <div className="overflow-x-auto">
-                      <table className="w-full text-left text-xs text-zinc-600 font-inter">
+                      <table className="w-full text-left text-xs text-zinc-600 font-serif">
                         <thead className="bg-zinc-50 text-[9px] font-black uppercase text-zinc-400 border-b border-zinc-200">
                           <tr>
                             <th className="px-6 py-4">Status</th>
@@ -2302,7 +2303,7 @@ London • New York • Singapore`;
                             <th className="px-6 py-4 text-right">Actions</th>
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-zinc-100 font-sans">
+                        <tbody className="divide-y divide-zinc-100 font-serif">
                           {data.licenses.map((lic) => {
                             const isExpired = Date.now() > lic.expiresAt;
                             const isActive = lic.status === 'active' && !isExpired;

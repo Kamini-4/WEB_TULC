@@ -32,12 +32,16 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
           <head>
             <title>${paper.title}</title>
             <style>
-              @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;700;900&family=JetBrains+Mono&display=swap');
+              @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
               
+              * {
+                font-family: 'Playfair Display', Georgia, serif !important;
+              }
+
               body {
                 background-color: #fafaf6;
                 color: #111111;
-                font-family: 'Playfair Display', Georgia, serif;
+                font-family: 'Playfair Display', Georgia, serif !important;
                 margin: 0;
                 padding: 0;
                 -webkit-print-color-adjust: exact;
@@ -94,9 +98,9 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               }
               
               .cover-brand {
-                font-family: 'Cinzel', serif;
-                font-size: 13px;
-                
+                font-family: 'Playfair Display', Georgia, serif;
+                font-size: 14px;
+                letter-spacing: 0.12em;
                 text-transform: uppercase;
                 color: #111111;
                 font-weight: bold;
@@ -107,10 +111,10 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               }
               
               .cover-category {
-                font-family: 'Inter', sans-serif;
-                font-size: 8px;
-                font-weight: 900;
-                
+                font-family: 'Playfair Display', Georgia, serif;
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 0.15em;
                 text-transform: uppercase;
                 color: #b8860b;
                 margin-bottom: 25px;
@@ -122,7 +126,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 font-weight: 700;
                 margin: 0 0 25px 0;
                 color: #111111;
-                font-family: 'Cinzel', serif;
+                font-family: 'Playfair Display', Georgia, serif;
               }
               
               .cover-subtitle {
@@ -132,6 +136,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 line-height: 1.6;
                 max-width: 550px;
                 margin: 0 auto;
+                font-family: 'Playfair Display', Georgia, serif;
               }
               
               .cover-bottom {
@@ -147,48 +152,50 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               }
               
               .signature-title {
-                font-family: 'Cinzel', serif;
+                font-family: 'Playfair Display', Georgia, serif;
                 font-size: 11px;
-                
+                letter-spacing: 0.1em;
                 text-transform: uppercase;
                 color: #111111;
                 font-weight: bold;
               }
               
               .signature-author {
-                font-size: 14px;
+                font-size: 15px;
                 font-weight: bold;
+                font-style: italic;
                 color: #b8860b;
                 margin-top: 6px;
                 margin-bottom: 2px;
+                font-family: 'Playfair Display', Georgia, serif;
               }
               
               .signature-sub {
-                font-family: 'Inter', sans-serif;
-                font-size: 8px;
+                font-family: 'Playfair Display', Georgia, serif;
+                font-size: 9px;
                 text-transform: uppercase;
-                
+                letter-spacing: 0.08em;
                 color: #777766;
                 font-weight: bold;
               }
               
               .signature-meta {
-                font-family: 'Inter', sans-serif;
-                font-size: 8px;
+                font-family: 'Playfair Display', Georgia, serif;
+                font-size: 9px;
+                font-style: italic;
                 color: #aaaa99;
                 margin-top: 4px;
-                
               }
               
               /* Running Headers and Footers */
               .running-header {
-                font-family: 'Inter', sans-serif;
+                font-family: 'Playfair Display', Georgia, serif;
                 display: flex;
                 justify-content: space-between;
-                font-size: 7px;
-                font-weight: 900;
+                font-size: 8.5px;
+                font-weight: 700;
                 text-transform: uppercase;
-                
+                letter-spacing: 0.08em;
                 color: #888888;
                 border-bottom: 1px solid #e5e5d8;
                 padding-bottom: 10px;
@@ -196,25 +203,25 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               }
               
               .running-footer {
-                font-family: 'Inter', sans-serif;
+                font-family: 'Playfair Display', Georgia, serif;
                 border-top: 1px solid #e5e5d8;
                 padding-top: 15px;
                 margin-top: 40px;
-                font-size: 7px;
+                font-size: 8px;
+                font-style: italic;
                 color: #aaaa99;
                 text-align: center;
                 line-height: 1.5;
-                
               }
               
               .page-number {
-                font-family: 'Inter', sans-serif;
-                font-size: 8px;
+                font-family: 'Playfair Display', Georgia, serif;
+                font-size: 10px;
                 color: #111111;
                 font-weight: bold;
+                font-style: italic;
                 text-align: center;
                 margin-top: 15px;
-                
               }
               
               /* Section Styles */
@@ -226,11 +233,11 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               }
               
               .section-title {
-                font-family: 'Cinzel', serif;
-                font-size: 15px;
+                font-family: 'Playfair Display', Georgia, serif;
+                font-size: 16px;
                 font-weight: bold;
+                letter-spacing: 0.08em;
                 text-transform: uppercase;
-                
                 color: #111111;
                 margin: 0;
               }
@@ -241,6 +248,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 text-align: justify;
                 margin-bottom: 22px;
                 color: #222222;
+                font-family: 'Playfair Display', Georgia, serif;
               }
               
               /* Tables and Exhibits */
@@ -253,11 +261,11 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               }
               
               .exhibit-title {
-                font-family: 'Cinzel', serif;
-                font-size: 11px;
+                font-family: 'Playfair Display', Georgia, serif;
+                font-size: 12px;
                 font-weight: bold;
+                letter-spacing: 0.08em;
                 text-transform: uppercase;
-                
                 color: #b8860b;
                 margin-top: 0;
                 margin-bottom: 12px;
@@ -268,24 +276,26 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               table {
                 width: 100%;
                 border-collapse: collapse;
-                font-family: 'Inter', sans-serif;
-                font-size: 10px;
+                font-family: 'Playfair Display', Georgia, serif;
+                font-size: 11px;
               }
               
               th {
-                font-weight: 900;
+                font-weight: 700;
                 text-transform: uppercase;
-                
+                letter-spacing: 0.06em;
                 color: #111111;
                 border-bottom: 2px solid #b8860b;
                 padding: 8px 6px;
                 text-align: left;
+                font-family: 'Playfair Display', Georgia, serif;
               }
               
               td {
                 padding: 10px 6px;
                 border-bottom: 1px solid #e5e5d8;
                 color: #333333;
+                font-family: 'Playfair Display', Georgia, serif;
               }
               
               tr:last-child td {
@@ -293,7 +303,8 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               }
               
               .mono {
-                font-family: 'JetBrains Mono', monospace;
+                font-family: 'Playfair Display', Georgia, serif;
+                font-style: italic;
               }
               
               .bold {
@@ -314,9 +325,9 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               }
               
               .cert-title {
-                font-family: 'Cinzel', serif;
-                font-size: 20px;
-                
+                font-family: 'Playfair Display', Georgia, serif;
+                font-size: 22px;
+                letter-spacing: 0.06em;
                 color: #b8860b;
                 margin-top: 20px;
                 text-transform: uppercase;
@@ -332,10 +343,10 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-family: 'Cinzel', serif;
-                font-size: 8px;
+                font-family: 'Playfair Display', Georgia, serif;
+                font-size: 9px;
                 font-weight: bold;
-                
+                letter-spacing: 0.1em;
                 color: #b8860b;
                 position: relative;
               }
@@ -352,12 +363,13 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               }
               
               .cert-body {
-                font-size: 13px;
+                font-size: 13.5px;
                 line-height: 1.8;
                 max-width: 480px;
                 margin: 0 auto;
                 color: #444444;
                 font-style: italic;
+                font-family: 'Playfair Display', Georgia, serif;
               }
               
               .cert-meta {
@@ -366,8 +378,8 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 margin-top: 50px;
                 border-top: 1px solid #e5e5d8;
                 padding-top: 25px;
-                font-family: 'Inter', sans-serif;
-                font-size: 9px;
+                font-family: 'Playfair Display', Georgia, serif;
+                font-size: 10px;
               }
               
               .cert-meta-item {
@@ -377,16 +389,18 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               }
               
               .cert-meta-label {
-                font-weight: 900;
+                font-weight: 700;
                 color: #aaaa99;
                 text-transform: uppercase;
-                
+                letter-spacing: 0.08em;
                 margin-bottom: 4px;
+                font-family: 'Playfair Display', Georgia, serif;
               }
               
               .cert-meta-value {
-                font-family: 'JetBrains Mono', monospace;
+                font-family: 'Playfair Display', Georgia, serif;
                 color: #111111;
+                font-weight: bold;
               }
             </style>
           </head>
@@ -416,11 +430,11 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                       </g>
                       
                       <!-- Text -->
-                      <text x="250" y="165" text-anchor="middle" fill="url(#gold-grad-print)" font-size="28" font-weight="bold"  font-family="'Cinzel', 'Playfair Display', serif">THE UNBOUNDED</text>
+                      <text x="250" y="165" text-anchor="middle" fill="url(#gold-grad-print)" font-size="28" font-weight="bold" font-family="'Playfair Display', Georgia, serif">THE UNBOUNDED</text>
                       <line x1="85" y1="185" x2="185" y2="185" stroke="url(#gold-grad-print)" stroke-width="1.2" />
-                      <text x="250" y="190" text-anchor="middle" fill="url(#gold-grad-print)" font-size="14" font-weight="900"  font-family="'Inter', sans-serif">LEADERSHIP CO.</text>
+                      <text x="250" y="190" text-anchor="middle" fill="url(#gold-grad-print)" font-size="14" font-weight="700" letter-spacing="0.1em" font-family="'Playfair Display', Georgia, serif">LEADERSHIP CO.</text>
                       <line x1="315" y1="185" x2="415" y2="185" stroke="url(#gold-grad-print)" stroke-width="1.2" />
-                      <text x="250" y="215" text-anchor="middle" fill="#8a640f" font-size="10.5"  font-family="'Inter', sans-serif" font-weight="300" font-style="italic">Elevating Cultures, Transforming Leadership</text>
+                      <text x="250" y="215" text-anchor="middle" fill="#8a640f" font-size="11" font-family="'Playfair Display', Georgia, serif" font-weight="400" font-style="italic">Elevating Cultures, Transforming Leadership</text>
                     </svg>
                   </div>
                   <div class="cover-category">${paper.category}</div>
@@ -524,7 +538,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               <div class="cert-border">
                 <div>
                   <div class="cert-title">Systemic Registry Certificate</div>
-                  <div style="font-family: 'Inter', sans-serif; font-size: 8px; font-weight: 900;  text-transform: uppercase; color: #777766; margin-top: 5px;">
+                  <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 9.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #777766; margin-top: 5px;">
                     Admission Ledger Verification & Intellectual Asset Protection
                   </div>
                 </div>
@@ -872,11 +886,11 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                     {/* Exhibits/Tables inside the document */}
                     {paper.exhibits && paper.exhibits.map((ex, eIdx) => (
                       <div key={eIdx} className="my-10 p-6 bg-black/40 border border-white/5 rounded-sm overflow-hidden">
-                        <div className="text-[#b8860b] text-[8px] font-black uppercase mb-4 font-sans text-center">
+                        <div className="text-[#b8860b] text-[10px] font-black uppercase mb-4 font-serif tracking-wider text-center">
                           {ex.title}
                         </div>
                         <div className="overflow-x-auto">
-                          <table className="w-full text-left font-sans text-[11px] sm:text-xs">
+                          <table className="w-full text-left font-serif text-[11px] sm:text-xs">
                             <thead>
                               <tr className="border-b border-zinc-800 text-zinc-500 uppercase ">
                                 {ex.headers.map((h, hIdx) => (

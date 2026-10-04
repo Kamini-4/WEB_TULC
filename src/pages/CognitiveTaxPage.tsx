@@ -165,16 +165,16 @@ const CognitiveTaxPage: React.FC = () => {
           <head>
             <title>Cognitive Tax & Systemic Friction Brief // TULC</title>
             <style>
-              @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap');
-              body { font-family: 'Playfair Display', Georgia, serif; background: #FAF9F5; color: #0A0A0A; padding: 40px; font-size: 13px; line-height: 1.6; }
+              @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+              body { font-family: 'Playfair Display', Georgia, serif; background: #FAF9F5; color: #0A0A0A; padding: 40px; font-size: 14px; line-height: 1.6; }
               .header { border-bottom: 2px solid #C5A021; padding-bottom: 20px; text-align: center; margin-bottom: 30px; }
-              .badge { display: inline-block; font-size: 9px; font-weight: bold; letter-spacing: 0.15em; color: #8a6d1a; background: rgba(197,160,33,0.1); padding: 4px 12px; border: 1px solid rgba(197,160,33,0.3); text-transform: uppercase; margin-bottom: 10px; font-family: 'JetBrains Mono', monospace; }
+              .badge { display: inline-block; font-size: 11px; font-weight: bold; letter-spacing: 0.12em; color: #8a6d1a; background: rgba(197,160,33,0.1); padding: 5px 14px; border: 1px solid rgba(197,160,33,0.3); text-transform: uppercase; margin-bottom: 10px; font-family: 'Playfair Display', Georgia, serif; }
               .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 25px 0; }
               .card { border: 1px solid #ddd; background: #fff; padding: 15px; text-align: center; }
-              .val { font-size: 22px; font-weight: bold; color: #C5A021; margin: 5px 0; }
-              .mono { font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+              .val { font-size: 24px; font-weight: bold; color: #C5A021; margin: 5px 0; font-family: 'Playfair Display', Georgia, serif; }
+              .mono { font-family: 'Playfair Display', Georgia, serif; font-size: 11px; letter-spacing: 0.04em; }
               .section { margin: 25px 0; }
-              .section-title { font-size: 14px; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid #000; padding-bottom: 5px; }
+              .section-title { font-size: 15px; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid #000; padding-bottom: 5px; font-family: 'Playfair Display', Georgia, serif; }
             </style>
           </head>
           <body>

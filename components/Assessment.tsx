@@ -724,14 +724,17 @@ const Assessment: React.FC = () => {
         <head>
           <title>Confidential Strategic Dossier - ${identity.organization || 'Executive Client'}</title>
           <style>
-            @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-            * { box-sizing: border-box; }
+            * { 
+              box-sizing: border-box; 
+              font-family: 'Playfair Display', Georgia, serif !important;
+            }
             
             body {
               background-color: #fafaf6;
               color: #111111;
-              font-family: 'Playfair Display', Georgia, serif;
+              font-family: 'Playfair Display', Georgia, serif !important;
               margin: 0;
               padding: 0;
               -webkit-print-color-adjust: exact;
@@ -778,19 +781,20 @@ const Assessment: React.FC = () => {
             }
 
             .doc-brand {
-              font-family: 'Cinzel', serif;
-              font-size: 11px;
+              font-family: 'Playfair Display', Georgia, serif;
+              font-size: 13px;
               font-weight: 700;
               text-transform: uppercase;
-              letter-spacing: 0.15em;
+              letter-spacing: 0.12em;
               color: #111111;
             }
 
             .doc-badge {
-              font-family: 'JetBrains Mono', monospace;
-              font-size: 8px;
+              font-family: 'Playfair Display', Georgia, serif;
+              font-size: 9.5px;
               font-weight: 700;
               text-transform: uppercase;
+              letter-spacing: 0.08em;
               color: #b8860b;
               background-color: #fafaf6;
               border: 1px solid #b8860b;
@@ -803,8 +807,9 @@ const Assessment: React.FC = () => {
               margin-top: 30px;
               display: flex;
               justify-content: space-between;
-              font-family: 'JetBrains Mono', monospace;
-              font-size: 8px;
+              font-family: 'Playfair Display', Georgia, serif;
+              font-size: 9px;
+              font-style: italic;
               color: #777777;
               text-transform: uppercase;
             }
@@ -879,17 +884,18 @@ const Assessment: React.FC = () => {
             }
 
             .metric-val {
-              font-family: 'Cinzel', serif;
-              font-size: 26px;
+              font-family: 'Playfair Display', Georgia, serif;
+              font-size: 28px;
               font-weight: 700;
               color: #b8860b;
               margin-bottom: 4px;
             }
 
             .metric-lbl {
-              font-family: 'JetBrains Mono', monospace;
-              font-size: 8px;
+              font-family: 'Playfair Display', Georgia, serif;
+              font-size: 9.5px;
               text-transform: uppercase;
+              letter-spacing: 0.08em;
               color: #666666;
               font-weight: 700;
             }
@@ -898,8 +904,8 @@ const Assessment: React.FC = () => {
               width: 100%;
               border-collapse: collapse;
               margin: 20px 0;
-              font-family: 'Inter', sans-serif;
-              font-size: 11px;
+              font-family: 'Playfair Display', Georgia, serif;
+              font-size: 11.5px;
             }
 
             .domain-table th {
@@ -907,14 +913,17 @@ const Assessment: React.FC = () => {
               color: #ffffff;
               text-align: left;
               padding: 8px 12px;
-              font-family: 'JetBrains Mono', monospace;
-              font-size: 8px;
+              font-family: 'Playfair Display', Georgia, serif;
+              font-size: 9px;
+              letter-spacing: 0.08em;
               text-transform: uppercase;
+              font-weight: 700;
             }
 
             .domain-table td {
               padding: 10px 12px;
               border-bottom: 1px solid #eeeeee;
+              font-family: 'Playfair Display', Georgia, serif;
             }
 
             .bar-bg {
@@ -950,18 +959,20 @@ const Assessment: React.FC = () => {
             }
 
             .signature-title {
-              font-family: 'Cinzel', serif;
-              font-size: 12px;
+              font-family: 'Playfair Display', Georgia, serif;
+              font-size: 13px;
               font-weight: 700;
+              font-style: italic;
               color: #111111;
             }
 
             .seal-stamp {
               border: 2px solid #b8860b;
               padding: 8px 16px;
-              font-family: 'Cinzel', serif;
-              font-size: 9px;
+              font-family: 'Playfair Display', Georgia, serif;
+              font-size: 10px;
               font-weight: 700;
+              letter-spacing: 0.1em;
               color: #b8860b;
               text-transform: uppercase;
               letter-spacing: 0.1em;
@@ -974,39 +985,39 @@ const Assessment: React.FC = () => {
             <div class="cover-frame">
               <div>
                 <div class="doc-brand">The Unbounded Leadership Co.</div>
-                <div style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #b8860b; text-transform: uppercase; margin-top: 5px; font-weight: 700;">
+                <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 9.5px; color: #b8860b; text-transform: uppercase; margin-top: 5px; font-weight: 700; letter-spacing: 0.1em;">
                   Office of the Principal Architect • Swiss Alignment Architecture
                 </div>
               </div>
 
               <div style="margin: 40px 0;">
-                <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase; color: #b8860b; letter-spacing: 0.2em; margin-bottom: 15px; font-weight: 700;">
+                <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 10px; text-transform: uppercase; color: #b8860b; letter-spacing: 0.15em; margin-bottom: 15px; font-weight: 700;">
                   PROVISIONAL PATENT-PENDING INTELLECTUAL SUBSTRATE
                 </div>
-                <h1 style="font-size: 36px; margin-bottom: 20px; line-height: 1.15;">
+                <h1 style="font-size: 36px; margin-bottom: 20px; line-height: 1.15; font-family: 'Playfair Display', Georgia, serif;">
                   CONFIDENTIAL STRATEGIC DOSSIER
                 </h1>
-                <p class="emphasis" style="font-size: 14px; max-width: 500px; margin: 0 auto; color: #444444;">
+                <p class="emphasis" style="font-size: 14px; max-width: 500px; margin: 0 auto; color: #444444; font-family: 'Playfair Display', Georgia, serif; font-style: italic;">
                   A bespoke institutional alignment analysis tracking cognitive tax, decision latency, and strategic organizational integrity.
                 </p>
               </div>
 
               <div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left; background-color: #fafaf6; border: 1px solid #e5e5d8; padding: 20px; font-family: 'Inter', sans-serif; font-size: 11px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left; background-color: #fafaf6; border: 1px solid #e5e5d8; padding: 20px; font-family: 'Playfair Display', Georgia, serif; font-size: 11.5px;">
                   <div>
-                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #777; text-transform: uppercase; font-weight: 700;">Executive Principal</div>
+                    <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 9px; color: #777; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em;">Executive Principal</div>
                     <div style="font-weight: 700; color: #111; margin-top: 2px;">${identity.name || 'Executive Principal'}</div>
                   </div>
                   <div>
-                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #777; text-transform: uppercase; font-weight: 700;">Enterprise Authority</div>
+                    <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 9px; color: #777; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em;">Enterprise Authority</div>
                     <div style="font-weight: 700; color: #111; margin-top: 2px;">${identity.organization || 'Enterprise Entity'}</div>
                   </div>
                   <div>
-                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #777; text-transform: uppercase; font-weight: 700;">Calendar Benchmark</div>
+                    <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 9px; color: #777; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em;">Calendar Benchmark</div>
                     <div style="font-weight: 700; color: #111; margin-top: 2px;">${formattedDate}</div>
                   </div>
                   <div>
-                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #777; text-transform: uppercase; font-weight: 700;">Reference Registry</div>
+                    <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 9px; color: #777; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em;">Reference Registry</div>
                     <div style="font-weight: 700; color: #b8860b; margin-top: 2px;">#TULC-DOSSIER-${dossierId}</div>
                   </div>
                 </div>
@@ -1059,7 +1070,7 @@ const Assessment: React.FC = () => {
               </div>
 
               <h3>Quantified Capital Loss Vectors</h3>
-              <ul style="font-size: 11px; font-family: 'Inter', sans-serif; line-height: 1.7; color: #333; padding-left: 18px;">
+              <ul style="font-size: 12px; font-family: 'Playfair Display', Georgia, serif; line-height: 1.7; color: #333; padding-left: 18px;">
                 <li><strong style="color: #111;">Manual Alignment Tax:</strong> Executive team consumes 15+ hours weekly re-explaining strategic vision and approving tactical choices.</li>
                 <li><strong style="color: #111;">Decision Cycle Latency:</strong> 3x decision-to-execution delay caused by ambiguous delegation guardrails and board cycle dependency.</li>
                 <li><strong style="color: #111;">Key-Person Exposure:</strong> Key strategic intent remains un-codified in founder memory, risking immediate stall upon key leadership shifts.</li>
@@ -1097,8 +1108,8 @@ const Assessment: React.FC = () => {
                 <tbody>
                   ${domainScores.map(d => `
                     <tr>
-                      <td><strong style="color: #111; font-family: 'Playfair Display', serif; font-size: 12px;">${d.domain}</strong></td>
-                      <td><strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace;">${d.score} / 5</strong></td>
+                      <td><strong style="color: #111; font-family: 'Playfair Display', Georgia, serif; font-size: 12px;">${d.domain}</strong></td>
+                      <td><strong style="color: #b8860b; font-family: 'Playfair Display', Georgia, serif; font-size: 13px;">${d.score} / 5</strong></td>
                       <td>
                         <div class="bar-bg">
                           <div class="bar-fill" style="width: ${(d.score / 5) * 100}%;"></div>
@@ -1162,21 +1173,21 @@ const Assessment: React.FC = () => {
               </div>
 
               <h2>04. The 4-Phase Implementation Architecture</h2>
-              <div style="font-size: 11px; font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; margin-top: 15px;">
+              <div style="font-size: 11.5px; font-family: 'Playfair Display', Georgia, serif; line-height: 1.6; color: #333; margin-top: 15px;">
                 <div style="border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 8px;">
-                  <strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;">Phase 0.0 • 10-Node Structural Triangulation Audit (48-Hr Readout)</strong><br />
+                  <strong style="color: #b8860b; font-family: 'Playfair Display', Georgia, serif; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;">Phase 0.0 • 10-Node Structural Triangulation Audit (48-Hr Readout)</strong><br />
                   Forensic analysis across 10 vital enterprise nodes (Apex Founder, CXOs, Legal Guardians, Veterans, Edge Operators) mapping intent-to-execution gaps to deliver a custom Cognitive Bandwidth Blueprint.
                 </div>
                 <div style="border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 8px;">
-                  <strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;">Phase 01 • Relational Substrate Calibration (6 Weeks)</strong><br />
+                  <strong style="color: #b8860b; font-family: 'Playfair Display', Georgia, serif; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;">Phase 01 • Relational Substrate Calibration (6 Weeks)</strong><br />
                   Dissolving C-suite divergence, clarifying boundary conditions, and aligning C-suite expectations.
                 </div>
                 <div style="border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 8px;">
-                  <strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;">Phase 02 • Execution Protocol Engineering</strong><br />
+                  <strong style="color: #b8860b; font-family: 'Playfair Display', Georgia, serif; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;">Phase 02 • Execution Protocol Engineering</strong><br />
                   Hard-coding founder decision heuristics into automated, pre-authorized operational execution protocols.
                 </div>
                 <div>
-                  <strong style="color: #b8860b; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;">Phase 03 & 04 • Systemic Calibration & Resonance Safeguard</strong><br />
+                  <strong style="color: #b8860b; font-family: 'Playfair Display', Georgia, serif; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;">Phase 03 & 04 • Systemic Calibration & Resonance Safeguard</strong><br />
                   Deploying Weekly Pulse Telemetry dashboards and long-term retainer safeguards to preserve strategic fidelity across global offices.
                 </div>
               </div>
@@ -1204,17 +1215,17 @@ const Assessment: React.FC = () => {
               ${playbookSubmitted ? `
                 <div class="gold-card">
                   <h3 style="margin-top: 0;">Configured Executive Profile</h3>
-                  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-family: 'Inter', sans-serif; font-size: 10px; margin-top: 10px;">
+                  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-family: 'Playfair Display', Georgia, serif; font-size: 10.5px; margin-top: 10px;">
                     <div>
-                      <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #888; text-transform: uppercase; display: block;">Handover Horizon</span>
+                      <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 9px; color: #888; text-transform: uppercase; letter-spacing: 0.08em; display: block;">Handover Horizon</span>
                       <strong style="color: #111; font-style: italic;">${playbookAnswers.handoverHorizon}</strong>
                     </div>
                     <div>
-                      <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #888; text-transform: uppercase; display: block;">Focus Drain Point</span>
+                      <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 9px; color: #888; text-transform: uppercase; letter-spacing: 0.08em; display: block;">Focus Drain Point</span>
                       <strong style="color: #111; font-style: italic;">${playbookAnswers.focusBottleneck}</strong>
                     </div>
                     <div>
-                      <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #888; text-transform: uppercase; display: block;">Key Risk Profile</span>
+                      <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 9px; color: #888; text-transform: uppercase; letter-spacing: 0.08em; display: block;">Key Risk Profile</span>
                       <strong style="color: #111; font-style: italic;">${playbookAnswers.keyRiskLevel}</strong>
                     </div>
                   </div>
@@ -1223,7 +1234,7 @@ const Assessment: React.FC = () => {
 
               <div class="highlight-box">
                 <h3>Immediate Circuit Breaker Directives</h3>
-                <ul style="font-size: 11px; font-family: 'Inter', sans-serif; line-height: 1.7; color: #333; padding-left: 18px; margin-bottom: 0;">
+                <ul style="font-size: 12px; font-family: 'Playfair Display', Georgia, serif; line-height: 1.7; color: #333; padding-left: 18px; margin-bottom: 0;">
                   <li><strong style="color: #111;">Protocol Quarantine:</strong> Require direct leads to submit 2-minute structured Loom briefings using strict decision parameter templates prior to scheduling live alignment syncs.</li>
                   <li><strong style="color: #111;">Transaction Authority Guardrails:</strong> Legally pre-authorize operational expenditure and strategic decisions under $10,000 for secondary management layers.</li>
                 </ul>
@@ -1232,10 +1243,10 @@ const Assessment: React.FC = () => {
               <div class="signature-block">
                 <div>
                   <div class="signature-title">Suchita Sancheti</div>
-                  <div style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #777; text-transform: uppercase; margin-top: 2px;">
+                  <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 9px; font-style: italic; color: #777; margin-top: 2px;">
                     Founder & Enterprise Architect • Computer Science Engineer & Industrial Psychologist
                   </div>
-                  <div style="font-family: 'Cinzel', serif; font-size: 10px; color: #111; margin-top: 5px; font-weight: 700;">
+                  <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 11px; color: #111; margin-top: 5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">
                     The Unbounded Leadership Co.
                   </div>
                 </div>

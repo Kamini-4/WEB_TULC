@@ -78,9 +78,9 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             <line x1="680" y1="436" x2="680" y2="444" stroke={platinum} strokeWidth="1" opacity="0.4" />
 
             {/* Absolute Minimal Tech Labels */}
-            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">SCALE: SYSTEMIC AUTHORITY V1.0</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">MODEL: ARCHITECTURE OVER BRAND</text>
-            <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">SYSTEMS REGISTRY // LND.NYC.SGP</text>
+            <text x="50" y="70" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" letterSpacing="2">SCALE: SYSTEMIC AUTHORITY V1.0</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.8" className="font-bold">MODEL: ARCHITECTURE OVER BRAND</text>
+            <text x="750" y="445" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" textAnchor="end">SYSTEMS REGISTRY // LND.NYC.SGP</text>
           </svg>
         );
 
@@ -117,9 +117,9 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             </g>
 
             {/* Technical labeling */}
-            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">AEO PROTOCOL: HIGH-FIDELITY COHERENCE</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">SUBSTRATE VERIFICATION: ACTIVE</text>
-            <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">INTELLIGENCE LATENCY MATRIX: 0.00ms</text>
+            <text x="50" y="70" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" letterSpacing="2">AEO PROTOCOL: HIGH-FIDELITY COHERENCE</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.8" className="font-bold">SUBSTRATE VERIFICATION: ACTIVE</text>
+            <text x="750" y="445" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" textAnchor="end">INTELLIGENCE LATENCY MATRIX: 0.00ms</text>
           </svg>
         );
 
@@ -157,9 +157,9 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             <circle cx="490" cy="340" r="3" fill={gold} />
 
             {/* Minimal metadata text */}
-            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">SIGNAL SYSTEM INDEX: CALIBRATED</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">SOVEREIGN CORE: CYBERNETIC HARMONY</text>
-            <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">SYSTEMS INTEGRITY OPTIMIZER // 100%</text>
+            <text x="50" y="70" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" letterSpacing="2">SIGNAL SYSTEM INDEX: CALIBRATED</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.8" className="font-bold">SOVEREIGN CORE: CYBERNETIC HARMONY</text>
+            <text x="750" y="445" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" textAnchor="end">SYSTEMS INTEGRITY OPTIMIZER // 100%</text>
           </svg>
         );
 
@@ -174,7 +174,7 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             {/* Isometric Successor Pathway */}
             <g transform="translate(60, 20)">
               {/* Left Domain: Charismatic Anchor */}
-              <text x="180" y="140" fill={platinum} fontSize="8" fontFamily="monospace" letterSpacing="1" opacity="0.5" textAnchor="middle">CHARISMATIC HERO (VOLATILE)</text>
+              <text x="180" y="140" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" letterSpacing="1" opacity="0.5" textAnchor="middle">CHARISMATIC HERO (VOLATILE)</text>
               <rect x="100" y="160" width="160" height="160" rx="8" stroke={platinum} strokeWidth="1" strokeDasharray="4,4" fill="rgba(255,255,255,0.01)" opacity="0.3" />
               <circle cx="180" cy="240" r="32" stroke={platinum} strokeWidth="1.5" strokeDasharray="4,2" opacity="0.4" />
               <circle cx="180" cy="240" r="6" fill={platinum} opacity="0.5" />
@@ -182,10 +182,10 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
               {/* Handover Vector Line (The Golden Bridge) */}
               <line x1="260" y1="240" x2="420" y2="240" stroke="url(#001-gradient-gold)" strokeWidth="2.5" filter="url(#001-glow)" />
               <polygon points="420,240 408,234 408,246" fill={gold} filter="url(#001-glow)" />
-              <text x="340" y="225" fill={gold} fontSize="8" fontFamily="monospace" letterSpacing="1" textAnchor="middle" className="font-bold">RE-ENGINEERED VECTOR</text>
+              <text x="340" y="225" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" letterSpacing="1" textAnchor="middle" className="font-bold">RE-ENGINEERED VECTOR</text>
 
               {/* Right Domain: Infinite Sovereign Substrate */}
-              <text x="500" y="140" fill={gold} fontSize="8" fontFamily="monospace" letterSpacing="1" textAnchor="middle">SOVEREIGN SYSTEM (PERMANENT)</text>
+              <text x="500" y="140" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" letterSpacing="1" textAnchor="middle">SOVEREIGN SYSTEM (PERMANENT)</text>
               <rect x="420" y="160" width="160" height="160" rx="8" stroke={gold} strokeWidth="2" fill="rgba(223, 186, 107, 0.03)" />
               
               {/* Perfect Invariant Geometries (Nested Squares) */}
@@ -195,9 +195,9 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             </g>
 
             {/* Metadata labels */}
-            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">TRANSITION MATRIX: RE-ENGINEERED</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">FOUNDER DECOUPLING: FIDUCIARY EXCELLENCE STABILIZER</text>
-            <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">INTELLIGENCE REGISTRY // SUCCESSION ACTV</text>
+            <text x="50" y="70" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" letterSpacing="2">TRANSITION MATRIX: RE-ENGINEERED</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.8" className="font-bold">FOUNDER DECOUPLING: FIDUCIARY EXCELLENCE STABILIZER</text>
+            <text x="750" y="445" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" textAnchor="end">INTELLIGENCE REGISTRY // SUCCESSION ACTV</text>
           </svg>
         );
 
@@ -230,11 +230,11 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             <circle cx="720" cy="250" r="6" fill={gold} />
 
             {/* Annotations */}
-            <text x="240" y="390" fill={platinum} fontSize="9" fontFamily="monospace" textAnchor="middle" opacity="0.5">TACTICAL STATIC (NOISE TAX)</text>
-            <text x="570" y="390" fill={gold} fontSize="9" fontFamily="monospace" textAnchor="middle" className="font-bold">40% COGNITIVE BANDWIDTH RECLAIMED</text>
+            <text x="240" y="390" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" textAnchor="middle" opacity="0.5">TACTICAL STATIC (NOISE TAX)</text>
+            <text x="570" y="390" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" textAnchor="middle" className="font-bold">40% COGNITIVE BANDWIDTH RECLAIMED</text>
 
-            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">COGNITIVE LOAD: PROTOCOL COMPRESSED</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">THE COGNITIVE TAX OF LEADERSHIP</text>
+            <text x="50" y="70" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" letterSpacing="2">COGNITIVE LOAD: PROTOCOL COMPRESSED</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.8" className="font-bold">THE COGNITIVE TAX OF LEADERSHIP</text>
           </svg>
         );
 
@@ -250,7 +250,7 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             <g transform="translate(0, 10)">
               {/* Board Blueprint expectation line */}
               <line x1="120" y1="140" x2="680" y2="140" stroke={platinum} strokeWidth="1.5" opacity="0.3" strokeDasharray="4,4" />
-              <text x="120" y="120" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.6">BOARD DIRECTIVE (STRATEGY)</text>
+              <text x="120" y="120" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.6">BOARD DIRECTIVE (STRATEGY)</text>
               
               {/* High-Contrast Rigorous Bridge Lattice */}
               <path d="M 120 340 L 210 140 L 300 340 L 390 140 L 480 340 L 570 140 L 660 340" stroke={gold} strokeWidth="1.5" opacity="0.5" />
@@ -265,18 +265,18 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
 
               {/* Execution sovereign line */}
               <line x1="120" y1="340" x2="680" y2="340" stroke="url(#003-gradient-gold)" strokeWidth="3" filter="url(#003-glow)" />
-              <text x="680" y="370" fill={gold} fontSize="8" fontFamily="monospace" textAnchor="end" className="font-bold">OPERATIONAL RESULTS (INEVITABILITY DELTA)</text>
+              <text x="680" y="370" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" textAnchor="end" className="font-bold">OPERATIONAL RESULTS (INEVITABILITY DELTA)</text>
 
               {/* Calibration Vector Laser */}
               <line x1="390" y1="100" x2="390" y2="380" stroke={gold} strokeWidth="1" strokeDasharray="4,4" />
               <circle cx="390" cy="140" r="8" fill="none" stroke={gold} strokeWidth="1.5" filter="url(#003-glow)" />
               <circle cx="390" cy="340" r="8" fill="none" stroke={gold} strokeWidth="1.5" filter="url(#003-glow)" />
-              <text x="405" y="245" fill={gold} fontSize="9" fontFamily="monospace" className="font-bold">ALIGNMENT RESIDUAL: 0.02%</text>
+              <text x="405" y="245" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" className="font-bold">ALIGNMENT RESIDUAL: 0.02%</text>
             </g>
 
             {/* Labels */}
-            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">FIDUCIARY ALIGNMENT COEFFICIENT: 99.8% FLAWLESS</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">SOVEREIGN BOARD INTEGRITY SYSTEM</text>
+            <text x="50" y="70" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" letterSpacing="2">FIDUCIARY ALIGNMENT COEFFICIENT: 99.8% FLAWLESS</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.8" className="font-bold">SOVEREIGN BOARD INTEGRITY SYSTEM</text>
           </svg>
         );
 
@@ -291,31 +291,31 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             {/* Multi-lane schematic representing focused vs wasted bandwidth lanes */}
             <g transform="translate(80, 50)">
               {/* Lane 1: Operations Static (Fully optimized/collapsed) */}
-              <text x="10" y="60" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.6">OPERATIONAL VARIANCE (ROUTINIZED)</text>
+              <text x="10" y="60" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.6">OPERATIONAL VARIANCE (ROUTINIZED)</text>
               <rect x="10" y="70" width="480" height="12" rx="4" fill="rgba(255,255,255,0.05)" />
               <rect x="10" y="70" width="80" height="12" rx="4" fill={platinum} opacity="0.4" />
-              <text x="510" y="80" fill={platinum} fontSize="9" fontFamily="monospace" opacity="0.5">83.3% AUTONOMOUS</text>
+              <text x="510" y="80" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.5">83.3% AUTONOMOUS</text>
 
               {/* Lane 2: Business Firefighting (Suppressed with local execution protocols) */}
-              <text x="10" y="140" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.6">MIDDLE MANAGEMENT ESCALATION (BUFFERED)</text>
+              <text x="10" y="140" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.6">MIDDLE MANAGEMENT ESCALATION (BUFFERED)</text>
               <rect x="10" y="150" width="480" height="12" rx="4" fill="rgba(255,255,255,0.05)" />
               <rect x="10" y="150" width="120" height="12" rx="4" fill={platinum} opacity="0.3" />
-              <text x="510" y="160" fill={platinum} fontSize="9" fontFamily="monospace" opacity="0.5">75.0% PROTOCOL FILTERED</text>
+              <text x="510" y="160" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.5">75.0% PROTOCOL FILTERED</text>
 
               {/* Lane 3: High-Fidelity Strategic Arbitrage (Expanded 10x with Gold focus) */}
-              <text x="10" y="220" fill={gold} fontSize="8" fontFamily="monospace" className="font-bold">PURE RECLAIMED COGNITIVE CAPACITY (HIGH-ALPHA BETS)</text>
+              <text x="10" y="220" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" className="font-bold">PURE RECLAIMED COGNITIVE CAPACITY (HIGH-ALPHA BETS)</text>
               <rect x="10" y="230" width="480" height="24" rx="4" fill="rgba(223,186,107,0.1)" stroke={gold} strokeWidth="1.5" />
               <rect x="10" y="230" width="440" height="24" rx="4" fill="url(#004-gradient-gold)" filter="url(#004-glow)" />
-              <text x="510" y="246" fill={gold} fontSize="9" fontFamily="monospace" className="font-bold">91.6% COGNITIVE RESIDUAL // ACTIVE</text>
+              <text x="510" y="246" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" className="font-bold">91.6% COGNITIVE RESIDUAL // ACTIVE</text>
               
               {/* Focus Coordinate lines */}
               <line x1="450" y1="200" x2="450" y2="280" stroke="#ffffff" strokeWidth="1" />
               <circle cx="450" cy="242" r="6" fill="#ffffff" filter="url(#004-glow)" />
             </g>
 
-            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">COGNITIVE ASSET VALUE: HIGHLY STABLE</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">EXECUTIVE COGNITIVE EQUITIES SYSTEM</text>
-            <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">INTELLIGENCE METRIC // THE UNBOUNDED CO.</text>
+            <text x="50" y="70" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" letterSpacing="2">COGNITIVE ASSET VALUE: HIGHLY STABLE</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.8" className="font-bold">EXECUTIVE COGNITIVE EQUITIES SYSTEM</text>
+            <text x="750" y="445" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" textAnchor="end">INTELLIGENCE METRIC // THE UNBOUNDED CO.</text>
           </svg>
         );
 
@@ -330,26 +330,26 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             {/* Timeline Alignment Array */}
             <g transform="translate(60, 40)">
               {/* Intent propagation vectors */}
-              <text x="100" y="100" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.6">EXECUTIVE INTENT (BOARD ROOM)</text>
+              <text x="100" y="100" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.6">EXECUTIVE INTENT (BOARD ROOM)</text>
               <line x1="100" y1="120" x2="600" y2="120" stroke={platinum} strokeWidth="1" strokeDasharray="12,6" opacity="0.3" />
               <circle cx="100" cy="120" r="5" fill={platinum} />
 
-              <text x="100" y="200" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.6">UNOPTIMIZED SYSTEM EXECUTION DELAY (LAG ENVELOPE)</text>
+              <text x="100" y="200" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.6">UNOPTIMIZED SYSTEM EXECUTION DELAY (LAG ENVELOPE)</text>
               <line x1="100" y1="220" x2="440" y2="220" stroke={platinum} strokeWidth="1" opacity="0.4" />
               <path d="M 440 220 C 500 220, 520 320, 600 320" stroke={platinum} strokeWidth="1" strokeDasharray="3,3" opacity="0.4" />
               <circle cx="440" cy="220" r="4" fill={platinum} opacity="0.6" />
-              <text x="450" y="215" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4">LATENCY DRIFT (+84 HRS)</text>
+              <text x="450" y="215" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4">LATENCY DRIFT (+84 HRS)</text>
 
               {/* Sovereign Zero-Latency Protocol Output */}
-              <text x="100" y="300" fill={gold} fontSize="8" fontFamily="monospace" className="font-bold">ZERO-LATENCY INSTANT EXECUTION PROPAGATION</text>
+              <text x="100" y="300" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" className="font-bold">ZERO-LATENCY INSTANT EXECUTION PROPAGATION</text>
               <line x1="100" y1="320" x2="600" y2="320" stroke="url(#005-gradient-gold)" strokeWidth="3" filter="url(#005-glow)" />
               <circle cx="100" cy="320" r="5" fill={gold} />
               <circle cx="600" cy="320" r="7" fill="#ffffff" filter="url(#005-glow)" />
-              <text x="615" y="324" fill={gold} fontSize="9" fontFamily="monospace" className="font-bold">ZERO LATENCY REGISTERED</text>
+              <text x="615" y="324" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" className="font-bold">ZERO LATENCY REGISTERED</text>
             </g>
 
-            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">COEFFICIENT OF FRICTION: TULC RESOLVED</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">INSTITUTIONAL LAG DECOUPLER</text>
+            <text x="50" y="70" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" letterSpacing="2">COEFFICIENT OF FRICTION: TULC RESOLVED</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.8" className="font-bold">INSTITUTIONAL LAG DECOUPLER</text>
           </svg>
         );
 
@@ -367,7 +367,7 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
               <circle cx="120" cy="180" r="40" stroke={platinum} strokeWidth="0.75" opacity="0.2" />
               <line x1="120" y1="140" x2="120" y2="220" stroke={platinum} strokeWidth="0.5" opacity="0.3" />
               <line x1="80" y1="180" x2="160" y2="180" stroke={platinum} strokeWidth="0.5" opacity="0.3" />
-              <text x="120" y="130" fill={platinum} fontSize="8" fontFamily="monospace" textAnchor="middle" opacity="0.5">80% INPUT CHANNELS (STATIC)</text>
+              <text x="120" y="130" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" textAnchor="middle" opacity="0.5">80% INPUT CHANNELS (STATIC)</text>
 
               {/* The high-precision filter block */}
               <rect x="240" y="100" width="80" height="160" rx="4" stroke={platinum} strokeWidth="1" fill="rgba(255,255,255,0.01)" opacity="0.4" />
@@ -384,12 +384,12 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
               {/* Output sovereign crystal: decision capacity maximized */}
               <polygon points="400,180 435,145 470,180 435,215" fill="rgba(223,186,107,0.1)" stroke={gold} strokeWidth="2.5" filter="url(#006-glow)" />
               <circle cx="435" cy="180" r="4.5" fill="#ffffff" filter="url(#006-glow)" />
-              <text x="435" y="240" fill={gold} fontSize="9" fontFamily="monospace" textAnchor="middle" className="font-bold">SYSTEMIC INTELLECT</text>
+              <text x="435" y="240" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" textAnchor="middle" className="font-bold">SYSTEMIC INTELLECT</text>
             </g>
 
-            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">COGNITIVE ASSET RECLAMATION: VELOCITY STACK</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">STRATEGIC CAPACITY ENGINEERING PROTOCOL</text>
-            <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">INTELLIGENCE STACK V4.0</text>
+            <text x="50" y="70" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" letterSpacing="2">COGNITIVE ASSET RECLAMATION: VELOCITY STACK</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.8" className="font-bold">STRATEGIC CAPACITY ENGINEERING PROTOCOL</text>
+            <text x="750" y="445" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" textAnchor="end">INTELLIGENCE STACK V4.0</text>
           </svg>
         );
 
@@ -404,7 +404,7 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             {/* Split Screen Comparative Taxonomy */}
             {/* Left Hand: Reactive Combat */}
             <g transform="translate(60, 40)" opacity="0.4">
-              <text x="130" y="100" fill={platinum} fontSize="9" fontFamily="monospace" textAnchor="middle">REACTIVE SOLVING (CHAOTIC FIRE)</text>
+              <text x="130" y="100" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" textAnchor="middle">REACTIVE SOLVING (CHAOTIC FIRE)</text>
               <circle cx="130" cy="220" r="60" stroke={platinum} strokeWidth="1" strokeDasharray="3,6" opacity="0.3" />
               {/* Jagged reactive lines */}
               <path d="M 80 240 L 110 180 L 150 250 L 120 200 L 180 230" stroke={platinum} strokeWidth="1.5" />
@@ -420,7 +420,7 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
 
             {/* Right Hand: Structured Sovereignty */}
             <g transform="translate(360, 40)">
-              <text x="210" y="100" fill={gold} fontSize="9" fontFamily="monospace" textAnchor="middle" className="font-bold">SYSTEMIC COMMAND (ARCHITECTURAL RESONANCE)</text>
+              <text x="210" y="100" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" textAnchor="middle" className="font-bold">SYSTEMIC COMMAND (ARCHITECTURAL RESONANCE)</text>
               <circle cx="210" cy="220" r="60" stroke={gold} strokeWidth="1.5" opacity="0.4" />
               
               {/* Perfectly ordered mathematical geometry */}
@@ -434,8 +434,8 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
               <circle cx="165" cy="245" r="4.5" fill={gold} />
             </g>
 
-            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">TAXONOMY ALIGNMENT: SOVEREIGN SYSTEMATIC</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">AUTHORITY OVER EMERGENCY PROTOCOLS</text>
+            <text x="50" y="70" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" letterSpacing="2">TAXONOMY ALIGNMENT: SOVEREIGN SYSTEMATIC</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.8" className="font-bold">AUTHORITY OVER EMERGENCY PROTOCOLS</text>
           </svg>
         );
 
@@ -468,9 +468,9 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
               <line x1="210" y1="240" x2="590" y2="240" stroke={gold} strokeWidth="0.5" opacity="0.3" strokeDasharray="8,8" />
             </g>
 
-            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">STRUCTURAL EFFICIENCY COEFFICIENT: INEVITABLE</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">THE DYNAMICS OF INEVITABILITY ARCHITECTURE</text>
-            <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">SYSTEMS DOMINATE TALENT // TULC DISPATCH</text>
+            <text x="50" y="70" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" letterSpacing="2">STRUCTURAL EFFICIENCY COEFFICIENT: INEVITABLE</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.8" className="font-bold">THE DYNAMICS OF INEVITABILITY ARCHITECTURE</text>
+            <text x="750" y="445" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" textAnchor="end">SYSTEMS DOMINATE TALENT // TULC DISPATCH</text>
           </svg>
         );
 
@@ -502,13 +502,13 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
               ))}
 
               {/* Red-Zone (Severe Latency tax - uncalibrated firms) */}
-              <text x="120" y="110" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.5">UNCALIBRATED LAG FRICTION ENVELOPE</text>
+              <text x="120" y="110" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.5">UNCALIBRATED LAG FRICTION ENVELOPE</text>
               <rect x="50" y="125" width="250" height="15" rx="3" fill="rgba(255, 77, 77, 0.05)" stroke="rgba(255, 77, 77, 0.2)" strokeWidth="1" />
               <line x1="300" y1="120" x2="300" y2="145" stroke="#ff4d4d" strokeWidth="1" opacity="0.5" />
-              <text x="300" y="115" fill="#ff4d4d" fontSize="8" fontFamily="monospace" opacity="0.7" textAnchor="middle">INACTION WINDOW (48H+)</text>
+              <text x="300" y="115" fill="#ff4d4d" fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.7" textAnchor="middle">INACTION WINDOW (48H+)</text>
 
               {/* Sovereign Absolute Zero-Latency Target (Committed edge alignment) */}
-              <text x="450" y="250" fill={gold} fontSize="8" fontFamily="monospace" className="font-bold">SOVEREIGN PROTOCOL TARGET (ZERO TAX)</text>
+              <text x="450" y="250" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" className="font-bold">SOVEREIGN PROTOCOL TARGET (ZERO TAX)</text>
               <rect x="420" y="195" width="130" height="15" rx="3" fill="rgba(223, 186, 107, 0.1)" stroke={gold} strokeWidth="1.5" />
               
               {/* Connecting light beam showing instant transition */}
@@ -518,9 +518,9 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
               <circle cx="550" cy="180" r="4" fill={platinum} opacity="0.5" />
             </g>
 
-            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">FIDUCIARY LOSS MATRIX: CORRECTED</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">MEASURING & NEUTRALIZING THE INACTION TAX</text>
-            <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">LATENCY MATRIX RESOLVED // ZERO TEMPORAL DRIFT</text>
+            <text x="50" y="70" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" letterSpacing="2">FIDUCIARY LOSS MATRIX: CORRECTED</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.8" className="font-bold">MEASURING & NEUTRALIZING THE INACTION TAX</text>
+            <text x="750" y="445" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" textAnchor="end">LATENCY MATRIX RESOLVED // ZERO TEMPORAL DRIFT</text>
           </svg>
         );
 
@@ -543,9 +543,9 @@ export const PermanentArtwork: React.FC<ArtworkProps> = ({ id, title, className 
             <circle cx="160" cy="410" r="5" fill={platinum} />
             <circle cx="400" cy="250" r="5" fill={gold} filter="url(#generic-glow)" />
             
-            <text x="50" y="70" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" letterSpacing="2">SOVEREIGN SYSTEM ARCHITECTURE // V4.0</text>
-            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="monospace" opacity="0.8" className="font-bold">SYSTEMIC INTEL: {title ? title.toUpperCase() : (id || "TULC_CENTRAL_DB")}</text>
-            <text x="750" y="445" fill={platinum} fontSize="8" fontFamily="monospace" opacity="0.4" textAnchor="end">COEFFICIENT OF INEVITABILITY: CALIBRATED</text>
+            <text x="50" y="70" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" letterSpacing="2">SOVEREIGN SYSTEM ARCHITECTURE // V4.0</text>
+            <text x="50" y="90" fill={gold} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.8" className="font-bold">SYSTEMIC INTEL: {title ? title.toUpperCase() : (id || "TULC_CENTRAL_DB")}</text>
+            <text x="750" y="445" fill={platinum} fontSize="9" fontFamily="'Playfair Display', Georgia, serif" opacity="0.4" textAnchor="end">COEFFICIENT OF INEVITABILITY: CALIBRATED</text>
           </svg>
         );
     }
