@@ -15,18 +15,18 @@ const IntakePage: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="bg-[#ecece4] min-h-screen pt-6 md:pt-16 pb-16"
+      className="bg-[#ecece4] min-h-screen pt-4 md:pt-8 pb-12"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="mb-8 sm:mb-10 text-center max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#111111] text-[#b8860b] border border-[#b8860b]/40 text-[9px] font-mono uppercase tracking-widest font-black mb-3">
+        <div className="mb-4 sm:mb-6 text-center max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#111111] text-[#b8860b] border border-[#b8860b]/40 text-[8px] sm:text-[9px] font-mono uppercase tracking-widest font-black mb-2">
             Institutional Coordinate
           </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 leading-snug font-serif text-[#111111]">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2 leading-snug font-serif text-[#111111]">
             Enterprise <span className="text-[#b8860b] italic font-light">Intake Console.</span>
           </h1>
-          <div className="h-0.5 w-16 bg-[#b8860b] mx-auto mb-4"></div>
-          <p className="text-xs sm:text-sm text-zinc-600 font-light italic leading-relaxed max-w-xl mx-auto mb-4">
+          <div className="h-0.5 w-12 bg-[#b8860b] mx-auto mb-2.5"></div>
+          <p className="text-xs text-zinc-600 font-light italic leading-relaxed max-w-xl mx-auto mb-3">
             The transition to clean strategic scaling and operational alignment begins here. Please provide your business coordinates to initiate the protocol.
           </p>
 

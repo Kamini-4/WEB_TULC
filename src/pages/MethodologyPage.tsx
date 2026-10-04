@@ -448,6 +448,47 @@ const MethodologyPage: React.FC<MethodologyPageProps> = ({ onBriefClick }) => {
             </div>
           </div>
 
+          {/* Cross-Domain Internal Links Matrix */}
+          <div className="p-6 bg-zinc-950 border border-white/10 rounded-xs">
+            <span className="text-[10px] font-mono font-bold uppercase text-[#b8860b] block mb-3">
+              Explore The Complete Sovereign Architecture
+            </span>
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+              <button
+                onClick={() => navigate('/services')}
+                className="p-3 bg-zinc-900/80 border border-white/5 hover:border-[#b8860b] text-left transition-colors rounded-xs cursor-pointer group"
+              >
+                <span className="text-[9px] font-mono text-[#b8860b] font-bold block mb-1">MANDATES & TIERS</span>
+                <span className="text-white font-bold block group-hover:text-[#b8860b] transition-colors">Sovereign Retainer →</span>
+                <span className="text-[10px] text-zinc-400 font-serif italic block mt-0.5">Explore 3 sovereign tiers and board governance advisory.</span>
+              </button>
+              <button
+                onClick={() => navigate('/toolkits')}
+                className="p-3 bg-zinc-900/80 border border-white/5 hover:border-[#b8860b] text-left transition-colors rounded-xs cursor-pointer group"
+              >
+                <span className="text-[9px] font-mono text-[#b8860b] font-bold block mb-1">DIGITAL ARSENAL</span>
+                <span className="text-white font-bold block group-hover:text-[#b8860b] transition-colors">Founder Toolkits →</span>
+                <span className="text-[10px] text-zinc-400 font-serif italic block mt-0.5">Instant 1-click clone Notion/Coda workspaces.</span>
+              </button>
+              <button
+                onClick={() => navigate('/assessment')}
+                className="p-3 bg-zinc-900/80 border border-white/5 hover:border-[#b8860b] text-left transition-colors rounded-xs cursor-pointer group"
+              >
+                <span className="text-[9px] font-mono text-[#b8860b] font-bold block mb-1">DIAGNOSTIC</span>
+                <span className="text-white font-bold block group-hover:text-[#b8860b] transition-colors">90-Sec Audit →</span>
+                <span className="text-[10px] text-zinc-400 font-serif italic block mt-0.5">Evaluate the 5 Sovereign Domains in under 2 minutes.</span>
+              </button>
+              <button
+                onClick={() => navigate('/cognitive-tax')}
+                className="p-3 bg-zinc-900/80 border border-white/5 hover:border-[#b8860b] text-left transition-colors rounded-xs cursor-pointer group"
+              >
+                <span className="text-[9px] font-mono text-[#b8860b] font-bold block mb-1">FINANCIAL DRAG</span>
+                <span className="text-white font-bold block group-hover:text-[#b8860b] transition-colors">Cognitive Drag →</span>
+                <span className="text-[10px] text-zinc-400 font-serif italic block mt-0.5">Calculate executive bandwidth leakage and monetary cost.</span>
+              </button>
+            </div>
+          </div>
+
           <Newsletter />
         </div>
       </section>

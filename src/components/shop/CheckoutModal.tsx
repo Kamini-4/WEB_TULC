@@ -19,9 +19,9 @@ import {
   RefreshCw
 } from 'lucide-react';
 import { ShopProduct, BundleProduct } from '../../data/shopProducts';
-import { apiRequest } from '../../lib/apiClient.ts';
 import { CurrencyCode, formatCurrencyAmount, getProductPrice, getBundlePrice } from '../../lib/currency';
 import { CurrencySelector } from './CurrencySelector';
+import { useCheckoutProcessor } from '../../core/index.ts';
 
 interface CheckoutModalProps {
   item: ShopProduct | BundleProduct | null;
@@ -40,6 +40,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   currency = 'USD',
   onCurrencyChange
 }) => {
+  const checkoutProcessor = useCheckoutProcessor();
   const [email, setEmail] = useState('');
   const [fullName, setFullName] = useState('');
   const [organization, setOrganization] = useState('');
@@ -71,21 +72,23 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     setErrorMessage('');
 
     try {
-      // Dispatch idempotent checkout with timeout & retry handling
-      const result = await apiRequest('/api/shop/checkout', {
-        method: 'POST',
-        timeoutMs: 12000,
-        retries: 1,
-        body: JSON.stringify({
-          itemId: item.id,
+      const result = await checkoutProcessor.executeCheckout({
+        itemId: item.id,
+        itemTitle: item.title,
+        amount: currentPrice,
+        currency,
+        idempotencyKey,
+        customer: {
           email: email.trim().toLowerCase(),
           fullName: fullName.trim(),
-          organization: organization.trim(),
-          idempotencyKey,
-          currency,
-          amount: currentPrice
-        })
+          organization: organization.trim()
+        }
       });
+
+      if (!result.success) {
+        setErrorMessage(result.errorMessage || 'Payment gateway timed out. Please retry.');
+        return;
+      }
 
       if (result.isDuplicatePrevented) {
         setIsDuplicatePrevented(true);
@@ -94,7 +97,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
       setStep('success');
     } catch (err: any) {
       console.error('Checkout failed:', err);
-      setErrorMessage(err.message || 'Payment gateway timed out. Please retry.');
+      setErrorMessage(err.message || 'Payment processing error. Please retry.');
     } finally {
       setIsProcessing(false);
     }

@@ -20,24 +20,24 @@ export const WhatWeDo: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-16 sm:py-20 bg-[#ecece6] border-y border-zinc-300/80 text-[#111111] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-16">
+    <section className="py-10 sm:py-14 bg-[#ecece6] border-y border-zinc-300/80 text-[#111111] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-10">
         
         {/* Section Header: The 30-Second Gist */}
-        <div className="max-w-3xl mx-auto text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-white border border-zinc-300 rounded-full text-[9px] sm:text-[10px] font-mono uppercase tracking-widest font-black text-[#b8860b] shadow-2xs">
+        <div className="max-w-3xl mx-auto text-center space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-0.5 bg-white border border-zinc-300 rounded-full text-[9px] sm:text-[10px] font-mono uppercase tracking-widest font-black text-[#b8860b] shadow-2xs">
             <Compass className="w-3.5 h-3.5" />
             <span>The 30-Second Clarification</span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-serif tracking-tight text-[#111111] leading-tight">
             What We Actually Do <br className="hidden sm:inline" />
-            <span className="font-light italic text-zinc-700 font-sans text-xl sm:text-2xl md:text-3xl block mt-1">
+            <span className="font-light italic text-zinc-700 font-sans text-lg sm:text-xl md:text-2xl block mt-1">
               (And Why It Replaces Both Generic Coaching & Big Consulting)
             </span>
           </h2>
 
-          <p className="text-xs sm:text-sm md:text-base text-zinc-700 leading-relaxed font-normal">
+          <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed font-normal">
             Most companies with $10M–$100M+ in revenue stall because the CEO remains the chief problem solver and escalation desk. 
             We install <strong>self-executing management systems</strong> that translate founder judgment into team autonomy—reclaiming 15+ hours of executive focus every week.
           </p>
@@ -257,10 +257,10 @@ export const WhatWeDo: React.FC = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-2 text-[#b8860b] text-[10px] font-mono uppercase font-bold">
                   <Layers className="w-4 h-4" />
-                  <span>03. Turnkey Operating Toolkits</span>
+                  <span>03. Digital Founder Toolkits</span>
                 </div>
                 <h4 className="text-xl font-bold font-serif text-[#111111]">
-                  The Sovereign Leverage Vault
+                  Turnkey Leadership Toolkits
                 </h4>
                 <p className="text-xs text-zinc-600 leading-relaxed font-normal">
                   Battle-tested, ready-to-deploy Notion workspaces, delegation matrices, async communication protocols, and board governance operating assets designed for immediate implementation.
@@ -281,15 +281,36 @@ export const WhatWeDo: React.FC = () => {
               <div className="pt-6 mt-6 border-t border-zinc-200">
                 <button
                   type="button"
-                  onClick={() => navigate('/shop')}
+                  onClick={() => navigate('/toolkits')}
                   className="w-full py-3 px-4 bg-white border border-zinc-400 hover:border-[#b8860b] hover:text-[#b8860b] text-[#111111] text-[10px] font-mono uppercase font-black tracking-wider transition-all flex items-center justify-center gap-2 rounded-2xs cursor-pointer font-bold"
                 >
-                  <span>Explore Operating Toolkits</span>
+                  <span>Explore Founder Toolkits</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
 
+          </div>
+
+          {/* Quick Internal Navigation Strip */}
+          <div className="mt-8 bg-white border border-zinc-300 p-3 sm:p-4 rounded-xs flex flex-wrap items-center justify-between gap-3 text-xs font-mono shadow-2xs">
+            <span className="text-zinc-600 uppercase font-semibold text-[10px]">
+              Explore Complete Institutional Architecture:
+            </span>
+            <div className="flex flex-wrap items-center gap-2 text-[10px]">
+              <button onClick={() => navigate('/services')} className="px-2.5 py-1 bg-zinc-50 border border-zinc-200 hover:border-[#b8860b] text-zinc-800 transition-colors rounded-2xs font-bold cursor-pointer">
+                Sovereign Retainer & Services →
+              </button>
+              <button onClick={() => navigate('/methodology')} className="px-2.5 py-1 bg-zinc-50 border border-zinc-200 hover:border-[#b8860b] text-zinc-800 transition-colors rounded-2xs font-bold cursor-pointer">
+                How It Works (90-Day OS) →
+              </button>
+              <button onClick={() => navigate('/mandates')} className="px-2.5 py-1 bg-zinc-50 border border-zinc-200 hover:border-[#b8860b] text-zinc-800 transition-colors rounded-2xs font-bold cursor-pointer">
+                Strategic Mandates →
+              </button>
+              <button onClick={() => navigate('/cognitive-tax')} className="px-2.5 py-1 bg-zinc-50 border border-zinc-200 hover:border-[#b8860b] text-zinc-800 transition-colors rounded-2xs font-bold cursor-pointer">
+                Cognitive Tax Calculator →
+              </button>
+            </div>
           </div>
         </div>
 

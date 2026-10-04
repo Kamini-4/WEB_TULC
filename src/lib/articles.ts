@@ -55,7 +55,8 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### How Does an Enterprise Implement This Alignment Protocol?",
       "Enterprises implement this protocol by auditing organizational friction and formalizing founder intuition into executable matrices.",
       "The Unbounded Leadership Co. provides the architectural frameworks needed to eliminate charismatic drag permanently.",
-      "Leaders can measure their structural latency using the [TULC Inaction Tax Calculator](/assessment).",
+      "Leaders can measure structural latency using the [TULC Inaction Tax Calculator](/assessment) or deploy self-executing workspaces with [Turnkey Founder Toolkits](/toolkits).",
+      "Explore the [4-Phase Alignment Protocol](/methodology) and [Executive Advisory Services](/services) for institutional scale.",
       "Organizations ready to formalize their logic layer can apply directly via the [Sovereign Intake Protocol](/intake)."
     ]
   },
@@ -98,8 +99,9 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### How Can Leadership Teams Neutralize Latency Today?",
       "Leadership teams neutralize latency by conducting systemic friction audits and deploying calibrated operating substrates.",
       "The Unbounded Leadership Co. designs tailored governance architectures to restore executive capacity.",
-      "Quantify your organization's coordination cost using our [Executive Latency Assessment](/assessment).",
-      "Explore advisory partnerships and retainer tracks on our [Services & Substrates Page](/services)."
+      "Quantify your organization's coordination cost using our [Executive Latency Assessment](/assessment) and the interactive [Cognitive Tax Simulation Engine](/cognitive-tax).",
+      "Deploy self-executing systems via our [Digital Founder Toolkits](/toolkits), or explore advisory partnerships on our [Services & Substrates Page](/services).",
+      "Submit confidential parameters directly via the [Sovereign Intake Facility](/intake)."
     ]
   },
   {
@@ -141,8 +143,8 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### How Can Board Members Architect AI-Native Substrates?",
       "Board members architect AI-native substrates by engaging enterprise architects to restructure organizational decision flows.",
       "The Unbounded Leadership Co. engineers anti-fragile leadership systems designed for institutional longevity.",
-      "Review our comprehensive technical briefings in the [Executive Library Registry](/library).",
-      "Initiate an enterprise governance review through our [Sovereign Advisory Intake](/intake)."
+      "Review our [4-Phase Alignment Protocol](/methodology) and [Turnkey Founder Toolkits](/toolkits) for rapid operational deployment.",
+      "Initiate an enterprise governance review or board retainer through our [Sovereign Advisory Intake](/intake)."
     ]
   },
   {
@@ -186,7 +188,8 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### How Can Board Chairs Secure Founder Permanence?",
       "Board chairs secure founder permanence by engineering institutional substrates before initiating executive search.",
       "The Unbounded Leadership Co. specializes in enterprise succession architecture and sovereign leadership continuity.",
-      "Calculate potential transition risks using our [Executive Inaction Tax Audit](/assessment).",
+      "Calculate potential transition risks using our [Executive Inaction Tax Audit](/assessment) or deploy our [Turnkey Founder Decoupling Runbooks](/toolkits).",
+      "Review the [4-Phase Alignment Protocol](/methodology) and [Advisory Retainer Tracks](/services).",
       "Schedule a confidential succession consultation via the [Institutional Intake Portal](/intake)."
     ]
   },
@@ -230,8 +233,9 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### How Can Executives Reclaim 40% Strategic Bandwidth Today?",
       "Executives reclaim strategic bandwidth by restructuring their enterprise operating model with dedicated architectural protocols.",
       "The Unbounded Leadership Co. partners with founders to eliminate managerial drag and install sovereign operating systems.",
-      "Assess your operational friction score with our [90-Second Friction Diagnostic](/assessment).",
-      "Explore executive retainer options on our [Mandates & Services Page](/services)."
+      "Assess your operational friction score with our [90-Second Friction Diagnostic](/assessment) or model lost equity with our [Cognitive Tax Calculator](/cognitive-tax).",
+      "Deploy rapid leverage with [Digital Founder Toolkits](/toolkits), or explore executive retainer options on our [Mandates & Services Page](/services).",
+      "Submit high-stakes inquiries directly to our [Executive Intake Console](/intake)."
     ]
   },
   {
@@ -275,7 +279,8 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### How Can Boards Bridge the Execution Divide?",
       "Boards bridge the execution divide by commissioning structural alignment audits and codifying enterprise governance rules.",
       "The Unbounded Leadership Co. installs end-to-end substrate architectures that protect fiduciary value.",
-      "Diagnose your enterprise execution lag with the [TULC Inaction Tax Audit](/assessment).",
+      "Diagnose enterprise execution lag with the [TULC Inaction Tax Audit](/assessment) or review our [Board-Level Strategic Mandates](/mandates).",
+      "Deploy self-executing governance filters via [Turnkey Founder Toolkits](/toolkits) and the [4-Phase Alignment Protocol](/methodology).",
       "Initiate board calibration advisory through our [Sovereign Intake Facility](/intake)."
     ]
   },
@@ -320,8 +325,9 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### How Can Founders Reclaim High-Value Command?",
       "Founders reclaim high-value command by redesigning their operational infrastructure with proven architectural frameworks.",
       "The Unbounded Leadership Co. engineers sovereign leadership substrates that maximize executive leverage.",
-      "Run your operational efficiency assessment at [TULC Strategic Assessment](/assessment).",
-      "Explore customized executive advisory engagements on our [Services & Substrates Page](/services)."
+      "Run your operational efficiency assessment at [TULC Strategic Assessment](/assessment) or model lost equity with the [Cognitive Tax Engine](/cognitive-tax).",
+      "Deploy instant operational autonomy using [Turnkey Founder Toolkits](/toolkits), or explore executive advisory on our [Services & Substrates Page](/services).",
+      "Connect with the Principal Architect via the [Sovereign Intake Facility](/intake)."
     ]
   },
   {
@@ -365,7 +371,8 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### How Can CEOs Deploy Zero-Latency Infrastructure?",
       "CEOs deploy zero-latency infrastructure by partnering with enterprise architects to eliminate bureaucratic bottlenecks.",
       "The Unbounded Leadership Co. designs high-velocity operational substrates for market-leading enterprises.",
-      "Measure your organization's coordination drag using the [Inaction Tax Diagnostic](/assessment).",
+      "Measure coordination drag using the [Inaction Tax Diagnostic](/assessment) or install rapid execution gates via [Turnkey Founder Toolkits](/toolkits).",
+      "Explore our [4-Phase Alignment Protocol](/methodology) and [Executive Advisory Tracks](/services).",
       "Apply for private architectural advisory at the [Sovereign Intake Desk](/intake)."
     ]
   },

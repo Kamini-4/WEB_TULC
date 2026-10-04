@@ -1,8 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { motion } from 'motion/react';
 import { Calculator, TrendingUp, DollarSign, Clock, ShieldCheck, ArrowRight, Zap } from 'lucide-react';
-import { CurrencyCode, CURRENCY_SYMBOLS, CURRENCY_MULTIPLIERS } from '../../lib/currency';
+import { CurrencyCode } from '../../lib/currency';
 import { CurrencySelector } from './CurrencySelector';
+import { usePricingCalculator, useCurrencyService } from '../../core/index.ts';
 
 interface RoiCalculatorProps {
   onUnlockVault?: () => void;
@@ -15,6 +16,8 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({
   currency: externalCurrency,
   onCurrencyChange: externalOnCurrencyChange
 }) => {
+  const pricingCalculator = usePricingCalculator();
+  const currencyService = useCurrencyService();
   const [internalCurrency, setInternalCurrency] = useState<CurrencyCode>('USD');
   const currency = externalCurrency || internalCurrency;
   
@@ -30,29 +33,10 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({
   const [hoursLostWeekly, setHoursLostWeekly] = useState<number>(15);
 
   const stats = useMemo(() => {
-    const mult = CURRENCY_MULTIPLIERS[currency] || 1;
-    const annualWeeks = 48; // Working weeks
-    const annualHoursSaved = hoursLostWeekly * annualWeeks;
-    const annualEquityWastedUsd = hoursLostWeekly * hourlyRate * annualWeeks;
-    const annualEquityWasted = annualEquityWastedUsd * mult;
+    return pricingCalculator.calculateRoi(hourlyRate, hoursLostWeekly, currency);
+  }, [pricingCalculator, hourlyRate, hoursLostWeekly, currency]);
 
-    // Investment cost: Single asset (~$145) or Complete Vault ($495)
-    const vaultCostUsd = 495;
-    const vaultCost = vaultCostUsd * mult;
-
-    const roiMultiple = Math.round(annualEquityWastedUsd / vaultCostUsd);
-    const weeklyWaste = (hoursLostWeekly * hourlyRate) * mult;
-
-    return {
-      annualHoursSaved,
-      annualEquityWasted,
-      weeklyWaste,
-      vaultCost,
-      roiMultiple
-    };
-  }, [hourlyRate, hoursLostWeekly, currency]);
-
-  const sym = CURRENCY_SYMBOLS[currency] || '$';
+  const sym = currencyService.getSymbol(currency);
 
   const formatNumber = (num: number) => {
     if (currency === 'INR') {

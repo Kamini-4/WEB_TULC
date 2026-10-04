@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Share2, Link as LinkIcon, X, Check } from 'lucide-react';
 import { Linkedin } from './BrandIcons';
 import { SovereignDB, BlogEntry } from '../lib/database.ts';
@@ -198,10 +198,49 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
           ))}
         </div>
 
-        <div className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-zinc-800/50 flex justify-center relative z-10">
-          <button className="px-8 sm:px-12 py-4 sm:py-5 border border-zinc-700 text-[9px] sm:text-[11px] font-bold uppercase hover:border-[#b8860b] hover:text-[#b8860b] transition-all duration-500 bg-transparent shadow-lg">
-            Open Archive Entries
-          </button>
+        {/* Strategic Cross-Ecosystem Navigation Bridges */}
+        <div className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-zinc-800/80 flex flex-col md:flex-row items-center justify-between gap-4 relative z-10 font-mono text-[9px]">
+          <div className="text-zinc-400 uppercase font-bold text-center md:text-left">
+            Institutional Bridges // Convert Intelligence to Execution:
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <Link 
+              to="/toolkits" 
+              className="px-3 py-1.5 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-200 hover:text-[#b8860b] uppercase font-bold transition-all rounded-xs"
+            >
+              📦 Founder Toolkits
+            </Link>
+            <Link 
+              to="/assessment" 
+              className="px-3 py-1.5 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-200 hover:text-[#b8860b] uppercase font-bold transition-all rounded-xs"
+            >
+              ⚡ Yield Diagnostic
+            </Link>
+            <Link 
+              to="/services" 
+              className="px-3 py-1.5 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-200 hover:text-[#b8860b] uppercase font-bold transition-all rounded-xs"
+            >
+              💼 Sovereign Retainer
+            </Link>
+            <Link 
+              to="/methodology" 
+              className="px-3 py-1.5 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-200 hover:text-[#b8860b] uppercase font-bold transition-all rounded-xs"
+            >
+              🏛️ Alignment Protocol
+            </Link>
+            <Link 
+              to="/cognitive-tax" 
+              className="px-3 py-1.5 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-200 hover:text-[#b8860b] uppercase font-bold transition-all rounded-xs"
+            >
+              ⚖️ Cognitive Tax
+            </Link>
+            <Link 
+              to="/intake" 
+              className="px-3 py-1.5 bg-[#b8860b] text-black hover:bg-white font-bold uppercase transition-all rounded-xs"
+            >
+              ✍️ Intake Docket
+            </Link>
+          </div>
         </div>
       </div>
     </section>

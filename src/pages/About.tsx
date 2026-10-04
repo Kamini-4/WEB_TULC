@@ -627,6 +627,13 @@ const About: React.FC<AboutProps> = ({ onBriefClick }) => {
                 <span>Mandate Tracks</span>
               </Link>
               <Link 
+                to="/toolkits" 
+                className="px-3 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-white/10 text-[9px] uppercase font-bold transition-all flex items-center gap-1.5 rounded-xs"
+              >
+                <Layers className="w-3 h-3 text-[#b8860b]" />
+                <span>Founder Toolkits</span>
+              </Link>
+              <Link 
                 to="/assessment" 
                 className="px-3 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-white/10 text-[9px] uppercase font-bold transition-all flex items-center gap-1.5 rounded-xs"
               >

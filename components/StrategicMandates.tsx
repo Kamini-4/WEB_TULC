@@ -262,22 +262,26 @@ const StrategicMandates: React.FC = () => {
                 </span>
               </div>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2.5">
+                <button 
+                  onClick={() => navigate('/services')}
+                  className="px-4 py-2.5 bg-white/10 text-white text-[10px] font-bold uppercase hover:bg-white hover:text-black transition-all cursor-pointer rounded-xs border border-white/20"
+                >
+                  Services & Retainer →
+                </button>
+                <button 
+                  onClick={() => navigate('/toolkits')}
+                  className="px-4 py-2.5 bg-white/10 text-white text-[10px] font-bold uppercase hover:bg-white hover:text-black transition-all cursor-pointer rounded-xs border border-white/20"
+                >
+                  Founder Toolkits →
+                </button>
                 <a 
                   href="https://calendly.com/d/d3jb-kpx-r6q"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 bg-[#b8860b] text-white text-[10px] font-bold uppercase hover:bg-white hover:text-black transition-all cursor-pointer rounded-xs"
+                  className="px-5 py-2.5 bg-[#b8860b] text-white text-[10px] font-bold uppercase hover:bg-white hover:text-black transition-all cursor-pointer rounded-xs font-bold"
                 >
                   Book Private Consult
-                </a>
-                <a 
-                  href="https://ai.studio/apps/bc205532-cdb0-43d3-a8fb-919809372614"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 bg-white/10 text-white text-[10px] font-bold uppercase hover:bg-white/20 transition-all cursor-pointer rounded-xs border border-white/10"
-                >
-                  Client Portal
                 </a>
               </div>
             </div>

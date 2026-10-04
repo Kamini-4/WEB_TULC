@@ -583,12 +583,24 @@ const CognitiveTaxPage: React.FC = () => {
           <p className="text-zinc-400 text-xs sm:text-sm font-serif max-w-xl mx-auto leading-relaxed">
             Run your 5-Domain Sovereign Diagnostic to extract your institutional vector scores across Cognitive Clarity, Systemic Integrity, Strategic Velocity, Moral Gravity, and Cultural Fidelity.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 pt-2">
+          <div className="flex flex-wrap justify-center gap-3 pt-2">
             <button
               onClick={() => navigate('/assessment')}
-              className="px-6 py-3 bg-[#b8860b] hover:bg-white hover:text-black text-black text-xs font-mono font-bold uppercase tracking-wider rounded-xs transition-all cursor-pointer"
+              className="px-6 py-3 bg-[#b8860b] hover:bg-white hover:text-black text-black text-xs font-mono font-bold uppercase tracking-wider rounded-xs transition-all cursor-pointer font-bold"
             >
               Start Sovereign Diagnostic →
+            </button>
+            <button
+              onClick={() => navigate('/toolkits')}
+              className="px-6 py-3 bg-white text-black hover:bg-[#b8860b] hover:text-white text-xs font-mono font-bold uppercase tracking-wider rounded-xs transition-all cursor-pointer"
+            >
+              Browse Digital Toolkits →
+            </button>
+            <button
+              onClick={() => navigate('/services')}
+              className="px-6 py-3 bg-transparent border border-white/20 hover:border-white text-white text-xs font-mono font-bold uppercase tracking-wider rounded-xs transition-all cursor-pointer"
+            >
+              Sovereign Retainer & Services →
             </button>
             <button
               onClick={() => navigate('/library')}

@@ -236,10 +236,6 @@ export const ShopPage: React.FC = () => {
                 {filteredProducts.length} Turnkey Toolkits Ready
               </span>
             </div>
-              <span className="text-xs font-mono text-zinc-500">
-                {filteredProducts.length} Turnkey Toolkits Ready
-              </span>
-            </div>
 
             {/* Product Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">

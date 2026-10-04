@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
-import { Share2, Link as LinkIcon, Mail, Check, X, ArrowRight, Play, Compass, BookOpen } from 'lucide-react';
+import { Share2, Link as LinkIcon, Mail, Check, X, ArrowRight, Play, Compass, BookOpen, Zap, Layers } from 'lucide-react';
 import { Linkedin } from './BrandIcons';
 import { PermanentArtwork } from './PermanentArtwork';
 import { INSTITUTIONAL_ARTICLES } from '../src/lib/articles.ts';
@@ -271,39 +271,33 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSelectArt
           </div>
         </div>
 
-        {/* Article Body */}
-        <div className="px-6 sm:px-12 md:px-24 py-12 sm:py-16 md:py-24">
-          <header className="mb-12 sm:mb-16">
-            {article.image && (
-              <div className="mb-12 aspect-[21/9] overflow-hidden border border-[#b8860b]/20 shadow-2xl relative">
-                {imageFailed ? (
-                  <PermanentArtwork id={article.id || "generic"} title={article.title} className="w-full h-full" />
-                ) : (
-                  <img 
-                    src={article.image} 
-                    alt={article.title} 
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                    onError={() => setImageFailed(true)}
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#f5f5f0] via-transparent to-transparent opacity-20" />
-              </div>
-            )}
-            <div className="flex justify-between items-start mb-6 sm:mb-8">
+        {/* Article Body - Time-Efficient Content First */}
+        <div className="px-5 sm:px-10 md:px-16 py-6 sm:py-8 md:py-10">
+          <header className="mb-6 sm:mb-8">
+            <div className="flex justify-between items-start gap-4 mb-4">
               <div className="flex-grow">
-                <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#111111] leading-[1.1] mb-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="font-mono text-[9px] font-black uppercase text-[#b8860b] px-2 py-0.5 bg-[#b8860b]/10 border border-[#b8860b]/30">
+                    {article.category}
+                  </span>
+                  <span className="text-[9px] font-mono uppercase text-zinc-500">
+                    Institutional Intelligence Dispatch
+                  </span>
+                </div>
+                
+                <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[#111111] leading-[1.15] mb-3 font-serif">
                   {article.title}
                 </h1>
-                <div className="flex flex-wrap items-center gap-3 text-[10px] font-mono uppercase text-zinc-500 ">
-                  <span>Author: Suchita Sancheti</span>
-                  <span className="hidden sm:inline">•</span>
+                
+                <div className="flex flex-wrap items-center gap-2.5 text-[10px] font-mono uppercase text-zinc-500">
+                  <span className="text-zinc-700 font-bold">Author: Suchita Sancheti</span>
+                  <span className="text-zinc-300">•</span>
                   <span>{getArticleStats(article).words} Words</span>
-                  <span>•</span>
-                  <span>{getArticleStats(article).readTime} Min Read</span>
+                  <span className="text-zinc-300">•</span>
+                  <span className="text-[#b8860b] font-bold">{getArticleStats(article).readTime} Min Read</span>
                   {article.date && (
                     <>
-                      <span>•</span>
+                      <span className="text-zinc-300">•</span>
                       <span>{article.date}</span>
                     </>
                   )}
@@ -311,14 +305,75 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSelectArt
               </div>
               <button 
                 onClick={handleNativeShare}
-                className="sm:hidden p-3 bg-white border border-zinc-200 rounded-full text-[#b8860b] shadow-sm ml-4"
+                className="sm:hidden p-2.5 bg-white border border-zinc-200 rounded-full text-[#b8860b] shadow-xs shrink-0"
+                aria-label="Share Brief"
               >
-                <Share2 size={16} />
+                <Share2 size={15} />
               </button>
             </div>
-            <div className="w-16 h-[1px] bg-[#b8860b] mt-6"></div>
+
+            {/* Quick-Action Internal Navigation Bridges Strip */}
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-2.5 pb-3 border-y border-zinc-200/80 font-mono text-[9px] uppercase">
+              <span className="text-[#b8860b] font-black mr-1 hidden sm:inline">Execution Hubs:</span>
+              <Link 
+                to="/toolkits" 
+                onClick={onClose} 
+                className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1"
+              >
+                📦 Founder Toolkits
+              </Link>
+              <Link 
+                to="/assessment" 
+                onClick={onClose} 
+                className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1"
+              >
+                ⚡ Yield Diagnostic
+              </Link>
+              <Link 
+                to="/services" 
+                onClick={onClose} 
+                className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1"
+              >
+                💼 Sovereign Retainer
+              </Link>
+              <Link 
+                to="/methodology" 
+                onClick={onClose} 
+                className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1"
+              >
+                🏛️ Alignment Protocol
+              </Link>
+              <Link 
+                to="/cognitive-tax" 
+                onClick={onClose} 
+                className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1"
+              >
+                ⚖️ Cognitive Tax
+              </Link>
+              <Link 
+                to="/intake" 
+                onClick={onClose} 
+                className="px-2.5 py-1 bg-[#b8860b] text-white hover:bg-black font-bold transition-colors inline-flex items-center gap-1"
+              >
+                ✍️ Intake Desk
+              </Link>
+            </div>
+
+            {/* Fast-Read Diagnostic Thesis Box */}
+            {article.excerpt && (
+              <div className="mt-4 p-4 sm:p-5 bg-white border-l-4 border-[#b8860b] border-y border-r border-zinc-200/60 shadow-xs rounded-r-xs">
+                <div className="flex items-center gap-1.5 mb-1.5 text-[9px] font-mono font-bold uppercase text-[#b8860b] tracking-wider">
+                  <Zap className="w-3.5 h-3.5 text-[#b8860b]" /> 
+                  <span>Executive Diagnostic Thesis // Fast Briefing</span>
+                </div>
+                <p className="text-zinc-800 text-sm sm:text-base font-serif italic leading-relaxed">
+                  "{article.excerpt}"
+                </p>
+              </div>
+            )}
           </header>
 
+          {/* Primary Prose Content - Visible Immediately */}
           <div className="prose prose-zinc lg:prose-xl max-w-none">
             {article.content.map((paragraph, idx) => (
               <div key={idx} className="mb-6 sm:mb-8">
@@ -328,15 +383,24 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSelectArt
                     a: ({ node, ...props }) => {
                       const isInternal = props.href?.startsWith('/');
                       if (isInternal) {
-                        return <Link to={props.href!} className="text-[#b8860b] hover:underline font-bold" onClick={onClose}>{props.children}</Link>;
+                        return (
+                          <Link 
+                            to={props.href!} 
+                            className="inline-flex items-center gap-1 text-[#b8860b] hover:text-[#996f08] font-bold border-b border-[#b8860b]/40 hover:border-[#b8860b] transition-colors" 
+                            onClick={onClose}
+                          >
+                            <span>{props.children}</span>
+                            <ArrowRight className="w-3 h-3 inline-block shrink-0" />
+                          </Link>
+                        );
                       }
                       return <a {...props} className="text-[#b8860b] hover:underline font-semibold" target="_blank" rel="noopener noreferrer" />;
                     },
                     h2: ({ node, ...props }) => (
-                      <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#111111] mt-8 mb-4 border-b border-[#b8860b]/30 pb-2" {...props} />
+                      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-serif text-[#111111] mt-8 mb-4 border-b border-[#b8860b]/30 pb-2" {...props} />
                     ),
                     h3: ({ node, ...props }) => (
-                      <h3 className="text-xl sm:text-2xl font-bold font-serif text-[#111111] mt-6 mb-3" {...props} />
+                      <h3 className="text-lg sm:text-xl font-bold font-serif text-[#111111] mt-6 mb-3" {...props} />
                     ),
                     p: ({ node, ...props }) => (
                       <p className="text-zinc-800 text-base sm:text-lg leading-relaxed mb-3 font-serif" {...props} />
@@ -364,6 +428,128 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSelectArt
                 </Markdown>
               </div>
             ))}
+          </div>
+
+          {/* Secondary Supporting Visual Reference (Placed at the end so it never blocks content) */}
+          {article.image && (
+            <div className="my-10 border border-zinc-200/90 bg-white p-3 sm:p-4 rounded-xs shadow-xs">
+              <div className="text-[9px] font-mono text-zinc-500 uppercase tracking-wider mb-2 flex items-center justify-between">
+                <span className="font-bold text-zinc-700">Archival Visual Reference Substrate</span>
+                <span>Ref: {article.slug || article.id}</span>
+              </div>
+              <div className="aspect-[21/9] max-h-[300px] overflow-hidden relative rounded-2xs border border-zinc-100">
+                {imageFailed ? (
+                  <PermanentArtwork id={article.id || "generic"} title={article.title} className="w-full h-full" />
+                ) : (
+                  <img 
+                    src={article.image} 
+                    alt={article.title} 
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                    referrerPolicy="no-referrer"
+                    onError={() => setImageFailed(true)}
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#f5f5f0]/30 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </div>
+          )}
+
+          {/* Contextual Ecosystem Cross-Linking Gateway */}
+          <div className="my-10 p-6 sm:p-8 bg-white border border-[#b8860b]/30 rounded-xs shadow-sm space-y-4">
+            <div className="flex items-center gap-2 text-[#b8860b] text-[10px] font-mono font-bold uppercase tracking-wider">
+              <Layers className="w-4 h-4 text-[#b8860b]" /> 
+              <span>Operational Execution Bridges & Institutional Assets</span>
+            </div>
+            <p className="text-xs text-zinc-600 font-light leading-relaxed">
+              Connect the strategic architecture in this briefing directly to turnkey digital systems, organizational diagnostics, and dedicated executive mandates:
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-2 font-mono text-[10px]">
+              <Link 
+                to="/toolkits" 
+                onClick={onClose} 
+                className="p-3.5 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group"
+              >
+                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1">
+                  <span>📦 Founder Toolkits</span>
+                  <ArrowRight className="w-3 h-3 text-[#b8860b]" />
+                </div>
+                <div className="text-[9px] text-zinc-500 leading-normal">
+                  Turnkey Notion/Coda master workspaces & delegation filters.
+                </div>
+              </Link>
+              
+              <Link 
+                to="/assessment" 
+                onClick={onClose} 
+                className="p-3.5 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group"
+              >
+                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1">
+                  <span>⚡ Yield Diagnostic</span>
+                  <ArrowRight className="w-3 h-3 text-[#b8860b]" />
+                </div>
+                <div className="text-[9px] text-zinc-500 leading-normal">
+                  Benchmark your firm across 5 domains to isolate hidden friction.
+                </div>
+              </Link>
+
+              <Link 
+                to="/services" 
+                onClick={onClose} 
+                className="p-3.5 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group"
+              >
+                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1">
+                  <span>💼 Sovereign Retainer</span>
+                  <ArrowRight className="w-3 h-3 text-[#b8860b]" />
+                </div>
+                <div className="text-[9px] text-zinc-500 leading-normal">
+                  Retain the Principal Architect for ongoing substrate oversight.
+                </div>
+              </Link>
+
+              <Link 
+                to="/methodology" 
+                onClick={onClose} 
+                className="p-3.5 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group"
+              >
+                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1">
+                  <span>🏛️ Alignment Protocol</span>
+                  <ArrowRight className="w-3 h-3 text-[#b8860b]" />
+                </div>
+                <div className="text-[9px] text-zinc-500 leading-normal">
+                  The 4-phase transformation from hero-led to systemic authority.
+                </div>
+              </Link>
+
+              <Link 
+                to="/cognitive-tax" 
+                onClick={onClose} 
+                className="p-3.5 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group"
+              >
+                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1">
+                  <span>⚖️ Cognitive Tax Engine</span>
+                  <ArrowRight className="w-3 h-3 text-[#b8860b]" />
+                </div>
+                <div className="text-[9px] text-zinc-500 leading-normal">
+                  Simulate annual EBITDA drained by coordination bottlenecks.
+                </div>
+              </Link>
+
+              <Link 
+                to="/intake" 
+                onClick={onClose} 
+                className="p-3.5 bg-[#111111] text-white hover:bg-[#b8860b] transition-all block group"
+              >
+                <div className="font-bold text-[#b8860b] group-hover:text-white flex items-center justify-between mb-1">
+                  <span>✍️ Private Mandate Intake</span>
+                  <ArrowRight className="w-3 h-3" />
+                </div>
+                <div className="text-[9px] text-zinc-400 group-hover:text-zinc-100 leading-normal">
+                  Direct confidential intake docket to the Principal Architect desk.
+                </div>
+              </Link>
+            </div>
           </div>
 
           {/* Netflix-Style "Up Next in Track" Binge Engine Card */}
@@ -437,6 +623,13 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSelectArt
               </div>
               <div className="flex flex-wrap items-center justify-center gap-2">
                 <Link 
+                  to="/toolkits" 
+                  onClick={onClose}
+                  className="px-3 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all"
+                >
+                  Founder Toolkits
+                </Link>
+                <Link 
                   to="/assessment" 
                   onClick={onClose}
                   className="px-3 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all"
@@ -451,11 +644,25 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSelectArt
                   Engagement Tracks
                 </Link>
                 <Link 
-                  to="/library" 
+                  to="/methodology" 
+                  onClick={onClose}
+                  className="px-3 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all"
+                >
+                  Alignment Protocol
+                </Link>
+                <Link 
+                  to="/cognitive-tax" 
+                  onClick={onClose}
+                  className="px-3 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all"
+                >
+                  Cognitive Tax
+                </Link>
+                <Link 
+                  to="/intake" 
                   onClick={onClose}
                   className="px-3 py-1.5 bg-[#b8860b] text-white font-bold uppercase hover:bg-black transition-all"
                 >
-                  Research Registry
+                  Intake Mandate
                 </Link>
               </div>
             </div>

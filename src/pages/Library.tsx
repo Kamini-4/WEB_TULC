@@ -599,6 +599,29 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
           <p className="max-w-3xl text-zinc-300 text-xs sm:text-sm font-serif italic leading-relaxed">
             Forensic research on leadership substrate physics, cognitive tax, and institutional sovereignty. Select any dispatch to read immediately.
           </p>
+
+          {/* Cross-Domain Architecture Internal Links Bar */}
+          <div className="flex flex-wrap items-center gap-2 mt-3 pt-3 border-t border-white/10 font-mono text-[9px] uppercase">
+            <span className="text-[#b8860b] font-bold mr-1 hidden sm:inline">Execution Hubs:</span>
+            <Link to="/toolkits" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs">
+              📦 Founder Toolkits
+            </Link>
+            <Link to="/assessment" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs">
+              ⚡ Yield Diagnostic
+            </Link>
+            <Link to="/services" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs">
+              💼 Sovereign Retainer
+            </Link>
+            <Link to="/methodology" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs">
+              🏛️ Alignment Protocol
+            </Link>
+            <Link to="/cognitive-tax" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs">
+              ⚖️ Cognitive Tax
+            </Link>
+            <Link to="/intake" className="px-2.5 py-1 bg-[#b8860b] text-black hover:bg-white font-bold transition-colors rounded-xs">
+              ✍️ Intake Desk
+            </Link>
+          </div>
         </header>
       </div>
 

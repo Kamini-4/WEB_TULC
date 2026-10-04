@@ -121,6 +121,14 @@ const SERVICES: ServiceItem[] = [
       {
         title: 'Quarterly Board Alignment Docket',
         description: 'Independent structural audit heatmaps and governance risk reports delivered directly to your board of directors and advisory committee.'
+      },
+      {
+        title: 'Succession & Step-Away Certification',
+        description: 'Continuous testing of leadership redundancy ensuring the enterprise operates seamlessly during extended executive absence.'
+      },
+      {
+        title: 'Fiduciary Divergence Neutralization',
+        description: 'Monthly asynchronous friction mapping to isolate and eliminate executive misalignment before it leaks into customer-facing operations.'
       }
     ],
     ctaText: 'Request Private Vetting for Board Seat'
@@ -233,7 +241,7 @@ const ServicesPage: React.FC = () => {
                     </p>
 
                     {/* Target Metric Pill */}
-                    <div className={`p-2 rounded-xs border mb-3.5 font-mono text-[11px] ${
+                    <div className={`p-2.5 rounded-xs border mb-3.5 font-mono text-[11px] ${
                       isApex 
                         ? 'bg-zinc-900/90 border-[#b8860b]/40 text-[#b8860b]' 
                         : 'bg-zinc-50 border-zinc-200 text-zinc-800'
@@ -241,7 +249,7 @@ const ServicesPage: React.FC = () => {
                       <span className="text-zinc-400 text-[8px] uppercase tracking-wider block leading-none mb-0.5">
                         Target Metric:
                       </span>
-                      <span className="font-bold block truncate">
+                      <span className="font-bold block break-words leading-tight">
                         ⚡ {service.targetOutcome}
                       </span>
                     </div>
@@ -252,7 +260,7 @@ const ServicesPage: React.FC = () => {
                         {isApex ? '★ Sovereign Deliverables (All Included):' : 'Core Deliverables:'}
                       </span>
                       
-                      <div className="space-y-2">
+                      <div className="space-y-2.5">
                         {service.keyBenefits.map((benefit, idx) => (
                           <div key={idx} className="flex items-start gap-2 text-xs leading-relaxed">
                             <CheckCircle className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isApex ? 'text-[#b8860b]' : 'text-zinc-800'}`} />
@@ -301,27 +309,146 @@ const ServicesPage: React.FC = () => {
             })}
           </div>
 
-          {/* Strategic Context & Decoy Section */}
-          <div className="mt-8 sm:mt-10 bg-white border border-zinc-200/90 p-6 sm:p-8 rounded-xs flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-[#b8860b]/10 border border-[#b8860b]/30 flex items-center justify-center shrink-0 mt-0.5">
-                <Crown className="w-5 h-5 text-[#b8860b]" />
-              </div>
-              <div>
-                <h3 className="text-base sm:text-lg font-bold font-serif text-zinc-900 mb-1">
-                  Why 94% of Enterprise Principals Secure <span className="text-[#b8860b]">The Sovereign Retainer</span>
+          {/* Contextual Internal Links Banner */}
+          <div className="mt-8 bg-zinc-100 border border-zinc-300/80 p-3 sm:p-4 rounded-xs flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+            <span className="text-zinc-700 font-bold uppercase text-[10px] flex items-center gap-1.5">
+              <span>✦</span> Cross-Platform Navigation:
+            </span>
+            <div className="flex flex-wrap items-center gap-2 text-[10px]">
+              <Link to="/toolkits" className="px-2.5 py-1 bg-white border border-zinc-300 text-zinc-900 hover:border-[#b8860b] hover:text-[#b8860b] transition-colors rounded-2xs font-semibold">
+                Explore Digital Toolkits →
+              </Link>
+              <Link to="/methodology" className="px-2.5 py-1 bg-white border border-zinc-300 text-zinc-900 hover:border-[#b8860b] hover:text-[#b8860b] transition-colors rounded-2xs font-semibold">
+                How It Works (90-Day OS) →
+              </Link>
+              <Link to="/assessment" className="px-2.5 py-1 bg-white border border-zinc-300 text-zinc-900 hover:border-[#b8860b] hover:text-[#b8860b] transition-colors rounded-2xs font-semibold">
+                90-Sec Diagnostic →
+              </Link>
+              <Link to="/cognitive-tax" className="px-2.5 py-1 bg-white border border-zinc-300 text-zinc-900 hover:border-[#b8860b] hover:text-[#b8860b] transition-colors rounded-2xs font-semibold">
+                Drag Calculator →
+              </Link>
+            </div>
+          </div>
+
+          {/* =========================================================
+              THE SOVEREIGN RETAINER: A-TO-Z VALUE & GOVERNANCE ARCHITECTURE
+          ========================================================= */}
+          <div className="mt-10 sm:mt-12 bg-[#0c0c0c] text-white border-2 border-[#b8860b] p-6 sm:p-8 md:p-10 rounded-xs shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#b8860b]/10 blur-[100px] pointer-events-none" />
+
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-white/10">
+              <div className="space-y-1.5 max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#b8860b] text-[#111111] text-[8px] font-mono uppercase tracking-widest font-black">
+                  <Crown className="w-3 h-3" /> FULL SPECTRUM DELIVERABLES • ZERO SHORTCUTS
+                </div>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-serif text-white">
+                  The Sovereign Retainer: <span className="text-[#b8860b] italic font-light">A-to-Z Value Architecture</span>
                 </h3>
-                <p className="text-zinc-600 text-xs sm:text-sm font-serif italic leading-relaxed max-w-3xl">
-                  Categories 01 and 02 resolve existing bottlenecks. The Retainer permanently insulates your personal time, grants a direct 24/7 Red Phone to Suchita Sancheti for high-stakes decisions, and prevents the silent execution drift that damages enterprise valuation.
+                <p className="text-xs text-zinc-400 font-serif italic leading-relaxed">
+                  Every benefit and governance deliverable engineered into your annual advisory seat—complete, untruncated, and compounding across every department.
+                </p>
+              </div>
+
+              <button
+                onClick={() => navigate('/intake')}
+                className="px-5 py-2.5 bg-[#b8860b] hover:bg-white text-black font-mono text-xs uppercase font-black tracking-wider rounded-xs transition-all shrink-0 cursor-pointer shadow-md"
+              >
+                Verify Retainer Seat Availability →
+              </button>
+            </div>
+
+            {/* A to Z Deliverables Grid */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 text-xs">
+              <div className="p-4 bg-zinc-900/80 border border-white/10 rounded-xs space-y-1 hover:border-[#b8860b]/60 transition-colors">
+                <div className="flex items-center gap-2 text-[#b8860b] font-mono text-[10px] font-bold uppercase">
+                  <span>[ A ]</span>
+                  <span className="text-white">Asynchronous Executive Red-Phone</span>
+                </div>
+                <p className="text-[11px] text-zinc-300 font-serif italic leading-relaxed">
+                  Direct, priority advisory line to Suchita Sancheti for high-stakes boardroom votes, M&A evaluations, and critical capital allocation with a guaranteed sub-4-hour turnaround.
+                </p>
+              </div>
+
+              <div className="p-4 bg-zinc-900/80 border border-white/10 rounded-xs space-y-1 hover:border-[#b8860b]/60 transition-colors">
+                <div className="flex items-center gap-2 text-[#b8860b] font-mono text-[10px] font-bold uppercase">
+                  <span>[ B ]</span>
+                  <span className="text-white">Bi-Annual Forensic Drift Audits</span>
+                </div>
+                <p className="text-[11px] text-zinc-300 font-serif italic leading-relaxed">
+                  Comprehensive 10-node operational telemetry sweeps performed every 6 months to mathematically identify and arrest silent execution drift before it dilutes enterprise margins.
+                </p>
+              </div>
+
+              <div className="p-4 bg-zinc-900/80 border border-white/10 rounded-xs space-y-1 hover:border-[#b8860b]/60 transition-colors">
+                <div className="flex items-center gap-2 text-[#b8860b] font-mono text-[10px] font-bold uppercase">
+                  <span>[ C ]</span>
+                  <span className="text-white">Continuous Board Governance Dockets</span>
+                </div>
+                <p className="text-[11px] text-zinc-300 font-serif italic leading-relaxed">
+                  Independent structural audit heatmaps and governance compliance dockets formatted for quarterly board meetings, private equity sponsors, and investment committees.
+                </p>
+              </div>
+
+              <div className="p-4 bg-zinc-900/80 border border-white/10 rounded-xs space-y-1 hover:border-[#b8860b]/60 transition-colors">
+                <div className="flex items-center gap-2 text-[#b8860b] font-mono text-[10px] font-bold uppercase">
+                  <span>[ D ]</span>
+                  <span className="text-white">Decoupled Key-Person Architecture</span>
+                </div>
+                <p className="text-[11px] text-zinc-300 font-serif italic leading-relaxed">
+                  Total cognitive insulation of the founder's calendar. Low-value reviews and operational fire-drills are structurally trapped and resolved by autonomous leadership gates.
+                </p>
+              </div>
+
+              <div className="p-4 bg-zinc-900/80 border border-white/10 rounded-xs space-y-1 hover:border-[#b8860b]/60 transition-colors">
+                <div className="flex items-center gap-2 text-[#b8860b] font-mono text-[10px] font-bold uppercase">
+                  <span>[ E ]</span>
+                  <span className="text-white">Enterprise Multiple Defense (+35%)</span>
+                </div>
+                <p className="text-[11px] text-zinc-300 font-serif italic leading-relaxed">
+                  Proactive eradication of single-point founder dependency, expanding EBITDA acquisition multiples by up to 35% during private equity recaps or strategic buyouts.
+                </p>
+              </div>
+
+              <div className="p-4 bg-zinc-900/80 border border-white/10 rounded-xs space-y-1 hover:border-[#b8860b]/60 transition-colors">
+                <div className="flex items-center gap-2 text-[#b8860b] font-mono text-[10px] font-bold uppercase">
+                  <span>[ F ]</span>
+                  <span className="text-white">Full Institutional Toolkits Ecosystem</span>
+                </div>
+                <p className="text-[11px] text-zinc-300 font-serif italic leading-relaxed">
+                  Unrestricted enterprise licensing to all present and upcoming digital workspaces, delegation matrices, decision charters, and executive runbooks with zero additional licensing fees.
+                </p>
+              </div>
+
+              <div className="p-4 bg-zinc-900/80 border border-white/10 rounded-xs space-y-1 hover:border-[#b8860b]/60 transition-colors">
+                <div className="flex items-center gap-2 text-[#b8860b] font-mono text-[10px] font-bold uppercase">
+                  <span>[ G ]</span>
+                  <span className="text-white">Governance & C-Suite Sparring</span>
+                </div>
+                <p className="text-[11px] text-zinc-300 font-serif italic leading-relaxed">
+                  Confidential advisory sparring on executive hiring, equity compensation structures, co-founder realignments, and multi-entity corporate restructuring.
+                </p>
+              </div>
+
+              <div className="p-4 bg-zinc-900/80 border border-white/10 rounded-xs space-y-1 hover:border-[#b8860b]/60 transition-colors">
+                <div className="flex items-center gap-2 text-[#b8860b] font-mono text-[10px] font-bold uppercase">
+                  <span>[ H ]</span>
+                  <span className="text-white">High-Fidelity Step-Away Certification</span>
+                </div>
+                <p className="text-[11px] text-zinc-300 font-serif italic leading-relaxed">
+                  Continuous stress-testing of leadership redundancy ensuring your leadership committee functions with 100% fidelity during extended founder absence of 30+ consecutive days.
+                </p>
+              </div>
+
+              <div className="p-4 bg-zinc-900/80 border border-white/10 rounded-xs space-y-1 hover:border-[#b8860b]/60 transition-colors">
+                <div className="flex items-center gap-2 text-[#b8860b] font-mono text-[10px] font-bold uppercase">
+                  <span>[ Z ]</span>
+                  <span className="text-white">Zero-Leak Operating Guarantee</span>
+                </div>
+                <p className="text-[11px] text-zinc-300 font-serif italic leading-relaxed">
+                  A definitive, permanent governance moat protecting executive focus, organizational bandwidth, and compounding enterprise valuation year after year.
                 </p>
               </div>
             </div>
-            <button
-              onClick={() => navigate('/intake')}
-              className="px-6 py-3 bg-[#111111] hover:bg-[#b8860b] text-white font-mono text-xs uppercase font-bold tracking-wider rounded-xs transition-colors shrink-0 cursor-pointer shadow-xs whitespace-nowrap"
-            >
-              Verify Retainer Eligibility →
-            </button>
           </div>
         </section>
 
