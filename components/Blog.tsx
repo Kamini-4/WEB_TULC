@@ -90,7 +90,7 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
           </div>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
           {posts.map((post, idx) => (
             <div 
               key={idx} 
@@ -102,10 +102,10 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                   navigate(`/library/${post.id}`);
                 }
               }}
-              className="registry-card group cursor-pointer flex flex-col h-full relative isolate p-2"
+              className="registry-card group cursor-pointer flex flex-col h-full relative isolate p-3 sm:p-4 rounded-xs border border-white/5 hover:border-[#b8860b]/30 bg-zinc-950/40 hover:bg-zinc-900/60 transition-all duration-300"
             >
               {post.image && (
-                <div className="mb-6 overflow-hidden bg-[#1a1a1a] aspect-[16/10] relative border border-white/5 group-hover:border-[#b8860b]/20 transition-all duration-700">
+                <div className="mb-4 sm:mb-5 overflow-hidden bg-[#1a1a1a] aspect-[16/10] relative border border-white/5 group-hover:border-[#b8860b]/20 transition-all duration-700 rounded-2xs">
                   {failedImages[post.id] ? (
                     <PermanentArtwork id={post.id} title={post.title} className="w-full h-full" />
                   ) : (
@@ -123,26 +123,27 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                 </div>
               )}
               
-              <div className="flex justify-between items-center mb-4 sm:mb-6 relative z-10">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-                  <span className="registry-category text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase ">
+              <div className="flex justify-between items-center mb-3 sm:mb-4 relative z-10 gap-2">
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 min-w-0">
+                  <span className="registry-category text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase tracking-wider">
                     {post.category}
                   </span>
-                  <span className="text-zinc-500 font-mono text-[8px] sm:text-[9px] uppercase hidden sm:inline">•</span>
-                  <span className="text-zinc-500 font-mono text-[8px] sm:text-[9px] uppercase ">
+                  <span className="text-zinc-500 font-mono text-[8px] uppercase hidden xs:inline">•</span>
+                  <span className="text-zinc-500 font-mono text-[8px] sm:text-[9px] uppercase">
                     {getArticleStats(post).words} words • {getArticleStats(post).readTime} min read
                   </span>
                 </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-zinc-600 text-[8px] sm:text-[9px] font-black uppercase ">
+                <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+                  <span className="text-zinc-600 text-[8px] sm:text-[9px] font-mono uppercase hidden sm:inline">
                     {post.date}
                   </span>
                   <div className="relative">
                     <button 
                       onClick={(e) => handleShare(e, post)}
-                      className="p-1 text-zinc-600 hover:text-[#b8860b] transition-colors"
+                      className="p-1.5 text-zinc-500 hover:text-[#b8860b] transition-colors rounded-xs"
+                      aria-label="Share post"
                     >
-                      <Share2 size={12} />
+                      <Share2 size={13} />
                     </button>
                     {sharingId === post.id && (
                       <div className="absolute right-0 top-6 bg-[#1a1a1a] border border-white/10 p-2 z-20 shadow-2xl flex flex-col gap-2 min-w-[100px] animate-fade-in text-left">
@@ -183,16 +184,17 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
               
               <div className="registry-separator mb-4 sm:mb-6 relative z-10"></div>
               
-              <h4 className="registry-title text-base sm:text-lg lg:text-xl font-bold font-serif mb-2.5 sm:mb-3 leading-snug relative z-10">
+              <h4 className="registry-title text-base sm:text-lg lg:text-xl font-bold font-serif mb-2 sm:mb-2.5 leading-snug relative z-10 break-words group-hover:text-[#b8860b] transition-colors">
                 {post.title}
               </h4>
               
-              <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 italic font-light flex-grow relative z-10">
+              <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4 italic font-light flex-grow relative z-10 break-words line-clamp-3">
                 {post.excerpt}
               </p>
               
-              <div className="flex items-center gap-4 text-[9px] sm:text-[10px] font-black uppercase text-[#b8860b] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-[-10px] group-hover:translate-x-0 relative z-10 ">
-                Access Archive Entry <span>→</span>
+              <div className="flex items-center gap-2 text-[9px] sm:text-[10px] font-mono font-bold uppercase text-[#b8860b] opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform sm:translate-x-[-8px] sm:group-hover:translate-x-0 relative z-10 pt-2 border-t border-white/5">
+                <span>Read Executive Briefing</span>
+                <span>→</span>
               </div>
             </div>
           ))}

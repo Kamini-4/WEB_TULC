@@ -601,24 +601,24 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
           </p>
 
           {/* Cross-Domain Architecture Internal Links Bar */}
-          <div className="flex flex-wrap items-center gap-2 mt-3 pt-3 border-t border-white/10 font-mono text-[9px] uppercase">
-            <span className="text-[#b8860b] font-bold mr-1 hidden sm:inline">Execution Hubs:</span>
-            <Link to="/toolkits" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs">
-              📦 Founder Toolkits
+          <div className="flex items-center gap-1.5 sm:gap-2 mt-3 pt-3 border-t border-white/10 font-mono text-[9px] uppercase overflow-x-auto no-scrollbar -mx-4 sm:mx-0 px-4 sm:px-0">
+            <span className="text-[#b8860b] font-bold mr-1 shrink-0 hidden xs:inline">Hubs:</span>
+            <Link to="/toolkits" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs shrink-0">
+              📦 Toolkits
             </Link>
-            <Link to="/assessment" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs">
-              ⚡ Yield Diagnostic
+            <Link to="/assessment" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs shrink-0">
+              ⚡ Diagnostic
             </Link>
-            <Link to="/services" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs">
-              💼 Sovereign Retainer
+            <Link to="/services" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs shrink-0">
+              💼 Retainer
             </Link>
-            <Link to="/methodology" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs">
-              🏛️ Alignment Protocol
+            <Link to="/methodology" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs shrink-0">
+              🏛️ Protocol
             </Link>
-            <Link to="/cognitive-tax" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs">
+            <Link to="/cognitive-tax" className="px-2.5 py-1 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-300 border border-white/10 transition-colors rounded-xs shrink-0">
               ⚖️ Cognitive Tax
             </Link>
-            <Link to="/intake" className="px-2.5 py-1 bg-[#b8860b] text-black hover:bg-white font-bold transition-colors rounded-xs">
+            <Link to="/intake" className="px-2.5 py-1 bg-[#b8860b] text-black hover:bg-white font-bold transition-colors rounded-xs shrink-0">
               ✍️ Intake Desk
             </Link>
           </div>
@@ -793,23 +793,23 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
         {activePaperKey && WHITE_PAPERS[activePaperKey] && (() => {
           const paper = WHITE_PAPERS[activePaperKey];
           return (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#050505]/95 backdrop-blur-md animate-fade-in">
-              <div className="bg-[#111111] border border-white/10 max-w-4xl w-full h-[88vh] flex flex-col relative shadow-2xl rounded-sm overflow-hidden">
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-4 bg-[#050505]/95 backdrop-blur-md animate-fade-in">
+              <div className="bg-[#111111] border border-white/10 max-w-4xl w-full h-[100dvh] sm:h-[88vh] flex flex-col relative shadow-2xl sm:rounded-sm overflow-hidden">
                 {/* Control Header Bar */}
-                <div className="flex justify-between items-center px-6 py-4 bg-black/40 border-b border-white/10 select-none">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-black uppercase text-[#b8860b] bg-[#b8860b]/10 px-2 py-1 rounded-sm">
+                <div className="flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 bg-black/40 border-b border-white/10 select-none">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <span className="text-[9px] sm:text-[10px] font-black uppercase text-[#b8860b] bg-[#b8860b]/10 px-2 py-0.5 rounded-sm">
                       {paper.category}
                     </span>
-                    <span className="text-zinc-500 text-[10px] font-mono hidden sm:inline">
+                    <span className="text-zinc-500 text-[9px] sm:text-[10px] font-mono hidden sm:inline">
                       SECURE DOCUMENT ARCHIVE // VERIFIED
                     </span>
                   </div>
                   <button 
                     onClick={() => setActivePaperKey(null)}
-                    className="text-zinc-400 hover:text-white text-xs font-mono uppercase flex items-center gap-2 border border-white/10 px-3 py-1 hover:border-white/20 transition-all"
+                    className="text-zinc-400 hover:text-white text-[10px] sm:text-xs font-mono uppercase flex items-center gap-1.5 border border-white/10 px-2.5 sm:px-3 py-1 hover:border-white/20 transition-all rounded-xs"
                   >
-                    Close Terminal <span>✕</span>
+                    <span>Close</span> <span>✕</span>
                   </button>
                 </div>
 

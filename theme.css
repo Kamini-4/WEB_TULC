@@ -15,7 +15,19 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
+body, input, textarea, select, button {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-mono, [class*="font-mono"], code, pre, kbd, samp {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+}
+
+.font-sans, [class*="font-sans"] {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+.font-serif, [class*="font-serif"] {
   font-family: 'Playfair Display', Georgia, serif !important;
 }
 
@@ -24,16 +36,25 @@ body {
   color: var(--black);
   line-height: 1.6; /* Effortless reading rhythm */
   overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Psychological Trick: Custom Selection for Branding Cohesion */
-::selection {
-  background: var(--gold);
-  color: white;
+/* Fluid responsive scroll utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.font-inter {
-  font-family: 'Playfair Display', Georgia, serif;
+/* Safe area insets for notched and dynamic island devices */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 1rem);
 }
 
 .pulse-gold {

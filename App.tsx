@@ -82,12 +82,20 @@ const ArticleHandler: React.FC<{
       article={activeArticle} 
       onClose={() => {
         setActiveArticle(null);
-        if (location.pathname.includes('/library/')) {
+        if (location.pathname.includes('/library/') || location.pathname.includes('/blogs/') || location.pathname.includes('/blog/') || location.pathname.includes('/articles/')) {
           navigate('/library');
         } else {
           navigate('/');
         }
       }} 
+      onSelectArticle={(a) => {
+        setActiveArticle(a);
+        if (a.slug) {
+          navigate(`/library/${a.slug}`);
+        } else if (a.id) {
+          navigate(`/library/${a.id}`);
+        }
+      }}
     />
   );
 };
@@ -379,7 +387,10 @@ const App: React.FC = () => {
 
         <Routes>
           <Route path="/library/:articleId" element={<ArticleHandler activeArticle={activeArticle} setActiveArticle={setActiveArticle} />} />
-          <Route path="*" element={<ArticleView article={activeArticle} onClose={() => setActiveArticle(null)} />} />
+          <Route path="/blogs/:articleId" element={<ArticleHandler activeArticle={activeArticle} setActiveArticle={setActiveArticle} />} />
+          <Route path="/blog/:articleId" element={<ArticleHandler activeArticle={activeArticle} setActiveArticle={setActiveArticle} />} />
+          <Route path="/articles/:articleId" element={<ArticleHandler activeArticle={activeArticle} setActiveArticle={setActiveArticle} />} />
+          <Route path="*" element={<ArticleView article={activeArticle} onClose={() => setActiveArticle(null)} onSelectArticle={(a) => handleOpenArticle(a, navigate)} />} />
         </Routes>
 
         {showAdmin && (
