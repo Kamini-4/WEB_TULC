@@ -268,10 +268,10 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3 min-w-0 pr-2">
-            <span className="text-[8px] sm:text-[9px] font-mono font-black uppercase text-[#b8860b] bg-[#b8860b]/10 border border-[#b8860b]/30 px-1.5 py-0.5 rounded-2xs shrink-0">
+            <span className="text-xs font-bold uppercase text-[#b8860b] bg-[#b8860b]/10 border border-[#b8860b]/30 px-2.5 py-1 rounded-xs shrink-0 tracking-wider">
               {article.category}
             </span>
-            <span className="text-[8px] sm:text-[9px] font-mono uppercase text-zinc-500 truncate hidden xs:inline">
+            <span className="text-xs uppercase text-zinc-600 truncate hidden xs:inline tracking-wide">
               Executive Dispatch
             </span>
           </div>
@@ -281,8 +281,8 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
               <GooglePreferredSource variant="compact" />
             </div>
 
-            <div className="hidden sm:flex items-center gap-1.5 border-r border-zinc-200 pr-3">
-              <span className="text-[8px] font-mono uppercase text-zinc-400">Share:</span>
+            <div className="hidden sm:flex items-center gap-2 border-r border-zinc-200 pr-3">
+              <span className="text-xs uppercase text-zinc-500 font-medium">Share:</span>
               {shareLinks.map((link) => (
                 <a 
                   key={link.name}
@@ -317,51 +317,47 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
               title="Share brief"
               aria-label="Share brief"
             >
-              <Share2 size={13} />
+              <Share2 size={15} />
             </button>
 
             <button 
               onClick={onClose}
-              className="flex items-center gap-1 px-2.5 py-1.5 bg-zinc-200/90 hover:bg-zinc-300 text-zinc-800 hover:text-black rounded-xs transition-colors cursor-pointer text-[9px] sm:text-[10px] font-mono font-bold uppercase shrink-0"
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 hover:text-black rounded-xs transition-colors cursor-pointer text-xs font-bold uppercase tracking-wider shrink-0"
               aria-label="Close Archive"
             >
-              <X size={14} className="shrink-0" />
+              <X size={15} className="shrink-0" />
               <span>Close <span className="hidden sm:inline">[Esc]</span></span>
             </button>
           </div>
         </div>
 
-        {/* Article Body - Time-Efficient Content First */}
-        <div className="px-4 sm:px-8 md:px-12 lg:px-16 py-5 sm:py-7 md:py-9">
-          <header className="mb-6 sm:mb-8">
-            <div className="mb-3">
-              <div className="flex items-center gap-2 mb-2 flex-wrap">
-                <span className="font-mono text-[8px] sm:text-[9px] font-black uppercase text-[#b8860b] px-2 py-0.5 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-2xs">
+        {/* Article Body - Generous Editorial Typography */}
+        <div className="px-6 sm:px-12 md:px-16 lg:px-20 py-8 sm:py-10 md:py-12">
+          <header className="mb-8 sm:mb-10">
+            <div className="mb-4">
+              <div className="flex items-center gap-2.5 mb-3 flex-wrap">
+                <span className="text-xs font-bold uppercase text-[#b8860b] px-2.5 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-xs tracking-wider">
                   {article.category}
                 </span>
-                <span className="text-[8px] sm:text-[9px] font-mono uppercase text-zinc-500">
+                <span className="text-xs uppercase text-zinc-600 tracking-wide">
                   Institutional Intelligence Dispatch
-                </span>
-                <span className="text-zinc-300 hidden sm:inline">•</span>
-                <span className="text-[8px] font-mono text-[#b8860b] bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded-2xs hidden sm:inline-flex items-center gap-1">
-                  <Zap className="w-2.5 h-2.5 text-[#b8860b]" /> 0s Delay // Content-First Engine
                 </span>
               </div>
               
-              <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-[#111111] leading-[1.18] mb-3 font-serif break-words">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#111111] leading-tight mb-4 font-serif break-words">
                 {article.title}
               </h1>
               
-              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[9px] sm:text-[10px] font-mono uppercase text-zinc-500">
-                <span className="text-zinc-700 font-bold">Author: Suchita Sancheti</span>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs sm:text-sm uppercase text-zinc-600">
+                <span className="text-zinc-800 font-bold">Author: Suchita Sancheti</span>
                 <span className="text-zinc-300">•</span>
-                <span className="inline-flex items-center gap-1">
-                  <FileText className="w-3 h-3 text-zinc-400" />
+                <span className="inline-flex items-center gap-1.5">
+                  <FileText className="w-3.5 h-3.5 text-zinc-500" />
                   {getArticleStats(article).words} Words
                 </span>
                 <span className="text-zinc-300">•</span>
-                <span className="text-[#b8860b] font-bold inline-flex items-center gap-1">
-                  <Clock className="w-3 h-3 text-[#b8860b]" />
+                <span className="text-[#b8860b] font-bold inline-flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-[#b8860b]" />
                   {getArticleStats(article).readTime} Min Read
                 </span>
                 {article.date && (
@@ -373,61 +369,61 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
               </div>
             </div>
 
-            {/* Quick-Action Internal Navigation Bridges Strip (Fluid Horizontal Scroll On Mobile) */}
-            <div className="flex items-center gap-1.5 sm:gap-2 pt-2.5 pb-3 border-y border-zinc-200/80 font-mono text-[9px] uppercase overflow-x-auto no-scrollbar -mx-4 sm:mx-0 px-4 sm:px-0">
-              <span className="text-[#b8860b] font-black mr-1 shrink-0 hidden xs:inline">Hubs:</span>
+            {/* Quick-Action Internal Navigation Bridges Strip */}
+            <div className="flex items-center gap-2 sm:gap-2.5 py-3.5 my-5 border-y border-zinc-200 text-xs uppercase overflow-x-auto no-scrollbar -mx-6 sm:mx-0 px-6 sm:px-0">
+              <span className="text-[#b8860b] font-bold mr-1 shrink-0 hidden xs:inline">Hubs:</span>
               <Link 
                 to="/toolkits" 
                 onClick={onClose} 
-                className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs"
+                className="px-3.5 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs"
               >
                 📦 Toolkits
               </Link>
               <Link 
                 to="/assessment" 
                 onClick={onClose} 
-                className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs"
+                className="px-3.5 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs"
               >
                 ⚡ Diagnostic
               </Link>
               <Link 
                 to="/services" 
                 onClick={onClose} 
-                className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs"
+                className="px-3.5 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs"
               >
                 💼 Retainer
               </Link>
               <Link 
                 to="/methodology" 
                 onClick={onClose} 
-                className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs"
+                className="px-3.5 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs"
               >
                 🏛️ Protocol
               </Link>
               <Link 
                 to="/cognitive-tax" 
                 onClick={onClose} 
-                className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs"
+                className="px-3.5 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs"
               >
                 ⚖️ Cognitive Tax
               </Link>
               <Link 
                 to="/intake" 
                 onClick={onClose} 
-                className="px-2.5 py-1 bg-[#b8860b] text-white hover:bg-black font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs"
+                className="px-3.5 py-1.5 bg-[#b8860b] text-white hover:bg-black font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs"
               >
                 ✍️ Intake
               </Link>
             </div>
 
-            {/* Fast-Read Executive Diagnostic Thesis Box (Time-Efficiency) */}
+            {/* Executive Diagnostic Thesis Box */}
             {article.excerpt && (
-              <div className="mt-4 p-3.5 sm:p-5 bg-white border-l-4 border-[#b8860b] border-y border-r border-zinc-200/60 shadow-2xs rounded-r-xs">
-                <div className="flex items-center gap-1.5 mb-1.5 text-[8px] sm:text-[9px] font-mono font-bold uppercase text-[#b8860b] tracking-wider">
-                  <Zap className="w-3.5 h-3.5 text-[#b8860b] shrink-0" /> 
-                  <span>Executive Diagnostic Thesis // 30-Second Fast Read</span>
+              <div className="my-6 p-6 sm:p-7 bg-white border-l-4 border-[#b8860b] border-y border-r border-zinc-200/80 shadow-xs rounded-r-xs">
+                <div className="flex items-center gap-2 mb-2 text-xs font-bold uppercase text-[#b8860b] tracking-wider">
+                  <Zap className="w-4 h-4 text-[#b8860b] shrink-0" /> 
+                  <span>Executive Thesis // Core Strategic Premise</span>
                 </div>
-                <p className="text-zinc-800 text-xs sm:text-sm md:text-base font-serif italic leading-relaxed">
+                <p className="text-zinc-800 text-sm sm:text-base md:text-lg font-serif italic leading-relaxed">
                   "{article.excerpt}"
                 </p>
               </div>
@@ -458,34 +454,34 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
                       return <a {...props} className="text-[#b8860b] hover:underline font-semibold" target="_blank" rel="noopener noreferrer" />;
                     },
                     h2: ({ node, ...props }) => (
-                      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold font-serif text-[#111111] mt-6 sm:mt-8 mb-3 sm:mb-4 border-b border-[#b8860b]/30 pb-2 break-words" {...props} />
+                      <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#111111] mt-10 mb-4 border-b border-[#b8860b]/30 pb-3 break-words leading-snug" {...props} />
                     ),
                     h3: ({ node, ...props }) => (
-                      <h3 className="text-base sm:text-lg md:text-xl font-bold font-serif text-[#111111] mt-5 sm:mt-6 mb-2 sm:mb-3 break-words" {...props} />
+                      <h3 className="text-xl sm:text-2xl font-bold font-serif text-[#111111] mt-8 mb-3 break-words leading-snug" {...props} />
                     ),
                     p: ({ node, ...props }) => (
-                      <p className="text-zinc-800 text-sm sm:text-base md:text-lg leading-relaxed mb-3 font-serif" {...props} />
+                      <p className="text-zinc-800 text-base sm:text-lg md:text-[19px] leading-[1.8] mb-5 font-serif" {...props} />
                     ),
                     ul: ({ node, ...props }) => (
-                      <ul className="space-y-1.5 sm:space-y-2 my-3 sm:my-4 list-disc pl-5 sm:pl-6 text-zinc-800 font-serif text-sm sm:text-base md:text-lg" {...props} />
+                      <ul className="space-y-2.5 my-5 list-disc pl-6 text-zinc-800 font-serif text-base sm:text-lg leading-relaxed" {...props} />
                     ),
                     table: ({ node, ...props }) => (
-                      <div className="my-6 w-full overflow-x-auto border border-zinc-300 rounded-xs shadow-2xs bg-white">
-                        <div className="sm:hidden px-3 py-1 bg-zinc-100 border-b border-zinc-200 text-[8px] font-mono text-zinc-500 uppercase flex items-center justify-between">
+                      <div className="my-8 w-full overflow-x-auto border border-zinc-300 rounded-xs shadow-xs bg-white">
+                        <div className="sm:hidden px-3 py-1.5 bg-zinc-100 border-b border-zinc-200 text-xs font-serif text-zinc-600 uppercase flex items-center justify-between">
                           <span>Operational Matrix</span>
                           <span className="text-[#b8860b]">← Drag to scroll →</span>
                         </div>
-                        <table className="w-full min-w-[500px] text-left text-xs sm:text-sm text-zinc-800 divide-y divide-zinc-200" {...props} />
+                        <table className="w-full min-w-[550px] text-left text-sm text-zinc-800 divide-y divide-zinc-200" {...props} />
                       </div>
                     ),
                     thead: ({ node, ...props }) => (
-                      <thead className="bg-zinc-100 text-zinc-900 font-mono text-xs uppercase" {...props} />
+                      <thead className="bg-zinc-100 text-zinc-900 text-xs font-bold uppercase tracking-wider" {...props} />
                     ),
                     th: ({ node, ...props }) => (
-                      <th className="px-3 sm:px-4 py-2.5 sm:py-3 font-bold border-b border-zinc-200 text-xs" {...props} />
+                      <th className="px-4 py-3 font-bold border-b border-zinc-200 text-xs" {...props} />
                     ),
                     td: ({ node, ...props }) => (
-                      <td className="px-3 sm:px-4 py-2.5 sm:py-3 border-b border-zinc-100 font-sans text-xs sm:text-sm" {...props} />
+                      <td className="px-4 py-3.5 border-b border-zinc-100 font-serif text-sm sm:text-base text-zinc-800 leading-normal" {...props} />
                     ),
                   }}
                 >
@@ -497,22 +493,22 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
 
           {/* Related Strategic Dispatches - Internal Knowledge Graph Linking */}
           {relatedArticles.length > 0 && (
-            <div className="my-8 pt-6 border-t border-zinc-300/80">
-              <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
-                <div className="flex items-center gap-1.5 text-[9px] font-mono font-bold uppercase text-[#b8860b]">
-                  <BookOpen className="w-3.5 h-3.5 text-[#b8860b]" />
+            <div className="my-10 pt-8 border-t border-zinc-200">
+              <div className="flex items-center justify-between mb-5 flex-wrap gap-2">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase text-[#b8860b] tracking-wider">
+                  <BookOpen className="w-4 h-4 text-[#b8860b]" />
                   <span>Related Strategic Dispatches // Internal Network</span>
                 </div>
                 <Link 
                   to="/library" 
                   onClick={onClose} 
-                  className="text-[9px] font-mono text-zinc-500 hover:text-[#b8860b] uppercase font-bold flex items-center gap-1 transition-colors"
+                  className="text-xs text-zinc-600 hover:text-[#b8860b] uppercase font-bold flex items-center gap-1.5 transition-colors tracking-wide"
                 >
                   <span>All Dispatches</span>
-                  <ArrowRight className="w-3 h-3" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {relatedArticles.map((rel) => (
                   <button
                     key={rel.id}
@@ -521,17 +517,17 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
                         onSelectArticle(rel);
                       }
                     }}
-                    className="p-3 sm:p-3.5 bg-white border border-zinc-200 hover:border-[#b8860b] text-left transition-all group flex flex-col justify-between rounded-2xs cursor-pointer shadow-2xs hover:shadow-xs"
+                    className="p-4 sm:p-5 bg-white border border-zinc-200 hover:border-[#b8860b] text-left transition-all group flex flex-col justify-between rounded-xs cursor-pointer shadow-xs hover:shadow-md"
                   >
                     <div>
-                      <span className="text-[8px] font-mono font-bold uppercase text-[#b8860b] block mb-1">
+                      <span className="text-xs font-bold uppercase text-[#b8860b] block mb-2 tracking-wider">
                         {rel.category}
                       </span>
-                      <h4 className="text-xs sm:text-sm font-bold font-serif text-[#111111] group-hover:text-[#b8860b] line-clamp-2 transition-colors">
+                      <h4 className="text-sm sm:text-base font-bold font-serif text-[#111111] group-hover:text-[#b8860b] line-clamp-2 transition-colors leading-snug">
                         {rel.title}
                       </h4>
                     </div>
-                    <div className="mt-3 pt-2 border-t border-zinc-100 flex items-center justify-between text-[8px] font-mono text-zinc-400">
+                    <div className="mt-4 pt-3 border-t border-zinc-100 flex items-center justify-between text-xs text-zinc-500">
                       <span>{getArticleStats(rel).readTime} Min Read</span>
                       <span className="text-[#b8860b] font-bold group-hover:translate-x-1 transition-transform">Read →</span>
                     </div>
@@ -543,11 +539,11 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
 
           {/* Secondary Supporting Visual Reference (Placed at the end so it never blocks content) */}
           {article.image && (
-            <div className="my-8 border border-zinc-200/90 bg-white p-3 sm:p-4 rounded-xs shadow-2xs">
-              <div className="text-[9px] font-mono text-zinc-500 uppercase tracking-wider mb-2 flex items-center justify-between flex-wrap gap-2">
-                <span className="font-bold text-zinc-700">Archival Visual Reference Substrate</span>
-                <span className="text-[8px] text-[#b8860b] bg-[#b8860b]/10 px-2 py-0.5 rounded-full font-bold">
-                  ⚡ 0s Image Delay // Pure Content First
+            <div className="my-10 border border-zinc-200 bg-white p-4 sm:p-5 rounded-xs shadow-xs">
+              <div className="text-xs text-zinc-600 uppercase tracking-wider mb-3 flex items-center justify-between flex-wrap gap-2">
+                <span className="font-bold text-zinc-800">Archival Visual Reference Substrate</span>
+                <span className="text-xs text-[#b8860b] bg-[#b8860b]/10 px-2.5 py-0.5 rounded-xs font-bold tracking-wide">
+                  Archival Exhibit
                 </span>
               </div>
               <div className="aspect-[21/9] max-h-[240px] sm:max-h-[300px] overflow-hidden relative rounded-2xs border border-zinc-100">
@@ -571,24 +567,24 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
 
           {/* Contextual Ecosystem Cross-Linking Gateway */}
           <div className="my-8 sm:my-10 p-5 sm:p-7 md:p-8 bg-white border border-[#b8860b]/30 rounded-xs shadow-2xs space-y-4">
-            <div className="flex items-center gap-2 text-[#b8860b] text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider">
+            <div className="flex items-center gap-2 text-[#b8860b] text-xs font-bold uppercase tracking-wider">
               <Layers className="w-4 h-4 text-[#b8860b] shrink-0" /> 
               <span>Operational Execution Bridges & Institutional Assets</span>
             </div>
-            <p className="text-xs text-zinc-600 font-light leading-relaxed">
+            <p className="text-sm text-zinc-700 font-normal leading-relaxed">
               Connect the strategic architecture in this briefing directly to turnkey digital systems, organizational diagnostics, and dedicated executive mandates:
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-2 font-mono text-[10px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 pt-2 text-xs">
               <Link 
                 to="/toolkits" 
                 onClick={onClose} 
-                className="p-3.5 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group rounded-2xs"
+                className="p-4 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group rounded-xs"
               >
-                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1">
+                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1.5">
                   <span>📦 Founder Toolkits</span>
-                  <ArrowRight className="w-3 h-3 text-[#b8860b]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#b8860b]" />
                 </div>
-                <div className="text-[9px] text-zinc-500 leading-normal">
+                <div className="text-xs text-zinc-600 leading-normal">
                   Turnkey Notion/Coda master workspaces & delegation filters.
                 </div>
               </Link>
@@ -596,13 +592,13 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
               <Link 
                 to="/assessment" 
                 onClick={onClose} 
-                className="p-3.5 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group rounded-2xs"
+                className="p-4 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group rounded-xs"
               >
-                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1">
+                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1.5">
                   <span>⚡ Yield Diagnostic</span>
-                  <ArrowRight className="w-3 h-3 text-[#b8860b]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#b8860b]" />
                 </div>
-                <div className="text-[9px] text-zinc-500 leading-normal">
+                <div className="text-xs text-zinc-600 leading-normal">
                   Benchmark your firm across 5 domains to isolate hidden friction.
                 </div>
               </Link>
@@ -610,13 +606,13 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
               <Link 
                 to="/services" 
                 onClick={onClose} 
-                className="p-3.5 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group rounded-2xs"
+                className="p-4 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group rounded-xs"
               >
-                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1">
+                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1.5">
                   <span>💼 Sovereign Retainer</span>
-                  <ArrowRight className="w-3 h-3 text-[#b8860b]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#b8860b]" />
                 </div>
-                <div className="text-[9px] text-zinc-500 leading-normal">
+                <div className="text-xs text-zinc-600 leading-normal">
                   Retain the Principal Architect for ongoing substrate oversight.
                 </div>
               </Link>
@@ -624,13 +620,13 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
               <Link 
                 to="/methodology" 
                 onClick={onClose} 
-                className="p-3.5 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group rounded-2xs"
+                className="p-4 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group rounded-xs"
               >
-                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1">
+                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1.5">
                   <span>🏛️ Alignment Protocol</span>
-                  <ArrowRight className="w-3 h-3 text-[#b8860b]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#b8860b]" />
                 </div>
-                <div className="text-[9px] text-zinc-500 leading-normal">
+                <div className="text-xs text-zinc-600 leading-normal">
                   The 4-phase transformation from hero-led to systemic authority.
                 </div>
               </Link>
@@ -638,13 +634,13 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
               <Link 
                 to="/cognitive-tax" 
                 onClick={onClose} 
-                className="p-3.5 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group rounded-2xs"
+                className="p-4 bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 hover:border-[#b8860b] transition-all block group rounded-xs"
               >
-                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1">
+                <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1.5">
                   <span>⚖️ Cognitive Tax Engine</span>
-                  <ArrowRight className="w-3 h-3 text-[#b8860b]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#b8860b]" />
                 </div>
-                <div className="text-[9px] text-zinc-500 leading-normal">
+                <div className="text-xs text-zinc-600 leading-normal">
                   Simulate annual EBITDA drained by coordination bottlenecks.
                 </div>
               </Link>
@@ -652,13 +648,13 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
               <Link 
                 to="/intake" 
                 onClick={onClose} 
-                className="p-3.5 bg-[#111111] text-white hover:bg-[#b8860b] transition-all block group rounded-2xs"
+                className="p-4 bg-[#111111] text-white hover:bg-[#b8860b] transition-all block group rounded-xs"
               >
-                <div className="font-bold text-[#b8860b] group-hover:text-white flex items-center justify-between mb-1">
+                <div className="font-bold text-[#b8860b] group-hover:text-white flex items-center justify-between mb-1.5">
                   <span>✍️ Private Mandate Intake</span>
-                  <ArrowRight className="w-3 h-3" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </div>
-                <div className="text-[9px] text-zinc-400 group-hover:text-zinc-100 leading-normal">
+                <div className="text-xs text-zinc-300 group-hover:text-zinc-100 leading-normal">
                   Direct confidential intake docket to the Principal Architect desk.
                 </div>
               </Link>
@@ -667,34 +663,34 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
 
           {/* Up Next in Track Binge Engine Card */}
           {nextArticle && (
-            <div className="my-8 sm:my-10 p-5 sm:p-7 md:p-8 bg-[#111111] text-white border border-[#b8860b]/40 rounded-xs shadow-xl relative overflow-hidden">
-              <div className="flex items-center justify-between gap-2 mb-3 flex-wrap">
+            <div className="my-10 p-6 sm:p-8 bg-[#111111] text-white border border-[#b8860b]/40 rounded-xs shadow-xl relative overflow-hidden">
+              <div className="flex items-center justify-between gap-3 mb-3 flex-wrap">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#b8860b] animate-pulse" />
-                  <span className="text-[9px] sm:text-[10px] font-mono uppercase font-bold text-[#b8860b] tracking-wider">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#b8860b] animate-pulse" />
+                  <span className="text-xs uppercase font-bold text-[#b8860b] tracking-wider">
                     UP NEXT IN THE EXECUTIVE ARCHIVE // EPISODIC SEQUENCE
                   </span>
                 </div>
-                <span className="text-[9px] font-mono text-zinc-400">
+                <span className="text-xs text-zinc-400">
                   {getArticleStats(nextArticle).readTime} MIN READ
                 </span>
               </div>
 
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold font-serif text-white mb-2 break-words">
+              <h3 className="text-xl sm:text-2xl font-bold font-serif text-white mb-2.5 break-words">
                 {nextArticle.title}
               </h3>
 
-              <p className="text-xs sm:text-sm text-zinc-300 font-serif italic mb-5 leading-relaxed">
+              <p className="text-sm sm:text-base text-zinc-300 font-serif italic mb-6 leading-relaxed">
                 {nextArticle.excerpt}
               </p>
 
-              <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/10">
-                <span className="text-[9px] sm:text-[10px] font-mono text-zinc-400">
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-white/10">
+                <span className="text-xs text-zinc-400">
                   Category: {nextArticle.category}
                 </span>
                 <button
                   onClick={handleNextArticleClick}
-                  className="px-4 sm:px-5 py-2 sm:py-2.5 bg-[#b8860b] hover:bg-white hover:text-black text-black font-mono font-bold text-[9px] sm:text-[10px] uppercase tracking-wider transition-all flex items-center gap-2 rounded-xs shadow-md cursor-pointer ml-auto"
+                  className="px-5 py-2.5 bg-[#b8860b] hover:bg-white hover:text-black text-black font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 rounded-xs shadow-md cursor-pointer ml-auto"
                 >
                   <span>Continue to Next Brief</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -703,11 +699,11 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
             </div>
           )}
 
-          <footer className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-zinc-200">
+          <footer className="mt-14 sm:mt-16 pt-8 border-t border-zinc-200">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-6">
               <div>
-                <h4 className="text-[8px] sm:text-[9px] font-black uppercase text-[#b8860b] mb-2 sm:mb-3">Institutional Note</h4>
-                <p className="text-xs text-zinc-500 italic">
+                <h4 className="text-xs font-bold uppercase text-[#b8860b] mb-2 tracking-wider">Institutional Note</h4>
+                <p className="text-sm text-zinc-600 italic leading-relaxed">
                   This dispatch is part of the Unbounded Restricted Registry. Unauthorized distribution is prohibited under Privileged Disclosure protocols.
                 </p>
               </div>
@@ -717,7 +713,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
                     onClose();
                     window.location.href = '/intake';
                   }}
-                  className="w-full md:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-[#b8860b] text-white text-[9px] font-mono font-bold uppercase hover:bg-[#111111] transition-all shadow-md cursor-pointer"
+                  className="w-full md:w-auto px-6 py-3 bg-[#b8860b] text-white text-xs font-bold uppercase hover:bg-[#111111] transition-all shadow-md cursor-pointer tracking-wider"
                 >
                   Initiate Yield Calibration
                 </button>
@@ -730,50 +726,50 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
             </div>
 
             {/* Seamless Ecosystem Interlinks Matrix */}
-            <div className="p-4 sm:p-5 bg-zinc-100 border border-zinc-200 rounded-xs flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[9px]">
-              <div className="text-zinc-600 uppercase font-bold text-center sm:text-left shrink-0">
+            <div className="p-5 bg-zinc-100 border border-zinc-200 rounded-xs flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+              <div className="text-zinc-700 uppercase font-bold tracking-wide text-center sm:text-left shrink-0">
                 Next Architectural Steps:
               </div>
-              <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+              <div className="flex flex-wrap items-center justify-center gap-2">
                 <Link 
                   to="/toolkits" 
                   onClick={onClose}
-                  className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all rounded-2xs"
+                  className="px-3.5 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all rounded-xs"
                 >
                   Founder Toolkits
                 </Link>
                 <Link 
                   to="/assessment" 
                   onClick={onClose}
-                  className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all rounded-2xs"
+                  className="px-3.5 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all rounded-xs"
                 >
                   Audit Inaction Tax
                 </Link>
                 <Link 
                   to="/services" 
                   onClick={onClose}
-                  className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all rounded-2xs"
+                  className="px-3.5 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all rounded-xs"
                 >
-                  Engagement Tracks
+                  Sovereign Retainer
                 </Link>
                 <Link 
                   to="/methodology" 
                   onClick={onClose}
-                  className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all rounded-2xs"
+                  className="px-3.5 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all rounded-xs"
                 >
                   Alignment Protocol
                 </Link>
                 <Link 
                   to="/cognitive-tax" 
                   onClick={onClose}
-                  className="px-2.5 py-1 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all rounded-2xs"
+                  className="px-3.5 py-1.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-zinc-800 font-bold uppercase transition-all rounded-xs"
                 >
                   Cognitive Tax
                 </Link>
                 <Link 
                   to="/intake" 
                   onClick={onClose}
-                  className="px-2.5 py-1 bg-[#b8860b] text-white font-bold uppercase hover:bg-black transition-all rounded-2xs"
+                  className="px-3.5 py-1.5 bg-[#b8860b] text-white font-bold uppercase hover:bg-black transition-all rounded-xs"
                 >
                   Intake Mandate
                 </Link>

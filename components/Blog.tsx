@@ -72,25 +72,25 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
   }, []);
 
   return (
-    <section id="registry" className={`${hideHeader ? 'pt-2 pb-12 sm:pb-16' : 'py-16 sm:py-20'} bg-transparent text-[#f5f5f0] overflow-hidden isolate transition-all duration-500`}>
+    <section id="registry" className={`${hideHeader ? 'pt-2 sm:pt-4 pb-16 sm:pb-24' : 'py-16 sm:py-24'} bg-transparent text-[#f5f5f0] overflow-hidden isolate transition-all duration-500`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {!hideHeader && (
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 gap-8">
             <div className="max-w-2xl">
-              <h2 className="text-[#b8860b] text-[9px] sm:text-[11px] font-black uppercase mb-4 sm:mb-6 ">The Registry</h2>
-              <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
+              <h2 className="text-[#b8860b] text-xs sm:text-sm font-bold uppercase tracking-widest mb-3">The Registry</h2>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif leading-tight text-white">
                 Institutional <span className="italic text-[#b8860b]">Dispatches.</span>
               </h3>
             </div>
             <div className="md:block">
-              <p className="text-zinc-500 text-xs sm:text-sm max-w-xs italic font-light">
+              <p className="text-zinc-400 text-sm sm:text-base max-w-md italic font-normal leading-relaxed">
                 A curated journal of systemic discourse and executive intelligence for the sovereign leader.
               </p>
             </div>
           </div>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {posts.map((post, idx) => (
             <div 
               key={idx} 
@@ -102,56 +102,56 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                   navigate(`/library/${post.id}`);
                 }
               }}
-              className="registry-card group cursor-pointer flex flex-col h-full relative isolate p-3 sm:p-4 rounded-xs border border-white/5 hover:border-[#b8860b]/30 bg-zinc-950/40 hover:bg-zinc-900/60 transition-all duration-300"
+              className="registry-card group cursor-pointer flex flex-col h-full relative isolate p-6 sm:p-7 rounded-xs border border-white/10 hover:border-[#b8860b]/40 bg-zinc-950/60 hover:bg-zinc-900/80 transition-all duration-300 shadow-xl"
             >
               {post.image && (
-                <div className="mb-4 sm:mb-5 overflow-hidden bg-[#1a1a1a] aspect-[16/10] relative border border-white/5 group-hover:border-[#b8860b]/20 transition-all duration-700 rounded-2xs">
+                <div className="mb-5 overflow-hidden bg-[#1a1a1a] aspect-[16/10] relative border border-white/10 group-hover:border-[#b8860b]/30 transition-all duration-700 rounded-xs">
                   {failedImages[post.id] ? (
                     <PermanentArtwork id={post.id} title={post.title} className="w-full h-full" />
                   ) : (
                     <img 
                       src={post.image} 
                       alt={post.title} 
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
                       loading="lazy"
                       decoding="async"
                       referrerPolicy="no-referrer"
                       onError={() => setFailedImages(prev => ({ ...prev, [post.id]: true }))}
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/80 via-transparent to-transparent pointer-events-none" />
                 </div>
               )}
               
-              <div className="flex justify-between items-center mb-3 sm:mb-4 relative z-10 gap-2">
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 min-w-0">
-                  <span className="registry-category text-[#b8860b] text-[8px] sm:text-[9px] font-black uppercase tracking-wider">
+              <div className="flex justify-between items-center mb-4 relative z-10 gap-3">
+                <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 min-w-0">
+                  <span className="registry-category text-[#b8860b] text-xs font-bold uppercase tracking-wider">
                     {post.category}
                   </span>
-                  <span className="text-zinc-500 font-mono text-[8px] uppercase hidden xs:inline">•</span>
-                  <span className="text-zinc-500 font-mono text-[8px] sm:text-[9px] uppercase">
+                  <span className="text-zinc-500 text-xs uppercase hidden xs:inline">•</span>
+                  <span className="text-zinc-400 text-xs uppercase">
                     {getArticleStats(post).words} words • {getArticleStats(post).readTime} min read
                   </span>
                 </div>
-                <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-                  <span className="text-zinc-600 text-[8px] sm:text-[9px] font-mono uppercase hidden sm:inline">
+                <div className="flex items-center gap-3 shrink-0">
+                  <span className="text-zinc-400 text-xs uppercase hidden sm:inline">
                     {post.date}
                   </span>
                   <div className="relative">
                     <button 
                       onClick={(e) => handleShare(e, post)}
-                      className="p-1.5 text-zinc-500 hover:text-[#b8860b] transition-colors rounded-xs"
+                      className="p-1.5 text-zinc-400 hover:text-[#b8860b] transition-colors rounded-xs"
                       aria-label="Share post"
                     >
-                      <Share2 size={13} />
+                      <Share2 size={15} />
                     </button>
                     {sharingId === post.id && (
-                      <div className="absolute right-0 top-6 bg-[#1a1a1a] border border-white/10 p-2 z-20 shadow-2xl flex flex-col gap-2 min-w-[100px] animate-fade-in text-left">
+                      <div className="absolute right-0 top-7 bg-[#1a1a1a] border border-white/10 p-2.5 z-20 shadow-2xl flex flex-col gap-2 min-w-[130px] animate-fade-in text-left rounded-xs">
                         <button 
                           onClick={(e) => handleCopyLink(e, post)}
-                          className="flex items-center gap-2 text-[9px] uppercase font-bold text-zinc-400 hover:text-white transition-colors p-1 w-full"
+                          className="flex items-center gap-2 text-xs uppercase font-bold text-zinc-300 hover:text-white transition-colors p-1.5 w-full"
                         >
-                          {copiedId === post.id ? <Check size={10} className="text-green-500" /> : <LinkIcon size={10} />}
+                          {copiedId === post.id ? <Check size={13} className="text-green-500" /> : <LinkIcon size={13} />}
                           {copiedId === post.id ? 'Copied' : 'Copy Link'}
                         </button>
                         <a 
@@ -159,9 +159,9 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="flex items-center gap-2 text-[9px] uppercase font-bold text-zinc-400 hover:text-white transition-colors p-1"
+                          className="flex items-center gap-2 text-xs uppercase font-bold text-zinc-300 hover:text-white transition-colors p-1.5"
                         >
-                          <X size={10} /> X / Twitter
+                          <X size={13} /> X / Twitter
                         </a>
                         <a 
                           href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${baseShareUrl}/library/${post.slug || post.id}`)}`}
@@ -172,9 +172,9 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                             const shareUrl = `${baseShareUrl}/library/${post.slug || post.id}`;
                             navigator.clipboard.writeText(shareUrl).catch((err) => console.error(err));
                           }}
-                          className="flex items-center gap-2 text-[9px] uppercase font-bold text-zinc-400 hover:text-white transition-colors p-1"
+                          className="flex items-center gap-2 text-xs uppercase font-bold text-zinc-300 hover:text-white transition-colors p-1.5"
                         >
-                          <Linkedin size={10} /> LinkedIn
+                          <Linkedin size={13} /> LinkedIn
                         </a>
                       </div>
                     )}
@@ -182,63 +182,63 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                 </div>
               </div>
               
-              <div className="registry-separator mb-4 sm:mb-6 relative z-10"></div>
+              <div className="my-3 h-px bg-white/10 relative z-10"></div>
               
-              <h4 className="registry-title text-base sm:text-lg lg:text-xl font-bold font-serif mb-2 sm:mb-2.5 leading-snug relative z-10 break-words group-hover:text-[#b8860b] transition-colors">
+              <h4 className="registry-title text-xl sm:text-2xl font-bold font-serif mb-3 leading-snug relative z-10 break-words group-hover:text-[#b8860b] transition-colors">
                 {post.title}
               </h4>
               
-              <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4 italic font-light flex-grow relative z-10 break-words line-clamp-3">
+              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6 italic font-normal flex-grow relative z-10 break-words line-clamp-3">
                 {post.excerpt}
               </p>
               
-              <div className="flex items-center gap-2 text-[9px] sm:text-[10px] font-mono font-bold uppercase text-[#b8860b] opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform sm:translate-x-[-8px] sm:group-hover:translate-x-0 relative z-10 pt-2 border-t border-white/5">
+              <div className="flex items-center justify-between text-xs sm:text-sm font-bold uppercase text-[#b8860b] tracking-wider relative z-10 pt-4 border-t border-white/10">
                 <span>Read Executive Briefing</span>
-                <span>→</span>
+                <span className="text-base transition-transform group-hover:translate-x-1 duration-300">→</span>
               </div>
             </div>
           ))}
         </div>
 
         {/* Strategic Cross-Ecosystem Navigation Bridges */}
-        <div className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-zinc-800/80 flex flex-col md:flex-row items-center justify-between gap-4 relative z-10 font-mono text-[9px]">
-          <div className="text-zinc-400 uppercase font-bold text-center md:text-left">
+        <div className="mt-16 sm:mt-20 pt-10 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10 text-xs">
+          <div className="text-zinc-300 uppercase font-bold tracking-wider text-center md:text-left">
             Institutional Bridges // Convert Intelligence to Execution:
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             <Link 
               to="/toolkits" 
-              className="px-3 py-1.5 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-200 hover:text-[#b8860b] uppercase font-bold transition-all rounded-xs"
+              className="px-4 py-2 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-100 hover:text-[#b8860b] uppercase font-bold tracking-wide transition-all rounded-xs"
             >
               📦 Founder Toolkits
             </Link>
             <Link 
               to="/assessment" 
-              className="px-3 py-1.5 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-200 hover:text-[#b8860b] uppercase font-bold transition-all rounded-xs"
+              className="px-4 py-2 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-100 hover:text-[#b8860b] uppercase font-bold tracking-wide transition-all rounded-xs"
             >
               ⚡ Yield Diagnostic
             </Link>
             <Link 
               to="/services" 
-              className="px-3 py-1.5 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-200 hover:text-[#b8860b] uppercase font-bold transition-all rounded-xs"
+              className="px-4 py-2 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-100 hover:text-[#b8860b] uppercase font-bold tracking-wide transition-all rounded-xs"
             >
               💼 Sovereign Retainer
             </Link>
             <Link 
               to="/methodology" 
-              className="px-3 py-1.5 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-200 hover:text-[#b8860b] uppercase font-bold transition-all rounded-xs"
+              className="px-4 py-2 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-100 hover:text-[#b8860b] uppercase font-bold tracking-wide transition-all rounded-xs"
             >
               🏛️ Alignment Protocol
             </Link>
             <Link 
               to="/cognitive-tax" 
-              className="px-3 py-1.5 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-200 hover:text-[#b8860b] uppercase font-bold transition-all rounded-xs"
+              className="px-4 py-2 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-100 hover:text-[#b8860b] uppercase font-bold tracking-wide transition-all rounded-xs"
             >
               ⚖️ Cognitive Tax
             </Link>
             <Link 
               to="/intake" 
-              className="px-3 py-1.5 bg-[#b8860b] text-black hover:bg-white font-bold uppercase transition-all rounded-xs"
+              className="px-4 py-2 bg-[#b8860b] text-black hover:bg-white font-bold uppercase tracking-wide transition-all rounded-xs"
             >
               ✍️ Intake Docket
             </Link>
