@@ -133,6 +133,9 @@ const App: React.FC = () => {
           image = "https://images.unsplash.com/photo-1486444038473-ac89ae3f74f8?auto=format&fit=crop&q=80&w=1600";
           break;
         case '/services':
+        case '/service':
+        case '/our-services':
+        case '/offerings':
           title = "Strategic Alignment Services | Executive Architecture";
           description = "Explore target consulting engagement protocols: Substrate Auditing, Logic Gate Engineering, and Aligned Handover for enterprise scaling.";
           image = "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600";
@@ -355,6 +358,9 @@ const App: React.FC = () => {
             <Route path="/intake" element={<IntakePage />} />
             <Route path="/portal" element={<Portal />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/service" element={<ServicesPage />} />
+            <Route path="/our-services" element={<ServicesPage />} />
+            <Route path="/offerings" element={<ServicesPage />} />
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/vault" element={<ShopPage />} />
             <Route path="/operational-vault" element={<ShopPage />} />
