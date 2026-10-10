@@ -40,6 +40,7 @@ export interface LeadEntry {
   name: string;
   email: string;
   organization: string;
+  role?: string;
   message: string;
   type: 'intake';
 }

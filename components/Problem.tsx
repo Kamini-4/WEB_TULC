@@ -20,7 +20,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.16, 1, 0.3, 1]
+      ease: [0.16, 1, 0.3, 1] as const
     }
   }
 };
@@ -33,7 +33,7 @@ const VarianceItem: React.FC<{ num: string, title: string; desc: string }> = ({ 
       x: 0,
       transition: {
         duration: 0.6,
-        ease: [0.16, 1, 0.3, 1]
+        ease: [0.16, 1, 0.3, 1] as const
       }
     }
   };
@@ -154,7 +154,7 @@ const Problem: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
         >
           <div className="flex-grow p-8 sm:p-12">
             <h4 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">You are one calibration away from total institutional fact.</h4>

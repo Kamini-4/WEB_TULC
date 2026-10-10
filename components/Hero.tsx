@@ -27,7 +27,7 @@ const Hero: React.FC<HeroProps> = () => {
       y: 0,
       transition: {
         duration: 0.3,
-        ease: [0.16, 1, 0.3, 1]
+        ease: [0.16, 1, 0.3, 1] as const
       }
     }
   };

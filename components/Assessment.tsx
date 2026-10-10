@@ -153,7 +153,11 @@ const QUESTIONS: Question[] = [
   }
 ];
 
-const Assessment: React.FC = () => {
+export interface AssessmentProps {
+  onCtaClick?: () => void;
+}
+
+const Assessment: React.FC<AssessmentProps> = ({ onCtaClick }) => {
   const [step, setStep] = useState<Step>('intro');
   const [identity, setIdentity] = useState({ name: '', email: '', organization: '' });
   const [context, setContext] = useState<ContextType | null>(null);

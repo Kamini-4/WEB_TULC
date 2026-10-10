@@ -60,7 +60,7 @@ const ScaleEvidence: React.FC<ScaleEvidenceProps> = ({ onBriefClick }) => {
  
               <div className="pt-6 sm:pt-8">
                 <button 
-                  onClick={onBriefClick}
+                  onClick={() => onBriefClick()}
                   className="w-full py-4 sm:py-5 border border-[#b8860b] text-[#b8860b] text-[8px] sm:text-[10px] font-black uppercase sm:hover:bg-[#b8860b] hover:text-white transition-all duration-500"
                 >
                   Request Scale Briefing

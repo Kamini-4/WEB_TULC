@@ -210,7 +210,7 @@ export const emailService = {
       adminResult = await resend.emails.send({
         from: sender,
         to: [adminEmail],
-        reply_to: [email],
+        replyTo: [email],
         subject: adminSubject,
         html: adminHtml,
       });
@@ -226,7 +226,7 @@ export const emailService = {
         adminResult = await resend.emails.send({
           from: fallbackSender,
           to: [adminEmail],
-          reply_to: [email],
+          replyTo: [email],
           subject: `[FALLBACK] ${adminSubject}`,
           html: `<div style="background: #fff4f4; padding: 10px; border: 1px solid #fecaca; margin-bottom: 20px; font-size: 12px; font-family: sans-serif;"><strong>NOTE:</strong> Notification transmitted via fallback sender while domain verification is in progress.</div>${adminHtml}`,
         });
@@ -241,7 +241,7 @@ export const emailService = {
       userResult = await resend.emails.send({
         from: sender,
         to: [email],
-        reply_to: [adminEmail],
+        replyTo: [adminEmail],
         subject: userSubject,
         html: userHtml,
       });
@@ -348,7 +348,7 @@ export const emailService = {
         const result = await resend.emails.send({
           from: sender,
           to: [recipient],
-          reply_to: [adminEmail],
+          replyTo: [adminEmail],
           subject: `Aligned Digest: ${title}`,
           html: newsletterHtml,
         });
@@ -482,7 +482,7 @@ export const emailService = {
     const sendRes = await resend.emails.send({
       from: sender,
       to: [contactEmail],
-      reply_to: [adminEmail],
+      replyTo: [adminEmail],
       subject: emailSubject,
       html: emailHtml
     });
@@ -493,7 +493,7 @@ export const emailService = {
       const fallbackRes = await resend.emails.send({
         from: fallbackSender,
         to: [contactEmail],
-        reply_to: [adminEmail],
+        replyTo: [adminEmail],
         subject: `[CLEARANCE] ${emailSubject}`,
         html: emailHtml
       });

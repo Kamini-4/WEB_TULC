@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion } from 'motion/react';
 import { Calculator, TrendingUp, DollarSign, Clock, ShieldCheck, ArrowRight, Zap } from 'lucide-react';
-import { CurrencyCode } from '../../lib/currency';
+import { CurrencyCode, CURRENCY_MULTIPLIERS } from '../../lib/currency';
 import { CurrencySelector } from './CurrencySelector';
 import { usePricingCalculator, useCurrencyService } from '../../core/index.ts';
 

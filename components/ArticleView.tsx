@@ -454,16 +454,28 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
                       return <a {...props} className="text-[#b8860b] hover:underline font-semibold" target="_blank" rel="noopener noreferrer" />;
                     },
                     h2: ({ node, ...props }) => (
-                      <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#111111] mt-10 mb-4 border-b border-[#b8860b]/30 pb-3 break-words leading-snug" {...props} />
+                      <h2 className="text-2xl sm:text-3xl md:text-[32px] font-bold font-serif text-[#111111] mt-12 mb-5 border-b border-[#b8860b]/30 pb-3 break-words leading-tight tracking-tight" {...props} />
                     ),
                     h3: ({ node, ...props }) => (
-                      <h3 className="text-xl sm:text-2xl font-bold font-serif text-[#111111] mt-8 mb-3 break-words leading-snug" {...props} />
+                      <h3 className="text-xl sm:text-2xl md:text-[23px] font-bold font-serif text-[#18181b] mt-9 mb-3.5 break-words leading-snug tracking-normal" {...props} />
                     ),
                     p: ({ node, ...props }) => (
-                      <p className="text-zinc-800 text-base sm:text-lg md:text-[19px] leading-[1.8] mb-5 font-serif" {...props} />
+                      <p className="text-zinc-800 text-base sm:text-lg md:text-[18.5px] leading-[1.82] mb-5 font-serif font-normal" {...props} />
+                    ),
+                    blockquote: ({ node, ...props }) => (
+                      <blockquote className="my-7 pl-5 sm:pl-6 py-3 border-l-4 border-[#b8860b] bg-[#b8860b]/5 italic text-zinc-900 font-serif text-base sm:text-lg md:text-xl rounded-r-xs" {...props} />
                     ),
                     ul: ({ node, ...props }) => (
-                      <ul className="space-y-2.5 my-5 list-disc pl-6 text-zinc-800 font-serif text-base sm:text-lg leading-relaxed" {...props} />
+                      <ul className="space-y-3 my-5 list-disc pl-6 text-zinc-850 font-serif text-base sm:text-lg leading-relaxed" {...props} />
+                    ),
+                    ol: ({ node, ...props }) => (
+                      <ol className="space-y-3 my-5 list-decimal pl-6 text-zinc-850 font-serif text-base sm:text-lg leading-relaxed" {...props} />
+                    ),
+                    strong: ({ node, ...props }) => (
+                      <strong className="font-bold text-zinc-950 font-sans tracking-tight" {...props} />
+                    ),
+                    em: ({ node, ...props }) => (
+                      <em className="italic text-[#8c6708] font-serif font-medium" {...props} />
                     ),
                     table: ({ node, ...props }) => (
                       <div className="my-8 w-full overflow-x-auto border border-zinc-300 rounded-xs shadow-xs bg-white">
