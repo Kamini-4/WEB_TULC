@@ -1,23 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
-import './theme.css';
-import App from './App.tsx';
-
-import { ServiceProvider } from './src/core/index.ts';
+import { BrowserRouter } from 'react-router-dom';
+import { App } from './App';
+import './src/index.css';
 
 const rootElement = document.getElementById('root');
+
 if (!rootElement) {
-  throw new Error("Could not find root element to mount to");
+  throw new Error('Failed to find the root element to mount');
 }
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <ServiceProvider>
-      <Router>
-        <App />
-      </Router>
-    </ServiceProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );

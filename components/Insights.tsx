@@ -127,19 +127,19 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
         {!hideHeader && (
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
             <div className="max-w-xl">
-              <h2 className="text-[#b8860b] text-[10px] font-bold uppercase mb-4 ">Intellectual Authority</h2>
-              <h3 className="text-3xl md:text-5xl font-bold leading-tight">The Sovereign Library.</h3>
+              <h2 className="text-[#b8860b] text-[10px] font-bold uppercase mb-2 tracking-widest font-serif">Intellectual Authority</h2>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif leading-tight">The Sovereign Library.</h3>
             </div>
             <div className="flex gap-4">
-               <button className="text-white text-[10px] font-bold uppercase border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all">
+               <button className="text-white text-[10px] font-bold uppercase border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all font-serif">
                 White Papers
               </button>
-              <button className="text-[#b8860b] text-[10px] font-bold uppercase border border-[#b8860b]/30 px-6 py-3 hover:bg-[#b8860b] hover:text-white transition-all">
+              <button className="text-[#b8860b] text-[10px] font-bold uppercase border border-[#b8860b]/30 px-6 py-3 hover:bg-[#b8860b] hover:text-white transition-all font-serif">
                 Institutional Reports
               </button>
                <button 
                 onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-6 py-3 bg-[#b8860b] text-white text-[10px] font-bold uppercase hover:bg-white hover:text-black transition-all shadow-lg"
+                className="px-6 py-3 bg-[#b8860b] text-white text-[10px] font-bold uppercase hover:bg-white hover:text-black transition-all shadow-lg font-serif"
                >
                 Consult
               </button>
@@ -149,7 +149,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
 
         <div className={`grid md:grid-cols-3 gap-12 ${hideHeader ? 'mb-12' : 'mb-20'}`}>
           {articles.map((article, idx) => (
-            <div key={idx} className="group cursor-pointer" onClick={() => {
+            <div key={idx} className="group cursor-pointer font-serif" onClick={() => {
               onArticleClick(article);
               if (article.slug) {
                 navigate(`/library/${article.slug}`);
@@ -173,13 +173,13 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-40" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
-                  <span className="text-[10px] font-black uppercase text-[#111111] bg-white px-6 py-3 shadow-2xl">Access Briefing</span>
+                  <span className="text-[10px] font-black uppercase text-[#111111] bg-white px-6 py-3 shadow-2xl font-serif">Access Briefing</span>
                 </div>
               </div>
               <div className="flex justify-between items-center mb-3">
                 <div className="flex flex-col gap-1">
-                  <div className="text-[#b8860b] text-[9px] uppercase font-black ">{article.category}</div>
-                  <div className="text-zinc-500 font-mono text-[8px] uppercase ">
+                  <div className="text-[#b8860b] text-[9px] uppercase font-black font-serif">{article.category}</div>
+                  <div className="text-zinc-500 font-serif text-[8.5px] uppercase">
                     {getArticleStats(article).words} words • {getArticleStats(article).readTime} min read
                   </div>
                 </div>

@@ -601,46 +601,55 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
         <header className="mb-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-3">
             <Award className="w-3.5 h-3.5 text-[#b8860b]" />
-            <span className="text-[#b8860b] text-xs font-bold uppercase tracking-wider">
+            <span className="text-[#b8860b] text-xs font-bold uppercase tracking-wider font-serif">
               Executive Blog & Intelligence Archive
             </span>
           </div>
           
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif leading-tight text-white mb-3">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif leading-tight text-white mb-2.5">
             Strategic Blogs & <span className="italic text-[#b8860b] font-normal">Dispatches.</span>
           </h1>
           
-          <p className="max-w-3xl text-zinc-300 text-sm sm:text-base md:text-lg font-serif italic leading-relaxed mb-5">
+          <p className="max-w-3xl text-zinc-300 text-sm sm:text-base md:text-lg font-serif italic leading-relaxed mb-4">
             Forensic research on leadership substrate physics, cognitive tax, and institutional sovereignty. Select any dispatch to read immediately.
           </p>
-
-          {/* Cross-Domain Architecture Internal Links Bar */}
-          <div className="flex items-center gap-2 sm:gap-3 pt-4 border-t border-white/10 text-xs uppercase overflow-x-auto no-scrollbar -mx-4 sm:mx-0 px-4 sm:px-0">
-            <span className="text-[#b8860b] font-bold mr-1 shrink-0 hidden xs:inline">Hubs:</span>
-            <Link to="/toolkits" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
-              📦 Toolkits
-            </Link>
-            <Link to="/assessment" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
-              ⚡ Diagnostic
-            </Link>
-            <Link to="/services" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
-              💼 Retainer
-            </Link>
-            <Link to="/methodology" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
-              🏛️ Protocol
-            </Link>
-            <Link to="/cognitive-tax" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
-              ⚖️ Cognitive Tax
-            </Link>
-            <Link to="/intake" className="px-3.5 py-1.5 bg-[#b8860b] text-black hover:bg-white font-bold transition-colors rounded-xs shrink-0">
-              ✍️ Intake Desk
-            </Link>
-          </div>
         </header>
       </div>
 
-      {/* Strategic Intelligence Archive: Dispatches & Articles Visible Above The Fold */}
+      {/* Strategic Intelligence Archive: Dispatches & Articles Delivered Immediately Above The Fold */}
       <Blog onArticleClick={onArticleClick} hideHeader={true} />
+
+      {/* Cross-Domain Architecture Internal Links Bar Placed At The Bottom */}
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 border-t border-white/10">
+        <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+          <span className="text-xs uppercase font-serif font-bold text-[#b8860b] tracking-wider">
+            Operational Hubs & Institutional Bridges:
+          </span>
+          <span className="text-xs text-zinc-400 font-serif italic">
+            Convert strategic intelligence into organizational execution
+          </span>
+        </div>
+        <div className="flex items-center gap-2 sm:gap-3 text-xs uppercase overflow-x-auto no-scrollbar font-serif">
+          <Link to="/toolkits" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
+            📦 Toolkits
+          </Link>
+          <Link to="/assessment" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
+            ⚡ Diagnostic
+          </Link>
+          <Link to="/services" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
+            💼 Retainer
+          </Link>
+          <Link to="/methodology" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
+            🏛️ Protocol
+          </Link>
+          <Link to="/cognitive-tax" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
+            ⚖️ Cognitive Tax
+          </Link>
+          <Link to="/intake" className="px-3.5 py-1.5 bg-[#b8860b] text-black hover:bg-white font-bold transition-colors rounded-xs shrink-0">
+            ✍️ Intake Desk
+          </Link>
+        </div>
+      </div>
 
       {/* 03. ADD NEWSLETTER THING HERE: Direct Subscriber Gateway */}
       <section className="py-12 sm:py-16 bg-[#0d0d0d] border-t border-white/10">

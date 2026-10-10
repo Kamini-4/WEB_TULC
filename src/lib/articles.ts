@@ -1,4 +1,3 @@
-// Institutional Knowledge Graph: Centralized Articles Registry
 export interface Article {
   id: string;
   slug: string;
@@ -13,19 +12,19 @@ export interface Article {
 
 export const INSTITUTIONAL_ARTICLES: Article[] = [
   {
-    "id": "architecture-of-authority",
-    "slug": "architecture-of-authority",
-    "category": "Systems Design",
-    "title": "Stop Building a Personal Brand: Why Systems Beat Charisma Every Single Day",
-    "excerpt": "Hustle culture lied to you: making yourself the face and brain of everything does not make you powerful\u2014it makes you a prisoner of your own company. Here is how high-performing founders build self-running systems instead.",
-    "image": "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600",
-    "date": "Executive Briefing",
-    "content": [
+    id: "architecture-of-authority",
+    slug: "architecture-of-authority",
+    category: "Systems Design",
+    title: "Stop Building a Personal Brand: Why Systems Beat Charisma Every Single Day",
+    excerpt: "Hustle culture lied to you: making yourself the face and brain of everything does not make you powerful—it makes you a prisoner of your own company. Here is how high-performing founders build self-running systems instead.",
+    image: "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Great Lie of Modern Leadership: \"You Need to Be the Face of Everything\"",
       "Let us challenge a dangerous myth that keeps brilliant founders awake at 3:00 AM: **The belief that your company's strength depends on your personal magnetic presence.**",
       "We celebrate the heroic leader. We applaud founders who are in every Slack thread, every product review, and every sales call. We call it *passion*. We call it *commitment*.",
       "**It is not passion. It is a structural trap.**",
-      "When every critical decision must pass through your personal brain, your company does not have a leader\u2014it has an expensive bottleneck. The moment you step away, growth stalls, execution stumbles, and the team freezes.",
+      "When every critical decision must pass through your personal brain, your company does not have a leader—it has an expensive bottleneck. The moment you step away, growth stalls, execution stumbles, and the team freezes.",
       "According to landmark governance research from [Harvard Business School](https://hbswk.hbs.edu/), companies whose operating criteria are built into clear protocols achieve **34% higher valuation resilience** during leadership changes and market shifts.",
       "You do not need more charisma, more hustle, or more 14-hour workdays. **You need a clear decision architecture.**",
       "### The Reality Check: What Charismatic Bottlenecks Actually Cost You",
@@ -73,7 +72,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     "slug": "strategic-substrates",
     "category": "Cognitive Architecture",
     "title": "The Invisible Tax Eating 15% of Your Profit: Why Your Team Works Hard but Moves Slow",
-    "excerpt": "Ever wonder why a 50-person team feels five times slower than a 5-person team? It is not laziness or bad hiring\u2014it is the hidden cost of leadership friction. Here is how to fix the invisible leak.",
+    "excerpt": "Ever wonder why a 50-person team feels five times slower than a 5-person team? It is not laziness or bad hiring—it is the hidden cost of leadership friction. Here is how to fix the invisible leak.",
     "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
     "date": "Executive Briefing",
     "content": [
@@ -82,7 +81,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "Yet, somehow, **simple decisions take three weeks**, projects drag out, and you catch yourself thinking: *\"Why do I have to explain this again? Why does everything feel so heavy?\"*",
       "Most leaders assume the problem is their people: *\"We need better managers. We need a new project management tool. We need another alignment offsite.\"*",
       "**They are wrong.**",
-      "The problem is not your people. The problem is **the invisible tax of operational friction**\u2014the silent, compounding cost of mismatched assumptions between what you want and how your team actually works.",
+      "The problem is not your people. The problem is **the invisible tax of operational friction**—the silent, compounding cost of mismatched assumptions between what you want and how your team actually works.",
       "According to landmark governance research published in the [MIT Sloan Management Review](https://sloanreview.mit.edu/), unaligned leadership teams silently bleed **up to 15% of their annual operating profit** purely into coordination drag and internal hesitation.",
       "### Where Does This Invisible Tax Come From?",
       "When companies grow from 10 to 50 or 200 people, communication complexity explodes exponentially. Without crystal-clear decision filters:",
@@ -121,18 +120,18 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *Meetings are the symptom; lack of clear execution protocols is the disease.*",
       "- *TULC helps you eliminate the invisible coordination tax so your company runs with startup speed at enterprise scale.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"How many hours did your executive team spend this past week sitting in meetings just trying to agree on what to do next\u2014and what would your company look like if those hours were spent acquiring customers and closing strategic deals?\"*"
+      "> *\"How many hours did your executive team spend this past week sitting in meetings just trying to agree on what to do next—and what would your company look like if those hours were spent acquiring customers and closing strategic deals?\"*"
     ]
   },
   {
-    "id": "aligned-leadership",
-    "slug": "aligned-leadership",
-    "category": "Future of Governance",
-    "title": "Why 70% of AI Initiatives Fail to Make Money: The Governance Mistake Costing Millions",
-    "excerpt": "Buying ChatGPT enterprise licenses does not make you an AI-powered company. Without a structural execution protocol, artificial intelligence just accelerates your existing organizational chaos. Here is what smart boards do instead.",
-    "image": "https://images.unsplash.com/photo-1449156003053-c30bc2016421?auto=format&fit=crop&q=80&w=1600",
-    "date": "Executive Briefing",
-    "content": [
+    id: "aligned-leadership",
+    slug: "aligned-leadership",
+    category: "Future of Governance",
+    title: "Why 70% of AI Initiatives Fail to Make Money: The Governance Mistake Costing Millions",
+    excerpt: "Buying ChatGPT enterprise licenses does not make you an AI-powered company. Without a structural execution protocol, artificial intelligence just accelerates your existing organizational chaos. Here is what smart boards do instead.",
+    image: "https://images.unsplash.com/photo-1449156003053-c30bc2016421?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The AI Euphoria vs. The Cold P&L Reality",
       "Every board of directors is demanding an \"AI strategy.\" Every executive team is investing in modern tools, copilot subscriptions, and automated agents.",
       "Yet behind closed doors, CEOs and CFOs are asking the awkward question: **\"Why isn't any of this showing up on our bottom line?\"**",
@@ -179,23 +178,22 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    "id": "founders-dilemma",
-    "slug": "founders-dilemma",
-    "category": "Succession Architecture",
-    "title": "Why 50% of CEO Successions Crash and Burn Within 18 Months (And How to Protect Your Legacy)",
-    "excerpt": "Stepping down as CEO should be your crowning achievement, not the beginning of your company's downfall. Here is why personality-matching fails and how to build a legacy that thrives forever.",
-    "image": "https://images.unsplash.com/photo-1577086664693-894d8405334a?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1709280000000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "founders-dilemma",
+    slug: "founders-dilemma",
+    category: "Succession Architecture",
+    title: "Why 50% of CEO Successions Crash and Burn Within 18 Months (And How to Protect Your Legacy)",
+    excerpt: "Stepping down as CEO should be your crowning achievement, not the beginning of your company's downfall. Here is why personality-matching fails and how to build a legacy that thrives forever.",
+    image: "https://images.unsplash.com/photo-1577086664693-894d8405334a?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Tragedy of the Successful Exit",
       "You built something extraordinary from scratch. You endured the sleepless nights, navigated crises, hired hundreds of people, and created immense enterprise value.",
-      "Now, you are ready to transition\u2014whether handing the reins to a new CEO, stepping into the Executive Chairman role, or preparing for private equity backing.",
+      "Now, you are ready to transition—whether handing the reins to a new CEO, stepping into the Executive Chairman role, or preparing for private equity backing.",
       "Then the nightmare happens: **Within 18 months of your departure, growth stalls, company culture cracks, and valuation tumbles by 20%.**",
       "This is not bad luck. According to landmark research from [PwC's Strategy& CEO Success Study](https://www.strategyand.pwc.com/), **over 50% of executive successions fail within 18 months**, destroying over **$112 billion in shareholder value** each year across global markets.",
       "Why does this keep happening to brilliant founders?",
       "### The Common Myth: \"We Just Need to Hire Another Me\"",
-      "Boards and headhunters waste months looking for a \"clone\" of the founder\u2014someone with the same magnetic personality, the same gut instinct, and the same drive.",
+      "Boards and headhunters waste months looking for a \"clone\" of the founder—someone with the same magnetic personality, the same gut instinct, and the same drive.",
       "**This is completely misguided.** You cannot clone a founder's 15-year emotional relationship with the business.",
       "The reason incoming CEOs struggle is not a lack of talent or resume credentials. **It is because the founder's wisdom was never written down as an operating system.** It remained locked inside the founder's head as unwritten intuition.",
       "When the founder departs, the company enters an operational vacuum where nobody knows the actual rules of engagement.",
@@ -221,7 +219,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- **For the Shareholder:** Codified systems turn a fragile, person-dependent venture into an institutional enterprise.",
       "### How TULC Guarantees Institutional Permanence",
       "**The Unbounded Leadership Co. (TULC)** is the trusted architectural partner for founders, board chairs, and family offices navigating high-stakes leadership transitions.",
-      "We extract and codify your leadership DNA so your company preserves its soul, speed, and profitability\u2014long after you transition to Chairman.",
+      "We extract and codify your leadership DNA so your company preserves its soul, speed, and profitability—long after you transition to Chairman.",
       "- Audit your leadership transition vulnerability with our [Executive Inaction Tax Audit](/assessment).",
       "- Protect your enterprise value with [Turnkey Founder Decoupling Runbooks](/toolkits).",
       "- Review our [4-Phase Alignment Protocol](/methodology) and [Advisory Retainer Tracks](/services).",
@@ -235,15 +233,14 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     ]
   },
   {
-    "id": "cognitive-tax-of-leadership",
-    "slug": "cognitive-tax-of-leadership",
-    "category": "Cognitive Efficiency",
-    "title": "Executive Burnout Is Not a Personal Weakness: It Is a Systems Design Flaw",
-    "excerpt": "Telling an exhausted CEO to 'take a vacation' or 'try meditation' is insulting when their calendar is held hostage by daily operational firefighting. Here is how elite founders reclaim 40% of their strategic capacity.",
-    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1709366400000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "cognitive-tax-of-leadership",
+    slug: "cognitive-tax-of-leadership",
+    category: "Cognitive Efficiency",
+    title: "Executive Burnout Is Not a Personal Weakness: It Is a Systems Design Flaw",
+    excerpt: "Telling an exhausted CEO to 'take a vacation' or 'try meditation' is insulting when their calendar is held hostage by daily operational firefighting. Here is how elite founders reclaim 40% of their strategic capacity.",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Dangerous Myth That Burnout Means You Are Weak",
       "Executive culture has peddled a toxic narrative for decades: *If you are exhausted, stressed, and overwhelmed, it is because you lack resilience.*",
       "The self-help industry tells founders: *\"Wake up at 5:00 AM, take cold showers, download a meditation app, and take a weekend off.\"*",
@@ -278,7 +275,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- **For the Bottom Line:** Freeing 40% of executive bandwidth unlocks the strategic focus that drives enterprise valuation.",
       "### How TULC Restores Executive Freedom",
       "**The Unbounded Leadership Co. (TULC)** partners with visionary founders and CEOs to systematically dismantle operational drag.",
-      "We replace chaotic firefighting with calm, structured operating systems\u2014freeing 15 to 20 hours of your week so you can return to high-alpha strategic command.",
+      "We replace chaotic firefighting with calm, structured operating systems—freeing 15 to 20 hours of your week so you can return to high-alpha strategic command.",
       "- Discover your exact friction score with our [90-Second Friction Diagnostic](/assessment).",
       "- Calculate the dollar value of your trapped time with our interactive [Cognitive Tax Calculator](/cognitive-tax).",
       "- Deploy self-executing founder systems via [Digital Founder Toolkits](/toolkits).",
@@ -288,19 +285,18 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *Meditation cannot fix a broken delegation process; only clear operational protocols can.*",
       "- *TULC builds the architectural guardrails that permanently protect your time and energy.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"How much more money would your business generate this year if you spent 100% of your working hours on capital allocation, key hires, and high-stakes deals\u2014instead of playing referee to daily operational drama?\"*"
+      "> *\"How much more money would your business generate this year if you spent 100% of your working hours on capital allocation, key hires, and high-stakes deals—instead of playing referee to daily operational drama?\"*"
     ]
   },
   {
-    "id": "bridging-strategy-execution-gap",
-    "slug": "bridging-strategy-execution-gap",
-    "category": "Governance Calibration",
-    "title": "Why 67% of Great Business Strategies Fail in the Real World (And the Board's Blind Spot)",
-    "excerpt": "It is not your strategy that is broken\u2014it is the translation layer. When high-level board vision meets frontline execution, 50% of the signal is lost. Here is how high-performance companies bridge the gap for 2.5x higher returns.",
-    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1709452800000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "bridging-strategy-execution-gap",
+    slug: "bridging-strategy-execution-gap",
+    category: "Governance Calibration",
+    title: "Why 67% of Great Business Strategies Fail in the Real World (And the Board's Blind Spot)",
+    excerpt: "It is not your strategy that is broken—it is the translation layer. When high-level board vision meets frontline execution, 50% of the signal is lost. Here is how high-performance companies bridge the gap for 2.5x higher returns.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Boardroom Mirage: Why Great Plans Die on the Frontlines",
       "Every year, leadership teams spend hundreds of thousands of dollars on brilliant strategy retreats, consulting slide decks, and inspiring corporate memos.",
       "The board approves the vision. The CEO is energized. The slide deck looks flawless.",
@@ -339,7 +335,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "**The Unbounded Leadership Co. (TULC)** installs end-to-end operational architectures that guarantee fiduciary value.",
       "We replace vague memos with precise, self-executing governance protocols that keep your entire organization moving in perfect unison.",
       "- Diagnose enterprise execution lag with our [TULC Inaction Tax Audit](/assessment).",
-      "- Review our high-stakes advisory services on our [Board-Level Strategic Mandates](/mandates) and [Executive Services Page](/services).",
+      "- Review our high-stakes advisory services on our [Executive Services Page](/services).",
       "- Deploy self-executing governance filters via [Turnkey Founder Toolkits](/toolkits).",
       "- Initiate confidential board calibration advisory through our [Sovereign Intake Facility](/intake).",
       "### Key Takeaways",
@@ -347,19 +343,18 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *Slide decks do not execute; documented, rule-based operational systems do.*",
       "- *TULC ensures 99% fidelity from boardroom intent to frontline delivery, unlocking up to 2.5x peer outperformance.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"If you asked five different department heads right now to define your top company priority in one single sentence, would you get five matching answers\u2014or five different versions of reality?\"*"
+      "> *\"If you asked five different department heads right now to define your top company priority in one single sentence, would you get five matching answers—or five different versions of reality?\"*"
     ]
   },
   {
-    "id": "reclaiming-strategic-bandwidth",
-    "slug": "reclaiming-strategic-bandwidth",
-    "category": "Executive Effectiveness",
-    "title": "Why the Busiest CEOs Are Often Strategically Bankrupt (And How to Fix It)",
-    "excerpt": "Boasting about an 80-hour work week is not a badge of honor\u2014it is a confession of broken systems. Strategic bandwidth is your only real currency as an executive. Here is how top leaders reclaim 15 to 20 hours a week.",
-    "image": "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1709539200000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "reclaiming-strategic-bandwidth",
+    slug: "reclaiming-strategic-bandwidth",
+    category: "Executive Effectiveness",
+    title: "Why the Busiest CEOs Are Often Strategically Bankrupt (And How to Fix It)",
+    excerpt: "Boasting about an 80-hour work week is not a badge of honor—it is a confession of broken systems. Strategic bandwidth is your only real currency as an executive. Here is how top leaders reclaim 15 to 20 hours a week.",
+    image: "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Calendar Badge of Honor That Is Killing Your Company",
       "Somewhere along the way, modern leadership culture developed an unhealthy obsession with calendar congestion.",
       "Founders proudly post color-coded calendar screenshots showing back-to-back 15-minute blocks from 7:00 AM to 9:00 PM. They boast about working through weekends and replying to emails at 1:00 AM.",
@@ -407,19 +402,18 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *True executive leverage comes from eliminating meetings, not scheduling them more efficiently.*",
       "- *TULC gives you back 15 to 20 hours of high-leverage strategic capacity every single week.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"If you were required to cancel 50% of the meetings currently on your calendar for next week, how many of them would actually cause revenue to drop\u2014and how many were simply there because your team lacks clear decision rules?\"*"
+      "> *\"If you were required to cancel 50% of the meetings currently on your calendar for next week, how many of them would actually cause revenue to drop—and how many were simply there because your team lacks clear decision rules?\"*"
     ]
   },
   {
-    "id": "institutional-lag",
-    "slug": "institutional-lag",
-    "category": "Systems Architecture",
-    "title": "The Speed of a Decision: Why Institutional Lag Is the Silent Killer of Fast-Growing Companies",
-    "excerpt": "The most dangerous metric in your company is not customer acquisition cost or churn\u2014it is the time between making a decision and watching it happen. Here is why fast-moving competitors are eating slow giants for lunch.",
-    "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1709625600000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "institutional-lag",
+    slug: "institutional-lag",
+    category: "Systems Architecture",
+    title: "The Speed of a Decision: Why Institutional Lag Is the Silent Killer of Fast-Growing Companies",
+    excerpt: "The most dangerous metric in your company is not customer acquisition cost or churn—it is the time between making a decision and watching it happen. Here is why fast-moving competitors are eating slow giants for lunch.",
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Dangerous Distance Between \"Decided\" and \"Done\"",
       "Think about the last major strategic decision made in your boardroom or executive sync.",
       "How long did it actually take from the moment everyone said *\"yes\"* to the moment real code was shipped, new contracts were signed, or customers noticed a change?",
@@ -466,19 +460,18 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *Approval committees do not reduce risk; they only increase delay and cost.*",
       "- *TULC replaces bureaucratic delays with clear, rule-based execution gates that move decisions in under 24 hours.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"What is one critical strategic decision your team made over a month ago that has still not been fully deployed to the market\u2014and what is that delay costing you in customer acquisition and brand momentum?\"*"
+      "> *\"What is one critical strategic decision your team made over a month ago that has still not been fully deployed to the market—and what is that delay costing you in customer acquisition and brand momentum?\"*"
     ]
   },
   {
-    "id": "engineering-strategic-bandwidth",
-    "slug": "engineering-strategic-bandwidth",
-    "category": "Bandwidth Reclamation",
-    "title": "Why Good People Make Bad Decisions: Stop Blaming Your Managers and Fix the Architecture",
-    "excerpt": "85% of workplace execution bottlenecks stem from system design flaws, not employee capability. When your managers make bad calls or hesitate, firing them won't fix it. Here is how to hard-code founder intuition into the company.",
-    "image": "https://images.unsplash.com/photo-1507537297325-5f9037f3796d?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1709712000000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "engineering-strategic-bandwidth",
+    slug: "engineering-strategic-bandwidth",
+    category: "Bandwidth Reclamation",
+    title: "Why Good People Make Bad Decisions: Stop Blaming Your Managers and Fix the Architecture",
+    excerpt: "85% of workplace execution bottlenecks stem from system design flaws, not employee capability. When your managers make bad calls or hesitate, firing them won't fix it. Here is how to hard-code founder intuition into the company.",
+    image: "https://images.unsplash.com/photo-1507537297325-5f9037f3796d?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Scapegoat Trap: \"We Just Need to Upgrade Our Talent\"",
       "Every frustrated founder has thought it: *\"Why can't my team just think like I do? Why do they make such careless decisions? Do I have to hire all new executives?\"*",
       "It is tempting to blame individual competence. It feels satisfying to fire a VP and hire another high-priced executive with a glittering resume.",
@@ -523,19 +516,18 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *Codifying your decision heuristics resolves 80% of operational questions before they ever reach your inbox.*",
       "- *TULC translates your unique founder instinct into self-executing company protocols.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"When was the last time an employee brought you a problem they should have solved themselves\u2014and did they bring it to you because they couldn't solve it, or because you never gave them clear rules to make the call?\"*"
+      "> *\"When was the last time an employee brought you a problem they should have solved themselves—and did they bring it to you because they couldn't solve it, or because you never gave them clear rules to make the call?\"*"
     ]
   },
   {
-    "id": "aligned-authority-vs-reactive-management",
-    "slug": "aligned-authority-vs-reactive-management",
-    "category": "Governance Calibration",
-    "title": "Stop Being the Chief Problem Solver: Why Solving Everything Makes You a Weak CEO",
-    "excerpt": "It feels good to be the hero who sweeps in and saves the day. But every fire you put out yourself weakens your company's immune system. Here is how sovereign founders transition from firefighting to architectural command.",
-    "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1709798400000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "aligned-authority-vs-reactive-management",
+    slug: "aligned-authority-vs-reactive-management",
+    category: "Governance Calibration",
+    title: "Stop Being the Chief Problem Solver: Why Solving Everything Makes You a Weak CEO",
+    excerpt: "It feels good to be the hero who sweeps in and saves the day. But every fire you put out yourself weakens your company's immune system. Here is how sovereign founders transition from firefighting to architectural command.",
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Hero Trap That Keeps Leaders Trapped",
       "Let us challenge a deeply ingrained corporate addiction: **The dopamine rush of solving problems.**",
       "When a client is angry, a critical deal wobbles, or a product deadline slips, you swoop in. You make the call. You rewrite the copy. You save the client. You win the day.",
@@ -563,7 +555,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "",
       "### The Three Pillars of Architectural Command",
       "How do the best leaders step off the firefighting treadmill? They install three foundational disciplines:",
-      "1. **Architectural Command:** Set non-negotiable standards for quality, financial risk, and customer experience\u2014and write them down.",
+      "1. **Architectural Command:** Set non-negotiable standards for quality, financial risk, and customer experience—and write them down.",
       "2. **Structural Resonance:** Ensure every department lead understands those standards so thoroughly that they make the exact same calls the CEO would make.",
       "3. **Decoupled Execution:** Empower teams to operate at full speed with 100% authority, holding them accountable to outcomes rather than micromanaging their daily steps.",
       "### Repetition for Retention: The Rule of Three",
@@ -582,19 +574,18 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *Investors do not buy busy founders; they buy predictable, self-running operating systems.*",
       "- *TULC helps you build the decision guardrails that turn your business into an anti-fragile asset.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"What was the last fire you personally put out in your company\u2014and what specific written rule would have allowed your team to solve it without ever contacting you?\"*"
+      "> *\"What was the last fire you personally put out in your company—and what specific written rule would have allowed your team to solve it without ever contacting you?\"*"
     ]
   },
   {
-    "id": "dynamics-of-inevitability",
-    "slug": "dynamics-of-inevitability",
-    "category": "Cognitive Alignment",
-    "title": "Why Elite Talent Fails in Broken Systems: Systems Beat Rockstars Every Time",
-    "excerpt": "Hiring 'A-players' into a company with ambiguous decision rules is like putting a Ferrari engine into a car with square wheels. Here is how inevitable companies build operating environments where ordinary teams achieve extraordinary results.",
-    "image": "https://images.unsplash.com/photo-1508108712903-4947ef9b2ef7?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1709884800000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "dynamics-of-inevitability",
+    slug: "dynamics-of-inevitability",
+    category: "Cognitive Alignment",
+    title: "Why Elite Talent Fails in Broken Systems: Systems Beat Rockstars Every Time",
+    excerpt: "Hiring 'A-players' into a company with ambiguous decision rules is like putting a Ferrari engine into a car with square wheels. Here is how inevitable companies build operating environments where ordinary teams achieve extraordinary results.",
+    image: "https://images.unsplash.com/photo-1508108712903-4947ef9b2ef7?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Rockstar Fallacy: Why Your Expensive Hires Are Underperforming",
       "You went out and hired an elite VP of Sales from a big tech giant, an acclaimed product designer, and a seasoned COO.",
       "You gave them equity, six-figure salaries, and massive autonomy. You expected revenue to double in 90 days.",
@@ -641,25 +632,24 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *Top performers burn out and leave when forced to navigate political friction instead of executing.*",
       "- *TULC builds the operational infrastructure that turns good teams into unstoppable, self-running enterprises.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"If your top three executives gave their two-week notice this afternoon, would your company's core operations continue smoothly on systems\u2014or would your business grind to an immediate, panic-stricken halt?\"*"
+      "> *\"If your top three executives gave their two-week notice this afternoon, would your company's core operations continue smoothly on systems—or would your business grind to an immediate, panic-stricken halt?\"*"
     ]
   },
   {
-    "id": "cost-of-organizational-latency",
-    "slug": "cost-of-organizational-latency",
-    "category": "Structural Integrity",
-    "title": "The $100,000 Meeting: How Hesitation and Bureaucracy Bleed 20% of Your Profit",
-    "excerpt": "It is not your direct costs that are hurting margins\u2014it is the time it takes your organization to make a decision. Here is a practical roadmap to measure and eliminate the Inaction Tax draining your company's bottom line.",
-    "image": "https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1709971200000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "cost-of-organizational-latency",
+    slug: "cost-of-organizational-latency",
+    category: "Structural Integrity",
+    title: "The $100,000 Meeting: How Hesitation and Bureaucracy Bleed 20% of Your Profit",
+    excerpt: "It is not your direct costs that are hurting margins—it is the time it takes your organization to make a decision. Here is a practical roadmap to measure and eliminate the Inaction Tax draining your company's bottom line.",
+    image: "https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Meeting That Cost More Than a Sports Car",
       "Take a moment to calculate the real cost of a routine company meeting: Eight senior leaders sitting around a conference table (or on Zoom) for 90 minutes.",
       "Between salaries, bonuses, and lost opportunity cost, that meeting easily costs **$3,000 to $5,000 in cold, hard cash.**",
       "Now multiply that by four follow-up alignment syncs, two subcommittee reviews, and a 3-week delay in launching a campaign.",
       "That single decision just cost your company **over $100,000 in wasted executive bandwidth and lost market momentum.**",
-      "This is what we call **The Inaction Tax**\u2014the massive, unmeasured financial destruction caused by operational hesitation and consensus-seeking bureaucracy.",
+      "This is what we call **The Inaction Tax**—the massive, unmeasured financial destruction caused by operational hesitation and consensus-seeking bureaucracy.",
       "In mid-market and enterprise organizations, the inaction tax quietly devours **15% to 20% of annual operating margins**.",
       "Research published by the [Wharton School of Business](https://executiveeducation.wharton.upenn.edu/) demonstrates that cutting decision latency by **50% increases enterprise return on equity by over 30%**.",
       "### Why Bureaucracy Explodes as Companies Scale",
@@ -695,23 +685,22 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- Deploy turnkey operational systems with our [Turnkey Founder Toolkits](/toolkits).",
       "- Schedule an architectural diagnostic consultation via the [Institutional Intake Portal](/intake).",
       "### Key Takeaways",
-      "- *The biggest expense on your P&L is not payroll or marketing\u2014it is the hidden cost of slow decisions.*",
+      "- *The biggest expense on your P&L is not payroll or marketing—it is the hidden cost of slow decisions.*",
       "- *Meetings are often just an expensive way for managers to avoid taking personal responsibility.*",
       "- *TULC helps you eliminate the Inaction Tax, reclaiming up to 20% of your operating margin.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"If you calculated the total executive salary cost of every meeting held in your company this week, did those meetings generate equal value on your balance sheet\u2014or were they just expensive ways to share information?\"*"
+      "> *\"If you calculated the total executive salary cost of every meeting held in your company this week, did those meetings generate equal value on your balance sheet—or were they just expensive ways to share information?\"*"
     ]
   },
   {
-    "id": "transitioning-founder-to-chairman",
-    "slug": "transitioning-founder-to-chairman",
-    "category": "Succession Architecture",
-    "title": "From Founder to Chairman: How to Step Back Without Watching Your Company Fall Apart",
-    "excerpt": "67% of founder-to-chairman transitions trigger strategic drift, leadership clashes, and valuation collapse. Here is the architectural blueprint to transition gracefully while preserving complete control over what matters.",
-    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1710057600000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "transitioning-founder-to-chairman",
+    slug: "transitioning-founder-to-chairman",
+    category: "Succession Architecture",
+    title: "From Founder to Chairman: How to Step Back Without Watching Your Company Fall Apart",
+    excerpt: "67% of founder-to-chairman transitions trigger strategic drift, leadership clashes, and valuation collapse. Here is the architectural blueprint to transition gracefully while preserving complete control over what matters.",
+    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Dilemma of Stepping Back",
       "You built an incredible enterprise. You reached the stage where you want to step out of the daily grind and assume the role of Executive Chairman.",
       "You hire an accomplished CEO to run operations. You want to focus on high-level strategy, major acquisitions, and board governance.",
@@ -757,19 +746,18 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *The Leadership Threshold Model eliminates second-guessing by setting transparent authority zones.*",
       "- *TULC provides the proven governance architecture to protect your legacy and company valuation.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"If you stepped into the Chairman role tomorrow, what is the exact dollar amount and strategic scope where your new CEO should have 100% freedom to act without asking you\u2014and is that number clearly documented today?\"*"
+      "> *\"If you stepped into the Chairman role tomorrow, what is the exact dollar amount and strategic scope where your new CEO should have 100% freedom to act without asking you—and is that number clearly documented today?\"*"
     ]
   },
   {
-    "id": "ceo-burnout-systems-failure",
-    "slug": "ceo-burnout-systems-failure",
-    "category": "Cognitive Efficiency",
-    "title": "Why CEO Exhaustion Is an Engineering Failure: The Blueprint to Reclaim 40% of Your Bandwidth",
-    "excerpt": "When a founder burns out, the board tells them to take a break. But you cannot rest your way out of a company that lacks operational guardrails. Here is how elite scale-up founders systematically reclaim their mental bandwidth.",
-    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1710144000000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "ceo-burnout-systems-failure",
+    slug: "ceo-burnout-systems-failure",
+    category: "Cognitive Efficiency",
+    title: "Why CEO Exhaustion Is an Engineering Failure: The Blueprint to Reclaim 40% of Your Bandwidth",
+    excerpt: "When a founder burns out, the board tells them to take a break. But you cannot rest your way out of a company that lacks operational guardrails. Here is how elite scale-up founders systematically reclaim their mental bandwidth.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Dirty Secret of the High-Growth Founder",
       "From the outside, you are crushing it. You closed another funding round, hiring is up, and your revenue graph is trending up and to the right.",
       "But in private, you are completely drained. You wake up exhausted, dread opening your messaging apps, and spend your entire day mediating petty disputes and answering questions your team should already know how to handle.",
@@ -781,7 +769,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "### The Architectural Defect: Uncompiled Strategy",
       "Why does everything escalate to you? **Because your vision exists as uncompiled software.**",
       "- Think of your strategy like code. If code is compiled, the machine runs it automatically without asking the engineer for instructions.",
-      "- But if your strategy is uncompiled\u2014if your principles, priorities, and quality standards exist only in your head\u2014your team has to stop and consult your brain at every single step.",
+      "- But if your strategy is uncompiled—if your principles, priorities, and quality standards exist only in your head—your team has to stop and consult your brain at every single step.",
       "- That constant querying creates immense mental drag, turning the CEO into an exhausted human router.",
       "Data published by [McKinsey & Company](https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights) indicates that poorly structured governance is the **number one leading driver of executive burnout in scaling enterprises**.",
       "### Standard Wellness Coaching vs. TULC Substrate Engineering",
@@ -815,19 +803,18 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *Taking vacations does not fix an uncompiled strategy; only documented systems can.*",
       "- *TULC helps you permanently reclaim 15 to 20 hours of high-leverage strategic capacity each week.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"If you looked at the last ten decisions that required your personal approval, how many of them actually required your unique genius\u2014and how many just needed a clear written rule?\"*"
+      "> *\"If you looked at the last ten decisions that required your personal approval, how many of them actually required your unique genius—and how many just needed a clear written rule?\"*"
     ]
   },
   {
-    "id": "delegators-paradox-scale-quality",
-    "slug": "delegators-paradox-scale-quality",
-    "category": "Delegation Dynamics",
-    "title": "The Delegator's Paradox: How to Scale Decisions Without Lowering Your Standards",
-    "excerpt": "Telling a detail-obsessed founder to 'just let go and delegate' is terrible advice that ruins product quality. Here is why classic delegation fails and how to delegate decision rules instead of tasks.",
-    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1710230400000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "delegators-paradox-scale-quality",
+    slug: "delegators-paradox-scale-quality",
+    category: "Delegation Dynamics",
+    title: "The Delegator's Paradox: How to Scale Decisions Without Lowering Your Standards",
+    excerpt: "Telling a detail-obsessed founder to 'just let go and delegate' is terrible advice that ruins product quality. Here is why classic delegation fails and how to delegate decision rules instead of tasks.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Terrible Advice Every Founder Receives",
       "Every business book, podcast, and executive advisor tells founders the exact same thing: *\"You have to let go. You need to trust your team. Just delegate and stop micromanaging.\"*",
       "So you try it. You hand off a critical project to a manager, step back, and give them complete freedom.",
@@ -874,19 +861,18 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *Delegating tasks causes quality variance; delegating decision rules produces 100% execution parity.*",
       "- *TULC codifies your unique taste and standards into self-running company rubrics.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"What is one standard you constantly have to remind your team about\u2014and have you ever turned that standard into a written checklist they must pass before showing you the work?\"*"
+      "> *\"What is one standard you constantly have to remind your team about—and have you ever turned that standard into a written checklist they must pass before showing you the work?\"*"
     ]
   },
   {
-    "id": "operational-friction-ebitda-leakage",
-    "slug": "operational-friction-ebitda-leakage",
-    "category": "Systems Audit",
-    "title": "How Meeting Bloat and Bureaucracy Bleed 15% of Your Profit (And How to Recover It)",
-    "excerpt": "A financial breakdown of the coordination tax draining fast-scaling companies, plus an executive checklist to reclaim 15 hours of weekly strategic capacity.",
-    "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1710316800000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "operational-friction-ebitda-leakage",
+    slug: "operational-friction-ebitda-leakage",
+    category: "Systems Audit",
+    title: "How Meeting Bloat and Bureaucracy Bleed 15% of Your Profit (And How to Recover It)",
+    excerpt: "A financial breakdown of the coordination tax draining fast-scaling companies, plus an executive checklist to reclaim 15 hours of weekly strategic capacity.",
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Silent Profit Bleed Hiding on Your Calendar",
       "If someone told you that a rogue vendor was embezzling 15% of your annual revenue, you would call forensic accountants, launch an investigation, and fire them before sunset.",
       "Yet every single week, **that exact amount of money is silently leaking out of your business.**",
@@ -931,19 +917,18 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *Replacing live status meetings with asynchronous dashboards immediately recovers executive hours.*",
       "- *TULC installs the operational architecture to reclaim your time and expand your profit margins.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"If you audited every recurring internal meeting on your leadership team's calendar for the past month, which ones produced measurable revenue or cost savings\u2014and which ones were just status updates in disguise?\"*"
+      "> *\"If you audited every recurring internal meeting on your leadership team's calendar for the past month, which ones produced measurable revenue or cost savings—and which ones were just status updates in disguise?\"*"
     ]
   },
   {
-    "id": "scaling-leadership-dna-sovereign-voice",
-    "slug": "scaling-leadership-dna-sovereign-voice",
-    "category": "Sovereign Leadership",
-    "title": "Why Company Culture Retreats Don't Work: How to Clone Your Decision-Making DNA",
-    "excerpt": "Hanging inspirational posters on the wall and doing trust falls won't teach your managers how to think like you. Here is how visionary founders build a Sovereign Voice Mapping architecture that scales their exact intuition.",
-    "image": "https://images.unsplash.com/photo-1507537297325-5f9037f3796d?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1710403200000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "scaling-leadership-dna-sovereign-voice",
+    slug: "scaling-leadership-dna-sovereign-voice",
+    category: "Sovereign Leadership",
+    title: "Why Company Culture Retreats Don't Work: How to Clone Your Decision-Making DNA",
+    excerpt: "Hanging inspirational posters on the wall and doing trust falls won't teach your managers how to think like you. Here is how visionary founders build a Sovereign Voice Mapping architecture that scales their exact intuition.",
+    image: "https://images.unsplash.com/photo-1507537297325-5f9037f3796d?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Corporate Retreat Mirage",
       "Companies spend tens of thousands of dollars taking their executive teams to luxury mountain resorts.",
       "They spend three days whiteboarding core values: *\"Integrity, Excellence, Customer Obsession, Innovation.\"*",
@@ -989,19 +974,18 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *Sovereign Voice Mapping translates founder intuition into clear, objective decision rubrics.*",
       "- *TULC helps you clone your decision-making DNA so your team executes flawlessly without you.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"When your team makes a call that disappoints you, did they fail to think like you\u2014or did you fail to document the decision criteria that made your thinking unique in the first place?\"*"
+      "> *\"When your team makes a call that disappoints you, did they fail to think like you—or did you fail to document the decision criteria that made your thinking unique in the first place?\"*"
     ]
   },
   {
-    "id": "from-strategic-intent-to-operational-architecture",
-    "slug": "from-strategic-intent-to-operational-architecture",
-    "category": "Strategic Architecture",
-    "title": "Why Consulting Slide Decks Collect Dust: Building Permanent Execution Infrastructure",
-    "excerpt": "Traditional consultants charge millions to drop off a 200-slide PowerPoint deck and disappear. But slide decks don't execute strategy\u2014infrastructure does. Here is how T.U.L.C. builds durable, self-regulating operational systems.",
-    "image": "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1710489600000,
-    "date": "Executive Briefing",
-    "content": [
+    id: "from-strategic-intent-to-operational-architecture",
+    slug: "from-strategic-intent-to-operational-architecture",
+    category: "Strategic Architecture",
+    title: "Why Consulting Slide Decks Collect Dust: Building Permanent Execution Infrastructure",
+    excerpt: "Traditional consultants charge millions to drop off a 200-slide PowerPoint deck and disappear. But slide decks don't execute strategy—infrastructure does. Here is how T.U.L.C. builds durable, self-regulating operational systems.",
+    image: "https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1600",
+    date: "Executive Briefing",
+    content: [
       "## The Multi-Million Dollar Slide Deck Scandal",
       "Let us challenge a legacy consulting industry model that has extracted billions from enterprise balance sheets with shockingly little to show for it.",
       "A prestigious global consulting firm sends a team of junior analysts in bespoke suits to conduct six months of interviews.",
@@ -1047,19 +1031,18 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *Over 60% of strategies fail because companies lack the operational systems to sustain them.*",
       "- *TULC builds permanent, self-regulating execution protocols that guarantee strategic results.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"How much money has your organization spent over the past three years on strategy decks, consultants, and offsites\u2014and how much of that strategic vision actually exists in your team's daily operating software today?\"*"
+      "> *\"How much money has your organization spent over the past three years on strategy decks, consultants, and offsites—and how much of that strategic vision actually exists in your team's daily operating software today?\"*"
     ]
   },
   {
-    "id": "vc-portfolio-coordination-drag",
-    "slug": "vc-portfolio-coordination-drag",
-    "category": "Sovereign Capital",
-    "title": "Stop Burning Partner Bandwidth on Portfolio Fires: Real-Time Governance for VCs and PE Firms",
-    "excerpt": "Quarterly board decks only show you the wreckage after the crash happened. Here is how elite VC partners, PE principals, and multi-board directors use automated operational telemetry to protect fund returns and reclaim 15 hours a week.",
-    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
-    "timestamp": 1710576000000,
-    "date": "Board Intelligence",
-    "content": [
+    id: "vc-portfolio-coordination-drag",
+    slug: "vc-portfolio-coordination-drag",
+    category: "Sovereign Capital",
+    title: "Stop Burning Partner Bandwidth on Portfolio Fires: Real-Time Governance for VCs and PE Firms",
+    excerpt: "Quarterly board decks only show you the wreckage after the crash happened. Here is how elite VC partners, PE principals, and multi-board directors use automated operational telemetry to protect fund returns and reclaim 15 hours a week.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
+    date: "Board Intelligence",
+    content: [
       "## The Dirty Secret of Venture Capital & Private Equity",
       "You fought hard to win competitive allocations. You wrote the check. You took a seat on the board of directors.",
       "Now, you are sitting on six, eight, or twelve different boards.",
@@ -1104,12 +1087,11 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *Tracking leading operational indicators allows partners to intervene months before problems hit the P&L.*",
       "- *TULC installs automated governance telemetry across portfolio companies, protecting fund returns.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"If you looked at your troubled portfolio companies today, how much earlier would you have caught their operational drift if you were tracking decision speed and meeting bloat\u2014instead of waiting for quarterly revenue reports?\"*"
+      "> *\"If you looked at your troubled portfolio companies today, how much earlier would you have caught their operational drift if you were tracking decision speed and meeting bloat—instead of waiting for quarterly revenue reports?\"*"
     ]
   }
 ];
 
-// Legacy ID mapping dictionary for backward compatibility
 const LEGACY_ID_MAP: Record<string, string> = {
   "int-010": "architecture-of-authority",
   "int-011": "strategic-substrates",
@@ -1136,20 +1118,17 @@ export const getArticleByIdOrSlug = (idOrSlug: string): Article | undefined => {
   if (!idOrSlug) return undefined;
   const clean = idOrSlug.trim().toLowerCase();
   
-  // Direct match on id or slug
   const directMatch = INSTITUTIONAL_ARTICLES.find(
     a => a.id.toLowerCase() === clean || a.slug.toLowerCase() === clean
   );
   if (directMatch) return directMatch;
 
-  // Legacy ID mapping match
   if (LEGACY_ID_MAP[clean]) {
     const legacySlug = LEGACY_ID_MAP[clean];
     const legacyMatch = INSTITUTIONAL_ARTICLES.find(a => a.slug === legacySlug);
     if (legacyMatch) return legacyMatch;
   }
 
-  // Title slug match fallback
   return INSTITUTIONAL_ARTICLES.find(a => {
     const titleSlug = a.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     return titleSlug === clean;
