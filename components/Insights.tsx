@@ -7,7 +7,7 @@ import { INSTITUTIONAL_ARTICLES, Article } from '../src/lib/articles';
 import { PermanentArtwork } from './PermanentArtwork';
 
 interface InsightsProps {
-  onArticleClick: (article: Article) => void;
+  onArticleClick?: (article: Article) => void;
   hideHeader?: boolean;
 }
 
@@ -150,7 +150,9 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
         <div className={`grid md:grid-cols-3 gap-12 ${hideHeader ? 'mb-12' : 'mb-20'}`}>
           {articles.map((article, idx) => (
             <div key={idx} className="group cursor-pointer font-serif" onClick={() => {
-              onArticleClick(article);
+              if (typeof onArticleClick === 'function') {
+                onArticleClick(article);
+              }
               if (article.slug) {
                 navigate(`/library/${article.slug}`);
               } else if (article.id) {
