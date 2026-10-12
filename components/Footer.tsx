@@ -47,8 +47,9 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/toolkits" className="hover:text-[#8c6708] transition-colors">
-                  Founder Runbooks & Toolkits
+                <Link to="/products" className="text-[#1c1917] font-semibold hover:text-[#8c6708] transition-colors flex items-center gap-1.5">
+                  <span>Digital Products & Toolkits</span>
+                  <span className="px-1 py-0.2 bg-[#1c1917] text-[#f7f4ee] text-[8px] font-sans font-bold uppercase rounded-2xs">Entry OS</span>
                 </Link>
               </li>
             </ul>

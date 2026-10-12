@@ -22,6 +22,7 @@ import { ShopProduct, BundleProduct } from '../../data/shopProducts';
 import { CurrencyCode, formatCurrencyAmount, getProductPrice, getBundlePrice } from '../../lib/currency';
 import { CurrencySelector } from './CurrencySelector';
 import { useCheckoutProcessor } from '../../core/index.ts';
+import { Link } from 'react-router-dom';
 
 interface CheckoutModalProps {
   item: ShopProduct | BundleProduct | null;
@@ -44,6 +45,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   const [email, setEmail] = useState('');
   const [fullName, setFullName] = useState('');
   const [organization, setOrganization] = useState('');
+  const [teamSize, setTeamSize] = useState('11-50');
+  const [bottleneck, setBottleneck] = useState('Tactical Approvals & Firefighting');
   const [step, setStep] = useState<'checkout' | 'success'>('checkout');
   const [isProcessing, setIsProcessing] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
@@ -214,6 +217,40 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     className="w-full px-3 py-2 text-xs bg-white border border-zinc-300 rounded-2xs focus:border-[#b8860b] focus:outline-none"
                   />
                 </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-[9px] font-mono uppercase font-bold text-zinc-600 mb-1">
+                      Organization Size
+                    </label>
+                    <select
+                      value={teamSize}
+                      onChange={(e) => setTeamSize(e.target.value)}
+                      className="w-full px-3 py-2 text-xs bg-white border border-zinc-300 rounded-2xs focus:border-[#b8860b] focus:outline-none"
+                    >
+                      <option value="1-10">1 - 10 people</option>
+                      <option value="11-50">11 - 50 people</option>
+                      <option value="51-200">51 - 200 people</option>
+                      <option value="200+">200+ people</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-[9px] font-mono uppercase font-bold text-zinc-600 mb-1">
+                      Primary Operational Drag
+                    </label>
+                    <select
+                      value={bottleneck}
+                      onChange={(e) => setBottleneck(e.target.value)}
+                      className="w-full px-3 py-2 text-xs bg-white border border-zinc-300 rounded-2xs focus:border-[#b8860b] focus:outline-none"
+                    >
+                      <option value="Tactical Approvals & Firefighting">Tactical Approvals</option>
+                      <option value="Meeting & Calendar Overload">Meeting Overload</option>
+                      <option value="Decision Deadlock">Decision Deadlock</option>
+                      <option value="Founder Key-Person Risk">Key-Person Risk</option>
+                    </select>
+                  </div>
+                </div>
               </div>
 
               {/* Payment Methods Info */}
@@ -349,9 +386,34 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 </div>
               </div>
 
+              {/* VIP Strategic Next Step: High-Ticket Lead Conversion Bridge */}
+              <div className="p-4 bg-[#1c1917] text-white border border-[#b8860b]/40 rounded-xs text-left space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-[8px] font-mono uppercase text-[#b8860b] font-bold">
+                    VIP FAST-TRACK ADVISORY INVITATION
+                  </span>
+                  <span className="px-1.5 py-0.2 bg-[#b8860b] text-black text-[8px] font-mono uppercase font-black rounded-2xs">
+                    Fee Waived
+                  </span>
+                </div>
+                <h5 className="text-xs font-bold text-white">
+                  Claim Your 1-on-1 Confidential Founder Severance Audit
+                </h5>
+                <p className="text-[11px] text-zinc-300 font-light leading-relaxed">
+                  As an authorized toolkit owner, your $1,500 diagnostic intake fee is 100% waived. Review your organizational bottlenecks directly with Principal Architect Suchita Sancheti.
+                </p>
+                <Link
+                  to="/intake"
+                  onClick={onClose}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#b8860b] hover:bg-white hover:text-black text-black text-[9px] font-mono uppercase font-black tracking-wider transition-colors rounded-2xs mt-1"
+                >
+                  <span>Apply for Confidential Audit →</span>
+                </Link>
+              </div>
+
               <button
                 onClick={onClose}
-                className="w-full py-2.5 px-4 bg-zinc-200 hover:bg-zinc-300 text-[#111111] text-[9px] font-mono uppercase font-bold transition-colors"
+                className="w-full py-2.5 px-4 bg-zinc-200 hover:bg-zinc-300 text-[#111111] text-[9px] font-mono uppercase font-bold transition-colors cursor-pointer"
               >
                 Close & Return to Sovereign Vault
               </button>

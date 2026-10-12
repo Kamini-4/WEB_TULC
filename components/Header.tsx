@@ -19,14 +19,15 @@ export const Header: React.FC = () => {
 
   const navLinks = [
     { name: 'Services', path: '/services', icon: Shield },
-    { name: 'How It Works', path: '/methodology', icon: Layers },
+    { name: 'Digital Products', path: '/products', icon: Layers, highlight: true },
+    { name: 'How It Works', path: '/methodology', icon: Activity },
     { name: 'Two-Week Test', path: '/assessment', icon: Activity },
     { name: 'Freedom Calculator', path: '/cognitive-tax', icon: Calculator },
     { name: 'Dispatches', path: '/library', icon: FileText },
     { name: 'About Suchita', path: '/about', icon: UserCheck },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => location.pathname === path || (path === '/products' && (location.pathname === '/shop' || location.pathname === '/toolkits'));
 
   return (
     <header className="sticky top-0 z-50 bg-[#f7f4ee]/95 backdrop-blur-md border-b border-[#e2dcce] transition-all font-serif">
@@ -47,20 +48,27 @@ export const Header: React.FC = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6 text-xs uppercase tracking-tight font-medium">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-5 text-xs uppercase tracking-tight font-medium">
           {navLinks.map((link) => {
             const active = isActive(link.path);
             return (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`transition-colors py-1 border-b-2 ${
+                className={`transition-colors py-1 border-b-2 flex items-center gap-1.5 ${
                   active 
                     ? 'text-[#8c6708] border-[#8c6708] font-bold' 
-                    : 'text-[#57534e] border-transparent hover:text-[#1c1917] hover:border-[#b8860b]/40'
+                    : link.highlight
+                      ? 'text-[#1c1917] font-semibold border-transparent hover:text-[#8c6708] hover:border-[#8c6708]'
+                      : 'text-[#57534e] border-transparent hover:text-[#1c1917] hover:border-[#b8860b]/40'
                 }`}
               >
-                {link.name}
+                <span>{link.name}</span>
+                {link.highlight && (
+                  <span className="px-1.5 py-0.2 bg-[#1c1917] text-[#f7f4ee] text-[9px] font-sans font-bold uppercase tracking-wider rounded-2xs border border-[#b8860b]/30">
+                    Lead OS
+                  </span>
+                )}
               </Link>
             );
           })}

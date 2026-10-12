@@ -168,22 +168,22 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       modules: []
     },
     earlyBird: {
-      badge: 'Starter Gateway • Save 50%',
-      discountPercent: 50,
-      seatsRemaining: 8,
+      badge: 'Lead Gateway • Under $30',
+      discountPercent: 82,
+      seatsRemaining: 12,
       originalPriceUsd: 150,
-      earlyBirdPriceUsd: 75,
+      earlyBirdPriceUsd: 27,
       bonusTitle: 'Bonus: The 1-Page Delegation Contract Template',
       bonusValue: '$95 Value Included Free',
-      expirationNote: 'Introductory gateway allocation open at $75.'
+      expirationNote: 'Introductory lead-generation gateway rate open at $27.'
     },
     pricing: {
-      usd: 75,
+      usd: 27,
       originalUsd: 150,
-      eur: 69,
-      gbp: 59,
-      inr: 5999,
-      aed: 275,
+      eur: 25,
+      gbp: 22,
+      inr: 1999,
+      aed: 99,
       estimatedBandwidthSavingsAnnualUsd: 95000
     },
     socialProof: {
@@ -306,23 +306,23 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     },
 
     earlyBird: {
-      badge: 'Early Bird Tier • Save 50%',
-      discountPercent: 50,
-      seatsRemaining: 4,
+      badge: 'Irresistible Value • Save 15 Hrs/Wk',
+      discountPercent: 84,
+      seatsRemaining: 7,
       originalPriceUsd: 290,
-      earlyBirdPriceUsd: 145,
+      earlyBirdPriceUsd: 47,
       bonusTitle: 'Bonus: The 15-Minute Executive Morning Ritual Guide',
       bonusValue: '$195 Value Included Free',
-      expirationNote: 'Only 4 licenses remaining at $145. Auto-reverts to $290 once allocation closes.'
+      expirationNote: 'Lead-generation allocation open at $47 (Save $243 today).'
     },
 
     pricing: {
-      usd: 145,
+      usd: 47,
       originalUsd: 290,
-      eur: 135,
-      gbp: 115,
-      inr: 11999,
-      aed: 535,
+      eur: 44,
+      gbp: 38,
+      inr: 3499,
+      aed: 172,
       estimatedBandwidthSavingsAnnualUsd: 360000
     },
 
@@ -447,23 +447,23 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     },
 
     earlyBird: {
-      badge: 'Early Bird Tier • Save 50%',
-      discountPercent: 50,
-      seatsRemaining: 3,
-      originalPriceUsd: 390,
-      earlyBirdPriceUsd: 195,
+      badge: 'Decoupling Weapon • Save 81%',
+      discountPercent: 81,
+      seatsRemaining: 5,
+      originalPriceUsd: 350,
+      earlyBirdPriceUsd: 67,
       bonusTitle: 'Bonus: Private Equity Continuity Due Diligence Checklist',
       bonusValue: '$295 Value Included Free',
-      expirationNote: 'Only 3 licenses available at $195.'
+      expirationNote: 'Lead-generation allocation open at $67.'
     },
 
     pricing: {
-      usd: 195,
-      originalUsd: 390,
-      eur: 180,
-      gbp: 155,
-      inr: 15999,
-      aed: 715,
+      usd: 67,
+      originalUsd: 350,
+      eur: 62,
+      gbp: 54,
+      inr: 4999,
+      aed: 245,
       estimatedBandwidthSavingsAnnualUsd: 520000
     },
 
@@ -588,23 +588,23 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     },
 
     earlyBird: {
-      badge: 'Early Bird Tier • Save 50%',
-      discountPercent: 50,
-      seatsRemaining: 5,
-      originalPriceUsd: 290,
-      earlyBirdPriceUsd: 145,
+      badge: 'Decision Velocity • Save 79%',
+      discountPercent: 79,
+      seatsRemaining: 6,
+      originalPriceUsd: 320,
+      earlyBirdPriceUsd: 67,
       bonusTitle: 'Bonus: The 72-Hour Conflict Resolution Playbook',
       bonusValue: '$245 Value Included Free',
-      expirationNote: 'Only 5 allocation licenses open before price locks at $290.'
+      expirationNote: 'Lead-generation allocation open at $67.'
     },
 
     pricing: {
-      usd: 145,
-      originalUsd: 290,
-      eur: 135,
-      gbp: 115,
-      inr: 11999,
-      aed: 535,
+      usd: 67,
+      originalUsd: 320,
+      eur: 62,
+      gbp: 54,
+      inr: 4999,
+      aed: 245,
       estimatedBandwidthSavingsAnnualUsd: 280000
     },
 
@@ -729,23 +729,23 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     },
 
     earlyBird: {
-      badge: 'Early Bird Tier • Save 50%',
-      discountPercent: 50,
-      seatsRemaining: 2,
-      originalPriceUsd: 390,
-      earlyBirdPriceUsd: 195,
+      badge: 'Executive Ramp • Save 77%',
+      discountPercent: 77,
+      seatsRemaining: 4,
+      originalPriceUsd: 380,
+      earlyBirdPriceUsd: 87,
       bonusTitle: 'Bonus: The Executive Severance & Clean Exit Protocol',
       bonusValue: '$295 Value Included Free',
-      expirationNote: 'Only 2 licenses left at $195.'
+      expirationNote: 'Lead-generation allocation open at $87.'
     },
 
     pricing: {
-      usd: 195,
-      originalUsd: 390,
-      eur: 180,
-      gbp: 155,
-      inr: 15999,
-      aed: 715,
+      usd: 87,
+      originalUsd: 380,
+      eur: 80,
+      gbp: 69,
+      inr: 6499,
+      aed: 319,
       estimatedBandwidthSavingsAnnualUsd: 400000
     },
 
@@ -872,23 +872,23 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     },
 
     earlyBird: {
-      badge: 'Early Bird Tier • Save 50%',
-      discountPercent: 50,
-      seatsRemaining: 3,
+      badge: 'Diagnostic Telemetry • Save 75%',
+      discountPercent: 75,
+      seatsRemaining: 5,
       originalPriceUsd: 390,
-      earlyBirdPriceUsd: 195,
+      earlyBirdPriceUsd: 97,
       bonusTitle: 'Bonus: Board-Ready Executive Summary Deck Template',
       bonusValue: '$195 Value Included Free',
-      expirationNote: 'Only 3 licenses available at $195.'
+      expirationNote: 'Lead-generation allocation open at $97.'
     },
 
     pricing: {
-      usd: 195,
+      usd: 97,
       originalUsd: 390,
-      eur: 180,
-      gbp: 155,
-      inr: 15999,
-      aed: 715,
+      eur: 89,
+      gbp: 78,
+      inr: 7499,
+      aed: 355,
       estimatedBandwidthSavingsAnnualUsd: 650000
     },
 
@@ -928,26 +928,26 @@ export const SOVEREIGN_VAULT_BUNDLE: BundleProduct = {
   id: 'tulc-complete-founder-systems-suite',
   title: 'The Complete Founder Systems Suite (All Digital Toolkits)',
   tagline: 'The complete digital operating system for high-growth founders. Replace daily operational fires with permanent written architecture.',
-  badge: 'Complete Suite: 65% Off • Only 6 Bundles Left',
+  badge: 'Complete Suite: 86% Off • Only 6 Bundles Left',
   description: 'Instant access to every digital toolkit in the library. Pre-built Notion workspaces, Coda templates, decision matrices, onboarding codexes, and team diagnostics. Ready to duplicate with 1 click.',
   pricing: {
-    usd: 495,
+    usd: 197,
     originalUsd: 1450,
-    savingsUsd: 955,
-    eur: 460,
-    gbp: 395,
-    inr: 39999,
-    aed: 1819
+    savingsUsd: 1253,
+    eur: 180,
+    gbp: 155,
+    inr: 14999,
+    aed: 720
   },
   earlyBird: {
-    badge: 'Founder Early Bird • Save $955',
-    discountPercent: 65,
+    badge: 'Founder Lead-Gen Suite • Save $1,253',
+    discountPercent: 86,
     seatsRemaining: 6,
     originalPriceUsd: 1450,
-    earlyBirdPriceUsd: 495,
+    earlyBirdPriceUsd: 197,
     bonusTitle: 'Master Unified Notion Workspace + Digital Bonus Pack',
     bonusValue: '$590 Value Included Free',
-    expirationNote: 'Only 6 complete system suites remaining at $495 before this tier closes.'
+    expirationNote: 'Only 6 complete system suites remaining at $197 before introductory allocation closes.'
   },
   includes: [
     'Asset 00: The 72-Hour Founder Severance Protocol & Delegation Filter',

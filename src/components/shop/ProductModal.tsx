@@ -329,7 +329,9 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                   <span className="text-xs font-mono text-zinc-400 line-through">
                     {formatCurrencyAmount(originalPrice, currency)}
                   </span>
-                  <span className="text-[9px] font-mono text-red-600 font-black">50% Early Bird Off</span>
+                  <span className="text-[9px] font-mono text-red-600 font-black">
+                    Save {product.earlyBird.discountPercent}% Lead Gen Rate
+                  </span>
                 </div>
               </div>
 

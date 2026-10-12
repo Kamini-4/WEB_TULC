@@ -5,7 +5,11 @@ import {
   Clock, 
   ShieldCheck, 
   FileText,
-  Layers
+  Layers,
+  Zap,
+  Gift,
+  CheckCircle2,
+  Flame
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import VideoPlayer from '../../components/VideoPlayer';
@@ -38,9 +42,9 @@ export const Home: React.FC = () => {
             <span className="italic font-bold text-[#b8860b]">Reclaim 15+ Hours Weekly.</span>
           </h1>
 
-          {/* Subheadline with Black Background Highlights */}
+          {/* Subheadline: Clean text without black stripes */}
           <p className="text-base sm:text-lg text-[#57534e] max-w-3xl mx-auto leading-relaxed tracking-tight">
-            We help founders build <span className="bg-black text-white px-2 py-0.5 rounded-xs font-bold inline-block shadow-2xs">companies that run without them in 90 days</span> without <span className="bg-black text-[#b8860b] px-2 py-0.5 rounded-xs font-bold inline-block shadow-2xs">micromanagement, midnight firefighting, or decision bottlenecks</span>.
+            We enable founders to build <strong className="font-bold text-[#1c1917]">companies that run without them in 90 days</strong> without <strong className="font-bold text-[#1c1917]">micromanagement, midnight firefighting, or decision bottlenecks</strong>.
           </p>
 
           {/* Action CTAs - Clean High Contrast & Elegant */}
@@ -52,12 +56,13 @@ export const Home: React.FC = () => {
               <span>Take The Two-Week Test</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
-            <a
-              href="#briefing"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 bg-white hover:bg-black hover:text-white text-[#1c1917] font-semibold text-xs uppercase tracking-tight rounded-xs border border-[#ded6c5] transition-all shadow-2xs cursor-pointer"
+            <Link
+              to="/products"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 bg-[#efebe2] hover:bg-black hover:text-white text-[#1c1917] font-bold text-xs uppercase tracking-tight rounded-xs border border-[#b8860b]/50 transition-all shadow-2xs cursor-pointer"
             >
-              <span>Watch Founder Briefing</span>
-            </a>
+              <Zap className="w-4 h-4 text-[#8c6708]" />
+              <span>Browse Digital Systems ($27–$97)</span>
+            </Link>
           </div>
 
           {/* 4 Proof Metric Cards Highlighted with Black Background */}
@@ -325,6 +330,181 @@ export const Home: React.FC = () => {
                 </span>
               </div>
             </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 3.5 Digital Systems & Entry Gateways (Lead Generation Showcase) */}
+      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 border-b border-[#ded6c5] bg-[#ffffff]">
+        <div className="max-w-6xl mx-auto space-y-8">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-black text-[#b8860b] text-[9px] font-mono uppercase tracking-widest font-black">
+                <Zap className="w-3.5 h-3.5 text-[#b8860b]" /> TURNKEY DIGITAL ARSENAL • ENTRY LEAD GATEWAYS
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1c1917] tracking-tight">
+                Test Our Systems in 20 Minutes <br />
+                <span className="italic font-bold text-[#8c6708]">Before Retaining Our Firm.</span>
+              </h2>
+              <p className="text-xs sm:text-sm text-[#57534e] leading-relaxed">
+                Our bespoke advisory engagements are $25k–$100k+. We packaged the exact operational frameworks into 1-click digital workspaces priced from <strong className="text-black">$27 to $97</strong> so high-growth founders can experience autonomous operations with zero friction.
+              </p>
+            </div>
+
+            <div className="shrink-0 flex flex-col sm:flex-row items-start sm:items-center gap-2.5">
+              <Link
+                to="/products"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-black hover:bg-[#8c6708] text-white text-xs font-bold uppercase tracking-tight rounded-xs transition-all shadow-sm"
+              >
+                <span>View All 6 Digital Toolkits</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+
+          {/* 3 Featured Lead Generation Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {/* Gateway 1: Asset 00 */}
+            <div className="bg-[#faf8f5] border border-[#ded6c5] hover:border-black p-5 rounded-xs flex flex-col justify-between shadow-2xs hover:shadow-md transition-all group">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="px-2 py-0.5 bg-black text-[#b8860b] text-[9px] font-mono uppercase font-black">
+                    ASSET 00 • QUICK START
+                  </span>
+                  <span className="text-[10px] font-mono text-[#78716c] font-bold">15-Min Deploy</span>
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-[#1c1917] group-hover:text-[#8c6708] transition-colors">
+                    The 72-Hour Founder Severance Protocol
+                  </h3>
+                  <p className="text-xs text-[#57534e] mt-1 leading-relaxed">
+                    Binary delegation covenants and spending thresholds under $5,000. Stops your inbox from being the universal bottleneck.
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-[#ded6c5] space-y-1 text-xs">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] text-[#78716c] uppercase font-bold">Lead Gen Price:</span>
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-lg font-black font-mono text-black">$27</span>
+                      <span className="text-xs font-mono text-[#a8a29e] line-through">$150</span>
+                    </div>
+                  </div>
+                  <div className="text-[10px] text-[#8c6708] font-bold">Save 82% • Instant Notion Clone</div>
+                </div>
+              </div>
+              <div className="pt-4 mt-2">
+                <Link
+                  to="/products"
+                  className="w-full py-2 px-3 bg-white hover:bg-black hover:text-white text-[#1c1917] text-xs font-bold uppercase tracking-tight border border-[#ded6c5] hover:border-black rounded-xs transition-colors flex items-center justify-between"
+                >
+                  <span>Explore Asset 00</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Gateway 2: Asset 01 (Flagship) */}
+            <div className="bg-[#ffffff] border-2 border-[#b8860b] p-5 rounded-xs flex flex-col justify-between shadow-md hover:shadow-lg transition-all group relative">
+              <div className="absolute -top-3 right-4 px-2 py-0.5 bg-[#8c6708] text-white text-[9px] font-mono uppercase font-black rounded-2xs">
+                MOST POPULAR GATEWAY
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="px-2 py-0.5 bg-black text-[#b8860b] text-[9px] font-mono uppercase font-black">
+                    ASSET 01 • FLAGSHIP OS
+                  </span>
+                  <span className="text-[10px] font-mono text-[#78716c] font-bold">35-Min Deploy</span>
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-[#1c1917] group-hover:text-[#8c6708] transition-colors">
+                    The 15-Hour Founder Bandwidth Reclamation OS
+                  </h3>
+                  <p className="text-xs text-[#57534e] mt-1 leading-relaxed">
+                    4-Lane Ingress Triage + 30-Day Calendar Guillotine. Claw back 15 hours of strategic focus every single week.
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-[#ded6c5] space-y-1 text-xs">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] text-[#78716c] uppercase font-bold">Lead Gen Price:</span>
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-lg font-black font-mono text-black">$47</span>
+                      <span className="text-xs font-mono text-[#a8a29e] line-through">$290</span>
+                    </div>
+                  </div>
+                  <div className="text-[10px] text-[#8c6708] font-bold">Save 84% • Value: $360K/yr Bandwidth</div>
+                </div>
+              </div>
+              <div className="pt-4 mt-2">
+                <Link
+                  to="/products"
+                  className="w-full py-2 px-3 bg-black hover:bg-[#8c6708] text-white text-xs font-bold uppercase tracking-tight rounded-xs transition-colors flex items-center justify-between"
+                >
+                  <span>Lock In Asset 01 ($47)</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Gateway 3: Complete Suite */}
+            <div className="bg-[#1c1917] text-white border border-[#b8860b]/50 p-5 rounded-xs flex flex-col justify-between shadow-md hover:shadow-xl transition-all group">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="px-2 py-0.5 bg-[#b8860b] text-black text-[9px] font-mono uppercase font-black">
+                    COMPLETE SUITE (SAVE 86%)
+                  </span>
+                  <span className="text-[10px] font-mono text-zinc-400 font-bold">All 6 Toolkits</span>
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-white group-hover:text-[#b8860b] transition-colors">
+                    The Complete Founder Systems Suite
+                  </h3>
+                  <p className="text-xs text-zinc-300 mt-1 leading-relaxed">
+                    All 6 production systems in one pre-connected Master Unified Notion Hub. Complete company-wide license + $590 bonuses.
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-zinc-800 space-y-1 text-xs">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] text-zinc-400 uppercase font-bold">Early Bird Suite:</span>
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-lg font-black font-mono text-[#b8860b]">$197</span>
+                      <span className="text-xs font-mono text-zinc-500 line-through">$1,450</span>
+                    </div>
+                  </div>
+                  <div className="text-[10px] text-green-400 font-bold">Save $1,253 • 6 Licenses Left</div>
+                </div>
+              </div>
+              <div className="pt-4 mt-2">
+                <Link
+                  to="/products"
+                  className="w-full py-2 px-3 bg-[#b8860b] hover:bg-white hover:text-black text-black text-xs font-bold uppercase tracking-tight rounded-xs transition-colors flex items-center justify-between"
+                >
+                  <span>Get Complete Suite ($197)</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Free Delegation Magnet Callout */}
+          <div className="p-4 sm:p-5 bg-[#faf8f5] border border-[#ded6c5] rounded-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-[#efebe2] border border-[#b8860b]/40 flex items-center justify-center shrink-0">
+                <Gift className="w-4 h-4 text-[#8c6708]" />
+              </div>
+              <div>
+                <span className="font-bold text-[#1c1917] block">Want to start 100% free?</span>
+                <span className="text-[#57534e]">Download the 1-Page Founder Delegation Covenant (Instant Notion + PDF).</span>
+              </div>
+            </div>
+            <Link
+              to="/products"
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-black hover:bg-[#8c6708] text-white text-xs font-bold uppercase tracking-tight rounded-xs shrink-0 transition-colors"
+            >
+              <span>Claim Free Download</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
           </div>
 
         </div>

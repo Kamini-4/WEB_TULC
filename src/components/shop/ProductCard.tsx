@@ -164,10 +164,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 {currencySymbol}{currencyPrice.toLocaleString()}
               </span>
               <span className="text-xs font-mono text-zinc-400 line-through">
-                {currencySymbol}{(currencyPrice * 2).toLocaleString()}
+                {currencySymbol}{Math.round(product.pricing.originalUsd * (currencyPrice / product.pricing.usd)).toLocaleString()}
               </span>
               <span className="text-[9px] font-mono font-bold text-red-600">
-                Save 50% Early Bird
+                Save {product.earlyBird.discountPercent}% Lead Gen Rate
               </span>
             </div>
             <div className="text-[8px] font-mono text-[#b8860b] uppercase font-bold">

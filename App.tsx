@@ -13,6 +13,7 @@ import { ServicesPage } from './src/pages/ServicesPage';
 import { MethodologyPage } from './src/pages/MethodologyPage';
 import { About } from './src/pages/About';
 import { IntakePage } from './src/pages/IntakePage';
+import { ShopPage } from './src/pages/Shop';
 import { ArticleRouteWrapper } from './components/ArticleRouteWrapper';
 
 export const App: React.FC = () => {
@@ -25,6 +26,11 @@ export const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/library" element={<Library />} />
           <Route path="/library/:slug" element={<ArticleRouteWrapper />} />
+          
+          {/* Digital Products & Systems (Lead Gateways) */}
+          <Route path="/products" element={<ShopPage />} />
+          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/toolkits" element={<ShopPage />} />
           
           {/* Legacy & direct routes for dispatches */}
           <Route path="/article/:slug" element={<ArticleRouteWrapper />} />

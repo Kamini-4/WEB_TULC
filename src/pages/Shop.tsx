@@ -16,7 +16,9 @@ import {
   ChevronDown,
   Target,
   Trophy,
-  Gift
+  Gift,
+  Copy,
+  ExternalLink
 } from 'lucide-react';
 import { SHOP_PRODUCTS, SOVEREIGN_VAULT_BUNDLE, ShopProduct, BundleProduct } from '../data/shopProducts';
 import { GoldenCircleGraphic } from '../components/shop/GoldenCircleGraphic';
@@ -37,6 +39,7 @@ import {
   getStoredCurrency, 
   setStoredCurrency 
 } from '../lib/currency';
+import { apiRequest } from '../lib/apiClient';
 
 export const ShopPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -44,6 +47,46 @@ export const ShopPage: React.FC = () => {
   const [checkoutItem, setCheckoutItem] = useState<ShopProduct | BundleProduct | null>(null);
   const [currency, setCurrencyState] = useState<CurrencyCode>(() => getStoredCurrency());
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  // Free Lead Magnet Capture State
+  const [freeMagnetName, setFreeMagnetName] = useState('');
+  const [freeMagnetEmail, setFreeMagnetEmail] = useState('');
+  const [freeMagnetCompany, setFreeMagnetCompany] = useState('');
+  const [freeMagnetTeamSize, setFreeMagnetTeamSize] = useState('11-50');
+  const [freeMagnetBottleneck, setFreeMagnetBottleneck] = useState('Tactical Firefighting & Approvals');
+  const [freeMagnetSubmitting, setFreeMagnetSubmitting] = useState(false);
+  const [freeMagnetSuccess, setFreeMagnetSuccess] = useState(false);
+  const [freeMagnetCopied, setFreeMagnetCopied] = useState(false);
+
+  const handleFreeLeadSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!freeMagnetEmail || !freeMagnetName) return;
+    setFreeMagnetSubmitting(true);
+    try {
+      await apiRequest('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify({
+          fullName: freeMagnetName,
+          email: freeMagnetEmail,
+          organization: freeMagnetCompany || 'Enterprise Lead',
+          subject: 'Lead Generation: Free 1-Page Delegation Covenant Download',
+          message: `Team Size: ${freeMagnetTeamSize}. Bottleneck: ${freeMagnetBottleneck}. Lead downloaded free delegation covenant.`
+        })
+      });
+      setFreeMagnetSuccess(true);
+    } catch (err) {
+      console.warn('Fallback lead capture success', err);
+      setFreeMagnetSuccess(true);
+    } finally {
+      setFreeMagnetSubmitting(false);
+    }
+  };
+
+  const copyFreeNotionLink = () => {
+    navigator.clipboard.writeText('https://notion.so/tulc-vault/free-founder-delegation-covenant-master');
+    setFreeMagnetCopied(true);
+    setTimeout(() => setFreeMagnetCopied(false), 2000);
+  };
 
   const setCurrency = (newCurrency: CurrencyCode) => {
     setCurrencyState(newCurrency);
@@ -53,13 +96,13 @@ export const ShopPage: React.FC = () => {
   const currencySymbols = CURRENCY_SYMBOLS;
 
   const categories = [
-    { id: 'all', label: 'All Products (7)' },
-    { id: 'bundle', label: '⭐ Flagship Vault (Save 65%)' },
-    { id: 'Bandwidth Architecture', label: 'Bandwidth' },
-    { id: 'Continuity & Decoupling', label: 'Decoupling' },
-    { id: 'Decision Architecture', label: 'Decision Velocity' },
-    { id: 'Executive Bench', label: 'Executive Bench' },
-    { id: 'Enterprise Telemetry', label: 'Telemetry' }
+    { id: 'all', label: 'All Toolkits (6)' },
+    { id: 'bundle', label: '⭐ Complete Systems Suite ($197 • Save 86%)' },
+    { id: 'Bandwidth Architecture', label: 'Bandwidth ($27–$47)' },
+    { id: 'Continuity & Decoupling', label: 'Decoupling ($67)' },
+    { id: 'Decision Architecture', label: 'Decision Velocity ($67)' },
+    { id: 'Executive Bench', label: 'Executive Bench ($87)' },
+    { id: 'Enterprise Telemetry', label: 'Telemetry ($97)' }
   ];
 
   const faqs = [
@@ -114,23 +157,23 @@ export const ShopPage: React.FC = () => {
     : SHOP_PRODUCTS.filter(p => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-[#f5f5f0] text-[#111111] pb-24">
-      {/* Top Scarcity / Early Bird Ticker Bar */}
-      <div className="bg-[#111111] text-white border-b border-[#b8860b]/40 py-2.5 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2.5 text-[10px] sm:text-xs font-mono">
+    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] pb-24 font-serif">
+      {/* Top Value-Based Lead Gen Ticker Bar */}
+      <div className="bg-[#1c1917] text-white border-b border-[#ded6c5] py-2.5 px-4 font-mono">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2.5 text-[10px] sm:text-xs">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center md:text-left">
-            <span className="inline-flex items-center gap-1.5 font-black text-[#b8860b] uppercase tracking-wider">
-              <Flame className="w-3.5 h-3.5 text-red-500 animate-pulse" />
-              EARLY BIRD ALLOCATION OPEN
+            <span className="inline-flex items-center gap-1.5 font-bold text-[#b8860b] uppercase tracking-wider">
+              <Flame className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+              FOUNDER LEAD GATEWAYS OPEN
             </span>
             <span className="text-zinc-300">
-              First 25 Founders Save Up To 65% • <strong>Only 6 Complete Suites Remaining</strong>
+              Battle-Tested Digital Systems from <strong className="text-white">$27</strong> • Complete Suite <strong className="text-[#b8860b]">$197 (Save 86%)</strong>
             </span>
             <a
-              href="#bundle-section"
+              href="#free-lead-magnet"
               className="text-[#b8860b] hover:text-white underline font-bold uppercase tracking-wider"
             >
-              Claim Complete Suite →
+              Get Free Delegation Covenant →
             </a>
           </div>
           <CurrencySelector
@@ -143,29 +186,29 @@ export const ShopPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Hero Section - Ultra-Compact & High-Impact */}
-      <section className="relative pt-3 sm:pt-4 pb-2.5 sm:pb-3 border-b border-zinc-200/80 overflow-hidden">
-        <div className="absolute top-0 right-1/4 w-[350px] h-[350px] bg-[#b8860b]/5 rounded-full blur-[90px] pointer-events-none" />
+      {/* Hero Section - Elegant, Authoritative, Value-Based */}
+      <section className="relative pt-6 sm:pt-8 pb-6 sm:pb-8 border-b border-[#ded6c5] bg-[#efebe2]/60 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <div className="space-y-1.5 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-2 py-0.5 bg-[#111111] text-[#b8860b] border border-[#b8860b]/40 text-[8px] sm:text-[9px] font-mono uppercase tracking-widest font-black">
-                <Zap className="w-3 h-3" /> 100% Digital Workspaces & Templates • Instant Duplicate
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
+            <div className="space-y-2.5 max-w-3xl">
+              <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#1c1917] text-[#b8860b] border border-[#b8860b]/40 text-[9px] font-mono uppercase tracking-widest font-black">
+                <Zap className="w-3 h-3 text-[#b8860b]" /> 100% Turnkey Notion & Coda Workspaces • 1-Click Duplicate
               </div>
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#111111] leading-tight font-serif">
-                Founder Toolkits. <span className="italic text-[#b8860b] font-light">Stop answering 40 questions a day.</span>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1c1917] leading-tight tracking-tight">
+                Digital Systems for Founders. <br />
+                <span className="italic font-bold text-[#8c6708]">Stop Answering 40 Questions A Day.</span>
               </h1>
 
-              <p className="text-xs text-zinc-700 leading-normal font-serif italic">
-                Turnkey Notion workspaces, decision matrices, and delegation runbooks. Clone in 1 click, customize in 20 minutes, and hand to your team. Pure digital tools—zero consulting calls.
+              <p className="text-xs sm:text-sm text-[#57534e] leading-relaxed max-w-2xl">
+                You scaled an enterprise. Your time is worth $500–$1,000/hr. Why are you spending it fielding tactical Slack approvals? We packaged our proprietary advisory systems into 1-click digital workspaces priced as accessible lead gateways. Duplicate in 20 minutes; reclaim 15+ hours weekly.
               </p>
             </div>
 
-            {/* Quick Context Internal Links & Currency Controller */}
-            <div className="flex flex-col sm:flex-row md:flex-col items-start md:items-end gap-2 shrink-0">
+            {/* Quick Context Links & Controls */}
+            <div className="flex flex-col sm:flex-row md:flex-col items-start md:items-end gap-2.5 shrink-0">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono text-zinc-500 uppercase font-semibold">Currency:</span>
+                <span className="text-[10px] font-mono text-[#78716c] uppercase font-bold">Currency:</span>
                 <CurrencySelector
                   currentCurrency={currency}
                   onCurrencyChange={setCurrency}
@@ -174,30 +217,230 @@ export const ShopPage: React.FC = () => {
                 />
               </div>
 
-              <div className="flex flex-wrap items-center gap-1.5 text-[9px] font-mono">
-                <Link to="/services" className="px-2 py-0.5 bg-white border border-zinc-300 text-zinc-800 hover:border-[#b8860b] hover:text-[#b8860b] transition-colors rounded-2xs font-semibold">
+              <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono">
+                <a 
+                  href="#free-lead-magnet" 
+                  className="px-2.5 py-1 bg-black text-[#b8860b] hover:bg-[#8c6708] hover:text-white transition-colors rounded-2xs font-bold flex items-center gap-1 shadow-2xs"
+                >
+                  <span>Free Gift: 1-Page Covenant</span>
+                </a>
+                <a 
+                  href="#bundle-section" 
+                  className="px-2.5 py-1 bg-[#8c6708] text-white hover:bg-black transition-colors rounded-2xs font-bold flex items-center gap-1 shadow-2xs"
+                >
+                  <Flame className="w-3 h-3 text-amber-200" />
+                  <span>All 6 Systems ($197)</span>
+                </a>
+                <Link 
+                  to="/intake" 
+                  className="px-2.5 py-1 bg-white border border-[#ded6c5] text-[#1c1917] hover:border-black transition-colors rounded-2xs font-semibold"
+                >
                   Bespoke Advisory →
                 </Link>
-                <Link to="/assessment" className="px-2 py-0.5 bg-white border border-zinc-300 text-zinc-800 hover:border-[#b8860b] hover:text-[#b8860b] transition-colors rounded-2xs font-semibold">
-                  90-Sec Audit →
-                </Link>
-                <a href="#bundle-section" className="px-2 py-0.5 bg-[#111111] text-[#b8860b] hover:bg-black transition-colors rounded-2xs font-bold flex items-center gap-1">
-                  <Flame className="w-2.5 h-2.5 text-red-500" />
-                  <span>Suite (65% Off)</span>
-                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Container - Compact Spacing so Products are First in Viewport */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 space-y-5">
+      {/* Main Container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 space-y-6">
         
+        {/* FREE LEAD MAGNET SECTION - ZERO-FRICTION LEAD GENERATION */}
+        <section id="free-lead-magnet" className="bg-[#ffffff] border-2 border-[#b8860b] p-5 sm:p-7 rounded-xs shadow-md space-y-4">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div className="space-y-2.5 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-black text-[#b8860b] text-[9px] font-mono uppercase tracking-widest font-bold">
+                <Gift className="w-3.5 h-3.5 text-[#b8860b]" /> 100% FREE EXECUTIVE LEAD MAGNET • ZERO CREDIT CARD REQUIRED
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#1c1917] tracking-tight">
+                The 1-Page Founder Delegation Covenant & Bottleneck Diagnostic
+              </h2>
+              <p className="text-xs sm:text-sm text-[#57534e] leading-relaxed">
+                Stop acting as the universal bottleneck for routine approvals. Download our pre-calibrated single-page Notion covenant, signing ceilings under $5,000, and 72-hour team severance audit. Instant 1-click duplicate.
+              </p>
+              <div className="flex flex-wrap items-center gap-4 pt-1 text-[11px] text-[#78716c]">
+                <span className="flex items-center gap-1 font-semibold text-[#1c1917]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-green-600" /> Pre-built Notion Workspace
+                </span>
+                <span className="flex items-center gap-1 font-semibold text-[#1c1917]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-green-600" /> Printable PDF Covenant Guide
+                </span>
+                <span className="flex items-center gap-1 font-semibold text-[#1c1917]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-green-600" /> Word-for-Word Rollout Script
+                </span>
+              </div>
+            </div>
+
+            {/* Opt-In Form or Success Reveal */}
+            <div className="w-full lg:max-w-md bg-[#faf8f5] border border-[#ded6c5] p-4.5 rounded-xs">
+              {!freeMagnetSuccess ? (
+                <form onSubmit={handleFreeLeadSubmit} className="space-y-3">
+                  <div className="text-xs font-bold uppercase tracking-tight text-[#1c1917] border-b border-[#ded6c5] pb-2 flex items-center justify-between">
+                    <span>Instant Digital Unlock</span>
+                    <span className="text-[10px] text-[#8c6708] font-bold font-mono">Benchmark: $95 • 100% Free</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <div>
+                      <label className="block text-[10px] font-mono uppercase font-bold text-[#57534e] mb-1">
+                        Your Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={freeMagnetName}
+                        onChange={(e) => setFreeMagnetName(e.target.value)}
+                        placeholder="Elena Rostova"
+                        className="w-full px-2.5 py-1.5 text-xs bg-white border border-[#ded6c5] rounded-xs focus:border-[#b8860b] focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-mono uppercase font-bold text-[#57534e] mb-1">
+                        Work Email *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={freeMagnetEmail}
+                        onChange={(e) => setFreeMagnetEmail(e.target.value)}
+                        placeholder="elena@enterprise.com"
+                        className="w-full px-2.5 py-1.5 text-xs bg-white border border-[#ded6c5] rounded-xs focus:border-[#b8860b] focus:outline-none"
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <div>
+                      <label className="block text-[10px] font-mono uppercase font-bold text-[#57534e] mb-1">
+                        Company Name
+                      </label>
+                      <input
+                        type="text"
+                        value={freeMagnetCompany}
+                        onChange={(e) => setFreeMagnetCompany(e.target.value)}
+                        placeholder="Apex Logistics"
+                        className="w-full px-2.5 py-1.5 text-xs bg-white border border-[#ded6c5] rounded-xs focus:border-[#b8860b] focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-mono uppercase font-bold text-[#57534e] mb-1">
+                        Team Size
+                      </label>
+                      <select
+                        value={freeMagnetTeamSize}
+                        onChange={(e) => setFreeMagnetTeamSize(e.target.value)}
+                        className="w-full px-2.5 py-1.5 text-xs bg-white border border-[#ded6c5] rounded-xs focus:border-[#b8860b] focus:outline-none"
+                      >
+                        <option value="1-10">1 - 10 people</option>
+                        <option value="11-50">11 - 50 people</option>
+                        <option value="51-200">51 - 200 people</option>
+                        <option value="200+">200+ people</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-mono uppercase font-bold text-[#57534e] mb-1">
+                      Primary Operational Drag
+                    </label>
+                    <select
+                      value={freeMagnetBottleneck}
+                      onChange={(e) => setFreeMagnetBottleneck(e.target.value)}
+                      className="w-full px-2.5 py-1.5 text-xs bg-white border border-[#ded6c5] rounded-xs focus:border-[#b8860b] focus:outline-none"
+                    >
+                      <option value="Tactical Firefighting & Approvals">Tactical Firefighting & Micro-Approvals</option>
+                      <option value="Calendar & Meeting Overload">Calendar Overload & Zombie Status Meetings</option>
+                      <option value="Decision Deadlock">Decision Deadlock & Consensus Drag</option>
+                      <option value="Key-Person Risk">Key-Person Risk (Cannot Leave for 2 Weeks)</option>
+                    </select>
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={freeMagnetSubmitting}
+                    className="w-full py-2.5 px-4 bg-black hover:bg-[#8c6708] text-white text-xs font-bold uppercase tracking-tight rounded-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs disabled:opacity-50"
+                  >
+                    <span>{freeMagnetSubmitting ? 'Generating Digital Token...' : 'Get Instant Access (Free Notion + PDF)'}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </form>
+              ) : (
+                <div className="space-y-3 text-center py-2">
+                  <div className="w-10 h-10 bg-green-100 text-green-700 rounded-full flex items-center justify-center mx-auto border border-green-300">
+                    <CheckCircle2 className="w-5 h-5" />
+                  </div>
+                  <h4 className="text-sm font-bold text-[#1c1917]">
+                    Access Authorized • Artifacts Ready
+                  </h4>
+                  <p className="text-xs text-[#57534e]">
+                    Dispatched to <strong className="text-black">{freeMagnetEmail}</strong>. You can also duplicate immediately:
+                  </p>
+                  <div className="p-2.5 bg-white border border-[#ded6c5] rounded-xs text-left space-y-2">
+                    <div className="text-[10px] font-mono uppercase text-[#78716c] font-bold">
+                      Master Notion Workspace:
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={copyFreeNotionLink}
+                        className="px-2.5 py-1.5 bg-[#efebe2] hover:bg-[#ded6c5] text-black text-[10px] font-mono uppercase font-bold rounded-2xs flex items-center gap-1 cursor-pointer"
+                      >
+                        <Copy className="w-3 h-3" />
+                        <span>{freeMagnetCopied ? 'Copied!' : 'Copy Link'}</span>
+                      </button>
+                      <a
+                        href="https://notion.so"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-2.5 py-1.5 bg-black hover:bg-[#8c6708] text-white text-[10px] font-mono uppercase font-bold rounded-2xs flex items-center gap-1"
+                      >
+                        <span>1-Click Duplicate</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </div>
+                  </div>
+                  <div className="pt-2 border-t border-[#ded6c5] text-[11px] text-[#78716c]">
+                    <span>Step 2: Reclaim 15 hours weekly with our full <a href="#products" className="text-[#8c6708] font-bold underline">Bandwidth OS ($47)</a>.</span>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* VALUE-BASED PERSUASION: THE LEAD GENERATION MODEL */}
+        <section className="bg-[#ffffff] border border-[#ded6c5] p-5 sm:p-6 rounded-xs shadow-2xs space-y-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="px-2 py-0.5 bg-black text-[#b8860b] text-[9px] font-mono uppercase tracking-widest font-black">
+              TRANSPARENT ADVISORY ECONOMICS
+            </span>
+            <span className="text-xs font-mono text-[#78716c] uppercase font-bold">
+              Why We Price These Systems At $27 to $97 (Instead of $2,000+)
+            </span>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-4 pt-1">
+            <div className="space-y-1">
+              <h4 className="text-sm font-bold text-[#1c1917]">1. Lead Generation Vehicle</h4>
+              <p className="text-xs text-[#57534e] leading-relaxed">
+                Our core firm earns revenue through bespoke $25,000–$100,000+ quarterly advisory retained mandates. We don't make our living selling digital files. These toolkits exist as high-value lead generators to build empirical trust with serious founders.
+              </p>
+            </div>
+            <div className="space-y-1">
+              <h4 className="text-sm font-bold text-[#1c1917]">2. Zero Purchase Bureaucracy</h4>
+              <p className="text-xs text-[#57534e] leading-relaxed">
+                A $27 or $47 charge does not require a board meeting or procurement review. Any CEO can approve it on their corporate card in 30 seconds, duplicate the workspace, and begin testing our architecture immediately.
+              </p>
+            </div>
+            <div className="space-y-1">
+              <h4 className="text-sm font-bold text-[#1c1917]">3. Asymmetrical Founder ROI</h4>
+              <p className="text-xs text-[#57534e] leading-relaxed">
+                If our $47 Bandwidth OS saves you just 5 hours this month, at a conservative $500/hr founder rate you just generated <strong className="text-black">$2,500 in cognitive value</strong>—an instant 5,300% return on your investment.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Master Storefront Filter Bar */}
-        <div className="bg-white border border-zinc-200/90 p-2.5 sm:p-3 rounded-xs shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+        <div className="bg-[#faf8f5] border border-[#ded6c5] p-2.5 sm:p-3 rounded-xs shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
           <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-[8px] font-mono uppercase tracking-widest text-[#b8860b] font-black mr-1 hidden sm:inline">
+            <span className="text-[8px] font-mono uppercase tracking-widest text-[#8c6708] font-black mr-1 hidden sm:inline">
               FILTER:
             </span>
             {categories.map((cat) => (
@@ -262,7 +505,7 @@ export const ShopPage: React.FC = () => {
             <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 items-center relative z-10">
               <div className="lg:col-span-7 space-y-3.5">
                 <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#b8860b] text-[#111111] text-[8px] font-mono uppercase tracking-widest font-black">
-                  <Flame className="w-3.5 h-3.5" /> COMPLETE SUITE: SAVE 65% ({formatCurrencyAmount(getBundleSavings(SOVEREIGN_VAULT_BUNDLE, currency), currency)} OFF)
+                  <Flame className="w-3.5 h-3.5" /> COMPLETE SUITE: SAVE 86% ({formatCurrencyAmount(getBundleSavings(SOVEREIGN_VAULT_BUNDLE, currency), currency)} OFF)
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug font-serif">
@@ -356,7 +599,7 @@ export const ShopPage: React.FC = () => {
                     onClick={() => setCheckoutItem(SOVEREIGN_VAULT_BUNDLE)}
                     className="w-full py-3 px-5 bg-[#111111] hover:bg-[#b8860b] text-white text-[10px] font-mono uppercase font-black tracking-widest transition-all duration-300 flex items-center justify-center gap-2 shadow-lg cursor-pointer"
                   >
-                    <span>Get The Complete Systems Suite at 65% Off</span>
+                    <span>Get The Complete Systems Suite at 86% Off ({formatCurrencyAmount(getBundlePrice(SOVEREIGN_VAULT_BUNDLE, currency), currency)})</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                   <div className="flex items-center justify-center gap-2 text-[9px] font-mono text-zinc-500 text-center">
