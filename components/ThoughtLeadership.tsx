@@ -1,5 +1,5 @@
 import React from 'react';
-import { DISPATCHES, Dispatch } from '../lib/dispatches.ts';
+import { DISPATCHES, Dispatch } from '../lib/dispatches';
 
 interface ThoughtLeadershipProps {
   onDispatchClick: (dispatch: Dispatch) => void;

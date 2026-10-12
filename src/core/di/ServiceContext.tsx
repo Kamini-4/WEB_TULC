@@ -7,6 +7,8 @@ import React, { ReactNode, useMemo } from 'react';
 import { defaultServiceContainer, IServices, ServiceContainer } from './ServiceContainer';
 import { ServiceContext } from './context';
 
+export { ServiceContext } from './context';
+
 export interface ServiceProviderProps {
   children: ReactNode;
   services?: Partial<IServices>;

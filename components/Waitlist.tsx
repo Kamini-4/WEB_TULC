@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { SovereignDB } from '../lib/database.ts';
+import { SovereignDB } from '../lib/database';
 import { Calendar, ShieldCheck, Send, CheckCircle2 } from 'lucide-react';
 
 interface WaitlistProps {

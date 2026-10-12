@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { SovereignDB, LeadEntry, AssessmentEntry, BlogEntry, EmailLogEntry, PortalLicenseEntry, PortalTierType } from '../lib/database.ts';
-import { auth, signInWithGoogle } from '../src/firebase.ts';
-import { DISPATCH_TOPICS } from '../data/thoughtLeadershipContent.ts';
+import { SovereignDB, LeadEntry, AssessmentEntry, BlogEntry, EmailLogEntry, PortalLicenseEntry, PortalTierType } from '../lib/database';
+import { auth, signInWithGoogle } from '../src/firebase';
+import { DISPATCH_TOPICS } from '../data/thoughtLeadershipContent';
 import { 
   Shield, 
   Lock, 

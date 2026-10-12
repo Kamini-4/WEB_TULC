@@ -21,7 +21,7 @@ import {
 import { ShopProduct, BundleProduct } from '../../data/shopProducts';
 import { CurrencyCode, formatCurrencyAmount, getProductPrice, getBundlePrice } from '../../lib/currency';
 import { CurrencySelector } from './CurrencySelector';
-import { useCheckoutProcessor } from '../../core/index.ts';
+import { useCheckoutProcessor } from '../../core/di/useServices';
 import { Link } from 'react-router-dom';
 
 interface CheckoutModalProps {

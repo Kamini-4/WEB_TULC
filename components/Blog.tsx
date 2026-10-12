@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Share2, Link as LinkIcon, X, Check } from 'lucide-react';
 import { Linkedin } from './BrandIcons';
-import { SovereignDB, BlogEntry } from '../lib/database.ts';
+import { SovereignDB, BlogEntry } from '../lib/database';
 import { INSTITUTIONAL_ARTICLES } from '../src/lib/articles';
 import { PermanentArtwork } from './PermanentArtwork';
 
 interface BlogProps {
-  onArticleClick?: (article: any) => void;
+  onArticleClick: (article: any) => void;
   hideHeader?: boolean;
 }
 
@@ -95,9 +95,7 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
             <div 
               key={idx} 
               onClick={() => {
-                if (typeof onArticleClick === 'function') {
-                  onArticleClick(post);
-                }
+                onArticleClick(post);
                 if (post.slug) {
                   navigate(`/library/${post.slug}`);
                 } else if (post.id) {

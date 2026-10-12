@@ -23,5 +23,6 @@ export * from './services/AssessmentScorer';
 
 // Dependency Injection (Dependency Inversion Principle)
 export * from './di/ServiceContainer';
-export * from './di/ServiceContext';
+export * from './di/context';
 export * from './di/useServices';
+export * from './di/ServiceContext';

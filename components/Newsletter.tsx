@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { SovereignDB } from '../lib/database.ts';
-import { GooglePreferredSource } from './GooglePreferredSource.tsx';
+import { SovereignDB } from '../lib/database';
+import { GooglePreferredSource } from './GooglePreferredSource';
 import { Loader2, CheckCircle2, AlertCircle, RefreshCw } from 'lucide-react';
 
 const Newsletter: React.FC = () => {

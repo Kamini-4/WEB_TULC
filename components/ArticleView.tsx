@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Share2, Link as LinkIcon, Mail, Check, X, ArrowRight, BookOpen, Clock, FileText } from 'lucide-react';
 import { Linkedin } from './BrandIcons';
 import { PermanentArtwork } from './PermanentArtwork';
-import { INSTITUTIONAL_ARTICLES } from '../src/lib/articles.ts';
+import { INSTITUTIONAL_ARTICLES } from '../src/lib/articles';
 import { GooglePreferredSource } from './GooglePreferredSource';
 
 interface Article {

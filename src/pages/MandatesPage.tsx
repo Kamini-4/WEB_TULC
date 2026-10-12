@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
-import StrategicMandates from '../../components/StrategicMandates.tsx';
+import StrategicMandates from '../../components/StrategicMandates';
 
 const MandatesPage: React.FC = () => {
   useEffect(() => {

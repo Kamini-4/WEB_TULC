@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Calculator, TrendingUp, DollarSign, Clock, ShieldCheck, ArrowRight, Zap } from 'lucide-react';
 import { CurrencyCode, CURRENCY_MULTIPLIERS } from '../../lib/currency';
 import { CurrencySelector } from './CurrencySelector';
-import { usePricingCalculator, useCurrencyService } from '../../core/index.ts';
+import { usePricingCalculator, useCurrencyService } from '../../core/di/useServices';
 
 interface RoiCalculatorProps {
   onUnlockVault?: () => void;

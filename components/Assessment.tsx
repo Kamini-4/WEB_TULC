@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { db } from '../src/firebase';
-import { SovereignDB } from '../lib/database.ts';
+import { SovereignDB } from '../lib/database';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Shield, Zap, Layers, ArrowRight, Lock, Download, ChevronRight, AlertCircle, ExternalLink, AlertTriangle, TrendingDown, Check, Copy, Mic, Volume2, ZoomIn, ZoomOut, Maximize2, Minimize2, Eye, Sparkles, Move } from 'lucide-react';

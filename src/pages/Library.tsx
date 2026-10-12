@@ -3,11 +3,11 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { useParams, Link } from 'react-router-dom';
 import { Award, BookOpen, Shield, Calculator, ArrowRight, CheckCircle } from 'lucide-react';
-import Insights from '../../components/Insights.tsx';
-import Blog from '../../components/Blog.tsx';
-import { WHITE_PAPERS } from '../../data/whitepapers.ts';
-import Newsletter from '../../components/Newsletter.tsx';
-import { GooglePreferredSource } from '../../components/GooglePreferredSource.tsx';
+import Insights from '../../components/Insights';
+import Blog from '../../components/Blog';
+import { WHITE_PAPERS } from '../../data/whitepapers';
+import Newsletter from '../../components/Newsletter';
+import { GooglePreferredSource } from '../../components/GooglePreferredSource';
 
 interface LibraryProps {
   onArticleClick?: (article: any) => void;
