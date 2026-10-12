@@ -34,6 +34,7 @@ steps:
       - '--allow-unauthenticated'
       - '--port'
       - '8080'
+      - '--quiet'
 
 images:
   - 'gcr.io/$PROJECT_ID/theunboundedleadershipco'

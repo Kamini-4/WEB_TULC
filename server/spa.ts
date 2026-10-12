@@ -125,6 +125,7 @@ const VALID_STATIC_ROUTES = new Set([
   '/toolkits',
   '/toolkit',
   '/systems',
+  '/products',
   '/shop',
   '/vault',
   '/operational-vault',
