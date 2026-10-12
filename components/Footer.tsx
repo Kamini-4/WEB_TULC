@@ -5,8 +5,8 @@ import { Compass, ShieldCheck, Mail, ArrowUpRight } from 'lucide-react';
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#ede8df] border-t border-[#ded6c5] text-[#57534e] text-xs font-serif">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
@@ -100,7 +100,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[#ded6c5] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#78716c] font-serif">
+        <div className="pt-6 border-t border-[#ded6c5] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#78716c] font-serif">
           <div>
             © {new Date().getFullYear()} The Unbounded Leadership Co. All sovereign rights reserved.
           </div>

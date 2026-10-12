@@ -191,12 +191,12 @@ export const AssessmentPage: React.FC = () => {
   const estimatedAnnualEbitdaBleed = (annualRevenue * totalEbitdaLossPercent) / 100;
 
   return (
-    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-16 px-4 sm:px-6 lg:px-8 font-serif">
+    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 font-serif">
       <div className="max-w-4xl mx-auto">
         
         {/* Header */}
-        <div className="text-center space-y-4 mb-12">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#8c6708] font-bold">
+        <div className="text-center space-y-3 mb-8">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-tight text-[#8c6708] font-bold">
             <Activity className="w-4 h-4 text-[#8c6708]" />
             <span>TULC Operational Telemetry</span>
           </div>
@@ -212,7 +212,7 @@ export const AssessmentPage: React.FC = () => {
 
         {!isCompleted ? (
           /* Questionnaire Active State */
-          <div className="bg-[#ffffff] border border-[#ded6c5] rounded-xs p-6 sm:p-10 shadow-xs space-y-8">
+          <div className="bg-[#ffffff] border border-[#ded6c5] rounded-xs p-5 sm:p-8 shadow-xs space-y-6">
             
             {/* Progress Bar */}
             <div className="space-y-2">

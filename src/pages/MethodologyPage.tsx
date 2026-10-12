@@ -2,13 +2,7 @@ import React from 'react';
 import { 
   Layers, 
   ArrowRight, 
-  CheckCircle2, 
-  Search, 
-  Cpu, 
-  Sliders, 
-  Radio, 
-  ShieldCheck,
-  TrendingUp
+  CheckCircle2 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -61,12 +55,12 @@ export const MethodologyPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-16 px-4 sm:px-6 lg:px-8 font-serif">
-      <div className="max-w-5xl mx-auto space-y-16">
+    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 font-serif">
+      <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
         
         {/* Header */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#8c6708] font-bold">
+        <div className="text-center space-y-3 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-tight text-[#8c6708] font-bold">
             <Layers className="w-4 h-4 text-[#8c6708]" />
             <span>The TULC Architecture</span>
           </div>
@@ -75,45 +69,45 @@ export const MethodologyPage: React.FC = () => {
             The 4-Phase Alignment Protocol
           </h1>
 
-          <p className="text-base text-[#57534e] font-serif leading-relaxed">
+          <p className="text-sm sm:text-base text-[#57534e] font-serif leading-relaxed">
             How we systematically transition high-growth organizations from exhausting, personality-driven firefighting to calm, predictable, and anti-fragile systemic authority.
           </p>
         </div>
 
         {/* Comparison Matrix Table */}
-        <div className="bg-[#ffffff] border border-[#ded6c5] rounded-xs p-6 sm:p-8 space-y-6 shadow-xs">
-          <h2 className="text-xl font-bold font-serif text-[#1c1917]">
+        <div className="bg-[#ffffff] border border-[#ded6c5] rounded-xs p-5 sm:p-7 space-y-4 shadow-2xs">
+          <h2 className="text-lg sm:text-xl font-bold font-serif text-[#1c1917]">
             Organizational Physics: The Fundamental Shift
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs sm:text-sm font-serif">
               <thead className="bg-[#efebe2] text-[#1c1917] uppercase text-[11px] font-serif font-bold">
                 <tr>
-                  <th className="p-3.5 border-b border-[#ded6c5]">Performance Dimension</th>
-                  <th className="p-3.5 border-b border-[#ded6c5] text-rose-800">The Reactive Firefighter Model</th>
-                  <th className="p-3.5 border-b border-[#ded6c5] text-[#8c6708]">The Calibrated TULC Substrate</th>
+                  <th className="p-3 border-b border-[#ded6c5]">Performance Dimension</th>
+                  <th className="p-3 border-b border-[#ded6c5] text-rose-800">The Reactive Firefighter Model</th>
+                  <th className="p-3 border-b border-[#ded6c5] text-[#8c6708]">The Calibrated TULC Substrate</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#ded6c5] text-[#57534e]">
                 <tr>
-                  <td className="p-3.5 font-bold text-[#1c1917]">Decision Velocity</td>
-                  <td className="p-3.5">2 to 4 weeks trapped in approval queues</td>
-                  <td className="p-3.5 text-[#1c1917] font-semibold">Under 24 hours via automated delegation gates</td>
+                  <td className="p-3 font-bold text-[#1c1917]">Decision Velocity</td>
+                  <td className="p-3">2 to 4 weeks trapped in approval queues</td>
+                  <td className="p-3 text-[#1c1917] font-semibold">Under 24 hours via automated delegation gates</td>
                 </tr>
                 <tr>
-                  <td className="p-3.5 font-bold text-[#1c1917]">Founder Role</td>
-                  <td className="p-3.5">Chief exception handler and daily router</td>
-                  <td className="p-3.5 text-[#1c1917] font-semibold">Sovereign systems architect & capital allocator</td>
+                  <td className="p-3 font-bold text-[#1c1917]">Founder Role</td>
+                  <td className="p-3">Chief exception handler and daily router</td>
+                  <td className="p-3 text-[#1c1917] font-semibold">Sovereign systems architect & capital allocator</td>
                 </tr>
                 <tr>
-                  <td className="p-3.5 font-bold text-[#1c1917]">Executive Meetings</td>
-                  <td className="p-3.5">20+ hours weekly of circular status syncs</td>
-                  <td className="p-3.5 text-[#1c1917] font-semibold">Under 4 hours, focused on market growth</td>
+                  <td className="p-3 font-bold text-[#1c1917]">Executive Meetings</td>
+                  <td className="p-3">20+ hours weekly of circular status syncs</td>
+                  <td className="p-3 text-[#1c1917] font-semibold">Under 4 hours, focused on market growth</td>
                 </tr>
                 <tr>
-                  <td className="p-3.5 font-bold text-[#1c1917]">Exit Valuation</td>
-                  <td className="p-3.5">Discounted heavily due to single-person risk</td>
-                  <td className="p-3.5 text-[#1c1917] font-semibold">Maximum institutional multiple for self-running asset</td>
+                  <td className="p-3 font-bold text-[#1c1917]">Exit Valuation</td>
+                  <td className="p-3">Discounted heavily due to single-person risk</td>
+                  <td className="p-3 text-[#1c1917] font-semibold">Maximum institutional multiple for self-running asset</td>
                 </tr>
               </tbody>
             </table>
@@ -121,33 +115,33 @@ export const MethodologyPage: React.FC = () => {
         </div>
 
         {/* 4 Phases Breakdown */}
-        <div className="space-y-8">
+        <div className="space-y-5 sm:space-y-6">
           {phases.map((phase) => (
             <div
               key={phase.number}
-              className="bg-[#ffffff] border border-[#ded6c5] hover:border-[#b8860b]/50 transition-all rounded-xs p-6 sm:p-10 space-y-4 shadow-xs"
+              className="bg-[#ffffff] border border-[#ded6c5] hover:border-[#b8860b]/50 transition-all rounded-xs p-5 sm:p-7 space-y-3.5 shadow-2xs"
             >
               <div className="flex items-center gap-3">
                 <span className="text-2xl sm:text-3xl font-bold text-[#8c6708] font-serif">{phase.number}</span>
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#1c1917] font-serif">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#1c1917] font-serif">
                     {phase.title}
                   </h3>
                   <div className="text-xs text-[#78716c] font-serif">{phase.subtitle}</div>
                 </div>
               </div>
 
-              <p className="text-sm sm:text-base text-[#57534e] font-serif leading-relaxed pt-2">
+              <p className="text-xs sm:text-sm text-[#57534e] font-serif leading-relaxed pt-1">
                 {phase.description}
               </p>
 
-              <div className="pt-4 border-t border-[#e2dcce] space-y-2">
-                <span className="text-xs uppercase font-bold text-[#8c6708] tracking-wider font-serif">
+              <div className="pt-3 border-t border-[#e2dcce] space-y-1.5">
+                <span className="text-xs uppercase font-bold text-[#8c6708] tracking-tight font-serif">
                   Key Phase Deliverables:
                 </span>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
                   {phase.deliverables.map((d, idx) => (
-                    <div key={idx} className="p-3 bg-[#faf8f5] border border-[#ded6c5] rounded-xs text-xs text-[#57534e] flex items-start gap-2 font-serif">
+                    <div key={idx} className="p-2.5 bg-[#faf8f5] border border-[#ded6c5] rounded-xs text-xs text-[#57534e] flex items-start gap-2 font-serif">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#8c6708] shrink-0 mt-0.5" />
                       <span>{d}</span>
                     </div>
@@ -159,26 +153,26 @@ export const MethodologyPage: React.FC = () => {
         </div>
 
         {/* Final CTA */}
-        <div className="p-8 sm:p-10 bg-gradient-to-br from-[#ffffff] via-[#faf8f5] to-[#efebe2] border border-[#b8860b]/30 rounded-xs text-center space-y-5 shadow-sm">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1c1917] font-serif">
+        <div className="p-6 sm:p-8 bg-gradient-to-br from-[#ffffff] via-[#faf8f5] to-[#efebe2] border border-[#b8860b]/30 rounded-xs text-center space-y-4 shadow-xs">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#1c1917] font-serif">
             Ready to Install the Alignment Protocol?
           </h2>
-          <p className="text-sm text-[#57534e] max-w-xl mx-auto leading-relaxed font-serif">
-            Begin with the 90-second Inaction Tax Diagnostic or submit your executive parameters for direct review by Principal Suchita Sancheti.
+          <p className="text-xs sm:text-sm text-[#57534e] max-w-xl mx-auto leading-relaxed font-serif">
+            Begin with the Two-Week Tension Test or submit your executive parameters for direct review by Principal Suchita Sancheti.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-1">
             <Link
               to="/intake"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-[#b8860b] to-[#8c6708] hover:from-[#c99518] hover:to-[#9e7610] text-white font-bold text-xs uppercase tracking-wider rounded-xs transition-colors shadow-sm"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-black hover:bg-[#b8860b] text-white font-bold text-xs uppercase tracking-tight rounded-xs transition-colors shadow-xs"
             >
               <span>Submit Sovereign Intake</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/assessment"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#ffffff] hover:bg-[#efebe2] text-[#1c1917] font-semibold text-xs uppercase tracking-wider rounded-xs border border-[#ded6c5] transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[#ffffff] hover:bg-[#efebe2] text-[#1c1917] font-semibold text-xs uppercase tracking-tight rounded-xs border border-[#ded6c5] transition-colors"
             >
-              <span>Take Inaction Tax Diagnostic</span>
+              <span>Take Two-Week Test</span>
             </Link>
           </div>
         </div>

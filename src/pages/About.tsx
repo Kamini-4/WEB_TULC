@@ -16,11 +16,11 @@ export const About: React.FC = () => {
   const [photoError, setPhotoError] = React.useState(false);
 
   return (
-    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-16 px-4 sm:px-6 lg:px-8 font-serif">
-      <div className="max-w-5xl mx-auto space-y-16">
+    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 font-serif">
+      <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
         
         {/* Header Section */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
+        <div className="text-center space-y-3 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-tight text-[#8c6708] font-bold">
             <UserCheck className="w-4 h-4 text-[#8c6708]" />
             <span>Principal Leadership Architect</span>
@@ -36,7 +36,7 @@ export const About: React.FC = () => {
         </div>
 
         {/* Profile Biography Card */}
-        <div className="bg-[#ffffff] border border-[#ded6c5] rounded-xs p-6 sm:p-12 shadow-xs grid grid-cols-1 md:grid-cols-12 gap-10 items-start font-serif">
+        <div className="bg-[#ffffff] border border-[#ded6c5] rounded-xs p-5 sm:p-8 shadow-xs grid grid-cols-1 md:grid-cols-12 gap-8 items-start font-serif">
           
           {/* Avatar / Portrait Column */}
           <div className="md:col-span-4 flex flex-col items-center text-center space-y-4">

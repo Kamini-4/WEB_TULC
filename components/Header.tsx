@@ -30,24 +30,24 @@ export const Header: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-[#f7f4ee]/95 backdrop-blur-md border-b border-[#e2dcce] transition-all font-serif">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-18 flex items-center justify-between">
         {/* Brand Identity with Tight Kerning */}
-        <Link to="/" className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b8860b]">
-          <div className="w-10 h-10 rounded-xs bg-[#efebe2] border border-[#b8860b]/30 flex items-center justify-center text-[#8c6708] shadow-sm group-hover:border-[#8c6708] transition-colors">
-            <Compass className="w-5 h-5 text-[#8c6708]" />
+        <Link to="/" className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b8860b]">
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xs bg-[#efebe2] border border-[#b8860b]/30 flex items-center justify-center text-[#8c6708] shadow-xs group-hover:border-[#8c6708] transition-colors">
+            <Compass className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#8c6708]" />
           </div>
           <div className="flex flex-col">
-            <span className="tracking-tighter text-sm font-bold text-[#1c1917] uppercase group-hover:text-[#8c6708] transition-colors font-serif" style={{ letterSpacing: '-0.035em' }}>
+            <span className="tracking-tighter text-xs sm:text-sm font-bold text-[#1c1917] uppercase group-hover:text-[#8c6708] transition-colors font-serif" style={{ letterSpacing: '-0.035em' }}>
               The Unbounded
             </span>
-            <span className="text-[10px] tracking-tight text-[#78716c] uppercase font-serif" style={{ letterSpacing: '-0.025em' }}>
+            <span className="text-[9px] sm:text-[10px] tracking-tight text-[#78716c] uppercase font-serif" style={{ letterSpacing: '-0.025em' }}>
               Leadership Co.
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-7 text-xs uppercase tracking-tight font-medium">
+        <nav className="hidden lg:flex items-center gap-6 text-xs uppercase tracking-tight font-medium">
           {navLinks.map((link) => {
             const active = isActive(link.path);
             return (
@@ -70,7 +70,7 @@ export const Header: React.FC = () => {
         <div className="hidden sm:flex items-center gap-3">
           <Link
             to="/intake"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-black hover:bg-[#b8860b] text-white text-xs font-bold uppercase tracking-tight rounded-xs transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8c6708]"
+            className="inline-flex items-center gap-2 px-4.5 py-2 bg-black hover:bg-[#b8860b] text-white text-xs font-bold uppercase tracking-tight rounded-xs transition-all shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8c6708]"
           >
             <span>Start A Conversation</span>
             <ArrowRight className="w-3.5 h-3.5" />
