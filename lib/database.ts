@@ -58,6 +58,7 @@ export interface AssessmentEntry {
   timestamp: number;
   type: 'assessment';
   paid?: boolean;
+  domainScores?: { domain: string; score: number }[];
 }
 
 export interface BlogEntry {

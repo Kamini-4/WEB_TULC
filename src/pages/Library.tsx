@@ -10,10 +10,10 @@ import Newsletter from '../../components/Newsletter.tsx';
 import { GooglePreferredSource } from '../../components/GooglePreferredSource.tsx';
 
 interface LibraryProps {
-  onArticleClick: (article: any) => void;
+  onArticleClick?: (article: any) => void;
 }
 
-const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
+export const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
   const { articleId } = useParams<{ articleId: string }>();
   const [activePaperKey, setActivePaperKey] = React.useState<'alignment_protocol' | 'cognitive_equity' | null>(null);
 
@@ -975,5 +975,4 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
   );
 };
 
-export { Library };
 export default Library;
