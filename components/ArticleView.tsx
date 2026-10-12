@@ -571,42 +571,42 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
                 onClick={onClose} 
                 className="px-3.5 py-1.5 bg-[#faf8f5] hover:bg-white border border-stone-300 hover:border-[#b8860b] text-stone-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs font-serif"
               >
-                📦 Founder Toolkits
+                Founder Toolkits
               </Link>
               <Link 
                 to="/assessment" 
                 onClick={onClose} 
                 className="px-3.5 py-1.5 bg-[#faf8f5] hover:bg-white border border-stone-300 hover:border-[#b8860b] text-stone-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs font-serif"
               >
-                ⚡ Yield Diagnostic
+                Yield Diagnostic
               </Link>
               <Link 
                 to="/services" 
                 onClick={onClose} 
                 className="px-3.5 py-1.5 bg-[#faf8f5] hover:bg-white border border-stone-300 hover:border-[#b8860b] text-stone-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs font-serif"
               >
-                💼 Sovereign Retainer
+                Sovereign Retainer
               </Link>
               <Link 
                 to="/methodology" 
                 onClick={onClose} 
                 className="px-3.5 py-1.5 bg-[#faf8f5] hover:bg-white border border-stone-300 hover:border-[#b8860b] text-stone-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs font-serif"
               >
-                🏛️ Alignment Protocol
+                Alignment Protocol
               </Link>
               <Link 
                 to="/cognitive-tax" 
                 onClick={onClose} 
                 className="px-3.5 py-1.5 bg-[#faf8f5] hover:bg-white border border-stone-300 hover:border-[#b8860b] text-stone-800 hover:text-[#b8860b] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs font-serif"
               >
-                ⚖️ Cognitive Tax
+                Cognitive Tax
               </Link>
               <Link 
                 to="/intake" 
                 onClick={onClose} 
                 className="px-3.5 py-1.5 bg-[#b8860b] text-white hover:bg-[#1a1715] font-bold transition-colors inline-flex items-center gap-1 shrink-0 rounded-xs font-serif"
               >
-                ✍️ Private Intake Desk
+                Private Intake Desk
               </Link>
             </div>
           </div>
@@ -626,7 +626,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
                 className="p-4 bg-stone-50 hover:bg-stone-100 border border-stone-200 hover:border-[#b8860b] transition-all block group rounded-xs font-serif"
               >
                 <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1.5 font-serif">
-                  <span>📦 Founder Toolkits</span>
+                  <span>Founder Toolkits</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#b8860b]" />
                 </div>
                 <div className="text-xs text-stone-600 leading-normal font-serif">
@@ -640,7 +640,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
                 className="p-4 bg-stone-50 hover:bg-stone-100 border border-stone-200 hover:border-[#b8860b] transition-all block group rounded-xs font-serif"
               >
                 <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1.5 font-serif">
-                  <span>⚡ Yield Diagnostic</span>
+                  <span>Yield Diagnostic</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#b8860b]" />
                 </div>
                 <div className="text-xs text-stone-600 leading-normal font-serif">
@@ -654,7 +654,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
                 className="p-4 bg-stone-50 hover:bg-stone-100 border border-stone-200 hover:border-[#b8860b] transition-all block group rounded-xs font-serif"
               >
                 <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1.5 font-serif">
-                  <span>💼 Sovereign Retainer</span>
+                  <span>Sovereign Retainer</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#b8860b]" />
                 </div>
                 <div className="text-xs text-stone-600 leading-normal font-serif">
@@ -668,7 +668,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
                 className="p-4 bg-stone-50 hover:bg-stone-100 border border-stone-200 hover:border-[#b8860b] transition-all block group rounded-xs font-serif"
               >
                 <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1.5 font-serif">
-                  <span>🏛️ Alignment Protocol</span>
+                  <span>Alignment Protocol</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#b8860b]" />
                 </div>
                 <div className="text-xs text-stone-600 leading-normal font-serif">
@@ -682,7 +682,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
                 className="p-4 bg-stone-50 hover:bg-stone-100 border border-stone-200 hover:border-[#b8860b] transition-all block group rounded-xs font-serif"
               >
                 <div className="font-bold text-[#111111] group-hover:text-[#b8860b] flex items-center justify-between mb-1.5 font-serif">
-                  <span>⚖️ Cognitive Tax Engine</span>
+                  <span>Cognitive Tax Engine</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#b8860b]" />
                 </div>
                 <div className="text-xs text-stone-600 leading-normal font-serif">
@@ -696,7 +696,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
                 className="p-4 bg-[#111111] text-white hover:bg-[#b8860b] transition-all block group rounded-xs font-serif"
               >
                 <div className="font-bold text-[#b8860b] group-hover:text-white flex items-center justify-between mb-1.5 font-serif">
-                  <span>✍️ Private Mandate Intake</span>
+                  <span>Private Mandate Intake</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
                 <div className="text-xs text-stone-300 group-hover:text-stone-100 leading-normal font-serif">

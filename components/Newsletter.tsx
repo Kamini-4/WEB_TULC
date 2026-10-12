@@ -48,39 +48,39 @@ const Newsletter: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#111111] p-8 sm:p-12 border border-[#b8860b]/20 relative overflow-hidden group">
+    <div className="bg-[#ffffff] p-8 sm:p-12 border border-[#ded6c5] shadow-xs relative overflow-hidden group font-serif text-[#1c1917]">
       {/* Background Accent */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-[#b8860b]/5 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-[#b8860b]/10 transition-all duration-700" />
       
       <div className="relative z-10">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-          <h3 className="text-[#b8860b] text-[8px] sm:text-[10px] font-black uppercase tracking-wider font-mono">The Newsletter & Intelligence Feed</h3>
+          <h3 className="text-[#8c6708] text-[9px] sm:text-[10px] font-bold uppercase tracking-wider font-serif">The Newsletter & Intelligence Feed</h3>
           <GooglePreferredSource variant="compact" />
         </div>
-        <h4 className="text-xl sm:text-2xl font-bold text-white mb-6 leading-tight">
-          Receive the <span className="italic text-[#b8860b]">Strategic Alignment Newsletter</span> directly to your inbox.
+        <h4 className="text-xl sm:text-2xl font-bold text-[#1c1917] mb-6 leading-tight font-serif">
+          Receive the <span className="italic text-[#996515]">Strategic Alignment Newsletter</span> directly to your inbox.
         </h4>
         
         {status === 'success' ? (
-          <div className="flex items-center gap-3 p-4 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-2xs text-[#d4af37]">
-            <CheckCircle2 className="w-5 h-5 shrink-0" />
+          <div className="flex items-center gap-3 p-4 bg-amber-50/80 border border-amber-300 rounded-2xs text-amber-950 font-serif">
+            <CheckCircle2 className="w-5 h-5 shrink-0 text-[#8c6708]" />
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider font-mono block">Handshake Confirmed</span>
-              <span className="text-xs text-white/80 font-serif italic">Your address has been registered to the sovereign intelligence dispatch.</span>
+              <span className="text-xs font-bold uppercase tracking-wider block">Handshake Confirmed</span>
+              <span className="text-xs text-stone-700 font-serif italic">Your address has been registered to the sovereign intelligence dispatch.</span>
             </div>
           </div>
         ) : status === 'already_subscribed' ? (
-          <div className="flex items-center justify-between gap-3 p-4 bg-zinc-900 border border-zinc-700 rounded-2xs text-zinc-300">
+          <div className="flex items-center justify-between gap-3 p-4 bg-[#efebe2] border border-[#ded6c5] rounded-2xs text-[#292524] font-serif">
             <div className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-[#b8860b] shrink-0" />
+              <CheckCircle2 className="w-5 h-5 text-[#8c6708] shrink-0" />
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider font-mono text-white block">Active Registry Confirmed</span>
-                <span className="text-xs text-zinc-400 font-serif italic">This executive address is already subscribed. Zero duplicate records created.</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#1c1917] block">Active Registry Confirmed</span>
+                <span className="text-xs text-[#57534e] font-serif italic">This executive address is already subscribed. Zero duplicate records created.</span>
               </div>
             </div>
             <button
               onClick={handleReset}
-              className="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-[10px] font-mono uppercase text-zinc-300 rounded-2xs transition-colors"
+              className="px-3 py-1.5 bg-[#ffffff] hover:bg-[#faf8f5] text-[10px] uppercase font-bold text-[#292524] border border-[#ded6c5] rounded-2xs transition-colors"
             >
               Add Another
             </button>
@@ -95,12 +95,12 @@ const Newsletter: React.FC = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter executive work email..."
-                className="flex-1 bg-white/5 border border-white/10 p-4 text-white text-sm focus:outline-none focus:border-[#b8860b] transition-colors placeholder:text-white/20 italic disabled:opacity-50"
+                className="flex-1 bg-[#faf8f5] border border-[#d8cebe] p-4 text-[#1c1917] text-sm focus:outline-none focus:border-[#b8860b] transition-colors placeholder:text-[#a8a29e] italic disabled:opacity-50 font-serif"
               />
               <button
                 disabled={status === 'loading'}
                 type="submit"
-                className="px-8 py-4 bg-[#b8860b] text-white text-[10px] font-black uppercase hover:bg-[#d4af37] transition-all duration-300 disabled:opacity-50 inline-flex items-center justify-center gap-2 cursor-pointer shrink-0"
+                className="px-8 py-4 bg-gradient-to-r from-[#b8860b] to-[#8c6708] hover:from-[#c99518] hover:to-[#9e7610] text-white text-[10px] font-bold uppercase transition-all duration-300 disabled:opacity-50 inline-flex items-center justify-center gap-2 cursor-pointer shrink-0 shadow-sm"
               >
                 {status === 'loading' ? (
                   <>
@@ -114,15 +114,15 @@ const Newsletter: React.FC = () => {
             </form>
 
             {status === 'error' && (
-              <div className="mt-3 flex items-center justify-between gap-2 p-3 bg-red-950/40 border border-red-800/40 rounded-2xs text-red-200 text-xs">
+              <div className="mt-3 flex items-center justify-between gap-2 p-3 bg-red-50 border border-red-200 rounded-2xs text-red-900 text-xs font-serif">
                 <div className="flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 shrink-0 text-red-400" />
+                  <AlertCircle className="w-4 h-4 shrink-0 text-red-600" />
                   <span>{errorMessage}</span>
                 </div>
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="inline-flex items-center gap-1 text-[10px] font-mono uppercase text-red-300 hover:text-white underline cursor-pointer"
+                  className="inline-flex items-center gap-1 text-[10px] uppercase font-bold text-red-700 hover:text-red-900 underline cursor-pointer"
                 >
                   <RefreshCw className="w-3 h-3" /> Retry
                 </button>
@@ -131,16 +131,16 @@ const Newsletter: React.FC = () => {
           </div>
         )}
         
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 text-[9px] text-white/50 uppercase font-bold">
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 text-[9px] text-[#78716c] uppercase font-bold font-serif">
           <div className="flex items-center gap-3">
-            <span className="w-1 h-1 bg-[#b8860b] rounded-full" />
+            <span className="w-1.5 h-1.5 bg-[#8c6708] rounded-full" />
             Zero Data Retention Active
-            <span className="w-1 h-1 bg-[#b8860b] rounded-full" />
+            <span className="w-1.5 h-1.5 bg-[#8c6708] rounded-full" />
             Privileged Disclosure Protocol
-            <span className="w-1 h-1 bg-[#b8860b] rounded-full" />
+            <span className="w-1.5 h-1.5 bg-[#8c6708] rounded-full" />
             Deduplication Verified
           </div>
-          <span className="text-zinc-500 font-mono text-[8px]">
+          <span className="text-[#78716c] font-serif text-[8px]">
             Google Search Source Integration Active
           </span>
         </div>

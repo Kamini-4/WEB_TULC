@@ -35,7 +35,7 @@ export const GooglePreferredSource: React.FC<GooglePreferredSourceProps> = ({
       <>
         <button
           onClick={() => setIsOpen(true)}
-          className={`inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border border-white/10 rounded-xs font-mono text-[9px] uppercase tracking-wider transition-all duration-200 cursor-pointer ${className}`}
+          className={`inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#efebe2] hover:bg-[#e4ded0] text-[#57534e] hover:text-[#1c1917] border border-[#ded6c5] rounded-xs font-serif text-[10px] uppercase tracking-wider transition-all duration-200 cursor-pointer ${className}`}
           title="Add to Google Preferred Sources"
         >
           <GoogleIcon className="w-3 h-3" />
@@ -58,17 +58,17 @@ export const GooglePreferredSource: React.FC<GooglePreferredSourceProps> = ({
   if (variant === 'inline') {
     return (
       <>
-        <div className={`p-4 bg-zinc-900/90 border border-[#b8860b]/30 rounded-xs text-left ${className}`}>
+        <div className={`p-4 bg-[#ffffff] border border-[#ded6c5] rounded-xs text-left shadow-2xs font-serif ${className}`}>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-white/5 border border-[#b8860b]/30 flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-full bg-[#efebe2] border border-[#ded6c5] flex items-center justify-center shrink-0">
                 <GoogleIcon className="w-4 h-4" />
               </div>
               <div>
-                <span className="text-[#b8860b] text-[8px] font-mono uppercase font-bold tracking-widest block">
+                <span className="text-[#8c6708] text-[9px] uppercase font-bold tracking-widest block font-serif">
                   Google Search Integration
                 </span>
-                <p className="text-white text-xs font-serif italic">
+                <p className="text-[#1c1917] text-xs font-serif italic">
                   Set The Unbounded as your Preferred Source in Google Search & Discover.
                 </p>
               </div>
@@ -78,14 +78,14 @@ export const GooglePreferredSource: React.FC<GooglePreferredSourceProps> = ({
                 href={googlePreferredUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 bg-[#b8860b] hover:bg-white hover:text-black text-black font-mono font-bold text-[9px] uppercase tracking-wider rounded-xs transition-all flex items-center gap-1.5 shadow-sm"
+                className="px-3 py-1.5 bg-[#b8860b] hover:bg-[#a17812] text-white font-serif font-bold text-[10px] uppercase tracking-wider rounded-xs transition-all flex items-center gap-1.5 shadow-2xs"
               >
                 <span>Add Source</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
               <button
                 onClick={() => setIsOpen(true)}
-                className="px-2.5 py-1.5 bg-white/5 hover:bg-white/10 text-zinc-300 font-mono text-[9px] uppercase border border-white/10 rounded-xs transition-colors cursor-pointer"
+                className="px-2.5 py-1.5 bg-[#efebe2] hover:bg-[#e4ded0] text-[#57534e] font-serif text-[10px] uppercase border border-[#ded6c5] rounded-xs transition-colors cursor-pointer"
               >
                 Why?
               </button>
@@ -109,27 +109,27 @@ export const GooglePreferredSource: React.FC<GooglePreferredSourceProps> = ({
   if (variant === 'card') {
     return (
       <>
-        <div className={`p-6 bg-[#111111] border border-[#b8860b]/30 rounded-xs text-left relative overflow-hidden shadow-xl ${className}`}>
-          <div className="absolute top-0 right-0 px-3 py-1 bg-[#b8860b]/20 text-[#b8860b] text-[8px] font-black uppercase font-mono tracking-widest">
+        <div className={`p-6 bg-[#ffffff] border border-[#ded6c5] rounded-xs text-left relative overflow-hidden shadow-xs font-serif ${className}`}>
+          <div className="absolute top-0 right-0 px-3 py-1 bg-[#efebe2] text-[#8c6708] text-[9px] font-bold uppercase tracking-widest font-serif border-b border-l border-[#ded6c5]">
             Verified Source
           </div>
 
           <div className="flex items-start gap-4 mb-4">
-            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
+            <div className="w-10 h-10 rounded-full bg-[#efebe2] border border-[#ded6c5] flex items-center justify-center shrink-0 mt-0.5">
               <GoogleIcon className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-[#b8860b] text-[9px] font-mono uppercase font-bold tracking-widest block mb-1">
+              <span className="text-[#8c6708] text-[9px] uppercase font-bold tracking-widest block mb-1 font-serif">
                 Executive Telemetry Distribution
               </span>
-              <h4 className="text-white font-serif font-bold text-base sm:text-lg leading-tight">
+              <h4 className="text-[#1c1917] font-serif font-bold text-base sm:text-lg leading-tight">
                 Prioritize Sovereign Intelligence in Google Search
               </h4>
             </div>
           </div>
 
-          <p className="text-zinc-400 text-xs font-serif italic leading-relaxed mb-5">
-            Add <strong className="text-white font-semibold">The Unbounded Leadership Co.</strong> directly to your Google Search & Discover preferred source list to ensure Founder Suchita Sancheti’s proprietary white papers, mathematical execution protocol research, and executive dispatches are surfaced first.
+          <p className="text-[#57534e] text-xs font-serif italic leading-relaxed mb-5">
+            Add <strong className="text-[#1c1917] font-semibold">The Unbounded Leadership Co.</strong> directly to your Google Search & Discover preferred source list to ensure Founder Suchita Sancheti’s proprietary white papers, mathematical execution protocol research, and executive dispatches are surfaced first.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -137,7 +137,7 @@ export const GooglePreferredSource: React.FC<GooglePreferredSourceProps> = ({
               href={googlePreferredUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-[#b8860b] hover:bg-white hover:text-black text-black font-mono font-bold text-[10px] uppercase tracking-wider rounded-xs transition-all flex items-center gap-2 shadow-md"
+              className="px-4 py-2 bg-gradient-to-r from-[#b8860b] to-[#8c6708] hover:from-[#c99518] hover:to-[#9e7610] text-white font-serif font-bold text-[10px] uppercase tracking-wider rounded-xs transition-all flex items-center gap-2 shadow-2xs"
             >
               <GoogleIcon className="w-3.5 h-3.5" />
               <span>Add to Google Preferred Sources</span>
@@ -146,7 +146,7 @@ export const GooglePreferredSource: React.FC<GooglePreferredSourceProps> = ({
 
             <button
               onClick={() => setIsOpen(true)}
-              className="px-3.5 py-2 bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white font-mono text-[10px] uppercase border border-white/10 rounded-xs transition-colors cursor-pointer"
+              className="px-3.5 py-2 bg-[#efebe2] hover:bg-[#e4ded0] text-[#57534e] hover:text-[#1c1917] font-serif text-[10px] uppercase border border-[#ded6c5] rounded-xs transition-colors cursor-pointer"
             >
               How It Works
             </button>
@@ -171,11 +171,11 @@ export const GooglePreferredSource: React.FC<GooglePreferredSourceProps> = ({
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className={`inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 hover:bg-[#b8860b]/20 text-zinc-300 hover:text-[#b8860b] border border-white/10 hover:border-[#b8860b]/40 rounded-xs font-mono text-[9px] sm:text-[10px] uppercase tracking-wider transition-all duration-200 cursor-pointer ${className}`}
+        className={`inline-flex items-center gap-2 px-3 py-1.5 bg-[#efebe2] hover:bg-[#b8860b]/20 text-[#57534e] hover:text-[#8c6708] border border-[#ded6c5] hover:border-[#b8860b]/40 rounded-xs font-serif text-[9px] sm:text-[10px] uppercase tracking-wider transition-all duration-200 cursor-pointer ${className}`}
       >
         <GoogleIcon className="w-3.5 h-3.5" />
         <span>Prioritize in Google Search</span>
-        <Sparkles className="w-2.5 h-2.5 text-[#b8860b]" />
+        <Sparkles className="w-2.5 h-2.5 text-[#8c6708]" />
       </button>
 
       {isOpen && (
@@ -207,40 +207,40 @@ const GooglePreferenceModal: React.FC<ModalProps> = ({
   onCopy
 }) => {
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in text-left">
-      <div className="bg-[#141414] border border-[#b8860b]/40 rounded-xs max-w-lg w-full p-6 sm:p-8 text-white shadow-2xl relative">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm animate-fade-in text-left font-serif">
+      <div className="bg-[#ffffff] border border-[#ded6c5] rounded-xs max-w-lg w-full p-6 sm:p-8 text-[#1c1917] shadow-2xl relative">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-zinc-500 hover:text-white transition-colors cursor-pointer"
+          className="absolute top-4 right-4 text-[#78716c] hover:text-[#1c1917] transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-full bg-white/10 border border-[#b8860b]/40 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full bg-[#efebe2] border border-[#b8860b]/30 flex items-center justify-center">
             <GoogleIcon className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[#b8860b] text-[8px] font-mono font-bold uppercase tracking-widest block">
+            <span className="text-[#8c6708] text-[9px] font-bold uppercase tracking-widest block font-serif">
               Google Preferred Source Protocol
             </span>
-            <h3 className="text-lg sm:text-xl font-bold font-serif text-white">
+            <h3 className="text-lg sm:text-xl font-bold font-serif text-[#1c1917]">
               Prioritize Sovereign Intelligence
             </h3>
           </div>
         </div>
 
-        <p className="text-zinc-300 text-xs sm:text-sm font-serif italic leading-relaxed mb-6">
+        <p className="text-[#57534e] text-xs sm:text-sm font-serif italic leading-relaxed mb-6">
           Google Search enables enterprise principals to explicitly designate trusted research domains. By adding <strong>{domain}</strong> to your Google source preferences, all executive dispatches, strategic white papers, and mathematical execution protocol case studies will automatically rank higher in your personal Google Search and Discover feeds.
         </p>
 
-        <div className="space-y-3 mb-6 font-mono text-xs">
-          <div className="p-3 bg-black/50 border border-white/10 rounded-xs flex items-center justify-between">
-            <div className="flex items-center gap-2 text-zinc-400">
-              <Globe className="w-4 h-4 text-[#b8860b]" />
+        <div className="space-y-3 mb-6 font-serif text-xs">
+          <div className="p-3 bg-[#faf8f5] border border-[#ded6c5] rounded-xs flex items-center justify-between">
+            <div className="flex items-center gap-2 text-[#57534e]">
+              <Globe className="w-4 h-4 text-[#8c6708]" />
               <span className="truncate max-w-[200px] sm:max-w-xs">{domain}</span>
             </div>
-            <span className="text-emerald-400 text-[9px] uppercase font-bold">Verified Authority</span>
+            <span className="text-emerald-700 text-[10px] uppercase font-bold">Verified Authority</span>
           </div>
         </div>
 
@@ -250,7 +250,7 @@ const GooglePreferenceModal: React.FC<ModalProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
-            className="flex-1 px-4 py-3 bg-[#b8860b] hover:bg-white hover:text-black text-black font-mono font-bold text-[10px] uppercase tracking-wider rounded-xs text-center transition-all flex items-center justify-center gap-2 shadow-md"
+            className="flex-1 px-4 py-3 bg-gradient-to-r from-[#b8860b] to-[#8c6708] hover:from-[#c99518] hover:to-[#9e7610] text-white font-serif font-bold text-[10px] uppercase tracking-wider rounded-xs text-center transition-all flex items-center justify-center gap-2 shadow-2xs"
           >
             <span>Open Google Preference Portal</span>
             <ExternalLink className="w-3.5 h-3.5" />
@@ -258,11 +258,11 @@ const GooglePreferenceModal: React.FC<ModalProps> = ({
 
           <button
             onClick={onCopy}
-            className="px-4 py-3 bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white font-mono text-[10px] uppercase border border-white/10 rounded-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
+            className="px-4 py-3 bg-[#efebe2] hover:bg-[#e4ded0] text-[#292524] hover:text-[#1c1917] font-serif text-[10px] uppercase border border-[#ded6c5] rounded-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
           >
             {copied ? (
               <>
-                <Check className="w-3.5 h-3.5 text-emerald-400" />
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Link Copied</span>
               </>
             ) : (
@@ -271,7 +271,7 @@ const GooglePreferenceModal: React.FC<ModalProps> = ({
           </button>
         </div>
 
-        <div className="mt-4 pt-3 border-t border-white/10 text-[9px] font-mono text-zinc-500 text-center">
+        <div className="mt-4 pt-3 border-t border-[#ded6c5] text-[10px] font-serif text-[#78716c] text-center">
           Powered by Google for Developers Preferred Sources Guide
         </div>
       </div>

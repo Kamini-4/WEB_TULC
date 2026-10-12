@@ -25,7 +25,7 @@ const domains: Domain[] = [
     coreQuestion: "Is your brain working on $10M strategic moves, or getting drained by daily tactical brushfires?",
     symptom: "Mornings consumed by slide reviews, approving minor expenses, and resolving repetitive operational escalations that dilute founder vision.",
     benefit: "Reclaims 15+ hours/week for pure market offense, capital allocation, and uninterrupted strategic leadership.",
-    outcome: "100% of liberated executive bandwidth redirected strictly to enterprise growth, key partnerships, and high-leverage moves within 90 days.",
+    outcome: "100% of liberated executive bandwidth redirected directly to enterprise growth, key partnerships, and high-leverage moves within 90 days.",
     vision: "An insulated C-suite operating with zero daily operational bottlenecks and absolute strategic decision clarity.",
     icon: <Brain className="w-4 h-4 text-[#b8860b]" />
   },

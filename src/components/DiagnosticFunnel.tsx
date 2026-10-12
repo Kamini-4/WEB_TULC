@@ -104,7 +104,7 @@ const QUESTIONS: DiagnosticQuestion[] = [
         godinDiagnosis: 'Solid organizational hygiene. Approaching genuine cultural self-defense.'
       },
       {
-        label: 'Fierce Peer Defense ("People Like Us")',
+        label: 'Fierce Peer Defense (The Sovereign Creed)',
         score: 25,
         description: 'The team self-regulates immediately; mediocre output is rejected by peers before leaders ever see it.',
         godinDiagnosis: 'Seth Godin Tribal Nirvana. Culture acts as an autonomous immune system.'

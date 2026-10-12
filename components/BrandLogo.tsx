@@ -97,13 +97,13 @@ const BrandLogo: React.FC<BrandLogoProps> = ({
             </g>
 
             <g transform="translate(0, 155)">
-              <text x="250" y="35" textAnchor="middle" fill="url(#gold-grad-text-fb)" fontSize="31" fontWeight="bold" letterSpacing="0.16em" fontFamily="'Cinzel', serif">THE UNBOUNDED</text>
+              <text x="250" y="35" textAnchor="middle" fill="url(#gold-grad-text-fb)" fontSize="32" fontWeight="bold" letterSpacing="-0.02em" fontFamily="'Cinzel', serif">THE UNBOUNDED</text>
               <g transform="translate(0, 50)">
                 <line x1="85" y1="15" x2="185" y2="15" stroke="url(#gold-grad-1-fb)" strokeWidth="1.2" />
-                <text x="250" y="20" textAnchor="middle" fill="url(#gold-grad-text-fb)" fontSize="15" fontWeight="900" letterSpacing="0.32em" fontFamily="'Inter', sans-serif">LEADERSHIP CO.</text>
+                <text x="250" y="20" textAnchor="middle" fill="url(#gold-grad-text-fb)" fontSize="15" fontWeight="900" letterSpacing="-0.01em" fontFamily="'Inter', sans-serif">LEADERSHIP CO.</text>
                 <line x1="315" y1="15" x2="415" y2="15" stroke="url(#gold-grad-1-fb)" strokeWidth="1.2" />
               </g>
-              <text x="250" y="110" textAnchor="middle" fill="#d1b46a" fillOpacity="0.9" fontSize="11.5" letterSpacing="0.06em" fontFamily="'Inter', sans-serif" fontWeight="300" fontStyle="italic">Elevating Cultures, Transforming Leadership</text>
+              <text x="250" y="110" textAnchor="middle" fill="#d1b46a" fillOpacity="0.9" fontSize="11.5" letterSpacing="0em" fontFamily="'Inter', sans-serif" fontWeight="300" fontStyle="italic">Elevating Cultures, Transforming Leadership</text>
             </g>
           </svg>
         )}

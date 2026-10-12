@@ -248,7 +248,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
           subtitle: 'Kills the 1-Hour Monday Status Meeting',
           description: 'Replaces verbal status round-robins with a structured Sunday written brief and a 12-minute exception-only clinic.',
           deliverables: ['Sunday sync schema', 'Exception escalation trigger', 'Automated Slack/Teams notification bot scripts'],
-          keyInsight: 'Status updates belong in text. Conversations are strictly for closing deals and unblocking bottlenecks.'
+          keyInsight: 'Status updates belong in text. Conversations are reserved for closing deals and unblocking bottlenecks.'
         },
         {
           number: '03',
@@ -670,7 +670,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
           number: '02',
           title: 'The 30/60/90 Binary Milestone Contract',
           subtitle: 'No Fluff, No Hand-Waving, Just Evidence',
-          description: 'Translates high-level executive responsibilities into strictly measurable, binary deliverables for the first three months.',
+          description: 'Translates high-level executive responsibilities into clearly measurable, binary deliverables for the first three months.',
           deliverables: ['30-day quick win scorecard', '60-day process audit rubric', '90-day strategic output target'],
           keyInsight: 'If success cannot be measured in numbers and shipped assets, you cannot hold them accountable.'
         },
@@ -736,7 +736,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       earlyBirdPriceUsd: 195,
       bonusTitle: 'Bonus: The Executive Severance & Clean Exit Protocol',
       bonusValue: '$295 Value Included Free',
-      expirationNote: 'Strictly 2 licenses left at $195.'
+      expirationNote: 'Only 2 licenses left at $195.'
     },
 
     pricing: {

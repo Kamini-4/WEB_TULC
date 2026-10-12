@@ -3,46 +3,46 @@
 @layer base {
   :root {
     --gold: #b8860b;
-    --gold-light: #d4af37;
-    --gold-glow: rgba(184, 134, 11, 0.2);
-    --obsidian: #0b0c10;
-    --obsidian-surface: #12141a;
-    --obsidian-border: #1f232d;
-    --text-primary: #f0f2f8;
-    --text-secondary: #9aa1b2;
-    --text-muted: #646b7a;
+    --gold-light: #996515;
+    --gold-glow: rgba(184, 134, 11, 0.15);
+    --bg-beige: #f7f4ee;
+    --bg-beige-card: #ffffff;
+    --bg-beige-surface: #efebe2;
+    --border-beige: #e2dcce;
+    --text-primary: #1c1917;
+    --text-secondary: #57534e;
+    --text-muted: #78716c;
   }
 
-  body {
-    background-color: #0b0c10;
-    color: #e0e2ec;
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  *, *::before, *::after {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    letter-spacing: -0.015em;
+  }
+
+  html, body {
+    background-color: #f7f4ee !important;
+    color: #1c1917 !important;
+    font-family: 'Playfair Display', Georgia, serif !important;
+    letter-spacing: -0.015em;
     overflow-x: hidden;
   }
 
-  h1, h2, h3, .font-serif-prestige {
-    font-family: 'Newsreader', Georgia, serif;
-  }
-
-  .font-monumental {
-    font-family: 'Cinzel', serif;
-  }
-
-  .font-mono-tech {
-    font-family: 'Space Grotesk', monospace;
+  h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, select, label, code, pre, .font-serif-prestige, .font-monumental, .font-mono-tech, .font-mono, .font-sans, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    letter-spacing: -0.015em;
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar matching beige aesthetic */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0c10;
+  background: #f7f4ee;
 }
 ::-webkit-scrollbar-thumb {
-  background: #252834;
+  background: #d4cbbe;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {

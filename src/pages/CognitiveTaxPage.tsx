@@ -30,21 +30,21 @@ export const CognitiveTaxPage: React.FC = () => {
   const annualRecoverableValue = annualTeamLoss * 0.75;
 
   return (
-    <div className="min-h-screen bg-[#0b0c10] text-[#e0e2ec] py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-16 px-4 sm:px-6 lg:px-8 font-serif">
       <div className="max-w-5xl mx-auto space-y-12">
         
         {/* Header */}
         <div className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 text-xs font-mono-tech uppercase tracking-widest text-[#d4af37]">
-            <Calculator className="w-4 h-4 text-[#d4af37]" />
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#8c6708] font-bold">
+            <Calculator className="w-4 h-4 text-[#8c6708]" />
             <span>Economic Simulation Engine</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif-prestige font-bold text-white tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1c1917] tracking-tight font-serif">
             The Cognitive Tax Simulator
           </h1>
 
-          <p className="text-sm sm:text-base text-[#9aa1b2] font-serif-prestige max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-[#57534e] font-serif max-w-2xl mx-auto leading-relaxed">
             Quantify the exact balance-sheet destruction caused by using multi-hundred-thousand-dollar executive minds as routine operational routers.
           </p>
         </div>
@@ -53,16 +53,16 @@ export const CognitiveTaxPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
           {/* Controls Column */}
-          <div className="lg:col-span-6 bg-[#12141a] border border-[#1f232d] rounded-xs p-6 sm:p-8 space-y-6">
-            <h2 className="text-lg font-serif-prestige font-bold text-white pb-3 border-b border-[#1f232d]">
+          <div className="lg:col-span-6 bg-[#ffffff] border border-[#ded6c5] rounded-xs p-6 sm:p-8 space-y-6 shadow-xs font-serif">
+            <h2 className="text-lg font-bold text-[#1c1917] pb-3 border-b border-[#e2dcce] font-serif">
               Executive Team Parameters
             </h2>
 
             {/* Parameter 1: Headcount */}
             <div className="space-y-2">
-              <div className="flex justify-between text-xs font-mono-tech">
-                <span className="text-[#9aa1b2] uppercase">Executive Leadership Tier Headcount:</span>
-                <span className="text-[#d4af37] font-bold">{executiveHeadcount} CXOs / VPs</span>
+              <div className="flex justify-between text-xs font-serif">
+                <span className="text-[#57534e] uppercase font-bold">Executive Leadership Tier Headcount:</span>
+                <span className="text-[#8c6708] font-bold">{executiveHeadcount} CXOs / VPs</span>
               </div>
               <input
                 type="range"
@@ -73,7 +73,7 @@ export const CognitiveTaxPage: React.FC = () => {
                 onChange={(e) => setExecutiveHeadcount(Number(e.target.value))}
                 className="w-full accent-[#b8860b] cursor-pointer"
               />
-              <div className="flex justify-between text-[10px] text-[#5e6575] font-mono-tech">
+              <div className="flex justify-between text-[10px] text-[#78716c] font-serif">
                 <span>2 (Core Co-Founders)</span>
                 <span>10 (Mid-Stage Executive Tier)</span>
                 <span>25 (Enterprise C-Suite)</span>
@@ -82,9 +82,9 @@ export const CognitiveTaxPage: React.FC = () => {
 
             {/* Parameter 2: Average Comp */}
             <div className="space-y-2">
-              <div className="flex justify-between text-xs font-mono-tech">
-                <span className="text-[#9aa1b2] uppercase">Avg Fully Loaded Executive Comp:</span>
-                <span className="text-[#d4af37] font-bold">${(averageExecutiveComp / 1000).toLocaleString()}k / Year</span>
+              <div className="flex justify-between text-xs font-serif">
+                <span className="text-[#57534e] uppercase font-bold">Avg Fully Loaded Executive Comp:</span>
+                <span className="text-[#8c6708] font-bold">${(averageExecutiveComp / 1000).toLocaleString()}k / Year</span>
               </div>
               <input
                 type="range"
@@ -95,7 +95,7 @@ export const CognitiveTaxPage: React.FC = () => {
                 onChange={(e) => setAverageExecutiveComp(Number(e.target.value))}
                 className="w-full accent-[#b8860b] cursor-pointer"
               />
-              <div className="flex justify-between text-[10px] text-[#5e6575] font-mono-tech">
+              <div className="flex justify-between text-[10px] text-[#78716c] font-serif">
                 <span>$150k</span>
                 <span>$350k (Market Standard)</span>
                 <span>$800k (Tier 1 Global)</span>
@@ -104,9 +104,9 @@ export const CognitiveTaxPage: React.FC = () => {
 
             {/* Parameter 3: Meeting Density */}
             <div className="space-y-2">
-              <div className="flex justify-between text-xs font-mono-tech">
-                <span className="text-[#9aa1b2] uppercase">Internal Alignment Syncs / Week:</span>
-                <span className="text-[#d4af37] font-bold">{weeklyMeetingHours} Hours / Exec</span>
+              <div className="flex justify-between text-xs font-serif">
+                <span className="text-[#57534e] uppercase font-bold">Internal Alignment Syncs / Week:</span>
+                <span className="text-[#8c6708] font-bold">{weeklyMeetingHours} Hours / Exec</span>
               </div>
               <input
                 type="range"
@@ -117,7 +117,7 @@ export const CognitiveTaxPage: React.FC = () => {
                 onChange={(e) => setWeeklyMeetingHours(Number(e.target.value))}
                 className="w-full accent-[#b8860b] cursor-pointer"
               />
-              <div className="flex justify-between text-[10px] text-[#5e6575] font-mono-tech">
+              <div className="flex justify-between text-[10px] text-[#78716c] font-serif">
                 <span>5 Hours (Lean Substrate)</span>
                 <span>20 Hours (Standard Average)</span>
                 <span>35 Hours (High-Drag Trap)</span>
@@ -126,9 +126,9 @@ export const CognitiveTaxPage: React.FC = () => {
 
             {/* Parameter 4: Tactical Firefighting */}
             <div className="space-y-2">
-              <div className="flex justify-between text-xs font-mono-tech">
-                <span className="text-[#9aa1b2] uppercase">Tactical Exception Triage & Firefighting:</span>
-                <span className="text-[#d4af37] font-bold">{unstructuredTriageHours} Hours / Week</span>
+              <div className="flex justify-between text-xs font-serif">
+                <span className="text-[#57534e] uppercase font-bold">Tactical Exception Triage & Firefighting:</span>
+                <span className="text-[#8c6708] font-bold">{unstructuredTriageHours} Hours / Week</span>
               </div>
               <input
                 type="range"
@@ -139,7 +139,7 @@ export const CognitiveTaxPage: React.FC = () => {
                 onChange={(e) => setUnstructuredTriageHours(Number(e.target.value))}
                 className="w-full accent-[#b8860b] cursor-pointer"
               />
-              <div className="flex justify-between text-[10px] text-[#5e6575] font-mono-tech">
+              <div className="flex justify-between text-[10px] text-[#78716c] font-serif">
                 <span>2 Hours (Self-Regulating)</span>
                 <span>12 Hours (Typical Burn)</span>
                 <span>25 Hours (Critical Overload)</span>
@@ -149,69 +149,69 @@ export const CognitiveTaxPage: React.FC = () => {
           </div>
 
           {/* Results Display Column */}
-          <div className="lg:col-span-6 bg-[#13161f] border border-[#b8860b]/40 rounded-xs p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-2xl">
+          <div className="lg:col-span-6 bg-gradient-to-br from-[#ffffff] via-[#faf8f5] to-[#efebe2] border border-[#b8860b]/40 rounded-xs p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-sm font-serif">
             
             <div className="space-y-6">
-              <div className="flex items-center justify-between pb-3 border-b border-[#232734]">
-                <span className="text-xs font-mono-tech uppercase text-[#d4af37]">Simulation Projection</span>
-                <span className="text-[11px] font-mono-tech text-[#7d8495]">Annualized Impact</span>
+              <div className="flex items-center justify-between pb-3 border-b border-[#ded6c5]">
+                <span className="text-xs uppercase font-bold text-[#8c6708] font-serif">Simulation Projection</span>
+                <span className="text-[11px] text-[#78716c] font-serif">Annualized Impact</span>
               </div>
 
               {/* Main Total Callout */}
               <div className="space-y-1">
-                <div className="text-xs text-[#9aa1b2] uppercase tracking-wider font-mono-tech">
+                <div className="text-xs text-[#57534e] uppercase tracking-wider font-serif font-bold">
                   Total Annualized Balance-Sheet Loss:
                 </div>
-                <div className="text-4xl sm:text-5xl font-bold font-mono-tech text-rose-400">
+                <div className="text-4xl sm:text-5xl font-bold font-serif text-rose-800">
                   ${(annualTeamLoss / 1000).toLocaleString(undefined, { maximumFractionDigits: 0 })}k
                 </div>
-                <p className="text-xs text-[#8c94a6] leading-relaxed pt-1">
+                <p className="text-xs text-[#57534e] leading-relaxed pt-1 font-serif">
                   Capital directly burned paying executive salaries for bureaucratic coordination, meeting bloat, and ad-hoc exception handling.
                 </p>
               </div>
 
               {/* Breakdown Grid */}
               <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="p-4 bg-[#181b25] border border-[#232734] rounded-xs space-y-1">
-                  <div className="text-[11px] text-[#7d8495] font-mono-tech uppercase">Hours Trapped / Week</div>
-                  <div className="text-2xl font-bold font-mono-tech text-amber-400">
+                <div className="p-4 bg-[#ffffff] border border-[#ded6c5] rounded-xs space-y-1 shadow-2xs">
+                  <div className="text-[11px] text-[#78716c] uppercase font-bold font-serif">Hours Trapped / Week</div>
+                  <div className="text-2xl font-bold font-serif text-amber-800">
                     {Math.round(wastedWeeklyHours * executiveHeadcount)} Hrs
                   </div>
-                  <div className="text-[10px] text-[#5e6575]">Combined executive hours lost across team.</div>
+                  <div className="text-[10px] text-[#78716c] font-serif">Combined executive hours lost across team.</div>
                 </div>
 
-                <div className="p-4 bg-[#181b25] border border-[#232734] rounded-xs space-y-1">
-                  <div className="text-[11px] text-[#7d8495] font-mono-tech uppercase">Recoverable Yield</div>
-                  <div className="text-2xl font-bold font-mono-tech text-emerald-400">
+                <div className="p-4 bg-[#ffffff] border border-[#ded6c5] rounded-xs space-y-1 shadow-2xs">
+                  <div className="text-[11px] text-[#78716c] uppercase font-bold font-serif">Recoverable Yield</div>
+                  <div className="text-2xl font-bold font-serif text-emerald-800">
                     +${(annualRecoverableValue / 1000).toLocaleString(undefined, { maximumFractionDigits: 0 })}k
                   </div>
-                  <div className="text-[10px] text-[#5e6575]">Annual value restored with TULC protocols.</div>
+                  <div className="text-[10px] text-[#78716c] font-serif">Annual value restored with TULC protocols.</div>
                 </div>
               </div>
 
-              <div className="p-4 bg-[#181b25] border border-[#232734] rounded-xs space-y-2 text-xs text-[#9aa1b2]">
-                <div className="flex items-center gap-2 text-white font-bold">
-                  <CheckCircle className="w-4 h-4 text-[#d4af37]" />
+              <div className="p-4 bg-[#ffffff] border border-[#ded6c5] rounded-xs space-y-2 text-xs text-[#57534e] shadow-2xs">
+                <div className="flex items-center gap-2 text-[#1c1917] font-bold">
+                  <CheckCircle className="w-4 h-4 text-[#8c6708]" />
                   <span>The Calibrated Alternative</span>
                 </div>
-                <p className="leading-relaxed">
+                <p className="leading-relaxed font-serif">
                   Installing sovereign delegation envelopes and codified heuristic filters eliminates {recoverableWeeklyHours} hours of tactical noise per executive, converting reactive drag into category-defining strategic expansion.
                 </p>
               </div>
             </div>
 
             {/* CTAs */}
-            <div className="pt-4 border-t border-[#232734] flex flex-col sm:flex-row gap-3">
+            <div className="pt-4 border-t border-[#ded6c5] flex flex-col sm:flex-row gap-3">
               <Link
                 to="/intake"
-                className="flex-1 flex items-center justify-center gap-2 px-5 py-3 bg-[#b8860b] hover:bg-[#d4af37] text-black font-bold text-xs uppercase tracking-wider rounded-xs transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-[#b8860b] to-[#8c6708] hover:from-[#c99518] hover:to-[#9e7610] text-white font-bold text-xs uppercase tracking-wider rounded-xs transition-colors shadow-sm"
               >
                 <span>Request Architectural Audit</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 to="/assessment"
-                className="flex-1 flex items-center justify-center gap-2 px-5 py-3 bg-[#181b25] hover:bg-[#232734] text-white font-semibold text-xs uppercase tracking-wider rounded-xs border border-[#2b3040] transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 px-5 py-3 bg-[#ffffff] hover:bg-[#efebe2] text-[#1c1917] font-semibold text-xs uppercase tracking-wider rounded-xs border border-[#ded6c5] transition-colors"
               >
                 <span>Take Inaction Diagnostic</span>
               </Link>

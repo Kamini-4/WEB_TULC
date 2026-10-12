@@ -217,7 +217,7 @@ const Waitlist: React.FC<WaitlistProps> = () => {
 
                 <div className="text-[9px] text-zinc-400 italic font-mono flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
-                  <span>Strictly 3 private engagements accepted per quarter. All submissions protected under NDA.</span>
+                  <span>Limited to 3 private engagements per quarter. All submissions protected under NDA.</span>
                 </div>
 
                 <button 

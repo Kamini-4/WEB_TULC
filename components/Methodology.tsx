@@ -26,7 +26,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
       {/* Background Decorative Element */}
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none -z-10 bg-black">
         <img 
-          src="https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&fit=crop&q=80&w=1920" 
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920" 
           alt="Architectural Background" 
           className="w-full h-full object-cover grayscale"
           loading="lazy"
@@ -64,7 +64,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             outcome="Clear quantification of coordination drag and immediate identification of quick-win bandwidth recoveries."
             systemLayer="Continuous passive data scanning to establish baseline organizational execution telemetry."
             humanIntegration="We establish baseline trusted relationship vectors and map the active channels where executive directives suffer initial resistance or dilution."
-            image="https://images.unsplash.com/photo-1507679799987-c7077948a7eb?auto=format&fit=crop&q=80&w=800"
+            image="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('01')}
           />
           <PhaseCard 
@@ -86,7 +86,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             outcome="Frontline teams make confident, high-stakes decisions autonomously—liberating 15+ hours of weekly executive calendar space."
             systemLayer="We install 12+ customized execution protocols to automate daily operational micro-decisions."
             humanIntegration="This phase is entirely behavioral. We establish absolute alignment fidelity down to frontline teams. By automating micro-decisions, we eliminate constant meeting tax. Frontline teams are given systemic sovereignty—they no longer have to ask permission because guardrails are clear, giving them trust, agency, and operational peace of mind."
-            image="https://images.unsplash.com/photo-1504917595217-d4dc5f649e6b?auto=format&fit=crop&q=80&w=800"
+            image="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('03')}
           />
           <PhaseCard 
@@ -97,7 +97,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
             outcome="Permanent organizational sovereignty. Operations compound smoothly whether the founder is in the room or away for 30 days."
             systemLayer="We establish continuous shadow metrics and automated drift detection."
             humanIntegration="This phase acts as a psychological shield. It insulates the executive leadership team from background noise, allowing them to remain in a state of uninhibited vision. Crucially, it de-risks succession planning: by externalizing the founder's wisdom into organizational logic, the business scales smoothly without key-person bottlenecks."
-            image="https://images.unsplash.com/photo-1486406146926-c5a32b2a1f52?auto=format&crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4OTQyNzI4OQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800"
+            image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"
             onBriefClick={() => onBriefClick('04')}
           />
         </div>
@@ -108,7 +108,9 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
           <div className="flex flex-col md:flex-row items-start gap-8 relative z-10">
             <div className="flex-shrink-0 flex flex-col items-center gap-3">
               <div className="w-12 h-12 rounded-full border border-[#b8860b]/30 bg-zinc-900 flex items-center justify-center text-[#b8860b]">
-                <span className="text-xl">🎙️</span>
+                <svg className="w-5 h-5 text-[#b8860b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                </svg>
               </div>
               <div className="text-[8px] font-black uppercase text-[#b8860b] font-mono">Principal Audio</div>
               <div className="flex items-end gap-1 h-6 pt-1">

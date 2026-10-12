@@ -981,7 +981,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                         <span className="text-[10px] text-emerald-400">INSTALLED</span>
                       </div>
                       <p className="text-zinc-300 text-xs font-serif leading-relaxed">
-                        Hard rules permitting escalation to the CEO desk strictly under 3 conditions: (1) Existential brand or legal risk, (2) Strategic budget variance over $250k, or (3) Core ethical violation. Cuts escalation density by 45%.
+                        Hard rules permitting escalation to the CEO desk only under 3 conditions: (1) Existential brand or legal risk, (2) Strategic budget variance over $250k, or (3) Core ethical violation. Cuts escalation density by 45%.
                       </p>
                     </div>
 

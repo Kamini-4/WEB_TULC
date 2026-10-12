@@ -122,24 +122,24 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
   };
 
   return (
-    <section id="insights" className={`${hideHeader ? 'py-12' : 'py-24'} border-t border-white/5 bg-[#0a0a0a] text-white transition-all duration-500`}>
+    <section id="insights" className={`${hideHeader ? 'py-12' : 'py-24'} border-t border-[#ded6c5] bg-[#f7f4ee] text-[#1c1917] transition-all duration-500 font-serif`}>
       <div className="max-w-7xl mx-auto px-6">
         {!hideHeader && (
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
             <div className="max-w-xl">
-              <h2 className="text-[#b8860b] text-[10px] font-bold uppercase mb-2 tracking-widest font-serif">Intellectual Authority</h2>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif leading-tight">The Sovereign Library.</h3>
+              <h2 className="text-[#8c6708] text-[10px] font-bold uppercase mb-2 tracking-widest font-serif">Intellectual Authority</h2>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif leading-tight text-[#1c1917]">The Sovereign Library.</h3>
             </div>
             <div className="flex gap-4">
-               <button className="text-white text-[10px] font-bold uppercase border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all font-serif">
+               <button className="text-[#292524] text-[10px] font-bold uppercase border border-[#ded6c5] px-6 py-3 hover:bg-[#efebe2] hover:text-[#1c1917] transition-all font-serif bg-[#ffffff]">
                 White Papers
               </button>
-              <button className="text-[#b8860b] text-[10px] font-bold uppercase border border-[#b8860b]/30 px-6 py-3 hover:bg-[#b8860b] hover:text-white transition-all font-serif">
+              <button className="text-[#8c6708] text-[10px] font-bold uppercase border border-[#b8860b]/40 px-6 py-3 hover:bg-[#efebe2] transition-all font-serif bg-[#ffffff]">
                 Institutional Reports
               </button>
                <button 
                 onClick={() => document.getElementById('intake')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-6 py-3 bg-[#b8860b] text-white text-[10px] font-bold uppercase hover:bg-white hover:text-black transition-all shadow-lg font-serif"
+                className="px-6 py-3 bg-gradient-to-r from-[#b8860b] to-[#8c6708] text-white text-[10px] font-bold uppercase hover:from-[#c99518] hover:to-[#9e7610] transition-all shadow-sm font-serif"
                >
                 Consult
               </button>
@@ -157,46 +157,46 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                 navigate(`/library/${article.id}`);
               }
             }}>
-              <div className="mb-6 overflow-hidden bg-[#111111] aspect-[16/10] relative border border-white/5">
+              <div className="mb-6 overflow-hidden bg-[#efebe2] aspect-[16/10] relative border border-[#ded6c5] rounded-xs">
                 {failedImages[article.id] ? (
                   <PermanentArtwork id={article.id} title={article.title} className="w-full h-full" />
                 ) : (
                   <img 
                     src={article.image} 
                     alt={article.title} 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
                     loading="lazy"
                     decoding="async"
                     referrerPolicy="no-referrer"
                     onError={() => setFailedImages(prev => ({ ...prev, [article.id]: true }))}
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-40" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
-                  <span className="text-[10px] font-black uppercase text-[#111111] bg-white px-6 py-3 shadow-2xl font-serif">Access Briefing</span>
+                  <span className="text-[10px] font-bold uppercase text-[#1c1917] bg-[#ffffff] px-6 py-3 shadow-xl font-serif">Access Briefing</span>
                 </div>
               </div>
               <div className="flex justify-between items-center mb-3">
                 <div className="flex flex-col gap-1">
-                  <div className="text-[#b8860b] text-[9px] uppercase font-black font-serif">{article.category}</div>
-                  <div className="text-zinc-500 font-serif text-[8.5px] uppercase">
+                  <div className="text-[#8c6708] text-[9px] uppercase font-bold font-serif">{article.category}</div>
+                  <div className="text-[#78716c] font-serif text-[8.5px] uppercase">
                     {getArticleStats(article).words} words • {getArticleStats(article).readTime} min read
                   </div>
                 </div>
                 <div className="relative">
                   <button 
                     onClick={(e) => handleShare(e, article)}
-                    className="p-1 text-zinc-500 hover:text-[#b8860b] transition-colors"
+                    className="p-1 text-[#78716c] hover:text-[#8c6708] transition-colors"
                   >
                     <Share2 size={12} />
                   </button>
                   {sharingId === article.id && (
-                    <div className="absolute right-0 top-6 bg-[#1a1a1a] border border-white/10 p-2 z-20 shadow-2xl flex flex-col gap-2 min-w-[100px] animate-fade-in">
+                    <div className="absolute right-0 top-6 bg-[#ffffff] border border-[#ded6c5] p-2 z-20 shadow-xl flex flex-col gap-2 min-w-[100px] animate-fade-in rounded-xs">
                       <button 
                         onClick={(e) => handleCopyLink(e, article)}
-                        className="flex items-center gap-2 text-[9px] uppercase font-bold text-zinc-400 hover:text-white transition-colors p-1"
+                        className="flex items-center gap-2 text-[9px] uppercase font-bold text-[#292524] hover:text-[#8c6708] transition-colors p-1"
                       >
-                        {copiedId === article.id ? <Check size={10} className="text-green-500" /> : <LinkIcon size={10} />}
+                        {copiedId === article.id ? <Check size={10} className="text-green-600" /> : <LinkIcon size={10} />}
                         {copiedId === article.id ? 'Copied' : 'Copy Link'}
                       </button>
                       <a 
@@ -204,7 +204,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="flex items-center gap-2 text-[9px] uppercase font-bold text-zinc-400 hover:text-white transition-colors p-1"
+                        className="flex items-center gap-2 text-[9px] uppercase font-bold text-[#292524] hover:text-[#8c6708] transition-colors p-1"
                       >
                         <X size={10} /> X / Twitter
                       </a>
@@ -217,7 +217,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                           const shareUrl = `${baseShareUrl}/library/${article.slug || article.id}`;
                           navigator.clipboard.writeText(shareUrl).catch((err) => console.error(err));
                         }}
-                        className="flex items-center gap-2 text-[9px] uppercase font-bold text-zinc-400 hover:text-white transition-colors p-1"
+                        className="flex items-center gap-2 text-[9px] uppercase font-bold text-[#292524] hover:text-[#8c6708] transition-colors p-1"
                       >
                         <Linkedin size={10} /> LinkedIn
                       </a>
@@ -225,25 +225,25 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                   )}
                 </div>
               </div>
-              <h4 className="text-base sm:text-lg font-bold font-serif text-white mb-2 group-hover:text-[#b8860b] transition-colors leading-snug">
+              <h4 className="text-base sm:text-lg font-bold font-serif text-[#1c1917] mb-2 group-hover:text-[#8c6708] transition-colors leading-snug">
                 {article.title}
               </h4>
-              <p className="text-zinc-500 text-xs sm:text-sm leading-relaxed mb-4 font-normal italic line-clamp-2">
+              <p className="text-[#57534e] text-xs sm:text-sm leading-relaxed mb-4 font-normal italic line-clamp-2">
                 {article.excerpt}
               </p>
-              <div className="w-8 h-px bg-white/10 group-hover:w-full group-hover:bg-[#b8860b] transition-all duration-700" />
+              <div className="w-8 h-px bg-[#ded6c5] group-hover:w-full group-hover:bg-[#8c6708] transition-all duration-700" />
             </div>
           ))}
         </div>
 
-        <div className="bg-[#111111] text-white p-10 md:p-16 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#b8860b]/10 blur-[100px] rounded-full" />
+        <div className="bg-[#ffffff] text-[#1c1917] p-10 md:p-16 relative overflow-hidden border border-[#ded6c5] rounded-xs shadow-xs">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#b8860b]/5 blur-[100px] rounded-full" />
           
           <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h4 className="text-[#b8860b] text-[10px] font-black uppercase mb-6">Live Intelligence Pulse</h4>
-              <h5 className="text-3xl font-bold mb-6 leading-tight">
-                Map global trends against <span className="text-[#b8860b] italic">architectural excellence.</span>
+              <h4 className="text-[#8c6708] text-[10px] font-bold uppercase mb-6 font-serif">Live Intelligence Pulse</h4>
+              <h5 className="text-3xl font-bold mb-6 leading-tight text-[#1c1917]">
+                Map global trends against <span className="text-[#996515] italic">architectural excellence.</span>
               </h5>
               <div className="flex flex-col sm:flex-row gap-4">
                 <input 
@@ -252,42 +252,42 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
                   value={pulseQuery}
                   onChange={(e) => setPulseQuery(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handlePulseSearch()}
-                  className="flex-grow bg-white/5 border border-white/20 p-4 text-white text-sm focus:outline-none focus:border-[#b8860b] transition-colors italic font-light"
+                  className="flex-grow bg-[#faf8f5] border border-[#d8cebe] p-4 text-[#1c1917] text-sm focus:outline-none focus:border-[#b8860b] transition-colors italic font-normal placeholder:text-[#a8a29e]"
                 />
                 <button 
                   disabled={isPulseLoading || !pulseQuery}
                   onClick={hasApiKey ? handlePulseSearch : handleOpenKeyDialog}
-                  className="bg-[#b8860b] px-8 py-4 text-[10px] font-black uppercase hover:bg-white hover:text-black transition-all disabled:opacity-50"
+                  className="bg-gradient-to-r from-[#b8860b] to-[#8c6708] text-white px-8 py-4 text-[10px] font-bold uppercase hover:from-[#c99518] hover:to-[#9e7610] transition-all disabled:opacity-50 shadow-sm"
                 >
                   {!hasApiKey ? 'Configure API Key' : isPulseLoading ? 'Gathering...' : 'Calibrate Intel'}
                 </button>
               </div>
             </div>
 
-            <div className="min-h-[160px] flex flex-col justify-center bg-white/[0.02] border border-white/5 p-6">
+            <div className="min-h-[160px] flex flex-col justify-center bg-[#faf8f5] border border-[#ded6c5] p-6 rounded-xs">
               {pulseResult ? (
                 <div className="fade-in">
-                  <p className="text-zinc-400 text-sm leading-relaxed mb-6 italic font-light">
+                  <p className="text-[#292524] text-sm leading-relaxed mb-6 italic font-normal">
                     {pulseResult.text}
                   </p>
                   {pulseResult.links.length > 0 && (
                     <div className="space-y-3">
-                      <p className="text-[9px] uppercase font-black text-[#b8860b] ">Grounding Sources</p>
+                      <p className="text-[9px] uppercase font-bold text-[#8c6708]">Grounding Sources</p>
                       <div className="flex flex-wrap gap-4">
                         {pulseResult.links.map((link, i) => (
-                          <a key={i} href={link.uri} target="_blank" rel="noopener noreferrer" className="text-[10px] text-zinc-500 hover:text-white underline decoration-[#b8860b]/40">
+                          <a key={i} href={link.uri} target="_blank" rel="noopener noreferrer" className="text-[10px] text-[#57534e] hover:text-[#1c1917] underline decoration-[#8c6708]/40">
                             {link.title}
                           </a>
                         ))}
                       </div>
                     </div>
                   )}
-                  <button onClick={() => setPulseResult(null)} className="mt-6 text-[9px] font-black uppercase text-zinc-600 hover:text-[#b8860b] transition-all">Reset Pulse</button>
+                  <button onClick={() => setPulseResult(null)} className="mt-6 text-[9px] font-bold uppercase text-[#78716c] hover:text-[#8c6708] transition-all">Reset Pulse</button>
                 </div>
               ) : (
                 <div className="text-center py-4">
-                  <div className="w-10 h-[1px] bg-white/10 mx-auto mb-4" />
-                  <p className="text-zinc-600 text-[10px] uppercase font-black ">Awaiting Pulse Vector</p>
+                  <div className="w-10 h-[1px] bg-[#ded6c5] mx-auto mb-4" />
+                  <p className="text-[#78716c] text-[10px] uppercase font-bold">Awaiting Pulse Vector</p>
                 </div>
               )}
             </div>

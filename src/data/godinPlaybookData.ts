@@ -17,7 +17,7 @@ export const GODIN_PLAYBOOK: PlaybookLetter[] = [
     tagline: 'Refuse to market to "everyone." Win by serving the exact 100 leaders who need you.',
     category: 'Tribal Attraction',
     godinRule: 'Do not find customers for your products; find products for your customers. When you aim at everyone, you connect with no one.',
-    tulcExecution: 'We never pitch broad management consulting. We narrow our universe strictly to enterprise CXOs and scale-up founders ($20M–$500M ARR) trapped in operational firefighting who crave sovereign systems governance.',
+    tulcExecution: 'We never pitch broad management consulting. We narrow our universe solely to enterprise CXOs and scale-up founders ($20M–$500M ARR) trapped in operational firefighting who crave sovereign systems governance.',
     executiveScript: '"We do not serve general management. We exist exclusively for 100 enterprise leaders whose companies cannot double without their systems being fundamentally recoded."',
     keyTakeaway: 'Specificity is not a limit; it is the ultimate institutional moat. Exclusivity creates irresistible gravitational pull.',
     reflectionQuestion: 'If you were legally restricted to only ever serving 50 clients for the rest of your career, who would you immediately disqualify today?'
@@ -25,7 +25,7 @@ export const GODIN_PLAYBOOK: PlaybookLetter[] = [
   {
     letter: 'B',
     title: 'Belonging & Tribal Belief',
-    tagline: 'People like us do things like this.',
+    tagline: 'Sovereign leaders hold standards that transcend the crowd.',
     category: 'Tribal Attraction',
     godinRule: 'Human beings are desperate to connect with a tribe. Marketing is the generous act of helping others become who they seek to become.',
     tulcExecution: 'TULC is not a transactional vendor; it is a sovereign guild. When a founder partners with us, they cross an identity threshold: they cease to be an overwhelmed operator and step into the posture of an institutional architect.',
@@ -50,7 +50,7 @@ export const GODIN_PLAYBOOK: PlaybookLetter[] = [
     tagline: 'Never submit a pitch deck. Sovereign institutions don’t audition.',
     category: 'Prestige Scarcity',
     godinRule: 'If you are competing on price and answering RFPs, you have already commoditized yourself into a compliant supplier.',
-    tulcExecution: 'TULC strictly rejects bidding processes, competitive tenders, and procurement audits. Clients do not hire us; they apply for an institutional calibration. If a board requests 3 competing bids, we politely withdraw.',
+    tulcExecution: 'TULC deliberately declines bidding processes, competitive tenders, and procurement audits. Clients do not hire us; they apply for an institutional calibration. If a board requests 3 competing bids, we politely withdraw.',
     executiveScript: '"We decline to participate in competitive tenders. Our calibration protocol requires unconditional institutional alignment, not comparative procurement math."',
     keyTakeaway: 'The moment you agree to audition in a lineup, you surrender the moral authority required to transform them.',
     reflectionQuestion: 'How much enterprise authority are you destroying each year by begging for business through corporate RFP processes?'
@@ -223,11 +223,11 @@ export const GODIN_PLAYBOOK: PlaybookLetter[] = [
   {
     letter: 'T',
     title: 'The Tribe Doctrine',
-    tagline: 'People like us do things like this.',
+    tagline: 'Sovereign architects build institutions that outlive their presence.',
     category: 'Tribal Attraction',
     godinRule: 'A group needs only two things to become a tribe: a shared interest and a way to communicate.',
     tulcExecution: 'We cultivate the Sovereign Leadership Guild: a closed community of high-growth founders and executives who reject burnout as a badge of honor and embrace systemic architecture as the true art of compounding.',
-    executiveScript: '"In our circle, exhaustion is not respected; it is diagnosed as an architectural defect. People like us do things like this."',
+    executiveScript: '"In our circle, exhaustion is not respected; it is diagnosed as an architectural defect. Sovereign leaders engineer what outlives them."',
     keyTakeaway: 'A strong tribe defends the culture and recruits its own members with zero sales friction.',
     reflectionQuestion: 'What are the sacred rituals and shared idioms that unify the leaders who resonate with your mission?'
   },

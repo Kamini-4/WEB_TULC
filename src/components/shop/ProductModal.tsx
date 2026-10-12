@@ -270,7 +270,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                     {product.earlyBird.bonusTitle} ({product.earlyBird.bonusValue})
                   </div>
                   <p className="text-xs text-zinc-700 font-light">
-                    Allocated free with this order today. Strictly {product.earlyBird.seatsRemaining} licenses remaining before price locks back to standard institutional retainer rates.
+                    Allocated free with this order today. Only {product.earlyBird.seatsRemaining} licenses remaining before price locks back to standard institutional retainer rates.
                   </p>
                 </div>
 

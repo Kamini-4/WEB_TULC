@@ -38,7 +38,7 @@ const frictionScenarios: FrictionCard[] = [
     financialDrain: "$240,000+ in annual executive salary waste",
     rootFailure: "Conversational reporting substituted for self-verifying operational telemetry.",
     installedGate: "Gate 04: Asynchronous Context Broadcasting",
-    clinicalFix: "Eradicates passive verbal syncs. Replaces them with 5-minute async telemetry logs; meetings are strictly preserved for two-way strategic debate and capital decisions.",
+    clinicalFix: "Eradicates passive verbal syncs. Replaces them with 5-minute async telemetry logs; meetings are solely preserved for two-way strategic debate and capital decisions.",
     domainRef: "Domain 03: Strategic Velocity"
   },
   {
@@ -50,7 +50,7 @@ const frictionScenarios: FrictionCard[] = [
     financialDrain: "2 to 3-month strategic delay to market",
     rootFailure: "Delegating tasks without codifying the underlying decision boundaries and trade-off hierarchy.",
     installedGate: "Gate 02: Autonomous Execution Envelopes",
-    clinicalFix: "Installs strictly bounded execution envelopes. Middle management operates with 100% autonomy within explicit risk boundaries, eliminating drift and the need for rework.",
+    clinicalFix: "Installs clearly bounded execution envelopes. Middle management operates with 100% autonomy within explicit risk boundaries, eliminating drift and the need for rework.",
     domainRef: "Domain 02: Systemic Integrity"
   },
   {
@@ -62,7 +62,7 @@ const frictionScenarios: FrictionCard[] = [
     financialDrain: "CEO forced into daily tactical firefighting",
     rootFailure: "Zero clear thresholding for capital autonomy and fear of personal liability in management.",
     installedGate: "Gate 03: Tiered Capital Logic & Escalation Filter",
-    clinicalFix: "Codifies hard rules permitting escalations to the CEO strictly under 3 conditions: existential legal/brand risk, budget variances >$250k, or core ethics violations.",
+    clinicalFix: "Codifies hard rules permitting escalations to the CEO only under 3 conditions: existential legal/brand risk, budget variances >$250k, or core ethics violations.",
     domainRef: "Domain 04: Moral Gravity"
   },
   {

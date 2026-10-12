@@ -31,8 +31,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* The Tribal Hook (Seth Godin Doctrine) */}
         <h1 className="serif-heading text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-zinc-100 leading-[1.08] mb-6">
-          People Like Us <br className="hidden sm:inline" />
-          <span className="text-gold-gradient italic font-normal">Do Things Like This.</span>
+          Sovereign Architects <br className="hidden sm:inline" />
+          <span className="text-gold-gradient italic font-normal">Build What Outlives Them.</span>
         </h1>
 
         {/* Constructive Tension Subhead */}

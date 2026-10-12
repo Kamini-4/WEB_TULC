@@ -51,7 +51,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   const [errorMessage, setErrorMessage] = useState('');
   const [activeVaultLink, setActiveVaultLink] = useState('');
   
-  // Per-session idempotency key to strictly prevent duplicate charges & race conditions
+  // Per-session idempotency key to reliably prevent duplicate charges & race conditions
   const [idempotencyKey] = useState(() => `tulc_order_${Date.now()}_${Math.random().toString(36).substring(2, 8)}`);
 
   if (!item) return null;

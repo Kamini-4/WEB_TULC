@@ -61,59 +61,59 @@ export const MethodologyPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0b0c10] text-[#e0e2ec] py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-16 px-4 sm:px-6 lg:px-8 font-serif">
       <div className="max-w-5xl mx-auto space-y-16">
         
         {/* Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 text-xs font-mono-tech uppercase tracking-widest text-[#d4af37]">
-            <Layers className="w-4 h-4 text-[#d4af37]" />
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#8c6708] font-bold">
+            <Layers className="w-4 h-4 text-[#8c6708]" />
             <span>The TULC Architecture</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif-prestige font-bold text-white tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1c1917] tracking-tight font-serif">
             The 4-Phase Alignment Protocol
           </h1>
 
-          <p className="text-base text-[#9aa1b2] font-serif-prestige leading-relaxed">
+          <p className="text-base text-[#57534e] font-serif leading-relaxed">
             How we systematically transition high-growth organizations from exhausting, personality-driven firefighting to calm, predictable, and anti-fragile systemic authority.
           </p>
         </div>
 
         {/* Comparison Matrix Table */}
-        <div className="bg-[#12141a] border border-[#1f232d] rounded-xs p-6 sm:p-8 space-y-6">
-          <h2 className="text-xl font-serif-prestige font-bold text-white">
+        <div className="bg-[#ffffff] border border-[#ded6c5] rounded-xs p-6 sm:p-8 space-y-6 shadow-xs">
+          <h2 className="text-xl font-bold font-serif text-[#1c1917]">
             Organizational Physics: The Fundamental Shift
           </h2>
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#181b24] text-white uppercase font-mono-tech text-[11px]">
+            <table className="w-full text-left text-xs sm:text-sm font-serif">
+              <thead className="bg-[#efebe2] text-[#1c1917] uppercase text-[11px] font-serif font-bold">
                 <tr>
-                  <th className="p-3.5 border-b border-[#232734]">Performance Dimension</th>
-                  <th className="p-3.5 border-b border-[#232734] text-rose-300">The Reactive Firefighter Model</th>
-                  <th className="p-3.5 border-b border-[#232734] text-[#d4af37]">The Calibrated TULC Substrate</th>
+                  <th className="p-3.5 border-b border-[#ded6c5]">Performance Dimension</th>
+                  <th className="p-3.5 border-b border-[#ded6c5] text-rose-800">The Reactive Firefighter Model</th>
+                  <th className="p-3.5 border-b border-[#ded6c5] text-[#8c6708]">The Calibrated TULC Substrate</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#1e222e] text-[#9aa1b2]">
+              <tbody className="divide-y divide-[#ded6c5] text-[#57534e]">
                 <tr>
-                  <td className="p-3.5 font-bold text-white">Decision Velocity</td>
+                  <td className="p-3.5 font-bold text-[#1c1917]">Decision Velocity</td>
                   <td className="p-3.5">2 to 4 weeks trapped in approval queues</td>
-                  <td className="p-3.5 text-white font-medium">Under 24 hours via automated delegation gates</td>
+                  <td className="p-3.5 text-[#1c1917] font-semibold">Under 24 hours via automated delegation gates</td>
                 </tr>
                 <tr>
-                  <td className="p-3.5 font-bold text-white">Founder Role</td>
+                  <td className="p-3.5 font-bold text-[#1c1917]">Founder Role</td>
                   <td className="p-3.5">Chief exception handler and daily router</td>
-                  <td className="p-3.5 text-white font-medium">Sovereign systems architect & capital allocator</td>
+                  <td className="p-3.5 text-[#1c1917] font-semibold">Sovereign systems architect & capital allocator</td>
                 </tr>
                 <tr>
-                  <td className="p-3.5 font-bold text-white">Executive Meetings</td>
+                  <td className="p-3.5 font-bold text-[#1c1917]">Executive Meetings</td>
                   <td className="p-3.5">20+ hours weekly of circular status syncs</td>
-                  <td className="p-3.5 text-white font-medium">Under 4 hours, focused strictly on market growth</td>
+                  <td className="p-3.5 text-[#1c1917] font-semibold">Under 4 hours, focused on market growth</td>
                 </tr>
                 <tr>
-                  <td className="p-3.5 font-bold text-white">Exit Valuation</td>
+                  <td className="p-3.5 font-bold text-[#1c1917]">Exit Valuation</td>
                   <td className="p-3.5">Discounted heavily due to single-person risk</td>
-                  <td className="p-3.5 text-white font-medium">Maximum institutional multiple for self-running asset</td>
+                  <td className="p-3.5 text-[#1c1917] font-semibold">Maximum institutional multiple for self-running asset</td>
                 </tr>
               </tbody>
             </table>
@@ -125,30 +125,30 @@ export const MethodologyPage: React.FC = () => {
           {phases.map((phase) => (
             <div
               key={phase.number}
-              className="bg-[#12141a] border border-[#1f232d] hover:border-[#b8860b]/50 transition-all rounded-xs p-6 sm:p-10 space-y-4"
+              className="bg-[#ffffff] border border-[#ded6c5] hover:border-[#b8860b]/50 transition-all rounded-xs p-6 sm:p-10 space-y-4 shadow-xs"
             >
               <div className="flex items-center gap-3">
-                <span className="text-2xl sm:text-3xl font-mono-tech font-bold text-[#b8860b]">{phase.number}</span>
+                <span className="text-2xl sm:text-3xl font-bold text-[#8c6708] font-serif">{phase.number}</span>
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-serif-prestige font-bold text-white">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1c1917] font-serif">
                     {phase.title}
                   </h3>
-                  <div className="text-xs font-mono-tech text-[#7d8495]">{phase.subtitle}</div>
+                  <div className="text-xs text-[#78716c] font-serif">{phase.subtitle}</div>
                 </div>
               </div>
 
-              <p className="text-sm sm:text-base text-[#c8cde0] font-serif-prestige leading-relaxed pt-2">
+              <p className="text-sm sm:text-base text-[#57534e] font-serif leading-relaxed pt-2">
                 {phase.description}
               </p>
 
-              <div className="pt-4 border-t border-[#1f232d] space-y-2">
-                <span className="text-xs uppercase font-bold text-[#d4af37] tracking-wider font-mono-tech">
+              <div className="pt-4 border-t border-[#e2dcce] space-y-2">
+                <span className="text-xs uppercase font-bold text-[#8c6708] tracking-wider font-serif">
                   Key Phase Deliverables:
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
                   {phase.deliverables.map((d, idx) => (
-                    <div key={idx} className="p-3 bg-[#171a23] border border-[#232734] rounded-xs text-xs text-[#9aa1b2] flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#d4af37] shrink-0 mt-0.5" />
+                    <div key={idx} className="p-3 bg-[#faf8f5] border border-[#ded6c5] rounded-xs text-xs text-[#57534e] flex items-start gap-2 font-serif">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#8c6708] shrink-0 mt-0.5" />
                       <span>{d}</span>
                     </div>
                   ))}
@@ -159,24 +159,24 @@ export const MethodologyPage: React.FC = () => {
         </div>
 
         {/* Final CTA */}
-        <div className="p-8 sm:p-10 bg-[#13161f] border border-[#b8860b]/40 rounded-xs text-center space-y-5">
-          <h2 className="text-2xl sm:text-3xl font-serif-prestige font-bold text-white">
+        <div className="p-8 sm:p-10 bg-gradient-to-br from-[#ffffff] via-[#faf8f5] to-[#efebe2] border border-[#b8860b]/30 rounded-xs text-center space-y-5 shadow-sm">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1c1917] font-serif">
             Ready to Install the Alignment Protocol?
           </h2>
-          <p className="text-sm text-[#9aa1b2] max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm text-[#57534e] max-w-xl mx-auto leading-relaxed font-serif">
             Begin with the 90-second Inaction Tax Diagnostic or submit your executive parameters for direct review by Principal Suchita Sancheti.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <Link
               to="/intake"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-[#b8860b] hover:bg-[#d4af37] text-black font-bold text-xs uppercase tracking-wider rounded-xs transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-[#b8860b] to-[#8c6708] hover:from-[#c99518] hover:to-[#9e7610] text-white font-bold text-xs uppercase tracking-wider rounded-xs transition-colors shadow-sm"
             >
               <span>Submit Sovereign Intake</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/assessment"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-[#181b24] hover:bg-[#222634] text-white font-semibold text-xs uppercase tracking-wider rounded-xs border border-[#262a38] transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#ffffff] hover:bg-[#efebe2] text-[#1c1917] font-semibold text-xs uppercase tracking-wider rounded-xs border border-[#ded6c5] transition-colors"
             >
               <span>Take Inaction Tax Diagnostic</span>
             </Link>

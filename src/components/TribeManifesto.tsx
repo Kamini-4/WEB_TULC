@@ -121,7 +121,7 @@ export const TribeManifesto: React.FC<TribeManifestoProps> = ({
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-zinc-100">Peer Tribal Accountability:</strong> "People like us do things like this"—internal standards defended by colleagues, not policed by founders.
+                  <strong className="text-zinc-100">Sovereign Standard of Excellence:</strong> Unspoken institutional laws defended autonomously by peer leaders, not policed by founders.
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -180,7 +180,7 @@ export const TribeManifesto: React.FC<TribeManifestoProps> = ({
             </div>
             <h4 className="serif-heading text-xl font-bold text-zinc-100 mb-2">Tribal Accountability</h4>
             <p className="text-sm text-zinc-400 leading-relaxed">
-              Transforming vague core values into the unwritten law of the room: "People like us do things like this." Standards defended fiercely by peers.
+              Transforming vague core values into self-enforcing sovereign law: An uncompromising institutional standard defended fiercely by peers.
             </p>
           </div>
 

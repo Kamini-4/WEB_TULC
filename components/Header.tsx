@@ -18,36 +18,36 @@ export const Header: React.FC = () => {
   const location = useLocation();
 
   const navLinks = [
-    { name: 'Dispatches & Library', path: '/library', icon: FileText },
-    { name: 'Methodology', path: '/methodology', icon: Layers },
-    { name: 'Mandates & Services', path: '/services', icon: Shield },
-    { name: 'Inaction Tax Diagnostic', path: '/assessment', icon: Activity },
-    { name: 'Cognitive Tax Engine', path: '/cognitive-tax', icon: Calculator },
-    { name: 'About Principal', path: '/about', icon: UserCheck },
+    { name: 'Services', path: '/services', icon: Shield },
+    { name: 'How It Works', path: '/methodology', icon: Layers },
+    { name: 'Two-Week Test', path: '/assessment', icon: Activity },
+    { name: 'Freedom Calculator', path: '/cognitive-tax', icon: Calculator },
+    { name: 'Dispatches', path: '/library', icon: FileText },
+    { name: 'About Suchita', path: '/about', icon: UserCheck },
   ];
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 bg-[#0b0c10]/90 backdrop-blur-md border-b border-[#1f232d] transition-all">
+    <header className="sticky top-0 z-50 bg-[#f7f4ee]/95 backdrop-blur-md border-b border-[#e2dcce] transition-all font-serif">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Brand Identity */}
+        {/* Brand Identity with Tight Kerning */}
         <Link to="/" className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b8860b]">
-          <div className="w-10 h-10 rounded-xs bg-gradient-to-br from-[#1c1f2b] to-[#12141a] border border-[#b8860b]/40 flex items-center justify-center text-[#d4af37] shadow-sm group-hover:border-[#d4af37] transition-colors">
-            <Compass className="w-5 h-5 text-[#d4af37]" />
+          <div className="w-10 h-10 rounded-xs bg-[#efebe2] border border-[#b8860b]/30 flex items-center justify-center text-[#8c6708] shadow-sm group-hover:border-[#8c6708] transition-colors">
+            <Compass className="w-5 h-5 text-[#8c6708]" />
           </div>
           <div className="flex flex-col">
-            <span className="font-monumental tracking-widest text-sm font-bold text-white uppercase group-hover:text-[#d4af37] transition-colors">
+            <span className="tracking-tighter text-sm font-bold text-[#1c1917] uppercase group-hover:text-[#8c6708] transition-colors font-serif" style={{ letterSpacing: '-0.035em' }}>
               The Unbounded
             </span>
-            <span className="text-[10px] tracking-[0.25em] text-[#9aa1b2] uppercase font-mono-tech">
+            <span className="text-[10px] tracking-tight text-[#78716c] uppercase font-serif" style={{ letterSpacing: '-0.025em' }}>
               Leadership Co.
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-7 text-xs uppercase tracking-wider font-medium">
+        <nav className="hidden lg:flex items-center gap-7 text-xs uppercase tracking-tight font-medium">
           {navLinks.map((link) => {
             const active = isActive(link.path);
             return (
@@ -56,8 +56,8 @@ export const Header: React.FC = () => {
                 to={link.path}
                 className={`transition-colors py-1 border-b-2 ${
                   active 
-                    ? 'text-[#d4af37] border-[#d4af37] font-semibold' 
-                    : 'text-[#9aa1b2] border-transparent hover:text-white hover:border-[#1f232d]'
+                    ? 'text-[#8c6708] border-[#8c6708] font-bold' 
+                    : 'text-[#57534e] border-transparent hover:text-[#1c1917] hover:border-[#b8860b]/40'
                 }`}
               >
                 {link.name}
@@ -66,13 +66,13 @@ export const Header: React.FC = () => {
           })}
         </nav>
 
-        {/* Executive Action Button */}
+        {/* Action Button */}
         <div className="hidden sm:flex items-center gap-3">
           <Link
             to="/intake"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#b8860b] to-[#8c6708] hover:from-[#d4af37] hover:to-[#a17812] text-black text-xs font-bold uppercase tracking-wider rounded-xs transition-all shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-black hover:bg-[#b8860b] text-white text-xs font-bold uppercase tracking-tight rounded-xs transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8c6708]"
           >
-            <span>Sovereign Intake</span>
+            <span>Start A Conversation</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
@@ -81,7 +81,7 @@ export const Header: React.FC = () => {
         <div className="flex lg:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#9aa1b2] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b8860b]"
+            className="p-2 text-[#57534e] hover:text-[#1c1917] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b8860b]"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -91,7 +91,7 @@ export const Header: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-[#1f232d] bg-[#12141a] px-4 pt-3 pb-6 space-y-3">
+        <div className="lg:hidden border-b border-[#e2dcce] bg-[#f7f4ee] px-4 pt-3 pb-6 space-y-3">
           <div className="space-y-1">
             {navLinks.map((link) => {
               const active = isActive(link.path);
@@ -101,25 +101,25 @@ export const Header: React.FC = () => {
                   key={link.path}
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-xs text-xs uppercase tracking-wider font-medium ${
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-xs text-xs uppercase tracking-tight font-medium ${
                     active 
-                      ? 'bg-[#1f232d] text-[#d4af37] font-bold' 
-                      : 'text-[#9aa1b2] hover:bg-[#1a1c24] hover:text-white'
+                      ? 'bg-[#efebe2] text-[#8c6708] font-bold' 
+                      : 'text-[#57534e] hover:bg-[#efebe2] hover:text-[#1c1917]'
                   }`}
                 >
-                  <IconComponent className="w-4 h-4 text-[#d4af37]" />
+                  <IconComponent className="w-4 h-4 text-[#8c6708]" />
                   <span>{link.name}</span>
                 </Link>
               );
             })}
           </div>
-          <div className="pt-3 border-t border-[#1f232d]">
+          <div className="pt-3 border-t border-[#e2dcce]">
             <Link
               to="/intake"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#b8860b] text-black text-xs font-bold uppercase tracking-wider rounded-xs"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#b8860b] text-white text-xs font-bold uppercase tracking-tight rounded-xs"
             >
-              <span>Initiate Sovereign Intake</span>
+              <span>Start A Conversation</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

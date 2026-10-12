@@ -588,29 +588,29 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="bg-[#0a0a0a] min-h-screen text-white flex flex-col"
+      className="bg-[#f7f4ee] min-h-screen text-[#1c1917] flex flex-col font-serif"
     >
       {/* 01. COMPACT EXECUTIVE HEADER (MINIMAL VERTICAL FOOTPRINT) */}
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-4">
-        <nav className="flex items-center gap-2 text-xs uppercase text-zinc-400 mb-3 tracking-wide">
-          <Link to="/" className="hover:text-[#b8860b] transition-colors">Home</Link>
-          <span className="text-zinc-600">/</span>
-          <span className="text-[#b8860b] font-bold">Executive Blogs & Dispatches</span>
+        <nav className="flex items-center gap-2 text-xs uppercase text-[#78716c] mb-3 tracking-wide">
+          <Link to="/" className="hover:text-[#8c6708] transition-colors">Home</Link>
+          <span className="text-[#a8a29e]">/</span>
+          <span className="text-[#8c6708] font-bold">Executive Blogs & Dispatches</span>
         </nav>
         
         <header className="mb-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/10 border border-[#b8860b]/30 rounded-full mb-3">
-            <Award className="w-3.5 h-3.5 text-[#b8860b]" />
-            <span className="text-[#b8860b] text-xs font-bold uppercase tracking-wider font-serif">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#efebe2] border border-[#b8860b]/30 rounded-full mb-3">
+            <Award className="w-3.5 h-3.5 text-[#8c6708]" />
+            <span className="text-[#8c6708] text-xs font-bold uppercase tracking-wider font-serif">
               Executive Blog & Intelligence Archive
             </span>
           </div>
           
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif leading-tight text-white mb-2.5">
-            Strategic Blogs & <span className="italic text-[#b8860b] font-normal">Dispatches.</span>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif leading-tight text-[#1c1917] mb-2.5">
+            Strategic Blogs & <span className="italic text-[#996515] font-normal">Dispatches.</span>
           </h1>
           
-          <p className="max-w-3xl text-zinc-300 text-sm sm:text-base md:text-lg font-serif italic leading-relaxed mb-4">
+          <p className="max-w-3xl text-[#57534e] text-sm sm:text-base md:text-lg font-serif italic leading-relaxed mb-4">
             Forensic research on leadership substrate physics, cognitive tax, and institutional sovereignty. Select any dispatch to read immediately.
           </p>
         </header>
@@ -620,98 +620,98 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
       <Blog onArticleClick={onArticleClick} hideHeader={true} />
 
       {/* Cross-Domain Architecture Internal Links Bar Placed At The Bottom */}
-      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 border-t border-white/10">
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 border-t border-[#ded6c5]">
         <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
-          <span className="text-xs uppercase font-serif font-bold text-[#b8860b] tracking-wider">
+          <span className="text-xs uppercase font-serif font-bold text-[#8c6708] tracking-wider">
             Operational Hubs & Institutional Bridges:
           </span>
-          <span className="text-xs text-zinc-400 font-serif italic">
+          <span className="text-xs text-[#78716c] font-serif italic">
             Convert strategic intelligence into organizational execution
           </span>
         </div>
         <div className="flex items-center gap-2 sm:gap-3 text-xs uppercase overflow-x-auto no-scrollbar font-serif">
-          <Link to="/toolkits" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
-            📦 Toolkits
+          <Link to="/toolkits" className="px-3.5 py-1.5 bg-[#ffffff] hover:bg-[#b8860b] hover:text-white text-[#292524] border border-[#ded6c5] transition-colors rounded-xs shrink-0 font-medium shadow-2xs">
+            Founder Toolkits
           </Link>
-          <Link to="/assessment" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
-            ⚡ Diagnostic
+          <Link to="/assessment" className="px-3.5 py-1.5 bg-[#ffffff] hover:bg-[#b8860b] hover:text-white text-[#292524] border border-[#ded6c5] transition-colors rounded-xs shrink-0 font-medium shadow-2xs">
+            Two-Week Diagnostic
           </Link>
-          <Link to="/services" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
-            💼 Retainer
+          <Link to="/services" className="px-3.5 py-1.5 bg-[#ffffff] hover:bg-[#b8860b] hover:text-white text-[#292524] border border-[#ded6c5] transition-colors rounded-xs shrink-0 font-medium shadow-2xs">
+            Sovereign Retainer
           </Link>
-          <Link to="/methodology" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
-            🏛️ Protocol
+          <Link to="/methodology" className="px-3.5 py-1.5 bg-[#ffffff] hover:bg-[#b8860b] hover:text-white text-[#292524] border border-[#ded6c5] transition-colors rounded-xs shrink-0 font-medium shadow-2xs">
+            Governance Protocol
           </Link>
-          <Link to="/cognitive-tax" className="px-3.5 py-1.5 bg-zinc-900 hover:bg-[#b8860b] hover:text-black text-zinc-200 border border-white/10 transition-colors rounded-xs shrink-0 font-medium">
-            ⚖️ Cognitive Tax
+          <Link to="/cognitive-tax" className="px-3.5 py-1.5 bg-[#ffffff] hover:bg-[#b8860b] hover:text-white text-[#292524] border border-[#ded6c5] transition-colors rounded-xs shrink-0 font-medium shadow-2xs">
+            Cognitive Tax Scan
           </Link>
-          <Link to="/intake" className="px-3.5 py-1.5 bg-[#b8860b] text-black hover:bg-white font-bold transition-colors rounded-xs shrink-0">
-            ✍️ Intake Desk
+          <Link to="/intake" className="px-3.5 py-1.5 bg-gradient-to-r from-[#b8860b] to-[#8c6708] text-white hover:from-[#c99518] hover:to-[#9e7610] font-bold transition-colors rounded-xs shrink-0 shadow-sm">
+            Advisory Intake
           </Link>
         </div>
       </div>
 
-      {/* 03. ADD NEWSLETTER THING HERE: Direct Subscriber Gateway */}
-      <section className="py-12 sm:py-16 bg-[#0d0d0d] border-t border-white/10">
+      {/* 03. Direct Subscriber Gateway */}
+      <section className="py-12 sm:py-16 bg-[#efebe2]/60 border-t border-[#ded6c5]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <Newsletter />
         </div>
       </section>
 
-      {/* 04. THEN ASK TO BE A SOURCE: Google Preferred Source Integration */}
-      <section className="py-12 sm:py-16 bg-[#0a0a0a] border-t border-white/10">
+      {/* 04. Google Preferred Source Integration */}
+      <section className="py-12 sm:py-16 bg-[#f7f4ee] border-t border-[#ded6c5]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <GooglePreferredSource variant="card" />
         </div>
       </section>
 
       {/* 05. White Papers Section */}
-      <div className="bg-[#080808] border-t border-white/10 py-14 sm:py-20">
+      <div className="bg-[#efebe2]/60 border-t border-[#ded6c5] py-14 sm:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-white/10 gap-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-[#ded6c5] gap-4">
             <div>
-              <span className="text-[#b8860b] text-xs font-bold uppercase block mb-2 tracking-wider">
+              <span className="text-[#8c6708] text-xs font-bold uppercase block mb-2 tracking-wider">
                 Patent-Pending Frameworks
               </span>
-              <h3 className="text-3xl sm:text-4xl font-bold font-serif text-white">
+              <h3 className="text-3xl sm:text-4xl font-bold font-serif text-[#1c1917]">
                 Architectural White Papers
               </h3>
             </div>
-            <p className="text-zinc-300 text-sm sm:text-base italic font-normal max-w-md leading-relaxed">
+            <p className="text-[#57534e] text-sm sm:text-base italic font-normal max-w-md leading-relaxed">
               Peer-level technical briefings explaining the systemic physics of coordination lag, cognitive burn rate, and institutional alignment.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-10">
             {/* White Paper 01 */}
-            <div className="group bg-zinc-900/80 p-8 sm:p-10 border border-white/10 hover:border-[#b8860b]/50 transition-all duration-500 flex flex-col justify-between shadow-2xl relative">
-              <div className="absolute top-0 right-0 px-3.5 py-1.5 bg-[#b8860b]/20 text-[#b8860b] text-xs uppercase font-bold tracking-wider">
+            <div className="group bg-[#ffffff] p-8 sm:p-10 border border-[#ded6c5] hover:border-[#b8860b]/50 transition-all duration-500 flex flex-col justify-between shadow-xs relative">
+              <div className="absolute top-0 right-0 px-3.5 py-1.5 bg-[#efebe2] text-[#8c6708] text-xs uppercase font-bold tracking-wider">
                 REF: TULC-WP-01
               </div>
               
               <div>
-                <span className="text-[#b8860b] text-xs uppercase font-bold block mb-2 tracking-wider">
+                <span className="text-[#8c6708] text-xs uppercase font-bold block mb-2 tracking-wider">
                   Dynamics of Alignment
                 </span>
-                <h4 className="text-xl sm:text-2xl font-bold font-serif text-white mb-3 group-hover:text-[#b8860b] transition-colors leading-snug">
+                <h4 className="text-xl sm:text-2xl font-bold font-serif text-[#1c1917] mb-3 group-hover:text-[#8c6708] transition-colors leading-snug">
                   Strategic Alignment Protocol: A Total Architectural Audit
                 </h4>
-                <p className="text-zinc-300 italic font-normal leading-relaxed mb-6 text-sm sm:text-base">
+                <p className="text-[#57534e] italic font-normal leading-relaxed mb-6 text-sm sm:text-base">
                   An in-depth 45-page exploration of coordination lag, strategic dilution across organizational tiers, and the transition from individual founder dependency to automated alignment.
                 </p>
               </div>
 
-              <div className="space-y-4 pt-6 border-t border-white/10">
+              <div className="space-y-4 pt-6 border-t border-[#e2dcce]">
                 <div className="flex flex-wrap gap-3">
                   <button 
                     onClick={() => setActivePaperKey('alignment_protocol')}
-                    className="text-xs font-bold uppercase bg-[#b8860b] text-white px-6 py-2.5 hover:bg-white hover:text-black transition-all shadow-md cursor-pointer tracking-wider"
+                    className="text-xs font-bold uppercase bg-[#b8860b] text-white px-6 py-2.5 hover:bg-[#a17812] transition-all shadow-sm cursor-pointer tracking-wider"
                   >
                     Read Online
                   </button>
                   <button 
                     onClick={() => handleDownload('alignment_protocol')}
-                    className="text-xs font-bold uppercase border border-white/20 text-zinc-200 px-6 py-2.5 hover:bg-white hover:text-black transition-all cursor-pointer tracking-wider"
+                    className="text-xs font-bold uppercase border border-[#ded6c5] text-[#292524] hover:bg-[#efebe2] px-6 py-2.5 transition-all cursor-pointer tracking-wider"
                   >
                     Print / Save PDF
                   </button>
@@ -721,7 +721,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 <div className="pt-2 flex items-center justify-between">
                   <Link 
                     to="/assessment" 
-                    className="text-xs font-bold text-[#b8860b] hover:text-white transition-colors flex items-center gap-1.5 uppercase tracking-wide"
+                    className="text-xs font-bold text-[#8c6708] hover:text-[#1c1917] transition-colors flex items-center gap-1.5 uppercase tracking-wide"
                   >
                     <Calculator className="w-3.5 h-3.5" />
                     <span>Audit This Protocol in Assessment →</span>
@@ -731,34 +731,34 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
             </div>
 
             {/* White Paper 02 */}
-            <div className="group bg-zinc-900/80 p-8 sm:p-10 border border-white/10 hover:border-[#b8860b]/50 transition-all duration-500 flex flex-col justify-between shadow-2xl relative">
-              <div className="absolute top-0 right-0 px-3.5 py-1.5 bg-[#b8860b]/20 text-[#b8860b] text-xs uppercase font-bold tracking-wider">
+            <div className="group bg-[#ffffff] p-8 sm:p-10 border border-[#ded6c5] hover:border-[#b8860b]/50 transition-all duration-500 flex flex-col justify-between shadow-xs relative">
+              <div className="absolute top-0 right-0 px-3.5 py-1.5 bg-[#efebe2] text-[#8c6708] text-xs uppercase font-bold tracking-wider">
                 REF: TULC-WP-02
               </div>
 
               <div>
-                <span className="text-[#b8860b] text-xs uppercase font-bold block mb-2 tracking-wider">
+                <span className="text-[#8c6708] text-xs uppercase font-bold block mb-2 tracking-wider">
                   Strategic Substrates
                 </span>
-                <h4 className="text-xl sm:text-2xl font-bold font-serif text-white mb-3 group-hover:text-[#b8860b] transition-colors leading-snug">
+                <h4 className="text-xl sm:text-2xl font-bold font-serif text-[#1c1917] mb-3 group-hover:text-[#8c6708] transition-colors leading-snug">
                   Cognitive Equity: Reclaiming the Architect's Seat
                 </h4>
-                <p className="text-zinc-300 italic font-normal leading-relaxed mb-6 text-sm sm:text-base">
+                <p className="text-[#57534e] italic font-normal leading-relaxed mb-6 text-sm sm:text-base">
                   Quantifying the metabolic burn rate of leadership, calculating the hidden cost of micro-management friction, and engineering the systemic return on architectural integrity.
                 </p>
               </div>
 
-              <div className="space-y-4 pt-6 border-t border-white/10">
+              <div className="space-y-4 pt-6 border-t border-[#e2dcce]">
                 <div className="flex flex-wrap gap-3">
                   <button 
                     onClick={() => setActivePaperKey('cognitive_equity')}
-                    className="text-xs font-bold uppercase bg-[#b8860b] text-white px-6 py-2.5 hover:bg-white hover:text-black transition-all shadow-md cursor-pointer tracking-wider"
+                    className="text-xs font-bold uppercase bg-[#b8860b] text-white px-6 py-2.5 hover:bg-[#a17812] transition-all shadow-sm cursor-pointer tracking-wider"
                   >
                     Read Online
                   </button>
                   <button 
                     onClick={() => handleDownload('cognitive_equity')}
-                    className="text-xs font-bold uppercase border border-white/20 text-zinc-200 px-6 py-2.5 hover:bg-white hover:text-black transition-all cursor-pointer tracking-wider"
+                    className="text-xs font-bold uppercase border border-[#ded6c5] text-[#292524] hover:bg-[#efebe2] px-6 py-2.5 transition-all cursor-pointer tracking-wider"
                   >
                     Print / Save PDF
                   </button>
@@ -768,7 +768,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 <div className="pt-2 flex items-center justify-between">
                   <Link 
                     to="/assessment" 
-                    className="text-xs font-bold text-[#b8860b] hover:text-white transition-colors flex items-center gap-1.5 uppercase tracking-wide"
+                    className="text-xs font-bold text-[#8c6708] hover:text-[#1c1917] transition-colors flex items-center gap-1.5 uppercase tracking-wide"
                   >
                     <Calculator className="w-3.5 h-3.5" />
                     <span>Calculate Your Inaction Tax →</span>
@@ -779,15 +779,15 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
           </div>
 
           {/* High-Converting Executive Action Banner */}
-          <div className="mt-16 p-8 sm:p-10 bg-gradient-to-r from-zinc-900 via-[#111111] to-zinc-900 border border-[#b8860b]/40 rounded-xs flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+          <div className="mt-16 p-8 sm:p-10 bg-gradient-to-r from-[#ffffff] via-[#fcfbf9] to-[#efebe2] border border-[#b8860b]/30 rounded-xs flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
             <div className="space-y-2 max-w-2xl text-left">
-              <span className="text-[9px] font-mono font-bold uppercase text-[#b8860b] block">
+              <span className="text-[9px] font-bold uppercase text-[#8c6708] block">
                 From Research To Hard-Coded Execution
               </span>
-              <h4 className="text-xl sm:text-2xl font-bold font-serif text-white">
+              <h4 className="text-xl sm:text-2xl font-bold font-serif text-[#1c1917]">
                 Ready to hard-code these protocols into your organization?
               </h4>
-              <p className="text-zinc-300 text-xs sm:text-sm italic font-light leading-relaxed">
+              <p className="text-[#57534e] text-xs sm:text-sm italic font-light leading-relaxed">
                 We do not hand off static recommendations. Our firm co-implements alongside your executive team to automate governance, reclaim bandwidth, and lock in operational sovereignty.
               </p>
             </div>
@@ -795,7 +795,7 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
             <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
               <Link
                 to="/assessment"
-                className="px-6 py-3 bg-[#b8860b] text-white hover:bg-white hover:text-black text-[10px] font-bold uppercase transition-all text-center rounded-xs shadow-lg flex items-center justify-center gap-2"
+                className="px-6 py-3 bg-gradient-to-r from-[#b8860b] to-[#8c6708] text-white hover:from-[#c99518] hover:to-[#9e7610] text-[10px] font-bold uppercase transition-all text-center rounded-xs shadow-sm flex items-center justify-center gap-2"
               >
                 <Calculator className="w-3.5 h-3.5" />
                 <span>Run Diagnostic Audit</span>
@@ -816,62 +816,62 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
         {activePaperKey && WHITE_PAPERS[activePaperKey] && (() => {
           const paper = WHITE_PAPERS[activePaperKey];
           return (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-4 bg-[#050505]/95 backdrop-blur-md animate-fade-in">
-              <div className="bg-[#111111] border border-white/10 max-w-4xl w-full h-[100dvh] sm:h-[88vh] flex flex-col relative shadow-2xl sm:rounded-sm overflow-hidden">
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-4 bg-stone-900/60 backdrop-blur-sm animate-fade-in font-serif">
+              <div className="bg-[#faf8f5] border border-[#ded6c5] max-w-4xl w-full h-[100dvh] sm:h-[88vh] flex flex-col relative shadow-2xl sm:rounded-sm overflow-hidden text-[#1c1917]">
                 {/* Control Header Bar */}
-                <div className="flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 bg-black/40 border-b border-white/10 select-none">
+                <div className="flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 bg-[#efebe2] border-b border-[#ded6c5] select-none">
                   <div className="flex items-center gap-2 sm:gap-3">
-                    <span className="text-[9px] sm:text-[10px] font-black uppercase text-[#b8860b] bg-[#b8860b]/10 px-2 py-0.5 rounded-sm">
+                    <span className="text-[9px] sm:text-[10px] font-bold uppercase text-[#8c6708] bg-[#efebe2] border border-[#b8860b]/30 px-2 py-0.5 rounded-sm">
                       {paper.category}
                     </span>
-                    <span className="text-zinc-500 text-[9px] sm:text-[10px] font-mono hidden sm:inline">
+                    <span className="text-[#78716c] text-[9px] sm:text-[10px] font-serif hidden sm:inline">
                       SECURE DOCUMENT ARCHIVE // VERIFIED
                     </span>
                   </div>
                   <button 
                     onClick={() => setActivePaperKey(null)}
-                    className="text-zinc-400 hover:text-white text-[10px] sm:text-xs font-mono uppercase flex items-center gap-1.5 border border-white/10 px-2.5 sm:px-3 py-1 hover:border-white/20 transition-all rounded-xs"
+                    className="text-[#57534e] hover:text-[#1c1917] text-[10px] sm:text-xs font-serif uppercase flex items-center gap-1.5 border border-[#ded6c5] px-2.5 sm:px-3 py-1 hover:border-[#b8860b] transition-all rounded-xs"
                   >
                     <span>Close</span> <span>✕</span>
                   </button>
                 </div>
 
                 {/* Sub-Header Actions */}
-                <div className="flex justify-between items-center px-8 py-3 bg-zinc-900/30 border-b border-white/5 select-none text-left">
-                  <span className="text-zinc-500 text-[9px] font-mono">
+                <div className="flex justify-between items-center px-8 py-3 bg-[#f7f4ee] border-b border-[#ded6c5] select-none text-left">
+                  <span className="text-[#78716c] text-[9px] font-serif">
                     REGISTRY ID: TULC-WP-{activePaperKey === 'alignment_protocol' ? '01-ALPHA' : '02-BETA'}
                   </span>
                   <button
                     onClick={() => handleDownload(activePaperKey)}
-                    className="text-[9px] font-bold uppercase text-[#b8860b] hover:text-white transition-colors bg-white/5 hover:bg-[#b8860b] px-4 py-1.5 border border-[#b8860b]/30 rounded-sm"
+                    className="text-[9px] font-bold uppercase text-[#8c6708] hover:text-[#1c1917] transition-colors bg-[#ffffff] hover:bg-[#efebe2] px-4 py-1.5 border border-[#ded6c5] rounded-sm shadow-2xs"
                   >
                     Print or Download PDF
                   </button>
                 </div>
 
                 {/* Scrollable White Paper Content Panel */}
-                <div className="flex-1 overflow-y-auto px-6 md:px-16 py-12 text-zinc-100 selection:bg-[#b8860b]/30 text-left">
+                <div className="flex-1 overflow-y-auto px-6 md:px-16 py-12 text-[#1c1917] selection:bg-[#b8860b]/20 text-left bg-[#faf8f5]">
                   <div className="max-w-2xl mx-auto space-y-10">
                     {/* Document Header block */}
-                    <div className="text-center pb-8 border-b border-zinc-800/60 select-none">
-                      <div className="text-[#b8860b] text-[9px] font-black uppercase mb-4">
+                    <div className="text-center pb-8 border-b border-[#ded6c5] select-none">
+                      <div className="text-[#8c6708] text-[9px] font-bold uppercase mb-4 tracking-wider">
                         THE UNBOUNDED LEADERSHIP CO. TECHNICAL BRIEFING
                       </div>
-                      <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight font-serif mb-4">
+                      <h1 className="text-3xl md:text-5xl font-extrabold text-[#1c1917] leading-tight font-serif mb-4">
                         {paper.title}
                       </h1>
-                      <p className="text-zinc-400 text-sm md:text-base italic leading-relaxed font-serif max-w-lg mx-auto">
+                      <p className="text-[#57534e] text-sm md:text-base italic leading-relaxed font-serif max-w-lg mx-auto">
                         {paper.subtitle}
                       </p>
                       
-                      <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-zinc-900/50 max-w-sm mx-auto text-left font-mono">
+                      <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-[#ded6c5] max-w-sm mx-auto text-left font-serif">
                         <div>
-                          <div className="text-zinc-600 text-[8px] uppercase ">Architect</div>
-                          <div className="text-zinc-300 text-[9px] font-bold">{paper.author}</div>
+                          <div className="text-[#78716c] text-[8px] uppercase">Architect</div>
+                          <div className="text-[#1c1917] text-[10px] font-bold">{paper.author}</div>
                         </div>
                         <div>
-                          <div className="text-zinc-600 text-[8px] uppercase ">Released</div>
-                          <div className="text-zinc-300 text-[9px] font-bold">{paper.date}</div>
+                          <div className="text-[#78716c] text-[8px] uppercase">Released</div>
+                          <div className="text-[#1c1917] text-[10px] font-bold">{paper.date}</div>
                         </div>
                       </div>
                     </div>
@@ -880,11 +880,11 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                     <div className="space-y-12">
                       {paper.sections.map((sec, sIdx) => (
                         <section key={sIdx} className="space-y-4">
-                          <h2 className="text-lg md:text-xl font-bold font-sans text-[#b8860b] mb-4 uppercase border-l-2 border-[#b8860b] pl-3 text-left">
+                          <h2 className="text-lg md:text-xl font-bold font-serif text-[#8c6708] mb-4 uppercase border-l-2 border-[#8c6708] pl-3 text-left">
                             {sec.title}
                           </h2>
                           {sec.paragraphs.map((p, pIdx) => (
-                            <p key={pIdx} className="text-zinc-300 font-serif text-base md:text-lg leading-relaxed font-light text-justify">
+                            <p key={pIdx} className="text-[#292524] font-serif text-base md:text-lg leading-relaxed text-justify">
                               {p}
                             </p>
                           ))}
@@ -894,27 +894,27 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
 
                     {/* Exhibits/Tables inside the document */}
                     {paper.exhibits && paper.exhibits.map((ex, eIdx) => (
-                      <div key={eIdx} className="my-10 p-6 bg-black/40 border border-white/5 rounded-sm overflow-hidden">
-                        <div className="text-[#b8860b] text-[10px] font-black uppercase mb-4 font-serif tracking-wider text-center">
+                      <div key={eIdx} className="my-10 p-6 bg-[#ffffff] border border-[#ded6c5] rounded-sm overflow-hidden shadow-2xs">
+                        <div className="text-[#8c6708] text-[10px] font-bold uppercase mb-4 font-serif tracking-wider text-center">
                           {ex.title}
                         </div>
                         <div className="overflow-x-auto">
                           <table className="w-full text-left font-serif text-[11px] sm:text-xs">
                             <thead>
-                              <tr className="border-b border-zinc-800 text-zinc-500 uppercase ">
+                              <tr className="border-b border-[#ded6c5] text-[#78716c] uppercase">
                                 {ex.headers.map((h, hIdx) => (
                                   <th key={hIdx} className="pb-3 px-3 font-semibold">{h}</th>
                                 ))}
                               </tr>
                             </thead>
-                            <tbody className="divide-y divide-zinc-900/30">
+                            <tbody className="divide-y divide-[#ded6c5]">
                               {ex.rows.map((row, rIdx) => (
-                                <tr key={rIdx} className="hover:bg-white/[0.01]">
-                                  <td className="py-3 px-3 font-bold text-zinc-300">{row[0]}</td>
-                                  <td className="py-3 px-3 text-zinc-400">{row[1]}</td>
-                                  {row[2] && <td className="py-3 px-3 text-[#b8860b] font-bold font-mono">{row[2]}</td>}
-                                  {row[3] && <td className="py-3 px-3 text-zinc-400">{row[3]}</td>}
-                                  {row[4] && <td className="py-3 px-3 text-amber-500 font-bold font-mono">{row[4]}</td>}
+                                <tr key={rIdx} className="hover:bg-[#f7f4ee]">
+                                  <td className="py-3 px-3 font-bold text-[#1c1917]">{row[0]}</td>
+                                  <td className="py-3 px-3 text-[#57534e]">{row[1]}</td>
+                                  {row[2] && <td className="py-3 px-3 text-[#8c6708] font-bold font-serif">{row[2]}</td>}
+                                  {row[3] && <td className="py-3 px-3 text-[#57534e]">{row[3]}</td>}
+                                  {row[4] && <td className="py-3 px-3 text-[#996515] font-bold font-serif">{row[4]}</td>}
                                 </tr>
                               ))}
                             </tbody>
@@ -924,23 +924,23 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                     ))}
 
                     {/* Official Document Seal Footer */}
-                    <div className="border-t border-zinc-800/80 pt-8 mt-12 text-center select-none">
-                      <div className="inline-block border border-white/10 px-6 py-4 bg-zinc-950/40 rounded-sm text-left max-w-sm mx-auto">
+                    <div className="border-t border-[#ded6c5] pt-8 mt-12 text-center select-none">
+                      <div className="inline-block border border-[#ded6c5] px-6 py-4 bg-[#ffffff] rounded-sm text-left max-w-sm mx-auto shadow-2xs">
                         <div className="flex justify-between items-center gap-6 mb-3">
-                          <div className="text-zinc-500 text-[7px] font-bold uppercase ">Registry Document Status</div>
-                          <div className="bg-emerald-500/10 text-emerald-400 text-[7px] font-bold px-1.5 py-0.5 rounded-sm uppercase border border-emerald-500/20">
+                          <div className="text-[#78716c] text-[8px] font-bold uppercase">Registry Document Status</div>
+                          <div className="bg-emerald-50 text-emerald-800 text-[8px] font-bold px-1.5 py-0.5 rounded-sm uppercase border border-emerald-200">
                             Verified Ledger
                           </div>
                         </div>
-                        <div className="text-[10px] font-serif italic text-zinc-400 leading-relaxed">
+                        <div className="text-[10px] font-serif italic text-[#57534e] leading-relaxed">
                           "This systemic asset is admission-verified and logged under registration key TULC-WP-{activePaperKey === 'alignment_protocol' ? '01-ALPHA' : '02-BETA'}."
                         </div>
-                        <div className="mt-4 pt-3 border-t border-zinc-900 flex justify-between items-end">
+                        <div className="mt-4 pt-3 border-t border-[#ded6c5] flex justify-between items-end">
                           <div>
-                            <div className="text-[7px] text-zinc-600 uppercase font-mono">Signatory</div>
-                            <div className="text-[9px] font-bold text-[#b8860b]">Suchita Sancheti</div>
+                            <div className="text-[8px] text-[#78716c] uppercase font-serif">Signatory</div>
+                            <div className="text-[10px] font-bold text-[#8c6708]">Suchita Sancheti</div>
                           </div>
-                          <div className="text-[9px] font-mono text-zinc-500 font-black">
+                          <div className="text-[9px] font-serif text-[#78716c] font-bold">
                             LEVEL: ASYMPTOTIC
                           </div>
                         </div>
@@ -950,19 +950,19 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 </div>
 
                 {/* Footer Controls */}
-                <div className="flex justify-between items-center px-6 py-4 bg-black/40 border-t border-white/10 select-none">
+                <div className="flex justify-between items-center px-6 py-4 bg-[#efebe2] border-t border-[#ded6c5] select-none">
                   <button 
                     onClick={() => setActivePaperKey(null)}
-                    className="text-zinc-500 hover:text-white text-[10px] font-bold uppercase border border-white/10 hover:border-white/20 px-4 py-2 transition-all rounded-sm"
+                    className="text-[#57534e] hover:text-[#1c1917] text-[10px] font-bold uppercase border border-[#ded6c5] hover:border-[#b8860b] px-4 py-2 transition-all rounded-sm bg-[#ffffff]"
                   >
                     Dismiss Document
                   </button>
-                  <p className="text-[8px] font-mono text-zinc-600 hidden md:block">
+                  <p className="text-[8px] font-serif text-[#78716c] hidden md:block">
                     CONFIDENTIALITY INTEGRITY ACCESSIBILITY PROTOCOLS ACTIVE
                   </p>
                   <button 
                     onClick={() => handleDownload(activePaperKey)}
-                    className="bg-[#b8860b] text-white hover:bg-white hover:text-black text-[10px] font-bold uppercase px-6 py-2 transition-all rounded-sm shadow-md"
+                    className="bg-gradient-to-r from-[#b8860b] to-[#8c6708] text-white hover:from-[#c99518] hover:to-[#9e7610] text-[10px] font-bold uppercase px-6 py-2 transition-all rounded-sm shadow-sm"
                   >
                     Print & Save Briefing
                   </button>
@@ -975,4 +975,5 @@ const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
   );
 };
 
+export { Library };
 export default Library;

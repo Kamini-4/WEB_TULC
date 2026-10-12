@@ -1,73 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
-const getNextTargetDate = () => {
-  const now = new Date();
-  const target = new Date(now.getFullYear(), now.getMonth(), 15);
-  
-  // If we've passed the 15th of this month, go to the 15th of next month
-  if (now.getDate() >= 15) {
-    target.setMonth(target.getMonth() + 1);
-  }
-  
-  return target;
-};
-
-const Countdown: React.FC = () => {
-  const targetDate = React.useMemo(() => getNextTargetDate(), []);
-  const targetLabel = targetDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
-
-  useEffect(() => {
-    const targetTime = targetDate.getTime();
-    const timer = setInterval(() => {
-      const now = new Date();
-      const difference = targetTime - now.getTime();
-
-      if (difference <= 0) {
-        clearInterval(timer);
-        return;
-      }
-
-      setTimeLeft({
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60)
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [targetDate]);
-
+export const Countdown: React.FC = () => {
   return (
-    <div className="bg-[#0e0e0e] text-zinc-300 py-1 sm:py-1.5 px-4 border-b border-[#b8860b]/20 relative z-[60] select-none">
-      <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 text-[10px] sm:text-[11px] font-mono">
-        <div className="flex items-center gap-2 truncate">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-pulse shrink-0" />
-          <span className="text-[#b8860b] font-bold uppercase tracking-wider shrink-0">Executive Intake</span>
-          <span className="text-zinc-600 hidden xs:inline">•</span>
-          <span className="text-zinc-300 truncate">Window Closes {targetLabel}</span>
+    <div className="bg-[#ece6d9] text-[#292524] py-2 sm:py-2.5 px-4 border-b border-[#ded6c5] relative z-[60] select-none font-serif">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs sm:text-[13px]">
+        {/* The Two-Week Tension Test */}
+        <div className="flex items-center gap-2 text-center sm:text-left">
+          <span className="text-[#b8860b] font-bold tracking-tight uppercase text-[11px]">The Two-Week Test:</span>
+          <span className="text-[#292524] tracking-tight">
+            If you turned your phone off tomorrow, would your company <strong className="font-bold text-[#1c1917]">grow</strong>—or would <em className="italic font-semibold text-[#8c6708]">decisions freeze</em>?
+          </span>
         </div>
         
-        <div className="flex items-center gap-1 font-semibold tracking-wider shrink-0 text-white">
-          <span className="bg-white/10 px-1.5 py-0.5 rounded text-[10px] sm:text-[11px] tabular-nums">{timeLeft.days}d</span>
-          <span className="text-[#b8860b] font-bold">:</span>
-          <span className="bg-white/10 px-1.5 py-0.5 rounded text-[10px] sm:text-[11px] tabular-nums">{timeLeft.hours}h</span>
-          <span className="text-[#b8860b] font-bold">:</span>
-          <span className="bg-white/10 px-1.5 py-0.5 rounded text-[10px] sm:text-[11px] tabular-nums">{timeLeft.minutes}m</span>
-          <span className="text-[#b8860b] font-bold">:</span>
-          <span className="bg-[#b8860b]/20 text-[#b8860b] px-1.5 py-0.5 rounded text-[10px] sm:text-[11px] tabular-nums">{timeLeft.seconds}s</span>
-        </div>
-
-        <div className="hidden md:flex items-center gap-2 text-zinc-400 text-[10px] uppercase tracking-wider shrink-0">
-          <span className="text-zinc-600">•</span>
-          <span className="text-[#b8860b]/90 font-medium">Strictly 3 Mandates / Qtr</span>
+        {/* Artisan Promise & Link */}
+        <div className="flex items-center gap-3 shrink-0">
+          <span className="text-[#78716c] text-[11px] hidden md:inline tracking-tight">
+            <strong className="font-bold text-[#1c1917]">Artisan Boundary:</strong> <em className="italic text-[#b8860b] font-semibold">3 founders</em> per quarter
+          </span>
+          <Link 
+            to="/assessment"
+            className="inline-flex items-center gap-1 text-[#b8860b] hover:text-[#1c1917] font-bold text-[11px] uppercase tracking-tight transition-colors"
+          >
+            <span>Take The Diagnostic</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
       </div>
     </div>

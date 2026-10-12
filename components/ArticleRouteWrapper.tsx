@@ -11,16 +11,16 @@ export const ArticleRouteWrapper: React.FC = () => {
 
   if (!article) {
     return (
-      <div className="min-h-screen bg-[#0b0c10] text-[#e0e2ec] flex flex-col items-center justify-center p-6 text-center space-y-4">
-        <h1 className="text-2xl font-serif-prestige font-bold text-white">
+      <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] flex flex-col items-center justify-center p-6 text-center space-y-4 font-serif">
+        <h1 className="text-2xl font-bold text-[#1c1917] font-serif">
           Executive Briefing Not Found
         </h1>
-        <p className="text-sm text-[#9aa1b2] max-w-md">
+        <p className="text-sm text-[#57534e] max-w-md font-serif">
           The requested dispatch identifier could not be verified in the institutional registry.
         </p>
         <button
           onClick={() => navigate('/library')}
-          className="px-6 py-2.5 bg-[#b8860b] text-black font-bold text-xs uppercase tracking-wider rounded-xs cursor-pointer"
+          className="px-6 py-2.5 bg-gradient-to-r from-[#b8860b] to-[#8c6708] text-white font-bold text-xs uppercase tracking-wider rounded-xs cursor-pointer shadow-sm font-serif"
         >
           Return to Library
         </button>

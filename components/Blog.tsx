@@ -72,18 +72,18 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
   }, []);
 
   return (
-    <section id="registry" className={`${hideHeader ? 'pt-2 sm:pt-4 pb-16 sm:pb-24' : 'py-16 sm:py-24'} bg-transparent text-[#f5f5f0] overflow-hidden isolate transition-all duration-500`}>
+    <section id="registry" className={`${hideHeader ? 'pt-2 sm:pt-4 pb-16 sm:pb-24' : 'py-16 sm:py-24'} bg-transparent text-[#1c1917] overflow-hidden isolate transition-all duration-500`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {!hideHeader && (
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 sm:mb-14 gap-8">
             <div className="max-w-2xl">
-              <h2 className="text-[#b8860b] text-xs sm:text-sm font-bold uppercase tracking-widest mb-2 font-serif">The Registry</h2>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif leading-tight text-white">
-                Institutional <span className="italic text-[#b8860b]">Dispatches.</span>
+              <h2 className="text-[#8c6708] text-xs sm:text-sm font-bold uppercase tracking-widest mb-2 font-serif">The Registry</h2>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif leading-tight text-[#1c1917]">
+                Institutional <span className="italic text-[#996515]">Dispatches.</span>
               </h3>
             </div>
             <div className="md:block">
-              <p className="text-zinc-400 text-sm sm:text-base max-w-md italic font-normal leading-relaxed font-serif">
+              <p className="text-[#57534e] text-sm sm:text-base max-w-md italic font-normal leading-relaxed font-serif">
                 A curated journal of systemic discourse and executive intelligence for the sovereign leader.
               </p>
             </div>
@@ -102,56 +102,56 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                   navigate(`/library/${post.id}`);
                 }
               }}
-              className="registry-card group cursor-pointer flex flex-col h-full relative isolate p-6 sm:p-7 rounded-xs border border-white/10 hover:border-[#b8860b]/40 bg-zinc-950/60 hover:bg-zinc-900/80 transition-all duration-300 shadow-xl font-serif"
+              className="registry-card group cursor-pointer flex flex-col h-full relative isolate p-6 sm:p-7 rounded-xs border border-[#ded6c5] hover:border-[#b8860b]/60 bg-[#ffffff] hover:bg-[#faf8f5] transition-all duration-300 shadow-xs hover:shadow-md font-serif"
             >
               {post.image && (
-                <div className="mb-5 overflow-hidden bg-[#1a1a1a] aspect-[16/10] relative border border-white/10 group-hover:border-[#b8860b]/30 transition-all duration-700 rounded-xs">
+                <div className="mb-5 overflow-hidden bg-[#efebe2] aspect-[16/10] relative border border-[#ded6c5] group-hover:border-[#b8860b]/30 transition-all duration-700 rounded-xs">
                   {failedImages[post.id] ? (
                     <PermanentArtwork id={post.id} title={post.title} className="w-full h-full" />
                   ) : (
                     <img 
                       src={post.image} 
                       alt={post.title} 
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
                       loading="lazy"
                       decoding="async"
                       referrerPolicy="no-referrer"
                       onError={() => setFailedImages(prev => ({ ...prev, [post.id]: true }))}
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </div>
               )}
               
               <div className="flex justify-between items-center mb-4 relative z-10 gap-3 font-serif">
                 <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 min-w-0">
-                  <span className="registry-category text-[#b8860b] text-xs font-bold uppercase tracking-wider font-serif">
+                  <span className="registry-category text-[#8c6708] text-xs font-bold uppercase tracking-wider font-serif">
                     {post.category}
                   </span>
-                  <span className="text-zinc-500 text-xs uppercase hidden xs:inline">•</span>
-                  <span className="text-zinc-400 text-xs uppercase font-serif">
+                  <span className="text-[#a8a29e] text-xs uppercase hidden xs:inline">•</span>
+                  <span className="text-[#78716c] text-xs uppercase font-serif">
                     {getArticleStats(post).words} words • {getArticleStats(post).readTime} min read
                   </span>
                 </div>
                 <div className="flex items-center gap-3 shrink-0">
-                  <span className="text-zinc-400 text-xs uppercase hidden sm:inline font-serif">
+                  <span className="text-[#78716c] text-xs uppercase hidden sm:inline font-serif">
                     {post.date}
                   </span>
                   <div className="relative">
                     <button 
                       onClick={(e) => handleShare(e, post)}
-                      className="p-1.5 text-zinc-400 hover:text-[#b8860b] transition-colors rounded-xs"
+                      className="p-1.5 text-[#78716c] hover:text-[#8c6708] transition-colors rounded-xs"
                       aria-label="Share post"
                     >
                       <Share2 size={15} />
                     </button>
                     {sharingId === post.id && (
-                      <div className="absolute right-0 top-7 bg-[#1a1a1a] border border-white/10 p-2.5 z-20 shadow-2xl flex flex-col gap-2 min-w-[130px] animate-fade-in text-left rounded-xs font-serif">
+                      <div className="absolute right-0 top-7 bg-[#ffffff] border border-[#ded6c5] p-2.5 z-20 shadow-xl flex flex-col gap-2 min-w-[130px] animate-fade-in text-left rounded-xs font-serif">
                         <button 
                           onClick={(e) => handleCopyLink(e, post)}
-                          className="flex items-center gap-2 text-xs uppercase font-bold text-zinc-300 hover:text-white transition-colors p-1.5 w-full font-serif"
+                          className="flex items-center gap-2 text-xs uppercase font-bold text-[#292524] hover:text-[#8c6708] transition-colors p-1.5 w-full font-serif"
                         >
-                          {copiedId === post.id ? <Check size={13} className="text-green-500" /> : <LinkIcon size={13} />}
+                          {copiedId === post.id ? <Check size={13} className="text-green-600" /> : <LinkIcon size={13} />}
                           {copiedId === post.id ? 'Copied' : 'Copy Link'}
                         </button>
                         <a 
@@ -159,7 +159,7 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="flex items-center gap-2 text-xs uppercase font-bold text-zinc-300 hover:text-white transition-colors p-1.5 font-serif"
+                          className="flex items-center gap-2 text-xs uppercase font-bold text-[#292524] hover:text-[#8c6708] transition-colors p-1.5 font-serif"
                         >
                           <X size={13} /> X / Twitter
                         </a>
@@ -172,7 +172,7 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                             const shareUrl = `${baseShareUrl}/library/${post.slug || post.id}`;
                             navigator.clipboard.writeText(shareUrl).catch((err) => console.error(err));
                           }}
-                          className="flex items-center gap-2 text-xs uppercase font-bold text-zinc-300 hover:text-white transition-colors p-1.5 font-serif"
+                          className="flex items-center gap-2 text-xs uppercase font-bold text-[#292524] hover:text-[#8c6708] transition-colors p-1.5 font-serif"
                         >
                           <Linkedin size={13} /> LinkedIn
                         </a>
@@ -182,17 +182,17 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
                 </div>
               </div>
               
-              <div className="my-3 h-px bg-white/10 relative z-10"></div>
+              <div className="my-3 h-px bg-[#e2dcce] relative z-10"></div>
               
-              <h4 className="registry-title text-lg sm:text-xl font-bold font-serif mb-2.5 leading-snug relative z-10 break-words group-hover:text-[#b8860b] transition-colors">
+              <h4 className="registry-title text-lg sm:text-xl font-bold font-serif mb-2.5 leading-snug relative z-10 break-words text-[#1c1917] group-hover:text-[#8c6708] transition-colors">
                 {post.title}
               </h4>
               
-              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6 italic font-normal flex-grow relative z-10 break-words line-clamp-3 font-serif">
+              <p className="text-[#57534e] text-sm sm:text-base leading-relaxed mb-6 italic font-normal flex-grow relative z-10 break-words line-clamp-3 font-serif">
                 {post.excerpt}
               </p>
               
-              <div className="flex items-center justify-between text-xs sm:text-sm font-bold uppercase text-[#b8860b] tracking-wider relative z-10 pt-4 border-t border-white/10">
+              <div className="flex items-center justify-between text-xs sm:text-sm font-bold uppercase text-[#8c6708] tracking-wider relative z-10 pt-4 border-t border-[#e2dcce]">
                 <span>Read Executive Briefing</span>
                 <span className="text-base transition-transform group-hover:translate-x-1 duration-300">→</span>
               </div>
@@ -201,46 +201,46 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
         </div>
 
         {/* Strategic Cross-Ecosystem Navigation Bridges */}
-        <div className="mt-16 sm:mt-20 pt-10 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10 text-xs">
-          <div className="text-zinc-300 uppercase font-bold tracking-wider text-center md:text-left">
+        <div className="mt-16 sm:mt-20 pt-10 border-t border-[#ded6c5] flex flex-col md:flex-row items-center justify-between gap-6 relative z-10 text-xs">
+          <div className="text-[#1c1917] uppercase font-bold tracking-wider text-center md:text-left">
             Institutional Bridges // Convert Intelligence to Execution:
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link 
               to="/toolkits" 
-              className="px-4 py-2 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-100 hover:text-[#b8860b] uppercase font-bold tracking-wide transition-all rounded-xs"
+              className="px-4 py-2 bg-[#ffffff] border border-[#ded6c5] hover:border-[#b8860b] text-[#292524] hover:text-[#8c6708] uppercase font-bold tracking-wide transition-all rounded-xs shadow-2xs"
             >
-              📦 Founder Toolkits
+              Founder Toolkits
             </Link>
             <Link 
               to="/assessment" 
-              className="px-4 py-2 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-100 hover:text-[#b8860b] uppercase font-bold tracking-wide transition-all rounded-xs"
+              className="px-4 py-2 bg-[#ffffff] border border-[#ded6c5] hover:border-[#b8860b] text-[#292524] hover:text-[#8c6708] uppercase font-bold tracking-wide transition-all rounded-xs shadow-2xs"
             >
-              ⚡ Yield Diagnostic
+              Yield Diagnostic
             </Link>
             <Link 
               to="/services" 
-              className="px-4 py-2 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-100 hover:text-[#b8860b] uppercase font-bold tracking-wide transition-all rounded-xs"
+              className="px-4 py-2 bg-[#ffffff] border border-[#ded6c5] hover:border-[#b8860b] text-[#292524] hover:text-[#8c6708] uppercase font-bold tracking-wide transition-all rounded-xs shadow-2xs"
             >
-              💼 Sovereign Retainer
+              Sovereign Retainer
             </Link>
             <Link 
               to="/methodology" 
-              className="px-4 py-2 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-100 hover:text-[#b8860b] uppercase font-bold tracking-wide transition-all rounded-xs"
+              className="px-4 py-2 bg-[#ffffff] border border-[#ded6c5] hover:border-[#b8860b] text-[#292524] hover:text-[#8c6708] uppercase font-bold tracking-wide transition-all rounded-xs shadow-2xs"
             >
-              🏛️ Alignment Protocol
+              Alignment Protocol
             </Link>
             <Link 
               to="/cognitive-tax" 
-              className="px-4 py-2 bg-zinc-900 border border-zinc-700 hover:border-[#b8860b] text-zinc-100 hover:text-[#b8860b] uppercase font-bold tracking-wide transition-all rounded-xs"
+              className="px-4 py-2 bg-[#ffffff] border border-[#ded6c5] hover:border-[#b8860b] text-[#292524] hover:text-[#8c6708] uppercase font-bold tracking-wide transition-all rounded-xs shadow-2xs"
             >
-              ⚖️ Cognitive Tax
+              Cognitive Tax
             </Link>
             <Link 
               to="/intake" 
-              className="px-4 py-2 bg-[#b8860b] text-black hover:bg-white font-bold uppercase tracking-wide transition-all rounded-xs"
+              className="px-4 py-2 bg-gradient-to-r from-[#b8860b] to-[#8c6708] hover:from-[#c99518] hover:to-[#9e7610] text-white font-bold uppercase tracking-wide transition-all rounded-xs shadow-sm"
             >
-              ✍️ Intake Docket
+              Intake Docket
             </Link>
           </div>
         </div>

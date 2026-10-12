@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Header } from './components/Header';
+import { Countdown } from './components/Countdown';
 import { Footer } from './components/Footer';
 
 // Pages
@@ -16,7 +17,8 @@ import { ArticleRouteWrapper } from './components/ArticleRouteWrapper';
 
 export const App: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-[#0b0c10] text-[#e0e2ec]">
+    <div className="flex flex-col min-h-screen bg-[#f7f4ee] text-[#1c1917] font-serif selection:bg-[#b8860b] selection:text-white">
+      <Countdown />
       <Header />
       <main className="flex-1">
         <Routes>

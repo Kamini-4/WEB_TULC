@@ -50,7 +50,7 @@ const Hero: React.FC<HeroProps> = () => {
             <span className="text-[#111111] text-[10px] sm:text-[11px] font-black uppercase tracking-wider">BOUTIQUE EXECUTIVE ADVISORY</span>
             <span className="text-zinc-300">•</span>
             <span className="text-[#b8860b] text-[10px] sm:text-[11px] font-mono font-bold uppercase flex items-center gap-1">
-              <Award className="w-3.5 h-3.5" /> STRICTLY 3 CEO MANDATES PER QUARTER
+              <Award className="w-3.5 h-3.5" /> 3 CEO MANDATES PER QUARTER
             </span>
           </motion.div>
 

@@ -1,137 +1,136 @@
 import React from 'react';
 import { 
   Shield, 
-  Layers, 
   ArrowRight, 
   CheckCircle2, 
-  Zap, 
-  FileCheck, 
-  Scale, 
-  TrendingUp,
-  Cpu
+  Sparkles,
+  Heart,
+  Smile,
+  Clock,
+  Compass
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const ServicesPage: React.FC = () => {
-  const mandates = [
+  const partnerships = [
     {
-      id: 'sovereign_substrate',
-      title: 'Mandate I: Sovereign Operating Substrate Engineering',
-      tagline: 'Decoupling Enterprise Velocity from Founder Metabolic Burn',
-      description: 'A comprehensive institutional architecture installation. We extract, compile, and embed your unique founder heuristics into self-executing operational criteria across leadership tiers.',
-      deliverables: [
-        'Heuristic Extraction & Codification Blueprint',
-        'Invariant Decision Guardrails & Expenditure Envelopes',
-        'Asymmetric Delegation Architecture (Zero-Bottleneck Framework)',
-        'Weekly Operating Cadence & Asynchronous Telemetry Layer'
+      id: 'founder_freedom',
+      title: '1. The Founder Freedom Advisory Service',
+      tagline: 'Stop Being the Bottleneck in Your Own Business',
+      description: 'For enterprise founders running 20 to 500+ headcount teams who are exhausted from living in Slack and adjudicating every decision. We map your judgment into self-executing operational guidelines, liberating your calendar and stepping you into true sovereignty.',
+      benefits: [
+        'Your Decision Playbook: Clear, simple rules for hiring, pricing, and capital commitments',
+        'Safe Team Guardrails: Your direct reports make $10,000 choices without asking you',
+        'Meeting Detox: Reclaim 15+ hours a week from repetitive status syncs',
+        'The Two-Week Step-Away Test: You take 14 days off and your business compounds'
       ],
-      idealFor: 'Founders & CEOs leading 25 to 500+ person enterprises experiencing calendar bloat and coordination friction.',
-      timeframe: '90-Day Deep Architectural Installation'
+      idealFor: 'Founders who built a high-value enterprise, but feel trapped inside its daily operations.',
+      timeframe: '90 Days to Freedom'
     },
     {
-      id: 'succession_threshold',
-      title: 'Mandate II: Founder-to-Chairman Succession Architecture',
-      tagline: 'Permanent Institutional Memory & Zero-Valuation-Drop Transition',
-      description: 'Over 50% of executive successions destroy shareholder value due to unwritten intuition. We build mathematically defined authority brackets between the incoming CEO and Executive Chairman.',
-      deliverables: [
-        'Three-Bracket Leadership Threshold Model',
-        'Sovereign Authority Reservation Matrix (M&A, Brand, Culture)',
-        'Autonomous Operational Execution Envelopes for Incoming Executive',
-        'Boardroom Conflict-Arbitration Protocols'
+      id: 'smooth_handover',
+      title: '2. The Executive Transition Service',
+      tagline: 'Step Back as Chairman Without Dropping Enterprise Value',
+      description: 'Over half of executive leadership transitions stumble because the founder’s wisdom was never written down. We turn your tacit intuition into explicit governance law so incoming leadership operates with your exact strategic standards.',
+      benefits: [
+        'Clear Role Boundaries: Crystal-clear lines between Executive Chair and CEO',
+        'Protected Core Values: Your standards for brand, culture, and capital stay intact',
+        'Zero Valuation Discount: Buyers and boards witness a business that governs itself',
+        'Genuine Sovereign Peace of Mind: Step back knowing your life work endures'
       ],
-      idealFor: 'Founders stepping back to Chairman, multi-generational family enterprises, or private equity-backed exits.',
-      timeframe: '6-Month Guided Sovereign Handover'
+      idealFor: 'Founders preparing to elevate a CEO, hand over to successors, or prepare for institutional recapitalization.',
+      timeframe: '6-Month Guided Handover'
     },
     {
-      id: 'vc_portfolio_telemetry',
-      title: 'Mandate III: Venture & PE Portfolio Telemetry Substrates',
-      tagline: 'Autonomous Operational Guardrails for Multi-Board Investment Partners',
-      description: 'Stop burning general partner bandwidth on portfolio firefighting. We install automated operational telemetry across portfolio assets, replacing delayed board decks with real-time leading indicators.',
-      deliverables: [
-        'Decision Velocity Index (DVI) Portfolio Dashboard',
-        'Standardized Cross-Portfolio Governance Protocols',
-        'Pre-emptive Friction Neutralization Triggers',
-        'Founder Decoupling Runbooks for Growth Assets'
+      id: 'portfolio_freedom',
+      title: '3. The Portfolio Governance Service',
+      tagline: 'Help Portfolio CEOs Build Companies That Don’t Burn Them Out',
+      description: 'For board chairs, VCs, and PE sponsors who need their CEOs to scale institutional systems rather than personal exhaustion. We install clear decision rules across portfolio companies so founders stay healthy and businesses compound.',
+      benefits: [
+        'Bottleneck Elimination: CEOs cease to be the operational single point of failure',
+        'Early Warning Signals: Detect organizational friction weeks before revenue impact',
+        'True Enterprise Sovereignty: Companies built to scale smoothly to the next round',
+        'Saved Board Bandwidth: Fewer emergency firefighting calls on weekends'
       ],
-      idealFor: 'Venture Capital GPs, Private Equity Operating Partners, and Institutional Board Directors.',
-      timeframe: 'Annual Institutional Fund-Level Partnership'
+      idealFor: 'Venture Capital partners, Private Equity directors, and Board Chairs.',
+      timeframe: 'Annual Advisory Partnership'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#0b0c10] text-[#e0e2ec] py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-16 px-4 sm:px-6 lg:px-8 font-serif">
       <div className="max-w-6xl mx-auto space-y-16">
         
-        {/* Header */}
+        {/* Header - The Artisan's Covenant */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 text-xs font-mono-tech uppercase tracking-widest text-[#d4af37]">
-            <Shield className="w-4 h-4 text-[#d4af37]" />
-            <span>Fiduciary Advisory Practices</span>
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-tight text-[#b8860b] font-bold">
+            <Compass className="w-4 h-4 text-[#8c6708]" />
+            <span>The Artisan's Covenant</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif-prestige font-bold text-white tracking-tight">
-            Institutional Mandates & Architectural Services
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1c1917] tracking-tight">
+            Executive Advisory Services: <span className="italic font-bold text-[#b8860b]">Step Back From Daily Fires</span>
           </h1>
 
-          <p className="text-base text-[#9aa1b2] font-serif-prestige leading-relaxed">
-            We do not sell general coaching, time-management hacks, or motivational seminars. We engineer sovereign operating systems that turn fragile, founder-dependent ventures into permanent institutions.
+          <p className="text-base sm:text-lg text-[#57534e] leading-relaxed">
+            We don’t deliver motivational speeches or generic slide decks. We work side-by-side with you to turn your intuition into <strong className="font-bold text-[#1c1917]">unambiguous, self-executing rules</strong> your leaders run autonomously. We partner with <em className="italic font-semibold text-[#b8860b]">only three founders per quarter</em>.
           </p>
         </div>
 
-        {/* Mandates Grid */}
+        {/* Partnerships Grid */}
         <div className="space-y-8">
-          {mandates.map((m) => (
+          {partnerships.map((p) => (
             <div 
-              key={m.id}
-              className="bg-[#12141a] border border-[#1f232d] hover:border-[#b8860b]/60 transition-all rounded-xs p-6 sm:p-10 shadow-xl space-y-6"
+              key={p.id}
+              className="bg-[#ffffff] border border-[#ded6c5] hover:border-[#b8860b] transition-all rounded-xs p-6 sm:p-10 shadow-xs space-y-6"
             >
-              <div className="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-[#1f232d] gap-2">
+              <div className="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-[#e2dcce] gap-2">
                 <div>
-                  <span className="text-xs font-mono-tech text-[#d4af37] uppercase tracking-wider">{m.timeframe}</span>
-                  <h2 className="text-2xl sm:text-3xl font-serif-prestige font-bold text-white mt-1">
-                    {m.title}
+                  <span className="text-xs text-[#b8860b] uppercase tracking-wider font-bold">{p.timeframe}</span>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-[#1c1917] mt-1">
+                    {p.title}
                   </h2>
                 </div>
-                <div className="text-xs font-mono-tech text-[#9aa1b2] bg-[#1a1d26] px-3 py-1.5 rounded-xs self-start md:self-auto">
-                  {m.tagline}
+                <div className="text-xs text-[#57534e] bg-[#efebe2] px-3.5 py-1.5 rounded-xs self-start md:self-auto border border-[#ded6c5] font-medium">
+                  {p.tagline}
                 </div>
               </div>
 
-              <p className="text-base text-[#c8cde0] font-serif-prestige leading-relaxed">
-                {m.description}
+              <p className="text-base text-[#57534e] leading-relaxed">
+                {p.description}
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                 <div className="space-y-3">
-                  <h3 className="text-xs uppercase font-bold text-white tracking-wider font-mono-tech">
-                    Architectural Deliverables
+                  <h3 className="text-xs uppercase font-bold text-[#1c1917] tracking-wider">
+                    What You Gain
                   </h3>
-                  <ul className="space-y-2">
-                    {m.deliverables.map((d, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-sm text-[#9aa1b2]">
-                        <CheckCircle2 className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
-                        <span>{d}</span>
+                  <ul className="space-y-2.5">
+                    {p.benefits.map((b, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-sm text-[#57534e]">
+                        <CheckCircle2 className="w-4 h-4 text-[#b8860b] shrink-0 mt-0.5" />
+                        <span>{b}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="bg-[#161922] p-5 rounded-xs border border-[#232734] space-y-3 flex flex-col justify-between">
+                <div className="bg-[#faf8f5] p-5 rounded-xs border border-[#ded6c5] space-y-3 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xs uppercase font-bold text-[#d4af37] tracking-wider font-mono-tech mb-1">
-                      Target Mandate Profile
+                    <h3 className="text-xs uppercase font-bold text-[#b8860b] tracking-wider mb-1">
+                      Who This Is For
                     </h3>
-                    <p className="text-xs text-[#8c94a6] leading-relaxed">
-                      {m.idealFor}
+                    <p className="text-xs text-[#57534e] leading-relaxed">
+                      {p.idealFor}
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-[#232734]">
+                  <div className="pt-4 border-t border-[#ded6c5]">
                     <Link
                       to="/intake"
-                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#d4af37] hover:text-white transition-colors"
+                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#b8860b] hover:text-[#1c1917] transition-colors"
                     >
-                      <span>Inquire About This Mandate</span>
+                      <span>Inquire About Working Together</span>
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -142,30 +141,33 @@ export const ServicesPage: React.FC = () => {
           ))}
         </div>
 
-        {/* Sovereign Protocol Summary */}
-        <div className="bg-gradient-to-br from-[#1c1f2b] to-[#12141a] border border-[#b8860b]/40 rounded-xs p-8 sm:p-12 text-center space-y-6">
+        {/* This Is Not For Everyone */}
+        <div className="bg-gradient-to-br from-[#ffffff] via-[#faf8f5] to-[#efebe2] border border-[#b8860b]/40 rounded-xs p-8 sm:p-12 text-center space-y-6 shadow-sm">
           <div className="max-w-2xl mx-auto space-y-3">
-            <h2 className="text-2xl sm:text-3xl font-serif-prestige font-bold text-white">
-              Initiate a Confidential Strategic Engagement
+            <span className="text-xs font-bold uppercase tracking-tight text-[#b8860b]">
+              An Honest Sovereign Boundary
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1c1917]">
+              This Is <span className="italic font-bold text-[#b8860b]">Not For Everyone</span>
             </h2>
-            <p className="text-sm text-[#9aa1b2] font-serif-prestige leading-relaxed">
-              Every advisory engagement begins with a private architectural audit conducted directly by Principal Suchita Sancheti. We work with a strictly capped cohort of 6 enterprise mandates per quarter.
+            <p className="text-sm sm:text-base text-[#57534e] leading-relaxed">
+              If you are looking for quick motivational advice or pre-packaged slide decks, we are not the right fit. But if you are ready to do the deep, rewarding work of building an enterprise that runs without your daily sweat, we have room for <strong className="font-bold text-[#b8860b]">three sovereign partners</strong> this quarter.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/intake"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#b8860b] hover:bg-[#d4af37] text-black font-bold text-xs uppercase tracking-wider rounded-xs transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-black hover:bg-[#b8860b] text-white font-bold text-xs uppercase tracking-tight rounded-xs transition-colors shadow-sm"
             >
-              <span>Submit Sovereign Intake</span>
+              <span>Initiate Advisory Dialogue</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
-              to="/methodology"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#171a23] hover:bg-[#202432] text-white font-semibold text-xs uppercase tracking-wider rounded-xs border border-[#2b3040] transition-colors"
+              to="/assessment"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#ffffff] hover:bg-[#efebe2] text-[#1c1917] font-semibold text-xs uppercase tracking-tight rounded-xs border border-[#ded6c5] transition-colors"
             >
-              <span>Review 4-Phase Methodology</span>
+              <span>Take The Two-Week Test</span>
             </Link>
           </div>
         </div>
@@ -174,3 +176,5 @@ export const ServicesPage: React.FC = () => {
     </div>
   );
 };
+
+export default ServicesPage;

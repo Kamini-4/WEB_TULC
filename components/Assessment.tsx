@@ -41,7 +41,7 @@ const QUESTIONS: Question[] = [
       { 
         label: "Insulated Strategic Focus (<20% Firefighting)", 
         scores: { "Cognitive Clarity": 5, "Systemic Integrity": 4, "Strategic Velocity": 4 }, 
-        description: "My desk is strictly insulated by invariant execution protocols. I dedicate over 80% of my time exclusively to compound capital moves and market expansion." 
+        description: "My desk is completely insulated by clear execution guardrails. I dedicate over 80% of my time exclusively to compound capital moves and market expansion." 
       },
       { 
         label: "Intermittent Reactive Drag (20% – 50% Firefighting)", 
@@ -2046,8 +2046,8 @@ const Assessment: React.FC<AssessmentProps> = ({ onCtaClick }) => {
 
                             <div className="p-2.5 bg-[#161616] border border-white/10 rounded-xs flex justify-between items-center">
                               <div>
-                                <span className="text-[#b8860b] font-bold text-[10px] block">GATES 05–08 // STRICT 3-CONDITION ESCALATION FILTER</span>
-                                <span className="text-zinc-400 text-[9px] font-serif">Issues route to CEO desk strictly under existential brand, budget, or ethical triggers.</span>
+                                <span className="text-[#b8860b] font-bold text-[10px] block">GATES 05–08 // 3-CONDITION ESCALATION FILTER</span>
+                                <span className="text-zinc-400 text-[9px] font-serif">Issues route to CEO desk solely under existential brand, budget, or ethical triggers.</span>
                               </div>
                               <span className="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-[8px] font-bold uppercase shrink-0">CALIBRATING</span>
                             </div>
