@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Shield, Zap, Target, Layers, Lock, UserCheck, EyeOff, Award, FileText } from 'lucide-react';
-import FiveDomains from './FiveDomains.tsx';
+import FiveDomains from './FiveDomains';
 
 interface Mandate {
   id: string;

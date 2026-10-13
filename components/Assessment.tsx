@@ -153,6 +153,19 @@ const QUESTIONS: Question[] = [
   }
 ];
 
+function shuffleAssessmentArray<T>(array: T[]): T[] {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function generateLocalAssessmentId(): string {
+  return 'local-' + Date.now();
+}
+
 export interface AssessmentProps {
   onCtaClick?: () => void;
 }
@@ -283,33 +296,22 @@ const Assessment: React.FC<AssessmentProps> = ({ onCtaClick }) => {
   }
   const [shuffledQuestions, setShuffledQuestions] = useState<ShuffledQuestion[]>([]);
 
-  // Simple clean array shuffler (Fisher-Yates) Code
-  const shuffleArray = <T,>(array: T[]): T[] => {
-    const arr = [...array];
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  };
-
   // State Recovery Engine
-  const [restoredSession, setRestoredSession] = useState<any>(null);
-
-
-  useEffect(() => {
-    const saved = localStorage.getItem('TULC_ASSESSMENT_SESSION');
-    if (saved) {
-      try {
+  const [restoredSession, setRestoredSession] = useState<any>(() => {
+    if (typeof window === 'undefined') return null;
+    try {
+      const saved = localStorage.getItem('TULC_ASSESSMENT_SESSION');
+      if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed && parsed.step && parsed.step !== 'intro') {
-          setRestoredSession(parsed);
+          return parsed;
         }
-      } catch (e) {
-        console.error("Failed to recover TULC session", e);
       }
+    } catch (e) {
+      console.error("Failed to recover TULC session", e);
     }
-  }, []);
+    return null;
+  });
 
   // Save session state reactively
   useEffect(() => {
@@ -353,7 +355,7 @@ const Assessment: React.FC<AssessmentProps> = ({ onCtaClick }) => {
           const optsWithIdx = q.options.map((option, originalIdx) => ({ option, originalIdx }));
           return {
             text: q.text,
-            shuffledOptions: shuffleArray(optsWithIdx)
+            shuffledOptions: shuffleAssessmentArray(optsWithIdx)
           };
         });
         setShuffledQuestions(shuffled);
@@ -427,7 +429,7 @@ const Assessment: React.FC<AssessmentProps> = ({ onCtaClick }) => {
       const optsWithIdx = q.options.map((option, originalIdx) => ({ option, originalIdx }));
       return {
         text: q.text,
-        shuffledOptions: shuffleArray(optsWithIdx)
+        shuffledOptions: shuffleAssessmentArray(optsWithIdx)
       };
     });
     setShuffledQuestions(shuffled);
@@ -515,7 +517,7 @@ const Assessment: React.FC<AssessmentProps> = ({ onCtaClick }) => {
       const maxScore = 25;
       const percentage = (totalScoreValue / maxScore) * 100;
 
-      let savedId = 'local-' + Date.now();
+      let savedId = generateLocalAssessmentId();
       try {
         const result = await SovereignDB.saveAssessment({
           userId: 'anonymous-sovereign',

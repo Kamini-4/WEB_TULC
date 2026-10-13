@@ -17,6 +17,7 @@ export const CalibrationModal: React.FC<CalibrationModalProps> = ({ isOpen, onCl
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [protocolId] = useState(() => Math.floor(1000 + Math.random() * 9000));
 
   if (!isOpen) return null;
 
@@ -157,7 +158,7 @@ export const CalibrationModal: React.FC<CalibrationModalProps> = ({ isOpen, onCl
             </p>
 
             <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-850 text-xs font-mono text-amber-300/90 mb-6">
-              Assigned Protocol ID: #TULC-CALIB-{Math.floor(1000 + Math.random() * 9000)}
+              Assigned Protocol ID: #TULC-CALIB-{protocolId}
             </div>
 
             <button

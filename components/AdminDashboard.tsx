@@ -45,6 +45,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
   const [newPost, setNewPost] = useState({ category: '', title: '', excerpt: '', content: '' });
   const [recentlyAddedUrl, setRecentlyAddedUrl] = useState<string | null>(null);
   const [isBroadcasting, setIsBroadcasting] = useState<string | null>(null);
+  const [currentNow] = useState(() => Date.now());
 
   // License Generator State
   const [licenseForm, setLicenseForm] = useState<{
@@ -1900,7 +1901,7 @@ London • New York • Singapore`;
               <div className="bg-white border border-zinc-200 p-6 shadow-sm rounded-sm">
                 <span className="text-[9px] font-black uppercase text-green-700 block mb-1">Active Windows</span>
                 <span className="text-3xl font-bold font-mono text-green-700">
-                  {data.licenses.filter(l => l.status === 'active' && Date.now() <= l.expiresAt).length}
+                  {data.licenses.filter(l => l.status === 'active' && currentNow <= l.expiresAt).length}
                 </span>
                 <p className="text-[10px] text-zinc-400 mt-1 font-mono">Unrestricted portal entry</p>
               </div>
@@ -1908,7 +1909,7 @@ London • New York • Singapore`;
               <div className="bg-white border border-zinc-200 p-6 shadow-sm rounded-sm">
                 <span className="text-[9px] font-black uppercase text-amber-700 block mb-1">Expired / Revoked</span>
                 <span className="text-3xl font-bold font-mono text-amber-700">
-                  {data.licenses.filter(l => l.status === 'revoked' || Date.now() > l.expiresAt).length}
+                  {data.licenses.filter(l => l.status === 'revoked' || currentNow > l.expiresAt).length}
                 </span>
                 <p className="text-[10px] text-zinc-400 mt-1 font-mono">Requires renewal or extension</p>
               </div>
@@ -2173,7 +2174,7 @@ London • New York • Singapore`;
                       className="w-full px-3 py-2 bg-zinc-50 border border-zinc-200 focus:outline-none focus:border-[#b8860b] text-zinc-900 rounded-sm font-mono"
                     />
                     <span className="text-[10px] text-zinc-400 font-mono mt-0.5 block">
-                      Expires: {new Date(Date.now() + licenseForm.validityDays * 86400000).toLocaleDateString()}
+                      Expires: {new Date(currentNow + licenseForm.validityDays * 86400000).toLocaleDateString()}
                     </span>
                   </div>
 
@@ -2305,7 +2306,7 @@ London • New York • Singapore`;
                         </thead>
                         <tbody className="divide-y divide-zinc-100 font-serif">
                           {data.licenses.map((lic) => {
-                            const isExpired = Date.now() > lic.expiresAt;
+                            const isExpired = currentNow > lic.expiresAt;
                             const isActive = lic.status === 'active' && !isExpired;
 
                             return (
@@ -2386,7 +2387,7 @@ London • New York • Singapore`;
                                     {new Date(lic.expiresAt).toLocaleDateString()}
                                   </div>
                                   <div className="text-[9px] text-zinc-400">
-                                    {isExpired ? 'Ended' : `${Math.ceil((lic.expiresAt - Date.now()) / (1000 * 60 * 60 * 24))}d remaining`}
+                                    {isExpired ? 'Ended' : `${Math.ceil((lic.expiresAt - currentNow) / (1000 * 60 * 60 * 24))}d remaining`}
                                   </div>
                                 </td>
 

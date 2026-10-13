@@ -13,8 +13,8 @@ import {
   limit,
   where
 } from 'firebase/firestore';
-import { db, auth } from '../src/firebase.ts';
-import { reportClientError } from '../src/lib/apiClient.ts';
+import { db, auth } from '../src/firebase';
+import { reportClientError } from '../src/lib/apiClient';
 
 // In-memory query cache for read-heavy operations
 const queryCache = new Map<string, { data: any; timestamp: number }>();

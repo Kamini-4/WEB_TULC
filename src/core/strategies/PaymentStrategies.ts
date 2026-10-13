@@ -40,7 +40,7 @@ export class ApiGatewayPaymentStrategy implements IPaymentStrategy {
     } catch (err: any) {
       console.warn('[ApiGatewayPaymentStrategy] Backend API unreachable (static hosting mode). Processing via client sovereign database fallback:', err);
       try {
-        const { SovereignDB } = await import('../../lib/database.ts');
+        const { SovereignDB } = await import('../../../lib/database');
         await SovereignDB.saveLead({
           name: order.customer.fullName,
           email: order.customer.email,
@@ -87,7 +87,7 @@ export class DirectCorporateInvoiceStrategy implements IPaymentStrategy {
     } catch (err: any) {
       console.warn('[DirectCorporateInvoiceStrategy] Backend API unreachable (static hosting mode). Processing via client sovereign database fallback:', err);
       try {
-        const { SovereignDB } = await import('../../lib/database.ts');
+        const { SovereignDB } = await import('../../../lib/database');
         await SovereignDB.saveLead({
           name: order.customer.fullName,
           email: order.customer.email,

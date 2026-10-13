@@ -10,7 +10,7 @@ const Portal: React.FC = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   
-  const [passkey, setPasskey] = useState<string>('');
+  const [passkey, setPasskey] = useState<string>(() => (searchParams.get('key') || searchParams.get('passkey') || '').toUpperCase());
   const [isVerifying, setIsVerifying] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [clearanceData, setClearanceData] = useState<{
@@ -55,10 +55,12 @@ const Portal: React.FC = () => {
 
   // Auto-verify if passkey is present in the URL query parameters
   useEffect(() => {
-    const urlKey = searchParams.get('key') || searchParams.get('passkey');
+    const urlKey = (searchParams.get('key') || searchParams.get('passkey'))?.toUpperCase();
     if (urlKey) {
-      setPasskey(urlKey.toUpperCase());
-      handleVerify(urlKey.toUpperCase());
+      const timer = setTimeout(() => {
+        void handleVerify(urlKey);
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, [searchParams, handleVerify]);
 
