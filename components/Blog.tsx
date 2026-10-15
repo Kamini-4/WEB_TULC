@@ -8,7 +8,7 @@ import { INSTITUTIONAL_ARTICLES } from '../src/lib/articles';
 import { PermanentArtwork } from './PermanentArtwork';
 
 interface BlogProps {
-  onArticleClick: (article: any) => void;
+  onArticleClick?: (article: any) => void;
   hideHeader?: boolean;
 }
 
@@ -95,7 +95,9 @@ const Blog: React.FC<BlogProps> = ({ onArticleClick, hideHeader }) => {
             <div 
               key={idx} 
               onClick={() => {
-                onArticleClick(post);
+                if (typeof onArticleClick === 'function') {
+                  onArticleClick(post);
+                }
                 if (post.slug) {
                   navigate(`/library/${post.slug}`);
                 } else if (post.id) {

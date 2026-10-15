@@ -48,6 +48,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   const [teamSize, setTeamSize] = useState('11-50');
   const [bottleneck, setBottleneck] = useState('Tactical Approvals & Firefighting');
   const [step, setStep] = useState<'checkout' | 'success'>('checkout');
+  const [paymentMethod, setPaymentMethod] = useState<'api_gateway' | 'razorpay' | 'corporate_invoice'>('api_gateway');
   const [isProcessing, setIsProcessing] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
   const [isDuplicatePrevented, setIsDuplicatePrevented] = useState(false);
@@ -86,7 +87,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
           fullName: fullName.trim(),
           organization: organization.trim()
         }
-      });
+      }, paymentMethod);
 
       if (!result.success) {
         setErrorMessage(result.errorMessage || 'Payment gateway timed out. Please retry.');
@@ -253,12 +254,70 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 </div>
               </div>
 
+              {/* Payment Method Selector */}
+              <div className="space-y-1.5">
+                <label className="text-[10px] font-mono uppercase text-[#111111] font-bold block">
+                  Select Settlement Channel
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setPaymentMethod('api_gateway')}
+                    className={`p-2.5 rounded-2xs border text-left transition-all cursor-pointer ${
+                      paymentMethod === 'api_gateway'
+                        ? 'border-[#b8860b] bg-[#111111] text-white shadow-xs'
+                        : 'border-zinc-200 bg-white text-zinc-700 hover:border-zinc-400'
+                    }`}
+                  >
+                    <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase font-bold">
+                      <CreditCard className="w-3 h-3 text-[#b8860b]" /> Cards
+                    </div>
+                    <div className="text-[8px] opacity-70 mt-0.5 font-sans">Apple Pay / Visa / MC</div>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setPaymentMethod('razorpay')}
+                    className={`p-2.5 rounded-2xs border text-left transition-all cursor-pointer ${
+                      paymentMethod === 'razorpay'
+                        ? 'border-[#b8860b] bg-[#111111] text-white shadow-xs'
+                        : 'border-zinc-200 bg-white text-zinc-700 hover:border-zinc-400'
+                    }`}
+                  >
+                    <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase font-bold">
+                      <Zap className="w-3 h-3 text-[#b8860b]" /> Razorpay
+                    </div>
+                    <div className="text-[8px] opacity-70 mt-0.5 font-sans">UPI / NetBanking / Cards</div>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setPaymentMethod('corporate_invoice')}
+                    className={`p-2.5 rounded-2xs border text-left transition-all cursor-pointer ${
+                      paymentMethod === 'corporate_invoice'
+                        ? 'border-[#b8860b] bg-[#111111] text-white shadow-xs'
+                        : 'border-zinc-200 bg-white text-zinc-700 hover:border-zinc-400'
+                    }`}
+                  >
+                    <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase font-bold">
+                      <Building className="w-3 h-3 text-[#b8860b]" /> Wire / PO
+                    </div>
+                    <div className="text-[8px] opacity-70 mt-0.5 font-sans">Corporate Invoice</div>
+                  </button>
+                </div>
+              </div>
+
               {/* Payment Methods Info */}
-              <div className="p-3 bg-zinc-100/80 border border-zinc-200 rounded-2xs flex items-center justify-between text-[9px] font-mono text-zinc-600">
+              <div className="p-2.5 bg-zinc-100/90 border border-zinc-200 rounded-2xs flex items-center justify-between text-[9px] font-mono text-zinc-600">
                 <span className="flex items-center gap-1.5 font-bold">
-                  <CreditCard className="w-3.5 h-3.5 text-[#b8860b]" /> Card / Corporate Wire / Invoice
+                  <Lock className="w-3 h-3 text-[#b8860b]" /> 
+                  {paymentMethod === 'razorpay' 
+                    ? 'Razorpay Encrypted Node • UPI & GST Enabled' 
+                    : paymentMethod === 'corporate_invoice'
+                    ? 'Direct Procurement Protocol • Net 30 Available'
+                    : '256-bit Encrypted Card Clearing • Instant Key'}
                 </span>
-                <span className="text-zinc-500">256-bit Encrypted Checkout</span>
+                <span className="text-zinc-500 font-bold">PCI-DSS Compliant</span>
               </div>
 
               {/* TULC Performance Commitment Banner */}
@@ -370,18 +429,43 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 <div className="text-[8px] font-mono uppercase text-zinc-500 font-bold">
                   Included Artifacts (Available for Instant Save):
                 </div>
-                <div className="space-y-1.5 text-xs">
-                  <div className="flex items-center justify-between py-1 border-b border-zinc-200">
-                    <span className="font-mono text-[10px]">1. Executive PDF Playbook & Field Guide</span>
-                    <span className="text-[9px] font-mono text-[#b8860b] font-bold">PDF Ready</span>
+                <div className="space-y-2 text-xs">
+                  <div className="flex items-center justify-between py-1.5 border-b border-zinc-200">
+                    <span className="font-mono text-[10px] text-zinc-800">1. Executive Delegation Covenant Master</span>
+                    <a
+                      href="/downloadables/Founder-Delegation-Covenant-Master.html"
+                      download="Founder-Delegation-Covenant-Master.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#111111] hover:bg-[#b8860b] text-white text-[9px] font-mono uppercase font-bold rounded-2xs transition-colors"
+                    >
+                      <Download className="w-3 h-3" />
+                      <span>Download File</span>
+                    </a>
                   </div>
-                  <div className="flex items-center justify-between py-1 border-b border-zinc-200">
-                    <span className="font-mono text-[10px]">2. Video Walkthrough & Team Loom Script</span>
-                    <span className="text-[9px] font-mono text-[#b8860b] font-bold">1080p HD Stream</span>
+                  <div className="flex items-center justify-between py-1.5 border-b border-zinc-200">
+                    <span className="font-mono text-[10px] text-zinc-800">2. 72-Hour Absence Readiness Audit</span>
+                    <a
+                      href="/downloadables/TULC-72-Hour-Founder-Absence-Readiness-Audit.html"
+                      download="TULC-72-Hour-Founder-Absence-Readiness-Audit.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#111111] hover:bg-[#b8860b] text-white text-[9px] font-mono uppercase font-bold rounded-2xs transition-colors"
+                    >
+                      <Download className="w-3 h-3" />
+                      <span>Download Audit</span>
+                    </a>
                   </div>
-                  <div className="flex items-center justify-between py-1">
-                    <span className="font-mono text-[10px]">3. Priority Architect Diagnostic Voucher</span>
-                    <span className="text-[9px] font-mono text-green-600 font-bold">Attached</span>
+                  <div className="flex items-center justify-between py-1.5">
+                    <span className="font-mono text-[10px] text-zinc-800">3. Priority Diagnostic Voucher</span>
+                    <Link
+                      to="/intake"
+                      onClick={onClose}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#b8860b] hover:bg-[#8c6708] text-black text-[9px] font-mono uppercase font-black rounded-2xs transition-colors"
+                    >
+                      <ExternalLink className="w-3 h-3" />
+                      <span>Redeem Voucher</span>
+                    </Link>
                   </div>
                 </div>
               </div>

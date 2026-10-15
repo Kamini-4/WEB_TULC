@@ -168,7 +168,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       modules: []
     },
     earlyBird: {
-      badge: 'Lead Gateway • Under $30',
+      badge: 'Quick Deploy • Under $30',
       discountPercent: 82,
       seatsRemaining: 12,
       originalPriceUsd: 150,

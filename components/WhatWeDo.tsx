@@ -196,7 +196,7 @@ export const WhatWeDo: React.FC = () => {
                     <span className="text-[#b8860b]">✓</span> Weekly Executive Sparring & Board Support
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[#b8860b]">✓</span> Limited to 3 client mandates per quarter
+                    <span className="text-[#b8860b]">✓</span> Enterprise-grade deployment for high-growth & multi-entity scale ($10M–$100M+)
                   </div>
                 </div>
               </div>

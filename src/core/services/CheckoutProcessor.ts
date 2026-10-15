@@ -7,7 +7,7 @@
  */
 
 import { CheckoutOrderPayload, CheckoutResult, ICheckoutProcessor, IPaymentStrategy } from '../contracts/checkout';
-import { ApiGatewayPaymentStrategy, DirectCorporateInvoiceStrategy } from '../strategies/PaymentStrategies';
+import { ApiGatewayPaymentStrategy, DirectCorporateInvoiceStrategy, RazorpayPaymentStrategy } from '../strategies/PaymentStrategies';
 
 export class CheckoutProcessor implements ICheckoutProcessor {
   private strategies = new Map<string, IPaymentStrategy>();
@@ -15,6 +15,7 @@ export class CheckoutProcessor implements ICheckoutProcessor {
 
   constructor() {
     this.registerStrategy(new ApiGatewayPaymentStrategy());
+    this.registerStrategy(new RazorpayPaymentStrategy());
     this.registerStrategy(new DirectCorporateInvoiceStrategy());
   }
 

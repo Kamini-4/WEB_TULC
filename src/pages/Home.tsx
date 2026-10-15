@@ -14,6 +14,7 @@ import {
 import { Link } from 'react-router-dom';
 import VideoPlayer from '../../components/VideoPlayer';
 import { INSTITUTIONAL_ARTICLES } from '../lib/articles';
+import { FAQ } from '../../components/FAQ';
 
 export const Home: React.FC = () => {
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
@@ -80,8 +81,8 @@ export const Home: React.FC = () => {
               <div className="text-xs text-zinc-300 mt-1 tracking-tight font-medium"><strong className="font-bold text-[#b8860b]">14 days away</strong> without operational freeze</div>
             </div>
             <div className="bg-black text-white p-3.5 sm:p-4 border border-[#b8860b]/30 hover:border-[#b8860b] transition-colors rounded-xs shadow-sm flex flex-col justify-between">
-              <div className="text-xl sm:text-2xl font-bold text-[#b8860b] tracking-tight">3 Partners</div>
-              <div className="text-xs text-zinc-300 mt-1 tracking-tight font-medium"><strong className="font-bold text-white">Artisan limit</strong> per quarterly intake</div>
+              <div className="text-xl sm:text-2xl font-bold text-[#b8860b] tracking-tight">Enterprise Scale</div>
+              <div className="text-xs text-zinc-300 mt-1 tracking-tight font-medium"><strong className="font-bold text-white">Sovereign Architecture</strong> for $10M–$100M+ Leaders</div>
             </div>
           </div>
 
@@ -228,11 +229,11 @@ export const Home: React.FC = () => {
                 </div>
                 
                 <h3 className="text-base sm:text-lg font-bold text-[#1c1917] tracking-tight group-hover:text-[#b8860b] transition-colors">
-                  Quarterly Artisan Advisory
+                  Institutional Architecture Advisory
                 </h3>
                 
                 <p className="text-xs text-[#57534e] leading-relaxed tracking-tight">
-                  Confidential, 1-on-1 institutional alignment conducted personally by <strong className="text-[#1c1917] font-semibold">Suchita Sancheti</strong>. Strictly limited to <em className="italic text-[#8c6708]">3 founders per quarter</em> for uncompromising depth.
+                  Confidential, 1-on-1 institutional alignment conducted personally by <strong className="text-[#1c1917] font-semibold">Suchita Sancheti</strong>. Engineered with uncompromising architectural rigor for founders scaling to $100M+.
                 </p>
 
                 <div className="pt-2 border-t border-[#ded6c5] text-[11px] text-[#78716c] tracking-tight">
@@ -306,7 +307,7 @@ export const Home: React.FC = () => {
                 to="/services"
                 className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-tight text-[#b8860b] hover:text-[#1c1917] transition-colors"
               >
-                <span>Explore How We Partner With 3 Founders Per Quarter</span>
+                <span>Explore Our Institutional Advisory Mandates</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -342,7 +343,7 @@ export const Home: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-2 max-w-2xl">
               <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-black text-[#b8860b] text-[9px] font-mono uppercase tracking-widest font-black">
-                <Zap className="w-3.5 h-3.5 text-[#b8860b]" /> TURNKEY DIGITAL ARSENAL • ENTRY LEAD GATEWAYS
+                <Zap className="w-3.5 h-3.5 text-[#b8860b]" /> TURNKEY DIGITAL ARSENAL • EXECUTIVE TOOLKITS
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1c1917] tracking-tight">
                 Test Our Systems in 20 Minutes <br />
@@ -364,9 +365,9 @@ export const Home: React.FC = () => {
             </div>
           </div>
 
-          {/* 3 Featured Lead Generation Cards */}
+          {/* 3 Featured Sovereign Systems Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {/* Gateway 1: Asset 00 */}
+            {/* System 1: Asset 00 */}
             <div className="bg-[#faf8f5] border border-[#ded6c5] hover:border-black p-5 rounded-xs flex flex-col justify-between shadow-2xs hover:shadow-md transition-all group">
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -385,7 +386,7 @@ export const Home: React.FC = () => {
                 </div>
                 <div className="pt-2 border-t border-[#ded6c5] space-y-1 text-xs">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-[#78716c] uppercase font-bold">Lead Gen Price:</span>
+                    <span className="text-[10px] text-[#78716c] uppercase font-bold">Direct Toolkit Rate:</span>
                     <div className="flex items-baseline gap-1.5">
                       <span className="text-lg font-black font-mono text-black">$27</span>
                       <span className="text-xs font-mono text-[#a8a29e] line-through">$150</span>
@@ -405,10 +406,10 @@ export const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Gateway 2: Asset 01 (Flagship) */}
+            {/* System 2: Asset 01 (Flagship) */}
             <div className="bg-[#ffffff] border-2 border-[#b8860b] p-5 rounded-xs flex flex-col justify-between shadow-md hover:shadow-lg transition-all group relative">
               <div className="absolute -top-3 right-4 px-2 py-0.5 bg-[#8c6708] text-white text-[9px] font-mono uppercase font-black rounded-2xs">
-                MOST POPULAR GATEWAY
+                MOST POPULAR TOOLKIT
               </div>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -427,7 +428,7 @@ export const Home: React.FC = () => {
                 </div>
                 <div className="pt-2 border-t border-[#ded6c5] space-y-1 text-xs">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-[#78716c] uppercase font-bold">Lead Gen Price:</span>
+                    <span className="text-[10px] text-[#78716c] uppercase font-bold">Direct Toolkit Rate:</span>
                     <div className="flex items-baseline gap-1.5">
                       <span className="text-lg font-black font-mono text-black">$47</span>
                       <span className="text-xs font-mono text-[#a8a29e] line-through">$290</span>
@@ -577,6 +578,9 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* 4.5 Executive & Reddit Founder FAQs Section */}
+      <FAQ />
+
       {/* 5. Sovereign Invitation (Clean, High Contrast, Black Button) */}
       <section className="py-10 sm:py-12 px-4 sm:px-6 lg:px-8 bg-[#efebe2]/50">
         <div className="max-w-4xl mx-auto bg-[#ffffff] border border-[#ded6c5] rounded-xs p-6 sm:p-10 text-center space-y-4 sm:space-y-5 shadow-xs">
@@ -589,7 +593,7 @@ export const Home: React.FC = () => {
           </h2>
 
           <p className="text-sm sm:text-base text-[#57534e] max-w-xl mx-auto leading-relaxed tracking-tight">
-            Begin with our <strong className="font-bold text-[#1c1917]">Two-Week Tension Test</strong> to discover where key-person dependency is capping your valuation, or initiate a confidential advisory dialogue directly with <strong className="font-bold text-[#b8860b]">Suchita Sancheti</strong>. We partner with <em className="italic text-[#8c6708]">only three founders per quarter</em>.
+            Begin with our <strong className="font-bold text-[#1c1917]">Two-Week Tension Test</strong> to discover where key-person dependency is capping your valuation, or initiate a confidential advisory dialogue directly with <strong className="font-bold text-[#b8860b]">Suchita Sancheti</strong>. We partner with ambitious founders, CEOs, and holding chairs scaling sovereign enterprises without operational friction.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-1">

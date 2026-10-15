@@ -2,7 +2,7 @@ import React from 'react';
 import { DISPATCHES, Dispatch } from '../lib/dispatches';
 
 interface ThoughtLeadershipProps {
-  onDispatchClick: (dispatch: Dispatch) => void;
+  onDispatchClick?: (dispatch: Dispatch) => void;
 }
 
 const ThoughtLeadership: React.FC<ThoughtLeadershipProps> = ({ onDispatchClick }) => {
@@ -42,7 +42,7 @@ const ThoughtLeadership: React.FC<ThoughtLeadershipProps> = ({ onDispatchClick }
           {DISPATCHES.map((topic, idx) => (
             <div 
               key={idx} 
-              onClick={() => onDispatchClick(topic)}
+              onClick={() => onDispatchClick?.(topic)}
               className="bg-white p-8 md:p-12 group hover:bg-[#fcfcfc] transition-all duration-700 flex flex-col md:flex-row items-start md:items-center gap-8 cursor-pointer relative overflow-hidden"
             >
               <div className="absolute top-0 left-0 w-1 h-full bg-[#b8860b] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>

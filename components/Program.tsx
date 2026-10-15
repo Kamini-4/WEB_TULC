@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ProgramProps {
-  onBriefClick: (phaseId?: string) => void;
+  onBriefClick?: (phaseId?: string) => void;
 }
 
 const Program: React.FC<ProgramProps> = ({ onBriefClick }) => {
@@ -47,19 +47,19 @@ const Program: React.FC<ProgramProps> = ({ onBriefClick }) => {
               step="01" 
               title="Diagnostic Interpretation & Constraint Stabilization" 
               description="Phase 0. Surgical identification of primary constraints within your vertical domains. We stabilize fractures before initiating the OS recalibration—identifying Board-level risks and immediate efficiency gains."
-              onBriefClick={() => onBriefClick()}
+              onBriefClick={() => onBriefClick?.()}
             />
             <TimelineStep 
               step="02" 
               title="Domain-Specific Intervention Tracks" 
               description="Deploying onsite intensives and executive field assignments to evolutionize the mental, relational, and systemic substrates of your authority—calibrating for succession readiness and leadership depth."
-              onBriefClick={() => onBriefClick()}
+              onBriefClick={() => onBriefClick?.()}
             />
             <TimelineStep 
               step="03" 
               title="Shadow Metrics & Board-Grade Review" 
               description="Utilizing metrics invisible to the internal eye to verify that your culture now self-regulates and your strategy executes without heroics—verifying institutional permanence and long-term value."
-              onBriefClick={() => onBriefClick()}
+              onBriefClick={() => onBriefClick?.()}
             />
 
             <div className="mt-12 p-10 bg-[#111111] text-white flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl">
@@ -81,14 +81,14 @@ const Program: React.FC<ProgramProps> = ({ onBriefClick }) => {
   );
 };
 
-const TimelineStep: React.FC<{ step: string; title: string; description: string; onBriefClick: (phaseId?: string) => void }> = ({ step, title, description, onBriefClick }) => (
+const TimelineStep: React.FC<{ step: string; title: string; description: string; onBriefClick?: (phaseId?: string) => void }> = ({ step, title, description, onBriefClick }) => (
   <div className="flex flex-col sm:flex-row gap-8 pb-12 border-b border-zinc-200 last:border-0 group">
     <div className="text-[#b8860b]/20 text-5xl font-bold leading-none shrink-0 group-hover:text-[#b8860b]/40 transition-colors">{step}</div>
     <div className="flex-grow min-w-0">
       <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4 mb-4">
         <h4 className="text-xl font-bold text-[#111111] leading-tight max-w-md min-w-0">{title}</h4>
         <button 
-          onClick={() => onBriefClick()}
+          onClick={() => onBriefClick?.()}
           className="text-[9px] font-black uppercase text-zinc-400 hover:text-[#b8860b] transition-all whitespace-nowrap shrink-0"
         >
           Request Briefing →
@@ -97,7 +97,7 @@ const TimelineStep: React.FC<{ step: string; title: string; description: string;
       <p className="text-zinc-600 text-base leading-relaxed max-w-xl font-normal italic mb-6">{description}</p>
       <div className="flex flex-wrap gap-4">
         <button 
-          onClick={() => onBriefClick()}
+          onClick={() => onBriefClick?.()}
           className="text-[9px] font-black uppercase text-[#b8860b] border border-[#b8860b]/20 px-6 py-3 hover:bg-[#b8860b] hover:text-white transition-all"
         >
           Request Syllabus

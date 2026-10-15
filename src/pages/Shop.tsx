@@ -88,6 +88,108 @@ export const ShopPage: React.FC = () => {
     setTimeout(() => setFreeMagnetCopied(false), 2000);
   };
 
+  const handleDownloadCovenantPdf = () => {
+    const covenantHtml = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>Founder Delegation & Sovereign Boundary Covenant // T.U.L.C.</title>
+          <style>
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+            body { font-family: 'Playfair Display', Georgia, serif; color: #1c1917; background: #fafaf6; margin: 0; padding: 40px; }
+            .container { max-width: 800px; margin: 0 auto; background: #ffffff; padding: 60px; border: 1px solid #ded6c5; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+            .header { border-bottom: 2px solid #b8860b; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-end; }
+            .title { font-size: 24px; font-weight: bold; text-transform: uppercase; letter-spacing: -0.02em; margin: 0; }
+            .mono { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8c6708; }
+            h2 { font-size: 16px; text-transform: uppercase; border-left: 3px solid #b8860b; padding-left: 10px; margin-top: 25px; margin-bottom: 12px; }
+            p, li { font-size: 13px; line-height: 1.6; color: #44403c; }
+            table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 12px; }
+            th, td { border: 1px solid #ded6c5; padding: 8px 12px; text-align: left; }
+            th { background: #faf8f5; font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; }
+            .badge { background: #efebe2; border: 1px solid #ded6c5; padding: 12px; margin: 15px 0; border-radius: 2px; }
+            @media print { body { background: #fff; padding: 0; } .container { border: none; box-shadow: none; padding: 20px; } }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <div>
+                <div class="mono">THE UNBOUNDED LEADERSHIP CO. // SOVEREIGN INSTRUMENT</div>
+                <div class="title">Founder Delegation Covenant</div>
+              </div>
+              <div class="mono" style="text-align: right;">VERSION 4.2<br/>CONFIDENTIAL</div>
+            </div>
+
+            <p><strong>PURPOSE:</strong> This Covenant establishes irrevocable operational authority ceilings, eliminating the founder as an accidental decision clearinghouse while safeguarding enterprise equity.</p>
+
+            <h2>1. Autonomous Signing Ceilings (Zero Founder Review)</h2>
+            <table>
+              <tr>
+                <th>Tier</th>
+                <th>Capital Limit</th>
+                <th>Required Approvals</th>
+                <th>Exception Condition</th>
+              </tr>
+              <tr>
+                <td><strong>Tier 1: Edge Operational</strong></td>
+                <td>Under $5,000</td>
+                <td>Single Direct Report</td>
+                <td>Zero founder notification required.</td>
+              </tr>
+              <tr>
+                <td><strong>Tier 2: Tactical Initiative</strong></td>
+                <td>$5,000 to $25,000</td>
+                <td>Two Function Leads</td>
+                <td>Logged in weekly asynchronous ledger.</td>
+              </tr>
+              <tr>
+                <td><strong>Tier 3: Strategic Commitments</strong></td>
+                <td>Exceeds $25,000</td>
+                <td>Executive Committee / Founder</td>
+                <td>Must include 3-bullet downside containment brief.</td>
+              </tr>
+            </table>
+
+            <h2>2. The 3 Non-Negotiable Containment Guardrails</h2>
+            <div class="badge">
+              <p>Direct reports hold 100% autonomous execution sovereignty provided these 3 conditions are satisfied:</p>
+              <ul>
+                <li><strong>Rule 1 (Reversibility):</strong> The decision can be reversed within 72 hours for less than 5% of monthly EBITDA.</li>
+                <li><strong>Rule 2 (Brand Non-Dilution):</strong> No modification to core positioning, public promises, or pricing floors.</li>
+                <li><strong>Rule 3 (Transparency):</strong> All approved vendor contracts and hires logged to the centralized operating ledger.</li>
+              </ul>
+            </div>
+
+            <h2>3. The 72-Hour Anti-Bottleneck Escalation Filter</h2>
+            <p>If an executive submits an initiative requiring founder review, and the founder does not respond within <strong>72 hours</strong>, the initiative is deemed <strong>AUTONOMOUSLY APPROVED</strong> under Tier 2 parameters. This guarantees that founder calendar latency cannot stall enterprise velocity.</p>
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ded6c5; display: flex; justify-content: space-between; font-size: 11px; color: #78716c;">
+              <span>Office of Suchita Sancheti &bull; suchita@theunboundedleadership.com</span>
+              <span>theunboundedleadership.com</span>
+            </div>
+          </div>
+          <script>
+            window.onload = function() { window.print(); }
+          </script>
+        </body>
+      </html>
+    `;
+  const handleDownloadCovenantPdf = () => {
+    try {
+      const blob = new Blob([covenantHtml], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Founder-Delegation-Covenant-Master.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch {
+      window.open('/downloadables/Founder-Delegation-Covenant-Master.html', '_blank');
+    }
+  };
+
   const setCurrency = (newCurrency: CurrencyCode) => {
     setCurrencyState(newCurrency);
     setStoredCurrency(newCurrency);
@@ -158,13 +260,13 @@ export const ShopPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] pb-24 font-serif">
-      {/* Top Value-Based Lead Gen Ticker Bar */}
+      {/* Top Value-Based Executive Systems Ticker Bar */}
       <div className="bg-[#1c1917] text-white border-b border-[#ded6c5] py-2.5 px-4 font-mono">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2.5 text-[10px] sm:text-xs">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center md:text-left">
             <span className="inline-flex items-center gap-1.5 font-bold text-[#b8860b] uppercase tracking-wider">
               <Flame className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-              FOUNDER LEAD GATEWAYS OPEN
+              EXECUTIVE SYSTEMS & TOOLKITS ACTIVE
             </span>
             <span className="text-zinc-300">
               Battle-Tested Digital Systems from <strong className="text-white">$27</strong> • Complete Suite <strong className="text-[#b8860b]">$197 (Save 86%)</strong>
@@ -201,7 +303,7 @@ export const ShopPage: React.FC = () => {
               </h1>
 
               <p className="text-xs sm:text-sm text-[#57534e] leading-relaxed max-w-2xl">
-                You scaled an enterprise. Your time is worth $500–$1,000/hr. Why are you spending it fielding tactical Slack approvals? We packaged our proprietary advisory systems into 1-click digital workspaces priced as accessible lead gateways. Duplicate in 20 minutes; reclaim 15+ hours weekly.
+                You scaled an enterprise. Your time is worth $500–$1,000/hr. Why are you spending it fielding tactical Slack approvals? We packaged our proprietary advisory systems into 1-click digital workspaces. Duplicate in 20 minutes; reclaim 15+ hours weekly.
               </p>
             </div>
 
@@ -246,12 +348,12 @@ export const ShopPage: React.FC = () => {
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 space-y-6">
         
-        {/* FREE LEAD MAGNET SECTION - ZERO-FRICTION LEAD GENERATION */}
+        {/* COMPLIMENTARY COVENANT SECTION */}
         <section id="free-lead-magnet" className="bg-[#ffffff] border-2 border-[#b8860b] p-5 sm:p-7 rounded-xs shadow-md space-y-4">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="space-y-2.5 max-w-2xl">
               <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-black text-[#b8860b] text-[9px] font-mono uppercase tracking-widest font-bold">
-                <Gift className="w-3.5 h-3.5 text-[#b8860b]" /> 100% FREE EXECUTIVE LEAD MAGNET • ZERO CREDIT CARD REQUIRED
+                <Gift className="w-3.5 h-3.5 text-[#b8860b]" /> 100% COMPLIMENTARY EXECUTIVE INSTRUMENT • ZERO PAYMENT REQUIRED
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-[#1c1917] tracking-tight">
                 The 1-Page Founder Delegation Covenant & Bottleneck Diagnostic
@@ -376,7 +478,7 @@ export const ShopPage: React.FC = () => {
                     <div className="text-[10px] font-mono uppercase text-[#78716c] font-bold">
                       Master Notion Workspace:
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <button
                         onClick={copyFreeNotionLink}
                         className="px-2.5 py-1.5 bg-[#efebe2] hover:bg-[#ded6c5] text-black text-[10px] font-mono uppercase font-bold rounded-2xs flex items-center gap-1 cursor-pointer"
@@ -384,13 +486,20 @@ export const ShopPage: React.FC = () => {
                         <Copy className="w-3 h-3" />
                         <span>{freeMagnetCopied ? 'Copied!' : 'Copy Link'}</span>
                       </button>
+                      <button
+                        onClick={handleDownloadCovenantPdf}
+                        className="px-2.5 py-1.5 bg-[#b8860b] hover:bg-[#8c6708] text-white text-[10px] font-mono uppercase font-bold rounded-2xs flex items-center gap-1 cursor-pointer shadow-xs"
+                      >
+                        <Download className="w-3 h-3" />
+                        <span>Download PDF Covenant</span>
+                      </button>
                       <a
                         href="https://notion.so"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-2.5 py-1.5 bg-black hover:bg-[#8c6708] text-white text-[10px] font-mono uppercase font-bold rounded-2xs flex items-center gap-1"
                       >
-                        <span>1-Click Duplicate</span>
+                        <span>Notion Master</span>
                         <ExternalLink className="w-3 h-3" />
                       </a>
                     </div>
@@ -404,7 +513,7 @@ export const ShopPage: React.FC = () => {
           </div>
         </section>
 
-        {/* VALUE-BASED PERSUASION: THE LEAD GENERATION MODEL */}
+        {/* VALUE-BASED PERSUASION: THE ARCHITECTURAL ACCESS MODEL */}
         <section className="bg-[#ffffff] border border-[#ded6c5] p-5 sm:p-6 rounded-xs shadow-2xs space-y-3">
           <div className="flex flex-wrap items-center gap-2">
             <span className="px-2 py-0.5 bg-black text-[#b8860b] text-[9px] font-mono uppercase tracking-widest font-black">
@@ -417,9 +526,9 @@ export const ShopPage: React.FC = () => {
 
           <div className="grid md:grid-cols-3 gap-4 pt-1">
             <div className="space-y-1">
-              <h4 className="text-sm font-bold text-[#1c1917]">1. Lead Generation Vehicle</h4>
+              <h4 className="text-sm font-bold text-[#1c1917]">1. Empirical Architectural Proof</h4>
               <p className="text-xs text-[#57534e] leading-relaxed">
-                Our core firm earns revenue through bespoke $25,000–$100,000+ quarterly advisory retained mandates. We don't make our living selling digital files. These toolkits exist as high-value lead generators to build empirical trust with serious founders.
+                Our core firm earns revenue through bespoke $25,000–$100,000+ quarterly advisory retained mandates. We don't make our living selling digital files. These toolkits exist as an empirical demonstration of our systems to build trust with serious founders.
               </p>
             </div>
             <div className="space-y-1">

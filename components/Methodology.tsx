@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface MethodologyProps {
-  onBriefClick: (phaseId?: string) => void;
+  onBriefClick?: (phaseId?: string) => void;
 }
 
 const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
@@ -47,7 +47,7 @@ const Methodology: React.FC<MethodologyProps> = ({ onBriefClick }) => {
           </div>
           <div className="pb-2 w-full md:w-auto">
             <button 
-              onClick={() => onBriefClick()}
+              onClick={() => onBriefClick ? onBriefClick() : navigate('/intake')}
               className="w-full md:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-[#b8860b] text-white text-[9px] sm:text-[10px] font-black uppercase sm:hover:bg-white hover:text-black transition-all duration-500 shadow-2xl animate-pulse-executive"
             >
               Request Full Protocol
@@ -164,7 +164,7 @@ const PhaseCard: React.FC<{
   systemLayer?: string;
   humanIntegration?: string;
   image: string;
-  onBriefClick: () => void;
+  onBriefClick?: () => void;
 }> = ({ phase, title, subtitle, action, outcome, systemLayer, humanIntegration, image, onBriefClick }) => {
   const [activeTab, setActiveTab] = useState<'core' | 'alignment'>('core');
 
@@ -275,7 +275,7 @@ const PhaseCard: React.FC<{
 
       <div className="pt-8 border-t border-white/5">
         <button 
-          onClick={onBriefClick}
+          onClick={() => onBriefClick?.()}
           className="text-[10px] font-black uppercase text-white/40 group-hover:text-[#b8860b] transition-all flex items-center gap-3"
         >
           Request Briefing <span>→</span>

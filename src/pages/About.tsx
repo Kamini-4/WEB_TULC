@@ -65,7 +65,7 @@ export const About: React.FC = () => {
 
             <div className="pt-2 flex items-center gap-3">
               <a
-                href="mailto:suchita135sancheti@gmail.com"
+                href="mailto:suchita@theunboundedleadership.com"
                 className="p-2 bg-[#faf8f5] hover:bg-[#efebe2] text-[#57534e] hover:text-[#8c6708] border border-[#ded6c5] rounded-xs transition-colors"
                 title="Email Principal Desk"
               >

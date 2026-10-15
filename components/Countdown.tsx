@@ -14,10 +14,10 @@ export const Countdown: React.FC = () => {
           </span>
         </div>
         
-        {/* Artisan Promise & Link */}
+        {/* Executive Mandate & Link */}
         <div className="flex items-center gap-3 shrink-0">
           <span className="text-[#78716c] text-[11px] hidden md:inline tracking-tight">
-            <strong className="font-bold text-[#1c1917]">Artisan Boundary:</strong> <em className="italic text-[#b8860b] font-semibold">3 founders</em> per quarter
+            <strong className="font-bold text-[#1c1917]">Sovereign Architecture:</strong> <em className="italic text-[#b8860b] font-semibold">Decouple Founder & Scale</em> ($10M–$100M+)
           </span>
           <Link 
             to="/assessment"

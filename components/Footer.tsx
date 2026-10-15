@@ -48,8 +48,12 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/products" className="text-[#1c1917] font-semibold hover:text-[#8c6708] transition-colors flex items-center gap-1.5">
-                  <span>Digital Products & Toolkits</span>
-                  <span className="px-1 py-0.2 bg-[#1c1917] text-[#f7f4ee] text-[8px] font-sans font-bold uppercase rounded-2xs">Entry OS</span>
+                  <span>Digital Toolkits & Systems</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="hover:text-[#8c6708] transition-colors">
+                  Reddit Founder FAQs
                 </Link>
               </li>
             </ul>
@@ -75,8 +79,8 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/intake" className="hover:text-[#8c6708] transition-colors">
-                  Sovereign Intake Facility
+                <Link to="/portal" className="text-[#8c6708] font-bold hover:underline transition-colors">
+                  Institutional Clearance Portal
                 </Link>
               </li>
             </ul>
@@ -90,11 +94,11 @@ export const Footer: React.FC = () => {
             </p>
             <div className="pt-1">
               <a 
-                href="mailto:suchita135sancheti@gmail.com" 
-                className="inline-flex items-center gap-1.5 text-xs text-[#8c6708] hover:underline font-serif"
+                href="mailto:suchita@theunboundedleadership.com" 
+                className="inline-flex items-center gap-1.5 text-xs text-[#8c6708] hover:underline font-serif font-mono font-bold"
               >
                 <Mail className="w-3.5 h-3.5" />
-                <span>suchita135sancheti@gmail.com</span>
+                <span>suchita@theunboundedleadership.com</span>
               </a>
             </div>
           </div>
@@ -110,7 +114,7 @@ export const Footer: React.FC = () => {
             <span>·</span>
             <span>Anti-Entropy Governance</span>
             <span>·</span>
-            <Link to="/intake" className="text-[#57534e] hover:text-[#8c6708] inline-flex items-center gap-1">
+            <Link to="/portal" className="text-[#57534e] hover:text-[#8c6708] inline-flex items-center gap-1">
               <span>Client Portal</span>
               <ArrowUpRight className="w-3 h-3" />
             </Link>

@@ -1,79 +1,22 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ChevronDown, MessageSquare, ArrowRight, ShieldCheck, HelpCircle } from 'lucide-react';
+import { REDDIT_FAQS, FAQItemData } from '../src/data/redditFaqData';
+import { Link } from 'react-router-dom';
 
-const FAQ: React.FC = () => {
-  const faqs = [
-    {
-      question: "Who is Suchita Sancheti, and how does T.U.L.C. operate?",
-      answer: "Suchita Sancheti is an elite enterprise architect, computer science engineer, and industrial psychologist. Serving as the Founder of The Unbounded Leadership Co. (T.U.L.C.), she builds self-regulating corporate architectures for elite founders, venture capitalists, and CEOs to systematically reduce decision delays by 40% in 90 days."
-    },
-    {
-      question: "Why does decision-making slow down as my company scales? (The Coordination Tax)",
-      answer: "As an organization grows, the number of communication lines increases exponentially. This is what John Sweller's Cognitive Load theory identifies as extraneous coordination drag. Without a Sovereign Operating Substrate™ (Patent Pending), the team is forced into constant alignment meetings, creating severe meeting bloat and executive latency. This inaction tax dilutes your founding vision, forcing you to pay a high metabolic cost—or Cognitive Tax—to keep operations aligned."
-    },
-    {
-      question: "What is Sovereign Voice Mapping™ (Patent Pending), and how does it delegate high-stakes decisions?",
-      answer: "Standard delegation fails because it transfers tasks, not the founder's mental criteria. Sovereign Voice Mapping™ (Patent Pending) is a proprietary, scientific process where we extract your precise strategic heuristics, risk tolerance, and decision-making filters, codifying them into automated operational execution protocols. This allows your executive team to execute decisions with 100% of your exact values and risk appetite autonomously, keeping you in pure strategic design."
-    },
-    {
-      question: "How does the 'Sovereign Voice Mapping' process work in practice? Do I have to record hours of audio?",
-      answer: "No. We do not ingest passive audio or require hours of recordings. Instead, we run a highly efficient, semi-structured 60-minute cognitive interview. We present you with synthetic adversarial trade-off scenarios (Strategic Micro-Simulations). By mapping your decision boundaries, risk thresholds, and exception filters across these high-stakes vectors, we compile a mathematical decision matrix that is codified into your organization's delegation rules."
-    },
-    {
-      question: "Can T.U.L.C. integrate with our existing tools (Slack, Teams, Notion, Jira)?",
-      answer: "Yes. We do not ask your team to adopt new software. We integrate directly into your current communication and project management substrates. We redesign the reporting structures, automated alert routing, and escalation filters inside your existing stack. This eliminates up to 80% of communication noise and ensures that information flowing to you is pre-filtered for absolute strategic relevance."
-    },
-    {
-      question: "How does the 10-Node Institutional Triangulation Audit operate across our team?",
-      answer: "We do not conduct slow, disruptive multi-week consulting audits. We deploy an asynchronous 10-question forensic diagnostic simultaneously across the 10 vital nervous nodes of your enterprise: The Apex Founder/CEO, 2–3 Key CXOs, Legal & Governance Guardians, Long-tenured Institutional Veterans, and 2–3 Edge Delivery Operators. In under 48 hours, our proprietary engine mathematically cross-maps the exact 2.0-point translation gap between boardroom intent and edge execution, isolating unsealed execution protocols without operational disruption."
-    },
-    {
-      question: "What does a 'metabolic leak' or 'Cognitive Tax' look like on a day-to-day basis?",
-      answer: "Day-to-day, a metabolic leak manifests as: constant status-update meetings that produce no actual strategic advancement, middle managers constantly escalating trade-offs they should handle autonomously, and key executives waiting days for your approval before taking action. This inaction tax slows down your company's momentum, causes key talent burnout, and silently dilutes enterprise value."
-    },
-    {
-      question: "We have multiple business units or a holding company structure. Can you handle multi-hub operations?",
-      answer: "Yes. We regularly design alignment substrates for multi-company board members, holding corporations, and venture funds with portfolio companies across our London, New York, and Singapore hubs. We specialize in cross-entity governance protocols that preserve local operating speed while maintaining absolute strategic and fiduciary fidelity to the parent holding or investment thesis."
-    },
-    {
-      question: "What exact scientific frameworks or methodologies are these audits based on?",
-      answer: "Our diagnostics and interventions are built on self-regulating systems theory, John Sweller's Cognitive Load Theory, and first-principles complexity science. We translate these frameworks into clear organizational execution protocols, ensuring your enterprise operates like a self-regulating operating model rather than a chaotic hierarchy."
-    },
-    {
-      question: "How does the 10-Point Friction Audit™ (Patent Pending) measure my organization's latency?",
-      answer: "Our signature 10-Point Friction Audit™ (Patent Pending) analyzes ten critical vectors of organizational friction, including decision cycle times, middle-management autonomy thresholds, meeting frequency, and intent dilution. By mathematically benchmarking your executive latency, we pinpoint the exact structural leaks draining your strategic capacity and design a clear path to reclaim up to 15 hours of weekly schedule."
-    },
-    {
-      question: "What is the Zero-Data Retention Mandate?",
-      answer: "The Zero-Data Retention (ZDR) Mandate is our non-negotiable security protocol for institutional clients, boards, and sovereign founders. All diagnostic telemetry, cognitive interviews, decision thresholds, and proprietary corporate architectures are processed in transient volatile memory and protected under strict confidentiality. We never store, sell, or train public AI models on your private corporate telemetry. Client data and proprietary operational parameters are permanently scrubbed post-mandate under our Fiduciary Non-Disclosure framework."
-    },
-    {
-      question: "How does architectural substrate engineering complement traditional strategic advisory?",
-      answer: "Strategic advisory excels at defining market position and growth horizons, while architectural engineering focuses on execution infrastructure. T.U.L.C. bridges the gap between high-level strategy and frontline operations by engineering self-regulating corporate substrates. We install live operational execution protocols and automated protocols directly into your operating infrastructure, ensuring absolute strategic fidelity and sustainable operational leverage."
-    },
-    {
-      question: "Is the Yield Calibration or 'Strategic Alignment Audit' the complete process?",
-      answer: "The digital Yield Calibration on this platform is a highly calibrated pre-diagnostic snapshot (the 'Trailer') designed for preliminary mapping. It is a precursor to the definitive, deep-dive 'Institutional Alignment Instrument' administered in-person or via our secure portal. The results of the initial diagnostic benchmark your cognitive tax and identify immediate structural quick-wins."
-    },
-    {
-      question: "What is the tangible ROI of undergoing an alignment intervention?",
-      answer: "Our clients typically experience a 40% reduction in operational decision delays within 90 days, a 15% increase in EBITDA by eliminating coordination drag, and the immediate reclamation of 30-40% of the founder's weekly cognitive capacity. This allows you to step out of daily fire dousing and assume the role of the Aligned Architect of your enterprise."
-    },
-    {
-      question: "How do you reconcile systems architecture with human behavior and emotional burnout?",
-      answer: "We treat systems architecture as the structural framework; human cognitive alignment is the living core. Systems designed for an idealized vacuum often struggle because they overlook human cognitive bandwidth. We take the reverse approach: we treat human energy, emotional clarity, and decision fatigue as the foundational constraints of any enterprise. A systems architecture that honors human cognitive limits prevents operational drift, eliminates unnecessary meeting tax, and liberates executive creative energy."
-    },
-    {
-      question: "How does the protocol integrate human leadership with systemic architecture across the operational phases?",
-      answer: "Across Phases 2 through 4, we integrate human leadership dynamics with operational systems through three core pillars: 1) Cognitive Bandwidth Optimization: We map executive decision frequency to eliminate low-level exception handling and reclaim focus for high-stakes bets. 2) Behavioral Execution Protocols: Instead of relying on brute willpower or endless check-in meetings, we codify founder intent into clear, self-executing operational guardrails. 3) Safeguards Against Drift: Our long-term safeguards actively monitor organizational health signals, insulating the enterprise from operational decay and preserving founder intent across generations. In short, we architect Sovereign Systems—automated protocols that liberate human vision, intuition, and strategic execution."
-    }
-  ];
+export const FAQ: React.FC = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [activeCategory, setActiveCategory] = useState<string>('All');
 
-  // JSON-LD Schema for SEO and AI Platforms (Google, Perplexity, OpenAI, Gemini)
+  const categories = ['All', 'Decision Latency & Delegation', 'Coaching vs Architecture', 'Scaling & Sabbatical', 'Valuation & Key-Person Risk', 'Payments & Engagement'];
+
+  const filteredFaqs = REDDIT_FAQS.filter(f => activeCategory === 'All' || f.category === activeCategory);
+
+  // Schema.org FAQPage JSON-LD for rich snippets, GEO, and AEO indexing
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    "mainEntity": REDDIT_FAQS.map(faq => ({
       "@type": "Question",
       "name": faq.question,
       "acceptedAnswer": {
@@ -84,71 +27,132 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-24 bg-[#f5f5f0] border-t border-zinc-200">
-      {/* Structured Data for AI & Search Engines */}
+    <section id="faq" className="py-20 sm:py-24 bg-[#f5f5f0] border-t border-zinc-200 font-serif">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-[#b8860b] text-[11px] font-black uppercase mb-4 ">Institutional Clearness</h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-[#111111] mb-4">Strategic <span className="italic text-[#b8860b]">Clarifications.</span></h3>
-          <p className="text-zinc-700 text-sm max-w-lg mx-auto italic">Addressing the structural refinements of institutional alignment and deliverability for global leadership.</p>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        {/* Section Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-[#b8860b]/30 rounded-full mb-3 text-xs font-mono uppercase tracking-widest text-[#8c6708]">
+            <HelpCircle className="w-3.5 h-3.5 text-[#8c6708]" />
+            <span>Reddit & Executive Forum Inquiries</span>
+          </div>
+          
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#111111] tracking-tight mb-4 font-serif">
+            Strategic <span className="italic text-[#b8860b] font-serif">Clarifications.</span>
+          </h2>
+          
+          <p className="text-zinc-600 text-sm sm:text-base max-w-2xl mx-auto italic leading-relaxed font-serif">
+            Uncompromised answers to the top scaling and decision bottleneck questions discussed by enterprise founders across r/entrepreneur, r/startups, and boardroom forums.
+          </p>
           <div className="w-12 h-[1px] bg-[#b8860b] mx-auto mt-6 opacity-30"></div>
         </div>
 
-        <div className="space-y-2">
-          {faqs.map((faq, index) => (
-            <FAQItem key={index} question={faq.question} answer={faq.answer} />
+        {/* Category Filter Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-10 max-w-3xl mx-auto">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => {
+                setActiveCategory(cat);
+                setOpenIndex(null);
+              }}
+              className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
+                activeCategory === cat
+                  ? 'bg-[#111111] text-[#b8860b] font-bold border border-[#b8860b]'
+                  : 'bg-white hover:bg-[#efebe2] text-zinc-700 border border-zinc-200'
+              }`}
+            >
+              {cat}
+            </button>
           ))}
         </div>
-        
-        <div className="mt-16 p-10 border border-[#b8860b]/20 bg-white/40 text-center">
-           <h4 className="text-xl font-bold mb-3">Seeking specific structural refinement?</h4>
-           <p className="text-zinc-600 text-sm italic mb-6">For high-resonance inquiries regarding institutional substrates in London, NYC, or Singapore, request a secure briefing.</p>
-           <button 
-             onClick={() => {
-               const el = document.getElementById('intake');
-               if (el) {
-                 el.scrollIntoView({ behavior: 'smooth' });
-               } else {
-                 window.location.href = '/intake';
-               }
-             }}
-             className="px-10 py-4 bg-[#111111] text-white text-[10px] font-bold uppercase hover:bg-[#b8860b] transition-all cursor-pointer"
-           >
-             Request Strategic Access
-           </button>
+
+        {/* FAQ Accordion List */}
+        <div className="space-y-3">
+          {filteredFaqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div 
+                key={index}
+                className="bg-white border border-zinc-200 hover:border-[#b8860b]/50 rounded-xs transition-colors shadow-2xs overflow-hidden"
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 cursor-pointer focus:outline-none"
+                  aria-expanded={isOpen}
+                >
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-mono text-[#8c6708] uppercase tracking-wider block">
+                      {faq.category}
+                    </span>
+                    <h3 className="text-base sm:text-lg font-bold text-[#111111] font-serif leading-snug">
+                      {faq.question}
+                    </h3>
+                    <span className="text-[11px] text-zinc-400 italic block font-serif">
+                      Context: {faq.redditContext}
+                    </span>
+                  </div>
+                  <div className={`p-1.5 rounded-full bg-[#f7f4ee] border border-zinc-200 text-[#8c6708] shrink-0 transition-transform duration-200 mt-1 ${isOpen ? 'rotate-180' : ''}`}>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="px-5 sm:px-6 pb-6 pt-1 border-t border-zinc-100 text-sm sm:text-base text-zinc-700 leading-relaxed font-serif">
+                        <p>{faq.answer}</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Bottom Callout */}
+        <div className="mt-14 p-8 sm:p-10 border border-[#b8860b]/30 bg-white/70 rounded-xs text-center space-y-4 shadow-sm">
+          <div className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-[#8c6708] font-bold">
+            <ShieldCheck className="w-4 h-4 text-[#8c6708]" />
+            <span>Direct Principal Consultation</span>
+          </div>
+
+          <h4 className="text-xl sm:text-2xl font-bold font-serif text-[#111111]">
+            Have an institutional bottleneck not addressed here?
+          </h4>
+
+          <p className="text-zinc-600 text-xs sm:text-sm italic max-w-xl mx-auto leading-relaxed">
+            Reach out directly to <strong className="text-zinc-900">Suchita Sancheti</strong> via our Executive Concierge or email <a href="mailto:suchita@theunboundedleadership.com" className="text-[#8c6708] underline font-mono">suchita@theunboundedleadership.com</a> for private docket scheduling.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <Link
+              to="/intake"
+              className="px-6 py-2.5 bg-[#111111] hover:bg-[#8c6708] text-white text-xs font-bold uppercase tracking-tight rounded-xs transition-colors shadow-sm"
+            >
+              Initiate Private Intake
+            </Link>
+            <Link
+              to="/assessment"
+              className="px-6 py-2.5 bg-white border border-zinc-300 hover:border-[#b8860b] text-[#111111] text-xs font-bold uppercase tracking-tight rounded-xs transition-colors"
+            >
+              Take Two-Week Diagnostic
+            </Link>
+          </div>
         </div>
       </div>
     </section>
-  );
-};
-
-const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="border-b border-zinc-200 py-6 group transition-all">
-      <button 
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center text-left focus:outline-none cursor-pointer"
-      >
-        <span className="text-xl md:text-2xl font-bold text-[#111111] group-hover:text-[#b8860b] transition-colors pr-8 leading-tight">
-          {question}
-        </span>
-        <span className={`text-2xl text-[#b8860b] transform transition-transform duration-500 ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
-          +
-        </span>
-      </button>
-      <div className={`overflow-hidden transition-all duration-700 ease-in-out ${isOpen ? 'max-h-96 opacity-100 mt-6' : 'max-h-0 opacity-0'}`}>
-        <p className="text-zinc-600 text-lg leading-relaxed italic font-light max-w-3xl border-l-2 border-[#b8860b]/20 pl-8">
-          {answer}
-        </p>
-      </div>
-    </div>
   );
 };
 
