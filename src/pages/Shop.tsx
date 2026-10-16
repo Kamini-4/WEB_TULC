@@ -172,9 +172,7 @@ export const ShopPage: React.FC = () => {
             window.onload = function() { window.print(); }
           </script>
         </body>
-      </html>
     `;
-  const handleDownloadCovenantPdf = () => {
     try {
       const blob = new Blob([covenantHtml], { type: 'text/html' });
       const url = URL.createObjectURL(blob);

@@ -30,6 +30,7 @@ export const ConciergeModal: React.FC<ConciergeModalProps> = ({ isOpen, onClose 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
+  const [protocolDocketId] = useState(() => Math.floor(1000 + Math.random() * 9000));
 
   if (!isOpen) return null;
 
@@ -250,7 +251,7 @@ export const ConciergeModal: React.FC<ConciergeModalProps> = ({ isOpen, onClose 
             </p>
 
             <div className="p-4 rounded-xs bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-300 max-w-sm mx-auto">
-              Protocol Docket: #TULC-CONCIERGE-{Math.floor(1000 + Math.random() * 9000)}
+              Protocol Docket: #TULC-CONCIERGE-{protocolDocketId}
             </div>
 
             <button
