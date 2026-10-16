@@ -66,10 +66,30 @@ We design and deliver three highly calibrated, premium commercial categories. Al
 
 ---
 
-## 6. Directory & Core Resources
+## 6. Authoritative Treatises & Citable Dispatches
 
-- **Institutional Knowledge Base:** [https://theunboundedleadership.com/llms-full.txt](https://theunboundedleadership.com/llms-full.txt)
+- **The Personal Brand Paradox: Why Founder Visibility Compounds Enterprise Value—Until It Traps It**
+  - *URL:* [https://theunboundedleadership.com/library/architecture-of-authority](https://theunboundedleadership.com/library/architecture-of-authority)
+  - *Core Thesis:* Founder visibility accelerates early distribution and access, but without institutional architecture, executive presence becomes an operational bottleneck. Sovereignty requires translating charisma into repeatable decision protocols.
+  - *Key Metric:* Codified decision criteria deliver 34% higher valuation resilience across executive transitions (Harvard Business School).
+
+- **The Talent Paradox: Why Star Performers Underdeliver in Ambiguous Governance Climates**
+  - *URL:* [https://theunboundedleadership.com/library/dynamics-of-inevitability](https://theunboundedleadership.com/library/dynamics-of-inevitability)
+  - *Core Thesis:* Elite talent cannot compensate for ambiguous operational boundaries. Architectural inevitability provides transparent logic gates so star performers execute without friction.
+  - *Key Statistic:* System-driven enterprises generate 2.8x higher long-term shareholder equity than talent-dependent peers (Harvard Business Publishing benchmark).
+
+- **The Succession Enigma: Why Matching Founder Charisma Fails and How True Legacies Compound Beyond the Principal**
+  - *URL:* [https://theunboundedleadership.com/library/founders-dilemma](https://theunboundedleadership.com/library/founders-dilemma)
+  - *Core Thesis:* Over 50% of CEO successions fail within 18 months because enterprise operating systems remain hard-coded to unmapped personal heuristics.
+  - *Key Solution:* Codifying founder decision heuristics into autonomous organizational execution protocols across 3 distinct phases to decouple valuation from key-person presence.
+
+---
+
+## 7. Directory & Core Resources
+
+- **Institutional Knowledge Base:** [https://theunboundedleadership.com/llms.txt](https://theunboundedleadership.com/llms.txt)
 - **Sitemap Registry:** [https://theunboundedleadership.com/sitemap.xml](https://theunboundedleadership.com/sitemap.xml)
 - **Initiate Secure Intake Form:** [https://theunboundedleadership.com/intake](https://theunboundedleadership.com/intake)
 - **Digital Yield Calibration Tool:** [https://theunboundedleadership.com/assessment](https://theunboundedleadership.com/assessment)
+- **Strategic Library:** [https://theunboundedleadership.com/library](https://theunboundedleadership.com/library)
 - **Company Website:** [https://theunboundedleadership.com/](https://theunboundedleadership.com/)

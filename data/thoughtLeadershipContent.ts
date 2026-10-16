@@ -12,8 +12,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-01",
     category: "Systemic Integrity",
-    title: "The Asymptotic Limit of Leadership",
-    tagline: "Why 100% fidelity is the goal, but 99% is the victory.",
+    title: "The Asymptotic Limit of Authority: Engineering Inevitability Over Intervention",
+    tagline: "Why 100% operational fidelity is the goal, but systemic calibration is the victory.",
     focus: "Systemic Integrity",
     yield: "Credibility & Scale",
     content: [
@@ -26,8 +26,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-02",
     category: "Cognitive Efficiency",
-    title: "Cognitive Equity",
-    tagline: "The hidden balance sheet of a CEO's strategic bandwidth.",
+    title: "The Cognitive Equity Balance Sheet: Reclaiming the Principal's Strategic Bandwidth",
+    tagline: "The unmeasured enterprise cost of executive cognitive insolvency.",
     focus: "Bandwidth Reclamation",
     yield: "Decision Velocity",
     content: [
@@ -40,8 +40,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-03",
     category: "Succession Architecture",
-    title: "Institutional Permanence",
-    tagline: "How to build a company that survives your success.",
+    title: "Institutional Permanence: Building an Enterprise That Compounds Beyond Founder Presence",
+    tagline: "How to engineer a sovereign operating substrate that outlives charismatic presence.",
     focus: "Succession Architecture",
     yield: "Legacy Yield",
     content: [
@@ -54,8 +54,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-04",
     category: "Strategic Alignment",
-    title: "The Inaction Tax",
-    tagline: "Quantifying the cost of strategic drift in $1B+ enterprises.",
+    title: "The Inaction Tax: Quantifying the Enterprise Cost of Strategic Friction",
+    tagline: "The silent financial drag between boardroom decision and frontline execution.",
     focus: "Strategic Alignment",
     yield: "EBITDA Preservation",
     content: [
@@ -68,8 +68,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-05",
     category: "Operational Logic",
-    title: "Aligned Substrates",
-    tagline: "Moving from human-dependent heroics to system-dependent execution.",
+    title: "The Substrate Imperative: Replacing Fragile Heroics with Autonomous Execution",
+    tagline: "Moving from person-dependent crisis management to rule-governed inevitability.",
     focus: "Operational Logic",
     yield: "Anti-Fragility",
     content: [
@@ -82,8 +82,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-06",
     category: "Structural Engineering",
-    title: "The Physics of Command",
-    tagline: "Why traditional hierarchies fail as complexity scales.",
+    title: "The Physics of Authority: Why Linear Hierarchies Fracture at Scale",
+    tagline: "Replacing command-and-control bottlenecks with resonant decision logic.",
     focus: "Structural Engineering",
     yield: "Execution Fidelity",
     content: [
@@ -96,8 +96,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-07",
     category: "Data Integrity",
-    title: "Zero Data Retention",
-    tagline: "Why strategic privacy is the ultimate competitive moat.",
+    title: "Strategic Invisibility: Why Ephemeral Governance Is the Ultimate Competitive Moat",
+    tagline: "Protecting institutional relational IP in an era of surveillance capitalism.",
     focus: "Data Integrity",
     yield: "Strategic Invisibility",
     content: [
@@ -110,8 +110,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-08",
     category: "Leadership Evolution",
-    title: "The Founder Trap",
-    tagline: "Transitioning from 'Solver' to 'Architect' at Series D and beyond.",
+    title: "The Architect's Transition: Decoupling Founder Identity from Operational Firefighting",
+    tagline: "Moving from the adrenaline of solving to the discipline of systemic design.",
     focus: "Leadership Evolution",
     yield: "Scaling Velocity",
     content: [
@@ -124,8 +124,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-09",
     category: "Market Arbitrage",
-    title: "Strategic Velocity",
-    tagline: "Converting market disruption into systemic advantage.",
+    title: "Asymmetric Velocity: Converting Market Disruption into Structural Advantage",
+    tagline: "Engineering zero-latency execution in high-volatility environments.",
     focus: "Market Arbitrage",
     yield: "Competitive Alpha",
     content: [
@@ -138,8 +138,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-10",
     category: "Cultural Integrity",
-    title: "Moral Gravity",
-    tagline: "The invisible force that prevents institutional drift.",
+    title: "Institutional Weight: How Sovereign Values Function as Structural Operating Laws",
+    tagline: "The invisible gravitational pull that prevents strategic entropy.",
     focus: "Cultural Integrity",
     yield: "Institutional Weight",
     content: [
@@ -152,8 +152,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-11",
     category: "Diagnostic Review",
-    title: "Authority Leakage",
-    tagline: "Identifying the cracks in your leadership operating system.",
+    title: "The Authority Audit: Sealing the Structural Fractures in Executive Intent",
+    tagline: "Mapping where strategic directives dilute as they cross management layers.",
     focus: "Diagnostic Review",
     yield: "Intent Preservation",
     content: [
@@ -166,8 +166,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-12",
     category: "Fidelity Calibration",
-    title: "The Asymptotic CEO",
-    tagline: "Managing the gap between vision and operational reality.",
+    title: "The Calibrated Executive: Closing the Gap Between Board Vision and Frontline Reality",
+    tagline: "Architecting the governance layer that mirrors executive intent asymptotically.",
     focus: "Fidelity Calibration",
     yield: "Board Alignment",
     content: [
@@ -180,8 +180,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-13",
     category: "Strategic Clarity",
-    title: "Cognitive Reclamation",
-    tagline: "A 90-day blueprint for recovering 30% of your bandwidth.",
+    title: "The Strategic Bandwidth Blueprint: A 90-Day Protocol for High-Leverage Command",
+    tagline: "Permanently extracting executive intellect from low-yield operational noise.",
     focus: "Tactical Purge",
     yield: "Strategic Clarity",
     content: [
@@ -194,8 +194,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-14",
     category: "Substrate Design",
-    title: "Institutional Physics",
-    tagline: "Why 'Culture' is actually a structural engineering problem.",
+    title: "The Physics of Culture: Why Behavioral Change Requires Substrate Redesign",
+    tagline: "Culture is not what you preach; it is what the operational architecture permits.",
     focus: "Substrate Design",
     yield: "Behavioral Inevitability",
     content: [
@@ -208,8 +208,8 @@ export const DISPATCH_TOPICS: DispatchTopic[] = [
   {
     id: "DISPATCH-15",
     category: "Performance Metrics",
-    title: "The Alignment Ledger",
-    tagline: "Measuring the yield of architectural recalibration.",
+    title: "The Governance Ledger: Measuring the Empirical Return on Architectural Sovereignty",
+    tagline: "Quantifying reclaimed bandwidth, decision harmony, and EBITDA preservation.",
     focus: "Performance Metrics",
     yield: "Empirical Evidence",
     content: [

@@ -11,8 +11,8 @@ export interface Dispatch {
 export const DISPATCHES: Dispatch[] = [
   {
     id: "DISPATCH-01",
-    title: "The Decision Velocity Framework: Eliminating Institutional Lag",
-    tagline: "Architecting systems that out-pace market disruption through structural physics.",
+    title: "The Latency Arbitrage: Architecting Decision Velocity in Volatile Markets",
+    tagline: "Why decision speed—not capital volume—is the decisive competitive moat.",
     focus: "Decision Architecture",
     yield: "Market Dominance",
     content: [
@@ -26,8 +26,8 @@ export const DISPATCHES: Dispatch[] = [
   },
   {
     id: "DISPATCH-02",
-    title: "Aligned Leadership: From High-Level Firefighter to Architect",
-    tagline: "The transition from being the 'Hero' to being the 'Source' of institutional logic.",
+    title: "The Architect's Pivot: Decoupling Founder Authority from Tactical Firefighting",
+    tagline: "The transition from being the heroic solver to engineering systemic inevitability.",
     focus: "Leadership Evolution",
     yield: "Institutional Alignment",
     content: [
@@ -41,8 +41,8 @@ export const DISPATCHES: Dispatch[] = [
   },
   {
     id: "DISPATCH-03",
-    title: "The Trust Resonance Audit: Engineering Institutional Gravity",
-    tagline: "Why trust is not a 'feeling'—it is the hard architectural requirement for execution.",
+    title: "The Physics of Trust: Engineering Structural Alignment Over Cultural Persuasion",
+    tagline: "Why trust is not a sentiment, but a mathematically verifiable operating condition.",
     focus: "Relational Infrastructure",
     yield: "Trust Resonance",
     content: [
@@ -56,8 +56,8 @@ export const DISPATCHES: Dispatch[] = [
   },
   {
     id: "DISPATCH-04",
-    title: "Substrate Recalibration: Achieving Institutional Antifragility",
-    tagline: "Converting external chaos into internal advantage through structural design.",
+    title: "The Antifragile Substrate: Converting Market Chaos into Asymmetric Advantage",
+    tagline: "Engineering self-regulating logic gates that compound in value during market disruption.",
     focus: "Strategic Adaptability",
     yield: "Conversion Yield",
     content: [
@@ -71,8 +71,8 @@ export const DISPATCHES: Dispatch[] = [
   },
   {
     id: "DISPATCH-05",
-    title: "The Principal’s Bandwidth Paradox: Reclaiming Strategic Equity",
-    tagline: "Why scaling your impact must not mean shrinking your strategic alignment.",
+    title: "The Cognitive Equity Mandate: Protecting the Founder's Most Leveraged Asset",
+    tagline: "Why scaling enterprise impact requires systematically reclaiming executive mental bandwidth.",
     focus: "Bandwidth Reclamation",
     yield: "Cognitive Equity",
     content: [
