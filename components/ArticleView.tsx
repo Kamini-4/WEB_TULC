@@ -7,6 +7,7 @@ import { Linkedin } from './BrandIcons';
 import { PermanentArtwork } from './PermanentArtwork';
 import { INSTITUTIONAL_ARTICLES } from '../src/lib/articles';
 import { GooglePreferredSource } from './GooglePreferredSource';
+import { SEOHead } from '../src/components/SEOHead';
 
 interface Article {
   id?: string;
@@ -262,38 +263,25 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
 
   return (
     <div className="fixed inset-0 z-[110] flex items-center justify-center p-0 sm:p-2 md:p-6 lg:p-8 animate-fade-in overscroll-none font-serif">
-      {/* Structured Schema.org data for AI crawlers */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "TechArticle",
-            "headline": article.title,
-            "description": article.excerpt || (article.content && article.content[0] ? article.content[0].substring(0, 160) : ""),
-            "image": article.image || "https://theunboundedleadership.com/og-image.jpg",
-            "datePublished": "2026-07-10T00:00:00+00:00",
-            "author": {
-              "@type": "Person",
-              "name": "Suchita Sancheti",
-              "jobTitle": "Founder & Enterprise Architect",
-              "url": "https://theunboundedleadership.com/about"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "The Unbounded Leadership Co.",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://theunboundedleadership.com/logo.jpg"
-              }
-            },
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": shareUrl
-            },
-            "wordCount": getArticleStats(article).words.replace(/,/g, '')
-          })
+      {/* Dynamic SEO, GEO & AEO Meta and Schema */}
+      <SEOHead
+        title={article.title}
+        description={article.excerpt || (article.content && article.content[0] ? article.content[0].substring(0, 160) : '')}
+        canonicalPath={`/library/${article.slug || article.id || ''}`}
+        type="article"
+        image={article.image || 'https://theunboundedleadership.com/og-image.jpg'}
+        keywords={`${article.category.toLowerCase()}, leadership architecture, executive governance, suchita sancheti, decision velocity, institutional dispatch`}
+        articleData={{
+          authorName: 'Suchita Sancheti',
+          category: article.category,
+          wordCount: getArticleStats(article).words,
+          thesis: article.excerpt
         }}
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Executive Library', path: '/library' },
+          { name: article.title, path: `/library/${article.slug || article.id || ''}` }
+        ]}
       />
 
       {/* Dimmed backdrop */}
@@ -347,6 +335,15 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
         {/* Article Reading Column - Centered, Easy-on-Eyes Measure (max-w-3xl) */}
         <div className="w-full max-w-3xl mx-auto px-6 sm:px-10 md:px-12 py-8 sm:py-12 md:py-14">
           <header className="mb-8 sm:mb-10">
+            {/* Clickable Internal Breadcrumbs */}
+            <nav aria-label="Breadcrumb" className="mb-4 flex items-center gap-1.5 text-xs text-stone-500 font-serif flex-wrap">
+              <Link to="/" onClick={onClose} className="hover:text-[#8c6708] transition-colors">Home</Link>
+              <span className="text-stone-300">/</span>
+              <Link to="/library" onClick={onClose} className="hover:text-[#8c6708] transition-colors">Executive Library</Link>
+              <span className="text-stone-300">/</span>
+              <span className="text-[#8c6708] font-semibold truncate max-w-[280px]">{article.title}</span>
+            </nav>
+
             {/* Category Kicker */}
             <div className="flex items-center gap-2 text-xs uppercase text-[#b8860b] font-serif font-bold tracking-widest mb-2.5">
               <span>{article.category}</span>

@@ -40,6 +40,9 @@ import {
   setStoredCurrency 
 } from '../lib/currency';
 import { apiRequest } from '../lib/apiClient';
+import { SEOHead } from '../components/SEOHead';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { InternalLinksMatrix } from '../components/InternalLinksMatrix';
 
 export const ShopPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -258,6 +261,18 @@ export const ShopPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] pb-24 font-serif">
+      <SEOHead
+        title="Turnkey Digital Toolkits & Operating Substrates"
+        description="Battle-tested Notion & Coda operating workspaces, delegation covenants, and 72-hour founder absence audit frameworks from $27 to $197."
+        canonicalPath="/products"
+        keywords="founder toolkits, notion operating system, coda workspace, delegation covenant, founder absence audit, sovereign substrates"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Digital Toolkits', path: '/products' }
+        ]}
+      />
+      <Breadcrumbs items={[{ name: 'Digital Toolkits & Workspaces', path: '/products' }]} />
+
       {/* Top Value-Based Executive Systems Ticker Bar */}
       <div className="bg-[#1c1917] text-white border-b border-[#ded6c5] py-2.5 px-4 font-mono">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2.5 text-[10px] sm:text-xs">
@@ -911,6 +926,9 @@ export const ShopPage: React.FC = () => {
             : 0
         }
       />
+
+      {/* Institutional Internal Linking Matrix */}
+      <InternalLinksMatrix currentPath="/products" />
     </div>
   );
 };

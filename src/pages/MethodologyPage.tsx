@@ -5,6 +5,9 @@ import {
   CheckCircle2 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '../components/SEOHead';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { InternalLinksMatrix } from '../components/InternalLinksMatrix';
 
 export const MethodologyPage: React.FC = () => {
   const phases = [
@@ -55,8 +58,21 @@ export const MethodologyPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 font-serif">
-      <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
+    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] font-serif">
+      <SEOHead
+        title="Systemic Methodology & Sovereign Governance Architecture"
+        description="The 4-phase alignment protocol, cybernetic feedback loops, invariant decision substrates, and cognitive load theory applied to enterprise scale."
+        canonicalPath="/methodology"
+        keywords="leadership methodology, 4-phase alignment protocol, invariant decision substrates, cybernetic management, step-away test, suchita sancheti"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Systemic Methodology', path: '/methodology' }
+        ]}
+      />
+      <Breadcrumbs items={[{ name: 'Systemic Methodology', path: '/methodology' }]} />
+
+      <div className="py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
         
         {/* Header */}
         <div className="text-center space-y-3 max-w-3xl mx-auto">
@@ -179,5 +195,9 @@ export const MethodologyPage: React.FC = () => {
 
       </div>
     </div>
-  );
+
+    {/* Institutional Internal Linking Matrix */}
+    <InternalLinksMatrix currentPath="/methodology" />
+  </div>
+);
 };

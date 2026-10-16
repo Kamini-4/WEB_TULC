@@ -8,6 +8,8 @@ import Blog from '../../components/Blog';
 import { WHITE_PAPERS } from '../../data/whitepapers';
 import Newsletter from '../../components/Newsletter';
 import { GooglePreferredSource } from '../../components/GooglePreferredSource';
+import { SEOHead } from '../components/SEOHead';
+import { InternalLinksMatrix } from '../components/InternalLinksMatrix';
 
 interface LibraryProps {
   onArticleClick?: (article: any) => void;
@@ -590,12 +592,23 @@ export const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="bg-[#f7f4ee] min-h-screen text-[#1c1917] flex flex-col font-serif"
     >
+      <SEOHead
+        title="Executive Intelligence Library & Dispatches"
+        description="Rigorous executive research dispatches, governance models, and systemic operational blueprints for enterprise founders, CXOs, and boards."
+        canonicalPath="/library"
+        keywords="executive briefings, governance research, personal brand paradox, founder delegation, decision architecture, inaction tax, suchita sancheti"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Executive Library', path: '/library' }
+        ]}
+      />
+
       {/* 01. COMPACT EXECUTIVE HEADER (MINIMAL VERTICAL FOOTPRINT) */}
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-4">
-        <nav className="flex items-center gap-2 text-xs uppercase text-[#78716c] mb-3 tracking-wide">
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs uppercase text-[#78716c] mb-3 tracking-wide">
           <Link to="/" className="hover:text-[#8c6708] transition-colors">Home</Link>
           <span className="text-[#a8a29e]">/</span>
-          <span className="text-[#8c6708] font-bold">Executive Blogs & Dispatches</span>
+          <span className="text-[#8c6708] font-bold" aria-current="page">Executive Intelligence Library</span>
         </nav>
         
         <header className="mb-4">
@@ -971,6 +984,9 @@ export const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
             </div>
           );
         })()}
+
+      {/* Institutional Internal Linking Matrix */}
+      <InternalLinksMatrix currentPath="/library" />
     </motion.div>
   );
 };

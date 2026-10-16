@@ -10,6 +10,9 @@ import {
   HelpCircle
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '../components/SEOHead';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { InternalLinksMatrix } from '../components/InternalLinksMatrix';
 
 export const CognitiveTaxPage: React.FC = () => {
   // Inputs
@@ -30,8 +33,21 @@ export const CognitiveTaxPage: React.FC = () => {
   const annualRecoverableValue = annualTeamLoss * 0.75;
 
   return (
-    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-16 px-4 sm:px-6 lg:px-8 font-serif">
-      <div className="max-w-5xl mx-auto space-y-12">
+    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] font-serif">
+      <SEOHead
+        title="Cognitive Tax & Coordination Drag Calculator"
+        description="Quantify the multi-million dollar invisible tax of organizational friction, meeting sprawl, and decision second-guessing across your leadership team."
+        canonicalPath="/cognitive-tax"
+        keywords="cognitive tax calculator, coordination drag, meeting bloat, executive bandwidth loss, ebitda recovery, suchita sancheti"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Cognitive Tax Calculator', path: '/cognitive-tax' }
+        ]}
+      />
+      <Breadcrumbs items={[{ name: 'Cognitive Tax Calculator', path: '/cognitive-tax' }]} />
+
+      <div className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto space-y-12">
         
         {/* Header */}
         <div className="text-center space-y-4">
@@ -223,5 +239,9 @@ export const CognitiveTaxPage: React.FC = () => {
 
       </div>
     </div>
-  );
+
+    {/* Institutional Internal Linking Matrix */}
+    <InternalLinksMatrix currentPath="/cognitive-tax" />
+  </div>
+);
 };

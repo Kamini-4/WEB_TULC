@@ -3,6 +3,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Lock, ArrowRight, ShieldCheck, AlertCircle, Sparkles, CheckCircle2, Clock, Building2 } from 'lucide-react';
 import { SovereignDB } from '../../lib/database';
+import { SEOHead } from '../components/SEOHead';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { InternalLinksMatrix } from '../components/InternalLinksMatrix';
 
 const TARGET_APP_URL = "https://sovereign-audit-the-institutional-stress-test-942902734370.us-west1.run.app";
 
@@ -88,12 +91,25 @@ const Portal: React.FC = () => {
   };
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.7 }}
-      className="bg-[#111111] min-h-screen text-white pt-16 md:pt-24 pb-24 relative flex items-center justify-center w-full px-4 sm:px-6"
-    >
+    <div className="bg-[#111111] min-h-screen text-white flex flex-col font-serif">
+      <SEOHead
+        title="Institutional Clearance & Sovereign Client Portal"
+        description="Encrypted access for active retainer enterprise clients, board directors, and institutional partners."
+        canonicalPath="/portal"
+        keywords="institutional clearance, sovereign client portal, encrypted access, tulc portal"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Client Portal', path: '/portal' }
+        ]}
+      />
+      <Breadcrumbs items={[{ name: 'Institutional Clearance Portal', path: '/portal' }]} className="bg-black/90 border-zinc-800 text-zinc-400" />
+
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.7 }}
+        className="flex-1 pt-12 md:pt-16 pb-20 relative flex items-center justify-center w-full px-4 sm:px-6"
+      >
       {/* Background ambient lighting */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#b8860b]/10 via-black to-[#111111] pointer-events-none" />
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#b8860b]/40 to-transparent" />
@@ -290,7 +306,11 @@ const Portal: React.FC = () => {
         </div>
 
       </div>
-    </motion.div>
+      </motion.div>
+
+      {/* Institutional Internal Linking Matrix */}
+      <InternalLinksMatrix currentPath="/portal" />
+    </div>
   );
 };
 

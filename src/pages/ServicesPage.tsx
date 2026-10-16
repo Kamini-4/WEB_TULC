@@ -19,6 +19,9 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ConciergeModal } from '../../components/ConciergeModal';
+import { SEOHead } from '../components/SEOHead';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { InternalLinksMatrix } from '../components/InternalLinksMatrix';
 
 export const ServicesPage: React.FC = () => {
   const [conciergeOpen, setConciergeOpen] = useState(false);
@@ -165,11 +168,24 @@ export const ServicesPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-10 sm:py-14 px-4 sm:px-6 lg:px-8 font-serif">
-      <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
-        
-        {/* Header - The Sovereign Covenant (Ambitious & Rigorous) */}
-        <div className="text-center space-y-3 max-w-3xl mx-auto">
+    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] font-serif">
+      <SEOHead
+        title="Institutional Mandates & Executive Advisory Services"
+        description="Comprehensive leadership operating system architecture, executive bandwidth optimization, and key-person risk elimination for $10M–$100M+ enterprises."
+        canonicalPath="/services"
+        keywords="leadership mandates, executive advisory, founder bottleneck, alignment architecture, sovereign governance, decision substrates"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Services & Mandates', path: '/services' }
+        ]}
+      />
+      <Breadcrumbs items={[{ name: 'Services & Mandates', path: '/services' }]} />
+
+      <div className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
+          
+          {/* Header - The Sovereign Covenant (Ambitious & Rigorous) */}
+          <div className="text-center space-y-3 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-tight text-[#b8860b] font-bold font-mono">
             <Compass className="w-4 h-4 text-[#8c6708]" />
             <span>The Sovereign Covenant</span>
@@ -482,10 +498,14 @@ export const ServicesPage: React.FC = () => {
         </div>
 
       </div>
-
-      <ConciergeModal isOpen={conciergeOpen} onClose={() => setConciergeOpen(false)} />
     </div>
-  );
+
+    {/* Institutional Internal Linking Matrix */}
+    <InternalLinksMatrix currentPath="/services" />
+
+    <ConciergeModal isOpen={conciergeOpen} onClose={() => setConciergeOpen(false)} />
+  </div>
+);
 };
 
 export default ServicesPage;

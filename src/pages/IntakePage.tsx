@@ -10,6 +10,9 @@ import {
   Compass,
   AlertCircle
 } from 'lucide-react';
+import { SEOHead } from '../components/SEOHead';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { InternalLinksMatrix } from '../components/InternalLinksMatrix';
 
 export const IntakePage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -38,15 +41,28 @@ export const IntakePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 font-serif">
-      <div className="max-w-4xl mx-auto space-y-8 sm:space-y-10">
-        
-        {/* Header */}
-        <div className="text-center space-y-3 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-tight text-[#8c6708] font-bold">
-            <Lock className="w-4 h-4 text-[#8c6708]" />
-            <span>Encrypted Sovereign Intake</span>
-          </div>
+    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] font-serif">
+      <SEOHead
+        title="Confidential Executive Intake & Mandate Calibration"
+        description="Submit institutional parameters for direct adversarial review and yield calibration by Principal Enterprise Architect Suchita Sancheti."
+        canonicalPath="/intake"
+        keywords="executive intake, confidential advisory, mandate submission, suchita sancheti, sovereign governance"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Confidential Intake', path: '/intake' }
+        ]}
+      />
+      <Breadcrumbs items={[{ name: 'Confidential Executive Intake', path: '/intake' }]} />
+
+      <div className="py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto space-y-8 sm:space-y-10">
+          
+          {/* Header */}
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-tight text-[#8c6708] font-bold">
+              <Lock className="w-4 h-4 text-[#8c6708]" />
+              <span>Encrypted Sovereign Intake</span>
+            </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1c1917] tracking-tight">
             Initiate Executive Mandate Advisory
@@ -237,5 +253,9 @@ export const IntakePage: React.FC = () => {
 
       </div>
     </div>
-  );
+
+    {/* Institutional Internal Linking Matrix */}
+    <InternalLinksMatrix currentPath="/intake" />
+  </div>
+);
 };

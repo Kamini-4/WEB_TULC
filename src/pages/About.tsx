@@ -11,13 +11,30 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '../components/SEOHead';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { InternalLinksMatrix } from '../components/InternalLinksMatrix';
 
 export const About: React.FC = () => {
   const [photoError, setPhotoError] = React.useState(false);
 
   return (
-    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 font-serif">
-      <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
+    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] font-serif">
+      <SEOHead
+        title="Principal Architect Suchita Sancheti | The Unbounded Leadership Co."
+        description="Computer Science Engineer and Industrial Psychologist synthesizing cybernetic systems design and executive leadership governance for enterprise scale."
+        canonicalPath="/about"
+        type="profile"
+        keywords="Suchita Sancheti, principal enterprise architect, cybernetic design, founder decoupling, executive governance, leadership operating systems"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'About Principal', path: '/about' }
+        ]}
+      />
+      <Breadcrumbs items={[{ name: 'About Principal Architect', path: '/about' }]} />
+
+      <div className="py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
         
         {/* Header Section */}
         <div className="text-center space-y-3 max-w-3xl mx-auto">
@@ -145,5 +162,9 @@ export const About: React.FC = () => {
 
       </div>
     </div>
-  );
+
+    {/* Institutional Internal Linking Matrix */}
+    <InternalLinksMatrix currentPath="/about" />
+  </div>
+);
 };

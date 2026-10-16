@@ -15,6 +15,8 @@ import { Link } from 'react-router-dom';
 import VideoPlayer from '../../components/VideoPlayer';
 import { INSTITUTIONAL_ARTICLES } from '../lib/articles';
 import { FAQ } from '../../components/FAQ';
+import { SEOHead } from '../components/SEOHead';
+import { InternalLinksMatrix } from '../components/InternalLinksMatrix';
 
 export const Home: React.FC = () => {
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
@@ -22,6 +24,26 @@ export const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] font-serif selection:bg-black selection:text-white">
+      <SEOHead
+        title="The Unbounded Leadership Co. | Sovereign Leadership & Executive Governance"
+        description="Eliminate founder dependency and reclaim 15+ hours weekly. We enable CXOs and enterprise founders to build sovereign operating systems that run without them in 90 days."
+        canonicalPath="/"
+        keywords="leadership architecture, founder bottleneck, decision latency, two-week test, executive bandwidth, sovereign governance, Suchita Sancheti, inaction tax"
+        faqData={[
+          {
+            question: "What is the Two-Week Step-Away Test?",
+            answer: "An adversarial operational stress test where the apex founder or CEO steps away completely for 14 continuous days. If decision velocity degrades or operational crises stall execution, the enterprise possesses a key-person architectural bottleneck rather than a sovereign operating system."
+          },
+          {
+            question: "How does The Unbounded Leadership Co. eliminate founder dependency?",
+            answer: "We install 12 invariant execution protocols across cognitive, relational, and structural substrates, hard-coding strategic heuristics into existing communication channels and software dockets to automate routine trade-offs and eradicate meeting drag."
+          },
+          {
+            question: "How much executive bandwidth can be reclaimed in 90 days?",
+            answer: "Our enterprise transformation protocol systematically reclaims up to 40% (15–20 hours per week) of executive bandwidth within 90 days by decentralizing decision thresholds and removing operational bottlenecks."
+          }
+        ]}
+      />
       
       {/* 1. Hero Statement Section - Clean, Elegant Spacing, No Sticker, Black Highlights */}
       <section className="relative pt-8 pb-10 sm:pt-12 sm:pb-14 px-4 sm:px-6 lg:px-8 border-b border-[#ded6c5] overflow-hidden">
@@ -613,6 +635,9 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Institutional Internal Linking Matrix */}
+      <InternalLinksMatrix currentPath="/" />
 
     </div>
   );

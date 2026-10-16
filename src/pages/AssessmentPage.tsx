@@ -11,6 +11,9 @@ import {
   DollarSign
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '../components/SEOHead';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { InternalLinksMatrix } from '../components/InternalLinksMatrix';
 
 interface Question {
   id: string;
@@ -191,15 +194,28 @@ export const AssessmentPage: React.FC = () => {
   const estimatedAnnualEbitdaBleed = (annualRevenue * totalEbitdaLossPercent) / 100;
 
   return (
-    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 font-serif">
-      <div className="max-w-4xl mx-auto">
-        
-        {/* Header */}
-        <div className="text-center space-y-3 mb-8">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-tight text-[#8c6708] font-bold">
-            <Activity className="w-4 h-4 text-[#8c6708]" />
-            <span>TULC Operational Telemetry</span>
-          </div>
+    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] font-serif">
+      <SEOHead
+        title="The Two-Week Test & Inaction Tax Diagnostic"
+        description="Interactive executive diagnostic calculating your organization's decision latency penalty and annualized EBITDA leakage in under 3 minutes."
+        canonicalPath="/assessment"
+        keywords="inaction tax, two-week test, founder bottleneck, decision latency diagnostic, ebitda leakage, executive bandwidth audit"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'The Two-Week Test Diagnostic', path: '/assessment' }
+        ]}
+      />
+      <Breadcrumbs items={[{ name: 'Inaction Tax Diagnostic', path: '/assessment' }]} />
+
+      <div className="py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          
+          {/* Header */}
+          <div className="text-center space-y-3 mb-8">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-tight text-[#8c6708] font-bold">
+              <Activity className="w-4 h-4 text-[#8c6708]" />
+              <span>TULC Operational Telemetry</span>
+            </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1c1917] tracking-tight font-serif">
             The Inaction Tax Diagnostic
@@ -378,5 +394,9 @@ export const AssessmentPage: React.FC = () => {
 
       </div>
     </div>
-  );
+
+    {/* Institutional Internal Linking Matrix */}
+    <InternalLinksMatrix currentPath="/assessment" />
+  </div>
+);
 };

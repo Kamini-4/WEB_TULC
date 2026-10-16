@@ -4,6 +4,9 @@ import { ChevronDown, HelpCircle, ShieldCheck, ArrowRight, Compass, Mail, Lock }
 import { REDDIT_FAQS } from '../data/redditFaqData';
 import { Link } from 'react-router-dom';
 import { ConciergeModal } from '../../components/ConciergeModal';
+import { SEOHead } from '../components/SEOHead';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { InternalLinksMatrix } from '../components/InternalLinksMatrix';
 
 export const FAQPage: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -14,28 +17,23 @@ export const FAQPage: React.FC = () => {
 
   const filteredFaqs = REDDIT_FAQS.filter(f => activeCategory === 'All' || f.category === activeCategory);
 
-  // Schema.org FAQPage JSON-LD for rich search engine snippets and AEO/GEO indexing
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": REDDIT_FAQS.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
-  };
-
   return (
-    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] py-10 sm:py-14 px-4 sm:px-6 lg:px-8 font-serif">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] font-serif">
+      <SEOHead
+        title="Executive FAQ & Founder Governance Inquiries"
+        description="Authoritative answers to top founder dilemmas: stepping away, executive compensation, board management, delegation standards, and decision velocity."
+        canonicalPath="/faq"
+        keywords="founder faq, executive coaching vs architecture, key person risk, decision latency, scaling dilemmas, suchita sancheti"
+        faqData={REDDIT_FAQS.map(faq => ({ question: faq.question, answer: faq.answer }))}
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Executive FAQ', path: '/faq' }
+        ]}
       />
+      <Breadcrumbs items={[{ name: 'Executive FAQs', path: '/faq' }]} />
 
-      <div className="max-w-5xl mx-auto space-y-10 sm:space-y-12">
+      <div className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto space-y-10 sm:space-y-12">
         {/* Page Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-tight text-[#b8860b] font-bold">
@@ -154,10 +152,14 @@ export const FAQPage: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <ConciergeModal isOpen={conciergeOpen} onClose={() => setConciergeOpen(false)} />
     </div>
-  );
+
+    {/* Institutional Internal Linking Matrix */}
+    <InternalLinksMatrix currentPath="/faq" />
+
+    <ConciergeModal isOpen={conciergeOpen} onClose={() => setConciergeOpen(false)} />
+  </div>
+);
 };
 
 export default FAQPage;

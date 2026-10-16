@@ -1104,6 +1104,7 @@ const LEGACY_ID_MAP: Record<string, string> = {
   "int-006": "engineering-strategic-bandwidth",
   "int-007": "aligned-authority-vs-reactive-management",
   "int-008": "dynamics-of-inevitability",
+  "physics-of-inevitability": "dynamics-of-inevitability",
   "int-009": "cost-of-organizational-latency",
   "int-013": "transitioning-founder-to-chairman",
   "int-014": "ceo-burnout-systems-failure",
