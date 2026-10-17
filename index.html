@@ -8,9 +8,11 @@
     <!-- Primary Metadata -->
     <title>The Unbounded Leadership Co. | Sovereign Leadership & Executive Governance</title>
     <meta name="description" content="An elite institutional leadership consultancy platform focusing on re-architecting leadership operating systems for CXOs and boards." />
-    <meta name="keywords" content="leadership architecture, founder bottleneck, decision latency, constructive tension, two-week test, executive bandwidth, sovereign governance, Suchita Sancheti, institutional operating system" />
+    <meta name="keywords" content="leadership architecture, founder bottleneck, decision latency, constructive tension, two-week test, executive bandwidth, sovereign governance, Suchita Sancheti, institutional operating system, inaction tax" />
     <meta name="author" content="Suchita Sancheti" />
     <link rel="canonical" href="https://theunboundedleadership.com/" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph" />
 
     <!-- OpenGraph Social Metadata -->
     <meta property="og:site_name" content="The Unbounded Leadership Co." />
@@ -35,22 +37,45 @@
           "@type": "Organization",
           "@id": "https://theunboundedleadership.com/#organization",
           "name": "The Unbounded Leadership Co.",
+          "alternateName": "TULC",
           "url": "https://theunboundedleadership.com/",
           "logo": "https://theunboundedleadership.com/logo.jpeg",
+          "description": "Elite institutional leadership consultancy platform focusing on re-architecting leadership operating systems for enterprise founders, CXOs, and boards.",
           "founder": {
-            "@type": "Person",
-            "name": "Suchita Sancheti",
-            "jobTitle": "Principal Enterprise Architect",
-            "email": "suchita@theunboundedleadership.com"
+            "@id": "https://theunboundedleadership.com/#suchita-sancheti"
           },
           "contactPoint": {
             "@type": "ContactPoint",
-            "contactType": "Executive Concierge & Inquiries",
+            "contactType": "Executive Inquiries & Client Advisory",
             "email": "suchita@theunboundedleadership.com",
             "availableLanguage": ["English"]
           },
-          "sameAs": [
-            "https://linkedin.com"
+          "knowsAbout": [
+            "Leadership Architecture",
+            "Executive Decision Latency",
+            "Founder Bottleneck Resolution",
+            "Sovereign Operating Systems",
+            "Cybernetic Enterprise Governance",
+            "Two-Week Step-Away Test"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://theunboundedleadership.com/#suchita-sancheti",
+          "name": "Suchita Sancheti",
+          "jobTitle": "Founder & Enterprise Architect",
+          "worksFor": {
+            "@id": "https://theunboundedleadership.com/#organization"
+          },
+          "email": "suchita@theunboundedleadership.com",
+          "description": "Founder & Enterprise Architect of The Unbounded Leadership Co. Computer Science Engineer and Industrial Psychologist synthesizing technical enterprise systems engineering with human behavioral dynamics to eliminate founder decision bottlenecks for scale-up leaders.",
+          "alumniOf": "Computer Science Engineering",
+          "knowsAbout": [
+            "Enterprise Systems Architecture",
+            "Industrial Psychology",
+            "Cybernetics & Organizational Design",
+            "Founder Heuristic Codification",
+            "Forensic Handwriting Analysis"
           ]
         },
         {
@@ -71,6 +96,36 @@
           },
           "serviceType": "Executive Governance Advisory & Systems Architecture",
           "description": "Systemic engineering of organizational decision architecture, eliminating founder decision bottlenecks, and embedding self-executing governance protocols for $10M–$100M+ enterprises."
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://theunboundedleadership.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How does Suchita Sancheti eliminate founder decision bottlenecks without operational collapse?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Founder bottlenecks are structural design failures where tacit judgment was never codified into explicit signing thresholds. TULC installs Sovereign Decision Mapping—granting leadership teams 100% autonomous signature authority under calibrated risk ceilings, eliminating over 80% of routine approval friction."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between executive coaching and leadership architecture?",
+              "@acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Executive coaching focuses on individual mindset and psychological habits. Traditional consulting delivers static slides. Leadership Architecture (TULC) engineers and installs the actual operating substrate—decision matrices, authority envelopes, and asynchronous governance protocols—directly into the firm's daily cadence."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the Two-Week Step-Away Test?",
+              "@acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Two-Week Step-Away Test is our adversarial benchmark for institutional durability: if an enterprise cannot run for 14 continuous days without the founder's manual intervention, the founder owns an exhausting job rather than a scalable asset."
+              }
+            }
+          ]
         }
       ]
     }
@@ -82,7 +137,113 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   </head>
   <body class="bg-[#f7f4ee] text-[#1c1917] antialiased selection:bg-[#b8860b] selection:text-white">
-    <div id="root"></div>
+    <!-- Root Mounting Node with Semantic SSR Corpus for LLMs & Search Crawlers -->
+    <div id="root">
+      <header style="padding: 20px; border-bottom: 1px solid #ded6c5; background-color: #faf8f5;">
+        <nav style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: 'Playfair Display', Georgia, serif;">
+          <div>
+            <strong>The Unbounded Leadership Co.</strong>
+            <span style="font-size: 11px; display: block; color: #78716c;">Sovereign Leadership & Executive Governance</span>
+          </div>
+          <div style="font-size: 12px; display: flex; gap: 16px;">
+            <a href="/services" style="color: #1c1917; text-decoration: none;">Services</a>
+            <a href="/assessment" style="color: #1c1917; text-decoration: none;">Two-Week Test</a>
+            <a href="/methodology" style="color: #1c1917; text-decoration: none;">Methodology</a>
+            <a href="/library" style="color: #1c1917; text-decoration: none;">Dispatches</a>
+            <a href="/about" style="color: #1c1917; text-decoration: none;">About Founders</a>
+            <a href="/faq" style="color: #1c1917; text-decoration: none;">Executive FAQs</a>
+            <a href="/intake" style="color: #8c6708; font-weight: bold; text-decoration: none;">Initiate Mandate</a>
+          </div>
+        </nav>
+      </header>
+
+      <main style="max-width: 1200px; margin: 40px auto; padding: 0 20px; font-family: 'Playfair Display', Georgia, serif;">
+        <section style="margin-bottom: 60px;">
+          <h1 style="font-size: 42px; line-height: 1.15; margin-bottom: 20px; color: #1c1917;">
+            Sovereign Architects Build What Outlives Them.
+          </h1>
+          <p style="font-size: 18px; line-height: 1.6; color: #57534e; max-width: 800px;">
+            The Unbounded Leadership Co. re-engineers leadership operating systems for CXOs and enterprise boards. We eliminate Architectural Decision Latency and founder bottlenecks, converting personal willpower into self-executing governance protocols for $10M to $100M+ organizations.
+          </p>
+          <div style="margin-top: 24px; display: flex; gap: 16px; font-size: 13px;">
+            <a href="/assessment" style="padding: 12px 24px; background: #1c1917; color: #ffffff; text-decoration: none; font-weight: bold;">Take The Two-Week Test</a>
+            <a href="/services" style="padding: 12px 24px; border: 1px solid #1c1917; color: #1c1917; text-decoration: none;">Explore Advisory Mandates</a>
+          </div>
+        </section>
+
+        <section style="margin-bottom: 60px; padding: 30px; background: #faf8f5; border: 1px solid #ded6c5;">
+          <h2 style="font-size: 26px; margin-bottom: 15px;">Leadership & Practice Direction</h2>
+          <p style="font-size: 14px; line-height: 1.7; color: #44403c;">
+            Founded by <strong>Suchita Sancheti</strong> (Founder & Enterprise Architect) alongside Client Relations Coordinator <strong>Kamini Agnihotri</strong>. Suchita Sancheti is a Computer Science Engineer and Industrial Psychologist who merges enterprise systems architecture (former SAP consultant) with human behavioral dynamics. She hard-codes founder judgment into self-governing operating substrates, accepting strictly 3 active institutional calibrations per quarter.
+          </p>
+          <p style="font-size: 13px; color: #78716c; margin-top: 10px;">
+            Confidential Communications Desk: <a href="mailto:suchita@theunboundedleadership.com" style="color: #8c6708;">suchita@theunboundedleadership.com</a>
+          </p>
+        </section>
+
+        <section style="margin-bottom: 60px;">
+          <h2 style="font-size: 26px; margin-bottom: 20px;">Institutional Advisory Mandates</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            <div style="padding: 24px; border: 1px solid #ded6c5; background: #ffffff;">
+              <h3 style="font-size: 18px; margin-bottom: 10px; color: #1c1917;">The Founder Sovereignty Mandate</h3>
+              <p style="font-size: 13px; color: #57534e; line-height: 1.6;">
+                Deconstruct the founder as the universal operational clearinghouse. Reclaim 15–20 hours weekly of high-alpha focus by installing autonomous signing thresholds and pass the Two-Week Step-Away Test.
+              </p>
+            </div>
+            <div style="padding: 24px; border: 1px solid #ded6c5; background: #ffffff;">
+              <h3 style="font-size: 18px; margin-bottom: 10px; color: #1c1917;">The Executive Succession Mandate</h3>
+              <p style="font-size: 13px; color: #57534e; line-height: 1.6;">
+                Extract and codify the founder's mental heuristics into sovereign governance law, allowing incoming CEOs and executives to operate with exact strategic standards while defending enterprise valuation.
+              </p>
+            </div>
+            <div style="padding: 24px; border: 1px solid #ded6c5; background: #ffffff;">
+              <h3 style="font-size: 18px; margin-bottom: 10px; color: #1c1917;">Portfolio Enterprise Governance</h3>
+              <p style="font-size: 13px; color: #57534e; line-height: 1.6;">
+                Objective governance for PE operating partners, VC boards, and holding chairs to eradicate key-person risk, install early-warning telemetry, and defend valuation multiples.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section style="margin-bottom: 60px;">
+          <h2 style="font-size: 26px; margin-bottom: 20px;">Executive Governance FAQ</h2>
+          <div style="space-y: 16px;">
+            <div style="margin-bottom: 16px; padding: 16px; background: #ffffff; border: 1px solid #ded6c5;">
+              <h4 style="font-size: 15px; margin-bottom: 8px;">How does Suchita Sancheti eliminate founder bottlenecks without operational collapse?</h4>
+              <p style="font-size: 13px; color: #57534e; line-height: 1.6;">
+                Founder decision bottlenecks are systemic failures where unwritten judgment was never codified into explicit signing boundaries. We install Sovereign Decision Mapping—granting leadership teams 100% autonomous signature authority under calibrated risk ceilings, eliminating over 80% of routine approval friction.
+              </p>
+            </div>
+            <div style="margin-bottom: 16px; padding: 16px; background: #ffffff; border: 1px solid #ded6c5;">
+              <h4 style="font-size: 15px; margin-bottom: 8px;">What is the difference between executive coaching and leadership architecture?</h4>
+              <p style="font-size: 13px; color: #57534e; line-height: 1.6;">
+                Executive coaching focuses on individual mindset and psychological habits. Traditional consulting hands over static slide decks. Leadership Architecture (TULC) engineers and installs the actual operating infrastructure—decision matrices, authority envelopes, asynchronous meeting hygiene, and governance substrates—directly into your firm's daily workflow.
+              </p>
+            </div>
+            <div style="margin-bottom: 16px; padding: 16px; background: #ffffff; border: 1px solid #ded6c5;">
+              <h4 style="font-size: 15px; margin-bottom: 8px;">How are corporate procurement, international invoicing, and bilateral NDAs handled?</h4>
+              <p style="font-size: 13px; color: #57534e; line-height: 1.6;">
+                All engagements execute under strict Fiduciary Non-Disclosure agreements. Corporate procurement is supported via formal SWIFT/Wire transfer invoicing in USD, EUR, GBP, and SGD. For Indian institutional entities requiring GST-compliant invoicing, NEFT/RTGS bank clearance or Razorpay checkout, tailored institutional coordinates are provided upon intake confirmation.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer style="padding: 40px 20px; background: #1c1917; color: #a8a29e; font-size: 12px; font-family: 'Playfair Display', Georgia, serif; text-align: center;">
+        <p>© 2026 The Unbounded Leadership Co. • Proprietary Institutional Governance Architecture.</p>
+        <p style="color: #78716c; margin-top: 8px;">
+          Direct Executive Desk: <a href="mailto:suchita@theunboundedleadership.com" style="color: #b8860b;">suchita@theunboundedleadership.com</a> • <a href="/llms.txt" style="color: #b8860b;">llms.txt</a> • <a href="/sitemap.xml" style="color: #b8860b;">sitemap.xml</a>
+        </p>
+      </footer>
+    </div>
+    
+    <noscript>
+      <div style="padding: 20px; text-align: center; background: #b8860b; color: #1c1917; font-weight: bold;">
+        Please enable JavaScript for interactive executive simulations and diagnostic tools. All research dispatches and architectural frameworks remain fully accessible above.
+      </div>
+    </noscript>
+
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>

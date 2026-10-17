@@ -138,7 +138,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
               {title}
             </h4>
             <p className="text-zinc-500 text-[8px] sm:text-[9px] font-mono uppercase ">
-              OFFICE OF THE PRINCIPAL ARCHITECT • TULC
+              THE UNBOUNDED LEADERSHIP CO. • EXECUTIVE SANCTUARY
             </p>
           </div>
         </div>

@@ -34,7 +34,7 @@ export class ApiGatewayPaymentStrategy implements IPaymentStrategy {
         success: true,
         orderId: response.orderId || order.idempotencyKey,
         licenseToken: response.licenseToken || 'AUTH-LICENSED',
-        vaultLink: response.vaultLink || `https://notion.so/tulc-vault/${order.itemId}-auth`,
+        vaultLink: response.vaultLink || `/portal?vault=${order.itemId}-auth`,
         isDuplicatePrevented: !!response.isDuplicatePrevented
       };
     } catch (err: any) {
@@ -56,7 +56,7 @@ export class ApiGatewayPaymentStrategy implements IPaymentStrategy {
         success: true,
         orderId: `ORD-${Date.now().toString().slice(-6)}`,
         licenseToken: `AUTH-${order.itemId.toUpperCase().slice(0, 8)}`,
-        vaultLink: `https://notion.so/tulc-vault/${order.itemId}-auth`,
+        vaultLink: `/portal?vault=${order.itemId}-auth`,
         isDuplicatePrevented: false
       };
     }
@@ -136,7 +136,7 @@ export class RazorpayPaymentStrategy implements IPaymentStrategy {
         success: true,
         orderId: response.orderId || `RZP-${Date.now().toString().slice(-6)}`,
         licenseToken: response.licenseToken || `RZP-${order.itemId.toUpperCase().slice(0, 8)}`,
-        vaultLink: response.vaultLink || `https://notion.so/tulc-vault/${order.itemId}-auth`,
+        vaultLink: response.vaultLink || `/portal?vault=${order.itemId}-auth`,
         isDuplicatePrevented: !!response.isDuplicatePrevented
       };
     } catch (err: any) {
@@ -158,7 +158,7 @@ export class RazorpayPaymentStrategy implements IPaymentStrategy {
         success: true,
         orderId: `RZP-${Date.now().toString().slice(-6)}`,
         licenseToken: `RZP-LIC-${order.itemId.toUpperCase().slice(0, 8)}`,
-        vaultLink: `https://notion.so/tulc-vault/${order.itemId}-auth`,
+        vaultLink: `/portal?vault=${order.itemId}-auth`,
         isDuplicatePrevented: false
       };
     }

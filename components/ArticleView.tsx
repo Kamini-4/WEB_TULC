@@ -627,7 +627,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
                   <ArrowRight className="w-3.5 h-3.5 text-[#b8860b]" />
                 </div>
                 <div className="text-xs text-stone-600 leading-normal font-serif">
-                  Turnkey Notion/Coda master workspaces & delegation filters.
+                  Turnkey production-ready digital workspaces & delegation filters.
                 </div>
               </Link>
               
@@ -655,7 +655,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
                   <ArrowRight className="w-3.5 h-3.5 text-[#b8860b]" />
                 </div>
                 <div className="text-xs text-stone-600 leading-normal font-serif">
-                  Retain the Principal Architect for ongoing substrate oversight.
+                  Retain Suchita Sancheti for ongoing substrate oversight.
                 </div>
               </Link>
 
@@ -697,7 +697,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({ article, onClose, onSe
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
                 <div className="text-xs text-stone-300 group-hover:text-stone-100 leading-normal font-serif">
-                  Direct confidential intake docket to the Principal Architect desk.
+                  Direct confidential intake docket to Suchita Sancheti's desk.
                 </div>
               </Link>
             </div>

@@ -19,7 +19,6 @@ import { ShopPage } from './src/pages/Shop';
 import { ArticleRouteWrapper } from './components/ArticleRouteWrapper';
 import Portal from './src/pages/Portal';
 import { FAQPage } from './src/pages/FAQPage';
-import { PlaybookPage } from './src/pages/PlaybookPage';
 
 export const App: React.FC = () => {
   const [floatingConciergeOpen, setFloatingConciergeOpen] = useState(false);
@@ -52,14 +51,13 @@ export const App: React.FC = () => {
           <Route path="/mandates" element={<ServicesPage />} />
           <Route path="/methodology" element={<MethodologyPage />} />
           
-          {/* Strategic Doctrine & Playbook */}
-          <Route path="/playbook" element={<PlaybookPage />} />
+          {/* Executive Clarifications */}
           <Route path="/faq" element={<FAQPage />} />
           
           {/* Institutional Portal */}
           <Route path="/portal" element={<Portal />} />
           
-          {/* Principal & Intake */}
+          {/* Leadership & Intake */}
           <Route path="/about" element={<About />} />
           <Route path="/intake" element={<IntakePage />} />
           

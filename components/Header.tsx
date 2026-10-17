@@ -33,12 +33,11 @@ export const Header: React.FC = () => {
 
   // Secondary & Strategic items housed cleanly inside Menu dropdown
   const menuLinks = [
-    { name: 'About Principal & Firm', path: '/about', icon: UserCheck, desc: 'Suchita Sancheti & the sovereign governance philosophy' },
+    { name: 'About the Firm & Founders', path: '/about', icon: UserCheck, desc: 'Suchita Sancheti, Kamini Agnihotri & leadership architecture' },
     { name: 'Systemic Methodology', path: '/methodology', icon: Compass, desc: 'Cybernetics, invariant substrates & cognitive load' },
-    { name: 'Turnkey Digital Toolkits', path: '/products', icon: Layers, desc: 'Notion & Coda operating workspaces ($27–$197)' },
+    { name: 'Turnkey Digital Toolkits', path: '/products', icon: Layers, desc: 'Production-ready operating workspaces & delegation systems' },
     { name: 'Cognitive Tax Calculator', path: '/cognitive-tax', icon: Calculator, desc: 'Quantify annual EBITDA lost to coordination drag' },
-    { name: 'Sovereign Strategic Playbook', path: '/playbook', icon: BookOpen, desc: 'A–Z strategic doctrine on tension, alignment & scale' },
-    { name: 'Intellectual Dispatches', path: '/library', icon: FileText, desc: 'Research briefings on authority, governance & scale' },
+    { name: 'Executive Dispatches', path: '/library', icon: FileText, desc: 'Research briefings on authority, governance & scale' },
     { name: 'Founder Governance FAQs', path: '/faq', icon: HelpCircle, desc: 'Authoritative answers to top founder and board scale dilemmas' }
   ];
 
@@ -86,7 +85,7 @@ export const Header: React.FC = () => {
               );
             })}
 
-            {/* Strategic Menu Dropdown (Houses all secondary items without top crowding) */}
+            {/* Executive Capabilities Dropdown (Houses secondary architecture pathways) */}
             <div 
               className="relative"
               onMouseEnter={() => setMenuDropdownOpen(true)}
@@ -100,7 +99,7 @@ export const Header: React.FC = () => {
                 }`}
                 aria-expanded={menuDropdownOpen}
               >
-                <span>Strategic Menu</span>
+                <span>Capabilities</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${menuDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 

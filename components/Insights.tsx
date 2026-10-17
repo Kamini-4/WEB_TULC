@@ -127,7 +127,7 @@ const Insights: React.FC<InsightsProps> = ({ onArticleClick, hideHeader }) => {
         {!hideHeader && (
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
             <div className="max-w-xl">
-              <h2 className="text-[#8c6708] text-[10px] font-bold uppercase mb-2 tracking-widest font-serif">Intellectual Authority</h2>
+              <h2 className="text-[#8c6708] text-[10px] font-bold uppercase mb-2 tracking-widest font-serif">Strategic Authority</h2>
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif leading-tight text-[#1c1917]">The Sovereign Library.</h3>
             </div>
             <div className="flex gap-4">

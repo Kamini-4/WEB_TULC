@@ -44,7 +44,7 @@ export const IntakePage: React.FC = () => {
     <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] font-serif">
       <SEOHead
         title="Confidential Executive Intake & Mandate Calibration"
-        description="Submit institutional parameters for direct adversarial review and yield calibration by Principal Enterprise Architect Suchita Sancheti."
+        description="Submit institutional parameters for direct adversarial review and yield calibration by Founder Suchita Sancheti."
         canonicalPath="/intake"
         keywords="executive intake, confidential advisory, mandate submission, suchita sancheti, sovereign governance"
         breadcrumbs={[
@@ -69,7 +69,7 @@ export const IntakePage: React.FC = () => {
           </h1>
 
           <p className="text-sm sm:text-base text-[#57534e] leading-relaxed">
-            All inquiries are treated under strict attorney-client style confidentiality and reviewed directly by Principal Suchita Sancheti.
+            All inquiries are treated under strict attorney-client style confidentiality and reviewed directly by Suchita Sancheti.
           </p>
         </div>
 
@@ -167,7 +167,7 @@ export const IntakePage: React.FC = () => {
                   onChange={(e) => setFormData({ ...formData, mandateType: e.target.value })}
                   className="w-full px-3.5 py-2.5 bg-[#faf8f5] border border-[#ded6c5] focus:border-[#b8860b] rounded-xs text-sm text-[#1c1917] focus-visible:outline-none cursor-pointer"
                 >
-                  <option value="Sovereign Substrate (Decouple Founder)">Service I: The Founder Freedom Advisory Service</option>
+                  <option value="Sovereign Substrate (Decouple Founder)">Service I: The Founder Sovereignty Advisory Service</option>
                   <option value="Succession Architecture (Founder to Chairman)">Service II: The Executive Transition Service</option>
                   <option value="VC / PE Portfolio Telemetry">Service III: The Portfolio Governance Service</option>
                   <option value="Inaction Tax Audit & Diagnostic">Two-Week Tension Diagnostic Scan</option>
@@ -209,7 +209,7 @@ export const IntakePage: React.FC = () => {
             <div className="pt-4 border-t border-[#ded6c5] flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-xs text-[#78716c]">
                 <ShieldCheck className="w-4 h-4 text-[#8c6708]" />
-                <span>Reviewed directly by Principal Suchita Sancheti within 24 hours.</span>
+                <span>Reviewed directly by Suchita Sancheti within 24 hours.</span>
               </div>
 
               <button
@@ -233,10 +233,10 @@ export const IntakePage: React.FC = () => {
             <div className="space-y-2 max-w-lg mx-auto">
               <span className="text-xs uppercase text-[#8c6708] font-bold tracking-tight">Transmission Acknowledged</span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#1c1917]">
-                Dossier Received by Principal Advisory Desk
+                Dossier Received by Executive Advisory Desk
               </h2>
               <p className="text-sm text-[#57534e] leading-relaxed pt-1">
-                Thank you, {formData.fullName}. Your confidential parameters for <strong className="text-[#1c1917]">{formData.companyName}</strong> have been secured. Principal Suchita Sancheti will review the parameters and reach out directly to <span className="text-[#8c6708] font-bold">{formData.workEmail}</span> within 24 business hours.
+                Thank you, {formData.fullName}. Your confidential parameters for <strong className="text-[#1c1917]">{formData.companyName}</strong> have been secured. Suchita Sancheti will review the parameters and reach out directly to <span className="text-[#8c6708] font-bold">{formData.workEmail}</span> within 24 business hours.
               </p>
             </div>
 

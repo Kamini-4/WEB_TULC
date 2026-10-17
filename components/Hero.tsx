@@ -108,7 +108,7 @@ const Hero: React.FC<HeroProps> = () => {
             </div>
 
             <span className="text-[10px] sm:text-[11px] text-zinc-500 font-mono">
-              ✦ For CEOs, Board Chairs & Scale-Up Principals ($10M–$100M+) • Zero Data Retention
+              ✦ For CEOs, Board Chairs & Enterprise Leaders Scaling $10M to $100M+ • Zero Data Retention
             </span>
           </motion.div>
 

@@ -178,7 +178,7 @@ apiRouter.post('/portal/verify-passkey', validatePasskeyRequest, async (req, res
     return res.json({
       valid: true,
       isMaster: true,
-      organization: 'Office of the Principal Architect (Master Clearance)',
+      organization: 'Office of Suchita Sancheti (Master Clearance)',
       tier: 'SOVEREIGN_RETAINER',
       expiresAt: Date.now() + 365 * 24 * 60 * 60 * 1000,
       targetUrl: config.sovereignAuditTargetUrl
@@ -316,7 +316,7 @@ apiRouter.post('/shop/checkout', async (req, res, next) => {
         orderId: existingOrder.orderId,
         licenseToken: existingOrder.licenseToken,
         message: 'Existing authorized order verified. Double charge prevented.',
-        vaultLink: `https://notion.so/tulc-vault/${itemId}-license-${existingOrder.licenseToken}`
+        vaultLink: `/portal?vault=${itemId}&key=${existingOrder.licenseToken}`
       });
     }
 
@@ -329,7 +329,7 @@ apiRouter.post('/shop/checkout', async (req, res, next) => {
           orderId: order.orderId,
           licenseToken: order.licenseToken,
           message: 'Recent active allocation found for this enterprise email. Duplication prevented.',
-          vaultLink: `https://notion.so/tulc-vault/${itemId}-license-${order.licenseToken}`
+          vaultLink: `/portal?vault=${itemId}&key=${order.licenseToken}`
         });
       }
     }
@@ -361,7 +361,7 @@ apiRouter.post('/shop/checkout', async (req, res, next) => {
       currency: orderRecord.currency,
       amount: orderRecord.amount,
       message: 'Institutional license authorized.',
-      vaultLink: `https://notion.so/tulc-vault/${itemId}-license-${licenseToken}`
+      vaultLink: `/portal?vault=${itemId}&key=${licenseToken}`
     });
   } catch (error) {
     next(error);

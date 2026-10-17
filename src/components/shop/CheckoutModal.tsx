@@ -97,7 +97,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
       if (result.isDuplicatePrevented) {
         setIsDuplicatePrevented(true);
       }
-      setActiveVaultLink(result.vaultLink || `https://notion.so/tulc-vault/${item.id}-license-${result.licenseToken || 'AUTH'}`);
+      setActiveVaultLink(result.vaultLink || `/portal?vault=${item.id}-license-${result.licenseToken || 'AUTH'}`);
       setStep('success');
     } catch (err: any) {
       console.error('Checkout failed:', err);
@@ -107,7 +107,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     }
   };
 
-  const currentVaultLink = activeVaultLink || `https://notion.so/tulc-vault/${item.id}-license-PROD`;
+  const currentVaultLink = activeVaultLink || `/portal?vault=${item.id}-license-PROD`;
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(currentVaultLink);
@@ -202,7 +202,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     className="w-full px-3 py-2 text-xs bg-white border border-zinc-300 rounded-2xs focus:border-[#b8860b] focus:outline-none"
                   />
                   <span className="text-[8px] font-mono text-zinc-400 mt-1 block">
-                    Your master Notion duplicate workspace & PDF files are dispatched here immediately.
+                    Your master digital operating workspace & PDF files are dispatched here immediately.
                   </span>
                 </div>
 
@@ -395,7 +395,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 </p>
               </div>
 
-              {/* Live Notion Duplicate Link */}
+              {/* Live Digital Workspace Access */}
               <div className="p-4 bg-white border border-zinc-300 rounded-xs text-left space-y-2">
                 <div className="text-[8px] font-mono uppercase text-zinc-500 font-bold flex items-center justify-between">
                   <span>Your Master Workspace Deployment Link:</span>
@@ -413,7 +413,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     <span>{copiedLink ? 'Copied!' : 'Copy Link'}</span>
                   </button>
                   <a
-                    href="https://notion.so"
+                    href="/portal"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-3 py-1.5 bg-[#111111] hover:bg-[#b8860b] text-white text-[9px] font-mono uppercase font-bold rounded-2xs flex items-center gap-1.5 transition-colors"
@@ -484,7 +484,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   Claim Your 1-on-1 Confidential Founder Severance Audit
                 </h5>
                 <p className="text-[11px] text-zinc-300 font-light leading-relaxed">
-                  As an authorized toolkit owner, your $1,500 diagnostic intake fee is 100% waived. Review your organizational bottlenecks directly with Principal Architect Suchita Sancheti.
+                  As an authorized toolkit owner, your $1,500 diagnostic intake fee is 100% waived. Review your organizational bottlenecks directly with Founder Suchita Sancheti.
                 </p>
                 <Link
                   to="/intake"

@@ -33,21 +33,20 @@ export const InternalLinksMatrix: React.FC<InternalLinksMatrixProps> = ({ curren
       links: [
         { name: 'Services & Mandates', path: '/services', desc: '10-Node audits, 90-day protocol installations' },
         { name: 'Systemic Methodology', path: '/methodology', desc: '4-Phase alignment protocol & cybernetic design' },
-        { name: 'About Principal Architect', path: '/about', desc: 'Suchita Sancheti & institutional engineering' }
+        { name: 'About the Founders', path: '/about', desc: 'Suchita Sancheti, Kamini Agnihotri & institutional engineering' }
       ]
     },
     {
       title: 'Intelligence & Research',
       links: [
         { name: 'Executive Library', path: '/library', desc: '19 institutional dispatches & whitepapers' },
-        { name: 'Strategic Playbook (A–Z)', path: '/playbook', desc: 'Sovereign doctrine on tension & tribal alignment' },
         { name: 'Founder Governance FAQs', path: '/faq', desc: 'Direct answers to top scale dilemmas' }
       ]
     },
     {
       title: 'Operational Substrates',
       links: [
-        { name: 'Turnkey Digital Toolkits', path: '/products', desc: 'Instant Notion & Coda operating systems' },
+        { name: 'Turnkey Digital Toolkits', path: '/products', desc: 'Production-ready workspaces & delegation systems' },
         { name: 'Confidential Intake Docket', path: '/intake', desc: 'Submit enterprise parameters for calibration' },
         { name: 'Client Clearance Portal', path: '/portal', desc: 'Encrypted docket for active retainer clients' }
       ]

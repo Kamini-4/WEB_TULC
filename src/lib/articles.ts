@@ -273,7 +273,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- **For the Founder:** You do not need another vacation; you need systems that run without you.",
       "- **For the Organization:** When the CEO is the bottleneck, the entire company moves at the speed of a single inbox.",
       "- **For the Bottom Line:** Freeing 40% of executive bandwidth unlocks the strategic focus that drives enterprise valuation.",
-      "### How TULC Restores Executive Freedom",
+      "### How TULC Restores Executive Sovereignty",
       "**The Unbounded Leadership Co. (TULC)** partners with visionary founders and CEOs to systematically dismantle operational drag.",
       "We replace chaotic firefighting with calm, structured operating systems—freeing 15 to 20 hours of your week so you can return to high-alpha strategic command.",
       "- Discover your exact friction score with our [90-Second Friction Diagnostic](/assessment).",
@@ -746,7 +746,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "- *The Leadership Threshold Model eliminates second-guessing by setting transparent authority zones.*",
       "- *TULC provides the proven governance architecture to protect your legacy and company valuation.*",
       "### An Introspective Question for the Executive Mind",
-      "> *\"If you stepped into the Chairman role tomorrow, what is the exact dollar amount and strategic scope where your new CEO should have 100% freedom to act without asking you—and is that number clearly documented today?\"*"
+      "> *\"If you stepped into the Chairman role tomorrow, what is the exact dollar amount and strategic scope where your new CEO should have 100% autonomous authority to act without asking you—and is that number clearly documented today?\"*"
     ]
   },
   {
@@ -817,7 +817,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
     content: [
       "## The Delegation Fallacy: Why 'Letting Go' Compromises Quality—and How Heuristic Architecture Preserves It",
       "Every business book, podcast, and executive advisor tells founders the exact same thing: *\"You have to let go. You need to trust your team. Just delegate and stop micromanaging.\"*",
-      "So you try it. You hand off a critical project to a manager, step back, and give them complete freedom.",
+      "So you try it. You hand off a critical project to a manager, step back, and grant them complete operational latitude.",
       "Three weeks later, they present their work. **And your heart sinks.**",
       "The copy is generic. The design lacks elegance. The financial model misses key assumptions. The customer experience is sloppy.",
       "You are faced with an awful choice: Either accept mediocre work that damages your brand, or swoop in, work all weekend, and fix it yourself.",
@@ -1073,7 +1073,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "3. **Strategy-to-Edge Fidelity:** How accurately are board-approved strategic priorities being delivered by frontline engineering and sales teams?",
       "### Strategic Resolution: The Stakeholder Value Framework",
       "- **For the General Partner:** Your time is the most expensive asset in the fund; spending it on basic operational firefighting is a massive misallocation of capital.",
-      "- **For the Portfolio Founder:** Real-time telemetry is not micromanagement; it is the guardrails that give you complete freedom to execute.",
+      "- **For the Portfolio Founder:** Real-time telemetry is not micromanagement; it is the guardrails that grant you autonomous operational latitude to execute.",
       "- **For the Limited Partner (LP):** Funds that institutionalize portfolio governance deliver superior distributions and higher IRR.",
       "### How TULC Institutionalizes Portfolio Operations",
       "**The Unbounded Leadership Co. (TULC)** installs sovereign substrates and automated telemetry systems for top-tier venture capital and private equity firms.",

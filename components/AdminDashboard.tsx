@@ -639,7 +639,7 @@ Multi-User Protocol: All authorized founders, C-suite executives, and partners f
 ${lic.notes ? `Administrative Note: ${lic.notes}\n\n` : ''}Sincerely,
 
 Suchita Sancheti (suchita@theunboundedleadership.com)
-Founder & Principal Enterprise Architect
+Founder & Enterprise Architect
 The Unbounded Leadership Co.
 London • New York • Singapore`;
 

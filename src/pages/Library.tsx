@@ -477,7 +477,7 @@ export const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
               <div>
                 <div class="running-footer">
                   THE UNBOUNDED LEADERSHIP CO. • CONFIDENTIAL PRIVILEGED DISCLOSURE<br/>
-                  DUPLICATION OR TRANSMISSIONS INFRINGE UPON ESTABLISHED INTELLECTUAL PROPERTY AND METHODOLOGY DESIGN RIGHTS.
+                  DUPLICATION OR TRANSMISSIONS INFRINGE UPON ESTABLISHED PROPRIETARY METHODOLOGY AND SYSTEMIC RIGHTS.
                 </div>
                 <div class="page-number">II</div>
               </div>
@@ -541,7 +541,7 @@ export const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                 <div>
                   <div class="cert-title">Systemic Registry Certificate</div>
                   <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 9.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #777766; margin-top: 5px;">
-                    Admission Ledger Verification & Intellectual Asset Protection
+                    Admission Ledger Verification & Proprietary Asset Protection
                   </div>
                 </div>
                 

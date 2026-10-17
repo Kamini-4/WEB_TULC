@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { Navigation } from './components/Navigation';
 import { HeroSection } from './components/HeroSection';
 import { TribeManifesto } from './components/TribeManifesto';
-import { PlaybookExplorer } from './components/PlaybookExplorer';
 import { DiagnosticFunnel } from './components/DiagnosticFunnel';
 import { BlogSection } from './components/BlogSection';
 import { CalibrationModal } from './components/CalibrationModal';
 import { Footer } from './components/Footer';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<'tribe' | 'playbook' | 'diagnostic' | 'essays'>('tribe');
+  const [activeTab, setActiveTab] = useState<'tribe' | 'diagnostic' | 'essays'>('tribe');
   const [isCalibrationModalOpen, setIsCalibrationModalOpen] = useState(false);
 
   const openCalibrationModal = () => setIsCalibrationModalOpen(true);
@@ -31,20 +30,13 @@ export function App() {
           <div>
             <HeroSection
               onStartDiagnostic={() => setActiveTab('diagnostic')}
-              onExplorePlaybook={() => setActiveTab('playbook')}
+              onReadEssays={() => setActiveTab('essays')}
               openCalibrationModal={openCalibrationModal}
             />
             <TribeManifesto
               onTakeDiagnostic={() => setActiveTab('diagnostic')}
               openCalibrationModal={openCalibrationModal}
             />
-          </div>
-        )}
-
-        {/* Sovereign A-Z Playbook view */}
-        {activeTab === 'playbook' && (
-          <div>
-            <PlaybookExplorer onOpenCalibration={openCalibrationModal} />
           </div>
         )}
 

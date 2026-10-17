@@ -29,7 +29,7 @@ const altitudeProfiles: AltitudeProfile[] = [
   },
   {
     id: "scaleup",
-    label: "Deeptech & High-Growth Scale-Up ($10M–$100M+)",
+    label: "Deeptech & High-Growth Scale-Up • $10M to $100M+ Scale",
     role: "Apex founder transitioning from 'hands-on operator' to 'institutional architect'",
     primaryRisk: "Speed-to-Market Degradation & Meeting Tax",
     coreVulnerability: "Middle management freezes on high-stakes calls; tactical escalations flood the CEO desk, causing 3-month launch delays.",

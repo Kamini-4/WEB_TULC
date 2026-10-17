@@ -21,17 +21,17 @@ export const About: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] font-serif">
       <SEOHead
-        title="Principal Architect Suchita Sancheti | The Unbounded Leadership Co."
+        title="Suchita Sancheti & Leadership Philosophy | The Unbounded Leadership Co."
         description="Computer Science Engineer and Industrial Psychologist synthesizing cybernetic systems design and executive leadership governance for enterprise scale."
         canonicalPath="/about"
         type="profile"
-        keywords="Suchita Sancheti, principal enterprise architect, cybernetic design, founder decoupling, executive governance, leadership operating systems"
+        keywords="Suchita Sancheti, enterprise architect, cybernetic design, founder decoupling, executive governance, leadership operating systems"
         breadcrumbs={[
           { name: 'Home', path: '/' },
-          { name: 'About Principal', path: '/about' }
+          { name: 'About the Founders', path: '/about' }
         ]}
       />
-      <Breadcrumbs items={[{ name: 'About Principal Architect', path: '/about' }]} />
+      <Breadcrumbs items={[{ name: 'About Suchita Sancheti & Firm', path: '/about' }]} />
 
       <div className="py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10">
@@ -40,7 +40,7 @@ export const About: React.FC = () => {
         <div className="text-center space-y-3 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-tight text-[#8c6708] font-bold">
             <UserCheck className="w-4 h-4 text-[#8c6708]" />
-            <span>Principal Leadership Architect</span>
+            <span>Founder & Enterprise Architect</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1c1917] tracking-tight font-serif">
@@ -69,14 +69,14 @@ export const About: React.FC = () => {
                 <div className="flex flex-col items-center justify-center p-4">
                   <Compass className="w-16 h-16 text-[#8c6708]/80 mb-2 group-hover:scale-110 transition-transform" />
                   <span className="tracking-tight text-lg font-bold text-[#1c1917] font-serif">SS</span>
-                  <span className="text-[10px] uppercase font-serif text-[#78716c]">Principal Architect</span>
+                  <span className="text-[10px] uppercase font-serif text-[#78716c]">Enterprise Architect</span>
                 </div>
               )}
             </div>
 
             <div className="space-y-1">
               <div className="text-sm font-bold text-[#1c1917]">Suchita Sancheti</div>
-              <div className="text-xs text-[#8c6708] font-serif font-bold">Founder & Principal Architect</div>
+              <div className="text-xs text-[#8c6708] font-serif font-bold">Founder & Enterprise Architect</div>
               <div className="text-[11px] text-[#78716c]">The Unbounded Leadership Co.</div>
             </div>
 
@@ -84,7 +84,7 @@ export const About: React.FC = () => {
               <a
                 href="mailto:suchita@theunboundedleadership.com"
                 className="p-2 bg-[#faf8f5] hover:bg-[#efebe2] text-[#57534e] hover:text-[#8c6708] border border-[#ded6c5] rounded-xs transition-colors"
-                title="Email Principal Desk"
+                title="Email Suchita Sancheti"
               >
                 <Mail className="w-4 h-4" />
               </a>

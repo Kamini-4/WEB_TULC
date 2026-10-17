@@ -992,13 +992,13 @@ const Assessment: React.FC<AssessmentProps> = ({ onCtaClick }) => {
               <div>
                 <div class="doc-brand">The Unbounded Leadership Co.</div>
                 <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 9.5px; color: #b8860b; text-transform: uppercase; margin-top: 5px; font-weight: 700; letter-spacing: 0.1em;">
-                  Office of the Principal Architect • Swiss Alignment Architecture
+                  Office of Suchita Sancheti • Strategic Alignment Architecture
                 </div>
               </div>
 
               <div style="margin: 40px 0;">
                 <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 10px; text-transform: uppercase; color: #b8860b; letter-spacing: 0.15em; margin-bottom: 15px; font-weight: 700;">
-                  PROVISIONAL PATENT-PENDING INTELLECTUAL SUBSTRATE
+                  PROVISIONAL PATENT-PENDING STRATEGIC SUBSTRATE
                 </div>
                 <h1 style="font-size: 36px; margin-bottom: 20px; line-height: 1.15; font-family: 'Playfair Display', Georgia, serif;">
                   CONFIDENTIAL STRATEGIC DOSSIER
@@ -1011,8 +1011,8 @@ const Assessment: React.FC<AssessmentProps> = ({ onCtaClick }) => {
               <div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left; background-color: #fafaf6; border: 1px solid #e5e5d8; padding: 20px; font-family: 'Playfair Display', Georgia, serif; font-size: 11.5px;">
                   <div>
-                    <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 9px; color: #777; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em;">Executive Principal</div>
-                    <div style="font-weight: 700; color: #111; margin-top: 2px;">${identity.name || 'Executive Principal'}</div>
+                    <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 9px; color: #777; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em;">Audited Executive Leader</div>
+                    <div style="font-weight: 700; color: #111; margin-top: 2px;">${identity.name || 'Executive Leader'}</div>
                   </div>
                   <div>
                     <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 9px; color: #777; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em;">Enterprise Authority</div>

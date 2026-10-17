@@ -174,7 +174,7 @@ export const MethodologyPage: React.FC = () => {
             Ready to Install the Alignment Protocol?
           </h2>
           <p className="text-xs sm:text-sm text-[#57534e] max-w-xl mx-auto leading-relaxed font-serif">
-            Begin with the Two-Week Tension Test or submit your executive parameters for direct review by Principal Suchita Sancheti.
+            Begin with the Two-Week Tension Test or submit your executive parameters for direct review by Suchita Sancheti.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-1">
             <Link

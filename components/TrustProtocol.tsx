@@ -18,8 +18,8 @@ const TrustProtocol: React.FC = () => {
             desc="Our diagnostic engine operates on ephemeral ZDR protocols. All inputs, voice prints, and strategic answers are processed in volatile memory and purged the moment your terminal session concludes."
           />
           <ProtocolCard 
-            title="The Principal Review" 
-            desc="TULC does not rely on black-box automation for critical decisions. Every diagnostic enquiry is personally reviewed by the Principal Architect to ensure near-absolute strategic fidelity."
+            title="The Sovereign Review" 
+            desc="TULC does not rely on black-box automation for critical decisions. Every diagnostic enquiry is personally reviewed by Suchita Sancheti to ensure near-absolute strategic fidelity."
           />
           <ProtocolCard 
             title="Privileged Disclosure" 
@@ -29,7 +29,7 @@ const TrustProtocol: React.FC = () => {
 
         <div className="mt-12 sm:mt-20 p-8 sm:p-12 bg-white/[0.02] border border-white/10 text-center max-w-4xl mx-auto">
           <p className="text-zinc-500 text-xs sm:text-sm italic font-light leading-relaxed">
-            "Data sovereignty is the bedrock of institutional authority. Systems are designed to amplify brilliance, not harvest it. Intellectual property remains with the sovereign, always."
+            "Data sovereignty is the bedrock of institutional authority. Systems are designed to amplify brilliance, not harvest it. Proprietary architecture and strategic assets remain with the enterprise, always."
           </p>
           <div className="mt-6 sm:mt-8 flex flex-wrap justify-center items-center gap-4 sm:gap-8">
             <span className="text-[8px] sm:text-[9px] uppercase font-black text-[#b8860b] border border-[#b8860b]/30 px-3 sm:px-4 py-2">ISO/TULC-2026 COMPLIANT</span>

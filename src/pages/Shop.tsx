@@ -85,8 +85,8 @@ export const ShopPage: React.FC = () => {
     }
   };
 
-  const copyFreeNotionLink = () => {
-    navigator.clipboard.writeText('https://notion.so/tulc-vault/free-founder-delegation-covenant-master');
+  const copyFreeVaultLink = () => {
+    navigator.clipboard.writeText('/portal?vault=free-founder-delegation-covenant');
     setFreeMagnetCopied(true);
     setTimeout(() => setFreeMagnetCopied(false), 2000);
   };
@@ -199,13 +199,13 @@ export const ShopPage: React.FC = () => {
   const currencySymbols = CURRENCY_SYMBOLS;
 
   const categories = [
-    { id: 'all', label: 'All Toolkits (6)' },
-    { id: 'bundle', label: '⭐ Complete Systems Suite ($197 • Save 86%)' },
-    { id: 'Bandwidth Architecture', label: 'Bandwidth ($27–$47)' },
-    { id: 'Continuity & Decoupling', label: 'Decoupling ($67)' },
-    { id: 'Decision Architecture', label: 'Decision Velocity ($67)' },
-    { id: 'Executive Bench', label: 'Executive Bench ($87)' },
-    { id: 'Enterprise Telemetry', label: 'Telemetry ($97)' }
+    { id: 'all', label: 'All Systems (6)' },
+    { id: 'bundle', label: 'Complete Systems Suite' },
+    { id: 'Bandwidth Architecture', label: 'Bandwidth Architecture' },
+    { id: 'Continuity & Decoupling', label: 'Continuity & Decoupling' },
+    { id: 'Decision Architecture', label: 'Decision Architecture' },
+    { id: 'Executive Bench', label: 'Executive Bench' },
+    { id: 'Enterprise Telemetry', label: 'Enterprise Telemetry' }
   ];
 
   const faqs = [
@@ -213,7 +213,7 @@ export const ShopPage: React.FC = () => {
       q: 'How fast do I get access to the digital toolkits?',
       bullets: [
         'Instant Authorization: Immediate redirection to your private digital access page upon checkout.',
-        '1-Click Workspace Duplicate: Native Notion & Coda master workspaces ready to duplicate into your team workspace.',
+        '1-Click Workspace Duplicate: Native Production master workspaces ready to duplicate into your team workspace.',
         'Downloadable Files: Complete PDF runbooks, executive policy templates, and editable documents.',
         'Collaborative Canvases: Figma & Miro boards for visual decision and delegation workflows.',
         'Direct Email Dispatch: All master template links dispatched instantly to your email inbox.'
@@ -222,7 +222,7 @@ export const ShopPage: React.FC = () => {
     {
       q: 'Are these digital templates or consulting services?',
       bullets: [
-        '100% Digital Products: You receive instant access to pre-built Notion workspaces, Coda templates, decision trees, and PDF runbooks.',
+        '100% Digital Products: You receive instant access to Pre-built Production Workspaces, Executive Protocol templates, decision trees, and PDF runbooks.',
         'Zero Consulting Traps: No required phone calls, no long onboarding schedules, and no recurring agency retainers.',
         'Immediate Execution: Duplicate the workspace in 1 click, customize your organization details in 20 minutes, and share with your team.',
         'Permanent Ownership: Single one-time investment covering your entire company forever.'
@@ -241,8 +241,8 @@ export const ShopPage: React.FC = () => {
       q: 'What makes the Early Bird pricing limited?',
       bullets: [
         'Strict Allocation: Introductory launch rate of 50% to 65% off for the first 25 founders.',
-        'Digital Bonus Pack: Includes the pre-linked Master Unified Notion Hub and editable executive slide deck.',
-        'Automatic Expiration: Standard rates ($290–$390 per toolkit, $1,450 for the complete suite) restore once the 25 licenses are claimed.'
+        'Digital Bonus Pack: Includes the pre-linked Master Unified Digital Workspace Hub and editable executive slide deck.',
+        'Cohort Transition: Standard enterprise rates apply once the active cohort allocation is completed.'
       ]
     },
     {
@@ -263,9 +263,9 @@ export const ShopPage: React.FC = () => {
     <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] pb-24 font-serif">
       <SEOHead
         title="Turnkey Digital Toolkits & Operating Substrates"
-        description="Battle-tested Notion & Coda operating workspaces, delegation covenants, and 72-hour founder absence audit frameworks from $27 to $197."
+        description="Battle-tested Production operating workspaces, delegation covenants, and 72-hour founder absence audit frameworks from $27 to $197."
         canonicalPath="/products"
-        keywords="founder toolkits, notion operating system, coda workspace, delegation covenant, founder absence audit, sovereign substrates"
+        keywords="founder toolkits, Digital Workspace operating system, Executive Protocol workspace, delegation covenant, founder absence audit, sovereign substrates"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Digital Toolkits', path: '/products' }
@@ -307,7 +307,7 @@ export const ShopPage: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
             <div className="space-y-2.5 max-w-3xl">
               <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#1c1917] text-[#b8860b] border border-[#b8860b]/40 text-[9px] font-mono uppercase tracking-widest font-black">
-                <Zap className="w-3 h-3 text-[#b8860b]" /> 100% Turnkey Notion & Coda Workspaces • 1-Click Duplicate
+                <Zap className="w-3 h-3 text-[#b8860b]" /> 100% Turnkey Production Workspaces • 1-Click Duplicate
               </div>
 
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1c1917] leading-tight tracking-tight">
@@ -344,7 +344,7 @@ export const ShopPage: React.FC = () => {
                   className="px-2.5 py-1 bg-[#8c6708] text-white hover:bg-black transition-colors rounded-2xs font-bold flex items-center gap-1 shadow-2xs"
                 >
                   <Flame className="w-3 h-3 text-amber-200" />
-                  <span>All 6 Systems ($197)</span>
+                  <span>Complete 6-System Suite</span>
                 </a>
                 <Link 
                   to="/intake" 
@@ -372,11 +372,11 @@ export const ShopPage: React.FC = () => {
                 The 1-Page Founder Delegation Covenant & Bottleneck Diagnostic
               </h2>
               <p className="text-xs sm:text-sm text-[#57534e] leading-relaxed">
-                Stop acting as the universal bottleneck for routine approvals. Download our pre-calibrated single-page Notion covenant, signing ceilings under $5,000, and 72-hour team severance audit. Instant 1-click duplicate.
+                Stop acting as the universal bottleneck for routine approvals. Download our pre-calibrated single-page Digital Workspace covenant, signing ceilings under $5,000, and 72-hour team severance audit. Instant 1-click duplicate.
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-1 text-[11px] text-[#78716c]">
                 <span className="flex items-center gap-1 font-semibold text-[#1c1917]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-green-600" /> Pre-built Notion Workspace
+                  <CheckCircle2 className="w-3.5 h-3.5 text-green-600" /> Pre-built Production Workspace
                 </span>
                 <span className="flex items-center gap-1 font-semibold text-[#1c1917]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-green-600" /> Printable PDF Covenant Guide
@@ -472,7 +472,7 @@ export const ShopPage: React.FC = () => {
                     disabled={freeMagnetSubmitting}
                     className="w-full py-2.5 px-4 bg-black hover:bg-[#8c6708] text-white text-xs font-bold uppercase tracking-tight rounded-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs disabled:opacity-50"
                   >
-                    <span>{freeMagnetSubmitting ? 'Generating Digital Token...' : 'Get Instant Access (Free Notion + PDF)'}</span>
+                    <span>{freeMagnetSubmitting ? 'Generating Digital Token...' : 'Get Instant Access (Free Digital Workspace + PDF)'}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </form>
@@ -489,11 +489,11 @@ export const ShopPage: React.FC = () => {
                   </p>
                   <div className="p-2.5 bg-white border border-[#ded6c5] rounded-xs text-left space-y-2">
                     <div className="text-[10px] font-mono uppercase text-[#78716c] font-bold">
-                      Master Notion Workspace:
+                      Master Production Workspace:
                     </div>
                     <div className="flex flex-wrap items-center gap-2">
                       <button
-                        onClick={copyFreeNotionLink}
+                        onClick={copyFreeVaultLink}
                         className="px-2.5 py-1.5 bg-[#efebe2] hover:bg-[#ded6c5] text-black text-[10px] font-mono uppercase font-bold rounded-2xs flex items-center gap-1 cursor-pointer"
                       >
                         <Copy className="w-3 h-3" />
@@ -507,18 +507,18 @@ export const ShopPage: React.FC = () => {
                         <span>Download PDF Covenant</span>
                       </button>
                       <a
-                        href="https://notion.so"
+                        href="/portal"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-2.5 py-1.5 bg-black hover:bg-[#8c6708] text-white text-[10px] font-mono uppercase font-bold rounded-2xs flex items-center gap-1"
                       >
-                        <span>Notion Master</span>
+                        <span>Digital Vault Master</span>
                         <ExternalLink className="w-3 h-3" />
                       </a>
                     </div>
                   </div>
                   <div className="pt-2 border-t border-[#ded6c5] text-[11px] text-[#78716c]">
-                    <span>Step 2: Reclaim 15 hours weekly with our full <a href="#products" className="text-[#8c6708] font-bold underline">Bandwidth OS ($47)</a>.</span>
+                    <span>Step 2: Reclaim 15 hours weekly with our full <a href="#products" className="text-[#8c6708] font-bold underline">Bandwidth Architecture System</a>.</span>
                   </div>
                 </div>
               )}
@@ -582,7 +582,7 @@ export const ShopPage: React.FC = () => {
 
           <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-600">
             <ShieldCheck className="w-3.5 h-3.5 text-green-700" />
-            <span>Instant 1-Click Notion/Coda Duplicate</span>
+            <span>Instant 1-Click Digital Workspace/Executive Protocol Duplicate</span>
           </div>
         </div>
 
@@ -636,7 +636,7 @@ export const ShopPage: React.FC = () => {
                 </h2>
 
                 <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed max-w-xl">
-                  Deploy the complete digital architecture across your entire firm to eliminate founder bottlenecks and secure operational autonomy. Includes full Notion, Coda, Figma, and PDF frameworks. Instant 1-click clone.
+                  Deploy the complete digital architecture across your entire firm to eliminate founder bottlenecks and secure operational autonomy. Includes full interactive, Figma, and PDF frameworks. Instant 1-click clone.
                 </p>
 
                 {/* All 6 Systems Bulleted Breakdown */}
@@ -651,7 +651,7 @@ export const ShopPage: React.FC = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#b8860b] shrink-0 mt-0.5" />
-                      <span><strong className="text-white font-medium">Asset 01 (Bandwidth OS):</strong> Reclaim 15+ weekly hours via 4-lane incoming triage and 30-day meeting expiration Notion workspace.</span>
+                      <span><strong className="text-white font-medium">Asset 01 (Bandwidth OS):</strong> Reclaim 15+ weekly hours via 4-lane incoming triage and 30-day meeting expiration Digital Workspace workspace.</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#b8860b] shrink-0 mt-0.5" />
@@ -676,7 +676,7 @@ export const ShopPage: React.FC = () => {
                 <div className="p-3 bg-white/5 border border-white/10 rounded-xs space-y-1">
                   <div className="text-[8px] font-mono uppercase text-[#b8860b] font-black flex items-center gap-1.5">
                     <Gift className="w-3.5 h-3.5 text-[#b8860b]" />
-                    Included Digital Bonus Pack ($590 Value):
+                    Included Digital Strategic Extensions:
                   </div>
                   <ul className="text-[11px] text-zinc-300 space-y-1 font-light">
                     {SOVEREIGN_VAULT_BUNDLE.bonuses.map((b, i) => (
@@ -694,10 +694,10 @@ export const ShopPage: React.FC = () => {
                 <div className="border-b border-zinc-200 pb-3">
                   <div className="flex items-center justify-between">
                     <span className="text-[8px] font-mono uppercase text-zinc-400 font-bold">
-                      Early Bird Complete Suite
+                      Institutional Complete Suite
                     </span>
-                    <span className="px-2 py-0.5 bg-red-600 text-white text-[8px] font-mono uppercase font-black rounded-2xs">
-                      6 Suites Left At This Price
+                    <span className="px-2 py-0.5 bg-[#8c6708] text-white text-[8px] font-mono uppercase font-black rounded-2xs">
+                      Active Cohort Allocation
                     </span>
                   </div>
                   <div className="flex items-baseline gap-3 mt-1">
@@ -712,7 +712,7 @@ export const ShopPage: React.FC = () => {
                     </span>
                   </div>
                   <div className="text-[9px] font-mono text-zinc-500 pt-1.5 mt-1.5 border-t border-zinc-100">
-                    Instant 1-Click Notion/Coda Duplicate • Unlimited Company-Wide License
+                    Instant 1-Click Digital Workspace/Executive Protocol Duplicate • Unlimited Company-Wide License
                   </div>
                 </div>
 
@@ -775,7 +775,7 @@ export const ShopPage: React.FC = () => {
                 You Are The Involuntary Bottleneck
               </h3>
               <p className="text-xs text-zinc-600 leading-relaxed font-light">
-                You hired talented people, but they still ping you for $1,000 approvals and routine project pivots. Why? Because the unwritten operating laws are stored only in your brain. Without documented parameters, your team hesitates—and you pay for missing systems with your personal freedom.
+                You hired talented people, but they still ping you for routine approvals and project pivots. Why? Because the unwritten operating laws are stored only in your brain. Without documented parameters, your team hesitates—and you pay for missing systems with your strategic autonomy.
               </p>
             </div>
 
@@ -801,7 +801,7 @@ export const ShopPage: React.FC = () => {
                 Instant-Access Digital Workspaces
               </h3>
               <p className="text-xs text-zinc-600 leading-relaxed font-light">
-                Turnkey Notion masters, Coda systems, and PDF runbooks. Clone with 1 click. Zero recurring subscriptions, zero consulting calls, and zero fluff. Download the files today, customize in 20 minutes, and permanently reclaim your focus.
+                Turnkey Digital Vault Masters, Executive Protocol systems, and PDF runbooks. Clone with 1 click. Zero recurring subscriptions, zero consulting calls, and zero fluff. Download the files today, customize in 20 minutes, and permanently reclaim your focus.
               </p>
             </div>
           </div>

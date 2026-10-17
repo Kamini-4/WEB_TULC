@@ -3,13 +3,13 @@ import { ArrowRight, Sparkles, Shield, Cpu, Activity, Clock } from 'lucide-react
 
 interface HeroSectionProps {
   onStartDiagnostic: () => void;
-  onExplorePlaybook: () => void;
+  onReadEssays: () => void;
   openCalibrationModal: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   onStartDiagnostic,
-  onExplorePlaybook,
+  onReadEssays,
   openCalibrationModal
 }) => {
   return (
@@ -54,11 +54,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </button>
 
           <button
-            onClick={onExplorePlaybook}
+            onClick={onReadEssays}
             className="w-full sm:w-auto px-8 py-4 rounded-sm bg-zinc-900 hover:bg-zinc-850 text-zinc-200 border border-zinc-800 hover:border-zinc-700 font-medium text-sm tracking-wide transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
           >
-            <span>Read Sovereign A–Z Playbook</span>
-            <span className="text-amber-400 font-mono text-xs">(26 Principles)</span>
+            <span>Read Executive Dispatches</span>
           </button>
         </div>
 

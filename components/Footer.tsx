@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/about" className="hover:text-[#8c6708] transition-colors">
-                  Principal Architect (Suchita Sancheti)
+                  Suchita Sancheti (Founder & Architect)
                 </Link>
               </li>
               <li>

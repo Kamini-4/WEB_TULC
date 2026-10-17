@@ -186,7 +186,7 @@ export const WhatWeDo: React.FC = () => {
                   The 90-Day Sovereign Mandate
                 </h4>
                 <p className="text-xs text-zinc-300 leading-relaxed font-light">
-                  A hands-on implementation sprint for CEOs and founders ($10M–$100M+). We embed with your executive team to rebuild your operating rhythm, eliminate bottlenecking, and pass the 30-day step-away test.
+                  A hands-on implementation sprint for CEOs and founders scaling $10M to $100M+ revenue. We embed with your executive team to rebuild your operating rhythm, eliminate bottlenecking, and pass the 30-day step-away test.
                 </p>
                 <div className="pt-2 space-y-2 text-[10px] font-mono text-zinc-400">
                   <div className="flex items-center gap-2">
@@ -196,7 +196,7 @@ export const WhatWeDo: React.FC = () => {
                     <span className="text-[#b8860b]">✓</span> Weekly Executive Sparring & Board Support
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[#b8860b]">✓</span> Enterprise-grade deployment for high-growth & multi-entity scale ($10M–$100M+)
+                    <span className="text-[#b8860b]">✓</span> Enterprise-grade deployment for high-growth & multi-entity scale
                   </div>
                 </div>
               </div>
@@ -263,7 +263,7 @@ export const WhatWeDo: React.FC = () => {
                   Turnkey Leadership Toolkits
                 </h4>
                 <p className="text-xs text-zinc-600 leading-relaxed font-normal">
-                  Battle-tested, ready-to-deploy Notion workspaces, delegation matrices, async communication protocols, and board governance operating assets designed for immediate implementation.
+                  Battle-tested, ready-to-deploy digital operating workspaces, delegation matrices, async communication protocols, and board governance operating assets designed for immediate implementation.
                 </p>
                 <div className="pt-2 space-y-2 text-[10px] font-mono text-zinc-600">
                   <div className="flex items-center gap-2">

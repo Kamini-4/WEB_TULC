@@ -42,15 +42,14 @@ export const InternalHubBridges: React.FC<InternalHubBridgesProps> = ({ classNam
     {
       group: 'Intelligence & Doctrine',
       links: [
-        { name: 'Intellectual Dispatches & Library', path: '/library', icon: FileText, badge: '19 Briefs' },
-        { name: 'Founder Governance FAQs', path: '/faq', icon: HelpCircle, badge: 'Executive FAQ' },
-        { name: 'Sovereign Strategic Playbook', path: '/playbook', icon: BookOpen, badge: 'A–Z Doctrine' }
+        { name: 'Executive Dispatches & Library', path: '/library', icon: FileText, badge: '19 Briefs' },
+        { name: 'Founder Governance FAQs', path: '/faq', icon: HelpCircle, badge: 'Executive FAQ' }
       ]
     },
     {
-      group: 'Governance & Principal',
+      group: 'Governance & Leadership',
       links: [
-        { name: 'Suchita Sancheti & Firm', path: '/about', icon: UserCheck, badge: 'Principal' },
+        { name: 'Suchita Sancheti & Firm', path: '/about', icon: UserCheck, badge: 'Founders' },
         { name: 'Clearance Portal', path: '/portal', icon: Lock, badge: 'Client Desk' }
       ]
     }
@@ -79,7 +78,7 @@ export const InternalHubBridges: React.FC<InternalHubBridgesProps> = ({ classNam
             </h3>
           </div>
           <p className="text-xs text-[#78716c] font-serif italic max-w-md">
-            Direct navigation coordinates linking diagnostics, sovereign advisory, digital toolkits, and intellectual research.
+            Direct navigation coordinates linking diagnostics, sovereign advisory, digital toolkits, and strategic research.
           </p>
         </div>
 

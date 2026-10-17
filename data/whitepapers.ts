@@ -20,7 +20,7 @@ export const WHITE_PAPERS: Record<string, WhitePaper> = {
     title: "Strategic Alignment Protocol: A Total Architectural Audit",
     subtitle: "A Cybernetic Framework for Institutional Velocity & Autonomic Stability",
     category: "PHYSICS OF POWER",
-    author: "Suchita Sancheti, Principal Architect",
+    author: "Suchita Sancheti, Founder & Enterprise Architect",
     date: "Spring 2026",
     sections: [
       {
@@ -77,7 +77,7 @@ export const WHITE_PAPERS: Record<string, WhitePaper> = {
     title: "Cognitive Equity: Reclaiming the Architect's Seat",
     subtitle: "Quantifying the Metabolic Cash Flow of High-Stakes Focus in the Unbounded Organization",
     category: "STRATEGIC SUBSTRATES",
-    author: "Suchita Sancheti, Principal Architect",
+    author: "Suchita Sancheti, Founder & Enterprise Architect",
     date: "Summer 2026",
     sections: [
       {

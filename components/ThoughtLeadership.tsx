@@ -79,7 +79,7 @@ const ThoughtLeadership: React.FC<ThoughtLeadershipProps> = ({ onDispatchClick }
         <div className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-12">
           <EditorialStat label="Briefing Depth" value="5 Dispatches" />
           <EditorialStat label="Strategic Focus" value="Structural Integrity" />
-          <EditorialStat label="Target Audience" value="Principals & Boards" />
+          <EditorialStat label="Target Audience" value="Founders & Boards" />
         </div>
 
         <div className="mt-32 p-12 bg-[#111111] text-white relative overflow-hidden">

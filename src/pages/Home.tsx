@@ -84,7 +84,7 @@ export const Home: React.FC = () => {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 bg-[#efebe2] hover:bg-black hover:text-white text-[#1c1917] font-bold text-xs uppercase tracking-tight rounded-xs border border-[#b8860b]/50 transition-all shadow-2xs cursor-pointer"
             >
               <Zap className="w-4 h-4 text-[#8c6708]" />
-              <span>Browse Digital Systems ($27–$97)</span>
+              <span>Access Turnkey Systems</span>
             </Link>
           </div>
 
@@ -99,7 +99,7 @@ export const Home: React.FC = () => {
               <div className="text-xs text-zinc-300 mt-1 tracking-tight font-medium">No <em className="italic text-zinc-100">late-night panics</em> or Slack triage</div>
             </div>
             <div className="bg-black text-white p-3.5 sm:p-4 border border-[#b8860b]/30 hover:border-[#b8860b] transition-colors rounded-xs shadow-sm flex flex-col justify-between">
-              <div className="text-xl sm:text-2xl font-bold text-white tracking-tight">Full Freedom</div>
+              <div className="text-xl sm:text-2xl font-bold text-white tracking-tight">Operational Autonomy</div>
               <div className="text-xs text-zinc-300 mt-1 tracking-tight font-medium"><strong className="font-bold text-[#b8860b]">14 days away</strong> without operational freeze</div>
             </div>
             <div className="bg-black text-white p-3.5 sm:p-4 border border-[#b8860b]/30 hover:border-[#b8860b] transition-colors rounded-xs shadow-sm flex flex-col justify-between">
@@ -303,7 +303,7 @@ export const Home: React.FC = () => {
             {/* Rephrased Elite Tone Quote */}
             <div className="p-4 sm:p-4.5 bg-[#ffffff] border-l-3 border-[#b8860b] rounded-r-xs space-y-1.5 shadow-2xs">
               <p className="text-xs sm:text-sm text-[#292524] leading-relaxed tracking-tight">
-                "There are two kinds of founders. The first believes suffering is proof of competence—wearing 14-hour days and midnight messages like badges of honor. The second realizes that if the business freezes without them, they don't own an asset; they own an exhausting job. <strong className="font-bold text-[#1c1917]">Sovereign leaders engineer self-governing architecture</strong> that <em className="italic font-semibold text-[#b8860b]">guarantees lasting institutional freedom</em>."
+                "There are two kinds of founders. The first believes suffering is proof of competence—wearing 14-hour days and midnight messages like badges of honor. The second realizes that if the business freezes without them, they don't own an asset; they own an exhausting job. <strong className="font-bold text-[#1c1917]">Sovereign leaders engineer self-governing architecture</strong> that <em className="italic font-semibold text-[#b8860b]">guarantees lasting institutional sovereignty</em>."
               </p>
             </div>
 
@@ -346,7 +346,7 @@ export const Home: React.FC = () => {
               />
               <div className="mt-2.5 text-center">
                 <span className="text-[11px] font-bold text-black block uppercase tracking-tight">
-                  Briefing: The Transition to Sovereign Freedom
+                  Briefing: The Transition to Sovereign Architecture
                 </span>
                 <span className="text-[10px] text-[#78716c] block mt-0.5 tracking-tight">
                   Direct personal briefing with Suchita Sancheti
@@ -414,7 +414,7 @@ export const Home: React.FC = () => {
                       <span className="text-xs font-mono text-[#a8a29e] line-through">$150</span>
                     </div>
                   </div>
-                  <div className="text-[10px] text-[#8c6708] font-bold">Save 82% • Instant Notion Clone</div>
+                  <div className="text-[10px] text-[#8c6708] font-bold">Save 82% • Instant Digital Workspace</div>
                 </div>
               </div>
               <div className="pt-4 mt-2">
@@ -464,7 +464,7 @@ export const Home: React.FC = () => {
                   to="/products"
                   className="w-full py-2 px-3 bg-black hover:bg-[#8c6708] text-white text-xs font-bold uppercase tracking-tight rounded-xs transition-colors flex items-center justify-between"
                 >
-                  <span>Lock In Asset 01 ($47)</span>
+                  <span>Acquire Asset 01</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -484,7 +484,7 @@ export const Home: React.FC = () => {
                     The Complete Founder Systems Suite
                   </h3>
                   <p className="text-xs text-zinc-300 mt-1 leading-relaxed">
-                    All 6 production systems in one pre-connected Master Unified Notion Hub. Complete company-wide license + $590 bonuses.
+                    All 6 production systems in one pre-connected Master Unified Operating Hub. Complete company-wide license + $590 bonuses.
                   </p>
                 </div>
                 <div className="pt-2 border-t border-zinc-800 space-y-1 text-xs">
@@ -503,7 +503,7 @@ export const Home: React.FC = () => {
                   to="/products"
                   className="w-full py-2 px-3 bg-[#b8860b] hover:bg-white hover:text-black text-black text-xs font-bold uppercase tracking-tight rounded-xs transition-colors flex items-center justify-between"
                 >
-                  <span>Get Complete Suite ($197)</span>
+                  <span>Acquire Complete Suite</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -518,7 +518,7 @@ export const Home: React.FC = () => {
               </div>
               <div>
                 <span className="font-bold text-[#1c1917] block">Want to start 100% free?</span>
-                <span className="text-[#57534e]">Download the 1-Page Founder Delegation Covenant (Instant Notion + PDF).</span>
+                <span className="text-[#57534e]">Download the 1-Page Founder Delegation Covenant (Instant Interactive Workspace + PDF).</span>
               </div>
             </div>
             <Link
@@ -539,7 +539,7 @@ export const Home: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
             <div className="space-y-1.5">
               <span className="text-xs uppercase text-[#b8860b] tracking-tight font-bold">
-                Intellectual Dispatches
+                Executive Dispatches
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1c1917] tracking-tight">
                 Provocative Insights for <span className="italic font-bold text-[#b8860b]">Sovereign Founders</span>

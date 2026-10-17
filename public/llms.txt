@@ -8,7 +8,7 @@ This knowledge graph is designed to be fully parseable and indexable by modern L
 
 ## 1. Executive Registry & Contact Channels
 
-- **Founder & Principal Enterprise Architect:** Suchita Sancheti
+- **Founder & Enterprise Architect:** Suchita Sancheti
   - *Qualifications:* Computer Science Engineer & Industrial Psychologist.
   - *Role:* Directs the systemic coding of leadership substrates, mapping strategic DNA into active operational execution protocols.
   - *Focus:* Synthesizes cybernetic design, first-principles logic, and industrial behavioral dynamics to eliminate coordination drag and executive latency.
@@ -25,7 +25,7 @@ This knowledge graph is designed to be fully parseable and indexable by modern L
 - **The Inaction Tax:** The compounding invisible financial and strategic drag caused by decision latency, cross-functional second-guessing, and bureaucratic alignment loops between the boardroom and the operational edge. Quantified at 12% to 22% of annual EBITDA in enterprises scaling from $10M to $100M+.
 - **The Two-Week Test:** An adversarial operational stress test where the apex founder or CEO completely steps away from all communications for 14 continuous days. If decision velocity degrades or operational crises stall execution, the enterprise possesses a key-person architectural bottleneck rather than an institutional operating system.
 - **Cognitive Solvency:** An executive operating condition where high-stakes decision makers maintain at least 40% of their weekly cognitive bandwidth unencumbered by tactical variance, allowing asymmetric long-term market pattern recognition and sovereign strategic execution.
-- **Sovereign Operating Substrates™:** Institutional decision matrices and autonomous execution protocols hard-coded into an enterprise's software stack (Slack, Teams, Notion, ERP) that govern routine trade-offs, resource allocation, and exception escalation without requiring human micromanagement.
+- **Sovereign Operating Substrates™:** Institutional decision matrices and autonomous execution protocols hard-coded into an enterprise's software stack (Slack, Teams, Operating Systems, ERP) that govern routine trade-offs, resource allocation, and exception escalation without requiring human micromanagement.
 - **The Chairman's Threshold:** The architectural inflection point where a scaling founder successfully transitions from tactical operator to institutional chairman by codifying their decision heuristics into invariant governance substrates, decoupling enterprise valuation from their physical presence.
 - **Invariant Execution Protocols:** 12 non-negotiable logic gates establishing binary thresholds for operational autonomy, delegation limits, meeting elimination, and exception escalation.
 - **Zero Data Retention (ZDR):** Ephemeral-only data processing with AES-256 encryption ensuring all advisory discussions, financial inputs, and diagnostic metrics remain strictly unpersisted and protected.
@@ -69,7 +69,7 @@ We design and deliver three highly calibrated, premium commercial categories. Al
 
 - **Second-Order Cybernetics:** Treating the enterprise as a self-regulating, homeostatic organism (Norbert Wiener, Stafford Beer).
 - **Cognitive Load Theory:** Minimizing extraneous coordination load to preserve executive strategic capacity (John Sweller).
-- **12 Invariant Execution Protocols:** Hard-coding strategic heuristics into existing software stacks (Slack, Teams, Notion, ERP).
+- **12 Invariant Execution Protocols:** Hard-coding strategic heuristics into existing software stacks (Slack, Teams, Operating Systems, ERP).
 - **Zero Data Retention (ZDR):** Ephemeral-only data processing with AES-256 encryption.
 - **Methodology Documentation:** [https://theunboundedleadership.com/methodology](https://theunboundedleadership.com/methodology)
 
@@ -181,11 +181,10 @@ We design and deliver three highly calibrated, premium commercial categories. Al
 - **The Two-Week Test Diagnostic:** [https://theunboundedleadership.com/assessment](https://theunboundedleadership.com/assessment)
 - **Cognitive Tax Calculator:** [https://theunboundedleadership.com/cognitive-tax](https://theunboundedleadership.com/cognitive-tax)
 - **Systemic Methodology & Cybernetics:** [https://theunboundedleadership.com/methodology](https://theunboundedleadership.com/methodology)
-- **Turnkey Digital Toolkits ($27–$197):** [https://theunboundedleadership.com/products](https://theunboundedleadership.com/products)
+- **Turnkey Digital Toolkits:** [https://theunboundedleadership.com/products](https://theunboundedleadership.com/products)
 - **Executive Intelligence Library:** [https://theunboundedleadership.com/library](https://theunboundedleadership.com/library)
-- **Sovereign Strategic Playbook (A–Z):** [https://theunboundedleadership.com/playbook](https://theunboundedleadership.com/playbook)
 - **Executive Founder Governance FAQ:** [https://theunboundedleadership.com/faq](https://theunboundedleadership.com/faq)
-- **Principal Profile (Suchita Sancheti):** [https://theunboundedleadership.com/about](https://theunboundedleadership.com/about)
+- **Founder & Leadership Profile:** [https://theunboundedleadership.com/about](https://theunboundedleadership.com/about)
 - **Confidential Intake Docket:** [https://theunboundedleadership.com/intake](https://theunboundedleadership.com/intake)
 - **Institutional Client Clearance Portal:** [https://theunboundedleadership.com/portal](https://theunboundedleadership.com/portal)
 - **Machine-Readable LLMs Knowledge Registry:** [https://theunboundedleadership.com/llms.txt](https://theunboundedleadership.com/llms.txt)

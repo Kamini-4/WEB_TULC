@@ -91,7 +91,7 @@ export const TribeManifesto: React.FC<TribeManifestoProps> = ({
                 The Sovereign Architect (TULC Model)
               </span>
               <span className="text-xs px-2.5 py-1 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30 font-mono">
-                Durable Freedom
+                Institutional Sovereignty
               </span>
             </div>
 

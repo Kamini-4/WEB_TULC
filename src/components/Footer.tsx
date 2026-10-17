@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowUpRight, Shield, Mail } from 'lucide-react';
 
 interface FooterProps {
-  onSelectTab: (tab: 'tribe' | 'playbook' | 'diagnostic' | 'essays') => void;
+  onSelectTab: (tab: 'tribe' | 'diagnostic' | 'essays') => void;
   openCalibrationModal: () => void;
 }
 
@@ -41,14 +41,6 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, openCalibrationModa
                   className="hover:text-amber-400 transition-colors cursor-pointer"
                 >
                   The Sovereign Tribe Manifesto
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onSelectTab('playbook')}
-                  className="hover:text-amber-400 transition-colors cursor-pointer"
-                >
-                  Sovereign A–Z Playbook
                 </button>
               </li>
               <li>

@@ -2,112 +2,167 @@ import express from 'express';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
+import { INSTITUTIONAL_ARTICLES } from '../src/lib/articles.ts';
+import { EXECUTIVE_FAQS } from '../src/data/executiveFaqData.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Institutional Article Registry (Server-side shadow for hydration)
-const ARTICLE_METADATA_REGISTRY: Record<string, { title: string; description: string }> = {
-  'INT-010': { title: 'Architecture of Authority | Institutional Design', description: 'Why systems outperform personal brands in global scaling.' },
-  'architecture-of-authority': { title: 'Architecture of Authority | Institutional Design', description: 'Why systems outperform personal brands in global scaling.' },
-  
-  'INT-011': { title: 'Strategic Substrates | The Invisible Tax', description: 'How aligning mental models at the board level yields compounding institutional velocity.' },
-  'strategic-substrates': { title: 'Strategic Substrates | The Invisible Tax', description: 'How aligning mental models at the board level yields compounding institutional velocity.' },
-  
-  'INT-012': { title: 'Aligned Leadership in the Cybernetic Era', description: 'Transitioning from individual effort to systemic intelligence in AI-Native governance.' },
-  'aligned-leadership': { title: 'Aligned Leadership in the Cybernetic Era', description: 'Transitioning from individual effort to systemic intelligence in AI-Native governance.' },
-  
-  'INT-001': { title: 'Succession Architecture | The Founder Dilemma', description: 'Architecting institutional permanence beyond the individual leader.' },
-  'founders-dilemma': { title: 'Succession Architecture | The Founder Dilemma', description: 'Architecting institutional permanence beyond the individual leader.' },
-  
-  'INT-002': { title: 'The Cognitive Tax of Leadership', description: 'Reclaiming 40% bandwidth through bandwidth architecture.' },
-  'cognitive-tax-of-leadership': { title: 'The Cognitive Tax of Leadership', description: 'Reclaiming 40% bandwidth through bandwidth architecture.' },
-  
-  'INT-003': { title: 'Bridging the Strategy-Execution Gap', description: 'Calibrating the gap between Board expectations and operational reality.' },
-  'bridging-strategy-execution-gap': { title: 'Bridging the Strategy-Execution Gap', description: 'Calibrating the gap between Board expectations and operational reality.' },
-  
-  'INT-004': { title: 'Executive Bandwidth: Reclaiming Currency', description: 'A definitive report on cognitive equity and decision architecture.' },
-  'reclaiming-strategic-bandwidth': { title: 'Executive Bandwidth: Reclaiming Currency', description: 'A definitive report on cognitive equity and decision architecture.' },
-  
-  'INT-005': { title: 'Institutional Lag: The Invisible Coefficient', description: 'Forensic analysis of organizational friction and intent signal flow.' },
-  'institutional-lag': { title: 'Institutional Lag: The Invisible Coefficient', description: 'Forensic analysis of organizational friction and intent signal flow.' },
-  
-  'INT-006': { title: 'Engineering Strategic Bandwidth', description: 'Reclaiming up to 40% of cognitive capacity at scale.' },
-  'engineering-strategic-bandwidth': { title: 'Engineering Strategic Bandwidth', description: 'Reclaiming up to 40% of cognitive capacity at scale.' },
-  
-  'INT-007': { title: 'Aligned Leadership vs. Reactive Management', description: 'Transitioning from heroic intervention to architectural command.' },
-  'aligned-authority-vs-reactive-management': { title: 'Aligned Leadership vs. Reactive Management', description: 'Transitioning from heroic intervention to architectural command.' },
-  
-  'INT-008': { title: 'The Physics of Inevitability', description: 'Why systems outperform individual talent in organizational design.' },
-  'physics-of-inevitability': { title: 'The Physics of Inevitability', description: 'Why systems outperform individual talent in organizational design.' },
-  
-  'INT-009': { title: 'The Cost of Organizational Latency', description: 'Measuring and neutralizing the inaction tax in global enterprises.' },
-  'cost-of-organizational-latency': { title: 'The Cost of Organizational Latency', description: 'Measuring and neutralizing the inaction tax in global enterprises.' }
-};
-
 export function hydrateHtmlMetadata(html: string, url: string): string {
   let hydratedHtml = html;
-  const articleMatch = url.match(/\/library\/([a-zA-Z0-9\-_]+)/);
+  const cleanPath = url.split('?')[0].replace(/\/$/, '') || '/';
+  const articleMatch = cleanPath.match(/^\/(?:library|article|dispatch|articles|blogs|blog)\/([a-zA-Z0-9\-_]+)/);
 
-  if (articleMatch && ARTICLE_METADATA_REGISTRY[articleMatch[1]]) {
-    const metadata = ARTICLE_METADATA_REGISTRY[articleMatch[1]];
-    const schema = JSON.stringify({
+  // 1. Article Page Ingestion
+  if (articleMatch) {
+    const slug = articleMatch[1];
+    const article = INSTITUTIONAL_ARTICLES.find(a => a.slug === slug || a.id === slug);
+
+    if (article) {
+      const pageTitle = `${article.title} | The Unbounded Leadership Co.`;
+      const pageDesc = article.excerpt;
+      const articleSchema = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": article.title,
+        "description": article.excerpt,
+        "datePublished": "2026-01-01",
+        "author": {
+          "@type": "Person",
+          "name": "Suchita Sancheti",
+          "jobTitle": "Founder & Enterprise Architect",
+          "url": "https://theunboundedleadership.com/about"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "The Unbounded Leadership Co.",
+          "url": "https://theunboundedleadership.com/"
+        },
+        "mainEntityOfPage": `https://theunboundedleadership.com/library/${article.slug}`
+      });
+
+      hydratedHtml = hydratedHtml
+        .replace(/<title>.*?<\/title>/i, `<title>${pageTitle}</title>`)
+        .replace(/<meta name="description" content=".*?"\/?>/i, `<meta name="description" content="${pageDesc}">`)
+        .replace(/<meta property="og:title" content=".*?"\/?>/i, `<meta property="og:title" content="${pageTitle}">`)
+        .replace(/<meta property="og:description" content=".*?"\/?>/i, `<meta property="og:description" content="${pageDesc}">`)
+        .replace(/<meta name="twitter:title" content=".*?"\/?>/i, `<meta name="twitter:title" content="${pageTitle}">`)
+        .replace(/<meta name="twitter:description" content=".*?"\/?>/i, `<meta name="twitter:description" content="${pageDesc}">`)
+        .replace(/<link rel="canonical" href=".*?"\/?>/i, `<link rel="canonical" href="https://theunboundedleadership.com/library/${article.slug}">`)
+        .replace('</head>', `<script type="application/ld+json">${articleSchema}</script></head>`);
+
+      // Inject full article semantic body for non-JS crawlers, Claude, and search engines
+      const semanticBody = `
+        <article style="max-width: 900px; margin: 40px auto; padding: 0 20px; font-family: 'Playfair Display', Georgia, serif;">
+          <header style="margin-bottom: 30px;">
+            <div style="font-size: 11px; text-transform: uppercase; color: #8c6708; font-weight: bold; letter-spacing: 0.1em;">${article.category} • The Unbounded Leadership Co.</div>
+            <h1 style="font-size: 38px; line-height: 1.2; margin: 15px 0; color: #1c1917;">${article.title}</h1>
+            <p style="font-size: 18px; line-height: 1.6; color: #57534e; font-style: italic;">${article.excerpt}</p>
+            <div style="font-size: 12px; color: #78716c; margin-top: 15px;">By Suchita Sancheti, Founder & Enterprise Architect</div>
+          </header>
+          <div style="font-size: 16px; line-height: 1.8; color: #292524;">
+            ${article.content.map(p => {
+              if (p.startsWith('## ')) return `<h2 style="font-size: 24px; margin: 30px 0 15px; color: #1c1917;">${p.slice(3)}</h2>`;
+              if (p.startsWith('### ')) return `<h3 style="font-size: 20px; margin: 25px 0 10px; color: #8c6708;">${p.slice(4)}</h3>`;
+              if (p.startsWith('> ')) return `<blockquote style="border-left: 3px solid #b8860b; padding-left: 20px; margin: 20px 0; font-style: italic; color: #44403c;">${p.slice(2)}</blockquote>`;
+              return `<p style="margin-bottom: 20px;">${p}</p>`;
+            }).join('')}
+          </div>
+          <footer style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #ded6c5;">
+            <p><strong>About Suchita Sancheti:</strong> Computer Science Engineer & Industrial Psychologist specializing in organizational decision architecture and founder bottleneck elimination.</p>
+            <p>Direct executive inquiry: <a href="mailto:suchita@theunboundedleadership.com">suchita@theunboundedleadership.com</a> | <a href="/library">Back to Research Library</a></p>
+          </footer>
+        </article>
+      `;
+
+      hydratedHtml = hydratedHtml.replace('<div id="root"></div>', `<div id="root">${semanticBody}</div>`);
+      return hydratedHtml;
+    }
+  }
+
+  // 2. FAQ Page Ingestion
+  if (cleanPath === '/faq') {
+    const pageTitle = "Executive FAQ & Founder Governance Inquiries | The Unbounded Leadership Co.";
+    const pageDesc = "Direct, authoritative answers to high-stakes scaling dilemmas, founder bottlenecks, delegation thresholds, and board alignment.";
+    
+    const faqEntities = EXECUTIVE_FAQS.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `${faq.answer} ${faq.executiveContext ? `(Context: ${faq.executiveContext})` : ''}`
+      }
+    }));
+
+    const faqSchema = JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": metadata.title,
-      "description": metadata.description,
-      "author": { "@type": "Organization", "name": "The Unbounded Leadership Co." },
-      "publisher": { "@type": "Organization", "name": "The Unbounded Leadership Co." }
+      "@type": "FAQPage",
+      "mainEntity": faqEntities
     });
-    const pageTitle = `${metadata.title.length > 32 ? metadata.title.slice(0, 32) + '...' : metadata.title} | Unbounded`;
-    const pageDesc = `${metadata.description.slice(0, 120)} Leadership architecture intelligence.`;
+
     hydratedHtml = hydratedHtml
       .replace(/<title>.*?<\/title>/i, `<title>${pageTitle}</title>`)
       .replace(/<meta name="description" content=".*?"\/?>/i, `<meta name="description" content="${pageDesc}">`)
-      .replace('</head>', `<script type="application/ld+json">${schema}</script></head>`);
-  } else if (url === '/' || url === '/index.html' || url === '') {
-    const schema = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "The Unbounded Leadership Co.",
-      "description": "Definitive executive consultancy and leadership architecture firm for elite leaders, driving institutional alignment, cognitive clarity, and structural growth."
-    });
+      .replace('</head>', `<script type="application/ld+json">${faqSchema}</script></head>`);
+
+    const faqSemanticBody = `
+      <main style="max-width: 1000px; margin: 40px auto; padding: 0 20px; font-family: 'Playfair Display', Georgia, serif;">
+        <h1 style="font-size: 36px; margin-bottom: 20px;">Executive FAQ & Governance Clarifications</h1>
+        <p style="font-size: 16px; color: #57534e; margin-bottom: 40px;">Intersection of real-world enterprise founder dilemmas and TULC architectural solutions.</p>
+        <div>
+          ${EXECUTIVE_FAQS.map(faq => `
+            <div style="margin-bottom: 30px; padding: 20px; background: #ffffff; border: 1px solid #ded6c5;">
+              <h3 style="font-size: 18px; color: #1c1917; margin-bottom: 10px;">${faq.question}</h3>
+              <p style="font-size: 14px; line-height: 1.7; color: #44403c;">${faq.answer}</p>
+              ${faq.executiveContext ? `<div style="font-size: 12px; color: #78716c; font-style: italic; margin-top: 10px;">Context: ${faq.executiveContext}</div>` : ''}
+            </div>
+          `).join('')}
+        </div>
+      </main>
+    `;
+
+    hydratedHtml = hydratedHtml.replace('<div id="root"></div>', `<div id="root">${faqSemanticBody}</div>`);
+    return hydratedHtml;
+  }
+
+  // 3. Services Page
+  if (cleanPath === '/services' || cleanPath === '/mandates') {
+    const pageTitle = "Institutional Advisory Mandates | The Unbounded Leadership Co.";
+    const pageDesc = "Sovereign advisory mandates to eliminate founder bottlenecks, install autonomous delegation thresholds, and defend valuation multiples.";
     hydratedHtml = hydratedHtml
-      .replace(/<title>.*?<\/title>/i, '<title>The Unbounded Leadership Co. | Executive Consulting</title>')
-      .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Definitive executive consultancy and leadership architecture firm for elite leaders, driving institutional alignment, cognitive clarity, and structural growth.">')
-      .replace('</head>', `<script type="application/ld+json">${schema}</script></head>`);
-  } else if (url.includes('/library')) {
+      .replace(/<title>.*?<\/title>/i, `<title>${pageTitle}</title>`)
+      .replace(/<meta name="description" content=".*?"\/?>/i, `<meta name="description" content="${pageDesc}">`);
+    return hydratedHtml;
+  }
+
+  // 4. About Founders Page
+  if (cleanPath === '/about') {
+    const pageTitle = "Founders & Governance Philosophy | The Unbounded Leadership Co.";
+    const pageDesc = "Suchita Sancheti (Founder & Enterprise Architect) and Kamini Agnihotri (Client Relations Coordinator) engineering institutional permanence.";
     hydratedHtml = hydratedHtml
-      .replace(/<title>.*?<\/title>/i, '<title>Executive Insights & Research | The Unbounded Leadership</title>')
-      .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Strategic library of leadership architecture dispatches and white papers on organizational design, cognitive clarity, and institutional alignment.">');
-  } else if (url.includes('/methodology')) {
+      .replace(/<title>.*?<\/title>/i, `<title>${pageTitle}</title>`)
+      .replace(/<meta name="description" content=".*?"\/?>/i, `<meta name="description" content="${pageDesc}">`);
+    return hydratedHtml;
+  }
+
+  // 5. Methodology
+  if (cleanPath === '/methodology') {
+    const pageTitle = "The Alignment Protocol | Leadership Architecture Methodology";
+    const pageDesc = "Formulaic 4-phase transformation from hero-led bottlenecks to systemic governance for $10M to $100M+ enterprises.";
     hydratedHtml = hydratedHtml
-      .replace(/<title>.*?<\/title>/i, '<title>The Alignment Protocol | Leadership Architecture</title>')
-      .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Formulaic Alignment Protocol for institutional stability: Baseline Audit, Structural Transformation, and Sustained Alignment for scaling enterprises.">');
-  } else if (url.includes('/about')) {
+      .replace(/<title>.*?<\/title>/i, `<title>${pageTitle}</title>`)
+      .replace(/<meta name="description" content=".*?"\/?>/i, `<meta name="description" content="${pageDesc}">`);
+    return hydratedHtml;
+  }
+
+  // 6. Assessment
+  if (cleanPath === '/assessment') {
+    const pageTitle = "Two-Week Step-Away Test | Adversarial Enterprise Diagnostic";
+    const pageDesc = "Benchmark your enterprise against our adversarial standard: does the company compound autonomously when the founder is completely offline?";
     hydratedHtml = hydratedHtml
-      .replace(/<title>.*?<\/title>/i, '<title>Principal Pedigree & Philosophy | The Unbounded Leadership</title>')
-      .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Boutique leadership architecture consultancy for consequential founders and CXOs, engineering institutional permanence and eliminating operational drag.">');
-  } else if (url.includes('/assessment')) {
-    hydratedHtml = hydratedHtml
-      .replace(/<title>.*?<\/title>/i, '<title>Yield Calibration Audit | Institutional Diagnostic</title>')
-      .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="High-fidelity executive diagnostic to benchmark organizational alignment, cognitive tax, and institutional lag across five critical business substrates.">');
-  } else if (url.includes('/mandates')) {
-    hydratedHtml = hydratedHtml
-      .replace(/<title>.*?<\/title>/i, '<title>Strategic Mandates | The Unbounded Leadership Co.</title>')
-      .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="High-stakes advisory mandates for enterprise recalibration, board-level alignment, and structural sovereignty. Strictly three mandates accepted per quarter.">');
-  } else if (url.includes('/cognitive-tax') || url.includes('/quantify-friction')) {
-    hydratedHtml = hydratedHtml
-      .replace(/<title>.*?<\/title>/i, '<title>Quantify Your Cognitive Tax | Simulation Engine</title>')
-      .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Interactive simulation engine to calculate annual inaction tax, coordination friction, and leadership equity drained by systemic organizational bottlenecks.">');
-  } else if (url.includes('/toolkits') || url.includes('/toolkit') || url.includes('/systems') || url.includes('/shop') || url.includes('/vault') || url.includes('/operational-vault')) {
-    hydratedHtml = hydratedHtml
-      .replace(/<title>.*?<\/title>/i, '<title>Founder Toolkits | Turnkey Digital Leadership Workspaces</title>')
-      .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Plug-and-play Notion & Coda master workspaces, decision matrices, and delegation runbooks to eliminate founder bottlenecks and reclaim 15+ weekly hours.">');
-  } else if (url.includes('/contact') || url.includes('/intake')) {
-    hydratedHtml = hydratedHtml
-      .replace(/<title>.*?<\/title>/i, '<title>Executive Mandate Intake | The Unbounded Leadership</title>')
-      .replace(/<meta name="description" content=".*?"\/?>/i, '<meta name="description" content="Submit confidential inquiry to the Principal Architect regarding strategic advisory, enterprise restructuring, or board alignment mandates.">');
+      .replace(/<title>.*?<\/title>/i, `<title>${pageTitle}</title>`)
+      .replace(/<meta name="description" content=".*?"\/?>/i, `<meta name="description" content="${pageDesc}">`);
+    return hydratedHtml;
   }
 
   return hydratedHtml;
@@ -120,6 +175,7 @@ const VALID_STATIC_ROUTES = new Set([
   '/methodology',
   '/assessment',
   '/mandates',
+  '/faq',
   '/cognitive-tax',
   '/quantify-friction',
   '/toolkits',
@@ -151,7 +207,9 @@ export function isRecognizedAppRoute(pathname: string): boolean {
     cleanPath.startsWith('/library/') ||
     cleanPath.startsWith('/blogs/') ||
     cleanPath.startsWith('/blog/') ||
-    cleanPath.startsWith('/articles/')
+    cleanPath.startsWith('/articles/') ||
+    cleanPath.startsWith('/article/') ||
+    cleanPath.startsWith('/dispatch/')
   ) {
     return true;
   }

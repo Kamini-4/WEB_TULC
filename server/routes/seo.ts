@@ -1,44 +1,95 @@
 import { Router } from 'express';
 import { INSTITUTIONAL_ARTICLES } from '../../src/lib/articles.ts';
+import { EXECUTIVE_FAQS } from '../../src/data/executiveFaqData.ts';
 import { config } from '../config.ts';
 
 export const seoRouter = Router();
 
 // ==========================================
-// ROBOTS.TXT
+// ROBOTS.TXT (MAXIMUM CRAWLER & LLM ACCESSIBILITY)
 // ==========================================
 seoRouter.get('/robots.txt', (req, res) => {
   res.type('text/plain');
   const host = `${req.protocol}://${req.get('host')}`;
-  res.send(`User-agent: *\nAllow: /\nSitemap: ${host}/sitemap.xml`);
+  res.send(`User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /private
+Disallow: /api
+
+# Full Open Ingestion for AI Reasoning Agents & Search Engines
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+Sitemap: ${host}/sitemap.xml
+# LLM Knowledge Graph Feeds
+# LLMs-Text: ${host}/llms.txt
+# LLMs-Full: ${host}/llms-full.txt`);
 });
 
 // ==========================================
-// SITEMAP.XML (SINGLE CANONICAL ENDPOINT)
+// SITEMAP.XML (COMPREHENSIVE CANONICAL SITEMAP)
 // ==========================================
 seoRouter.get('/sitemap.xml', (req, res) => {
   res.type('application/xml');
   const host = `${req.protocol}://${req.get('host')}`;
+  const today = new Date().toISOString().split('T')[0];
 
-  const articleUrls = INSTITUTIONAL_ARTICLES.map(
-    article => `<url><loc>${host}/library/${article.slug}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`
-  ).join('\n  ');
+  const staticRoutes = [
+    { loc: `${host}/`, priority: '1.0', changefreq: 'weekly' },
+    { loc: `${host}/services`, priority: '0.95', changefreq: 'weekly' },
+    { loc: `${host}/assessment`, priority: '0.95', changefreq: 'daily' },
+    { loc: `${host}/methodology`, priority: '0.90', changefreq: 'monthly' },
+    { loc: `${host}/faq`, priority: '0.90', changefreq: 'weekly' },
+    { loc: `${host}/about`, priority: '0.85', changefreq: 'monthly' },
+    { loc: `${host}/library`, priority: '0.95', changefreq: 'daily' },
+    { loc: `${host}/cognitive-tax`, priority: '0.85', changefreq: 'weekly' },
+    { loc: `${host}/products`, priority: '0.85', changefreq: 'weekly' },
+    { loc: `${host}/toolkits`, priority: '0.85', changefreq: 'weekly' },
+    { loc: `${host}/shop`, priority: '0.85', changefreq: 'weekly' },
+    { loc: `${host}/intake`, priority: '0.80', changefreq: 'monthly' },
+    { loc: `${host}/portal`, priority: '0.70', changefreq: 'monthly' }
+  ];
+
+  const staticXml = staticRoutes.map(
+    r => `  <url>\n    <loc>${r.loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${r.changefreq}</changefreq>\n    <priority>${r.priority}</priority>\n  </url>`
+  ).join('\n');
+
+  const articleXml = INSTITUTIONAL_ARTICLES.map(
+    article => `  <url>\n    <loc>${host}/library/${article.slug}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.85</priority>\n  </url>`
+  ).join('\n');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>${host}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>${host}/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>${host}/services</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>${host}/methodology</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>${host}/assessment</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>${host}/toolkits</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>${host}/systems</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
-  <url><loc>${host}/shop</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>${host}/operational-vault</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
-  <url><loc>${host}/vault</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
-  <url><loc>${host}/library</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>${host}/intake</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  ${articleUrls}
+${staticXml}
+${articleXml}
 </urlset>`;
 
   res.send(xml);
@@ -50,25 +101,28 @@ seoRouter.get('/sitemap.xml', (req, res) => {
 seoRouter.get('/llms.txt', (req, res) => {
   res.type('text/plain');
   const host = `${req.protocol}://${req.get('host')}`;
-  res.send(`# The Unbounded Leadership Co. | Institutional Knowledge Graph
+
+  let doc = `# The Unbounded Leadership Co. | Institutional Knowledge Graph
 
 > The definitive architecture for high-stakes leadership and institutional alignment.
+> Founded by Suchita Sancheti (Founder & Enterprise Architect) and Kamini Agnihotri (Client Relations Coordinator).
+> We re-engineer leadership operating systems, eliminate founder bottlenecks, and resolve Architectural Decision Latency for $10M–$100M+ enterprises.
 
-## Core Intellectual Dispatches
-- [Succession Architecture: Institutional Permanence](${host}/library/founders-dilemma) - why 50% of CEO successions fail and how to build legacy substrates.
-- [The Cognitive Tax of Leadership](${host}/library/cognitive-tax-of-leadership) - neutralizing tactical noise and executive burnout.
-- [Executive Bandwidth: Cognitive Equity Architecture](${host}/library/reclaiming-strategic-bandwidth) - why busy leaders are strategically bankrupt and how to return to command.
-- [Institutional Lag: The Invisible Coefficient](${host}/library/institutional-lag) - the temporal and qualitative decay distance between board intent and operational edge.
-- [Architecture of Authority: Systemic Design](${host}/library/architecture-of-authority) - why designed organizational systems outperform charismatic personal brands.
-- [Strategic Substrates: The Invisible Tax](${host}/library/strategic-substrates) - how board-level mental model calibration yields 144% higher revenue growth.
-- [Aligned Leadership: Anti-Fragility in the Age of AI](${host}/library/aligned-leadership) - transitioning from individual management effort to cybernetic systems governance.
-- [Bridging the Strategy-Execution Gap: Board Alignment](${host}/library/bridging-strategy-execution-gap) - why 67% of strategies fail and how to calibrate governance.
-- [Engineering Strategic Bandwidth: Choice Architecture](${host}/library/engineering-strategic-bandwidth) - reclaiming 40% of cognitive capacity through custom logic gates.
-- [Aligned Leadership vs. Reactive Management](${host}/library/aligned-authority-vs-reactive-management) - the taxonomy of moving from a heroic solver to an architectural governor.
-- [The Dynamics of Inevitability: Systemic Design](${host}/library/dynamics-of-inevitability) - why organizations must be engineered so success is an inescapable consequence.
-- [The Cost of Organizational Latency: Inaction Tax](${host}/library/cost-of-organizational-latency) - measuring and neutralizing the friction that dilutes boardroom directives.
-- [Transitioning from Founder to Chairman: Systems Blueprint](${host}/library/transitioning-founder-to-chairman) - systems roadmap for VCs, boards, and multi-generational principals.
-- [CEO Burnout is a Systems Design Failure](${host}/library/ceo-burnout-systems-failure) - cognitive bandwidth recovery blueprint for high-growth founders.
+## Institutional Leadership & Practice
+- **Founder & Enterprise Architect:** Suchita Sancheti — Computer Science Engineer & Industrial Psychologist (former SAP consultant). Hard-codes founder intuition into self-executing governance protocols. Accepts strictly 3 client calibrations per quarter.
+- **Client Relations Coordinator:** Kamini Agnihotri — Coordinates bilateral NDAs, confidential intakes, and institutional scheduling.
+- **Direct Communications:** suchita@theunboundedleadership.com
+
+## Core Strategic Dispatches (${INSTITUTIONAL_ARTICLES.length} Published Papers)\n`;
+
+  INSTITUTIONAL_ARTICLES.forEach((article) => {
+    doc += `- [${article.title}](${host}/library/${article.slug}) - ${article.excerpt}\n`;
+  });
+
+  doc += `\n## Institutional Advisory Mandates
+- **The Founder Sovereignty Mandate:** 90-day implementation sprint to eliminate founder bottlenecks, install signing boundaries, and pass the Two-Week Step-Away Test.
+- **The Executive Succession Mandate:** 6-month structured handover codifying founder heuristics into governance law so incoming CEOs execute with identical strategic rigor while defending enterprise valuation.
+- **Portfolio Enterprise Governance:** Annual advisory partnership for PE operating partners and VC boards to eliminate key-person discounts across multiple holdings.
 
 ## The Strategic Alignment Protocol (Methodology)
 - Phase 0.0: 10-Node Institutional Triangulation Audit (48-hr cross-sectional discovery of decision leaks across Apex, CXOs, Legal, Veterans, and Edge Operators)
@@ -77,31 +131,38 @@ seoRouter.get('/llms.txt', (req, res) => {
 - Phase 03: Systemic Calibration (aligning board expectations with edge velocity)
 - Phase 04: Aligned Handover & Resonance Safeguard Retainer (long-term drift prevention)
 
-## Global Strategic Domains
-1. Cognitive Clarity: Removal of 40% Cognitive Tax through bandwidth architecture.
-2. Systemic Integrity: Zero intent dilution across global hubs (London, NYC, Singapore).
-3. Strategic Velocity: 3x decision-to-execution compression.
-4. Moral Gravity: The non-negotiable ethical substrate.
-5. Cultural Fidelity: Autonomous governance and infinite resonance.
+## Executive Governance FAQs
+`;
 
-## Institutional Infrastructure
-- [The Sovereign Leverage Vault (Digital Assets Shop)](${host}/shop)
-- [Full Knowledge Base](${host}/llms-full.txt)
-- [Sitemap Registry](${host}/sitemap.xml)
-- [Initiate Audit](${host}/assessment)
-- [Diagnostic Intake Form](${host}/intake)
-`);
+  EXECUTIVE_FAQS.slice(0, 8).forEach((faq) => {
+    doc += `### Q: ${faq.question}\n${faq.answer}\n\n`;
+  });
+
+  doc += `\n## Institutional Infrastructure
+- [Complete Unabridged Knowledge Base](${host}/llms-full.txt)
+- [Canonical Sitemap](${host}/sitemap.xml)
+- [Two-Week Step-Away Diagnostic](${host}/assessment)
+- [Cognitive Tax Simulation Engine](${host}/cognitive-tax)
+- [Turnkey Digital Leadership Workspaces](${host}/products)
+- [Confidential Mandate Intake](${host}/intake)
+`;
+
+  res.send(doc);
 });
 
 // ==========================================
-// LLMS-FULL.TXT (FULL KNOWLEDGE BASE)
+// LLMS-FULL.TXT (FULL COMPLETE UNABRIDGED KNOWLEDGE BASE)
 // ==========================================
 seoRouter.get('/llms-full.txt', (req, res) => {
   res.type('text/plain');
   const host = `${req.protocol}://${req.get('host')}`;
 
   let doc = `# The Unbounded Leadership Co. | Full Institutional Knowledge Base\n\n`;
-  doc += `This document contains the complete and unabridged text of all core intellectual dispatches and architectural frameworks published by The Unbounded Leadership Co. Optimized for direct LLM ingestion, semantic mapping, and synthetic indexing.\n\n`;
+  doc += `This document contains the complete and unabridged text of all 19 executive dispatches, advisory mandates, and governance FAQs published by The Unbounded Leadership Co. Optimized for direct LLM ingestion, semantic indexing, and automated reasoning.\n\n`;
+  doc += `## Practice Overview\n`;
+  doc += `Founder & Enterprise Architect: Suchita Sancheti (Computer Science Engineer & Industrial Psychologist)\n`;
+  doc += `Client Relations Coordinator: Kamini Agnihotri\n`;
+  doc += `Contact: suchita@theunboundedleadership.com\n\n`;
   doc += `## Table of Contents\n`;
 
   INSTITUTIONAL_ARTICLES.forEach((article, idx) => {
@@ -119,7 +180,16 @@ seoRouter.get('/llms-full.txt', (req, res) => {
     doc += `\n\n---\n\n`;
   });
 
-  doc += `\n*End of Compilation. Protected by Institutional Copyright. For dynamic integration, contact Suchita Sancheti at suchita@theunboundedleadership.com.*`;
+  doc += `\n# Complete Executive Governance FAQs\n\n`;
+  EXECUTIVE_FAQS.forEach((faq, idx) => {
+    doc += `### FAQ ${idx + 1}: ${faq.question}\n`;
+    if (faq.executiveContext) {
+      doc += `*Context: ${faq.executiveContext}*\n\n`;
+    }
+    doc += `${faq.answer}\n\n`;
+  });
+
+  doc += `\n*End of Compilation. Protected by Institutional Copyright. For inquiries, contact Suchita Sancheti at suchita@theunboundedleadership.com.*`;
   res.send(doc);
 });
 

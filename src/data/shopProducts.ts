@@ -97,7 +97,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     tagline: 'An agile, low-risk operational filter to test your firm’s autonomy. Cut micro-decision drag and empower team leads under $5,000.',
     category: 'Bandwidth Architecture',
     badge: 'Starter Gateway • Under $100',
-    format: 'Notion Quick-Deploy + Delegation Triage Tree + PDF Checklist',
+    format: 'Digital Workspace Quick-Deploy + Delegation Triage Tree + PDF Checklist',
     formatIcon: 'FileCode',
     installTime: '15 minutes flat',
     timeToResult: 'Within 24 hours',
@@ -121,7 +121,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       tangibleResult: 'Immediately eliminate 4 to 8 hours of tactical approvals and low-level inquiries each week.',
       immediateImpact: 'Empowered team leads who make decisions with owner-level conviction while your mental bandwidth stays preserved.',
       deliverables: [
-        'Interactive Notion Delegation Filter (1-Click Workspace Duplicate)',
+        'Interactive Digital Workspace Delegation Filter (1-Click Workspace Duplicate)',
         'Printable Executive Delegation Covenant Template',
         '72-Hour Founder Absence Readiness Audit',
         'Word-for-Word Team Delegation Rollout Script'
@@ -159,9 +159,9 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       governancePrinciple: 'Autonomy without guardrails is anarchy; guardrails without autonomy is prison.'
     },
     what: {
-      tangibleAsset: 'Instant-access Notion workspace and PDF delegation contract with team rollout scripts.',
+      tangibleAsset: 'Instant-access Digital Workspace workspace and PDF delegation contract with team rollout scripts.',
       includedFiles: [
-        'Notion Delegation Master Workspace',
+        'Digital Workspace Delegation Master Workspace',
         'Printable Executive Covenant Guide',
         '72-Hour Severance Simulation Protocol'
       ],
@@ -201,7 +201,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     tagline: 'Eliminate tactical communication drag and redundant status meetings. Reclaim 15 hours of executive focus this week.',
     category: 'Bandwidth Architecture',
     badge: 'High Demand • 4 Early Bird Spots Left',
-    format: 'Turnkey Notion Master + Coda OS + Executive Walkthrough',
+    format: 'Turnkey Digital Workspace Master + Executive Protocol OS + Executive Walkthrough',
     formatIcon: 'FileCode',
     installTime: '35 minutes flat',
     timeToResult: 'Within 72 hours',
@@ -227,8 +227,8 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       tangibleResult: 'Reclaim up to 15 hours every single week. Free your calendar while your leadership team executes with razor-sharp autonomy.',
       immediateImpact: 'Instant $360,000+ annual reclaimed cognitive equity. Zero frantic Slack fires after 6:00 PM.',
       deliverables: [
-        'Interactive Notion Bandwidth OS (1-Click Workspace Duplicate)',
-        'Coda Master Production Workspace',
+        'Interactive Digital Workspace Bandwidth OS (1-Click Workspace Duplicate)',
+        'Executive Protocol Master Production Workspace',
         'Executive Loom Scripts for Team Rollout (High-Adoption Briefing Framework)',
         'Desk Triage Reference Card for Executive Assistants',
         '38-Minute High-Leverage Masterclass Walkthrough'
@@ -294,10 +294,10 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       governancePrinciple: 'Your time is worth $1,000/hour. Stop giving it away for free to solve $20 problems.'
     },
     what: {
-      tangibleAsset: 'Complete Turnkey Notion & Coda Bandwidth OS with 5 production modules, team onboarding scripts, and executive walkthrough.',
+      tangibleAsset: 'Complete Turnkey Digital Operating Bandwidth OS with 5 production modules, team onboarding scripts, and executive walkthrough.',
       includedFiles: [
-        'Turnkey Notion Master Workspace (1-Click Duplicate)',
-        'Coda Master Production Workspace',
+        'Turnkey Digital Workspace Master Workspace (1-Click Duplicate)',
+        'Executive Protocol Master Production Workspace',
         'Executive Video Masterclass with Suchita Sancheti',
         'Word-for-Word Team Rollout Loom Scripts',
         'Printable Executive Triage Desk Card'
@@ -343,7 +343,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     tagline: 'Disappear for 30 straight days. Return to a company that grew without you instead of one that collapsed.',
     category: 'Continuity & Decoupling',
     badge: 'Critical Asset • 3 Early Bird Spots',
-    format: 'Executive Playbook (PDF/Word) + Notion Continuity Vault',
+    format: 'Executive Playbook (PDF/Word) + Digital Workspace Continuity Vault',
     formatIcon: 'ShieldCheck',
     installTime: '60 minutes',
     timeToResult: '14 days to first test',
@@ -369,7 +369,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       tangibleResult: 'Step away for 30 days without checking Slack once. Your enterprise continues closing deals, executing sprints, and generating cash flow.',
       immediateImpact: 'Instant 2x–3x enterprise multiple expansion when private equity or strategic acquirers evaluate key-person risk.',
       deliverables: [
-        'Complete 30-Day Decoupling Playbook (Executive PDF & Notion Vault)',
+        'Complete 30-Day Decoupling Playbook (Executive PDF & Digital Workspace Vault)',
         'Delegated Financial & Contractual Signing Authority Matrix',
         'Emergency Red-Phone Protocol (Defines true structural emergencies vs routine operational noise)',
         'Second-in-Command Shadowing Guidebook',
@@ -435,9 +435,9 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       governancePrinciple: 'Real enterprise equity exists only when the business creates value without the founder’s hands on the wheel.'
     },
     what: {
-      tangibleAsset: 'The Complete 30-Day Decoupling Runbook & Continuity Insurance Vault (PDF, Notion, and Board Briefing Pack).',
+      tangibleAsset: 'The Complete 30-Day Decoupling Runbook & Continuity Insurance Vault (PDF, Digital Workspace, and Board Briefing Pack).',
       includedFiles: [
-        '30-Day Decoupling Runbook (Interactive Notion & Coda)',
+        '30-Day Decoupling Runbook (Interactive Digital Operating)',
         'Executive PDF Playbook (48 Pages)',
         'Delegated Authority Matrix',
         'Emergency Red-Phone Protocol Guide',
@@ -484,7 +484,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     tagline: 'Kill the 3-week committee bottleneck. Force 85% of decisions to close in under 72 hours.',
     category: 'Decision Architecture',
     badge: 'Velocity Multiplier • 5 Early Bird Spots',
-    format: 'Figma Canvas + Miro Board + Notion Decision OS',
+    format: 'Figma Canvas + Miro Board + Digital Workspace Decision OS',
     formatIcon: 'GitPullRequest',
     installTime: '45 minutes',
     timeToResult: 'Instant on next decision',
@@ -512,7 +512,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       deliverables: [
         'Interactive Figma Decision Architecture Board (Visual Flow)',
         'Miro Collaborative Canvas for Executive Team Alignment',
-        'Notion Decision Log & 72-Hour Escalation Tracker',
+        'Digital Workspace Decision Log & 72-Hour Escalation Tracker',
         'Type-1 vs Type-2 Decision Diagnostic Cheat Sheet',
         'The DRI (Directly Responsible Individual) Operational Charter'
       ],
@@ -576,11 +576,11 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       governancePrinciple: 'A wrong decision made in 2 days can be corrected. A decision delayed 2 months will bankrupt you.'
     },
     what: {
-      tangibleAsset: 'The Complete Cross-Functional Decision Guardrails Matrix (Figma, Miro, and Notion Decision OS).',
+      tangibleAsset: 'The Complete Cross-Functional Decision Guardrails Matrix (Figma, Miro, and Digital Workspace Decision OS).',
       includedFiles: [
         'Interactive Figma Decision Architecture Board',
         'Miro Collaborative Canvas for Leadership Workshops',
-        'Notion Decision Log & 72-Hour Escalation Engine',
+        'Digital Workspace Decision Log & 72-Hour Escalation Engine',
         'Type-1 vs Type-2 Fast Reference Desk Card',
         'DRI Statutory Assignment Kit'
       ],
@@ -625,7 +625,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     tagline: 'Protect your capital and culture when hiring senior leaders. Establish rigorous clarity from Day 1.',
     category: 'Executive Bench',
     badge: 'De-Risking Hires • 2 Early Bird Spots',
-    format: '4-Document Executive Kit (PDF, Word, Notion)',
+    format: '4-Document Executive Kit (PDF, Word, Digital Workspace)',
     formatIcon: 'UserCheck',
     installTime: '50 minutes',
     timeToResult: 'First 30 days of hire',
@@ -651,7 +651,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       tangibleResult: 'New C-suite hires produce net-positive revenue output by Day 30 instead of Day 180. Cut executive mis-hire risk by 80%.',
       immediateImpact: 'Saves an estimated $300,000+ in potential executive turnover costs and protects team alignment.',
       deliverables: [
-        'The Complete 4-Document Executive Onboarding Kit (Notion & Word)',
+        'The Complete 4-Document Executive Onboarding Kit (Digital Workspace & Word)',
         '30/60/90-Day Binary Metric Performance Contract',
         'Cultural Non-Negotiables & Red-Line Behavior Protocol',
         'Executive Shadowing & Strategic Context Transfer Framework',
@@ -717,7 +717,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       governancePrinciple: 'Clear expectations are kindness. Ambiguity is cruelty that costs millions.'
     },
     what: {
-      tangibleAsset: 'The Complete C-Suite Onboarding Codex & Performance Covenant (4-Document Executive Pack in PDF, Word, and Notion).',
+      tangibleAsset: 'The Complete C-Suite Onboarding Codex & Performance Covenant (4-Document Executive Pack in PDF, Word, and Digital Workspace).',
       includedFiles: [
         'The Context Codex Master Template',
         '30/60/90-Day Executive Performance Contract',
@@ -929,7 +929,7 @@ export const SOVEREIGN_VAULT_BUNDLE: BundleProduct = {
   title: 'The Complete Founder Systems Suite (All Digital Toolkits)',
   tagline: 'The complete digital operating system for high-growth founders. Replace daily operational fires with permanent written architecture.',
   badge: 'Complete Suite: 86% Off • Only 6 Bundles Left',
-  description: 'Instant access to every digital toolkit in the library. Pre-built Notion workspaces, Coda templates, decision matrices, onboarding codexes, and team diagnostics. Ready to duplicate with 1 click.',
+  description: 'Instant access to every digital toolkit in the library. Pre-built Digital Workspace workspaces, Executive Protocol templates, decision matrices, onboarding codexes, and team diagnostics. Ready to duplicate with 1 click.',
   pricing: {
     usd: 197,
     originalUsd: 1450,
@@ -945,20 +945,20 @@ export const SOVEREIGN_VAULT_BUNDLE: BundleProduct = {
     seatsRemaining: 6,
     originalPriceUsd: 1450,
     earlyBirdPriceUsd: 197,
-    bonusTitle: 'Master Unified Notion Workspace + Digital Bonus Pack',
+    bonusTitle: 'Master Unified Digital Workspace Workspace + Digital Bonus Pack',
     bonusValue: '$590 Value Included Free',
     expirationNote: 'Only 6 complete system suites remaining at $197 before introductory allocation closes.'
   },
   includes: [
     'Asset 00: The 72-Hour Founder Severance Protocol & Delegation Filter',
-    'Asset 01: The 15-Hour Founder Bandwidth Reclamation OS (Notion & Coda Master)',
-    'Asset 02: The 30-Day Decoupling Runbook & Continuity System (PDF + Notion Vault)',
+    'Asset 01: The 15-Hour Founder Bandwidth Reclamation OS (Digital Operating Master)',
+    'Asset 02: The 30-Day Decoupling Runbook & Continuity System (PDF + Digital Workspace Vault)',
     'Asset 03: The Cross-Functional Decision Guardrails Matrix (Figma + Miro Boards)',
     'Asset 04: The Executive Onboarding Codex (4-Document Management Pack)',
     'Asset 05: The Team Operational Diagnostic & Assessment Suite'
   ],
   bonuses: [
-    'Bonus 1: The Master Enterprise Unified Index (All toolkits pre-connected in a single command Notion workspace) — $250 Value',
+    'Bonus 1: The Master Enterprise Unified Index (All toolkits pre-connected in a single command Digital Workspace workspace) — $250 Value',
     'Bonus 2: The Plug-and-Play Delegation Agreement & Decision Tree (Digital PDF + DOCX) — $145 Value',
     'Bonus 3: The Board-Ready Executive Summary Presentation Template (Figma & Slides) — $195 Value',
     'Bonus 4: Lifetime Digital Updates, Template Revisions & New Module Drops Forever'

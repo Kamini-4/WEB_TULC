@@ -41,7 +41,7 @@ export const ServicesPage: React.FC = () => {
         'Cross-Layer Translation Audit (CEO to Edge Delivery)'
       ],
       icon: Layers,
-      idealFor: 'Enterprises ($10M–$100M+) where strategy loses 40%+ fidelity between the boardroom and operational execution.'
+      idealFor: 'Enterprises from $10M to $100M+ revenue where strategy loses 40%+ fidelity between the boardroom and operational execution.'
     },
     {
       id: '02',
@@ -93,9 +93,9 @@ export const ServicesPage: React.FC = () => {
   // 2. The 3 Executive Partnership Tracks
   const partnerships = [
     {
-      id: 'founder_freedom',
+      id: 'founder_sovereignty',
       tier: 'EXECUTIVE TRACK A',
-      title: 'The Founder Freedom Mandate',
+      title: 'The Founder Sovereignty Mandate',
       tagline: 'Solve Architectural Decision Latency & Reclaim Strategic Offense',
       description: 'For enterprise founders running 20 to 500+ headcount teams who are exhausted from serving as the default clearinghouse for daily ambiguity. We turn your tacit judgment into unambiguous, self-executing operational guardrails so your leadership team moves with sovereign autonomy.',
       benefits: [
@@ -123,7 +123,7 @@ export const ServicesPage: React.FC = () => {
       timeframe: '6-Month Structured Handover'
     },
     {
-      id: 'portfolio_freedom',
+      id: 'portfolio_sovereignty',
       tier: 'EXECUTIVE TRACK C',
       title: 'Portfolio Enterprise Governance',
       tagline: 'Build Scalable Governance Across PE & VC Portfolios',
@@ -196,7 +196,7 @@ export const ServicesPage: React.FC = () => {
           </h1>
 
           <p className="text-base sm:text-lg text-[#57534e] leading-relaxed">
-            We partner with ambitious founders, CEOs, and holding chairs ($10M–$100M+) to eliminate <strong className="text-[#1c1917] font-semibold">Architectural Decision Latency</strong>. We turn founder intuition into unambiguous, self-executing governance protocols so your enterprise compounds autonomously.
+            We partner with ambitious founders, CEOs, and holding chairs scaling $10M to $100M+ enterprise operations to eliminate <strong className="text-[#1c1917] font-semibold">Architectural Decision Latency</strong>. We turn founder intuition into unambiguous, self-executing governance protocols so your enterprise compounds autonomously.
           </p>
 
           <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
@@ -423,13 +423,13 @@ export const ServicesPage: React.FC = () => {
 
           <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono">
             <span className="text-zinc-400">
-              Explore the full Sovereign A–Z Strategic Playbook:
+              Benchmark your organization against our adversarial standard:
             </span>
             <Link
-              to="/playbook"
+              to="/assessment"
               className="inline-flex items-center gap-2 px-4 py-2 bg-[#b8860b] hover:bg-[#8c6708] text-white font-bold uppercase rounded-xs transition-colors self-start sm:self-auto"
             >
-              <span>Launch Playbook</span>
+              <span>Take The Two-Week Test</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>

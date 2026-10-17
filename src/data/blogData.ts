@@ -118,7 +118,7 @@ export const BLOG_POSTS: BlogPost[] = [
         heading: '1. The Billable-Hour Incentive Problem',
         subheading: 'Why traditional firms are economically motivated to never truly fix your system.',
         content: [
-          'Let\'s be clear: consulting partners are smart people. But the business model of traditional management consulting is structurally misaligned with executive freedom.',
+          'Let\'s be clear: consulting partners are smart people. But the business model of traditional management consulting is structurally misaligned with executive sovereignty.',
           'They get paid by **the billable hour** and **the size of their deployment team**. If they install a clean, self-governing protocol that solves your issue in 14 days, their revenue evaporates.',
           'Their economic incentive is to make your problem look so vastly intricate that only their continuous presence can manage the fallout.'
         ],

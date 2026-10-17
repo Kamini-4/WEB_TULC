@@ -125,7 +125,7 @@ const DossierCaseStudyPreview: React.FC<DossierCaseStudyPreviewProps> = ({ onBri
                 <div class="badge">DECLASSIFIED INSTITUTIONAL CASE ARTIFACT // TULC EXECUTIVE ARCHIVE</div>
                 <h1 style="margin: 6px 0; text-transform: uppercase; font-size: 22pt;">Sovereign Systemic Dossier</h1>
                 <div class="mono" style="color: #666;">FINGERPRINT: CASE_REF-849201 // RECORD: <span style="color:#b8860b;">ANONYMIZED FOR CONFIDENTIALITY</span></div>
-                <div class="mono" style="margin-top: 4px; color: #444;">PRINCIPAL: <span class="redacted">Suchita Sancheti Client</span> [GROUP FOUNDER & CEO] // ENTITY: <span class="redacted">Global Industrial Corp</span> [GLOBAL DEEPTECH & MANUFACTURING CONGLOMERATE]</div>
+                <div class="mono" style="margin-top: 4px; color: #444;">CLIENT: <span class="redacted">Advisory Client</span> [GROUP FOUNDER & CEO] // ENTITY: <span class="redacted">Global Industrial Corp</span> [GLOBAL DEEPTECH & MANUFACTURING CONGLOMERATE]</div>
               </div>
 
               <div class="metrics-grid">
