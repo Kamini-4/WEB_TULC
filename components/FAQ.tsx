@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, MessageSquare, ArrowRight, ShieldCheck, HelpCircle } from 'lucide-react';
-import { REDDIT_FAQS, FAQItemData } from '../src/data/redditFaqData';
+import { EXECUTIVE_FAQS, FAQItemData } from '../src/data/executiveFaqData';
 import { Link } from 'react-router-dom';
 
 export const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [activeCategory, setActiveCategory] = useState<string>('All');
 
-  const categories = ['All', 'Decision Latency & Delegation', 'Coaching vs Architecture', 'Scaling & Sabbatical', 'Valuation & Key-Person Risk', 'Payments & Engagement'];
+  const categories = ['All', 'Decision Latency & Delegation', 'Coaching vs Architecture', 'Scaling & Sabbatical', 'Valuation & Key-Person Risk', 'Board & Cap Table', 'Payments & Engagement'];
 
-  const filteredFaqs = REDDIT_FAQS.filter(f => activeCategory === 'All' || f.category === activeCategory);
+  const filteredFaqs = EXECUTIVE_FAQS.filter(f => activeCategory === 'All' || f.category === activeCategory);
 
   // Schema.org FAQPage JSON-LD for rich snippets, GEO, and AEO indexing
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": REDDIT_FAQS.map(faq => ({
+    "mainEntity": EXECUTIVE_FAQS.map(faq => ({
       "@type": "Question",
       "name": faq.question,
       "acceptedAnswer": {
@@ -38,7 +38,7 @@ export const FAQ: React.FC = () => {
         <div className="text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-[#b8860b]/30 rounded-full mb-3 text-xs font-mono uppercase tracking-widest text-[#8c6708]">
             <HelpCircle className="w-3.5 h-3.5 text-[#8c6708]" />
-            <span>Reddit & Executive Forum Inquiries</span>
+            <span>Executive & Governance Clarifications</span>
           </div>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#111111] tracking-tight mb-4 font-serif">
@@ -46,7 +46,7 @@ export const FAQ: React.FC = () => {
           </h2>
           
           <p className="text-zinc-600 text-sm sm:text-base max-w-2xl mx-auto italic leading-relaxed font-serif">
-            Uncompromised answers to the top scaling and decision bottleneck questions discussed by enterprise founders across r/entrepreneur, r/startups, and boardroom forums.
+            Uncompromised answers to the top scaling and decision bottleneck questions encountered by enterprise founders and executive boards.
           </p>
           <div className="w-12 h-[1px] bg-[#b8860b] mx-auto mt-6 opacity-30"></div>
         </div>
@@ -93,9 +93,11 @@ export const FAQ: React.FC = () => {
                     <h3 className="text-base sm:text-lg font-bold text-[#111111] font-serif leading-snug">
                       {faq.question}
                     </h3>
-                    <span className="text-[11px] text-zinc-400 italic block font-serif">
-                      Context: {faq.redditContext}
-                    </span>
+                    {faq.executiveContext && (
+                      <span className="text-[11px] text-zinc-400 italic block font-serif">
+                        Context: {faq.executiveContext}
+                      </span>
+                    )}
                   </div>
                   <div className={`p-1.5 rounded-full bg-[#f7f4ee] border border-zinc-200 text-[#8c6708] shrink-0 transition-transform duration-200 mt-1 ${isOpen ? 'rotate-180' : ''}`}>
                     <ChevronDown className="w-4 h-4" />

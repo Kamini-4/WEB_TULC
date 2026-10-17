@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PlaybookLetter, GODIN_PLAYBOOK } from '../data/godinPlaybookData';
+import { PlaybookLetter, SOVEREIGN_PLAYBOOK } from '../data/sovereignPlaybookData';
 import { Search, Filter, BookOpen, Quote, Sparkles, Check, Copy, ArrowRight, X } from 'lucide-react';
 
 interface PlaybookExplorerProps {
@@ -20,12 +20,12 @@ export const PlaybookExplorer: React.FC<PlaybookExplorerProps> = ({ onOpenCalibr
     'Prestige Scarcity'
   ];
 
-  const filteredLetters = GODIN_PLAYBOOK.filter(item => {
+  const filteredLetters = SOVEREIGN_PLAYBOOK.filter(item => {
     const matchesSearch =
       item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.tagline.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.letter.toLowerCase() === searchTerm.toLowerCase() ||
-      item.godinRule.toLowerCase().includes(searchTerm.toLowerCase());
+      item.strategicRule.toLowerCase().includes(searchTerm.toLowerCase());
     
     const matchesCategory =
       selectedCategory === 'All' || item.category === selectedCategory;
@@ -46,19 +46,19 @@ export const PlaybookExplorer: React.FC<PlaybookExplorerProps> = ({ onOpenCalibr
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-amber-400 font-mono text-xs uppercase tracking-widest mb-3">
-          The Seth Godin Playbook (A to Z)
+          The Sovereign Playbook (A to Z)
         </div>
         <h2 className="serif-heading text-3xl sm:text-5xl font-bold text-zinc-100 tracking-tight">
-          How Seth Godin Would Sell Our Services
+          Architectural Principles of Sovereign Influence & Execution
         </h2>
         <p className="text-zinc-400 text-base sm:text-lg mt-4 font-light">
-          A 26-point sovereign masterclass replacing generic consultative pitches with radical positioning, permission marketing, constructive tension, and tribal identity.
+          A 26-point masterclass replacing generic consultative pitches with radical positioning, permission architecture, constructive tension, and institutional alignment.
         </p>
       </div>
 
       {/* Quick Letter Navigation Bar (A to Z) */}
       <div className="flex flex-wrap items-center justify-center gap-1.5 max-w-4xl mx-auto mb-8 p-2 rounded-xl bg-zinc-950 border border-zinc-800/80">
-        {GODIN_PLAYBOOK.map(item => {
+        {SOVEREIGN_PLAYBOOK.map(item => {
           const isSelected = activeLetterModal?.letter === item.letter;
           return (
             <button
@@ -136,7 +136,7 @@ export const PlaybookExplorer: React.FC<PlaybookExplorerProps> = ({ onOpenCalibr
               </p>
 
               <div className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-850 text-xs text-zinc-300 font-serif italic mb-4">
-                "{item.godinRule}"
+                "{item.strategicRule}"
               </div>
             </div>
 
@@ -179,14 +179,14 @@ export const PlaybookExplorer: React.FC<PlaybookExplorerProps> = ({ onOpenCalibr
               "{activeLetterModal.tagline}"
             </p>
 
-            {/* Seth Godin Rule */}
+            {/* Sovereign Strategic Rule */}
             <div className="mb-6">
               <h4 className="text-xs font-mono uppercase tracking-wider text-amber-400 flex items-center gap-2 mb-2">
                 <Quote className="w-3.5 h-3.5" />
-                The Seth Godin Doctrine
+                The Sovereign Strategic Doctrine
               </h4>
               <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 text-sm text-zinc-200 font-serif leading-relaxed italic">
-                "{activeLetterModal.godinRule}"
+                "{activeLetterModal.strategicRule}"
               </div>
             </div>
 

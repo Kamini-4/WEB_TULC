@@ -22,7 +22,7 @@ export const TribeManifesto: React.FC<TribeManifestoProps> = ({
             The Two Destinies of the Enterprise Leader
           </h2>
           <p className="text-zinc-400 text-base sm:text-lg mt-4 font-light">
-            Seth Godin taught us that contrast creates clarity. You cannot claim sovereign leadership while endorsing the behaviors of an overworked operator.
+            First principles teach us that contrast creates clarity. You cannot claim sovereign leadership while endorsing the behaviors of an overworked operator.
           </p>
         </div>
 
@@ -213,7 +213,7 @@ export const TribeManifesto: React.FC<TribeManifestoProps> = ({
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-amber-400 mb-2">
                 <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
-                Seth Godin Principle X: eXclusion Criteria
+                Principle X: Sovereign Exclusion Criteria
               </div>
               <h3 className="serif-heading text-3xl font-bold text-zinc-100">
                 Who The Unbounded Leadership Co. Is NOT For
@@ -225,7 +225,7 @@ export const TribeManifesto: React.FC<TribeManifestoProps> = ({
           </div>
 
           <p className="text-sm text-zinc-400 mb-8 leading-relaxed">
-            Following Seth Godin’s mandate on radical polarization, we do not want to waste your time or ours. If any of the following describe your leadership philosophy, we respectfully recommend engaging a standard management consultancy instead:
+            Following our foundational doctrine on radical alignment and selective partnership, we do not want to waste your time or ours. If any of the following describe your leadership philosophy, we respectfully recommend engaging a standard management consultancy instead:
           </p>
 
           <div className="grid sm:grid-cols-2 gap-4 text-sm">

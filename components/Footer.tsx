@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/faq" className="hover:text-[#8c6708] transition-colors">
-                  Reddit Founder FAQs
+                  Founder Governance FAQs
                 </Link>
               </li>
             </ul>

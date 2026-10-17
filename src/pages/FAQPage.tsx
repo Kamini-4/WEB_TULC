@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, HelpCircle, ShieldCheck, ArrowRight, Compass, Mail, Lock } from 'lucide-react';
-import { REDDIT_FAQS } from '../data/redditFaqData';
+import { EXECUTIVE_FAQS } from '../data/executiveFaqData';
 import { Link } from 'react-router-dom';
 import { ConciergeModal } from '../../components/ConciergeModal';
 import { SEOHead } from '../components/SEOHead';
@@ -13,9 +13,9 @@ export const FAQPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [conciergeOpen, setConciergeOpen] = useState(false);
 
-  const categories = ['All', 'Decision Latency & Delegation', 'Coaching vs Architecture', 'Scaling & Sabbatical', 'Valuation & Key-Person Risk', 'Payments & Engagement'];
+  const categories = ['All', 'Decision Latency & Delegation', 'Coaching vs Architecture', 'Scaling & Sabbatical', 'Valuation & Key-Person Risk', 'Board & Cap Table', 'Payments & Engagement'];
 
-  const filteredFaqs = REDDIT_FAQS.filter(f => activeCategory === 'All' || f.category === activeCategory);
+  const filteredFaqs = EXECUTIVE_FAQS.filter(f => activeCategory === 'All' || f.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] font-serif">
@@ -24,7 +24,7 @@ export const FAQPage: React.FC = () => {
         description="Authoritative answers to top founder dilemmas: stepping away, executive compensation, board management, delegation standards, and decision velocity."
         canonicalPath="/faq"
         keywords="founder faq, executive coaching vs architecture, key person risk, decision latency, scaling dilemmas, suchita sancheti"
-        faqData={REDDIT_FAQS.map(faq => ({ question: faq.question, answer: faq.answer }))}
+        faqData={EXECUTIVE_FAQS.map(faq => ({ question: faq.question, answer: faq.answer }))}
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Executive FAQ', path: '/faq' }
@@ -38,7 +38,7 @@ export const FAQPage: React.FC = () => {
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-tight text-[#b8860b] font-bold">
             <Compass className="w-4 h-4 text-[#8c6708]" />
-            <span>Executive Inquiries & Reddit Dilemmas</span>
+            <span>Executive Inquiries & Governance Dilemmas</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1c1917] tracking-tight">
@@ -46,7 +46,7 @@ export const FAQPage: React.FC = () => {
           </h1>
 
           <p className="text-base sm:text-lg text-[#57534e] leading-relaxed">
-            Direct, forensic answers addressing the most urgent founder bottlenecks, delegation friction, and governance questions asked on Reddit (r/entrepreneur, r/startups, r/consulting) and board forums.
+            Direct, forensic answers addressing the most urgent founder bottlenecks, delegation friction, and governance questions raised across enterprise boardrooms and executive forums.
           </p>
         </div>
 
@@ -92,9 +92,11 @@ export const FAQPage: React.FC = () => {
                     <h2 className="text-base sm:text-lg font-bold text-[#1c1917] font-serif leading-snug">
                       {faq.question}
                     </h2>
-                    <span className="text-xs text-[#78716c] italic block font-serif">
-                      Context: {faq.redditContext}
-                    </span>
+                    {faq.executiveContext && (
+                      <span className="text-xs text-[#78716c] italic block font-serif">
+                        Executive Context: {faq.executiveContext}
+                      </span>
+                    )}
                   </div>
                   <div className={`p-1.5 rounded-full bg-[#f7f4ee] border border-[#ded6c5] text-[#8c6708] shrink-0 transition-transform duration-200 mt-1 ${isOpen ? 'rotate-180' : ''}`}>
                     <ChevronDown className="w-4 h-4" />

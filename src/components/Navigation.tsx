@@ -56,7 +56,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
-            Seth Godin A–Z Playbook
+            Sovereign A–Z Playbook
           </button>
 
           <button

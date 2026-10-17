@@ -40,7 +40,7 @@ export const InternalLinksMatrix: React.FC<InternalLinksMatrixProps> = ({ curren
       title: 'Intelligence & Research',
       links: [
         { name: 'Executive Library', path: '/library', desc: '19 institutional dispatches & whitepapers' },
-        { name: 'Strategic Playbook (A–Z)', path: '/playbook', desc: 'Seth Godin doctrine on tension & tribes' },
+        { name: 'Strategic Playbook (A–Z)', path: '/playbook', desc: 'Sovereign doctrine on tension & tribal alignment' },
         { name: 'Founder Governance FAQs', path: '/faq', desc: 'Direct answers to top scale dilemmas' }
       ]
     },

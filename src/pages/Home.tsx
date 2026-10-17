@@ -600,7 +600,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 4.5 Executive & Reddit Founder FAQs Section */}
+      {/* 4.5 Executive & Founder Governance FAQs Section */}
       <FAQ />
 
       {/* 5. Sovereign Invitation (Clean, High Contrast, Black Button) */}

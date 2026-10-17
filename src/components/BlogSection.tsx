@@ -155,43 +155,45 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenCalibration }) =
                   ))}
                 </div>
 
-                {/* Triple Approach Breakdown Card */}
-                <div className="mt-4 p-5 rounded-xl bg-zinc-900/70 border border-zinc-800 space-y-3">
-                  <div className="text-xs font-mono uppercase tracking-widest text-amber-400/90 font-semibold flex items-center gap-2">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                    Triple-Perspective Synthesis
-                  </div>
+                {/* Executive Case Breakdown Card: Problem • Affects • Sovereign Solution */}
+                {section.executiveFramework && (
+                  <div className="mt-5 p-5 sm:p-6 rounded-xs bg-[#1c1917] border border-[#b8860b]/40 text-stone-200 space-y-4 font-serif shadow-xs">
+                    <div className="text-xs font-mono uppercase tracking-widest text-[#d4af37] font-bold flex items-center gap-2 border-b border-stone-800 pb-2.5">
+                      <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
+                      <span>Executive Diagnosis & Architectural Prescription</span>
+                    </div>
 
-                  {/* Angle 1: Plain English */}
-                  <div className="pt-2">
-                    <span className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider block mb-0.5">
-                      1. Plain-English Intuition:
-                    </span>
-                    <p className="text-xs sm:text-sm text-zinc-200">
-                      {section.conceptAngles.angle1PlainEnglish}
-                    </p>
-                  </div>
+                    {/* Problem Story */}
+                    <div className="space-y-1">
+                      <span className="text-[11px] font-mono text-[#b8860b] uppercase tracking-wider block font-bold">
+                        The In-Chair Reality (The Problem):
+                      </span>
+                      <p className="text-xs sm:text-sm text-stone-200 leading-relaxed font-serif italic">
+                        "{section.executiveFramework.problemStory}"
+                      </p>
+                    </div>
 
-                  {/* Angle 2: Executive Metaphor */}
-                  <div className="pt-2 border-t border-zinc-800/80">
-                    <span className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider block mb-0.5">
-                      2. Executive Architectural Metaphor:
-                    </span>
-                    <p className="text-xs sm:text-sm text-zinc-200 italic">
-                      {section.conceptAngles.angle2ExecutiveMetaphor}
-                    </p>
-                  </div>
+                    {/* Compounding Effects */}
+                    <div className="pt-3 border-t border-stone-800/80 space-y-1">
+                      <span className="text-[11px] font-mono text-red-400 uppercase tracking-wider block font-bold">
+                        Compounding Systemic Friction (The Toll):
+                      </span>
+                      <p className="text-xs sm:text-sm text-stone-300 leading-relaxed font-serif">
+                        {section.executiveFramework.affects}
+                      </p>
+                    </div>
 
-                  {/* Angle 3: Mathematical/Financial */}
-                  <div className="pt-2 border-t border-zinc-800/80">
-                    <span className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider block mb-0.5">
-                      3. Financial & Latency Physics:
-                    </span>
-                    <p className="text-xs sm:text-sm text-amber-200 font-mono">
-                      {section.conceptAngles.angle3MathematicalOrFinancial}
-                    </p>
+                    {/* Value-Driven Solution */}
+                    <div className="pt-3 border-t border-stone-800/80 space-y-1 bg-[#24201c] p-3 rounded-xs border-l-2 border-[#b8860b]">
+                      <span className="text-[11px] font-mono text-emerald-400 uppercase tracking-wider block font-bold">
+                        The Sovereign Architectural Solution:
+                      </span>
+                      <p className="text-xs sm:text-sm text-stone-100 font-serif font-semibold leading-relaxed">
+                        {section.executiveFramework.solution}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             ))}
           </div>

@@ -10,7 +10,7 @@ interface DiagnosticQuestion {
     label: string;
     score: number; // 0 to 25
     description: string;
-    godinDiagnosis: string;
+    strategicDiagnosis: string;
   }[];
 }
 
@@ -25,25 +25,25 @@ const QUESTIONS: DiagnosticQuestion[] = [
         label: 'Continuous Reactive Pings',
         score: 5,
         description: 'Constantly pinged via Slack, WhatsApp, and email; I respond within minutes all day.',
-        godinDiagnosis: 'Cognitive slot machine syndrome. Constant interruptions leave zero space for strategic synthesis.'
+        strategicDiagnosis: 'Cognitive slot machine syndrome. Constant interruptions leave zero space for strategic synthesis.'
       },
       {
         label: 'Periodic Triage',
         score: 12,
         description: 'I try to batch responses, but major fires regularly drag me back into operational chat.',
-        godinDiagnosis: 'Partial systemic leakage. Your intention is sound, but boundaries lack architectural enforcement.'
+        strategicDiagnosis: 'Partial systemic leakage. Your intention is sound, but boundaries lack architectural enforcement.'
       },
       {
         label: 'Structured Daily Windows',
         score: 19,
         description: 'Direct reports know I only check messages during 2 designated windows daily.',
-        godinDiagnosis: 'Healthy boundary setting. Close to sovereign state with occasional friction.'
+        strategicDiagnosis: 'Healthy boundary setting. Close to sovereign state with occasional friction.'
       },
       {
         label: 'Pure Asynchronous Governance',
         score: 25,
         description: 'Zero impromptu operational pings. Communication occurs exclusively via structured decision memos.',
-        godinDiagnosis: 'Sovereign institutional clarity. Exceptional cognitive surplus preserved for vision.'
+        strategicDiagnosis: 'Sovereign institutional clarity. Exceptional cognitive surplus preserved for vision.'
       }
     ]
   },
@@ -57,25 +57,25 @@ const QUESTIONS: DiagnosticQuestion[] = [
         label: 'Almost Everything',
         score: 5,
         description: 'Any hiring, client concession, or expenditure over $1,000 must pass through me.',
-        godinDiagnosis: 'The Founder Bottleneck Trap. You are the single point of failure in your enterprise.'
+        strategicDiagnosis: 'The Founder Bottleneck Trap. You are the single point of failure in your enterprise.'
       },
       {
         label: 'Moderate Operational Approvals',
         score: 12,
         description: 'Directors make small decisions, but anything strategic or over $10k lands on my desk.',
-        godinDiagnosis: 'Managerial drag. High decision latency is quietly stifling your market velocity.'
+        strategicDiagnosis: 'Managerial drag. High decision latency is quietly stifling your market velocity.'
       },
       {
         label: 'Defined Threshold Matrices',
         score: 19,
         description: 'Clear written parameters allow VPs to commit up to $50k autonomously within quarterly plans.',
-        godinDiagnosis: 'Advanced institutional maturity. Team moves quickly with minor escalation friction.'
+        strategicDiagnosis: 'Advanced institutional maturity. Team moves quickly with minor escalation friction.'
       },
       {
         label: 'Complete Autonomous Frameworks',
         score: 25,
         description: 'Executives operate within a 1-page Sovereign Decision Treaty; I only calibrate directional guardrails.',
-        godinDiagnosis: 'Sovereign architectural mastery. Enterprise compounds without your presence.'
+        strategicDiagnosis: 'Sovereign architectural mastery. Enterprise compounds without your presence.'
       }
     ]
   },
@@ -89,25 +89,25 @@ const QUESTIONS: DiagnosticQuestion[] = [
         label: 'I Have to Personally Intervene',
         score: 5,
         description: 'If I do not catch and rewrite it myself, low-quality work slips out to clients or partners.',
-        godinDiagnosis: 'Absence of tribal immune system. You are acting as chief proofreader instead of statesman.'
+        strategicDiagnosis: 'Absence of tribal immune system. You are acting as chief proofreader instead of statesman.'
       },
       {
         label: 'Managers Grumble Privately',
         score: 12,
         description: 'Issues are discussed in private reviews, but peer confrontations are avoided.',
-        godinDiagnosis: 'Consensus theater. Politeness is prioritized over institutional excellence.'
+        strategicDiagnosis: 'Consensus theater. Politeness is prioritized over institutional excellence.'
       },
       {
         label: 'Active Feedback Loops',
         score: 18,
         description: 'Directors hold direct reports accountable to performance rubrics consistently.',
-        godinDiagnosis: 'Solid organizational hygiene. Approaching genuine cultural self-defense.'
+        strategicDiagnosis: 'Solid organizational hygiene. Approaching genuine cultural self-defense.'
       },
       {
         label: 'Fierce Peer Defense (The Sovereign Creed)',
         score: 25,
         description: 'The team self-regulates immediately; mediocre output is rejected by peers before leaders ever see it.',
-        godinDiagnosis: 'Seth Godin Tribal Nirvana. Culture acts as an autonomous immune system.'
+        strategicDiagnosis: 'Sovereign Tribal Alignment. Culture acts as an autonomous immune system.'
       }
     ]
   },
@@ -121,25 +121,25 @@ const QUESTIONS: DiagnosticQuestion[] = [
         label: 'Enterprise Paralysis',
         score: 5,
         description: 'Critical deals would stall, internal disputes would escalate, and revenue would plummet.',
-        godinDiagnosis: 'Operational imprisonment. You own a high-stress job, not a self-sustaining asset.'
+        strategicDiagnosis: 'Operational imprisonment. You own a high-stress job, not a self-sustaining asset.'
       },
       {
         label: 'Treading Water',
         score: 12,
         description: 'The business would survive on current momentum, but all growth initiatives would freeze.',
-        godinDiagnosis: 'Momentum plateau. The company can coast, but cannot steer without you.'
+        strategicDiagnosis: 'Momentum plateau. The company can coast, but cannot steer without you.'
       },
       {
         label: 'Steady Execution',
         score: 19,
         description: 'Operations would continue cleanly; leadership team would handle 90% of emergencies.',
-        godinDiagnosis: 'High operational resilience. Ready for full institutional sovereign graduation.'
+        strategicDiagnosis: 'High operational resilience. Ready for full institutional sovereign graduation.'
       },
       {
         label: 'Autonomous Compounding',
         score: 25,
         description: 'The company would grow faster, close major contracts, and return record margins.',
-        godinDiagnosis: 'The Holy Grail of Enterprise Sovereignty. An enduring, transcendent institution.'
+        strategicDiagnosis: 'The Holy Grail of Enterprise Sovereignty. An enduring, transcendent institution.'
       }
     ]
   }
@@ -325,7 +325,7 @@ export const DiagnosticFunnel: React.FC<DiagnosticFunnelProps> = ({ onOpenCalibr
                     <span className="font-mono text-amber-400">{score} / 25 pts</span>
                   </div>
                   <p className="text-xs text-zinc-400 italic">
-                    Diagnosis: {selectedOpt?.godinDiagnosis}
+                    Diagnosis: {selectedOpt?.strategicDiagnosis}
                   </p>
                 </div>
               );

@@ -139,12 +139,12 @@ export const ServicesPage: React.FC = () => {
     }
   ];
 
-  // 3. Seth Godin Thought Process Pillars
-  const godinPillars = [
+  // 3. Sovereign Governance Thought Process Pillars
+  const strategicPillars = [
     {
       title: 'Constructive Tension',
       concept: 'The Catalyst of Real Transformation',
-      description: 'Seth Godin taught us that growth requires tension—not destructive friction, but the productive tension between where your company is today and what it must become. We don’t pacify founders; we introduce the precise constructive tension needed to break through legacy comfort zones.',
+      description: 'Growth requires productive tension—not destructive friction, but the calibrated tension between where your company is today and what it must become. We don’t pacify founders; we introduce the precise constructive tension needed to break through legacy comfort zones.',
       quote: '"If there’s no tension, there’s no change. Tension creates movement."'
     },
     {
@@ -385,22 +385,22 @@ export const ServicesPage: React.FC = () => {
           </div>
         </div>
 
-        {/* SECTION 3: EMBEDDED SETH GODIN THOUGHT PROCESS (Constructive Tension & Tribe) */}
+        {/* SECTION 3: EMBEDDED SOVEREIGN THOUGHT PROCESS (Constructive Tension & Alignment) */}
         <div className="p-8 sm:p-10 md:p-12 bg-[#111111] border border-[#b8860b]/40 rounded-xs text-white shadow-xl space-y-8">
           <div className="max-w-3xl space-y-2">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#b8860b]/20 border border-[#b8860b]/40 rounded-full text-[10px] font-mono uppercase text-[#b8860b] font-bold">
               <span>Philosophy & Governance Doctrine</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif text-white leading-tight">
-              The Seth Godin Thought Process: <span className="text-[#b8860b] italic font-serif">Constructive Tension & Tribal Governance</span>
+              The Sovereign Thought Process: <span className="text-[#b8860b] italic font-serif">Constructive Tension & Institutional Alignment</span>
             </h2>
             <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-serif italic">
-              Why traditional management consultancies fail: They treat companies as mathematical spreadsheets. We apply Seth Godin's foundational doctrine: organizations are living tribes driven by tension, culture, and permission.
+              Why traditional management consultancies fail: They treat companies as mathematical spreadsheets. We apply our foundational doctrine: organizations are living systems driven by productive tension, shared culture, and explicit consent.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {godinPillars.map((pillar, idx) => (
+            {strategicPillars.map((pillar, idx) => (
               <div 
                 key={idx}
                 className="bg-white/5 border border-white/10 hover:border-[#b8860b]/60 p-6 rounded-xs space-y-3 transition-colors"
@@ -423,7 +423,7 @@ export const ServicesPage: React.FC = () => {
 
           <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono">
             <span className="text-zinc-400">
-              Explore the full Seth Godin A–Z Strategic Playbook:
+              Explore the full Sovereign A–Z Strategic Playbook:
             </span>
             <Link
               to="/playbook"

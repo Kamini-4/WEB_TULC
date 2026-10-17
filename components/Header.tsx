@@ -37,9 +37,9 @@ export const Header: React.FC = () => {
     { name: 'Systemic Methodology', path: '/methodology', icon: Compass, desc: 'Cybernetics, invariant substrates & cognitive load' },
     { name: 'Turnkey Digital Toolkits', path: '/products', icon: Layers, desc: 'Notion & Coda operating workspaces ($27–$197)' },
     { name: 'Cognitive Tax Calculator', path: '/cognitive-tax', icon: Calculator, desc: 'Quantify annual EBITDA lost to coordination drag' },
-    { name: 'Seth Godin Strategic Playbook', path: '/playbook', icon: BookOpen, desc: 'A–Z strategic doctrine on tension, tribes & permission' },
+    { name: 'Sovereign Strategic Playbook', path: '/playbook', icon: BookOpen, desc: 'A–Z strategic doctrine on tension, alignment & scale' },
     { name: 'Intellectual Dispatches', path: '/library', icon: FileText, desc: 'Research briefings on authority, governance & scale' },
-    { name: 'Reddit Founder FAQs', path: '/faq', icon: HelpCircle, desc: 'Answers to the top questions asked on r/entrepreneur' }
+    { name: 'Founder Governance FAQs', path: '/faq', icon: HelpCircle, desc: 'Authoritative answers to top founder and board scale dilemmas' }
   ];
 
   const isActive = (path: string) => {

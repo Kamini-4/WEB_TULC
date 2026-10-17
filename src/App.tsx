@@ -41,7 +41,7 @@ export function App() {
           </div>
         )}
 
-        {/* Seth Godin A-Z Playbook view */}
+        {/* Sovereign A-Z Playbook view */}
         {activeTab === 'playbook' && (
           <div>
             <PlaybookExplorer onOpenCalibration={openCalibrationModal} />

@@ -24,12 +24,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Tribal Creed Badge */}
         <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-amber-500/30 text-amber-300 text-xs font-mono tracking-wider mb-8 shadow-inner shadow-amber-500/5">
           <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-          <span>THE SETH GODIN TRIBAL RE-POSITIONING</span>
+          <span>SOVEREIGN INSTITUTIONAL RE-POSITIONING</span>
           <span className="text-zinc-600">|</span>
           <span className="text-zinc-400 font-sans">For Enterprise CXOs & Founders</span>
         </div>
 
-        {/* The Tribal Hook (Seth Godin Doctrine) */}
+        {/* The Tribal Hook (Sovereign Doctrine) */}
         <h1 className="serif-heading text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-zinc-100 leading-[1.08] mb-6">
           Sovereign Architects <br className="hidden sm:inline" />
           <span className="text-gold-gradient italic font-normal">Build What Outlives Them.</span>
@@ -57,7 +57,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             onClick={onExplorePlaybook}
             className="w-full sm:w-auto px-8 py-4 rounded-sm bg-zinc-900 hover:bg-zinc-850 text-zinc-200 border border-zinc-800 hover:border-zinc-700 font-medium text-sm tracking-wide transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
           >
-            <span>Read Seth Godin A–Z Playbook</span>
+            <span>Read Sovereign A–Z Playbook</span>
             <span className="text-amber-400 font-mono text-xs">(26 Principles)</span>
           </button>
         </div>

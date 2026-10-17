@@ -48,7 +48,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, openCalibrationModa
                   onClick={() => onSelectTab('playbook')}
                   className="hover:text-amber-400 transition-colors cursor-pointer"
                 >
-                  Seth Godin A–Z Playbook
+                  Sovereign A–Z Playbook
                 </button>
               </li>
               <li>
@@ -104,7 +104,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, openCalibrationModa
             © {new Date().getFullYear()} The Unbounded Leadership Co. All sovereign rights reserved.
           </div>
           <div>
-            Positioned according to Seth Godin's Sovereign Tribal Doctrine.
+            Positioned according to Our Sovereign Strategic Doctrine.
           </div>
         </div>
       </div>

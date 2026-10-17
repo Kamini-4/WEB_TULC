@@ -43,8 +43,8 @@ export const InternalHubBridges: React.FC<InternalHubBridgesProps> = ({ classNam
       group: 'Intelligence & Doctrine',
       links: [
         { name: 'Intellectual Dispatches & Library', path: '/library', icon: FileText, badge: '19 Briefs' },
-        { name: 'Reddit Founder FAQs', path: '/faq', icon: HelpCircle, badge: 'r/entrepreneur' },
-        { name: 'Seth Godin Playbook', path: '/playbook', icon: BookOpen, badge: 'A–Z Doctrine' }
+        { name: 'Founder Governance FAQs', path: '/faq', icon: HelpCircle, badge: 'Executive FAQ' },
+        { name: 'Sovereign Strategic Playbook', path: '/playbook', icon: BookOpen, badge: 'A–Z Doctrine' }
       ]
     },
     {

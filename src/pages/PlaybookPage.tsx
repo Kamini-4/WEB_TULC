@@ -14,7 +14,7 @@ export const PlaybookPage: React.FC = () => {
         title="Strategic Doctrine & Executive Playbook (A–Z)"
         description="Comprehensive strategic doctrine on constructive tension, permission marketing, tribe building, and sovereign decision-making for enterprise founders."
         canonicalPath="/playbook"
-        keywords="strategic doctrine, seth godin playbook, constructive tension, permission marketing, tribe building, leadership architecture"
+        keywords="strategic doctrine, sovereign playbook, constructive tension, permission marketing, tribe building, leadership architecture"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Strategic Playbook', path: '/playbook' }
