@@ -123,22 +123,22 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
       : 'Mandate Forensic Diagnostic';
 
   return (
-    <section id="diagnostic" className="py-10 sm:py-14 lg:py-16 border-b border-[#e5decfe0] bg-[#f8f6f0] relative">
+    <section id="diagnostic" className="py-10 sm:py-12 lg:py-14 border-b border-[#e5decfe0] bg-[#f8f6f0] relative">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-5 sm:mb-6">
           <div className="flex flex-wrap items-center gap-2 text-xs uppercase text-[#9d7b38] font-bold mb-1.5 sm:mb-2">
-            <span>Proprietary Assessment</span>
+            <span className="bg-[#17181c] text-[#d4af37] px-2 py-0.5 rounded-xs font-mono">Phase 2 · In-Depth Assessment</span>
             <span aria-hidden="true" className="text-[#c9bea9]">·</span>
             <span className="text-[#17181c] font-bold">Patent Pending Ref: L.O.S.-P721</span>
             <span aria-hidden="true" className="text-[#c9bea9]">·</span>
             <span>Architectural Vectoring</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17181c] leading-tight">
-            The Patent-Pending Leadership Operating System (L.O.S.) Diagnostic™
+            The In-Depth Leadership Operating System (L.O.S.) Diagnostic™
           </h2>
-          <p className="mt-2 text-xs sm:text-sm text-[#4e5159] font-normal leading-relaxed italic">
+          <p className="mt-2 text-sm sm:text-base text-[#4e5159] font-normal leading-relaxed italic">
             Conventional leadership surveys measure symptoms and polite corporate feelings. Our <strong className="font-bold text-[#17181c] not-italic">patent-pending architectural diagnostic</strong> isolates where organizational fear hides behind meetings, committees, and consensus loops.
           </p>
         </div>
@@ -190,36 +190,36 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
               {/* Left 7 Columns: The 3 Governance Switches */}
               <div className="lg:col-span-7 space-y-4 sm:space-y-5">
                 
-                {/* Switch 1: Decision Velocity */}
+                {/* Switch 1: Decision Speed */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <label className="text-xs uppercase font-bold text-[#17181c]">
-                      Category 01 · Decision Velocity & Mandate Cadence
+                      Category 01 · Decision Speed & Follow-Through
                     </label>
-                    <span className="text-[11px] text-[#6b6e76] italic">Where does conviction stall?</span>
+                    <span className="text-[11px] text-[#6b6e76] italic">Where do decisions get delayed?</span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                     {[
                       {
                         id: 'consensus-stalled',
                         label: 'Consensus Paralysis',
-                        sub: 'Decisions hide in committees',
+                        sub: 'Decisions hide in endless meetings',
                       },
                       {
                         id: 'hybrid-friction',
-                        label: 'Post-Facto Review',
-                        sub: 'Second-guessing after signoff',
+                        label: 'Second-Guessing',
+                        sub: 'People hesitate after sign-off',
                       },
                       {
                         id: 'autonomous-cadence',
-                        label: 'Sovereign Mandate',
-                        sub: 'Explicit 14-day yes/no loops',
+                        label: 'Clear Decision Rights',
+                        sub: 'Fast 14-day yes/no loops',
                       },
                     ].map((opt) => (
                       <button
                         key={opt.id}
                         onClick={() => handleSelectOption('decisionVelocity', opt.id as any)}
-                        className={`p-3 rounded text-left border transition-all min-h-[58px] ${
+                        className={`p-3 rounded text-left border transition-all min-h-[58px] cursor-pointer ${
                           levers.decisionVelocity === opt.id
                             ? 'bg-[#17181c] border-[#17181c] text-[#f8f6f0] shadow-xs'
                             : 'bg-[#fcfaf7] border-[#e5decfe0] hover:border-[#c5a059] text-[#17181c]'
@@ -238,32 +238,32 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <label className="text-xs uppercase font-bold text-[#17181c]">
-                      Category 02 · Board-Executive Governance Alignment
+                      Category 02 · Board & Leadership Team Alignment
                     </label>
-                    <span className="text-[11px] text-[#6b6e76] italic">Governance vs. Interrogation</span>
+                    <span className="text-[11px] text-[#6b6e76] italic">Support vs. Interrogation</span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                     {[
                       {
                         id: 'factional-impasse',
-                        label: 'Factional Impasse',
-                        sub: 'Sponsor & investor rivalry',
+                        label: 'Boardroom Deadlock',
+                        sub: 'Investors pull in opposite ways',
                       },
                       {
                         id: 'reactive-review',
-                        label: 'Audit Theater',
-                        sub: 'Historical operational auditing',
+                        label: 'Interrogation Meetings',
+                        sub: 'Debating past mistakes',
                       },
                       {
                         id: 'sovereign-coherence',
-                        label: 'Strategic Alignment',
-                        sub: 'In-camera alignment on capital',
+                        label: 'Complete Strategic Unity',
+                        sub: 'United on long-term priorities',
                       },
                     ].map((opt) => (
                       <button
                         key={opt.id}
                         onClick={() => handleSelectOption('boardAlignment', opt.id as any)}
-                        className={`p-3 rounded text-left border transition-all min-h-[58px] ${
+                        className={`p-3 rounded text-left border transition-all min-h-[58px] cursor-pointer ${
                           levers.boardAlignment === opt.id
                             ? 'bg-[#17181c] border-[#17181c] text-[#f8f6f0] shadow-xs'
                             : 'bg-[#fcfaf7] border-[#e5decfe0] hover:border-[#c5a059] text-[#17181c]'
@@ -282,32 +282,32 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <label className="text-xs uppercase font-bold text-[#17181c]">
-                      Category 03 · Leadership Bench & Succession Runway
+                      Category 03 · Key-Person Independence & Bench Strength
                     </label>
-                    <span className="text-[11px] text-[#6b6e76] italic">Institution vs. Individual</span>
+                    <span className="text-[11px] text-[#6b6e76] italic">Could the business run without you?</span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                     {[
                       {
                         id: 'single-point-fragile',
-                        label: 'Single-Point Fragility',
-                        sub: 'Founder or CEO bottle-necking',
+                        label: 'Founder Bottleneck',
+                        sub: 'Everything freezes without CEO',
                       },
                       {
                         id: 'ad-hoc-bench',
-                        label: 'Uncodified Bench',
-                        sub: 'Succession discussed in hallways',
+                        label: 'Unclear Succession',
+                        sub: 'Future leaders not prepared',
                       },
                       {
                         id: 'multi-tier-runway',
-                        label: 'Institutional Runway',
-                        sub: 'Succession codified & insulated',
+                        label: 'Autonomous Leadership',
+                        sub: 'Units run smoothly without CEO',
                       },
                     ].map((opt) => (
                       <button
                         key={opt.id}
                         onClick={() => handleSelectOption('successionResilience', opt.id as any)}
-                        className={`p-3 rounded text-left border transition-all min-h-[58px] ${
+                        className={`p-3 rounded text-left border transition-all min-h-[58px] cursor-pointer ${
                           levers.successionResilience === opt.id
                             ? 'bg-[#17181c] border-[#17181c] text-[#f8f6f0] shadow-xs'
                             : 'bg-[#fcfaf7] border-[#e5decfe0] hover:border-[#c5a059] text-[#17181c]'
@@ -396,7 +396,7 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                   </div>
 
                   {/* Prescribed Partnership Pathway */}
-                  <div className="p-3.5 rounded bg-white border border-[#ebdcc0] mb-3">
+                  <div className="p-3.5 rounded bg-white border border-[#ebdcc0] mb-2.5">
                     <div className="text-[10px] uppercase text-[#9d7b38] font-bold mb-0.5">
                       Prescribed Partnership Pathway
                     </div>
@@ -406,6 +406,17 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                     <div className="text-xs text-[#54575f] mt-1 leading-relaxed italic">
                       {currentResult.executivePrescription}
                     </div>
+                  </div>
+
+                  {/* Council Chambers Feature Inclusion */}
+                  <div className="p-3 rounded bg-[#17181c] text-[#f8f6f0] border border-[#d4af37]/60 mb-3 space-y-1">
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#d4af37] font-bold">
+                      <Sparkles className="w-3 h-3 text-[#d4af37]" />
+                      <span>Council Chambers Feature Included</span>
+                    </div>
+                    <p className="text-[11px] text-stone-300 leading-relaxed">
+                      This diagnostic gives you a <strong>taste of The Council Chambers</strong> (1 private sparring session with peer CEOs). Want the full strategic year-round version? It unlocks when you select an Implementation pathway.
+                    </p>
                   </div>
                 </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Crown } from 'lucide-react';
+import { Crown, BookOpen, Zap } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -29,6 +29,28 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Overview
             </a>
             <a
+              href="#simple-test"
+              onClick={(e) => { e.preventDefault(); onNavigate('simple-test'); }}
+              className="hover:text-[#9d7b38] transition-colors py-1 flex items-center gap-1 font-bold text-[#141416]"
+            >
+              <Zap className="w-3.5 h-3.5 text-[#9d7b38]" />
+              <span>The 60-Sec Test</span>
+            </a>
+            <a
+              href="#briefing"
+              onClick={(e) => { e.preventDefault(); onNavigate('briefing'); }}
+              className="hover:text-[#141416] transition-colors py-1"
+            >
+              Video Briefing
+            </a>
+            <a
+              href="#about"
+              onClick={(e) => { e.preventDefault(); onNavigate('about'); }}
+              className="hover:text-[#141416] transition-colors py-1"
+            >
+              Vision & Philosophy
+            </a>
+            <a
               href="#partnerships"
               onClick={(e) => { e.preventDefault(); onNavigate('partnerships'); }}
               className="hover:text-[#141416] transition-colors py-1"
@@ -44,11 +66,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span>Council Chambers</span>
             </a>
             <a
+              href="#blogs"
+              onClick={(e) => { e.preventDefault(); onNavigate('blogs'); }}
+              className="hover:text-[#141416] transition-colors flex items-center gap-1 py-1"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-[#9d7b38]" />
+              <span>Blogs & Dispatches</span>
+            </a>
+            <a
               href="#diagnostic"
               onClick={(e) => { e.preventDefault(); onNavigate('diagnostic'); }}
               className="hover:text-[#141416] transition-colors py-1"
             >
-              The Diagnostic (Pat. Pend)
+              The Diagnostic
             </a>
             <a
               href="#proof"

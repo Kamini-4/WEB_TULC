@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Home, Layers, Activity, ShieldAlert, Send } from 'lucide-react';
+import { Home, Layers, Activity, BookOpen, Send, Zap } from 'lucide-react';
 
 interface MobileBottomNavProps {
   onNavigate: (sectionId: string) => void;
@@ -10,7 +10,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onNavigate }) 
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['contact', 'proof', 'war-room', 'diagnostic', 'council-chambers', 'partnerships', 'top'];
+      const sections = ['contact', 'proof', 'war-room', 'blogs', 'diagnostic', 'council-chambers', 'partnerships', 'about', 'simple-test', 'briefing', 'top'];
       const scrollPos = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -27,10 +27,10 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onNavigate }) 
   }, []);
 
   const navItems = [
-    { id: 'top', label: 'Overview', icon: Home },
+    { id: 'top', label: 'Home', icon: Home },
+    { id: 'simple-test', label: 'The Test', icon: Zap, badge: 'HOT' },
     { id: 'partnerships', label: 'Pathways', icon: Layers },
-    { id: 'diagnostic', label: 'Diagnostic', icon: Activity, badge: 'PAT' },
-    { id: 'war-room', label: 'War Room', icon: ShieldAlert },
+    { id: 'blogs', label: 'Blogs', icon: BookOpen },
     { id: 'contact', label: 'Briefing', icon: Send },
   ];
 
@@ -46,13 +46,14 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onNavigate }) 
           const isActive = 
             item.id === activeSection || 
             (item.id === 'top' && (activeSection === 'top' || activeSection === '')) ||
-            (item.id === 'partnerships' && (activeSection === 'partnerships' || activeSection === 'council-chambers'));
+            (item.id === 'simple-test' && (activeSection === 'simple-test' || activeSection === 'diagnostic')) ||
+            (item.id === 'partnerships' && (activeSection === 'partnerships' || activeSection === 'council-chambers' || activeSection === 'war-room'));
 
           return (
             <button
               key={item.id}
               onClick={() => onNavigate(item.id)}
-              className={`flex flex-col items-center justify-center h-full min-h-[44px] transition-colors relative active:scale-95 ${
+              className={`flex flex-col items-center justify-center h-full min-h-[44px] transition-colors relative active:scale-95 cursor-pointer ${
                 isActive ? 'text-[#9d7b38]' : 'text-[#6b6e76] hover:text-[#17181c]'
               }`}
             >

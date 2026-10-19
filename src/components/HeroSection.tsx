@@ -10,7 +10,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section id="top" className="relative pt-8 pb-10 sm:pt-12 sm:pb-14 lg:pt-14 lg:pb-16 border-b border-[#e5decfe0] bg-[#f8f6f0] overflow-hidden">
+    <section id="top" className="relative pt-8 pb-10 sm:pt-10 sm:pb-12 lg:pt-12 lg:pb-14 border-b border-[#e5decfe0] bg-[#f8f6f0] overflow-hidden">
       {/* Soothing warm golden ambient glow */}
       <div className="absolute inset-0 pointer-events-none opacity-50">
         <div className="absolute top-0 right-1/4 w-[320px] sm:w-[600px] h-[320px] sm:h-[450px] bg-[#eedec0]/40 rounded-full blur-[100px] sm:blur-[140px] animate-fluid-float" />
@@ -21,7 +21,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Unboxed institutional kicker */}
-        <div className="flex flex-wrap items-center gap-2 text-xs uppercase text-[#9d7b38] mb-4 sm:mb-5 font-bold">
+        <div className="flex flex-wrap items-center gap-2 text-xs uppercase text-[#9d7b38] mb-3 sm:mb-4 font-bold">
           <span>Institutional Advisory</span>
           <span aria-hidden="true" className="text-[#c9bea9]">·</span>
           <span>CXOs & Enterprise Boards</span>
@@ -30,12 +30,12 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
         </div>
 
         {/* Main Headline with punchy, unvarnished cadence */}
-        <div className="max-w-4xl mb-6 sm:mb-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#17181c] leading-[1.12] [text-wrap:balance]">
+        <div className="max-w-4xl mb-6 sm:mb-7">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#17181c] leading-[1.15] [text-wrap:balance]">
             Management is about compliance. <br className="hidden sm:inline" />
             <span className="text-[#9d7b38]">Leadership is about courage.</span>
           </h1>
-          <p className="mt-4 sm:mt-5 text-base sm:text-lg lg:text-xl text-[#4e5159] font-normal leading-relaxed max-w-3xl italic">
+          <p className="mt-3.5 sm:mt-4 text-sm sm:text-base lg:text-lg text-[#4e5159] font-normal leading-relaxed max-w-3xl italic">
             When organizations stall, it is rarely a strategy problem. It is almost always a <strong className="font-bold text-[#17181c] not-italic">hiding problem</strong>. Consensus is comfortable. Decisive mandate creates tension. <strong className="font-bold text-[#9d7b38] not-italic">We re-architect the operating system so leadership can happen.</strong>
           </p>
         </div>
@@ -51,7 +51,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent" />
             
             <span className="relative z-10 text-gold-gradient font-bold">
-              Launch Patent-Pending Diagnostic
+              Take The 60-Sec Test (Do You Need Us?)
             </span>
             <ArrowRight className={`relative z-10 w-4 h-4 text-[#d4af37] transition-transform duration-200 ${isHovered ? 'translate-x-1' : ''}`} />
           </button>

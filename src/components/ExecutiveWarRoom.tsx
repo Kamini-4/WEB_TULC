@@ -100,7 +100,7 @@ export const ExecutiveWarRoom: React.FC = () => {
   };
 
   return (
-    <section id="war-room" className="py-10 sm:py-14 lg:py-16 border-b border-[#e3dcce] bg-[#f5f1e8]">
+    <section id="war-room" className="py-10 sm:py-12 lg:py-14 border-b border-[#e3dcce] bg-[#f5f1e8]">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -115,7 +115,7 @@ export const ExecutiveWarRoom: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#141416] leading-tight">
             The Strategic War Room
           </h2>
-          <p className="mt-2 text-xs sm:text-sm text-[#4a4c52] font-normal leading-relaxed">
+          <p className="mt-2 text-sm sm:text-base text-[#4a4c52] font-normal leading-relaxed">
             Pressure-test high-stakes governance dilemmas before entering the boardroom. Our advisory engine critiques power dynamics, isolates the unspoken invariant, and formulates decisive resolution protocols.
           </p>
         </div>

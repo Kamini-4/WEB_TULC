@@ -79,7 +79,7 @@ const CASE_STUDIES: CaseStudy[] = [
 
 export const InstitutionalCaseStudies: React.FC = () => {
   return (
-    <section id="proof" className="py-10 sm:py-14 lg:py-16 border-b border-[#e5decfe0] bg-[#f8f6f0]">
+    <section id="proof" className="py-10 sm:py-12 lg:py-14 border-b border-[#e5decfe0] bg-[#f8f6f0]">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -95,7 +95,7 @@ export const InstitutionalCaseStudies: React.FC = () => {
             When Leadership Actually Happens, <br className="hidden sm:inline" />
             <span className="text-[#9d7b38]">The Results Are Indisputable.</span>
           </h2>
-          <p className="mt-2 text-xs sm:text-sm text-[#54575f] font-normal leading-relaxed italic">
+          <p className="mt-2 text-sm sm:text-base text-[#54575f] font-normal leading-relaxed italic">
             Strategy without courage is just expensive stationery. Here is what happens when organizations stop hiding behind consensus and install a sovereign operating system.
           </p>
         </div>

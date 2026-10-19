@@ -46,7 +46,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
   };
 
   return (
-    <section id="contact" className="py-10 sm:py-14 lg:py-16 bg-[#f5f1e8] border-b border-[#e5decfe0]">
+    <section id="contact" className="py-10 sm:py-12 lg:py-14 bg-[#f5f1e8] border-b border-[#e5decfe0]">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-start">
           
@@ -60,7 +60,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17181c] leading-tight">
                 Initiate Confidential Mandate Dialogue
               </h2>
-              <p className="mt-2 text-xs sm:text-sm text-[#4e5159] leading-relaxed italic">
+              <p className="mt-2 text-sm sm:text-base text-[#4e5159] leading-relaxed italic">
                 Leadership is a choice, not a title. When you are ready to stop managing compliance and start installing sovereign authority, we are ready to convene.
               </p>
             </div>

@@ -20,10 +20,11 @@ export const PARTNERSHIP_PATHWAYS: PartnershipPathway[] = [
     theDesire: 'You want unvarnished, undeniable truth. You want an external institutional authority with zero political baggage to hand the board an objective mirror so the hiding stops immediately.',
     theOutcome: 'In 14 days, you hold the full Sovereign Leadership Operating System Audit. An indisputable map of who owns what decision, where execution is leaking, and the exact 3 structural interventions to unblock enterprise velocity.',
     deliverables: [
+      'The Council Chambers Taste: 1 Closed-Door Conclave Sparring Session to stress-test findings with peer CEOs',
       'Sovereign Authority Friction Matrix: Pinpointing where conviction and mandate stall',
       'Board-to-C-Suite Territory Map: Ending back-channel politicking and second-guessing',
       '14-Day Executive Intervention Blueprint: Immediate structural remedies for the CEO',
-      'In-Camera Board Audit Presentation with our Managing Partner'
+      'In-Camera Board Audit Presentation with Suchita Sancheti'
     ],
     idealClient: 'Boards and CEOs preparing for an inflection point, leadership succession, or resolving structural friction.'
   },
@@ -38,6 +39,7 @@ export const PARTNERSHIP_PATHWAYS: PartnershipPathway[] = [
     theDesire: 'You want an operating system that runs autonomously. You want your executives to own their decisions with courage, without running to you or hiding behind consensus decks.',
     theOutcome: 'We embed directly inside your executive cadence for 90 days. We tear out the consensus meetings, codify explicit authority matrices, and institute 14-day asynchronous decision loops. When we exit, high-velocity leadership is permanent infrastructure.',
     deliverables: [
+      'Full Strategic Council Chambers Access: Annual syndicate seat across Zurich, London, Singapore & New York',
       'In-Situ Operating System Architect assigned to the executive suite',
       'Authority Decoupling Charter: Sovereign decision boundaries ratified by the Board',
       '14-Day Executive Loop Installation: Replacing 70% of synchronous committee meetings',
@@ -56,10 +58,10 @@ export const PARTNERSHIP_PATHWAYS: PartnershipPathway[] = [
     theDesire: 'An uncompromising, deeply experienced peer in your corner. Someone with no equity stake, no political ambition, and the institutional spine to tell you what everyone else is too afraid to say.',
     theOutcome: 'Continuous, on-call strategic sparring for the CEO and Board Chair. Direct guidance through activist defenses, board reconstitutions, M&A integrations, and sudden leadership transitions. You lead with calm, sovereign authority.',
     deliverables: [
+      'Full Strategic Council Chambers Access: Year-round sovereign conclave seat and private syndicate admission',
       'Unrestricted 24/7 direct access to Senior Advisory Partner for Chair & CEO',
       'Emergency War Room Mobilization within 4 hours for unexpected governance crises',
-      'Quarterly In-Camera Board Sparring Sessions: Challenging strategy before market exposure',
-      'Private Conclave Admission into The Council Chambers'
+      'Quarterly In-Camera Board Sparring Sessions: Challenging strategy before market exposure'
     ],
     idealClient: 'Enterprise CEOs, Board Chairs, and Sovereign Trustees navigating high-stakes transitions.'
   }
@@ -81,7 +83,7 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
   };
 
   return (
-    <section id="partnerships" className="py-10 sm:py-14 lg:py-16 border-b border-[#e5decfe0] bg-[#f2ede2] relative overflow-hidden transition-all duration-300">
+    <section id="partnerships" className="py-10 sm:py-12 lg:py-14 border-b border-[#e5decfe0] bg-[#f2ede2] relative overflow-hidden transition-all duration-300">
       {/* Fluid ambient golden graphic glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[400px] bg-[#eedec0]/35 rounded-full blur-[140px] pointer-events-none animate-fluid-float" />
 
