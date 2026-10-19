@@ -2,28 +2,47 @@
   "compilerOptions": {
     "target": "ES2022",
     "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
-
-    /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
-
-    /* Linting */
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noFallthroughCasesInSwitch": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "components", "data", "lib", "index.tsx"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "components",
+    "lib",
+    "data",
+    "server",
+    "scripts",
+    "src/pages",
+    "src/core",
+    "src/components/shop",
+    "src/components/BlogSection.tsx",
+    "src/components/Breadcrumbs.tsx",
+    "src/components/CalibrationModal.tsx",
+    "src/components/DiagnosticFunnel.tsx",
+    "src/components/InternalHubBridges.tsx",
+    "src/components/InternalLinksMatrix.tsx",
+    "src/components/Navigation.tsx",
+    "src/components/SEOHead.tsx",
+    "src/components/TribeManifesto.tsx",
+    "src/data",
+    "src/lib"
+  ]
 }

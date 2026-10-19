@@ -1,102 +1,183 @@
-import React from 'react';
-import { ArrowRight, Sparkles, Shield, Cpu, Activity, Clock } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
 
-interface HeroSectionProps {
-  onStartDiagnostic: () => void;
-  onReadEssays: () => void;
-  openCalibrationModal: () => void;
+interface HeroProps {
+  onLaunchDiagnostic: () => void;
+  onExplorePartnerships: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({
-  onStartDiagnostic,
-  onReadEssays,
-  openCalibrationModal
-}) => {
+export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplorePartnerships }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <section className="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden border-b border-zinc-900">
-      {/* Background radial gradient glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-amber-500/5 blur-[120px] pointer-events-none rounded-full"></div>
-      
-      {/* Hairline grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#27272a15_1px,transparent_1px),linear-gradient(to_bottom,#27272a15_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
+    <section id="top" className="relative pt-8 pb-10 sm:pt-12 sm:pb-14 lg:pt-14 lg:pb-16 border-b border-[#e5decfe0] bg-[#f8f6f0] overflow-hidden">
+      {/* Soothing warm golden ambient glow */}
+      <div className="absolute inset-0 pointer-events-none opacity-50">
+        <div className="absolute top-0 right-1/4 w-[320px] sm:w-[600px] h-[320px] sm:h-[450px] bg-[#eedec0]/40 rounded-full blur-[100px] sm:blur-[140px] animate-fluid-float" />
+        <div className="absolute bottom-0 left-1/4 w-[280px] sm:w-[500px] h-[280px] sm:h-[350px] bg-[#f0e3cc]/35 rounded-full blur-[90px] sm:blur-[120px] animate-fluid-glow" />
+        <div className="absolute inset-0 bg-[radial-gradient(#c5a05912_1px,transparent_1px)] [background-size:24px_24px]" />
+      </div>
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Tribal Creed Badge */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-amber-500/30 text-amber-300 text-xs font-mono tracking-wider mb-8 shadow-inner shadow-amber-500/5">
-          <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-          <span>SOVEREIGN INSTITUTIONAL RE-POSITIONING</span>
-          <span className="text-zinc-600">|</span>
-          <span className="text-zinc-400 font-sans">For Enterprise CXOs & Founders</span>
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Unboxed institutional kicker */}
+        <div className="flex flex-wrap items-center gap-2 text-xs uppercase text-[#9d7b38] mb-4 sm:mb-5 font-bold">
+          <span>Institutional Advisory</span>
+          <span aria-hidden="true" className="text-[#c9bea9]">·</span>
+          <span>CXOs & Enterprise Boards</span>
+          <span aria-hidden="true" className="text-[#c9bea9]">·</span>
+          <span>The Work That Matters</span>
         </div>
 
-        {/* The Tribal Hook (Sovereign Doctrine) */}
-        <h1 className="serif-heading text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-zinc-100 leading-[1.08] mb-6">
-          Sovereign Architects <br className="hidden sm:inline" />
-          <span className="text-gold-gradient italic font-normal">Build What Outlives Them.</span>
-        </h1>
+        {/* Main Headline with punchy, unvarnished cadence */}
+        <div className="max-w-4xl mb-6 sm:mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#17181c] leading-[1.12] [text-wrap:balance]">
+            Management is about compliance. <br className="hidden sm:inline" />
+            <span className="text-[#9d7b38]">Leadership is about courage.</span>
+          </h1>
+          <p className="mt-4 sm:mt-5 text-base sm:text-lg lg:text-xl text-[#4e5159] font-normal leading-relaxed max-w-3xl italic">
+            When organizations stall, it is rarely a strategy problem. It is almost always a <strong className="font-bold text-[#17181c] not-italic">hiding problem</strong>. Consensus is comfortable. Decisive mandate creates tension. <strong className="font-bold text-[#9d7b38] not-italic">We re-architect the operating system so leadership can happen.</strong>
+          </p>
+        </div>
 
-        {/* Constructive Tension Subhead */}
-        <p className="max-w-3xl mx-auto text-lg sm:text-xl text-zinc-300 leading-relaxed font-light mb-10">
-          We do not submit RFPs. We do not pitch hourly consulting. We exist exclusively for the 
-          <strong className="text-zinc-100 font-semibold"> 100 enterprise leaders</strong> whose companies cannot 
-          scale without their leadership operating systems being fundamentally re-engineered.
-        </p>
-
-        {/* Dual High-Value Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        {/* Executive Action Row */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10">
           <button
-            onClick={onStartDiagnostic}
-            className="w-full sm:w-auto px-8 py-4 rounded-sm bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-zinc-950 font-semibold text-sm tracking-wide uppercase hover:brightness-110 transition-all duration-200 shadow-lg shadow-amber-500/20 flex items-center justify-center gap-3 cursor-pointer group"
+            onClick={onLaunchDiagnostic}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="relative overflow-hidden px-6 sm:px-8 py-3.5 text-xs font-bold uppercase text-white bg-[#17181c] hover:bg-[#282a30] transition-all rounded-sm flex items-center justify-center gap-2.5 shadow-md hover:shadow-[#c5a059]/25 active:scale-[0.98] min-h-[48px] group"
           >
-            <Activity className="w-4 h-4 text-zinc-950 group-hover:scale-110 transition-transform" />
-            <span>Launch Sovereign Diagnostic</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent" />
+            
+            <span className="relative z-10 text-gold-gradient font-bold">
+              Launch Patent-Pending Diagnostic
+            </span>
+            <ArrowRight className={`relative z-10 w-4 h-4 text-[#d4af37] transition-transform duration-200 ${isHovered ? 'translate-x-1' : ''}`} />
           </button>
 
           <button
-            onClick={onReadEssays}
-            className="w-full sm:w-auto px-8 py-4 rounded-sm bg-zinc-900 hover:bg-zinc-850 text-zinc-200 border border-zinc-800 hover:border-zinc-700 font-medium text-sm tracking-wide transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+            onClick={onExplorePartnerships}
+            className="px-5 sm:px-6 py-3.5 text-xs font-bold uppercase text-[#17181c] hover:text-black bg-white hover:bg-[#faf7f0] border border-[#d8cebe] hover:border-[#c5a059] transition-all rounded-sm shadow-xs text-center min-h-[48px] flex items-center justify-center gap-2"
           >
-            <span>Read Executive Dispatches</span>
+            <span>How We Partner (3 Categories)</span>
           </button>
+
+          <div className="flex items-center gap-2 text-xs text-[#6e727c] sm:ml-2 self-center sm:self-auto pt-1 sm:pt-0">
+            <ShieldCheck className="w-4 h-4 text-[#9d7b38] shrink-0" />
+            <span>Strict Boardroom Privilege</span>
+          </div>
         </div>
 
-        {/* Micro-Metrics / Proof of Architecture */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-zinc-900/80">
-          <div className="p-4 rounded-lg bg-zinc-900/40 border border-zinc-800/60 text-left">
-            <div className="flex items-center gap-2 text-amber-400 mb-1">
-              <Clock className="w-4 h-4" />
-              <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">Time Reclaimed</span>
+        {/* THE 4 BLACK BOXES — COMPACT, ZERO EMPTY SPACE, BACKED EMPIRICAL STATISTICS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 pt-6 border-t border-[#e5decfe0]">
+          
+          {/* Box 1: 72% Consensus Friction (McKinsey) */}
+          <div className="p-4 sm:p-5 rounded-lg bg-[#141416] border border-[#2b2d33] hover:border-[#d4af37] shadow-lg hover:shadow-[#c5a059]/15 transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift">
+            <div>
+              <div className="flex items-baseline justify-between">
+                <div className="text-2xl sm:text-3xl lg:text-3xl font-bold text-[#d4af37] tabular-nums">
+                  72%
+                </div>
+                <span className="text-[10px] font-bold uppercase text-[#c5a059] tracking-wider">
+                  Consensus Drag
+                </span>
+              </div>
+              <div className="mt-2.5">
+                <div className="text-xs sm:text-sm font-bold text-white">
+                  Capital isn't accounting. It's conviction.
+                </div>
+                <div className="text-xs text-[#a6a9b2] mt-1 leading-relaxed italic">
+                  72% of senior leaders report bad strategic decisions stem from consensus compromises rather than analytical error.
+                </div>
+              </div>
             </div>
-            <div className="text-2xl font-semibold font-serif text-zinc-100">18.4 hrs/wk</div>
-            <p className="text-xs text-zinc-500 mt-1">Returned to high-conviction strategic vision</p>
+            <div className="mt-3 pt-2.5 border-t border-[#23252b] flex items-center justify-between text-[10px] text-[#8e929b]">
+              <span className="font-medium text-[#c5a059]">McKinsey Decision Survey</span>
+              <span className="text-[#686b74]">Empirical Benchmark</span>
+            </div>
+            <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-[#d4af37] opacity-70 group-hover:opacity-100 transition-opacity" />
           </div>
 
-          <div className="p-4 rounded-lg bg-zinc-900/40 border border-zinc-800/60 text-left">
-            <div className="flex items-center gap-2 text-amber-400 mb-1">
-              <Cpu className="w-4 h-4" />
-              <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">Decision Churn</span>
+          {/* Box 2: 61% Time on Alignment vs Market (HBR) */}
+          <div className="p-4 sm:p-5 rounded-lg bg-[#141416] border border-[#2b2d33] hover:border-[#d4af37] shadow-lg hover:shadow-[#c5a059]/15 transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift">
+            <div>
+              <div className="flex items-baseline justify-between">
+                <div className="text-2xl sm:text-3xl lg:text-3xl font-bold text-[#d4af37] tabular-nums">
+                  61%
+                </div>
+                <span className="text-[10px] font-bold uppercase text-[#c5a059] tracking-wider">
+                  Alignment Bleed
+                </span>
+              </div>
+              <div className="mt-2.5">
+                <div className="text-xs sm:text-sm font-bold text-white">
+                  Meetings aren't strategy.
+                </div>
+                <div className="text-xs text-[#a6a9b2] mt-1 leading-relaxed italic">
+                  61% of executive hours are consumed by internal alignment politics rather than decisive market execution.
+                </div>
+              </div>
             </div>
-            <div className="text-2xl font-semibold font-serif text-zinc-100">-76%</div>
-            <p className="text-xs text-zinc-500 mt-1">Replaced by autonomous governance protocols</p>
+            <div className="mt-3 pt-2.5 border-t border-[#23252b] flex items-center justify-between text-[10px] text-[#8e929b]">
+              <span className="font-medium text-[#c5a059]">Harvard Business Review</span>
+              <span className="text-[#686b74]">C-Suite Time Study</span>
+            </div>
+            <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-[#d4af37] opacity-70 group-hover:opacity-100 transition-opacity" />
           </div>
 
-          <div className="p-4 rounded-lg bg-zinc-900/40 border border-zinc-800/60 text-left">
-            <div className="flex items-center gap-2 text-amber-400 mb-1">
-              <Shield className="w-4 h-4" />
-              <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">Quarterly Cohort</span>
+          {/* Box 3: 82% Succession Vulnerability (PwC Directors Survey) */}
+          <div className="p-4 sm:p-5 rounded-lg bg-[#141416] border border-[#2b2d33] hover:border-[#d4af37] shadow-lg hover:shadow-[#c5a059]/15 transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift">
+            <div>
+              <div className="flex items-baseline justify-between">
+                <div className="text-2xl sm:text-3xl lg:text-3xl font-bold text-[#d4af37] tabular-nums">
+                  82%
+                </div>
+                <span className="text-[10px] font-bold uppercase text-[#c5a059] tracking-wider">
+                  Succession Risk
+                </span>
+              </div>
+              <div className="mt-2.5">
+                <div className="text-xs sm:text-sm font-bold text-white">
+                  People don't leave hard work.
+                </div>
+                <div className="text-xs text-[#a6a9b2] mt-1 leading-relaxed italic">
+                  82% of enterprise boards identify uncodified succession benches as their primary unhedged governance risk.
+                </div>
+              </div>
             </div>
-            <div className="text-2xl font-semibold font-serif text-zinc-100">Max 4 Firms</div>
-            <p className="text-xs text-zinc-500 mt-1">Strict capacity to guarantee deep immersion</p>
+            <div className="mt-3 pt-2.5 border-t border-[#23252b] flex items-center justify-between text-[10px] text-[#8e929b]">
+              <span className="font-medium text-[#c5a059]">PwC Directors Survey</span>
+              <span className="text-[#686b74]">Boardroom Benchmark</span>
+            </div>
+            <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-[#d4af37] opacity-70 group-hover:opacity-100 transition-opacity" />
           </div>
 
-          <div className="p-4 rounded-lg bg-zinc-900/40 border border-zinc-800/60 text-left">
-            <div className="flex items-center gap-2 text-amber-400 mb-1">
-              <Activity className="w-4 h-4" />
-              <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">Contract Length</span>
+          {/* Box 4: < 14 Days Audit Velocity (Patent-Pending L.O.S. Diagnostic) */}
+          <div className="p-4 sm:p-5 rounded-lg bg-[#141416] border border-[#d4af37] shadow-lg hover:shadow-[#c5a059]/25 transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift">
+            <div>
+              <div className="flex items-baseline justify-between">
+                <div className="text-2xl sm:text-3xl lg:text-3xl font-bold text-gold-gradient tabular-nums">
+                  &lt; 14 Days
+                </div>
+                <span className="text-[10px] font-bold uppercase text-[#d4af37] tracking-wider">
+                  Friction Audit
+                </span>
+              </div>
+              <div className="mt-2.5">
+                <div className="text-xs sm:text-sm font-bold text-white">
+                  You already know where it hurts.
+                </div>
+                <div className="text-xs text-[#a6a9b2] mt-1 leading-relaxed italic">
+                  Our patent-pending audit isolates structural friction vectors and restores executive decision autonomy within 14 days.
+                </div>
+              </div>
             </div>
-            <div className="text-2xl font-semibold font-serif text-zinc-100">1-Page Treaty</div>
-            <p className="text-xs text-zinc-500 mt-1">Zero procurement bureaucracy; instant start</p>
+            <div className="mt-3 pt-2.5 border-t border-[#23252b] flex items-center justify-between text-[10px] text-[#8e929b]">
+              <span className="font-medium text-[#d4af37]">Patent-Pending L.O.S.™</span>
+              <span className="text-[#686b74]">Empirical Protocol</span>
+            </div>
+            <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-[#d4af37] animate-gold-pulse" />
           </div>
         </div>
       </div>

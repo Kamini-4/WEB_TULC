@@ -1,73 +1,103 @@
 import React, { useState } from 'react';
-import { Navigation } from './components/Navigation';
+import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
-import { TribeManifesto } from './components/TribeManifesto';
-import { DiagnosticFunnel } from './components/DiagnosticFunnel';
-import { BlogSection } from './components/BlogSection';
-import { CalibrationModal } from './components/CalibrationModal';
+import { PartnershipPathways } from './components/PartnershipPathways';
+import { CouncilChambers } from './components/CouncilChambers';
+import { PatentPendingDiagnostic } from './components/PatentPendingDiagnostic';
+import { ExecutiveWarRoom } from './components/ExecutiveWarRoom';
+import { InstitutionalCaseStudies } from './components/InstitutionalCaseStudies';
+import { ConfidentialInquiry } from './components/ConfidentialInquiry';
 import { Footer } from './components/Footer';
+import { MobileBottomNav } from './components/MobileBottomNav';
+import { PartnershipPathway, PartnershipModelId } from './types';
 
-export function App() {
-  const [activeTab, setActiveTab] = useState<'tribe' | 'diagnostic' | 'essays'>('tribe');
-  const [isCalibrationModalOpen, setIsCalibrationModalOpen] = useState(false);
+export const App: React.FC = () => {
+  const [selectedPartnership, setSelectedPartnership] = useState<PartnershipModelId>('retainer');
+  const [inquiryContext, setInquiryContext] = useState<string>('');
 
-  const openCalibrationModal = () => setIsCalibrationModalOpen(true);
-  const closeCalibrationModal = () => setIsCalibrationModalOpen(false);
+  const scrollTo = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleSelectPartnership = (modelId: PartnershipModelId) => {
+    setSelectedPartnership(modelId);
+    scrollTo('partnerships');
+  };
+
+  const handleOpenConsultationWithModel = (model: PartnershipPathway) => {
+    setSelectedPartnership(model.id);
+    setInquiryContext(`Selected Mandate Pathway: ${model.name} (${model.investmentAnchor} · ${model.cadence}). Objective: ${model.theOutcome}`);
+    scrollTo('contact');
+  };
+
+  const handleConsultationRequestFromDiagnostic = (diagnosticSummary?: string) => {
+    if (diagnosticSummary) {
+      setInquiryContext(diagnosticSummary);
+    }
+    scrollTo('contact');
+  };
+
+  const handleApplyForCouncilSeat = () => {
+    setInquiryContext('Council Chambers Fellowship Application: Requesting admission dossier for private conclave seat (By Formal Petition).');
+    scrollTo('contact');
+  };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-sans selection:bg-amber-500/20 selection:text-amber-300">
-      {/* Top Navigation */}
-      <Navigation
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        openCalibrationModal={openCalibrationModal}
+    <div className="min-h-screen bg-[#f8f6f0] text-[#17181c] flex flex-col font-serif selection:bg-[#17181c] selection:text-[#f8f6f0] pb-14 lg:pb-0">
+      {/* Top Bar adhering to Top Bar Contract */}
+      <Header
+        onNavigate={scrollTo}
+        onLaunchDiagnostic={() => scrollTo('diagnostic')}
       />
 
-      {/* Main Content Area */}
       <main className="flex-1">
-        {/* If Tribe is active, show the full Sovereign Landing Page flow */}
-        {activeTab === 'tribe' && (
-          <div>
-            <HeroSection
-              onStartDiagnostic={() => setActiveTab('diagnostic')}
-              onReadEssays={() => setActiveTab('essays')}
-              openCalibrationModal={openCalibrationModal}
-            />
-            <TribeManifesto
-              onTakeDiagnostic={() => setActiveTab('diagnostic')}
-              openCalibrationModal={openCalibrationModal}
-            />
-          </div>
-        )}
+        {/* Front Page Hero Section: The 4 Black Boxes, Seth Godin style conviction */}
+        <HeroSection
+          onLaunchDiagnostic={() => scrollTo('diagnostic')}
+          onExplorePartnerships={() => scrollTo('partnerships')}
+        />
 
-        {/* Interactive Constructive Tension Diagnostic Funnel */}
-        {activeTab === 'diagnostic' && (
-          <div>
-            <DiagnosticFunnel onOpenCalibration={openCalibrationModal} />
-          </div>
-        )}
+        {/* The 3 Partnership Pathways: The Retainer, The Embedding, The Diagnostic */}
+        <PartnershipPathways
+          selectedModelId={selectedPartnership}
+          onSelectModel={(id) => setSelectedPartnership(id)}
+          onOpenConsultationWithModel={handleOpenConsultationWithModel}
+        />
 
-        {/* Rewritten Executive Essays (HBR Rigor / No Jargon) */}
-        {activeTab === 'essays' && (
-          <div>
-            <BlogSection onOpenCalibration={openCalibrationModal} />
-          </div>
-        )}
+        {/* The Council Chambers: Private Closed-Door Conclaves */}
+        <CouncilChambers
+          onApplyForSeat={handleApplyForCouncilSeat}
+        />
+
+        {/* The Patent-Pending L.O.S. Diagnostic™ (3 Architectural Switches, Vector State, AI Boardroom Memo) */}
+        <PatentPendingDiagnostic
+          onSelectPartnership={handleSelectPartnership}
+          onConsultationRequest={handleConsultationRequestFromDiagnostic}
+        />
+
+        {/* Executive War Room & Scenario Sparring Simulator (with preset high-stakes dilemmas and Gemini critique) */}
+        <ExecutiveWarRoom />
+
+        {/* Quantitative Adjacent Case Proof */}
+        <InstitutionalCaseStudies />
+
+        {/* Confidential Executive Inquiry & Briefing Request */}
+        <ConfidentialInquiry
+          initialPartnership={selectedPartnership}
+          initialContext={inquiryContext}
+        />
       </main>
 
-      {/* White-Glove Executive Calibration Modal */}
-      <CalibrationModal
-        isOpen={isCalibrationModalOpen}
-        onClose={closeCalibrationModal}
-      />
+      {/* Quiet, refined footer */}
+      <Footer onNavigate={scrollTo} />
 
-      {/* Institutional Footer */}
-      <Footer
-        onSelectTab={setActiveTab}
-        openCalibrationModal={openCalibrationModal}
-      />
+      {/* Fluid Mobile Bottom Dock */}
+      <MobileBottomNav onNavigate={scrollTo} />
     </div>
   );
-}
+};
 
 export default App;

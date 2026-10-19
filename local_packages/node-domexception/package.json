@@ -1,7 +1,0 @@
-{
-  "name": "node-domexception",
-  "version": "1.0.0",
-  "description": "Native DOMException alias to resolve deprecation warning",
-  "main": "index.js",
-  "license": "MIT"
-}

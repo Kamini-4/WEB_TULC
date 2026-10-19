@@ -1,102 +1,89 @@
 import React from 'react';
-import { ArrowUpRight, Shield, Mail } from 'lucide-react';
+import { Crown } from 'lucide-react';
 
 interface FooterProps {
-  onSelectTab: (tab: 'tribe' | 'diagnostic' | 'essays') => void;
-  openCalibrationModal: () => void;
+  onNavigate: (sectionId: string) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onSelectTab, openCalibrationModal }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
-    <footer className="border-t border-zinc-900 bg-zinc-950 text-zinc-400 text-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-          {/* Col 1: Brand & Doctrine */}
-          <div className="md:col-span-2 space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-sm bg-amber-400/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-serif font-bold text-sm">
-                Ω
-              </div>
-              <span className="serif-heading text-lg font-bold text-zinc-100">
-                The Unbounded Leadership Co.
-              </span>
+    <footer className="bg-[#ede7da] border-t border-[#dfd7c8] py-8 sm:py-10 text-[#6b6e76] text-xs">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 mb-5 border-b border-[#dfd7c8] gap-4">
+          
+          <div>
+            <div className="text-lg font-bold text-[#141416]">
+              The Unbounded Leadership Co.
             </div>
-            <p className="text-zinc-400 max-w-sm leading-relaxed font-light">
-              An elite institutional leadership consultancy platform focusing on re-architecting leadership operating systems for CXOs and boards.
+            <p className="text-[#6b6e76] text-xs mt-1 max-w-md font-normal leading-relaxed italic">
+              Re-architecting leadership operating systems, governance cadences, and decision conviction for enterprise CXOs and institutional boards.
             </p>
-            <div className="text-zinc-500 font-mono text-[11px] italic">
-              "People like us do things like this." — The Sovereign Creed
-            </div>
           </div>
 
-          {/* Col 2: Navigation */}
-          <div>
-            <div className="font-mono text-zinc-200 uppercase tracking-widest text-[11px] mb-4">
-              Architecture & Insights
-            </div>
-            <ul className="space-y-2.5">
-              <li>
-                <button
-                  onClick={() => onSelectTab('tribe')}
-                  className="hover:text-amber-400 transition-colors cursor-pointer"
-                >
-                  The Sovereign Tribe Manifesto
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onSelectTab('diagnostic')}
-                  className="hover:text-amber-400 transition-colors cursor-pointer"
-                >
-                  Constructive Tension Diagnostic
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onSelectTab('essays')}
-                  className="hover:text-amber-400 transition-colors cursor-pointer"
-                >
-                  Rewritten Executive Essays (HBR Rigor)
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Direct Institutional Access */}
-          <div>
-            <div className="font-mono text-zinc-200 uppercase tracking-widest text-[11px] mb-4">
-              Institutional Access
-            </div>
-            <ul className="space-y-2.5">
-              <li>
-                <button
-                  onClick={openCalibrationModal}
-                  className="text-amber-400 hover:text-amber-300 font-medium transition-colors cursor-pointer flex items-center gap-1"
-                >
-                  <span>Request Calibration</span>
-                  <ArrowUpRight className="w-3 h-3" />
-                </button>
-              </li>
-              <li className="text-zinc-500 font-mono text-[11px]">
-                Capacity: 4 Engagements / Quarter
-              </li>
-              <li className="text-zinc-500 font-mono text-[11px]">
-                Swiss Banking Confidentiality
-              </li>
-              <li className="text-zinc-500 font-mono text-[11px]">
-                Zero RFPs · 1-Page Sovereign Treaty
-              </li>
-            </ul>
-          </div>
+          <nav className="flex flex-wrap items-center gap-4 sm:gap-6 font-semibold text-[#4a4c52]">
+            <a
+              href="#top"
+              onClick={(e) => { e.preventDefault(); onNavigate('top'); }}
+              className="hover:text-[#141416] transition-colors py-1"
+            >
+              Overview
+            </a>
+            <a
+              href="#partnerships"
+              onClick={(e) => { e.preventDefault(); onNavigate('partnerships'); }}
+              className="hover:text-[#141416] transition-colors py-1"
+            >
+              How We Partner
+            </a>
+            <a
+              href="#council-chambers"
+              onClick={(e) => { e.preventDefault(); onNavigate('council-chambers'); }}
+              className="hover:text-[#9d7b38] transition-colors flex items-center gap-1 py-1"
+            >
+              <Crown className="w-3.5 h-3.5 text-[#9d7b38]" />
+              <span>Council Chambers</span>
+            </a>
+            <a
+              href="#diagnostic"
+              onClick={(e) => { e.preventDefault(); onNavigate('diagnostic'); }}
+              className="hover:text-[#141416] transition-colors py-1"
+            >
+              The Diagnostic (Pat. Pend)
+            </a>
+            <a
+              href="#proof"
+              onClick={(e) => { e.preventDefault(); onNavigate('proof'); }}
+              className="hover:text-[#141416] transition-colors py-1"
+            >
+              Case Proof
+            </a>
+            <a
+              href="#war-room"
+              onClick={(e) => { e.preventDefault(); onNavigate('war-room'); }}
+              className="hover:text-[#141416] transition-colors py-1"
+            >
+              War Room
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); onNavigate('contact'); }}
+              className="text-[#9d7b38] hover:text-[#7d5f24] font-bold transition-colors py-1"
+            >
+              Confidential Inquiry
+            </a>
+          </nav>
         </div>
 
-        {/* Bottom Line */}
-        <div className="pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-600 font-mono">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-[#7d8089] text-[11px]">
           <div>
-            © {new Date().getFullYear()} The Unbounded Leadership Co. All sovereign rights reserved.
+            © {new Date().getFullYear()} The Unbounded Leadership Co. All institutional rights reserved.
           </div>
-          <div>
-            Positioned according to Our Sovereign Strategic Doctrine.
+          <div className="flex flex-wrap items-center gap-2.5">
+            <span>Patent Pending Architecture: L.O.S.-P721</span>
+            <span aria-hidden="true" className="text-[#c9bea9]">·</span>
+            <span>Advisory Privilege Enforced</span>
+            <span aria-hidden="true" className="text-[#c9bea9]">·</span>
+            <span>concierge@theunboundedleadership.com</span>
           </div>
         </div>
       </div>

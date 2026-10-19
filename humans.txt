@@ -1,9 +1,0 @@
-/* TEAM */
-Principal Architect: The Unbounded Leadership Co.
-Site: https://theunboundedleadership.com
-
-/* SITE */
-Last update: 2026-04-11
-Standards: HTML5, CSS3, TypeScript, React
-Components: Framer Motion, Tailwind CSS
-Backend: Firebase Firestore, Google Gemini AI
