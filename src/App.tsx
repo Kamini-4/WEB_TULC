@@ -3,6 +3,9 @@ import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { VideoBriefingSection } from './components/VideoBriefingSection';
 import { SimpleNeedsTest } from './components/SimpleNeedsTest';
+import { DomainDescriptions } from './components/DomainDescriptions';
+import { DomainPreviewBanner } from './components/DomainPreviewBanner';
+import { TestInvitationBanner } from './components/TestInvitationBanner';
 import { AboutSection } from './components/AboutSection';
 import { PartnershipPathways } from './components/PartnershipPathways';
 import { CouncilChambers } from './components/CouncilChambers';
@@ -16,9 +19,18 @@ import { ConfidentialInquiry } from './components/ConfidentialInquiry';
 import { Footer } from './components/Footer';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { PartnershipPathway, PartnershipModelId } from './types';
-import { ArrowLeft, Home, Sparkles, Shield, Compass } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
-export type AppView = 'home' | 'diagnostic' | 'library' | 'about' | 'council' | 'war-room' | 'case-studies';
+export type AppView = 
+  | 'home' 
+  | 'test' 
+  | 'domains' 
+  | 'diagnostic' 
+  | 'library' 
+  | 'about' 
+  | 'council' 
+  | 'war-room' 
+  | 'case-studies';
 
 export const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<AppView>('home');
@@ -29,10 +41,16 @@ export const App: React.FC = () => {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '').toLowerCase();
-      if (hash === 'diagnostic') {
+      if (hash === 'test' || hash === 'simple-test' || hash === 'audit') {
+        setCurrentView('test');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === 'domains' || hash === '5-domains' || hash === 'framework') {
+        setCurrentView('domains');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === 'diagnostic') {
         setCurrentView('diagnostic');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'blogs' || hash === 'library') {
+      } else if (hash === 'blogs' || hash === 'library' || hash === 'dispatches') {
         setCurrentView('library');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash === 'about' || hash === 'vision-mission') {
@@ -52,11 +70,6 @@ export const App: React.FC = () => {
         setTimeout(() => {
           document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
         }, 60);
-      } else if (hash === 'simple-test') {
-        setCurrentView('home');
-        setTimeout(() => {
-          document.getElementById('simple-test')?.scrollIntoView({ behavior: 'smooth' });
-        }, 60);
       } else if (hash === 'partnerships') {
         setCurrentView('home');
         setTimeout(() => {
@@ -68,7 +81,6 @@ export const App: React.FC = () => {
           document.getElementById('briefing')?.scrollIntoView({ behavior: 'smooth' });
         }, 60);
       } else {
-        // Default home
         if (hash === 'top' || hash === '') {
           setCurrentView('home');
           window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -86,11 +98,19 @@ export const App: React.FC = () => {
       setCurrentView('home');
       window.location.hash = 'top';
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'test' || target === 'simple-test') {
+      setCurrentView('test');
+      window.location.hash = 'test';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'domains' || target === '5-domains') {
+      setCurrentView('domains');
+      window.location.hash = 'domains';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (target === 'diagnostic') {
       setCurrentView('diagnostic');
       window.location.hash = 'diagnostic';
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (target === 'blogs' || target === 'library') {
+    } else if (target === 'blogs' || target === 'library' || target === 'dispatches') {
       setCurrentView('library');
       window.location.hash = 'library';
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -111,7 +131,7 @@ export const App: React.FC = () => {
       window.location.hash = 'case-studies';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      // In-page section anchor on landing page
+      // In-page anchor on home view
       setCurrentView('home');
       window.location.hash = target;
       setTimeout(() => {
@@ -173,35 +193,41 @@ export const App: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[#f8f6f0] text-[#17181c] flex flex-col font-serif selection:bg-[#17181c] selection:text-[#f8f6f0] pb-14 lg:pb-0">
-      {/* Top Header Navigation */}
+    <div className="min-h-screen bg-[#f8f6f0] text-[#17181c] flex flex-col font-serif selection:bg-[#17181c] selection:text-[#f8f6f0] pb-14 md:pb-0">
+      
+      {/* Top Header Navigation — Clutter-Free */}
       <Header
         onNavigate={navigateTo}
-        onLaunchDiagnostic={() => navigateTo('simple-test')}
+        onLaunchDiagnostic={() => navigateTo('test')}
+        currentView={currentView}
       />
 
       <main className="flex-1">
         
-        {/* 1. STREAMLINED LANDING PAGE VIEW */}
+        {/* 1. CLUTTER-FREE STREAMLINED LANDING PAGE */}
         {currentView === 'home' && (
           <>
-            {/* Front Page Hero Section: The 4 Black Boxes with backed statistics */}
+            {/* Front Page Hero Section: Clean, bold typography and 4 backed statistics */}
             <HeroSection
-              onLaunchDiagnostic={() => navigateTo('simple-test')}
+              onLaunchDiagnostic={() => navigateTo('test')}
               onExplorePartnerships={() => navigateTo('partnerships')}
             />
 
             {/* Direct Executive Video Briefing: The Decoupling Protocol by Suchita Sancheti */}
             <VideoBriefingSection
               onOpenConsultation={() => navigateTo('contact')}
-              onTakeTest={() => navigateTo('simple-test')}
+              onTakeTest={() => navigateTo('test')}
             />
 
-            {/* The 100% Free 5-Domain Sovereign Operating Audit (Leads to In-Depth Diagnostic) */}
-            <SimpleNeedsTest
-              onConsultationRequest={handleConsultationRequestFromDiagnostic}
-              onExplorePartnerships={() => navigateTo('partnerships')}
-              onProceedToInDepth={() => navigateTo('diagnostic')}
+            {/* Separate Test Invitation Banner (Direct link to separate Test) */}
+            <TestInvitationBanner
+              onLaunchTest={() => navigateTo('test')}
+            />
+
+            {/* Separate 5 Domains Preview Banner (Direct link to separate Domains Guide) */}
+            <DomainPreviewBanner
+              onOpenDomains={() => navigateTo('domains')}
+              onTakeTest={() => navigateTo('test')}
             />
 
             {/* The 3 Partnership Pathways: Diagnostic, Embedding, Retainer */}
@@ -230,7 +256,30 @@ export const App: React.FC = () => {
           </>
         )}
 
-        {/* 2. DEDICATED IN-DEPTH DIAGNOSTIC PAGE */}
+        {/* 2. DEDICATED SEPARATE TEST VIEW (60-Sec 5-Domain Sovereign Operating Audit) */}
+        {currentView === 'test' && (
+          <div>
+            {renderSubpageBreadcrumb('The Sovereign Operating Audit', '100% Free · 60 Seconds · Instant Outcome Report')}
+            <SimpleNeedsTest
+              onConsultationRequest={handleConsultationRequestFromDiagnostic}
+              onExplorePartnerships={() => navigateTo('partnerships')}
+              onProceedToInDepth={() => navigateTo('diagnostic')}
+            />
+          </div>
+        )}
+
+        {/* 3. DEDICATED SEPARATE 5 DOMAINS DESCRIPTION VIEW */}
+        {currentView === 'domains' && (
+          <div>
+            {renderSubpageBreadcrumb('5 Sovereign Operating Domains', 'Architecture Guide & Mission Blueprint')}
+            <DomainDescriptions
+              onTakeTest={() => navigateTo('test')}
+              onOpenConsultation={() => navigateTo('contact')}
+            />
+          </div>
+        )}
+
+        {/* 4. DEDICATED IN-DEPTH L.O.S. DIAGNOSTIC VIEW */}
         {currentView === 'diagnostic' && (
           <div>
             {renderSubpageBreadcrumb('Phase 2 In-Depth Assessment', 'Patent-Pending L.O.S. Diagnostic™')}
@@ -241,7 +290,7 @@ export const App: React.FC = () => {
           </div>
         )}
 
-        {/* 3. DEDICATED EXECUTIVE DISPATCHES & BLOGS LIBRARY */}
+        {/* 5. DEDICATED EXECUTIVE DISPATCHES & BLOGS LIBRARY VIEW */}
         {currentView === 'library' && (
           <div>
             {renderSubpageBreadcrumb('Intelligence Library', '19 Strategic Dispatches by Suchita Sancheti')}
@@ -251,7 +300,7 @@ export const App: React.FC = () => {
           </div>
         )}
 
-        {/* 4. DEDICATED COUNCIL CHAMBERS DOSSIER */}
+        {/* 6. DEDICATED COUNCIL CHAMBERS DOSSIER VIEW */}
         {currentView === 'council' && (
           <div>
             {renderSubpageBreadcrumb('The Council Chambers', 'Closed-Door Conclaves in Zurich, London, Singapore & NYC')}
@@ -263,17 +312,17 @@ export const App: React.FC = () => {
           </div>
         )}
 
-        {/* 5. DEDICATED ABOUT & PHILOSOPHY PAGE */}
+        {/* 7. DEDICATED ABOUT & PHILOSOPHY VIEW */}
         {currentView === 'about' && (
           <div>
-            {renderSubpageBreadcrumb('The Architect & The Firm', 'Vision, Mission & Humans + Architecture')}
+            {renderSubpageBreadcrumb('The Architect & The Firm', 'Vision, Mission & Executive Mastery')}
             <AboutSection
               onOpenConsultation={() => navigateTo('contact')}
             />
           </div>
         )}
 
-        {/* 6. DEDICATED EXECUTIVE WAR ROOM */}
+        {/* 8. DEDICATED EXECUTIVE WAR ROOM VIEW */}
         {currentView === 'war-room' && (
           <div>
             {renderSubpageBreadcrumb('Executive War Room', 'Strategic Scenario Simulator')}
@@ -281,7 +330,7 @@ export const App: React.FC = () => {
           </div>
         )}
 
-        {/* 7. DEDICATED CASE STUDIES & PROOF */}
+        {/* 9. DEDICATED CASE STUDIES VIEW */}
         {currentView === 'case-studies' && (
           <div>
             {renderSubpageBreadcrumb('Institutional Case Proof', 'Quantitative Evidence & Performance Logs')}
@@ -295,7 +344,7 @@ export const App: React.FC = () => {
       <Footer onNavigate={navigateTo} />
 
       {/* Fluid Mobile Bottom Dock */}
-      <MobileBottomNav onNavigate={navigateTo} />
+      <MobileBottomNav onNavigate={navigateTo} currentView={currentView} />
     </div>
   );
 };

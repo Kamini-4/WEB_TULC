@@ -30,27 +30,30 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
             <span aria-hidden="true" className="text-[#c9bea9]">·</span>
             <span className="text-[#17181c] font-bold">Vision & Mission</span>
             <span aria-hidden="true" className="text-[#c9bea9]">·</span>
-            <span>Humans + Architecture</span>
+            <span>Executive Mastery + Sovereign Architecture</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17181c] leading-tight tracking-tight [text-wrap:balance]">
             "You Didn't Build a Company to Live in Slack. <br className="hidden sm:inline" />
             <span className="text-[#9d7b38]">We Engineer The Systems That Set You Free."</span>
           </h2>
           <p className="mt-2 text-sm sm:text-base text-[#4e5159] font-normal leading-relaxed italic">
-            At The Unbounded Leadership Co., we believe true success isn't working 80 hours a week to prove your dedication. True success is owning a self-governing enterprise that scales profitably while you reclaim your Wednesday afternoons and sleep peacefully at night.
+            At The Unbounded Leadership Co., we believe true success isn't working 80 hours a week to prove your dedication. True success is owning a self-governing enterprise that scales profitably while you reclaim your Wednesday afternoons and lead with total composure.
           </p>
         </div>
 
-        {/* Vision, Mission & Humans + Architecture Grid */}
+        {/* Vision, Mission & Dual Architecture Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start mb-8">
           
           {/* Left Column: Suchita Sancheti Bio Card (4 Cols) */}
           <div className="lg:col-span-4 bg-[#ffffff] border border-[#d8cebe] rounded-lg p-5 sm:p-6 shadow-sm space-y-4">
             
-            {/* Elegant Monogram Insignia (0ms load time, ultra crisp) */}
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#17181c] via-[#22252c] to-[#17181c] border-2 border-[#d4af37] flex flex-col items-center justify-center text-center shadow-md mx-auto sm:mx-0">
-              <span className="text-2xl font-bold font-serif text-[#d4af37] tracking-wider">SS</span>
-              <span className="text-[9px] font-mono uppercase text-stone-300">TULC FIRM</span>
+            {/* Official Heraldic Crest Insignia */}
+            <div className="w-24 h-24 rounded-lg overflow-hidden border-2 border-[#d4af37] shadow-md mx-auto sm:mx-0">
+              <img 
+                src="/assets/aistudio/WhatsApp_Image_2026-01-09_at_13.01.23_3b22d7ab.jpeg" 
+                alt="The Unbounded Leadership Co. Insignia" 
+                className="w-full h-full object-cover"
+              />
             </div>
 
             <div className="space-y-1 text-center sm:text-left">
@@ -119,19 +122,19 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                   An Era of Enduring, Self-Governing Sovereign Institutions.
                 </h4>
                 <p className="text-xs sm:text-sm text-[#4e5159] leading-relaxed">
-                  We envision a corporate world where enterprises are not brittle monuments to one person's exhaustion, but resilient sovereign assets where leadership wisdom governs autonomously across market shifts, M&A integrations, and generational succession.
+                  We envision a corporate world where enterprises are not constrained by single-person bottlenecks, but operate as resilient sovereign assets where leadership wisdom governs autonomously across market shifts, M&A integrations, and generational succession.
                 </p>
               </div>
 
             </div>
 
-            {/* OUR SYSTEM: HUMANS + ARCHITECTURE (Winning Them Over) */}
+            {/* OUR SYSTEM: EXECUTIVE MASTERY + SOVEREIGN SYSTEMS ARCHITECTURE (Winning Them Over) */}
             <div className="p-5 sm:p-7 rounded-lg bg-gradient-to-br from-[#17181c] via-[#20232b] to-[#17181c] text-white border-2 border-[#d4af37]/60 shadow-lg space-y-4">
               
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#282a33] text-[#d4af37] text-xs font-mono uppercase font-bold rounded-xs border border-[#d4af37]/40">
                   <HeartHandshake className="w-3.5 h-3.5 text-[#d4af37]" />
-                  <span>The Proprietary Philosophy</span>
+                  <span>The Proprietary Dual-Engine Philosophy</span>
                 </div>
                 <span className="text-xs font-mono text-stone-300">
                   Why Great Leaders Choose TULC
@@ -140,10 +143,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
 
               <div className="space-y-1">
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight">
-                  Our System: <span className="text-[#d4af37]">Humans + Architecture.</span>
+                  The Dual Architecture: <span className="text-[#d4af37]">Executive Mastery + Sovereign Systems.</span>
                 </h3>
                 <p className="text-xs sm:text-sm text-stone-300 leading-relaxed italic">
-                  "Most consultants treat people like spreadsheet rows. Most executive coaches treat problems like therapy sessions. We do neither. We build the architectural bridge between how you think and how your team executes."
+                  "Most consultancies offer executive coaching without architecture, or organizational charts without executive conviction. We unite the two: cultivating decisive executive judgment while installing an invariant operating architecture that scales autonomously."
                 </p>
               </div>
 
@@ -151,19 +154,19 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                 
                 <div className="p-4 rounded-md bg-[#252830] border border-stone-700/80 space-y-1.5">
                   <div className="text-sm font-bold text-[#d4af37] flex items-center gap-1.5">
-                    <span>1. The Humans (Courage & Trust)</span>
+                    <span>1. Executive Mastery (Conviction & Trust)</span>
                   </div>
                   <p className="text-xs text-stone-300 leading-relaxed">
-                    We deeply empathize with your exhaustion and your team's unspoken anxiety. We eliminate learned helplessness, fear of blame, and defensive meeting politics, empowering your leaders to act with sovereign conviction.
+                    We unlock decisive leadership agency, mutual executive trust, and proactive ownership. Your leadership team operates with uncompromised clarity and high-velocity conviction, eliminating committee delays and decision fatigue.
                   </p>
                 </div>
 
                 <div className="p-4 rounded-md bg-[#252830] border border-stone-700/80 space-y-1.5">
                   <div className="text-sm font-bold text-[#d4af37] flex items-center gap-1.5">
-                    <span>2. The Architecture (Clarity & Guardrails)</span>
+                    <span>2. Sovereign Systems Architecture (Clarity & Invariant Governance)</span>
                   </div>
                   <p className="text-xs text-stone-300 leading-relaxed">
-                    We translate your unwritten founder judgment into explicit boundary covenants, spending thresholds, and 14-day asynchronous execution loops. When criteria are satisfied, decisions execute without needing your approval.
+                    We translate founder intuition into explicit boundary covenants, pre-ratified capital thresholds, and 14-day asynchronous execution loops. When criteria are satisfied, initiatives execute autonomously at market velocity.
                   </p>
                 </div>
 
@@ -178,11 +181,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs text-stone-300">
                   <div className="flex items-start gap-1.5">
                     <span className="text-[#d4af37] font-bold">✓</span>
-                    <span><strong>15+ Hours Returned:</strong> Your Wednesday afternoons and dinner with family are non-negotiable.</span>
+                    <span><strong>15+ Hours Returned:</strong> Your focus shifts from operational triage to strategic capital allocation and enterprise scale.</span>
                   </div>
                   <div className="flex items-start gap-1.5">
                     <span className="text-[#d4af37] font-bold">✓</span>
-                    <span><strong>Zero Slack Dread:</strong> No waking up at 2:00 AM wondering what fire broke out while you slept.</span>
+                    <span><strong>Autonomous Execution:</strong> Direct reports resolve high-stakes trade-offs within codified guardrails without escalating routine decisions.</span>
                   </div>
                   <div className="flex items-start gap-1.5">
                     <span className="text-[#d4af37] font-bold">✓</span>

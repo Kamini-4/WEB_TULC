@@ -1,53 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { Home, Layers, Activity, BookOpen, Send, Zap } from 'lucide-react';
+import React from 'react';
+import { Home, Zap, Target, Layers, Send } from 'lucide-react';
 
 interface MobileBottomNavProps {
   onNavigate: (sectionId: string) => void;
+  currentView?: string;
 }
 
-export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onNavigate }) => {
-  const [activeSection, setActiveSection] = useState<string>('top');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['contact', 'proof', 'war-room', 'blogs', 'diagnostic', 'council-chambers', 'partnerships', 'about', 'simple-test', 'briefing', 'top'];
-      const scrollPos = window.scrollY + 200;
-
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el && scrollPos >= el.offsetTop) {
-          setActiveSection(sectionId);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ 
+  onNavigate,
+  currentView = 'home'
+}) => {
   const navItems = [
     { id: 'top', label: 'Home', icon: Home },
-    { id: 'simple-test', label: 'The Test', icon: Zap, badge: 'HOT' },
+    { id: 'test', label: 'The Test', icon: Zap, badge: 'FREE' },
+    { id: 'domains', label: '5 Domains', icon: Target },
     { id: 'partnerships', label: 'Pathways', icon: Layers },
-    { id: 'blogs', label: 'Blogs', icon: BookOpen },
     { id: 'contact', label: 'Briefing', icon: Send },
   ];
 
   return (
     <nav 
       aria-label="Mobile Navigation Dock"
-      className="fixed bottom-0 left-0 right-0 z-40 bg-[#f8f6f0]/95 backdrop-blur-md border-t border-[#e5decfe0] lg:hidden shadow-[0_-4px_16px_rgba(0,0,0,0.06)]"
+      className="fixed bottom-0 left-0 right-0 z-40 bg-[#f8f6f0]/95 backdrop-blur-md border-t border-[#e5decfe0] md:hidden shadow-[0_-4px_16px_rgba(0,0,0,0.06)]"
       style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
       <div className="grid grid-cols-5 items-center h-14 max-w-md mx-auto px-1">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = 
-            item.id === activeSection || 
-            (item.id === 'top' && (activeSection === 'top' || activeSection === '')) ||
-            (item.id === 'simple-test' && (activeSection === 'simple-test' || activeSection === 'diagnostic')) ||
-            (item.id === 'partnerships' && (activeSection === 'partnerships' || activeSection === 'council-chambers' || activeSection === 'war-room'));
+            (item.id === 'top' && (currentView === 'home' || currentView === 'top')) ||
+            (item.id === 'test' && (currentView === 'test' || currentView === 'diagnostic')) ||
+            (item.id === 'domains' && currentView === 'domains') ||
+            (item.id === 'partnerships' && currentView === 'partnerships');
 
           return (
             <button

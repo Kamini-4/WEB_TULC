@@ -28,7 +28,7 @@ Input Parameters from the Patent-Pending Leadership Operating System (L.O.S.) Di
 - Prescribed Partnership Pathway: ${recommendedModelTitle}
 
 Rules:
-- Writing methodology: Seth Godin inspired - uncompromising clarity, challenging corporate hiding and consensus theater, focusing on tension, responsibility, and courage. Never mention Seth Godin by name.
+- Writing methodology: High-conviction executive advisory - uncompromising clarity, challenging consensus theater and operational latency, focusing on decision rights, responsibility, and sovereign conviction.
 - Tone: Razor-sharp, institutional, confidential, boardroom-authoritative.
 - Format with clear editorial markdown sections:
   1. CONFIDENTIAL EXECUTIVE AUDIT SUMMARY (2-3 sentences diagnosing the core operating failure)
@@ -43,7 +43,7 @@ Rules:
 The diagnostic indicates an acute institutional impedance mismatch between board mandate clarity and C-suite decision velocity (Friction Index: ${frictionScore}/100). The current operating architecture forces strategic capital allocations into redundant consensus cycles, creating an estimated 38–44% drag on strategic execution.
 
 ### CAPITAL VELOCITY & GOVERNANCE EXPOSURE
-1. **Consensus As A Hiding Mechanism**: Senior executives spend over 22 hours per week in defensive consensus-building rather than deploying conviction.
+1. **Consensus Diffusion**: Senior executives spend over 22 hours per week in defensive consensus-building rather than deploying conviction.
 2. **Board Audit Paralyzation**: The board operates in retroactive audit mode rather than forward governance cadence, incentivizing executive risk aversion.
 3. **Succession Fragility**: Key strategic initiatives remain tied to single-person gravity rather than institutionalized operating protocols.
 
@@ -53,7 +53,7 @@ The diagnostic indicates an acute institutional impedance mismatch between board
 - **Action 03 (Board Information Horizon)**: Re-anchor the Board Agenda to three sovereign dilemmas rather than historical operational reporting.
 
 ### ALIGNMENT BLUEPRINT UNDER ${recommendedModelTitle.toUpperCase()}
-Engaging under **${recommendedModelTitle}** will dismantle the consensus bureaucracy, codify authority vectors, and restore enterprise velocity within a structured institutional transformation runway.`;
+Deploying under **${recommendedModelTitle}** will dismantle the consensus bureaucracy, codify authority vectors, and restore enterprise velocity within a structured institutional transformation runway.`;
   }
 
   try {
@@ -90,29 +90,23 @@ A Chief Executive or Board Chair presents the following high-stakes corporate di
 "${dilemma}"
 ${scenarioContext ? `Context: ${scenarioContext}` : ''}
 
-Respond in the role of an elite, battle-tested Board Chair who has overseen dozens of mega-cap crises and corporate transitions. Use the methodology of calling out organizational fear, hidden agendas, and consensus posturing with absolute elegance and clarity.
+Respond in the role of an elite, battle-tested Board Chair who has overseen dozens of mega-cap crises and corporate transitions. Use the methodology of addressing unspoken dynamics, bureaucratic hesitation, and consensus posturing with absolute elegance and clarity.
 
-Return your response in valid JSON format with exactly three fields:
+Return pure JSON:
 {
-  "critique": "A 2-3 sentence incisive analysis of the core governance or power struggle occurring beneath the surface.",
-  "unspokenInvariant": "The one critical truth that neither the CEO nor the Board is willing to admit aloud in the boardroom.",
-  "recommendedResolution": [
-    "Step 1: Immediate 48-hour protocol",
-    "Step 2: Structural mandate adjustment",
-    "Step 3: Board ratification mechanism"
-  ]
-}
-
-Return ONLY JSON, no other text or explanation.`;
+  "critique": "A rigorous, unsparing critique of the dilemma and uncodified assumptions",
+  "unspokenInvariant": "The core truth nobody in the boardroom is saying aloud",
+  "recommendedResolution": ["Strategic move 1", "Strategic move 2", "Strategic move 3"]
+}`;
 
   if (!aiClient) {
     return {
-      critique: "The conflict described is not a strategy dispute; it is an unresolved authority boundary between founder equity gravity and board fiduciary mandate. Delaying action will catalyze executive departures within 60 days.",
-      unspokenInvariant: "The Board lacks the institutional spine to enforce accountability because it fears losing customer and investor perception, which the counterparty is actively weaponizing.",
+      critique: "The issue is not market conditions; it is executive reluctance to confront internal misalignment.",
+      unspokenInvariant: "Consensus is being weaponized to diffuse personal accountability.",
       recommendedResolution: [
-        "Convene an in-camera executive session with Lead Independent Director only — no management present.",
-        "Issue a binding Sovereign Mandate Charter establishing explicit unilateral boundaries for the disputed remit.",
-        "Establish a 90-day milestone cadence with non-negotiable governance milestones tied directly to capital tranches."
+        "Enact single-threaded executive ownership over the core mandate.",
+        "Establish an invariant board sign-off threshold within 48 hours.",
+        "Remove cross-committee review loops that dilute accountability."
       ]
     };
   }
@@ -122,28 +116,278 @@ Return ONLY JSON, no other text or explanation.`;
       model: 'gemini-3.8-flash',
       contents: prompt,
     });
-    const text = response.text || '{}';
-    const cleanJson = text.replace(/```json/g, '').replace(/```/g, '').trim();
+    const raw = response.text || '{}';
+    const cleanJson = raw.replace(/```json/g, '').replace(/```/g, '').trim();
     const parsed = JSON.parse(cleanJson);
     return {
-      critique: parsed.critique || "Strategic alignment requires decisive authority demarcation.",
-      unspokenInvariant: parsed.unspokenInvariant || "Authority without accountability creates systemic governance drag.",
+      critique: parsed.critique || "Strategic clarity requires uncompromising conviction over consensus.",
+      unspokenInvariant: parsed.unspokenInvariant || "The unwritten rules are dictating outcomes more than official policies.",
       recommendedResolution: Array.isArray(parsed.recommendedResolution) ? parsed.recommendedResolution : [
-        "Isolate the decision rights to the primary mandate holder.",
-        "Establish an asynchronous 14-day review loop.",
-        "Ratify non-negotiable board milestones."
+        "Uncouple founder presence from operational sign-offs.",
+        "Formalize decision thresholds in writing."
       ]
     };
-  } catch (error) {
-    console.error('Gemini sparring error:', error);
+  } catch (err) {
+    console.error('Boardroom sparring error:', err);
     return {
-      critique: "The conflict reflects an underlying mandate breakdown where decision rights are blurred across management and board factions.",
-      unspokenInvariant: "Both parties are treating a structural governance flaw as an interpersonal friction.",
+      critique: "Consensus-driven delay is compounding enterprise risk.",
+      unspokenInvariant: "Avoidance of trade-offs is masquerading as deliberate governance.",
       recommendedResolution: [
-        "Codify explicit authority limits in a 2-page Sovereign Mandate Memo.",
-        "Eliminate dual-reporting lines for critical capital deployment roles.",
-        "Convene a structured 3-hour alignment session with external advisory facilitation."
+        "Establish unambiguous authority boundaries.",
+        "Codify decision velocity SLAs."
       ]
+    };
+  }
+}
+
+export interface CouncilDialecticResult {
+  advisorTone: string;
+  response: string;
+  triadPerspectives?: {
+    consigliere: string;
+    dynasticStrategist: string;
+    executionOrchestrator: string;
+  };
+  metabolicDecisionTax: {
+    hoursWastedPerWeek: number;
+    annualEbitdaDragEstimate: string;
+    latencyRisk: 'Low' | 'Moderate' | 'Acute' | 'Critical';
+  };
+  extractedActionLedger: Array<{
+    id: string;
+    category: 'Decisive Veto' | 'Operational Rule' | 'Systemic Milestone';
+    action: string;
+    deadlineDays: number;
+  }>;
+  domainScoreImpact: {
+    cognitiveClarity: number;
+    culturalFidelity: number;
+    strategicVelocity: number;
+    systemicIntegrity: number;
+    moralGravity: number;
+  };
+  deliveryComposureNote?: string;
+}
+
+export async function generateCouncilChambersDialectic(params: {
+  chamberId: 'inner_sanctum' | 'citadel' | 'war_room' | 'observatory' | 'pantheon';
+  deliberationMode: 'single' | 'triad';
+  contextPosture: 'corporate' | 'family_office' | 'alpha_founder';
+  prompt: string;
+  activeShock?: string | null;
+  wpm?: number;
+  composureScore?: number;
+}): Promise<CouncilDialecticResult> {
+  const { chamberId, deliberationMode, contextPosture, prompt, activeShock, wpm, composureScore } = params;
+
+  const chamberNames = {
+    inner_sanctum: 'The Inner Sanctum (Cognitive Clarity // Psychological Sovereignty)',
+    citadel: 'The Citadel (Cultural Fidelity // Distributed Intelligence)',
+    war_room: 'The War Room (Strategic Velocity // Asymmetric Advantage)',
+    observatory: 'The Observatory (Systemic Integrity // Zero-Latency Manifestation)',
+    pantheon: 'The Pantheon (Moral Gravity // Institutional Perpetuity)'
+  };
+
+  const postureNames = {
+    corporate: 'Corporate Enterprise ($50M–$500M+)',
+    family_office: 'Family Office / Dynastic Holding',
+    alpha_founder: 'Alpha Founder / High-Growth Scale-Up'
+  };
+
+  const systemInstruction = `You are the Lead Sovereign Advisor inside "The Council Chambers" at The Unbounded Leadership Co.
+This is a confidential strategic sanctuary and sparring room for founders, family principals, and CXOs to confront vulnerabilities, leadership bottlenecks, and board friction without exposure.
+
+Governing Principles:
+- Challenger Dialectic (Not an Echo Chamber): You do NOT validate comfortable clichés or offer polite consulting reassurance. You stress-test assumptions, expose operational bottlenecks, and calculate the leader's metabolic decision tax.
+- Grounding: Organizational cybernetics (Stafford Beer, Norbert Wiener), behavioral economics, and Tier-1 institutional research (Harvard Business Review, MIT Sloan, McKinsey, Stanford).
+- Current Chamber: ${chamberNames[chamberId]}
+- Executive Posture: ${postureNames[contextPosture]}
+${activeShock ? `- Injected Macroeconomic Stress Shock: ${activeShock}` : ''}
+${wpm ? `- Observed Vocal Cadence: ${wpm} WPM (Composure Score: ${composureScore || 85}/100)` : ''}
+- Deliberation Mode: ${deliberationMode === 'triad' ? 'Triad Roundtable Mode' : 'Single Advisor Mode'}
+
+If Deliberation Mode is 'triad', provide 3 distinct personas:
+1. The Sovereign Consigliere (Authority structures, board power dynamics, veto frameworks, principal autonomy).
+2. The Dynastic Wealth Strategist (Capital preservation, EBITDA multiple expansion, wealth leakage, capital shields).
+3. The Execution Orchestrator (Tactical throughput, SOP automation, operational latency, leadership DNA codification).
+
+Return pure JSON matching this exact structure:
+{
+  "advisorTone": "Challenger & Forensic Cybernetic",
+  "response": "Incisive, high-conviction analysis challenging the user's hidden assumptions and diagnosing the metabolic decision tax.",
+  ${deliberationMode === 'triad' ? `"triadPerspectives": {
+    "consigliere": "Consigliere analysis on authority and board vetoes...",
+    "dynasticStrategist": "Wealth strategist on EBITDA multiple impact and capital protection...",
+    "executionOrchestrator": "Orchestrator on tactical latency and autonomous SOP loops..."
+  },` : ''}
+  "metabolicDecisionTax": {
+    "hoursWastedPerWeek": 16,
+    "annualEbitdaDragEstimate": "$340,000 - $820,000",
+    "latencyRisk": "Acute"
+  },
+  "extractedActionLedger": [
+    {
+      "id": "act-1",
+      "category": "Decisive Veto",
+      "action": "Issue unilateral veto on all committee reviews over $100k without founder pre-ratification.",
+      "deadlineDays": 7
+    },
+    {
+      "id": "act-2",
+      "category": "Operational Rule",
+      "action": "Institute 14-day asynchronous yes/no sign-off loop for senior leadership.",
+      "deadlineDays": 14
+    }
+  ],
+  "domainScoreImpact": {
+    "cognitiveClarity": 4,
+    "culturalFidelity": -2,
+    "strategicVelocity": 6,
+    "systemicIntegrity": 5,
+    "moralGravity": 2
+  },
+  "deliveryComposureNote": "Vocal telemetry indicates steady delivery with strategic focus."
+}`;
+
+  if (!aiClient) {
+    // High-fidelity fallback
+    const fallbackLedger = [
+      {
+        id: 'act-1',
+        category: 'Decisive Veto' as const,
+        action: 'Formulate an invariant authority boundary removing executive consensus requirements for expenditures under $50,000.',
+        deadlineDays: 7
+      },
+      {
+        id: 'act-2',
+        category: 'Operational Rule' as const,
+        action: 'Enforce 48-hour asynchronous decision loop across all cross-departmental escalations.',
+        deadlineDays: 14
+      },
+      {
+        id: 'act-3',
+        category: 'Systemic Milestone' as const,
+        action: 'Codify founder quality heuristics into binary acceptance criteria to eliminate review rework.',
+        deadlineDays: 30
+      }
+    ];
+
+    if (deliberationMode === 'triad') {
+      return {
+        advisorTone: 'Triad Strategic Syndicate',
+        response: `The Council Chambers has analyzed your dilemma through the lens of institutional cybernetics. Your perceived operational friction is not a personnel flaw; it is an uncodified authority boundary that forces every strategic trade-off back into your personal cognitive queue.`,
+        triadPerspectives: {
+          consigliere: `You have permitted consensus politics to dilute your unilateral sovereign authority. By allowing middle management to seek consensus instead of owning binary trade-offs, you have established a corporate court where no one bears consequence. Issue an explicit veto covenant immediately.`,
+          dynasticStrategist: `Every week you spend resolving internal operational friction siphons 3.5% to 5.0% of your enterprise multiple. Institutional acquirers and family office trustees heavily discount businesses that freeze without the principal's physical presence. Decoupling authority is a valuation multiplier.`,
+          executionOrchestrator: `Your team suffers from learned helplessness because you still reward escalations with answers. Replace all synchronous alignment syncs with 14-day asynchronous decision loops. If an initiative meets the codified guardrails, execution is mandatory without permission.`
+        },
+        metabolicDecisionTax: {
+          hoursWastedPerWeek: 18,
+          annualEbitdaDragEstimate: '$450,000 - $720,000 USD',
+          latencyRisk: 'Acute'
+        },
+        extractedActionLedger: fallbackLedger,
+        domainScoreImpact: {
+          cognitiveClarity: 6,
+          culturalFidelity: 3,
+          strategicVelocity: 8,
+          systemicIntegrity: 7,
+          moralGravity: 4
+        },
+        deliveryComposureNote: wpm && wpm > 175 
+          ? 'Elevated verbal velocity detected (180+ WPM). Delivery suggests cognitive pressure; decelerate cadence to preserve executive gravitas.' 
+          : 'Composure metrics within optimal sovereign parameters.'
+      };
+    }
+
+    return {
+      advisorTone: 'Challenger Cybernetic Dialectic',
+      response: `You are confusing management activity with executive authority. In this chamber, we do not indulge the illusion that working harder will unblock your leadership bottleneck. The research from MIT Sloan and Harvard is conclusive: when an apex leader acts as the central clearinghouse for routine variance, the organization systematically stops thinking. Your team is not hesitant because they lack ability; they are hesitant because you have left your judgment unwritten, forcing them to treat you as a guessing game.`,
+      metabolicDecisionTax: {
+        hoursWastedPerWeek: 15,
+        annualEbitdaDragEstimate: '$380,000 - $610,000 USD',
+        latencyRisk: 'Acute'
+      },
+      extractedActionLedger: fallbackLedger,
+      domainScoreImpact: {
+        cognitiveClarity: 7,
+        culturalFidelity: 2,
+        strategicVelocity: 6,
+        systemicIntegrity: 8,
+        moralGravity: 3
+      },
+      deliveryComposureNote: 'Composed delivery. Focused analytical clarity.'
+    };
+  }
+
+  try {
+    const aiResponse = await aiClient.models.generateContent({
+      model: 'gemini-3.8-flash',
+      contents: `${systemInstruction}\n\nExecutive Input Dilemma:\n"${prompt}"`,
+    });
+
+    const raw = aiResponse.text || '{}';
+    const cleanJson = raw.replace(/```json/g, '').replace(/```/g, '').trim();
+    const parsed = JSON.parse(cleanJson);
+
+    return {
+      advisorTone: parsed.advisorTone || 'Challenger Cybernetic Dialectic',
+      response: parsed.response || 'Analysis complete. Authority boundaries must be codified.',
+      triadPerspectives: parsed.triadPerspectives,
+      metabolicDecisionTax: parsed.metabolicDecisionTax || {
+        hoursWastedPerWeek: 16,
+        annualEbitdaDragEstimate: '$400,000 USD',
+        latencyRisk: 'Acute'
+      },
+      extractedActionLedger: Array.isArray(parsed.extractedActionLedger) ? parsed.extractedActionLedger : [
+        {
+          id: 'act-1',
+          category: 'Decisive Veto',
+          action: 'Establish unilateral decision thresholds for high-stakes initiatives.',
+          deadlineDays: 7
+        }
+      ],
+      domainScoreImpact: parsed.domainScoreImpact || {
+        cognitiveClarity: 5,
+        culturalFidelity: 2,
+        strategicVelocity: 6,
+        systemicIntegrity: 6,
+        moralGravity: 3
+      },
+      deliveryComposureNote: parsed.deliveryComposureNote || 'Steady delivery composure.'
+    };
+  } catch (err) {
+    console.error('Council Chambers dialectic error:', err);
+    return {
+      advisorTone: 'Challenger Dialectic (Resilience Mode)',
+      response: `Your operational friction is rooted in uncodified governance boundaries. When founders operate as universal problem solvers, the enterprise naturally defaults to defensive consensus. We must install invariant execution protocols to decouple your daily presence from institutional results.`,
+      metabolicDecisionTax: {
+        hoursWastedPerWeek: 14,
+        annualEbitdaDragEstimate: '$320,000 - $550,000 USD',
+        latencyRisk: 'Moderate'
+      },
+      extractedActionLedger: [
+        {
+          id: 'act-1',
+          category: 'Decisive Veto',
+          action: 'Establish explicit single-threaded ownership for all tier-1 projects.',
+          deadlineDays: 7
+        },
+        {
+          id: 'act-2',
+          category: 'Operational Rule',
+          action: 'Eliminate retroactive approval meetings with asynchronous 14-day loops.',
+          deadlineDays: 14
+        }
+      ],
+      domainScoreImpact: {
+        cognitiveClarity: 5,
+        culturalFidelity: 3,
+        strategicVelocity: 5,
+        systemicIntegrity: 6,
+        moralGravity: 2
+      },
+      deliveryComposureNote: 'Session executed under sovereign encryption.'
     };
   }
 }

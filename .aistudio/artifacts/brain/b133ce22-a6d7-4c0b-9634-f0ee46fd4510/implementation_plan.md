@@ -1,24 +1,42 @@
-# Revised Implementation Plan: Radical Simplicity & Seth Godin Reframing
+# Implementation Plan: Council Chambers Re-Architecture & Navigation Modularization
 
-## Core Mandates
-1. **Zero Technical Jargon**: Strip away all words like *"substrates"*, *"heuristics"*, *"invariant gates"*, *"metabolic burn"*, *"telemetry"*, and *"vector physics"*.
-2. **8-Second Clarity Rule**:
-   - **What we do**: We help founders build companies that run without them—so you can stop putting out daily fires and get your life back.
-   - **How we do it**: We turn how you make decisions into clear, simple guidelines your team can follow without asking you.
-   - **3 Steps to Freedom**:
-     - *Step 1: Take the Two-Week Test* (Find out what freezes if you step away).
-     - *Step 2: Map Your Decision Rules* (Replace constant Slack pings with clear guardrails).
-     - *Step 3: Step Into Freedom* (Watch your company grow while you enjoy your Wednesday afternoons).
-3. **No Executive Posturing**: Replace pompous language with radical empathy, warmth, and real human relief.
-4. **Banned Word**: The word `"strictly"` is completely eliminated.
-5. **Centered Around the User**: Speak directly to the founder's daily exhaustion, their midnight Slack dread, their longing for family time, and their dream of owning a real business rather than a stressful job.
-6. **Preserve Intact**:
-   - Do NOT touch blogs.
-   - Keep the video player and video links completely intact.
-   - Keep all visual styles, Playfair Display fonts, background colors, and layouts untouched.
+## Objective
+Re-architect The Council Chambers according to the six-pillar executive specification, maintain an uncluttered top navigation bar, provide separated views for the assessment test and domain descriptions, integrate vision and mission statements, and ensure high-performance execution.
 
-## Targeted Files
-1. `components/Countdown.tsx`: Replace false countdown clock with the Two-Week Step-Away Test tension banner. No ticking numbers.
-2. `App.tsx`: Ensure the tension banner is active above the header.
-3. `src/pages/Home.tsx`: Reframe Hero, 8-Second Overview, Video Briefing, Problem, 3 Steps to Freedom, and Call to Action.
-4. `src/pages/ServicesPage.tsx`: Reframe services from heavy consulting jargon to simple artisan partnerships.
+## Pillars Delivered
+
+### 1. Core Purpose & Role
+- **Confidential Strategic Sanctuary**: High-level sparring room for founders, family principals, and C-suite executives to confront vulnerabilities, leadership bottlenecks, board friction, and high-stakes doubts without exposure.
+- **Challenger Dialectic**: Grounded in organizational cybernetics and Tier-1 research (HBR, MIT Sloan, McKinsey, Stanford). Replaces polite platitudes with stress-tested assumptions and dynamic calculation of the executive's **metabolic decision tax**.
+
+### 2. 5 Dedicated Domain Chambers (Hot-Switchable)
+- **The Inner Sanctum**: Cognitive Clarity // Psychological Sovereignty
+- **The Citadel**: Cultural Fidelity // Distributed Intelligence
+- **The War Room**: Strategic Velocity // Asymmetric Advantage
+- **The Observatory**: Systemic Integrity // Zero-Latency Manifestation
+- **The Pantheon**: Moral Gravity // Institutional Perpetuity
+
+### 3. Deliberation Modes
+- **Single Advisor Mode**: Deep 1-on-1 cybernetic sparring tailored to posture (Corporate Enterprise, Family Office / Dynasty, Alpha Founder).
+- **Triad Roundtable Mode**: Simultaneous synthesis of three elite personas:
+  - *The Sovereign Consigliere* (Authority structures, veto frameworks, board dynamics)
+  - *The Dynastic Wealth Strategist* (EBITDA multiple expansion, wealth leakage, capital shields)
+  - *The Execution Orchestrator* (Tactical throughput, SOP automation, operational latency)
+
+### 4. Active Cockpit HUD & Telemetry
+- **Live Vocal Biometrics & Speech Prosody Scanner**: Words-Per-Minute (WPM), pause cadence, clarity index, and composure scoring.
+- **Macroeconomic Stress Shocks**: Real-time crisis injection:
+  - Interest Rate Spikes (+350 bps)
+  - Malacca Strait Supply Chain Seizure
+  - Unplanned Handover / Principal Incapacitation
+  - Capital Flight / Liquidity Freeze
+- **Dynamic 5-Domain Radar Gauge**: Real-time vector shifts reflecting simulated shocks and advisory interventions.
+
+### 5. Interactive Output
+- **Code of Action Ledger**: Auto-categorized executive directives (Decisive Veto, Operational Rule, Systemic Milestone) with deadline tracking.
+- **Sovereign Decoupling Protocol Export**: Generates and downloads a codified markdown governance mandate.
+- **Hands-Free Speech**: Speech-to-Text vocal dictation and speech synthesis voice readback.
+
+### 6. Zero-Data Retention & Commercial Tiers
+- **Zero-Data Retention (ZDR)**: Ephemeral session state with a One-Click Instant Purge button to wipe transcripts, biometrics, and telemetry.
+- **Commercial Tiering**: Highlighted Council Chambers as bundled with the Forensic Diagnostic, with implementation unlocking the full strategic version and annual global conclaves.

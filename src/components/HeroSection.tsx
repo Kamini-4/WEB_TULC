@@ -36,7 +36,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
             <span className="text-[#9d7b38]">Leadership is about courage.</span>
           </h1>
           <p className="mt-3.5 sm:mt-4 text-sm sm:text-base lg:text-lg text-[#4e5159] font-normal leading-relaxed max-w-3xl italic">
-            When organizations stall, it is rarely a strategy problem. It is almost always a <strong className="font-bold text-[#17181c] not-italic">hiding problem</strong>. Consensus is comfortable. Decisive mandate creates tension. <strong className="font-bold text-[#9d7b38] not-italic">We re-architect the operating system so leadership can happen.</strong>
+            When organizations stall, it is rarely a strategy problem. It is almost always an <strong className="font-bold text-[#17181c] not-italic">architecture problem</strong>. Consensus diffuses authority across endless decks. Decisive mandate demands sovereign clarity. <strong className="font-bold text-[#9d7b38] not-italic">We re-architect the operating system so leadership operates with total velocity.</strong>
           </p>
         </div>
 

@@ -70,7 +70,7 @@ const CASE_STUDIES: CaseStudy[] = [
       secondaryContext: 'Phase 1 sovereign infrastructure commissioning'
     },
     executiveQuote: {
-      quote: "They demonstrated where our leadership was hiding behind parliamentary protocol. In three weeks, we reclaimed two years of lost operational ground.",
+      quote: "They pinpointed where decision velocity was diffusing across parliamentary protocol. In three weeks, we reclaimed two years of lost operational ground.",
       author: 'Sir Julian Sterling',
       title: 'Executive Chairman, Northern Infrastructure Authority'
     }
@@ -96,7 +96,7 @@ export const InstitutionalCaseStudies: React.FC = () => {
             <span className="text-[#9d7b38]">The Results Are Indisputable.</span>
           </h2>
           <p className="mt-2 text-sm sm:text-base text-[#54575f] font-normal leading-relaxed italic">
-            Strategy without courage is just expensive stationery. Here is what happens when organizations stop hiding behind consensus and install a sovereign operating system.
+            Strategy without executive conviction is just expensive stationery. Here is what happens when organizations eliminate consensus drag and install a sovereign operating system.
           </p>
         </div>
 

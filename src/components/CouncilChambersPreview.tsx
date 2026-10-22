@@ -1,5 +1,5 @@
 import React from 'react';
-import { Crown, ArrowRight, Sparkles, CheckCircle2, Lock } from 'lucide-react';
+import { Crown, ArrowRight, Sparkles, CheckCircle2, Lock, Activity, Users, Flame } from 'lucide-react';
 
 interface CouncilChambersPreviewProps {
   onOpenFullDossier: () => void;
@@ -26,29 +26,37 @@ export const CouncilChambersPreview: React.FC<CouncilChambersPreviewProps> = ({
               <div className="flex flex-wrap items-center gap-2 text-xs font-mono uppercase font-bold text-[#d4af37]">
                 <Crown className="w-4 h-4 text-[#d4af37]" />
                 <span className="bg-[#242731] border border-[#d4af37]/40 px-2 py-0.5 rounded-xs">
-                  Feature Sold with Diagnostic
+                  Confidential Strategic Sanctuary
                 </span>
                 <span aria-hidden="true" className="text-stone-600">·</span>
-                <span className="text-stone-300">Closed-Door Peer Conclaves</span>
+                <span className="text-stone-300">Challenger Cybernetic Dialectic</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
                 The Council Chambers: <br className="hidden sm:inline" />
-                <span className="text-[#d4af37]">A Taste Included With Your Diagnostic.</span>
+                <span className="text-[#d4af37]">Sparring Room for Founders & CXOs.</span>
               </h2>
 
               <p className="text-xs sm:text-sm text-stone-300 leading-relaxed italic max-w-2xl">
-                "Where verified CEOs and business owners test sensitive decisions under Chatham House rules. Order our <strong>Mandate Forensic Diagnostic</strong> to experience one closed-door sparring session with peer leaders—or choose an implementation category for year-round global access."
+                "Not an echo chamber. Powered by organizational cybernetics and Tier-1 institutional research (Harvard, MIT Sloan, McKinsey, Stanford) to stress-test vulnerabilities, calculate your metabolic decision tax, and extract an immutable Code of Action."
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs text-stone-200">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs text-stone-200 font-sans">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                  <span><strong>With Diagnostic:</strong> 1 In-camera peer sparring session included</span>
+                  <span><strong>5 Dedicated Chambers:</strong> Hot-switch across Cognitive, Velocity & Integrity</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                  <span><strong>With Implementation:</strong> Year-round access (Zurich, London, Singapore, NYC)</span>
+                  <span><strong>Triad Roundtable:</strong> Consigliere, Wealth Strategist & Execution Orchestrator</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
+                  <span><strong>Active Cockpit HUD:</strong> Vocal prosody biometrics & macroeconomic shocks</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
+                  <span><strong>Zero-Data Retention:</strong> Ephemeral session with 1-click instant memory purge</span>
                 </div>
               </div>
             </div>
@@ -57,17 +65,17 @@ export const CouncilChambersPreview: React.FC<CouncilChambersPreviewProps> = ({
             <div className="lg:col-span-4 p-5 rounded-md bg-[#22252e] border border-stone-700 space-y-3">
               <div className="flex items-center gap-1.5 text-xs font-bold text-[#d4af37] uppercase font-mono">
                 <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
-                <span>Global Conclaves</span>
+                <span>Sanctuary Entry</span>
               </div>
-              <div className="text-xs text-stone-300 leading-relaxed">
-                Explore the complete 2026/2027 conclave schedule, locations, and admission protocols.
+              <div className="text-xs text-stone-300 leading-relaxed font-sans">
+                Experience a foundational sparring taste included with your Diagnostic, or unlock full year-round strategic conclaves with implementation.
               </div>
               <div className="space-y-2 pt-1">
                 <button
                   onClick={onOpenFullDossier}
                   className="w-full py-2.5 px-4 bg-gold-gradient text-[#141416] text-xs font-bold uppercase rounded-sm transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer active:scale-98"
                 >
-                  <span>Open Council Chambers Dossier</span>
+                  <span>Enter Council Chambers Sanctuary</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
                 <button

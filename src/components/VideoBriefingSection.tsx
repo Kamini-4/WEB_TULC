@@ -31,38 +31,38 @@ export const VideoBriefingSection: React.FC<VideoBriefingProps> = ({ onOpenConsu
               "You hired high-caliber people. You pay top compensation. You hold weekly strategy meetings. Yet somehow, <strong className="text-[#17181c] not-italic font-bold">every high-stakes decision still lands on your desk at 8:00 PM</strong>. Your team isn't incompetent—they are simply paralyzed by uncodified rules."
             </p>
 
-            {/* The Core Doctrine: Humans + Architecture */}
+            {/* The Core Doctrine: Executive Mastery + Sovereign Architecture */}
             <div className="p-4 sm:p-5 rounded-md bg-[#ffffff] border border-[#d8cebe] shadow-xs space-y-3">
               <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#9d7b38] font-bold">
                 <HeartHandshake className="w-4 h-4 text-[#9d7b38]" />
-                <span>Our Governing Formula: Humans + Architecture</span>
+                <span>Our Governing Formula: Executive Mastery + Sovereign Architecture</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
                 <div className="p-3 rounded-xs bg-[#faf8f5] border border-[#e5decfe0] space-y-1">
                   <div className="font-bold text-[#17181c] flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#9d7b38]" />
-                    <span>The Humans</span>
+                    <span>Executive Mastery</span>
                   </div>
                   <p className="text-[#555861] leading-relaxed">
-                    We eliminate learned helplessness and blame-avoidance. Your senior leaders stop hiding behind consensus decks and discover the psychological safety to act with courage.
+                    We cultivate high-conviction decision-making and executive alignment. Senior leaders move past defensive consensus cycles to drive initiatives with proactive confidence and sovereign ownership.
                   </p>
                 </div>
 
                 <div className="p-3 rounded-xs bg-[#faf8f5] border border-[#e5decfe0] space-y-1">
                   <div className="font-bold text-[#17181c] flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#17181c]" />
-                    <span>The Architecture</span>
+                    <span>Sovereign Architecture</span>
                   </div>
                   <p className="text-[#555861] leading-relaxed">
-                    We hard-code your decision thresholds, risk boundaries, and signing matrices into self-executing operational criteria. When criteria are met, teams execute without permission.
+                    We hard-code your decision thresholds, risk boundaries, and capital signing limits into transparent operational criteria. When criteria are satisfied, teams execute autonomously at market velocity.
                   </p>
                 </div>
               </div>
 
               <div className="pt-2 border-t border-[#f0eade] text-xs text-[#17181c] font-semibold flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" />
-                <span>The Outcome: You reclaim 15+ hours weekly, stop midnight firefighting, and own an asset that compounds without you.</span>
+                <span>The Outcome: You reclaim 15+ hours weekly, eliminate late-night escalations, and own a high-multiple enterprise that compounds autonomously.</span>
               </div>
             </div>
 

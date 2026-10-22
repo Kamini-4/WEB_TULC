@@ -139,7 +139,7 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
             The In-Depth Leadership Operating System (L.O.S.) Diagnostic™
           </h2>
           <p className="mt-2 text-sm sm:text-base text-[#4e5159] font-normal leading-relaxed italic">
-            Conventional leadership surveys measure symptoms and polite corporate feelings. Our <strong className="font-bold text-[#17181c] not-italic">patent-pending architectural diagnostic</strong> isolates where organizational fear hides behind meetings, committees, and consensus loops.
+            Conventional leadership surveys measure surface symptoms. Our <strong className="font-bold text-[#17181c] not-italic">patent-pending architectural diagnostic</strong> isolates where operational drag and latency accumulate across meetings, committees, and consensus loops.
           </p>
         </div>
 
@@ -203,7 +203,7 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                       {
                         id: 'consensus-stalled',
                         label: 'Consensus Paralysis',
-                        sub: 'Decisions hide in endless meetings',
+                        sub: 'Decisions stall in endless review cycles',
                       },
                       {
                         id: 'hybrid-friction',

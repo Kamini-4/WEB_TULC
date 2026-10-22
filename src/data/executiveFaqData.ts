@@ -10,7 +10,7 @@ export const EXECUTIVE_FAQS: FAQItemData[] = [
     category: 'Decision Latency & Delegation',
     executiveContext: 'Scaling CEO Dilemma: "I hired seasoned C-level executives with impressive pedigrees, but I still spend half my week answering routine approval pings and validation questions."',
     question: "Why do high-salary executives with impressive resumes still ping me for routine decisions and validation?",
-    answer: "Because standard delegation delegates tasks, not risk criteria. If an executive does not know your exact trade-off calculus—such as speed versus margin, or brand equity versus quarterly revenue—the safest career move is to escalate to you. When ambiguity defaults to fear, leadership calendars fill with rubber-stamp requests. Through Sovereign Decision Mapping, we extract your intuitive mental models and codify them into explicit organizational guardrails with unambiguous signing thresholds. Your executives no longer ask for permission because the boundary criteria are transparent and non-negotiable."
+    answer: "Because standard delegation delegates tasks, not risk criteria. If an executive does not know your exact trade-off calculus—such as speed versus margin, or brand equity versus quarterly revenue—the safest career move is to escalate to you. When ambiguity defaults to hesitation and escalation, leadership calendars fill with rubber-stamp requests. Through Sovereign Decision Mapping, we extract your intuitive mental models and codify them into explicit organizational guardrails with unambiguous signing thresholds. Your executives no longer ask for permission because the boundary criteria are transparent and non-negotiable."
   },
   {
     category: 'Decision Latency & Delegation',

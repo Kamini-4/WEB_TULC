@@ -17,7 +17,7 @@ export const PARTNERSHIP_PATHWAYS: PartnershipPathway[] = [
     investmentAnchor: 'Forensic Mandate Audit',
     cadence: '14-Day Rapid Audit',
     thePain: 'You feel the friction every day. Decisions take weeks of defensive committee slide decks. You know there is unspoken tension between the CEO and the board chair, but nobody will say it aloud. Enterprise velocity sits frozen while competitors move.',
-    theDesire: 'You want unvarnished, undeniable truth. You want an external institutional authority with zero political baggage to hand the board an objective mirror so the hiding stops immediately.',
+    theDesire: 'You want unvarnished, objective clarity. You want an external institutional authority with zero political baggage to hand the board an empirical mirror that brings unspoken dynamics into sharp, actionable focus.',
     theOutcome: 'In 14 days, you hold the full Sovereign Leadership Operating System Audit. An indisputable map of who owns what decision, where execution is leaking, and the exact 3 structural interventions to unblock enterprise velocity.',
     deliverables: [
       'The Council Chambers Taste: 1 Closed-Door Conclave Sparring Session to stress-test findings with peer CEOs',
@@ -36,7 +36,7 @@ export const PARTNERSHIP_PATHWAYS: PartnershipPathway[] = [
     investmentAnchor: 'In-Situ Operating Overhaul',
     cadence: '90-Day Transformation Runway',
     thePain: 'You reorganized the org chart last year, and nothing actually changed. The same senior leaders still hedge their bets, seek endless consensus, and defer hard choices. Execution velocity is bleeding out across 18 committees.',
-    theDesire: 'You want an operating system that runs autonomously. You want your executives to own their decisions with courage, without running to you or hiding behind consensus decks.',
+    theDesire: 'You want an operating system that runs autonomously. You want your executives to own their decisions with conviction, driving initiatives forward without seeking routine sign-offs or consensus decks.',
     theOutcome: 'We embed directly inside your executive cadence for 90 days. We tear out the consensus meetings, codify explicit authority matrices, and institute 14-day asynchronous decision loops. When we exit, high-velocity leadership is permanent infrastructure.',
     deliverables: [
       'Full Strategic Council Chambers Access: Annual syndicate seat across Zurich, London, Singapore & New York',

@@ -12,13 +12,23 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         
         {/* Top Header & Brand Statement */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 mb-6 border-b border-[#dfd7c8] gap-4">
-          <div>
-            <div className="text-lg font-bold text-[#141416]">
-              The Unbounded Leadership Co.
+          <div className="flex items-start sm:items-center gap-3.5">
+            <img 
+              src="/assets/aistudio/WhatsApp_Image_2026-01-09_at_13.01.23_3b22d7ab.jpeg" 
+              alt="The Unbounded Leadership Co. Crest" 
+              className="h-11 sm:h-12 w-auto rounded-xs object-cover border border-[#9d7b38]/40 shadow-xs shrink-0"
+            />
+            <div>
+              <div className="text-lg font-bold text-[#141416] tracking-tight">
+                The Unbounded Leadership Co.
+              </div>
+              <p className="text-[#9d7b38] font-mono text-[11px] font-bold tracking-wider uppercase">
+                Elevating Cultures, Transforming Leadership
+              </p>
+              <p className="text-[#6b6e76] text-xs mt-0.5 max-w-md font-normal leading-relaxed italic">
+                Engineering executive governance cadences and sovereign systems architecture for enterprise founders and institutional boards.
+              </p>
             </div>
-            <p className="text-[#6b6e76] text-xs mt-1 max-w-md font-normal leading-relaxed italic">
-              Re-architecting leadership operating systems, governance cadences, and decision conviction for enterprise founders and institutional boards.
-            </p>
           </div>
 
           <nav className="flex flex-wrap items-center gap-3.5 sm:gap-5 font-semibold text-[#4a4c52]">
@@ -101,10 +111,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span>Our Mission</span>
             </div>
             <h4 className="text-sm font-bold text-[#17181c]">
-              To Decouple Founders & Reclaim Their Freedom in 90 Days.
+              To Decouple Founders & Accelerate Enterprise Multiples in 90 Days.
             </h4>
             <p className="text-[12px] text-[#555861] leading-relaxed">
-              We install unbreakable decision architecture inside scaling enterprises—fusing human courage with codified boundary covenants—so founders reclaim 15+ hours weekly, eliminate midnight firefighting, and own companies that compound without daily micromanagement.
+              We install invariant decision architecture inside scaling enterprises—fusing executive conviction with codified boundary covenants—so founders reclaim 15+ hours weekly, eliminate late-night escalations, and lead companies that compound without daily operational friction.
             </p>
           </div>
 
@@ -118,7 +128,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               An Era of Enduring, Self-Governing Sovereign Institutions.
             </h4>
             <p className="text-[12px] text-[#555861] leading-relaxed">
-              We envision a corporate ecosystem where enterprises are not fragile monuments to one person's exhaustion, but resilient sovereign assets where leadership wisdom governs autonomously across market shifts, M&A integrations, and generational succession.
+              We envision a corporate ecosystem where enterprises are not constrained by single-person bottlenecks, but operate as resilient sovereign assets where leadership wisdom governs autonomously across market shifts, M&A integrations, and generational succession.
             </p>
           </div>
 
@@ -132,7 +142,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="flex flex-wrap items-center gap-2.5">
             <span>Patent Pending Architecture: L.O.S.-P721</span>
             <span aria-hidden="true" className="text-[#c9bea9]">·</span>
-            <span>Humans + Architecture Formula</span>
+            <span>Executive Mastery + Sovereign Systems Architecture</span>
             <span aria-hidden="true" className="text-[#c9bea9]">·</span>
             <span>Advisory Privilege Enforced</span>
             <span aria-hidden="true" className="text-[#c9bea9]">·</span>

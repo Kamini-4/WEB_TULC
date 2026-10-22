@@ -390,7 +390,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
           subtitle: 'Giving Them Clear Spending & Signing Power',
           description: 'Hard financial thresholds ($5K, $25K, $100K) and contractual rules so directors make binding decisions without seeking your blessing.',
           deliverables: ['Financial sign-off matrix', 'Client concession playbook', 'Hiring authority boundaries'],
-          keyInsight: 'Hesitation occurs when authority limits are fuzzy. Clear boundaries create fearless execution.'
+          keyInsight: 'Hesitation occurs when authority limits are fuzzy. Codified boundaries unlock decisive, high-velocity execution.'
         },
         {
           number: '03',
@@ -398,7 +398,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
           subtitle: 'Strict Filters for Breaking Founder Radio Silence',
           description: 'Defines the exact 3 conditions where a founder can be contacted during absence. Everything else is handled by the operational leads.',
           deliverables: ['Escalation triage chart', 'Emergency contact runbook', 'Incident log template'],
-          keyInsight: 'If everything is urgent, your leadership team is running on fear instead of architecture.'
+          keyInsight: 'If everything is urgent, your leadership team is running on reactive firefighting instead of architecture.'
         },
         {
           number: '04',

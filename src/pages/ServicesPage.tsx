@@ -156,7 +156,7 @@ export const ServicesPage: React.FC = () => {
     {
       title: 'Permission Architecture & Edge Crafting',
       concept: 'Replacing Bureaucracy with Sovereign Boundaries',
-      description: 'Traditional organizations use approvals to manage fear. Sovereign organizations use permission architecture. We define clear edge boundaries: where your team has 100% permission to execute, make mistakes, and move at market speed without waiting for executive sign-off.',
+      description: 'Traditional organizations use excessive approvals to manage operational uncertainty. Sovereign organizations use permission architecture. We define clear edge boundaries: where your team has 100% permission to execute decisively and move at market velocity within codified risk thresholds.',
       quote: '"Do not seek more authority. Seek more responsibility and earn radical permission."'
     },
     {
@@ -454,7 +454,7 @@ export const ServicesPage: React.FC = () => {
             <div className="p-4 bg-[#faf8f5] border border-[#ded6c5] rounded-xs space-y-1.5">
               <span className="font-mono text-[10px] font-bold text-[#8c6708] uppercase block">The Symptom</span>
               <h4 className="font-bold text-sm text-[#1c1917]">The Accidental Clearinghouse</h4>
-              <p>Direct reports escalate routine decisions upward because ambiguity defaults to fear. The founder spends 15+ hours weekly approving basic trade-offs.</p>
+              <p>Direct reports escalate routine decisions upward because ambiguity defaults to hesitation. The founder spends 15+ hours weekly approving basic trade-offs.</p>
             </div>
             <div className="p-4 bg-[#faf8f5] border border-[#ded6c5] rounded-xs space-y-1.5">
               <span className="font-mono text-[10px] font-bold text-[#8c6708] uppercase block">The Mechanism</span>

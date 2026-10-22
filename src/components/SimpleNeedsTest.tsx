@@ -100,7 +100,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
         penaltyDays: 9,
         score: 12,
         ebitdaImpactPercent: 3.0,
-        painPointDiagnostic: 'Fear of making the wrong move slows down execution and drains your energy with constant check-ins.',
+        painPointDiagnostic: 'Ambiguity around trade-off thresholds slows down execution and pulls you into routine operational confirmations.',
         desiredOutcome: 'Give managers pre-approved spending limits and authority to make $50,000+ decisions without asking you.'
       },
       {
