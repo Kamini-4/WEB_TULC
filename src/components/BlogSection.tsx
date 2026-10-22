@@ -354,11 +354,11 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
 
               <button
                 onClick={() => {
-                  window.location.hash = 'shop';
+                  window.location.hash = 'codex';
                 }}
                 className="text-[#9d7b38] hover:text-[#7d5f24] transition-colors py-1 cursor-pointer font-bold flex items-center gap-1.5"
               >
-                <span>Explore Executive Publications & Toolkits →</span>
+                <span>Explore The Sovereign Codex & Toolkits →</span>
               </button>
             </div>
 

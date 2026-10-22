@@ -36,20 +36,31 @@ export const Header: React.FC<HeaderProps> = ({
             style={{ imageRendering: '-webkit-optimize-contrast' }}
           />
           <div className="flex flex-col text-left">
-            <span className="font-serif font-bold tracking-tight text-base sm:text-lg md:text-xl text-[#17181c] leading-tight group-hover:text-[#9d7b38] transition-colors">
+            <span className="font-serif font-bold tracking-tight text-sm sm:text-base md:text-lg text-[#17181c] leading-tight group-hover:text-[#9d7b38] transition-colors">
               The Unbounded Leadership Co.
             </span>
-            <span className="text-[10px] sm:text-[11px] font-mono tracking-wider text-[#685327] uppercase font-medium mt-0.5">
+            <span className="text-[9.5px] sm:text-[10.5px] font-mono tracking-wider text-[#685327] uppercase font-medium mt-0.5">
               By Suchita Sancheti
             </span>
-            <span className="text-[9px] sm:text-[10px] font-mono tracking-widest text-[#9d7b38] uppercase font-bold mt-0.5">
+            <span className="text-[8.5px] sm:text-[9.5px] font-mono tracking-widest text-[#9d7b38] uppercase font-bold mt-0.5">
               Sovereign Enterprise Architecture
             </span>
           </div>
         </a>
 
-        {/* Desktop Nav Zone — Clear, Shuffled Executive Sequence */}
+        {/* Desktop Nav Zone — About First, The Codex Rephrased */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-9 text-[14px] lg:text-[15px] font-semibold text-[#484b54]">
+          <a
+            href="#about"
+            onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}
+            className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
+              currentView === 'about'
+                ? 'text-[#17181c] border-[#9d7b38] font-bold'
+                : 'text-[#484b54] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
+            }`}
+          >
+            About
+          </a>
           <a
             href="#services"
             onClick={(e) => { e.preventDefault(); handleNavClick('partnerships'); }}
@@ -73,7 +84,7 @@ export const Header: React.FC<HeaderProps> = ({
             The Diagnostic
           </a>
           <a
-            href="#publications"
+            href="#codex"
             onClick={(e) => { e.preventDefault(); handleNavClick('shop'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
               currentView === 'shop'
@@ -81,7 +92,7 @@ export const Header: React.FC<HeaderProps> = ({
                 : 'text-[#484b54] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
             }`}
           >
-            Publications
+            The Codex
           </a>
           <a
             href="#library"
@@ -93,17 +104,6 @@ export const Header: React.FC<HeaderProps> = ({
             }`}
           >
             Dispatches
-          </a>
-          <a
-            href="#about"
-            onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}
-            className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
-              currentView === 'about'
-                ? 'text-[#17181c] border-[#9d7b38] font-bold'
-                : 'text-[#484b54] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
-            }`}
-          >
-            About
           </a>
         </nav>
 
@@ -134,6 +134,14 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="md:hidden bg-[#f8f6f0] border-b border-[#e5decfe0] px-4 pt-2 pb-6 space-y-3 shadow-lg animate-in slide-in-from-top-2 duration-200">
           <nav className="flex flex-col space-y-2 text-sm font-semibold text-[#17181c]">
             <a
+              href="#about"
+              onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}
+              className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between font-bold"
+            >
+              <span>About (Vision, Mission & Founder)</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
+            </a>
+            <a
               href="#services"
               onClick={(e) => { e.preventDefault(); handleNavClick('partnerships'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
@@ -150,14 +158,14 @@ export const Header: React.FC<HeaderProps> = ({
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
-              href="#publications"
+              href="#codex"
               onClick={(e) => { e.preventDefault(); handleNavClick('shop'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between font-bold text-[#17181c]"
             >
               <div className="flex items-center gap-2">
-                <span>Publications (Executive Toolkits & Codices)</span>
+                <span>The Codex (3 Sovereign Blueprints)</span>
                 <span className="text-[9px] font-mono font-bold bg-[#17181c] text-[#d4af37] px-1.5 py-0.5 rounded-xs">
-                  TOOLKITS
+                  50% OFF
                 </span>
               </div>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
@@ -181,14 +189,6 @@ export const Header: React.FC<HeaderProps> = ({
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
               <span>Dispatches & Strategic Intelligence</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
-            </a>
-            <a
-              href="#about"
-              onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}
-              className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
-            >
-              <span>About (Vision, Mission & Founder)</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a

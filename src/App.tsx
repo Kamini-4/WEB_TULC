@@ -49,7 +49,7 @@ export const App: React.FC = () => {
       } else if (hash === 'diagnostic') {
         setCurrentView('diagnostic');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'shop' || hash === 'store' || hash === 'documents' || hash === 'publications') {
+      } else if (hash === 'shop' || hash === 'store' || hash === 'documents' || hash === 'publications' || hash === 'codex') {
         setCurrentView('shop');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash === 'blogs' || hash === 'library' || hash === 'dispatches') {
@@ -123,9 +123,9 @@ export const App: React.FC = () => {
       setCurrentView('about');
       window.location.hash = 'about';
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (target === 'shop' || target === 'store' || target === 'publications') {
+    } else if (target === 'shop' || target === 'store' || target === 'publications' || target === 'codex') {
       setCurrentView('shop');
-      window.location.hash = 'publications';
+      window.location.hash = 'codex';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (target === 'council' || target === 'council-chambers') {
       // Council chamber is an advisory feature sold in the Services section
@@ -225,6 +225,11 @@ export const App: React.FC = () => {
               onExplorePartnerships={() => navigateTo('partnerships')}
             />
 
+            {/* About Section First: The Architect, Vision & Mission */}
+            <AboutSection
+              onOpenConsultation={() => navigateTo('contact')}
+            />
+
             {/* Direct Executive Video Briefing: The Decoupling Protocol by Suchita Sancheti */}
             <VideoBriefingSection
               onOpenConsultation={() => navigateTo('contact')}
@@ -306,7 +311,7 @@ export const App: React.FC = () => {
           </div>
         )}
 
-        {/* 6. DEDICATED SOVEREIGN EXECUTIVE SHOP & PUBLICATIONS VIEW */}
+        {/* 6. DEDICATED SOVEREIGN CODEX & EXECUTIVE BLUEPRINTS VIEW */}
         {currentView === 'shop' && (
           <div>
             <ExecutiveShop

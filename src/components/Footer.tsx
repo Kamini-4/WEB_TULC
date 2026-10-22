@@ -41,12 +41,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Overview
             </a>
             <a
-              href="#test"
-              onClick={(e) => { e.preventDefault(); onNavigate('test'); }}
-              className="hover:text-[#9d7b38] transition-colors py-1 flex items-center gap-1 font-bold text-[#141416]"
+              href="#about"
+              onClick={(e) => { e.preventDefault(); onNavigate('about'); }}
+              className="hover:text-[#141416] transition-colors py-1 font-bold text-[#141416]"
             >
-              <Zap className="w-3.5 h-3.5 text-[#9d7b38]" />
-              <span>The Test</span>
+              About & Vision
             </a>
             <a
               href="#services"
@@ -56,19 +55,20 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Services
             </a>
             <a
-              href="#publications"
+              href="#codex"
               onClick={(e) => { e.preventDefault(); onNavigate('shop'); }}
               className="hover:text-[#9d7b38] transition-colors flex items-center gap-1.5 py-1 font-bold text-[#141416]"
             >
               <BookOpen className="w-3.5 h-3.5 text-[#9d7b38]" />
-              <span>Publications</span>
+              <span>The Codex</span>
             </a>
             <a
-              href="#about"
-              onClick={(e) => { e.preventDefault(); onNavigate('about'); }}
-              className="hover:text-[#141416] transition-colors py-1"
+              href="#test"
+              onClick={(e) => { e.preventDefault(); onNavigate('test'); }}
+              className="hover:text-[#9d7b38] transition-colors py-1 flex items-center gap-1 font-bold text-[#141416]"
             >
-              Vision & Mission
+              <Zap className="w-3.5 h-3.5 text-[#9d7b38]" />
+              <span>Free Test</span>
             </a>
             <a
               href="#blogs"
