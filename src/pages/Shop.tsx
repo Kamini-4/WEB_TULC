@@ -214,7 +214,7 @@ export const ShopPage: React.FC = () => {
       bullets: [
         'Instant Authorization: Immediate redirection to your private digital access page upon checkout.',
         '1-Click Workspace Duplicate: Native Production master workspaces ready to duplicate into your team workspace.',
-        'Downloadable Files: Complete PDF runbooks, executive policy templates, and editable documents.',
+        'Downloadable Files: Complete codified runbooks, executive policy templates, and editable documents.',
         'Collaborative Canvases: Figma & Miro boards for visual decision and delegation workflows.',
         'Direct Email Dispatch: All master template links dispatched instantly to your email inbox.'
       ]
@@ -222,7 +222,7 @@ export const ShopPage: React.FC = () => {
     {
       q: 'Are these digital templates or consulting services?',
       bullets: [
-        '100% Digital Products: You receive instant access to Pre-built Production Workspaces, Executive Protocol templates, decision trees, and PDF runbooks.',
+        '100% Digital Products: You receive instant access to Pre-built Production Workspaces, Executive Protocol templates, decision trees, and codified runbooks.',
         'Zero Consulting Traps: No required phone calls, no long onboarding schedules, and no recurring agency retainers.',
         'Immediate Execution: Duplicate the workspace in 1 click, customize your organization details in 20 minutes, and share with your team.',
         'Permanent Ownership: Single one-time investment covering your entire company forever.'
@@ -379,7 +379,7 @@ export const ShopPage: React.FC = () => {
                   <CheckCircle2 className="w-3.5 h-3.5 text-green-600" /> Pre-built Production Workspace
                 </span>
                 <span className="flex items-center gap-1 font-semibold text-[#1c1917]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-green-600" /> Printable PDF Covenant Guide
+                  <CheckCircle2 className="w-3.5 h-3.5 text-green-600" /> Printable Covenant Guide
                 </span>
                 <span className="flex items-center gap-1 font-semibold text-[#1c1917]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-green-600" /> Word-for-Word Rollout Script
@@ -472,7 +472,7 @@ export const ShopPage: React.FC = () => {
                     disabled={freeMagnetSubmitting}
                     className="w-full py-2.5 px-4 bg-black hover:bg-[#8c6708] text-white text-xs font-bold uppercase tracking-tight rounded-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs disabled:opacity-50"
                   >
-                    <span>{freeMagnetSubmitting ? 'Generating Digital Token...' : 'Get Instant Access (Free Digital Workspace + PDF)'}</span>
+                    <span>{freeMagnetSubmitting ? 'Generating Digital Token...' : 'Get Instant Access (Free Digital Workspace + Covenant)'}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </form>
@@ -504,7 +504,7 @@ export const ShopPage: React.FC = () => {
                         className="px-2.5 py-1.5 bg-[#b8860b] hover:bg-[#8c6708] text-white text-[10px] font-mono uppercase font-bold rounded-2xs flex items-center gap-1 cursor-pointer shadow-xs"
                       >
                         <Download className="w-3 h-3" />
-                        <span>Download PDF Covenant</span>
+                        <span>Download Covenant Document</span>
                       </button>
                       <a
                         href="/portal"
@@ -636,7 +636,7 @@ export const ShopPage: React.FC = () => {
                 </h2>
 
                 <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed max-w-xl">
-                  Deploy the complete digital architecture across your entire firm to eliminate founder bottlenecks and secure operational autonomy. Includes full interactive, Figma, and PDF frameworks. Instant 1-click clone.
+                  Deploy the complete digital architecture across your entire firm to eliminate founder bottlenecks and secure operational autonomy. Includes full interactive, Figma, and codified frameworks. Instant 1-click clone.
                 </p>
 
                 {/* All 6 Systems Bulleted Breakdown */}
@@ -801,7 +801,7 @@ export const ShopPage: React.FC = () => {
                 Instant-Access Digital Workspaces
               </h3>
               <p className="text-xs text-zinc-600 leading-relaxed font-light">
-                Turnkey Digital Vault Masters, Executive Protocol systems, and PDF runbooks. Clone with 1 click. Zero recurring subscriptions, zero consulting calls, and zero fluff. Download the files today, customize in 20 minutes, and permanently reclaim your focus.
+                Turnkey Digital Vault Masters, Executive Protocol systems, and codified runbooks. Clone with 1 click. Zero recurring subscriptions, zero consulting calls, and zero fluff. Download the files today, customize in 20 minutes, and permanently reclaim your focus.
               </p>
             </div>
           </div>

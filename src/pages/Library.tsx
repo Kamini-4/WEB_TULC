@@ -726,7 +726,7 @@ export const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                     onClick={() => handleDownload('alignment_protocol')}
                     className="text-xs font-bold uppercase border border-[#ded6c5] text-[#292524] hover:bg-[#efebe2] px-6 py-2.5 transition-all cursor-pointer tracking-wider"
                   >
-                    Print / Save PDF
+                    Print / Save White Paper
                   </button>
                 </div>
                 
@@ -773,7 +773,7 @@ export const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                     onClick={() => handleDownload('cognitive_equity')}
                     className="text-xs font-bold uppercase border border-[#ded6c5] text-[#292524] hover:bg-[#efebe2] px-6 py-2.5 transition-all cursor-pointer tracking-wider"
                   >
-                    Print / Save PDF
+                    Print / Save White Paper
                   </button>
                 </div>
 
@@ -858,7 +858,7 @@ export const Library: React.FC<LibraryProps> = ({ onArticleClick }) => {
                     onClick={() => handleDownload(activePaperKey)}
                     className="text-[9px] font-bold uppercase text-[#8c6708] hover:text-[#1c1917] transition-colors bg-[#ffffff] hover:bg-[#efebe2] px-4 py-1.5 border border-[#ded6c5] rounded-sm shadow-2xs"
                   >
-                    Print or Download PDF
+                    Print or Download Document
                   </button>
                 </div>
 

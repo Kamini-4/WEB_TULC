@@ -56,12 +56,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Services
             </a>
             <a
-              href="#shop"
+              href="#publications"
               onClick={(e) => { e.preventDefault(); onNavigate('shop'); }}
-              className="hover:text-[#9d7b38] transition-colors flex items-center gap-1 py-1 font-bold text-[#141416]"
+              className="hover:text-[#9d7b38] transition-colors flex items-center gap-1.5 py-1 font-bold text-[#141416]"
             >
-              <ShoppingBag className="w-3.5 h-3.5 text-[#9d7b38]" />
-              <span>Shop (PDFs)</span>
+              <BookOpen className="w-3.5 h-3.5 text-[#9d7b38]" />
+              <span>Publications</span>
             </a>
             <a
               href="#about"

@@ -518,7 +518,7 @@ export const Home: React.FC = () => {
               </div>
               <div>
                 <span className="font-bold text-[#1c1917] block">Want to start 100% free?</span>
-                <span className="text-[#57534e]">Download the 1-Page Founder Delegation Covenant (Instant Interactive Workspace + PDF).</span>
+                <span className="text-[#57534e]">Download the 1-Page Founder Delegation Covenant (Instant Interactive Workspace + Printable Covenant).</span>
               </div>
             </div>
             <Link

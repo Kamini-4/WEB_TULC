@@ -97,7 +97,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     tagline: 'An agile, low-risk operational filter to test your firm’s autonomy. Cut micro-decision drag and empower team leads under $5,000.',
     category: 'Bandwidth Architecture',
     badge: 'Starter Gateway • Under $100',
-    format: 'Digital Workspace Quick-Deploy + Delegation Triage Tree + PDF Checklist',
+    format: 'Digital Workspace Quick-Deploy + Delegation Triage Tree + Executive Checklist',
     formatIcon: 'FileCode',
     installTime: '15 minutes flat',
     timeToResult: 'Within 24 hours',
@@ -159,7 +159,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       governancePrinciple: 'Autonomy without guardrails is anarchy; guardrails without autonomy is prison.'
     },
     what: {
-      tangibleAsset: 'Instant-access Digital Workspace workspace and PDF delegation contract with team rollout scripts.',
+      tangibleAsset: 'Instant-access Digital Workspace workspace and executive delegation contract with team rollout scripts.',
       includedFiles: [
         'Digital Workspace Delegation Master Workspace',
         'Printable Executive Covenant Guide',
@@ -343,7 +343,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     tagline: 'Disappear for 30 straight days. Return to a company that grew without you instead of one that collapsed.',
     category: 'Continuity & Decoupling',
     badge: 'Critical Asset • 3 Early Bird Spots',
-    format: 'Executive Playbook (PDF/Word) + Digital Workspace Continuity Vault',
+    format: 'Executive Playbook (Document/Word) + Digital Workspace Continuity Vault',
     formatIcon: 'ShieldCheck',
     installTime: '60 minutes',
     timeToResult: '14 days to first test',
@@ -369,7 +369,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       tangibleResult: 'Step away for 30 days without checking Slack once. Your enterprise continues closing deals, executing sprints, and generating cash flow.',
       immediateImpact: 'Instant 2x–3x enterprise multiple expansion when private equity or strategic acquirers evaluate key-person risk.',
       deliverables: [
-        'Complete 30-Day Decoupling Playbook (Executive PDF & Digital Workspace Vault)',
+        'Complete 30-Day Decoupling Playbook (Executive Document & Digital Workspace Vault)',
         'Delegated Financial & Contractual Signing Authority Matrix',
         'Emergency Red-Phone Protocol (Defines true structural emergencies vs routine operational noise)',
         'Second-in-Command Shadowing Guidebook',
@@ -435,10 +435,10 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       governancePrinciple: 'Real enterprise equity exists only when the business creates value without the founder’s hands on the wheel.'
     },
     what: {
-      tangibleAsset: 'The Complete 30-Day Decoupling Runbook & Continuity Insurance Vault (PDF, Digital Workspace, and Board Briefing Pack).',
+      tangibleAsset: 'The Complete 30-Day Decoupling Runbook & Continuity Insurance Vault (Executive Codified Playbook, Digital Workspace, and Board Briefing Pack).',
       includedFiles: [
         '30-Day Decoupling Runbook (Interactive Digital Operating)',
-        'Executive PDF Playbook (48 Pages)',
+        'Executive Codified Playbook (48 Pages)',
         'Delegated Authority Matrix',
         'Emergency Red-Phone Protocol Guide',
         'M&A Key-Person Risk Assessment Deck'
@@ -625,7 +625,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     tagline: 'Protect your capital and culture when hiring senior leaders. Establish rigorous clarity from Day 1.',
     category: 'Executive Bench',
     badge: 'De-Risking Hires • 2 Early Bird Spots',
-    format: '4-Document Executive Kit (PDF, Word, Digital Workspace)',
+    format: '4-Document Executive Kit (Document, Word, Digital Workspace)',
     formatIcon: 'UserCheck',
     installTime: '50 minutes',
     timeToResult: 'First 30 days of hire',
@@ -717,7 +717,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       governancePrinciple: 'Clear expectations are kindness. Ambiguity is cruelty that costs millions.'
     },
     what: {
-      tangibleAsset: 'The Complete C-Suite Onboarding Codex & Performance Covenant (4-Document Executive Pack in PDF, Word, and Digital Workspace).',
+      tangibleAsset: 'The Complete C-Suite Onboarding Codex & Performance Covenant (4-Document Executive Pack in Document, Word, and Digital Workspace).',
       includedFiles: [
         'The Context Codex Master Template',
         '30/60/90-Day Executive Performance Contract',
@@ -766,7 +766,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     tagline: 'Audit your company with private equity rigor. Uncover hidden operational drag in 45 minutes.',
     category: 'Enterprise Telemetry',
     badge: 'Institutional Grade • 3 Early Bird Spots',
-    format: 'Enterprise Diagnostic App + Board Radar + PDF Report',
+    format: 'Enterprise Diagnostic App + Board Radar + Sovereign Dossier Report',
     formatIcon: 'Activity',
     installTime: '45 minutes',
     timeToResult: 'Instant interactive score',
@@ -795,7 +795,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       deliverables: [
         'Executive Team Diagnostic Suite (5 Leadership Accounts Included)',
         'Automated Visual Radar Chart & Systemic Health Scorecard',
-        'Board-Level PDF Diagnostic Synthesis Report Generator',
+        'Board-Level Diagnostic Synthesis Report Generator',
         'Priority Friction Remediation Action Matrix',
         'Direct Calibration Voucher for TULC Advisory'
       ],
@@ -860,11 +860,11 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       governancePrinciple: 'Numbers don’t lie. Politics do.'
     },
     what: {
-      tangibleAsset: 'The Complete Sovereign Diagnostic & Executive Assessment Suite (Web tool, PDF Report, and Enterprise License).',
+      tangibleAsset: 'The Complete Sovereign Diagnostic & Executive Assessment Suite (Web tool, Sovereign Dossier Report, and Enterprise License).',
       includedFiles: [
         'Online Assessment Access (Up to 5 Executive Accounts)',
         'Board-Level Radar Chart Generator',
-        'Executive PDF Diagnostic Audit Report',
+        'Executive Sovereign Diagnostic Audit Report',
         'The Inaction Tax Balance Sheet Model',
         '90-Day Surgical Remediation Guide'
       ],
@@ -952,14 +952,14 @@ export const SOVEREIGN_VAULT_BUNDLE: BundleProduct = {
   includes: [
     'Asset 00: The 72-Hour Founder Severance Protocol & Delegation Filter',
     'Asset 01: The 15-Hour Founder Bandwidth Reclamation OS (Digital Operating Master)',
-    'Asset 02: The 30-Day Decoupling Runbook & Continuity System (PDF + Digital Workspace Vault)',
+    'Asset 02: The 30-Day Decoupling Runbook & Continuity System (Codified Document + Digital Workspace Vault)',
     'Asset 03: The Cross-Functional Decision Guardrails Matrix (Figma + Miro Boards)',
     'Asset 04: The Executive Onboarding Codex (4-Document Management Pack)',
     'Asset 05: The Team Operational Diagnostic & Assessment Suite'
   ],
   bonuses: [
     'Bonus 1: The Master Enterprise Unified Index (All toolkits pre-connected in a single command Digital Workspace workspace) — $250 Value',
-    'Bonus 2: The Plug-and-Play Delegation Agreement & Decision Tree (Digital PDF + DOCX) — $145 Value',
+    'Bonus 2: The Plug-and-Play Delegation Agreement & Decision Tree (Digital Master + DOCX) — $145 Value',
     'Bonus 3: The Board-Ready Executive Summary Presentation Template (Figma & Slides) — $195 Value',
     'Bonus 4: Lifetime Digital Updates, Template Revisions & New Module Drops Forever'
   ],

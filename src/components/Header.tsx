@@ -21,63 +21,67 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-50 bg-[#f8f6f0]/95 backdrop-blur-md border-b border-[#e5decfe0] transition-colors">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between gap-4">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-22 sm:h-24 md:h-26 flex items-center justify-between gap-4">
         
-        {/* Brand Zone — Prestigious Crest & Clean Typography (Enlarged & Crisp) */}
+        {/* Brand Zone — Prestigious Crest & 3-Line Authority Hierarchy */}
         <a 
           href="#top" 
           onClick={(e) => { e.preventDefault(); handleNavClick('top'); }}
-          className="flex items-center gap-3 sm:gap-4 text-base sm:text-lg font-bold text-[#17181c] hover:text-[#9d7b38] transition-colors tracking-tight truncate shrink-0 group py-1"
+          className="flex items-center gap-3 sm:gap-4 text-base sm:text-lg font-bold text-[#17181c] hover:text-[#9d7b38] transition-colors tracking-tight shrink-0 group py-1"
         >
           <img 
             src="/assets/aistudio/WhatsApp_Image_2026-01-09_at_13.01.23_3b22d7ab.jpeg" 
             alt="The Unbounded Leadership Co. Crest & Insignia" 
-            className="h-13 sm:h-16 md:h-18 w-auto max-w-[140px] sm:max-w-[200px] rounded-sm object-contain border-2 border-[#9d7b38]/60 shadow-sm group-hover:border-[#9d7b38] transition-all bg-white/80 p-0.5"
+            className="h-14 sm:h-16 md:h-18 w-auto max-w-[140px] sm:max-w-[200px] rounded-sm object-contain border-2 border-[#9d7b38]/60 shadow-sm group-hover:border-[#9d7b38] transition-all bg-white/80 p-0.5 shrink-0"
             style={{ imageRendering: '-webkit-optimize-contrast' }}
           />
           <div className="flex flex-col text-left">
-            <span className="font-bold tracking-tight text-sm sm:text-base md:text-lg leading-tight">The Unbounded Leadership Co.</span>
-            <span className="text-[10px] sm:text-[11px] font-mono tracking-widest text-[#9d7b38] uppercase hidden sm:inline-block">By Suchita Sancheti · Sovereign Enterprise Architecture</span>
+            <span className="font-serif font-bold tracking-tight text-base sm:text-lg md:text-xl text-[#17181c] leading-tight group-hover:text-[#9d7b38] transition-colors">
+              The Unbounded Leadership Co.
+            </span>
+            <span className="text-[10px] sm:text-[11px] font-mono tracking-wider text-[#685327] uppercase font-medium mt-0.5">
+              By Suchita Sancheti
+            </span>
+            <span className="text-[9px] sm:text-[10px] font-mono tracking-widest text-[#9d7b38] uppercase font-bold mt-0.5">
+              Sovereign Enterprise Architecture
+            </span>
           </div>
         </a>
 
-        {/* Desktop Nav Zone — Clutter-Free: No 5 Domains, Partnerships renamed to Services */}
-        <nav className="hidden md:flex items-center gap-7 lg:gap-9 text-sm font-medium text-[#4e5159]">
-          <a
-            href="#test"
-            onClick={(e) => { e.preventDefault(); handleNavClick('test'); }}
-            className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
-              currentView === 'test'
-                ? 'text-[#17181c] border-[#9d7b38] font-bold'
-                : 'text-[#4e5159] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
-            }`}
-          >
-            The Test
-          </a>
+        {/* Desktop Nav Zone — Clear, Shuffled Executive Sequence */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-9 text-[14px] lg:text-[15px] font-semibold text-[#484b54]">
           <a
             href="#services"
             onClick={(e) => { e.preventDefault(); handleNavClick('partnerships'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
               currentView === 'partnerships'
                 ? 'text-[#17181c] border-[#9d7b38] font-bold'
-                : 'text-[#4e5159] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
+                : 'text-[#484b54] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
             }`}
           >
             Services
           </a>
           <a
-            href="#shop"
-            onClick={(e) => { e.preventDefault(); handleNavClick('shop'); }}
-            className={`transition-colors whitespace-nowrap py-1 border-b-2 flex items-center gap-1.5 ${
-              currentView === 'shop'
+            href="#diagnostic"
+            onClick={(e) => { e.preventDefault(); handleNavClick('diagnostic'); }}
+            className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
+              currentView === 'diagnostic'
                 ? 'text-[#17181c] border-[#9d7b38] font-bold'
-                : 'text-[#4e5159] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
+                : 'text-[#484b54] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
             }`}
           >
-            <span>Shop</span>
-            <span className="text-[9px] font-mono font-bold bg-[#faf6ee] text-[#9d7b38] border border-[#ebdcc0] px-1 py-0.2 rounded-xs">
-              PDFs
-            </span>
+            The Diagnostic
+          </a>
+          <a
+            href="#publications"
+            onClick={(e) => { e.preventDefault(); handleNavClick('shop'); }}
+            className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
+              currentView === 'shop'
+                ? 'text-[#17181c] border-[#9d7b38] font-bold'
+                : 'text-[#484b54] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
+            }`}
+          >
+            Publications
           </a>
           <a
             href="#library"
@@ -85,7 +89,7 @@ export const Header: React.FC<HeaderProps> = ({
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
               currentView === 'library'
                 ? 'text-[#17181c] border-[#9d7b38] font-bold'
-                : 'text-[#4e5159] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
+                : 'text-[#484b54] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
             }`}
           >
             Dispatches
@@ -96,21 +100,21 @@ export const Header: React.FC<HeaderProps> = ({
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
               currentView === 'about'
                 ? 'text-[#17181c] border-[#9d7b38] font-bold'
-                : 'text-[#4e5159] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
+                : 'text-[#484b54] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
             }`}
           >
             About
           </a>
         </nav>
 
-        {/* Action Zone — Single clean CTA */}
+        {/* Action Zone — Single Clear Action: Free 60-Sec Audit */}
         <div className="flex items-center gap-3 shrink-0">
           <button
             onClick={() => handleNavClick('test')}
-            className="px-4 py-2 text-xs font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] transition-all rounded-sm shadow-xs whitespace-nowrap active:scale-[0.98] min-h-[38px] flex items-center gap-1.5 cursor-pointer"
+            className="px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-[13px] font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] transition-all rounded-sm shadow-xs whitespace-nowrap active:scale-[0.98] min-h-[40px] flex items-center gap-2 cursor-pointer border border-[#9d7b38]/40"
           >
             <Zap className="w-3.5 h-3.5 text-[#d4af37]" />
-            <span>Take Free Test</span>
+            <span>Free 60-Sec Test</span>
           </button>
 
           {/* Mobile Menu Toggle */}
@@ -130,62 +134,67 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="md:hidden bg-[#f8f6f0] border-b border-[#e5decfe0] px-4 pt-2 pb-6 space-y-3 shadow-lg animate-in slide-in-from-top-2 duration-200">
           <nav className="flex flex-col space-y-2 text-sm font-semibold text-[#17181c]">
             <a
-              href="#test"
-              onClick={(e) => { e.preventDefault(); handleNavClick('test'); }}
-              className="py-2 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
-            >
-              <span>The Test (60-Sec Free Audit)</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
-            </a>
-            <a
               href="#services"
               onClick={(e) => { e.preventDefault(); handleNavClick('partnerships'); }}
-              className="py-2 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
+              className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
-              <span>Services (3 Sovereign Tracks)</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
-            </a>
-            <a
-              href="#shop"
-              onClick={(e) => { e.preventDefault(); handleNavClick('shop'); }}
-              className="py-2 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between font-bold text-[#17181c]"
-            >
-              <div className="flex items-center gap-2">
-                <span>Shop (PDF Toolkits & Manuals)</span>
-                <span className="text-[9px] font-mono font-bold bg-[#17181c] text-[#d4af37] px-1.5 py-0.5 rounded-xs">
-                  EXTRA
-                </span>
-              </div>
+              <span>Services (3 Sovereign Tracks & Conclave)</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
               href="#diagnostic"
               onClick={(e) => { e.preventDefault(); handleNavClick('diagnostic'); }}
-              className="py-2 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
+              className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
-              <span>In-Depth L.O.S. Diagnostic™</span>
+              <span>The Diagnostic (Sovereign Dossier™)</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
+            </a>
+            <a
+              href="#publications"
+              onClick={(e) => { e.preventDefault(); handleNavClick('shop'); }}
+              className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between font-bold text-[#17181c]"
+            >
+              <div className="flex items-center gap-2">
+                <span>Publications (Executive Toolkits & Codices)</span>
+                <span className="text-[9px] font-mono font-bold bg-[#17181c] text-[#d4af37] px-1.5 py-0.5 rounded-xs">
+                  TOOLKITS
+                </span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
+            </a>
+            <a
+              href="#test"
+              onClick={(e) => { e.preventDefault(); handleNavClick('test'); }}
+              className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
+            >
+              <div className="flex items-center gap-2">
+                <span>Free 60-Sec Test (Self-Audit)</span>
+                <span className="text-[9px] font-mono font-bold bg-[#d4af37]/20 text-[#8c6708] border border-[#d4af37]/50 px-1.5 py-0.5 rounded-xs">
+                  FREE
+                </span>
+              </div>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
               href="#library"
               onClick={(e) => { e.preventDefault(); handleNavClick('library'); }}
-              className="py-2 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
+              className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
-              <span>Dispatches & Blogs</span>
+              <span>Dispatches & Strategic Intelligence</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
               href="#about"
               onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}
-              className="py-2 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
+              className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
-              <span>About (Vision & Mission)</span>
+              <span>About (Vision, Mission & Founder)</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
               href="#contact"
               onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}
-              className="py-2 px-3 rounded hover:bg-[#ede5d6] text-[#9d7b38] flex items-center justify-between font-bold"
+              className="py-2.5 px-3 rounded hover:bg-[#ede5d6] text-[#9d7b38] flex items-center justify-between font-bold"
             >
               <span>Confidential Inquiry</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />

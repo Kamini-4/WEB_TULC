@@ -358,7 +358,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                 }}
                 className="text-[#9d7b38] hover:text-[#7d5f24] transition-colors py-1 cursor-pointer font-bold flex items-center gap-1.5"
               >
-                <span>Explore Executive Shop & PDFs →</span>
+                <span>Explore Executive Publications & Toolkits →</span>
               </button>
             </div>
 

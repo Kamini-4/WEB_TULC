@@ -108,7 +108,7 @@ export const BLOG_POSTS: BlogPost[] = [
     subtitle: 'Why Fortune 500s and ambitious founders are firing traditional consulting firms in favor of nimble institutional architecture.',
     hook: 'If your consulting firm gives you a 150-slide deck, they didn’t solve your problem. They just billed you for documenting it.',
     mythBusted: 'MYTH: "The thicker the slide deck and the bigger the consulting brand, the safer the board decision." REALITY: Slide decks sit on digital shelves; lean, sovereign governance circuits change behavior on Monday morning.',
-    controversialOpening: 'Corporate boardrooms have spent decades trapped in an expensive optical illusion. We hire prestigious consulting firms who send twenty junior associates in suits to interview our staff for six months, only to hand us a 200-page PDF of things we already knew. That era is dead.',
+    controversialOpening: 'Corporate boardrooms have spent decades trapped in an expensive optical illusion. We hire prestigious consulting firms who send twenty junior associates in suits to interview our staff for six months, only to hand us a 200-page binder of things we already knew. That era is dead.',
     readTime: '7 min read',
     category: 'Consulting Disruption & Governance',
     keywords: ['Management Consulting', 'Strategy Execution', 'TULC Governance', 'Board Advisory', 'Organizational Agility'],

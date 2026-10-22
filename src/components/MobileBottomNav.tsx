@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Zap, Layers, ShoppingBag, User } from 'lucide-react';
+import { Home, Zap, Layers, BookOpen, User } from 'lucide-react';
 
 interface MobileBottomNavProps {
   onNavigate: (sectionId: string) => void;
@@ -14,7 +14,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
     { id: 'top', label: 'Home', icon: Home },
     { id: 'test', label: 'The Test', icon: Zap, badge: 'FREE' },
     { id: 'partnerships', label: 'Services', icon: Layers },
-    { id: 'shop', label: 'Shop', icon: ShoppingBag, badge: 'PDF' },
+    { id: 'shop', label: 'Publications', icon: BookOpen },
     { id: 'about', label: 'About', icon: User },
   ];
 

@@ -11,8 +11,8 @@ import {
   Eye, 
   ArrowLeft,
   Search,
-  Hash,
-  Award
+  Award,
+  CreditCard
 } from 'lucide-react';
 
 export interface ShopDocument {
@@ -23,12 +23,13 @@ export interface ShopDocument {
   pages: number;
   format: string;
   category: 'Diagnostic Instrument' | 'Operating Architecture' | 'Governance & Speed' | 'Leadership Forensics' | 'Master Bundle';
+  priceFormatted: string;
+  creditBenefit: string;
   description: string;
   tableOfContents: string[];
   keyDeliverables: string[];
   sampleExcerpt: string;
   recommendedFor: string;
-  investmentAnchor: string;
 }
 
 export const SHOP_DOCUMENTS: ShopDocument[] = [
@@ -36,11 +37,12 @@ export const SHOP_DOCUMENTS: ShopDocument[] = [
     id: 'sovereign-dossier-specimen',
     title: 'The Sovereign Dossier™ Patent-Pending Specification & Field Specimen',
     subtitle: 'The unsparing, PhD-level diagnostic instrument blueprint for high-consequence founders and boards.',
-    badge: 'Flagship Document · Patent Pending',
+    badge: 'Flagship Specification · Patent Pending',
     pages: 58,
-    format: 'High-Fidelity PDF & LaTeX/Word Board Template',
+    format: 'High-Fidelity Board Dossier & Editable LaTeX/Word Charters',
     category: 'Diagnostic Instrument',
-    investmentAnchor: '$950 USD · Institutional License',
+    priceFormatted: '$290 USD',
+    creditBenefit: '100% Credited Toward In-Camera Diagnostic Audit',
     description: 'The definitive architectural documentation and redacted executive specimen of The Sovereign Dossier™. Includes the complete Anti-Gaming Audit algorithms, Vocal & Acoustic Telemetry protocols, Score-Narrative Parity Engine (Protocol C & D), Inquisitor Counter-Hypothesis matrix, and SHA-256 cryptographic verification hash specification.',
     tableOfContents: [
       'Section I: Cybernetic Enterprise Diagnostics & Founder Dependency Ratio',
@@ -53,7 +55,7 @@ export const SHOP_DOCUMENTS: ShopDocument[] = [
       'Section VIII: Cryptographic SHA-256 System Verification Seal & Board Mandate Printout'
     ],
     keyDeliverables: [
-      'Full 58-Page Annotated Dossier Architecture PDF',
+      'Full 58-Page Annotated Dossier Architecture Release',
       'Print-ready Boardroom Mandate with legal watermarks',
       'Cryptographic verification seal technical spec',
       'Redacted Fortune 500 founder field diagnostic case specimen'
@@ -67,9 +69,10 @@ export const SHOP_DOCUMENTS: ShopDocument[] = [
     subtitle: 'The operational handbook to systematically dismantle key-person reliance into autonomous institutional law.',
     badge: 'Executive Manual',
     pages: 44,
-    format: 'Institutional PDF & Decoupling Charters',
+    format: 'Executive Operational Manual & Decoupling Charters',
     category: 'Operating Architecture',
-    investmentAnchor: '$650 USD · Executive License',
+    priceFormatted: '$190 USD',
+    creditBenefit: '100% Credited Toward Architecture Embedding',
     description: 'A relentless, step-by-step operational manual for transitioning an organization from founder dependency into perpetual, self-compounding sovereignty. Provides mathematical models for the Systemic Survival Index (30, 90, 365 days) and codifies 14-day asynchronous decision loops.',
     tableOfContents: [
       'Module 01: Auditing the Principal Dependency Ratio',
@@ -80,7 +83,7 @@ export const SHOP_DOCUMENTS: ShopDocument[] = [
       'Module 06: Building the Self-Compounding Institutional Cadence'
     ],
     keyDeliverables: [
-      '44-Page Implementation Manual PDF',
+      '44-Page Implementation Manual Release',
       'Ready-to-ratify Authority Decoupling Charter',
       'Decision latency measurement templates',
       'Founder calendar insulation protocol'
@@ -92,11 +95,12 @@ export const SHOP_DOCUMENTS: ShopDocument[] = [
     id: '5-domain-scorecard',
     title: 'The 5-Domain Architecture Benchmark & Executive Scorecard',
     subtitle: 'The quantitative evaluation kit for Cognitive Clarity, Cultural Fidelity, Strategic Velocity, Systemic Integrity, and Moral Gravity.',
-    badge: 'Boardroom Kit',
+    badge: 'Boardroom Diagnostic Kit',
     pages: 36,
-    format: 'Executive PDF & Scoring Models',
+    format: 'Executive Diagnostic Monograph & Scoring Models',
     category: 'Operating Architecture',
-    investmentAnchor: '$450 USD · Single Organization',
+    priceFormatted: '$95 USD',
+    creditBenefit: '100% Credited Toward Sovereign Advisory Mandate',
     description: 'Diagnose your executive suite across the 5 Immutable Core Domains. Maps leadership into objective Maturity Tiers (The Operator → The Guardian → The Architect → The Apex Sovereign) complete with valuation multiple expansion estimates.',
     tableOfContents: [
       'Part 1: The 5 Immutable Core Domains Framework',
@@ -108,7 +112,7 @@ export const SHOP_DOCUMENTS: ShopDocument[] = [
       'Part 7: Valuation Multiple Expansion Matrix (1.8x – 4.2x Alpha)'
     ],
     keyDeliverables: [
-      '36-Page Benchmark Guide PDF',
+      '36-Page Benchmark Guide Release',
       'Executive Suite 5-Domain Self-Scoring Worksheet',
       'Valuation multiple expansion calculation table',
       'Board-ready maturity tier presentation template'
@@ -122,9 +126,10 @@ export const SHOP_DOCUMENTS: ShopDocument[] = [
     subtitle: 'Codified spending thresholds, veto frameworks, and decision handoff charters to eradicate consensus drag.',
     badge: 'Governance Standard',
     pages: 32,
-    format: 'Institutional PDF & Delegated Charters',
+    format: 'Institutional Governance Protocol & Delegated Charters',
     category: 'Governance & Speed',
-    investmentAnchor: '$400 USD · Board License',
+    priceFormatted: '$95 USD',
+    creditBenefit: '100% Credited Toward Governance Embedding',
     description: 'Replaces defensive committee slide decks with explicit authority boundaries. Grants pre-ratified spending covenants ($50,000–$500,000+) and establishes clear escalation thresholds so senior executives move with sovereign conviction.',
     tableOfContents: [
       'Chapter 1: The Anatomy of Consensus Paralysis',
@@ -134,7 +139,7 @@ export const SHOP_DOCUMENTS: ShopDocument[] = [
       'Chapter 5: Board-to-CEO Mandate Resolution Protocol'
     ],
     keyDeliverables: [
-      '32-Page Governance Protocol PDF',
+      '32-Page Governance Protocol Release',
       'Delegated Authority Schedule (Matrix Template)',
       'Escalation Density Audit Sheet',
       'Asynchronous Decision Resolution Guide'
@@ -148,9 +153,10 @@ export const SHOP_DOCUMENTS: ShopDocument[] = [
     subtitle: 'Forensic methods to detect corporate evasions, audit semantic substance, and expose private uncertainty.',
     badge: 'Diagnostic Field Guide',
     pages: 28,
-    format: 'Field Guide PDF & Executive Audit Guide',
+    format: 'Forensic Field Guide & Executive Question Bank',
     category: 'Leadership Forensics',
-    investmentAnchor: '$350 USD · Executive Guide',
+    priceFormatted: '$75 USD',
+    creditBenefit: '100% Credited Toward Diagnostic Audit',
     description: 'High-status executives frequently game evaluations using rehearsed platitudes and performative modesty. This field guide provides the unvarnished Semantic Substance Ratio methodology, flags rhetorical evasions, and measures the Social Desirability Delta.',
     tableOfContents: [
       'Protocol 1: Calculating the Semantic Substance Ratio (0–100%)',
@@ -160,7 +166,7 @@ export const SHOP_DOCUMENTS: ShopDocument[] = [
       'Protocol 5: Formulating the Inquisitor Counter-Hypothesis'
     ],
     keyDeliverables: [
-      '28-Page Forensic Field Guide PDF',
+      '28-Page Forensic Field Guide Release',
       'The 25 Corporate Evasion Patterns & Counter-Probes',
       'Semantic Substance Scoring Guide',
       'Executive Cross-Examination Framework'
@@ -172,11 +178,12 @@ export const SHOP_DOCUMENTS: ShopDocument[] = [
     id: 'master-compendium-bundle',
     title: 'The Complete Sovereign Architecture Compendium (All 5 Publications)',
     subtitle: 'The comprehensive institutional repository: every manual, scorecard, governance matrix, and diagnostic blueprint.',
-    badge: 'Institutional Master Bundle · Best Value',
+    badge: 'Master Institutional Archive · Complete Suite',
     pages: 198,
-    format: 'Complete 5-Volume PDF Suite + Editable Charters',
+    format: 'Complete 5-Volume Archive + Master Presentation Deck',
     category: 'Master Bundle',
-    investmentAnchor: '$1,950 USD · Comprehensive Institutional Archive',
+    priceFormatted: '$490 USD',
+    creditBenefit: '100% Credited ($490 Offset) Toward Any Advisory Mandate',
     description: 'The complete institutional archive of The Unbounded Leadership Co., authored by Suchita Sancheti. Includes all 5 foundational volumes, board mandate templates, diagnostic scoring matrices, and lifetime updates for your organization.',
     tableOfContents: [
       'Volume I: The Sovereign Dossier™ Patent-Pending Specification (58 Pages)',
@@ -251,20 +258,20 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono uppercase text-[#9d7b38] font-bold">The Sovereign Executive Shop</span>
+            <span className="text-xs font-mono uppercase text-[#9d7b38] font-bold">The Sovereign Executive Publications</span>
             <span className="text-xs text-[#9d7b38]">·</span>
-            <span className="text-xs font-mono text-[#6b6e76] hidden md:inline">Instant PDF Publications & Governance Toolkits</span>
+            <span className="text-xs font-mono text-[#6b6e76] hidden md:inline">Proprietary Architecture & Governance Toolkits</span>
           </div>
         </div>
 
-        {/* HERO BANNER — STRIKING BLACK BACKGROUND AS REQUIRED FOR HIGH-CONSEQUENCE ASSETS */}
+        {/* HERO BANNER — STRIKING BLACK BACKGROUND, LEAD FUNNEL POSITIONING & RESPECT */}
         <div className="bg-black border-2 border-[#d4af37] rounded-xl p-6 sm:p-10 text-white shadow-2xl mb-10 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#d4af37]/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-3xl relative z-10 space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1c1d24] border border-[#d4af37]/60 rounded-full text-[11px] font-mono uppercase text-[#d4af37] font-bold">
               <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
-              <span>Authoritative Institutional Publications & Forensic Templates</span>
+              <span>Executive Briefing & Strategic Acquisition Funnel</span>
             </div>
 
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold font-serif leading-tight tracking-tight text-white">
@@ -272,7 +279,8 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
             </h1>
 
             <p className="text-sm sm:text-base text-stone-300 font-serif leading-relaxed">
-              Acquire the unvarnished manuals, diagnostic specifications, and board governance charters developed by <strong className="text-[#d4af37]">Suchita Sancheti</strong> for high-consequence founders and enterprise chairs. Sold as standalone digital extras with instant PDF delivery.
+              Acquire the unvarnished manuals, diagnostic specifications, and board governance charters developed by <strong className="text-[#d4af37]">Suchita Sancheti</strong> for high-consequence founders and enterprise chairs. <br className="hidden sm:inline" />
+              <span className="text-[#d4af37] font-semibold">100% of any document investment is credited directly toward your firm's Diagnostic Audit or Sovereign Retainer onboarding.</span>
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-stone-400">
@@ -281,8 +289,8 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                 Institutional Copyright
               </span>
               <span className="flex items-center gap-1.5">
-                <Lock className="w-4 h-4 text-[#d4af37]" />
-                Encrypted Board PDF Delivery
+                <CreditCard className="w-4 h-4 text-[#d4af37]" />
+                100% Retainer Advisory Credit
               </span>
               <span className="flex items-center gap-1.5">
                 <Award className="w-4 h-4 text-[#d4af37]" />
@@ -347,7 +355,7 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                       {doc.badge}
                     </span>
                     <span className={`text-xs font-mono font-bold ${isMaster ? 'text-stone-300' : 'text-[#6b6e76]'}`}>
-                      {doc.pages} Pages · {doc.format}
+                      {doc.pages} Pages · {doc.format.split('&')[0].trim()}
                     </span>
                   </div>
 
@@ -373,6 +381,12 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                       ))}
                     </ul>
                   </div>
+
+                  {/* Lead Funnel Advisory Credit Tag */}
+                  <div className="text-[10px] font-mono flex items-center gap-1.5 text-[#9d7b38] font-bold bg-[#faf6ee] p-2 rounded border border-[#ebdcc0]">
+                    <Sparkles className="w-3 h-3 text-[#9d7b38] shrink-0" />
+                    <span>{doc.creditBenefit}</span>
+                  </div>
                 </div>
 
                 {/* Footer Action Zone */}
@@ -381,9 +395,9 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                 }`}>
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] font-mono uppercase text-[#9d7b38] block font-bold">Investment</span>
-                      <span className={`text-sm font-bold font-mono ${isMaster ? 'text-[#d4af37]' : 'text-[#17181c]'}`}>
-                        {doc.investmentAnchor}
+                      <span className="text-[10px] font-mono uppercase text-[#9d7b38] block font-bold">Requoted Investment</span>
+                      <span className={`text-base font-bold font-mono ${isMaster ? 'text-[#d4af37]' : 'text-[#17181c]'}`}>
+                        {doc.priceFormatted}
                       </span>
                     </div>
 
@@ -406,7 +420,7 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                       className="w-full py-2.5 px-3 text-xs font-bold uppercase text-black bg-gradient-to-r from-[#d4af37] via-[#e5c158] to-[#b8860b] hover:opacity-95 rounded-sm transition-all shadow-xs flex items-center justify-center gap-1.5 font-mono cursor-pointer active:scale-98"
                     >
                       <Download className="w-3.5 h-3.5 text-black" />
-                      <span>Acquire PDF</span>
+                      <span>Acquire · {doc.priceFormatted}</span>
                     </button>
 
                     <button
@@ -469,7 +483,7 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                   {selectedDoc.title}
                 </h3>
                 <div className="text-xs font-mono text-[#6b6e76] mt-1">
-                  {selectedDoc.pages} Pages · {selectedDoc.format} · {selectedDoc.investmentAnchor}
+                  {selectedDoc.pages} Pages · {selectedDoc.format} · <strong className="text-[#17181c]">{selectedDoc.priceFormatted}</strong>
                 </div>
               </div>
 
@@ -485,6 +499,15 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
             {/* Modal Scrollable Body */}
             <div className="space-y-4 overflow-y-auto pr-2 text-xs sm:text-sm text-[#33353a]">
               
+              {/* Lead Funnel Advisory Credit Box */}
+              <div className="p-3 bg-[#faf6ee] border border-[#ebdcc0] rounded-md text-xs font-mono text-[#8f6d28] flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-[#9d7b38]" />
+                  <span><strong>Advisory Lead Credit:</strong> {selectedDoc.creditBenefit}</span>
+                </div>
+                <span className="font-bold text-[#17181c]">{selectedDoc.priceFormatted}</span>
+              </div>
+
               {/* Sample Excerpt */}
               <div className="p-4 rounded-md bg-black text-white border border-[#d4af37] space-y-2">
                 <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#d4af37] font-bold">
@@ -556,7 +579,7 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                   className="w-full sm:w-auto px-5 py-2.5 text-xs font-bold uppercase text-black bg-gradient-to-r from-[#d4af37] to-[#c5a059] hover:opacity-95 rounded-sm font-mono shadow-md flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5 text-black" />
-                  <span>Acquire PDF ({selectedDoc.investmentAnchor.split('·')[0].trim()})</span>
+                  <span>Acquire Document ({selectedDoc.priceFormatted})</span>
                 </button>
               </div>
             </div>
@@ -575,7 +598,7 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
 
             <div className="space-y-1">
               <span className="text-[11px] font-mono uppercase text-[#d4af37] font-bold tracking-widest">
-                Instant PDF Dispatch Simulator
+                Executive Document Transmission
               </span>
               <h3 className="text-xl sm:text-2xl font-bold font-serif text-white">
                 {downloadSuccessModal.title}
@@ -596,8 +619,8 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                 <span className="text-white">{downloadSuccessModal.pages} Pages</span>
               </div>
               <div className="flex justify-between text-stone-400 text-[10px]">
-                <span>FORMAT:</span>
-                <span className="text-white">{downloadSuccessModal.format}</span>
+                <span>INVESTMENT:</span>
+                <span className="text-[#d4af37] font-bold">{downloadSuccessModal.priceFormatted} (100% Retainer Credit)</span>
               </div>
             </div>
 
@@ -614,6 +637,8 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                     `Document: ${downloadSuccessModal.title}\n` +
                     `Pages: ${downloadSuccessModal.pages}\n` +
                     `Category: ${downloadSuccessModal.category}\n` +
+                    `Investment: ${downloadSuccessModal.priceFormatted}\n` +
+                    `Credit Benefit: ${downloadSuccessModal.creditBenefit}\n` +
                     `============================================================\n\n` +
                     `VISION:\n` +
                     `"To align human ambition with enduring organizational architecture — so that power, scale, and perpetuity compound as one, and what the world's greatest founders build today commands the future long after they have conquered it."\n\n` +
@@ -646,7 +671,7 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                 }}
                 className="w-full py-2.5 px-4 text-xs font-bold uppercase text-white bg-[#1e2029] hover:bg-[#282a36] border border-stone-700 rounded-sm transition-colors font-mono cursor-pointer"
               >
-                Request Official Institutional Invoice & Full PDF
+                Request Official Institutional Invoice & Publication
               </button>
             </div>
 

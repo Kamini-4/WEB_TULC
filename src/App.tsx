@@ -49,7 +49,7 @@ export const App: React.FC = () => {
       } else if (hash === 'diagnostic') {
         setCurrentView('diagnostic');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'shop' || hash === 'store' || hash === 'documents') {
+      } else if (hash === 'shop' || hash === 'store' || hash === 'documents' || hash === 'publications') {
         setCurrentView('shop');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash === 'blogs' || hash === 'library' || hash === 'dispatches') {
@@ -123,9 +123,9 @@ export const App: React.FC = () => {
       setCurrentView('about');
       window.location.hash = 'about';
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (target === 'shop' || target === 'store') {
+    } else if (target === 'shop' || target === 'store' || target === 'publications') {
       setCurrentView('shop');
-      window.location.hash = 'shop';
+      window.location.hash = 'publications';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (target === 'council' || target === 'council-chambers') {
       // Council chamber is an advisory feature sold in the Services section
@@ -181,7 +181,7 @@ export const App: React.FC = () => {
   };
 
   const handleInquireDocument = (doc: ShopDocument) => {
-    setInquiryContext(`Institutional Publication & PDF Order: Requesting official copy of "${doc.title}" (${doc.investmentAnchor}).`);
+    setInquiryContext(`Institutional Publication Order: Requesting official copy of "${doc.title}" (${doc.priceFormatted} · 100% credited toward retainer/audit).`);
     navigateTo('contact');
   };
 
@@ -306,7 +306,7 @@ export const App: React.FC = () => {
           </div>
         )}
 
-        {/* 6. DEDICATED SOVEREIGN EXECUTIVE SHOP & PDF DOCUMENTS VIEW */}
+        {/* 6. DEDICATED SOVEREIGN EXECUTIVE SHOP & PUBLICATIONS VIEW */}
         {currentView === 'shop' && (
           <div>
             <ExecutiveShop

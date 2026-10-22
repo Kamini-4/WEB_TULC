@@ -202,7 +202,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     className="w-full px-3 py-2 text-xs bg-white border border-zinc-300 rounded-2xs focus:border-[#b8860b] focus:outline-none"
                   />
                   <span className="text-[8px] font-mono text-zinc-400 mt-1 block">
-                    Your master digital operating workspace & PDF files are dispatched here immediately.
+                    Your master digital operating workspace & codified publications are dispatched here immediately.
                   </span>
                 </div>
 
