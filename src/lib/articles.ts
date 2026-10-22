@@ -786,7 +786,7 @@ export const INSTITUTIONAL_ARTICLES: Article[] = [
       "How do high-performing scale-up founders systematically eliminate cognitive overload? They follow a proven protocol:",
       "1. **Operational Noise Audit:** Map every recurring question that lands on your desk and identify the missing rule that caused it.",
       "2. **Deploy Binary Execution Rules:** Turn your personal criteria into simple yes/no guidelines that department leads can execute without your involvement.",
-      "3. **Autonomous Operating Cadence:** Replace ad-hoc Slack firefighting with predictable weekly rhythms and clear escalation thresholds.",
+      "3. **Autonomous Operating Cadence:** Replace ad-hoc operational firefighting with predictable weekly rhythms and clear escalation thresholds.",
       "### Strategic Resolution: The Stakeholder Value Framework",
       "- **For the Founder:** You do not need to work harder; you need to turn your intuition into systems.",
       "- **For the Executive Team:** When leaders build clear rules, teams execute with pride and autonomy.",

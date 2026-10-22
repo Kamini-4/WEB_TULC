@@ -96,7 +96,7 @@ export const Home: React.FC = () => {
             </div>
             <div className="bg-black text-white p-3.5 sm:p-4 border border-[#b8860b]/30 hover:border-[#b8860b] transition-colors rounded-xs shadow-sm flex flex-col justify-between">
               <div className="text-xl sm:text-2xl font-bold text-[#b8860b] tracking-tight">Zero Dread</div>
-              <div className="text-xs text-zinc-300 mt-1 tracking-tight font-medium">No <em className="italic text-zinc-100">late-night panics</em> or Slack triage</div>
+              <div className="text-xs text-zinc-300 mt-1 tracking-tight font-medium">No <em className="italic text-zinc-100">late-night panics</em> or reactive triage</div>
             </div>
             <div className="bg-black text-white p-3.5 sm:p-4 border border-[#b8860b]/30 hover:border-[#b8860b] transition-colors rounded-xs shadow-sm flex flex-col justify-between">
               <div className="text-xl sm:text-2xl font-bold text-white tracking-tight">Operational Autonomy</div>

@@ -24,7 +24,7 @@ const QUESTIONS: DiagnosticQuestion[] = [
       {
         label: 'Continuous Reactive Pings',
         score: 5,
-        description: 'Constantly pinged via Slack, WhatsApp, and email; I respond within minutes all day.',
+        description: 'Constantly interrupted via chat channels, messaging alerts, and reactive emails; I respond within minutes all day.',
         strategicDiagnosis: 'Cognitive slot machine syndrome. Constant interruptions leave zero space for strategic synthesis.'
       },
       {

@@ -316,7 +316,7 @@ export const ShopPage: React.FC = () => {
               </h1>
 
               <p className="text-xs sm:text-sm text-[#57534e] leading-relaxed max-w-2xl">
-                You scaled an enterprise. Your time is worth $500–$1,000/hr. Why are you spending it fielding tactical Slack approvals? We packaged our proprietary advisory systems into 1-click digital workspaces. Duplicate in 20 minutes; reclaim 15+ hours weekly.
+                You scaled an enterprise. Your time is worth $500–$1,000/hr. Why are you spending it fielding tactical operational approvals? We packaged our proprietary advisory systems into 1-click digital workspaces. Duplicate in 20 minutes; reclaim 15+ hours weekly.
               </p>
             </div>
 

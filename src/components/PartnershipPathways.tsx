@@ -35,7 +35,7 @@ export const PARTNERSHIP_PATHWAYS: PartnershipPathway[] = [
     tagline: 'Velocity is a structural choice. We build the machinery.',
     investmentAnchor: 'In-Situ Operating Overhaul',
     cadence: '90-Day Transformation Runway',
-    thePain: 'You reorganized the org chart last year, and nothing actually changed. The same senior leaders still hedge their bets, seek endless consensus, and defer hard choices. Execution velocity is bleeding out across 18 committees.',
+    thePain: 'You reorganized the org chart last year, and nothing actually changed. The same senior leaders still hedge their bets, seek endless consensus, and defer hard choices. Execution velocity is bleeding out across redundant committees.',
     theDesire: 'You want an operating system that runs autonomously. You want your executives to own their decisions with conviction, driving initiatives forward without seeking routine sign-offs or consensus decks.',
     theOutcome: 'We embed directly inside your executive cadence for 90 days. We tear out the consensus meetings, codify explicit authority matrices, and institute 14-day asynchronous decision loops. When we exit, high-velocity leadership is permanent infrastructure.',
     deliverables: [
@@ -50,16 +50,16 @@ export const PARTNERSHIP_PATHWAYS: PartnershipPathway[] = [
   {
     id: 'retainer',
     tierNumber: '03',
-    name: 'Sovereign Strategic Counsel',
+    name: 'The Sovereign Retainer',
     tagline: 'The private counsel leaders turn to when the stakes are existential.',
-    investmentAnchor: 'Senior Advisory Mandate',
+    investmentAnchor: 'Senior Sovereign Retainer',
     cadence: 'Annual Sovereign Mandate',
     thePain: 'At the top, there is no one you can safely think aloud with. Your board is evaluating you. Your executive team wants answers from you. The market is watching. When an activist appears or succession fractures, you are entirely on your own.',
     theDesire: 'An uncompromising, deeply experienced peer in your corner. Someone with no equity stake, no political ambition, and the institutional spine to tell you what everyone else is too afraid to say.',
-    theOutcome: 'Continuous, on-call strategic sparring for the CEO and Board Chair. Direct guidance through activist defenses, board reconstitutions, M&A integrations, and sudden leadership transitions. You lead with calm, sovereign authority.',
+    theOutcome: 'Continuous, on-call strategic sparring for the CEO and Board Chair directly with Suchita Sancheti. Direct guidance through activist defenses, board reconstitutions, M&A integrations, and sudden leadership transitions. You lead with calm, sovereign authority.',
     deliverables: [
       'Full Strategic Council Chambers Access: Year-round sovereign conclave seat and private syndicate admission',
-      'Unrestricted 24/7 direct access to Senior Advisory Partner for Chair & CEO',
+      'Unrestricted 24/7 direct access to Suchita Sancheti for Board Chair & CEO',
       'Emergency War Room Mobilization within 4 hours for unexpected governance crises',
       'Quarterly In-Camera Board Sparring Sessions: Challenging strategy before market exposure'
     ],
@@ -93,7 +93,7 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
         <div className="max-w-3xl mb-6 sm:mb-8">
           <div className="flex items-center gap-2 text-xs uppercase text-[#9d7b38] font-bold mb-2">
             <ShieldCheck className="w-4 h-4 text-[#9d7b38]" />
-            <span className="text-[#17181c] font-bold">3 Sovereign Categories</span>
+            <span className="text-[#17181c] font-bold">Services & Sovereign Tracks</span>
             <span aria-hidden="true" className="text-[#c9bea9]">·</span>
             <span>Structured for Permanent Momentum</span>
           </div>
@@ -101,7 +101,7 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
             How Leaders Partner With Us.
           </h2>
           <p className="mt-2 text-sm sm:text-base text-[#555861] leading-relaxed italic">
-            We do not sell hours. We do not write reports that gather dust. Every engagement is built around <strong className="text-[#17181c] not-italic font-bold">one specific institutional shift</strong>. Choose the category that matches your reality.
+            We do not sell hours. We do not write reports that gather dust. Every engagement is built around <strong className="text-[#17181c] not-italic font-bold">one specific institutional shift</strong>. Choose the engagement track that matches your reality.
           </p>
         </div>
 
@@ -109,22 +109,23 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 mb-6 sm:mb-8">
           {PARTNERSHIP_PATHWAYS.map((model) => {
             const isSelected = model.id === activeModelId;
+            const isRetainer = model.id === 'retainer';
             return (
               <button
                 key={model.id}
                 onClick={() => handleSelect(model.id)}
-                className={`p-4 sm:p-5 text-left rounded-lg border transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift min-h-[170px] ${
+                className={`p-4 sm:p-5 text-left rounded-lg border transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift min-h-[175px] ${
                   isSelected
-                    ? 'bg-[#141416] border-[#d4af37] text-white shadow-xl scale-[1.005] gold-glow-subtle'
+                    ? 'bg-black border-[#d4af37] text-white shadow-2xl scale-[1.01] ring-1 ring-[#d4af37]/50'
                     : 'bg-[#fcfaf7] border-[#d8cebe] text-[#17181c] hover:border-[#bda57b] hover:bg-white shadow-xs'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className={`text-[11px] font-bold uppercase ${isSelected ? 'text-[#d4af37]' : 'text-[#9d7b38]'}`}>
-                      Category {model.tierNumber}
+                    <span className={`text-[11px] font-bold uppercase tracking-wider ${isSelected ? 'text-[#d4af37]' : 'text-[#9d7b38]'}`}>
+                      {isRetainer ? 'Retainer' : `Track ${model.tierNumber}`}
                     </span>
-                    <span className={`text-[11px] font-semibold ${isSelected ? 'text-[#a6a9b2]' : 'text-[#6b6e76]'}`}>
+                    <span className={`text-[11px] font-semibold ${isSelected ? 'text-stone-300' : 'text-[#6b6e76]'}`}>
                       {model.cadence}
                     </span>
                   </div>
@@ -133,7 +134,7 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
                     {model.name}
                   </h3>
 
-                  <p className={`text-xs mt-1.5 italic leading-relaxed ${isSelected ? 'text-[#d0d3dc]' : 'text-[#555861]'}`}>
+                  <p className={`text-xs mt-1.5 italic leading-relaxed ${isSelected ? 'text-stone-300' : 'text-[#555861]'}`}>
                     "{model.tagline}"
                   </p>
                 </div>
@@ -157,33 +158,35 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
           })}
         </div>
 
-        {/* Selected Pathway Deep-Dive Cockpit */}
-        <div className="p-4 sm:p-6 lg:p-8 rounded-xl bg-white border border-[#d8cebe] shadow-lg relative overflow-hidden transition-all duration-300">
+        {/* Selected Pathway Deep-Dive Cockpit — DEEP BLACK FOR HIGH-STAKES IMPORTANCE */}
+        <div className="p-5 sm:p-7 lg:p-8 rounded-xl bg-black border-2 border-[#d4af37]/70 text-white shadow-2xl relative overflow-hidden transition-all duration-300">
           
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-5 border-b border-[#e8e2d5]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-5 border-b border-stone-800">
             <div>
-              <div className="flex items-center gap-2 text-xs uppercase font-bold text-[#9d7b38] mb-1">
-                <span>Selected Category {activeModel.tierNumber}</span>
-                <span aria-hidden="true" className="text-[#c9bea9]">·</span>
-                <span className="text-[#17181c]">{activeModel.cadence}</span>
+              <div className="flex items-center gap-2 text-xs uppercase font-bold text-[#d4af37] mb-1">
+                <span>{activeModel.id === 'retainer' ? 'Retainer Mandate' : `Engagement Track ${activeModel.tierNumber}`}</span>
+                <span aria-hidden="true" className="text-stone-600">·</span>
+                <span className="text-stone-300">{activeModel.cadence}</span>
+                <span aria-hidden="true" className="text-stone-600">·</span>
+                <span className="text-[#d4af37]">Led by Suchita Sancheti</span>
               </div>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#17181c]">
-                {activeModel.name}: <span className="font-normal italic text-[#54575f]">"{activeModel.tagline}"</span>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight">
+                {activeModel.name}: <span className="font-normal italic text-stone-300">"{activeModel.tagline}"</span>
               </h3>
             </div>
 
             <div className="flex flex-wrap items-center gap-2.5 shrink-0">
               <button
                 onClick={() => setShowSpecModal(activeModel)}
-                className="px-3.5 py-2 text-xs font-bold uppercase text-[#17181c] bg-[#f8f6f0] hover:bg-[#ede5d6] border border-[#d8cebe] transition-colors rounded-sm flex items-center gap-1.5 min-h-[40px]"
+                className="px-3.5 py-2 text-xs font-bold uppercase text-stone-200 bg-[#1c1d22] hover:bg-[#282a32] border border-stone-700 transition-colors rounded-sm flex items-center gap-1.5 min-h-[40px] cursor-pointer"
               >
-                <Download className="w-3.5 h-3.5 text-[#9d7b38]" />
+                <Download className="w-3.5 h-3.5 text-[#d4af37]" />
                 <span>View Full Spec</span>
               </button>
 
               <button
                 onClick={() => onOpenConsultationWithModel(activeModel)}
-                className="px-5 py-2 text-xs font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] transition-colors rounded-sm whitespace-nowrap shadow-xs min-h-[40px] text-center"
+                className="px-5 py-2 text-xs font-bold uppercase text-black bg-gradient-to-r from-[#d4af37] to-[#c5a059] hover:opacity-95 transition-all rounded-sm whitespace-nowrap shadow-md min-h-[40px] text-center font-mono cursor-pointer active:scale-98"
               >
                 Initiate {activeModel.name}
               </button>
@@ -194,89 +197,89 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-3.5 sm:gap-4 mb-6">
             
             {/* The Pain */}
-            <div className="p-4 sm:p-5 rounded-lg bg-[#fcfaf7] border border-[#ebdcc0] relative flex flex-col justify-between">
+            <div className="p-4 sm:p-5 rounded-lg bg-[#14151a] border border-rose-900/60 relative flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-1.5 text-xs uppercase font-bold text-red-800 mb-2">
-                  <Flame className="w-4 h-4 text-red-700 shrink-0" />
+                <div className="flex items-center gap-1.5 text-xs uppercase font-bold text-rose-400 mb-2">
+                  <Flame className="w-4 h-4 text-rose-400 shrink-0" />
                   <span>The Acute Institutional Pain</span>
                 </div>
-                <p className="text-xs sm:text-sm text-[#2b2d32] leading-relaxed italic">
+                <p className="text-xs sm:text-sm text-stone-300 leading-relaxed italic">
                   "{activeModel.thePain}"
                 </p>
               </div>
-              <div className="mt-3 pt-2.5 border-t border-[#ebdcc0]/60 text-[11px] text-[#7d8089]">
+              <div className="mt-3 pt-2.5 border-t border-rose-900/40 text-[11px] text-stone-400">
                 Where organizations bleed momentum and morale.
               </div>
             </div>
 
             {/* The Desire */}
-            <div className="p-4 sm:p-5 rounded-lg bg-[#faf6ee] border border-[#ebdcc0] relative flex flex-col justify-between">
+            <div className="p-4 sm:p-5 rounded-lg bg-[#14151a] border border-amber-900/60 relative flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-1.5 text-xs uppercase font-bold text-[#8f6d28] mb-2">
-                  <Compass className="w-4 h-4 text-[#8f6d28] shrink-0" />
+                <div className="flex items-center gap-1.5 text-xs uppercase font-bold text-amber-300 mb-2">
+                  <Compass className="w-4 h-4 text-amber-300 shrink-0" />
                   <span>The Leader's Real Desire</span>
                 </div>
-                <p className="text-xs sm:text-sm text-[#2b2d32] leading-relaxed italic">
+                <p className="text-xs sm:text-sm text-stone-300 leading-relaxed italic">
                   "{activeModel.theDesire}"
                 </p>
               </div>
-              <div className="mt-3 pt-2.5 border-t border-[#ebdcc0]/60 text-[11px] text-[#7d8089]">
+              <div className="mt-3 pt-2.5 border-t border-amber-900/40 text-[11px] text-stone-400">
                 What executive sovereignty and peace of mind look like.
               </div>
             </div>
 
             {/* The Outcome */}
-            <div className="p-4 sm:p-5 rounded-lg bg-[#141416] text-white border border-[#2b2d33] shadow-sm relative flex flex-col justify-between">
+            <div className="p-4 sm:p-5 rounded-lg bg-[#181920] text-white border border-[#d4af37]/60 shadow-lg relative flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-1.5 text-xs uppercase font-bold text-[#d4af37] mb-2">
                   <Zap className="w-4 h-4 text-[#d4af37] shrink-0" />
                   <span>The Irrevocable Outcome</span>
                 </div>
-                <p className="text-xs sm:text-sm text-[#e0e2eb] leading-relaxed">
+                <p className="text-xs sm:text-sm text-white leading-relaxed">
                   {activeModel.theOutcome}
                 </p>
               </div>
-              <div className="mt-3 pt-2.5 border-t border-white/10 text-[11px] text-[#a6a9b2]">
-                Guaranteed by binding institutional mandate.
+              <div className="mt-3 pt-2.5 border-t border-white/10 text-[11px] text-[#d4af37]">
+                Guaranteed by binding sovereign mandate.
               </div>
             </div>
           </div>
 
           {/* Deliverables & Bottom Commitment Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-center pt-5 border-t border-[#e8e2d5]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-center pt-5 border-t border-stone-800">
             <div className="lg:col-span-8">
-              <h4 className="text-xs uppercase text-[#9d7b38] font-bold mb-3">
+              <h4 className="text-xs uppercase text-[#d4af37] font-bold mb-3 tracking-wider">
                 Specific Institutional Deliverables Under {activeModel.name}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {activeModel.deliverables.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2 p-2.5 rounded bg-[#f8f6f0] border border-[#e5decfe0] text-xs text-[#17181c]">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#9d7b38] shrink-0 mt-0.5" />
+                  <div key={idx} className="flex items-start gap-2 p-2.5 rounded bg-[#14151a] border border-stone-800 text-xs text-stone-200">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#d4af37] shrink-0 mt-0.5" />
                     <span className="font-semibold leading-relaxed">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="lg:col-span-4 p-4 sm:p-5 rounded-lg bg-[#f8f6f0] border border-[#e5decfe0] flex flex-col justify-between">
+            <div className="lg:col-span-4 p-4 sm:p-5 rounded-lg bg-[#14151a] border border-stone-800 flex flex-col justify-between">
               <div>
-                <div className="text-[11px] uppercase font-bold text-[#6b6e76] mb-0.5">
+                <div className="text-[11px] uppercase font-bold text-stone-400 mb-0.5">
                   Engagement Architecture
                 </div>
-                <div className="text-xl font-bold text-[#17181c] mb-0.5">
+                <div className="text-xl font-bold text-white mb-0.5">
                   {activeModel.investmentAnchor}
                 </div>
-                <div className="text-xs text-[#54575f] italic">
+                <div className="text-xs text-stone-400 italic">
                   Runway: {activeModel.cadence}
                 </div>
               </div>
 
               <button
                 onClick={() => onOpenConsultationWithModel(activeModel)}
-                className="mt-4 w-full py-3 text-xs font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] transition-all rounded-sm flex items-center justify-center gap-2 shadow-xs active:scale-[0.98] min-h-[42px]"
+                className="mt-4 w-full py-3 text-xs font-bold uppercase text-black bg-gradient-to-r from-[#d4af37] to-[#c5a059] hover:opacity-95 transition-all rounded-sm flex items-center justify-center gap-2 shadow-md active:scale-[0.98] min-h-[42px] cursor-pointer"
               >
                 <span>Book Mandate Briefing</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
+                <ArrowRight className="w-3.5 h-3.5 text-black" />
               </button>
             </div>
           </div>

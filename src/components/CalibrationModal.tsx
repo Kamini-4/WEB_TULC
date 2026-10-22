@@ -108,7 +108,7 @@ export const CalibrationModal: React.FC<CalibrationModalProps> = ({ isOpen, onCl
                   >
                     <option>Founder bottleneck in everyday decisions</option>
                     <option>Lack of autonomous peer accountability</option>
-                    <option>Severe cognitive overload / Slack churn</option>
+                    <option>Severe cognitive overload / operational churn</option>
                     <option>Scaling beyond $50M without breaking culture</option>
                   </select>
                 </div>

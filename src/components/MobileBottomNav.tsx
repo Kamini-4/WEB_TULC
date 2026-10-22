@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Zap, Target, Layers, Send } from 'lucide-react';
+import { Home, Zap, Layers, Crown, User } from 'lucide-react';
 
 interface MobileBottomNavProps {
   onNavigate: (sectionId: string) => void;
@@ -13,9 +13,9 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   const navItems = [
     { id: 'top', label: 'Home', icon: Home },
     { id: 'test', label: 'The Test', icon: Zap, badge: 'FREE' },
-    { id: 'domains', label: '5 Domains', icon: Target },
-    { id: 'partnerships', label: 'Pathways', icon: Layers },
-    { id: 'contact', label: 'Briefing', icon: Send },
+    { id: 'partnerships', label: 'Services', icon: Layers },
+    { id: 'council', label: 'Chambers', icon: Crown },
+    { id: 'about', label: 'About', icon: User },
   ];
 
   return (
@@ -30,8 +30,9 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           const isActive = 
             (item.id === 'top' && (currentView === 'home' || currentView === 'top')) ||
             (item.id === 'test' && (currentView === 'test' || currentView === 'diagnostic')) ||
-            (item.id === 'domains' && currentView === 'domains') ||
-            (item.id === 'partnerships' && currentView === 'partnerships');
+            (item.id === 'partnerships' && currentView === 'partnerships') ||
+            (item.id === 'council' && currentView === 'council') ||
+            (item.id === 'about' && currentView === 'about');
 
           return (
             <button

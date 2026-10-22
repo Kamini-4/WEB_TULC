@@ -56,7 +56,7 @@ export const ServicesPage: React.FC = () => {
         'The Two-Week Step-Away Calibration Protocol'
       ],
       icon: Zap,
-      idealFor: 'Apex founders spending over 25 hours weekly on tactical approvals, Slack pings, and internal status check-ins.'
+      idealFor: 'Apex founders spending over 25 hours weekly on tactical approvals, reactive messaging pings, and internal status check-ins.'
     },
     {
       id: '03',

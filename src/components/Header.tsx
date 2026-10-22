@@ -21,27 +21,27 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-50 bg-[#f8f6f0]/95 backdrop-blur-md border-b border-[#e5decfe0] transition-colors">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-18 flex items-center justify-between gap-4">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-4">
         
-        {/* Brand Zone — Prestigious Crest & Clean Typography */}
+        {/* Brand Zone — Prestigious Crest & Clean Typography (Larger & Clearer) */}
         <a 
           href="#top" 
           onClick={(e) => { e.preventDefault(); handleNavClick('top'); }}
-          className="flex items-center gap-2.5 sm:gap-3 text-base sm:text-lg font-bold text-[#17181c] hover:text-[#9d7b38] transition-colors tracking-tight truncate shrink-0 group"
+          className="flex items-center gap-3 sm:gap-3.5 text-base sm:text-lg font-bold text-[#17181c] hover:text-[#9d7b38] transition-colors tracking-tight truncate shrink-0 group"
         >
           <img 
             src="/assets/aistudio/WhatsApp_Image_2026-01-09_at_13.01.23_3b22d7ab.jpeg" 
-            alt="The Unbounded Leadership Co. Crest" 
-            className="h-8 sm:h-9 w-auto rounded-xs object-cover border border-[#9d7b38]/40 shadow-xs group-hover:border-[#9d7b38] transition-all"
+            alt="The Unbounded Leadership Co. Crest & Insignia" 
+            className="h-11 sm:h-12 w-auto max-w-[56px] rounded-xs object-cover border-2 border-[#9d7b38]/60 shadow-sm group-hover:border-[#9d7b38] transition-all"
           />
           <div className="flex flex-col text-left">
             <span className="font-bold tracking-tight text-sm sm:text-base leading-tight">The Unbounded Leadership Co.</span>
-            <span className="text-[10px] font-mono tracking-widest text-[#9d7b38] uppercase hidden sm:inline-block">Elevating Cultures, Transforming Leadership</span>
+            <span className="text-[10px] font-mono tracking-widest text-[#9d7b38] uppercase hidden sm:inline-block">By Suchita Sancheti · Sovereign Enterprise Architecture</span>
           </div>
         </a>
 
-        {/* Desktop Nav Zone — Clutter-Free: Only What's Necessary */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-[#4e5159]">
+        {/* Desktop Nav Zone — Clutter-Free: No 5 Domains, Partnerships renamed to Services */}
+        <nav className="hidden md:flex items-center gap-7 lg:gap-9 text-sm font-medium text-[#4e5159]">
           <a
             href="#test"
             onClick={(e) => { e.preventDefault(); handleNavClick('test'); }}
@@ -54,18 +54,7 @@ export const Header: React.FC<HeaderProps> = ({
             The Test
           </a>
           <a
-            href="#domains"
-            onClick={(e) => { e.preventDefault(); handleNavClick('domains'); }}
-            className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
-              currentView === 'domains'
-                ? 'text-[#17181c] border-[#9d7b38] font-bold'
-                : 'text-[#4e5159] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
-            }`}
-          >
-            5 Domains
-          </a>
-          <a
-            href="#partnerships"
+            href="#services"
             onClick={(e) => { e.preventDefault(); handleNavClick('partnerships'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
               currentView === 'partnerships'
@@ -73,7 +62,18 @@ export const Header: React.FC<HeaderProps> = ({
                 : 'text-[#4e5159] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
             }`}
           >
-            Partnerships
+            Services
+          </a>
+          <a
+            href="#council"
+            onClick={(e) => { e.preventDefault(); handleNavClick('council'); }}
+            className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
+              currentView === 'council'
+                ? 'text-[#17181c] border-[#9d7b38] font-bold'
+                : 'text-[#4e5159] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
+            }`}
+          >
+            Council Chambers
           </a>
           <a
             href="#library"
@@ -134,19 +134,11 @@ export const Header: React.FC<HeaderProps> = ({
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
-              href="#domains"
-              onClick={(e) => { e.preventDefault(); handleNavClick('domains'); }}
-              className="py-2 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
-            >
-              <span>5 Domains Architecture</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
-            </a>
-            <a
-              href="#partnerships"
+              href="#services"
               onClick={(e) => { e.preventDefault(); handleNavClick('partnerships'); }}
               className="py-2 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
-              <span>How We Partner (3 Categories)</span>
+              <span>Services (3 Sovereign Tracks)</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a

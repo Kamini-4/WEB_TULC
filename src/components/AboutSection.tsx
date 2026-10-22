@@ -33,49 +33,57 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
             <span>Executive Mastery + Sovereign Architecture</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17181c] leading-tight tracking-tight [text-wrap:balance]">
-            "You Didn't Build a Company to Live in Slack. <br className="hidden sm:inline" />
-            <span className="text-[#9d7b38]">We Engineer The Systems That Set You Free."</span>
+            "You Didn't Build an Empire to Be Trapped in Tactical Firefighting. <br className="hidden sm:inline" />
+            <span className="text-[#9d7b38]">We Architect The Structural Systems That Command The Future."</span>
           </h2>
           <p className="mt-2 text-sm sm:text-base text-[#4e5159] font-normal leading-relaxed italic">
-            At The Unbounded Leadership Co., we believe true success isn't working 80 hours a week to prove your dedication. True success is owning a self-governing enterprise that scales profitably while you reclaim your Wednesday afternoons and lead with total composure.
+            At The Unbounded Leadership Co., founded by Suchita Sancheti, we believe true sovereign scale is not working 80 hours a week in endless triage. True sovereignty is commanding an enduring, self-governing enterprise that compounds enterprise value autonomously while you lead with total strategic composure.
           </p>
         </div>
 
         {/* Vision, Mission & Dual Architecture Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start mb-8">
           
-          {/* Left Column: Suchita Sancheti Bio Card (4 Cols) */}
-          <div className="lg:col-span-4 bg-[#ffffff] border border-[#d8cebe] rounded-lg p-5 sm:p-6 shadow-sm space-y-4">
+          {/* Left Column: Suchita Sancheti Portrait & Bio Dossier (4 Cols) */}
+          <div className="lg:col-span-4 bg-[#ffffff] border-2 border-[#d4af37]/60 rounded-lg p-5 sm:p-6 shadow-md space-y-4">
             
-            {/* Official Heraldic Crest Insignia */}
-            <div className="w-24 h-24 rounded-lg overflow-hidden border-2 border-[#d4af37] shadow-md mx-auto sm:mx-0">
+            {/* Prominent High-Prestige Executive Portrait Frame */}
+            <div className="relative w-full aspect-4/3 sm:aspect-square max-h-[300px] rounded-md overflow-hidden border-2 border-[#d4af37] shadow-lg group">
               <img 
                 src="/assets/aistudio/WhatsApp_Image_2026-01-09_at_13.01.23_3b22d7ab.jpeg" 
-                alt="The Unbounded Leadership Co. Insignia" 
-                className="w-full h-full object-cover"
+                alt="Suchita Sancheti, Founder & Enterprise Architect, The Unbounded Leadership Co." 
+                className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
               />
+              <div className="absolute bottom-2 left-2 right-2 bg-[#17181c]/90 backdrop-blur-xs px-2.5 py-1.5 rounded-xs border border-[#d4af37]/40 text-center">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#d4af37] font-bold">
+                  Suchita Sancheti · Principal Architect
+                </span>
+              </div>
             </div>
 
             <div className="space-y-1 text-center sm:text-left">
-              <h3 className="text-xl font-bold text-[#17181c]">Suchita Sancheti</h3>
-              <div className="text-xs font-bold text-[#9d7b38] uppercase">Founder & Enterprise Architect</div>
-              <p className="text-xs text-[#6e727c]">
-                Synthesizing cybernetic systems architecture, executive governance, and behavioral decision design.
+              <div className="inline-block px-2 py-0.5 bg-[#faf6ee] border border-[#ebdcc0] text-[10px] font-mono uppercase font-bold text-[#9d7b38] rounded-xs mb-1">
+                Verified Enterprise Authority
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#17181c]">Suchita Sancheti</h3>
+              <div className="text-xs font-bold text-[#9d7b38] uppercase tracking-wide">Founder & Enterprise Architect</div>
+              <p className="text-xs text-[#6e727c] leading-relaxed">
+                Synthesizing cybernetic systems architecture, executive governance, and behavioral decision design to establish absolute organizational sovereignty.
               </p>
             </div>
 
             <div className="p-3.5 rounded-md bg-[#faf8f5] border border-[#e5decfe0] text-xs text-[#555861] leading-relaxed italic">
-              "When a company stalls, consultants write 200-page slide decks and coaches tell you to breathe. We do neither. We step inside your boardroom, identify where unwritten rules freeze your leadership, and hard-code boundary covenants so your people lead with courage."
+              "When an enterprise stalls, consultants produce 200-page slide decks and coaches offer platitudes. We do neither. We step inside your boardroom, identify where structural friction freezes your leadership, and hard-code boundary covenants so your executives lead with unyielding conviction."
             </div>
 
             <div className="pt-2 border-t border-[#f0eade] space-y-2 text-xs text-[#17181c]">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#9d7b38] shrink-0" />
-                <span>Zero junior handoffs — confidential 1-on-1 advisory</span>
+                <span>Zero junior handoffs — direct confidential 1-on-1 advisory</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#9d7b38] shrink-0" />
-                <span>No hourly billing — pure outcome-driven mandates</span>
+                <span>No hourly billing — pure sovereign outcome-driven mandates</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#9d7b38] shrink-0" />
@@ -92,37 +100,37 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
             </button>
           </div>
 
-          {/* Right Column: Vision, Mission & "Humans + Architecture" Core System (8 Cols) */}
+          {/* Right Column: Exact Verbatim Vision, Mission & "Humans + Architecture" Core System (8 Cols) */}
           <div className="lg:col-span-8 space-y-5">
             
-            {/* Vision & Mission Cards */}
+            {/* Vision & Mission Cards (Exact Verbatim Mandate) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               
-              {/* Mission */}
-              <div className="p-5 rounded-lg bg-[#ffffff] border border-[#d8cebe] shadow-xs space-y-2">
+              {/* Vision Card */}
+              <div className="p-5 sm:p-6 rounded-lg bg-[#ffffff] border border-[#d8cebe] shadow-xs space-y-2.5">
                 <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#9d7b38] font-bold">
-                  <Target className="w-4 h-4 text-[#9d7b38]" />
-                  <span>Our Mission</span>
+                  <Eye className="w-4 h-4 text-[#9d7b38]" />
+                  <span>Vision</span>
                 </div>
-                <h4 className="text-lg font-bold text-[#17181c] leading-snug">
-                  To Decouple Founders & Reclaim Their Freedom in 90 Days.
+                <h4 className="text-base sm:text-lg font-bold text-[#17181c] leading-snug">
+                  To Align Human Ambition With Enduring Architecture.
                 </h4>
-                <p className="text-xs sm:text-sm text-[#4e5159] leading-relaxed">
-                  We install unbreakable decision architecture inside high-growth companies—fusing human courage with codified operating systems—so founders reclaim 15+ hours weekly, eliminate late-night firefighting, and watch their enterprises compound without daily micromanagement.
+                <p className="text-xs sm:text-sm text-[#383a42] font-serif leading-relaxed italic">
+                  “To align human ambition with enduring organizational architecture — so that power, scale, and perpetuity compound as one, and what the world's greatest founders build today commands the future long after they have conquered it.”
                 </p>
               </div>
 
-              {/* Vision */}
-              <div className="p-5 rounded-lg bg-[#ffffff] border border-[#d8cebe] shadow-xs space-y-2">
+              {/* Mission Card */}
+              <div className="p-5 sm:p-6 rounded-lg bg-[#ffffff] border border-[#d8cebe] shadow-xs space-y-2.5">
                 <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#9d7b38] font-bold">
-                  <Eye className="w-4 h-4 text-[#9d7b38]" />
-                  <span>Our Vision</span>
+                  <Target className="w-4 h-4 text-[#9d7b38]" />
+                  <span>Mission</span>
                 </div>
-                <h4 className="text-lg font-bold text-[#17181c] leading-snug">
-                  An Era of Enduring, Self-Governing Sovereign Institutions.
+                <h4 className="text-base sm:text-lg font-bold text-[#17181c] leading-snug">
+                  Architecting Conditions for Absolute Organizational Sovereignty.
                 </h4>
-                <p className="text-xs sm:text-sm text-[#4e5159] leading-relaxed">
-                  We envision a corporate world where enterprises are not constrained by single-person bottlenecks, but operate as resilient sovereign assets where leadership wisdom governs autonomously across market shifts, M&A integrations, and generational succession.
+                <p className="text-xs sm:text-sm text-[#383a42] font-serif leading-relaxed italic">
+                  “We work with the world's most consequential founders to architect the structural conditions for absolute organizational sovereignty. Across five foundational domains of systemic alignment, we dismantle operational dependency, dissolve leadership entropy, and engineer the precise infrastructure that allows an empire to grow, scale, and compound — with or without its founder at the helm.”
                 </p>
               </div>
 

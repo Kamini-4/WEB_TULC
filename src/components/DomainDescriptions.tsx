@@ -26,7 +26,7 @@ export const FIVE_DOMAINS_DATA = [
     subtitle: 'Protecting your calendar from daily operational firefighting',
     oneSentence: 'Frees your mind from daily emergencies so you can focus on major growth moves and get back 15+ hours every single week.',
     icon: Brain,
-    theProblem: 'Founders start their days with ambition, but are instantly pulled into Slack pings, tactical sign-offs, and resolving minor employee disputes. By 5:00 PM, zero deep strategic thinking has occurred.',
+    theProblem: 'Founders start their days with ambition, but are instantly pulled into reactive operational pings, tactical sign-offs, and resolving minor employee disputes. By 5:00 PM, zero deep strategic thinking has occurred.',
     whatWeAchieve: 'We install strict communication guardrails and asynchronous escalation filters. Routine tactical noise is resolved by middle management, leaving your calendar protected for capital allocation and market expansion.',
     keyMetrics: [
       '15–20 hours reclaimed weekly',

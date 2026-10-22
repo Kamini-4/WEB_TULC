@@ -12,21 +12,21 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         
         {/* Top Header & Brand Statement */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 mb-6 border-b border-[#dfd7c8] gap-4">
-          <div className="flex items-start sm:items-center gap-3.5">
+          <div className="flex items-start sm:items-center gap-4">
             <img 
               src="/assets/aistudio/WhatsApp_Image_2026-01-09_at_13.01.23_3b22d7ab.jpeg" 
-              alt="The Unbounded Leadership Co. Crest" 
-              className="h-11 sm:h-12 w-auto rounded-xs object-cover border border-[#9d7b38]/40 shadow-xs shrink-0"
+              alt="The Unbounded Leadership Co. Insignia & Crest" 
+              className="h-14 sm:h-16 w-auto max-w-[72px] rounded-xs object-cover border-2 border-[#9d7b38]/60 shadow-md shrink-0"
             />
             <div>
-              <div className="text-lg font-bold text-[#141416] tracking-tight">
+              <div className="text-lg sm:text-xl font-bold text-[#141416] tracking-tight">
                 The Unbounded Leadership Co.
               </div>
               <p className="text-[#9d7b38] font-mono text-[11px] font-bold tracking-wider uppercase">
-                Elevating Cultures, Transforming Leadership
+                Founded by Suchita Sancheti · Elevating Cultures, Transforming Leadership
               </p>
               <p className="text-[#6b6e76] text-xs mt-0.5 max-w-md font-normal leading-relaxed italic">
-                Engineering executive governance cadences and sovereign systems architecture for enterprise founders and institutional boards.
+                Engineering executive governance cadences and sovereign systems architecture for enterprise founders and institutional boards worldwide.
               </p>
             </div>
           </div>
@@ -40,33 +40,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Overview
             </a>
             <a
-              href="#simple-test"
-              onClick={(e) => { e.preventDefault(); onNavigate('simple-test'); }}
+              href="#test"
+              onClick={(e) => { e.preventDefault(); onNavigate('test'); }}
               className="hover:text-[#9d7b38] transition-colors py-1 flex items-center gap-1 font-bold text-[#141416]"
             >
               <Zap className="w-3.5 h-3.5 text-[#9d7b38]" />
-              <span>The 60-Sec Test</span>
+              <span>The Test</span>
             </a>
             <a
-              href="#briefing"
-              onClick={(e) => { e.preventDefault(); onNavigate('briefing'); }}
-              className="hover:text-[#141416] transition-colors py-1"
-            >
-              Video Briefing
-            </a>
-            <a
-              href="#about"
-              onClick={(e) => { e.preventDefault(); onNavigate('about'); }}
+              href="#services"
+              onClick={(e) => { e.preventDefault(); onNavigate('partnerships'); }}
               className="hover:text-[#141416] transition-colors py-1 font-bold text-[#141416]"
             >
-              Vision & Mission
-            </a>
-            <a
-              href="#partnerships"
-              onClick={(e) => { e.preventDefault(); onNavigate('partnerships'); }}
-              className="hover:text-[#141416] transition-colors py-1"
-            >
-              How We Partner
+              Services
             </a>
             <a
               href="#council-chambers"
@@ -77,19 +63,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span>Council Chambers</span>
             </a>
             <a
+              href="#about"
+              onClick={(e) => { e.preventDefault(); onNavigate('about'); }}
+              className="hover:text-[#141416] transition-colors py-1"
+            >
+              Vision & Mission
+            </a>
+            <a
               href="#blogs"
               onClick={(e) => { e.preventDefault(); onNavigate('blogs'); }}
               className="hover:text-[#141416] transition-colors flex items-center gap-1 py-1"
             >
               <BookOpen className="w-3.5 h-3.5 text-[#9d7b38]" />
-              <span>Blogs & Dispatches</span>
-            </a>
-            <a
-              href="#diagnostic"
-              onClick={(e) => { e.preventDefault(); onNavigate('diagnostic'); }}
-              className="hover:text-[#141416] transition-colors py-1"
-            >
-              The Diagnostic
+              <span>Dispatches</span>
             </a>
             <a
               href="#contact"
@@ -101,34 +87,28 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </nav>
         </div>
 
-        {/* RESTORED VISION & MISSION IN FOOTER */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-6 mb-6 border-b border-[#dfd7c8]">
+        {/* VERBATIM VISION & MISSION IN FOOTER */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pb-6 mb-6 border-b border-[#dfd7c8]">
           
-          {/* Mission */}
-          <div className="p-4 rounded-md bg-[#f6f2e9] border border-[#dcd3c2] space-y-1.5 shadow-2xs">
-            <div className="flex items-center gap-1.5 text-xs font-mono uppercase text-[#9d7b38] font-bold">
-              <Target className="w-3.5 h-3.5 text-[#9d7b38]" />
-              <span>Our Mission</span>
-            </div>
-            <h4 className="text-sm font-bold text-[#17181c]">
-              To Decouple Founders & Accelerate Enterprise Multiples in 90 Days.
-            </h4>
-            <p className="text-[12px] text-[#555861] leading-relaxed">
-              We install invariant decision architecture inside scaling enterprises—fusing executive conviction with codified boundary covenants—so founders reclaim 15+ hours weekly, eliminate late-night escalations, and lead companies that compound without daily operational friction.
-            </p>
-          </div>
-
           {/* Vision */}
-          <div className="p-4 rounded-md bg-[#f6f2e9] border border-[#dcd3c2] space-y-1.5 shadow-2xs">
+          <div className="p-5 rounded-md bg-[#f6f2e9] border border-[#dcd3c2] space-y-2 shadow-2xs">
             <div className="flex items-center gap-1.5 text-xs font-mono uppercase text-[#9d7b38] font-bold">
               <Eye className="w-3.5 h-3.5 text-[#9d7b38]" />
               <span>Our Vision</span>
             </div>
-            <h4 className="text-sm font-bold text-[#17181c]">
-              An Era of Enduring, Self-Governing Sovereign Institutions.
-            </h4>
-            <p className="text-[12px] text-[#555861] leading-relaxed">
-              We envision a corporate ecosystem where enterprises are not constrained by single-person bottlenecks, but operate as resilient sovereign assets where leadership wisdom governs autonomously across market shifts, M&A integrations, and generational succession.
+            <p className="text-[13px] sm:text-sm text-[#26282e] font-serif leading-relaxed italic">
+              “To align human ambition with enduring organizational architecture — so that power, scale, and perpetuity compound as one, and what the world's greatest founders build today commands the future long after they have conquered it.”
+            </p>
+          </div>
+
+          {/* Mission */}
+          <div className="p-5 rounded-md bg-[#f6f2e9] border border-[#dcd3c2] space-y-2 shadow-2xs">
+            <div className="flex items-center gap-1.5 text-xs font-mono uppercase text-[#9d7b38] font-bold">
+              <Target className="w-3.5 h-3.5 text-[#9d7b38]" />
+              <span>Our Mission</span>
+            </div>
+            <p className="text-[13px] sm:text-sm text-[#26282e] font-serif leading-relaxed italic">
+              “We work with the world's most consequential founders to architect the structural conditions for absolute organizational sovereignty. Across five foundational domains of systemic alignment, we dismantle operational dependency, dissolve leadership entropy, and engineer the precise infrastructure that allows an empire to grow, scale, and compound — with or without its founder at the helm.”
             </p>
           </div>
 

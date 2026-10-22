@@ -58,9 +58,9 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
 
           <button
             onClick={onExplorePartnerships}
-            className="px-5 sm:px-6 py-3.5 text-xs font-bold uppercase text-[#17181c] hover:text-black bg-white hover:bg-[#faf7f0] border border-[#d8cebe] hover:border-[#c5a059] transition-all rounded-sm shadow-xs text-center min-h-[48px] flex items-center justify-center gap-2"
+            className="px-5 sm:px-6 py-3.5 text-xs font-bold uppercase text-[#17181c] hover:text-black bg-white hover:bg-[#faf7f0] border border-[#d8cebe] hover:border-[#c5a059] transition-all rounded-sm shadow-xs text-center min-h-[48px] flex items-center justify-center gap-2 cursor-pointer"
           >
-            <span>How We Partner (3 Categories)</span>
+            <span>Services (3 Sovereign Tracks)</span>
           </button>
 
           <div className="flex items-center gap-2 text-xs text-[#6e727c] sm:ml-2 self-center sm:self-auto pt-1 sm:pt-0">
