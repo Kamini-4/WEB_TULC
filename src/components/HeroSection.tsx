@@ -154,7 +154,13 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
           </div>
 
           {/* Box 4: < 14 Days Audit Velocity (Patent-Pending L.O.S. Diagnostic) */}
-          <div className="p-4 sm:p-5 rounded-lg bg-[#141416] border border-[#d4af37] shadow-lg hover:shadow-[#c5a059]/25 transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift">
+          <div 
+            onClick={onLaunchDiagnostic}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter') onLaunchDiagnostic(); }}
+            className="p-4 sm:p-5 rounded-lg bg-[#141416] border border-[#d4af37] shadow-lg hover:shadow-[#c5a059]/25 transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift cursor-pointer"
+          >
             <div>
               <div className="flex items-baseline justify-between">
                 <div className="text-2xl sm:text-3xl lg:text-3xl font-bold text-gold-gradient tabular-nums">

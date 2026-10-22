@@ -17,6 +17,7 @@ import {
   HelpCircle,
   FileText
 } from 'lucide-react';
+import { SovereignDossierFeatures } from './SovereignDossierFeatures';
 
 interface DomainQuestion {
   id: string;
@@ -722,6 +723,24 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                     <ShieldCheck className="w-4 h-4 text-[#d4af37]" />
                     <span>Strict Boardroom Privilege · Direct 1-on-1 Advisory with Suchita Sancheti</span>
                   </div>
+                </div>
+
+                {/* THE SOVEREIGN DOSSIER™ PATENT-PENDING REPORT ARCHITECTURE DEEP-DIVE */}
+                <div className="mt-8 pt-4 border-t border-stone-800">
+                  <div className="mb-4 text-center">
+                    <span className="text-[11px] font-mono uppercase text-[#d4af37] tracking-widest font-bold">
+                      Patent-Pending Diagnostic Architecture · Deep Dive
+                    </span>
+                    <h4 className="text-xl sm:text-2xl font-bold font-serif text-white mt-1">
+                      The Sovereign Dossier™ Forensic Specifications
+                    </h4>
+                  </div>
+                  <SovereignDossierFeatures
+                    onTakeTest={() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    onBookBriefing={handleSendResultsToBriefing}
+                  />
                 </div>
 
               </div>

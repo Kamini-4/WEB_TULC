@@ -16,7 +16,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <img 
               src="/assets/aistudio/WhatsApp_Image_2026-01-09_at_13.01.23_3b22d7ab.jpeg" 
               alt="The Unbounded Leadership Co. Insignia & Crest" 
-              className="h-14 sm:h-16 w-auto max-w-[72px] rounded-xs object-cover border-2 border-[#9d7b38]/60 shadow-md shrink-0"
+              className="h-16 sm:h-20 w-auto max-w-[160px] sm:max-w-[200px] rounded-sm object-contain border-2 border-[#9d7b38]/60 shadow-md shrink-0 bg-white/80 p-1"
+              style={{ imageRendering: '-webkit-optimize-contrast' }}
             />
             <div>
               <div className="text-lg sm:text-xl font-bold text-[#141416] tracking-tight">

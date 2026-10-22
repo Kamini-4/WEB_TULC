@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { DiagnosticLevers, DiagnosticResult, PartnershipModelId } from '../types';
 import { generateExecutiveMemorandum } from '../services/gemini';
-import { Loader2, Sparkles, Activity, ShieldCheck, ArrowRight, RefreshCw } from 'lucide-react';
+import { Loader2, Sparkles, Activity, ShieldCheck, ArrowRight, RefreshCw, FileText } from 'lucide-react';
+import { SovereignDossierFeatures } from './SovereignDossierFeatures';
 
 interface DiagnosticProps {
   onSelectPartnership: (modelId: PartnershipModelId) => void;
@@ -18,7 +19,7 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
     successionResilience: 'single-point-fragile',
   });
 
-  const [activeTab, setActiveTab] = useState<'interactive' | 'memorandum'>('interactive');
+  const [activeTab, setActiveTab] = useState<'interactive' | 'memorandum' | 'dossier'>('interactive');
   const [isGeneratingAi, setIsGeneratingAi] = useState(false);
   const [aiMemorandum, setAiMemorandum] = useState<string | null>(null);
 
@@ -68,10 +69,10 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
       recommendedModel,
       executivePrescription:
         recommendedModel === 'retainer'
-          ? 'Category 03 · Sovereign Strategic Counsel: Direct in-camera counsel to Chair & CEO to neutralize board friction and restore sovereign authority.'
+          ? 'Track 03 (Retainer) · Sovereign Strategic Counsel: Direct in-camera counsel to Chair & CEO to neutralize board friction and restore sovereign authority.'
           : recommendedModel === 'embedding'
-          ? 'Category 02 · Operating Architecture Embedding: In-situ 90-day overhaul replacing consensus meetings with autonomous 14-day execution loops.'
-          : 'Category 01 · Mandate Forensic Diagnostic: 14-day forensic teardown of governance lag and uncodified authority lines.',
+          ? 'Track 02 · Operating Architecture Embedding: In-situ 90-day overhaul replacing consensus meetings with autonomous 14-day execution loops.'
+          : 'Track 01 · Forensic Audit Diagnostic: 14-day forensic teardown of governance lag and uncodified authority lines.',
       boardMemorandumPreview: `Institutional Friction Index: ${score}/100. Capital Velocity Drag: -${velocityDrag}%. Primary Failure Mode: ${primaryVulnerability}. Recommended Pathway: ${
         recommendedModel === 'retainer'
           ? 'Sovereign Strategic Counsel'
@@ -159,10 +160,10 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
               </span>
             </div>
 
-            <div className="grid grid-cols-2 sm:flex items-center gap-2 w-full sm:w-auto">
+            <div className="grid grid-cols-1 sm:flex items-center gap-2 w-full sm:w-auto">
               <button
                 onClick={() => setActiveTab('interactive')}
-                className={`px-3.5 py-1.5 text-xs font-bold rounded transition-colors min-h-[38px] flex items-center justify-center ${
+                className={`px-3 py-1.5 text-xs font-bold rounded transition-colors min-h-[38px] flex items-center justify-center ${
                   activeTab === 'interactive'
                     ? 'bg-[#17181c] text-[#f8f6f0] shadow-xs'
                     : 'text-[#4e5159] hover:text-[#17181c] bg-[#f8f6f0] border border-[#e5decfe0]'
@@ -172,14 +173,25 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
               </button>
               <button
                 onClick={handleGenerateMemorandum}
-                className={`px-3.5 py-1.5 text-xs font-bold rounded transition-colors flex items-center justify-center gap-1.5 min-h-[38px] ${
+                className={`px-3 py-1.5 text-xs font-bold rounded transition-colors flex items-center justify-center gap-1.5 min-h-[38px] ${
                   activeTab === 'memorandum'
                     ? 'bg-[#17181c] text-[#f8f6f0] shadow-xs'
                     : 'text-[#9d7b38] hover:text-[#7d5f24] bg-[#faf6ee] border border-[#ebdcc0]'
                 }`}
               >
                 <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
-                <span>2. Generate Board Memo</span>
+                <span>2. Board Memo</span>
+              </button>
+              <button
+                onClick={() => setActiveTab('dossier')}
+                className={`px-3 py-1.5 text-xs font-bold rounded transition-colors flex items-center justify-center gap-1.5 min-h-[38px] ${
+                  activeTab === 'dossier'
+                    ? 'bg-black text-[#d4af37] border-2 border-[#d4af37] shadow-xs'
+                    : 'text-[#17181c] hover:text-[#d4af37] bg-[#14151a] text-white border border-[#2b2d33]'
+                }`}
+              >
+                <FileText className="w-3.5 h-3.5 text-[#d4af37]" />
+                <span>3. The Sovereign Dossier™ (Features)</span>
               </button>
             </div>
           </div>
@@ -194,7 +206,7 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <label className="text-xs uppercase font-bold text-[#17181c]">
-                      Category 01 · Decision Speed & Follow-Through
+                      Governance Vector 01 · Decision Speed & Follow-Through
                     </label>
                     <span className="text-[11px] text-[#6b6e76] italic">Where do decisions get delayed?</span>
                   </div>
@@ -238,7 +250,7 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <label className="text-xs uppercase font-bold text-[#17181c]">
-                      Category 02 · Board & Leadership Team Alignment
+                      Governance Vector 02 · Board & Leadership Team Alignment
                     </label>
                     <span className="text-[11px] text-[#6b6e76] italic">Support vs. Interrogation</span>
                   </div>
@@ -282,7 +294,7 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <label className="text-xs uppercase font-bold text-[#17181c]">
-                      Category 03 · Key-Person Independence & Bench Strength
+                      Governance Vector 03 · Key-Person Independence & Bench Strength
                     </label>
                     <span className="text-[11px] text-[#6b6e76] italic">Could the business run without you?</span>
                   </div>
@@ -439,7 +451,7 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                 </div>
               </div>
             </div>
-          ) : (
+          ) : activeTab === 'memorandum' ? (
             /* AI Boardroom Memorandum View */
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#e8e2d5] gap-2.5">
@@ -499,8 +511,39 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                 </div>
               )}
             </div>
+          ) : (
+            /* Dossier Tab View */
+            <div className="space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-[#e8e2d5]">
+                <div className="text-xs uppercase font-bold text-[#9d7b38]">
+                  Patent Pending Architecture · Reference L.O.S.-P721
+                </div>
+                <button
+                  onClick={() => setActiveTab('interactive')}
+                  className="px-3.5 py-1.5 text-xs font-bold text-[#4e5159] hover:text-[#17181c] border border-[#e5decfe0] rounded bg-white"
+                >
+                  ← Back to Vector Switches
+                </button>
+              </div>
+              <SovereignDossierFeatures
+                onTakeTest={() => setActiveTab('interactive')}
+                onBookBriefing={() => onConsultationRequest(aiMemorandum || currentResult.boardMemorandumPreview)}
+              />
+            </div>
           )}
         </div>
+
+        {/* Global Deep-Dive Section for The Sovereign Dossier on the Diagnostic page */}
+        <div className="mt-10 sm:mt-12">
+          <SovereignDossierFeatures
+            onTakeTest={() => {
+              setActiveTab('interactive');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            onBookBriefing={() => onConsultationRequest(aiMemorandum || currentResult.boardMemorandumPreview)}
+          />
+        </div>
+
       </div>
     </section>
   );

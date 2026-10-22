@@ -21,22 +21,23 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-50 bg-[#f8f6f0]/95 backdrop-blur-md border-b border-[#e5decfe0] transition-colors">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-4">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between gap-4">
         
-        {/* Brand Zone — Prestigious Crest & Clean Typography (Larger & Clearer) */}
+        {/* Brand Zone — Prestigious Crest & Clean Typography (Enlarged & Crisp) */}
         <a 
           href="#top" 
           onClick={(e) => { e.preventDefault(); handleNavClick('top'); }}
-          className="flex items-center gap-3 sm:gap-3.5 text-base sm:text-lg font-bold text-[#17181c] hover:text-[#9d7b38] transition-colors tracking-tight truncate shrink-0 group"
+          className="flex items-center gap-3 sm:gap-4 text-base sm:text-lg font-bold text-[#17181c] hover:text-[#9d7b38] transition-colors tracking-tight truncate shrink-0 group py-1"
         >
           <img 
             src="/assets/aistudio/WhatsApp_Image_2026-01-09_at_13.01.23_3b22d7ab.jpeg" 
             alt="The Unbounded Leadership Co. Crest & Insignia" 
-            className="h-11 sm:h-12 w-auto max-w-[56px] rounded-xs object-cover border-2 border-[#9d7b38]/60 shadow-sm group-hover:border-[#9d7b38] transition-all"
+            className="h-13 sm:h-16 md:h-18 w-auto max-w-[140px] sm:max-w-[200px] rounded-sm object-contain border-2 border-[#9d7b38]/60 shadow-sm group-hover:border-[#9d7b38] transition-all bg-white/80 p-0.5"
+            style={{ imageRendering: '-webkit-optimize-contrast' }}
           />
           <div className="flex flex-col text-left">
-            <span className="font-bold tracking-tight text-sm sm:text-base leading-tight">The Unbounded Leadership Co.</span>
-            <span className="text-[10px] font-mono tracking-widest text-[#9d7b38] uppercase hidden sm:inline-block">By Suchita Sancheti · Sovereign Enterprise Architecture</span>
+            <span className="font-bold tracking-tight text-sm sm:text-base md:text-lg leading-tight">The Unbounded Leadership Co.</span>
+            <span className="text-[10px] sm:text-[11px] font-mono tracking-widest text-[#9d7b38] uppercase hidden sm:inline-block">By Suchita Sancheti · Sovereign Enterprise Architecture</span>
           </div>
         </a>
 
