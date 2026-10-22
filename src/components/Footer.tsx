@@ -1,5 +1,5 @@
 import React from 'react';
-import { Crown, BookOpen, Zap, Target, Eye, Sparkles } from 'lucide-react';
+import { ShoppingBag, BookOpen, Zap, Target, Eye, Sparkles } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -56,12 +56,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Services
             </a>
             <a
-              href="#council-chambers"
-              onClick={(e) => { e.preventDefault(); onNavigate('council-chambers'); }}
-              className="hover:text-[#9d7b38] transition-colors flex items-center gap-1 py-1"
+              href="#shop"
+              onClick={(e) => { e.preventDefault(); onNavigate('shop'); }}
+              className="hover:text-[#9d7b38] transition-colors flex items-center gap-1 py-1 font-bold text-[#141416]"
             >
-              <Crown className="w-3.5 h-3.5 text-[#9d7b38]" />
-              <span>Council Chambers</span>
+              <ShoppingBag className="w-3.5 h-3.5 text-[#9d7b38]" />
+              <span>Shop (PDFs)</span>
             </a>
             <a
               href="#about"

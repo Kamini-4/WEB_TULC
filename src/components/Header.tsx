@@ -66,15 +66,18 @@ export const Header: React.FC<HeaderProps> = ({
             Services
           </a>
           <a
-            href="#council"
-            onClick={(e) => { e.preventDefault(); handleNavClick('council'); }}
-            className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
-              currentView === 'council'
+            href="#shop"
+            onClick={(e) => { e.preventDefault(); handleNavClick('shop'); }}
+            className={`transition-colors whitespace-nowrap py-1 border-b-2 flex items-center gap-1.5 ${
+              currentView === 'shop'
                 ? 'text-[#17181c] border-[#9d7b38] font-bold'
                 : 'text-[#4e5159] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
             }`}
           >
-            Council Chambers
+            <span>Shop</span>
+            <span className="text-[9px] font-mono font-bold bg-[#faf6ee] text-[#9d7b38] border border-[#ebdcc0] px-1 py-0.2 rounded-xs">
+              PDFs
+            </span>
           </a>
           <a
             href="#library"
@@ -143,11 +146,16 @@ export const Header: React.FC<HeaderProps> = ({
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
-              href="#council"
-              onClick={(e) => { e.preventDefault(); handleNavClick('council'); }}
-              className="py-2 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
+              href="#shop"
+              onClick={(e) => { e.preventDefault(); handleNavClick('shop'); }}
+              className="py-2 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between font-bold text-[#17181c]"
             >
-              <span>Council Chambers</span>
+              <div className="flex items-center gap-2">
+                <span>Shop (PDF Toolkits & Manuals)</span>
+                <span className="text-[9px] font-mono font-bold bg-[#17181c] text-[#d4af37] px-1.5 py-0.5 rounded-xs">
+                  EXTRA
+                </span>
+              </div>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a

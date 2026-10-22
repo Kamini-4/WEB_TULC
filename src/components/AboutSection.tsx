@@ -206,6 +206,27 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
 
           </div>
 
+          {/* Navigation Back Button */}
+          <div className="mt-8 pt-6 border-t border-[#dfd7c8] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono">
+            <button
+              onClick={() => {
+                window.location.hash = 'top';
+              }}
+              className="text-[#6b6e76] hover:text-[#17181c] transition-colors py-1 cursor-pointer font-bold flex items-center gap-1.5"
+            >
+              <span>← Return to Home Overview</span>
+            </button>
+
+            <button
+              onClick={() => {
+                window.location.hash = 'partnerships';
+              }}
+              className="text-[#9d7b38] hover:text-[#7d5f24] transition-colors py-1 cursor-pointer font-bold flex items-center gap-1.5"
+            >
+              <span>Explore Services Tracks →</span>
+            </button>
+          </div>
+
         </div>
 
       </div>

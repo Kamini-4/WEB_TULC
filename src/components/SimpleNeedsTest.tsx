@@ -440,27 +440,38 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                   ))}
                 </div>
 
-                {/* Navigation Back */}
-                {currentStep > 0 && (
-                  <div className="mt-6 pt-4 border-t border-[#f0eade] flex justify-start">
+                {/* Navigation Back Controls */}
+                <div className="mt-6 pt-4 border-t border-[#f0eade] flex items-center justify-between">
+                  {currentStep > 0 ? (
                     <button
                       onClick={() => {
                         setCurrentStep(currentStep - 1);
                         setAnswers(answers.slice(0, -1));
                       }}
-                      className="text-xs font-mono text-[#6e727c] hover:text-[#17181c] transition-colors flex items-center gap-1.5 cursor-pointer py-1"
+                      className="text-xs font-mono text-[#6e727c] hover:text-[#17181c] transition-colors flex items-center gap-1.5 cursor-pointer py-1 font-bold"
                     >
                       <span>← Return to previous domain</span>
                     </button>
-                  </div>
-                )}
+                  ) : (
+                    <button
+                      onClick={() => setIsOpen(false)}
+                      className="text-xs font-mono text-[#6e727c] hover:text-[#17181c] transition-colors flex items-center gap-1.5 cursor-pointer py-1 font-bold"
+                    >
+                      <span>← Close / Return to overview</span>
+                    </button>
+                  )}
+
+                  <span className="text-[11px] font-mono text-[#8f6d28]">
+                    Domain {currentStep + 1} of 5
+                  </span>
+                </div>
               </div>
             ) : (
               /* IN-DEPTH FORENSIC REPORT — DEEP BLACK, IMMUTABLE PERSUASION & URGENT ONBOARDING ENGINE */
               <div className="bg-black border-2 border-[#d4af37] rounded-xl p-5 sm:p-8 lg:p-10 shadow-2xl space-y-8 animate-in fade-in duration-300 text-white">
                 
-                {/* Header of Report */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-stone-800">
+                {/* Header of Report with prominent Back and Retake actions */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-stone-800">
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-1.5">
                       <span className="px-2.5 py-0.5 rounded-xs bg-[#d4af37] text-black text-[10px] font-mono uppercase font-black tracking-widest">
@@ -478,10 +489,20 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                   <div className="flex items-center gap-2 shrink-0">
                     <button
                       onClick={handleReset}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#17181c] hover:bg-[#252830] text-xs font-mono text-stone-300 rounded-xs transition-colors cursor-pointer border border-stone-700"
+                      className="px-3.5 py-2 text-xs font-mono uppercase text-stone-300 hover:text-white bg-[#191a22] hover:bg-[#252834] border border-stone-700 rounded-sm transition-colors cursor-pointer flex items-center gap-1.5"
                     >
                       <RotateCcw className="w-3.5 h-3.5 text-[#d4af37]" />
-                      <span>Retake Calibration</span>
+                      <span>Retake Test</span>
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        setIsOpen(false);
+                        window.location.hash = 'top';
+                      }}
+                      className="px-3.5 py-2 text-xs font-mono uppercase text-stone-300 hover:text-white bg-[#191a22] hover:bg-[#252834] border border-stone-700 rounded-sm transition-colors cursor-pointer"
+                    >
+                      ← Back to Top
                     </button>
                   </div>
                 </div>
@@ -741,6 +762,36 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                     }}
                     onBookBriefing={handleSendResultsToBriefing}
                   />
+
+                  {/* Bottom Navigation & Reset Row */}
+                  <div className="mt-6 pt-6 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono">
+                    <button
+                      onClick={handleReset}
+                      className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#191a22] hover:bg-[#252834] text-stone-300 hover:text-white rounded-sm border border-stone-700 transition-colors cursor-pointer"
+                    >
+                      <RotateCcw className="w-3.5 h-3.5 text-[#d4af37]" />
+                      <span>← Retake 5-Domain Assessment</span>
+                    </button>
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => {
+                          setIsOpen(false);
+                          window.location.hash = 'top';
+                        }}
+                        className="px-4 py-2.5 bg-[#191a22] hover:bg-[#252834] text-stone-300 hover:text-white rounded-sm border border-stone-700 transition-colors cursor-pointer"
+                      >
+                        ← Back to Top Overview
+                      </button>
+
+                      <button
+                        onClick={onExplorePartnerships}
+                        className="px-4 py-2.5 bg-gradient-to-r from-[#d4af37] to-[#c5a059] text-black font-bold uppercase rounded-sm transition-all shadow-md cursor-pointer"
+                      >
+                        View Services Tracks →
+                      </button>
+                    </div>
+                  </div>
                 </div>
 
               </div>

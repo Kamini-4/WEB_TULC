@@ -164,9 +164,18 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                       setSubmissionReceipt(null);
                       setFormData((prev) => ({ ...prev, fullName: '', corporateEmail: '', frictionNotes: '' }));
                     }}
-                    className="px-5 py-2.5 text-xs uppercase text-[#17181c] hover:text-black bg-[#f8f6f0] border border-[#d8cebe] rounded-sm transition-colors font-bold text-center min-h-[40px]"
+                    className="px-5 py-2.5 text-xs uppercase text-[#17181c] hover:text-black bg-[#f8f6f0] border border-[#d8cebe] rounded-sm transition-colors font-bold text-center min-h-[40px] cursor-pointer"
                   >
                     Submit Another Briefing Request
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      window.location.hash = 'top';
+                    }}
+                    className="px-5 py-2.5 text-xs uppercase text-[#6b6e76] hover:text-[#17181c] bg-white border border-[#d8cebe] rounded-sm transition-colors font-bold text-center min-h-[40px] cursor-pointer"
+                  >
+                    ← Return to Overview
                   </button>
                 </div>
               </div>
@@ -310,7 +319,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 text-xs font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] transition-all rounded-sm flex items-center justify-center gap-2 shadow-md hover:shadow-[#c5a059]/20 active:scale-[0.99] disabled:opacity-50 min-h-[46px]"
+                  className="w-full py-3.5 text-xs font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] transition-all rounded-sm flex items-center justify-center gap-2 shadow-md hover:shadow-[#c5a059]/20 active:scale-[0.99] disabled:opacity-50 min-h-[46px] cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>
@@ -324,6 +333,29 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                     </>
                   )}
                 </button>
+
+                <div className="pt-1 flex items-center justify-between text-xs font-mono">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      window.location.hash = 'top';
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="text-[#6b6e76] hover:text-[#17181c] transition-colors py-1 cursor-pointer"
+                  >
+                    ← Return to Overview
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      window.location.hash = 'shop';
+                    }}
+                    className="text-[#9d7b38] hover:text-[#7d5f24] transition-colors py-1 cursor-pointer font-bold"
+                  >
+                    View Executive Shop →
+                  </button>
+                </div>
               </form>
             )}
           </div>

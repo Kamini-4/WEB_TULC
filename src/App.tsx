@@ -8,8 +8,7 @@ import { DomainPreviewBanner } from './components/DomainPreviewBanner';
 import { TestInvitationBanner } from './components/TestInvitationBanner';
 import { AboutSection } from './components/AboutSection';
 import { PartnershipPathways } from './components/PartnershipPathways';
-import { CouncilChambers } from './components/CouncilChambers';
-import { CouncilChambersPreview } from './components/CouncilChambersPreview';
+import { ExecutiveShop, ShopDocument } from './components/ExecutiveShop';
 import { PatentPendingDiagnostic } from './components/PatentPendingDiagnostic';
 import { BlogSection } from './components/BlogSection';
 import { RecentDispatchesPreview } from './components/RecentDispatchesPreview';
@@ -28,7 +27,7 @@ export type AppView =
   | 'diagnostic' 
   | 'library' 
   | 'about' 
-  | 'council' 
+  | 'shop' 
   | 'war-room' 
   | 'case-studies';
 
@@ -50,6 +49,9 @@ export const App: React.FC = () => {
       } else if (hash === 'diagnostic') {
         setCurrentView('diagnostic');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === 'shop' || hash === 'store' || hash === 'documents') {
+        setCurrentView('shop');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash === 'blogs' || hash === 'library' || hash === 'dispatches') {
         setCurrentView('library');
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -57,8 +59,11 @@ export const App: React.FC = () => {
         setCurrentView('about');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash === 'council' || hash === 'council-chambers') {
-        setCurrentView('council');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Council chamber is an advisory feature sold in the Services section
+        setCurrentView('home');
+        setTimeout(() => {
+          document.getElementById('council-feature')?.scrollIntoView({ behavior: 'smooth' });
+        }, 60);
       } else if (hash === 'war-room') {
         setCurrentView('war-room');
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -118,10 +123,17 @@ export const App: React.FC = () => {
       setCurrentView('about');
       window.location.hash = 'about';
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (target === 'council' || target === 'council-chambers') {
-      setCurrentView('council');
-      window.location.hash = 'council';
+    } else if (target === 'shop' || target === 'store') {
+      setCurrentView('shop');
+      window.location.hash = 'shop';
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'council' || target === 'council-chambers') {
+      // Council chamber is an advisory feature sold in the Services section
+      setCurrentView('home');
+      window.location.hash = 'partnerships';
+      setTimeout(() => {
+        document.getElementById('council-feature')?.scrollIntoView({ behavior: 'smooth' });
+      }, 60);
     } else if (target === 'war-room') {
       setCurrentView('war-room');
       window.location.hash = 'war-room';
@@ -168,8 +180,8 @@ export const App: React.FC = () => {
     navigateTo('contact');
   };
 
-  const handleApplyForCouncilSeat = () => {
-    setInquiryContext('Council Chambers Admission Petition: Requesting formal briefing dossier for private conclave admission (Chatham House Rule).');
+  const handleInquireDocument = (doc: ShopDocument) => {
+    setInquiryContext(`Institutional Publication & PDF Order: Requesting official copy of "${doc.title}" (${doc.investmentAnchor}).`);
     navigateTo('contact');
   };
 
@@ -230,17 +242,11 @@ export const App: React.FC = () => {
               onTakeTest={() => navigateTo('test')}
             />
 
-            {/* The 3 Partnership Pathways: Diagnostic, Embedding, Retainer */}
+            {/* The 3 Partnership Pathways: Diagnostic, Embedding, Retainer (Includes The Council Chamber feature) */}
             <PartnershipPathways
               selectedModelId={selectedPartnership}
               onSelectModel={(id) => setSelectedPartnership(id)}
               onOpenConsultationWithModel={handleOpenConsultationWithModel}
-            />
-
-            {/* Council Chambers Showcase Banner (Taste sold with Diagnostic) */}
-            <CouncilChambersPreview
-              onOpenFullDossier={() => navigateTo('council')}
-              onExploreDiagnostic={() => navigateTo('diagnostic')}
             />
 
             {/* Recent Strategic Dispatches Showcase (3 Curated Essays) */}
@@ -300,14 +306,13 @@ export const App: React.FC = () => {
           </div>
         )}
 
-        {/* 6. DEDICATED COUNCIL CHAMBERS DOSSIER VIEW */}
-        {currentView === 'council' && (
+        {/* 6. DEDICATED SOVEREIGN EXECUTIVE SHOP & PDF DOCUMENTS VIEW */}
+        {currentView === 'shop' && (
           <div>
-            {renderSubpageBreadcrumb('The Council Chambers', 'Closed-Door Conclaves in Zurich, London, Singapore & NYC')}
-            <CouncilChambers
-              onApplyForSeat={handleApplyForCouncilSeat}
-              onExploreImplementation={() => navigateTo('partnerships')}
-              onSelectDiagnostic={() => navigateTo('diagnostic')}
+            <ExecutiveShop
+              onBackToHome={() => navigateTo('home')}
+              onExploreServices={() => navigateTo('partnerships')}
+              onInquireDocument={handleInquireDocument}
             />
           </div>
         )}

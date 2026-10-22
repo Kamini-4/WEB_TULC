@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Zap, Layers, Crown, User } from 'lucide-react';
+import { Home, Zap, Layers, ShoppingBag, User } from 'lucide-react';
 
 interface MobileBottomNavProps {
   onNavigate: (sectionId: string) => void;
@@ -14,7 +14,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
     { id: 'top', label: 'Home', icon: Home },
     { id: 'test', label: 'The Test', icon: Zap, badge: 'FREE' },
     { id: 'partnerships', label: 'Services', icon: Layers },
-    { id: 'council', label: 'Chambers', icon: Crown },
+    { id: 'shop', label: 'Shop', icon: ShoppingBag, badge: 'PDF' },
     { id: 'about', label: 'About', icon: User },
   ];
 
@@ -31,7 +31,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
             (item.id === 'top' && (currentView === 'home' || currentView === 'top')) ||
             (item.id === 'test' && (currentView === 'test' || currentView === 'diagnostic')) ||
             (item.id === 'partnerships' && currentView === 'partnerships') ||
-            (item.id === 'council' && currentView === 'council') ||
+            (item.id === 'shop' && currentView === 'shop') ||
             (item.id === 'about' && currentView === 'about');
 
           return (

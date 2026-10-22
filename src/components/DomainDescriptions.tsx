@@ -255,6 +255,18 @@ export const DomainDescriptions: React.FC<DomainDescriptionsProps> = ({
             <span>Confidential Executive Inquiry</span>
           </button>
         </div>
+
+        {/* Navigation Back Button */}
+        <div className="pt-4 border-t border-stone-800 flex items-center justify-center">
+          <button
+            onClick={() => {
+              window.location.hash = 'top';
+            }}
+            className="text-xs font-mono text-stone-400 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 py-1"
+          >
+            <span>← Return to Home Overview</span>
+          </button>
+        </div>
       </div>
 
     </div>

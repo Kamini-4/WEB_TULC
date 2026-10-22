@@ -443,11 +443,30 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                   </button>
                   <button
                     onClick={handleGenerateMemorandum}
-                    className="w-full py-2.5 px-3 text-xs font-bold text-[#9d7b38] hover:text-[#7d5f24] bg-[#faf6ee] hover:bg-[#f5ede0] border border-[#ebdcc0] transition-colors rounded-sm flex items-center justify-center gap-1.5 min-h-[42px]"
+                    className="w-full py-2.5 px-3 text-xs font-bold text-[#9d7b38] hover:text-[#7d5f24] bg-[#faf6ee] hover:bg-[#f5ede0] border border-[#ebdcc0] transition-colors rounded-sm flex items-center justify-center gap-1.5 min-h-[42px] cursor-pointer"
                   >
                     <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
                     <span>Generate Confidential Boardroom Memorandum</span>
                   </button>
+
+                  <div className="pt-2 flex items-center justify-between text-xs font-mono">
+                    <button
+                      onClick={() => {
+                        window.location.hash = 'test';
+                      }}
+                      className="text-[#6b6e76] hover:text-[#17181c] transition-colors py-1 cursor-pointer font-bold"
+                    >
+                      ← Return to Free 60-Sec Test
+                    </button>
+                    <button
+                      onClick={() => {
+                        window.location.hash = 'top';
+                      }}
+                      className="text-[#6b6e76] hover:text-[#17181c] transition-colors py-1 cursor-pointer"
+                    >
+                      ← Back to Home
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -466,13 +485,21 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                 <div className="flex items-center gap-2.5">
                   <button
                     onClick={() => setActiveTab('interactive')}
-                    className="px-3.5 py-1.5 text-xs font-bold text-[#4e5159] hover:text-[#17181c] border border-[#e5decfe0] rounded bg-white min-h-[38px]"
+                    className="px-3.5 py-1.5 text-xs font-bold text-[#4e5159] hover:text-[#17181c] border border-[#e5decfe0] rounded bg-white min-h-[38px] cursor-pointer"
                   >
                     ← Back to Switches
                   </button>
                   <button
+                    onClick={() => {
+                      window.location.hash = 'top';
+                    }}
+                    className="px-3 py-1.5 text-xs font-mono text-[#6b6e76] hover:text-[#17181c] border border-[#e5decfe0] rounded bg-white min-h-[38px] cursor-pointer"
+                  >
+                    ← Back to Home
+                  </button>
+                  <button
                     onClick={() => onConsultationRequest(aiMemorandum || currentResult.boardMemorandumPreview)}
-                    className="px-4 py-1.5 text-xs font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] rounded-sm shadow-xs min-h-[38px]"
+                    className="px-4 py-1.5 text-xs font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] rounded-sm shadow-xs min-h-[38px] cursor-pointer"
                   >
                     Book In-Camera Briefing
                   </button>
@@ -518,12 +545,22 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                 <div className="text-xs uppercase font-bold text-[#9d7b38]">
                   Patent Pending Architecture · Reference L.O.S.-P721
                 </div>
-                <button
-                  onClick={() => setActiveTab('interactive')}
-                  className="px-3.5 py-1.5 text-xs font-bold text-[#4e5159] hover:text-[#17181c] border border-[#e5decfe0] rounded bg-white"
-                >
-                  ← Back to Vector Switches
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setActiveTab('interactive')}
+                    className="px-3.5 py-1.5 text-xs font-bold text-[#4e5159] hover:text-[#17181c] border border-[#e5decfe0] rounded bg-white cursor-pointer"
+                  >
+                    ← Back to Vector Switches
+                  </button>
+                  <button
+                    onClick={() => {
+                      window.location.hash = 'top';
+                    }}
+                    className="px-3 py-1.5 text-xs font-mono text-[#6b6e76] hover:text-[#17181c] border border-[#e5decfe0] rounded bg-white cursor-pointer"
+                  >
+                    ← Back to Home
+                  </button>
+                </div>
               </div>
               <SovereignDossierFeatures
                 onTakeTest={() => setActiveTab('interactive')}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PartnershipPathway, PartnershipModelId } from '../types';
-import { ArrowRight, CheckCircle2, Download, ShieldCheck, Flame, Compass, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Download, ShieldCheck, Flame, Compass, Zap, Sparkles } from 'lucide-react';
 
 interface PathwaysProps {
   onSelectModel: (modelId: PartnershipModelId) => void;
@@ -285,18 +285,125 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
           </div>
         </div>
 
-        {/* Spec Modal */}
+        {/* =========================================================================
+            EXCLUSIVE ADVISORY FEATURE: THE SOVEREIGN COUNCIL CHAMBER™
+            (Off-site Conclaves & Peer Cross-Examination sold as an elite service feature)
+           ========================================================================= */}
+        <div id="council-feature" className="mt-8 sm:mt-10 p-6 sm:p-8 lg:p-10 rounded-xl bg-black border-2 border-[#d4af37] text-white shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#d4af37]/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 mb-6 border-b border-stone-800">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#191a22] border border-[#d4af37]/60 rounded-full text-[10px] sm:text-[11px] font-mono uppercase text-[#d4af37] font-bold mb-2">
+                  <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
+                  <span>Elite Advisory Capability · Off-Site Executive Conclave</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-white tracking-tight">
+                  The Sovereign Council Chamber™
+                </h3>
+                <p className="text-xs sm:text-sm font-mono text-stone-300 mt-1">
+                  Closed-Door Conclaves Across Zurich, London, Singapore & New York · Chatham House Sanctity
+                </p>
+              </div>
+
+              <div className="shrink-0 flex items-center gap-3">
+                <button
+                  onClick={() => {
+                    const retainer = PARTNERSHIP_PATHWAYS.find(p => p.id === 'retainer') || PARTNERSHIP_PATHWAYS[0];
+                    onOpenConsultationWithModel(retainer);
+                  }}
+                  className="px-5 py-2.5 text-xs font-bold uppercase text-black bg-gradient-to-r from-[#d4af37] to-[#c5a059] hover:opacity-95 transition-all rounded-sm font-mono shadow-md flex items-center gap-1.5 cursor-pointer active:scale-98 whitespace-nowrap"
+                >
+                  <span>Inquire for Conclave Seat</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-black" />
+                </button>
+              </div>
+            </div>
+
+            <div className="max-w-4xl mb-6">
+              <p className="text-xs sm:text-sm text-stone-300 font-serif leading-relaxed">
+                The Council Chamber is an exclusive, off-site advisory feature reserved for enterprise founders, family office principals, and enterprise board chairs. Rather than qualitative consulting or theoretical exercises, the Council provides an uncompromising crucible where leaders submit their most high-consequence moves to confidential peer cross-examination before committing enterprise capital.
+              </p>
+            </div>
+
+            {/* 4 Feature Deliverables */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <div className="p-4 rounded-lg bg-[#14151b] border border-stone-800 space-y-2">
+                <div className="text-[11px] font-mono uppercase text-[#d4af37] font-bold">
+                  01. Peer Cross-Examination
+                </div>
+                <h4 className="text-sm font-bold text-white font-serif">
+                  Adversarial Stress-Testing
+                </h4>
+                <p className="text-xs text-stone-300 font-serif leading-relaxed">
+                  Direct dialectic sparring with vetted peer CEOs facing identical scale thresholds. Eliminates internal confirmation bias and untested assumptions.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-lg bg-[#14151b] border border-stone-800 space-y-2">
+                <div className="text-[11px] font-mono uppercase text-[#d4af37] font-bold">
+                  02. Chatham House Sanctity
+                </div>
+                <h4 className="text-sm font-bold text-white font-serif">
+                  Absolute Board Confidentiality
+                </h4>
+                <p className="text-xs text-stone-300 font-serif leading-relaxed">
+                  Protected under strict non-disclosure covenants. Zero digital recording, zero transcription, and total immunity from market leaks or political exposure.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-lg bg-[#14151b] border border-stone-800 space-y-2">
+                <div className="text-[11px] font-mono uppercase text-[#d4af37] font-bold">
+                  03. Pre-Market Crucible
+                </div>
+                <h4 className="text-sm font-bold text-white font-serif">
+                  High-Stakes Scenario Defense
+                </h4>
+                <p className="text-xs text-stone-300 font-serif leading-relaxed">
+                  Stress-test activist defense postures, board reconstitutions, CEO succession handoffs, and transformative M&A integrations before exposure to public markets.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-lg bg-[#14151b] border border-stone-800 space-y-2">
+                <div className="text-[11px] font-mono uppercase text-[#d4af37] font-bold">
+                  04. Direct Access & Inclusion
+                </div>
+                <h4 className="text-sm font-bold text-white font-serif">
+                  How Leaders Access
+                </h4>
+                <p className="text-xs text-stone-300 font-serif leading-relaxed">
+                  Included as a standard feature within <strong className="text-white">Track 02 (Operating Architecture Embedding)</strong> and <strong className="text-white">The Sovereign Retainer</strong>, or via standalone Syndicate Fellowship.
+                </p>
+              </div>
+            </div>
+
+            {/* Inclusions summary strip */}
+            <div className="p-3.5 rounded bg-[#181922] border border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-stone-300">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-[#d4af37] shrink-0" />
+                <span>Quarterly Conclaves: Zurich (Q1) · London (Q2) · Singapore (Q3) · New York (Q4)</span>
+              </div>
+              <div className="text-[#d4af37] font-bold">
+                Chatham House Rule Enforced · Strict Boardroom Privilege
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Spec Modal with BACK BUTTON */}
         {showSpecModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-sm">
-            <div className="bg-[#f8f6f0] border border-[#d8cebe] rounded-lg max-w-2xl w-full p-4 sm:p-6 shadow-2xl relative max-h-[88vh] flex flex-col">
+            <div className="bg-[#f8f6f0] border-2 border-[#9d7b38] rounded-lg max-w-2xl w-full p-4 sm:p-6 shadow-2xl relative max-h-[88vh] flex flex-col">
               <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#e5decfe0] shrink-0">
                 <div>
-                  <span className="text-[11px] text-[#9d7b38] uppercase font-bold">Partnership Specification</span>
+                  <span className="text-[11px] text-[#9d7b38] uppercase font-bold font-mono">Services Specification</span>
                   <h3 className="text-xl sm:text-2xl font-bold text-[#17181c]">{showSpecModal.name}</h3>
                 </div>
                 <button
                   onClick={() => setShowSpecModal(null)}
-                  className="text-[#6b6e76] hover:text-[#17181c] text-lg p-1 font-bold min-h-[36px] min-w-[36px] flex items-center justify-center"
+                  className="text-[#6b6e76] hover:text-[#17181c] text-lg p-1 font-bold min-h-[36px] min-w-[36px] flex items-center justify-center cursor-pointer"
+                  aria-label="Close Specification"
                 >
                   ✕
                 </button>
@@ -326,16 +433,22 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
               </div>
 
               <div className="mt-4 pt-3 border-t border-[#e5decfe0] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 shrink-0">
-                <span className="text-xs text-[#6b6e76]">Institutional Engagement Agreement</span>
+                <button
+                  onClick={() => setShowSpecModal(null)}
+                  className="px-4 py-2 text-xs font-bold uppercase text-[#4e5159] hover:text-[#17181c] bg-white hover:bg-[#ede5d6] border border-[#d8cebe] rounded-sm transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                >
+                  <span>← Back to Services</span>
+                </button>
+
                 <button
                   onClick={() => {
                     const model = showSpecModal;
                     setShowSpecModal(null);
                     onOpenConsultationWithModel(model);
                   }}
-                  className="w-full sm:w-auto px-5 py-2.5 text-xs font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] rounded-sm text-center min-h-[40px]"
+                  className="w-full sm:w-auto px-5 py-2.5 text-xs font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] rounded-sm text-center min-h-[40px] cursor-pointer"
                 >
-                  Initiate Partnership
+                  Initiate Partnership Track
                 </button>
               </div>
             </div>
