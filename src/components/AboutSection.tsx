@@ -47,16 +47,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
           {/* Left Column: Suchita Sancheti Portrait & Bio Dossier (4 Cols) */}
           <div className="lg:col-span-4 bg-[#ffffff] border-2 border-[#d4af37]/60 rounded-lg p-5 sm:p-6 shadow-md space-y-4">
             
-            {/* Prominent High-Prestige Executive Portrait Frame */}
-            <div className="relative w-full aspect-4/3 sm:aspect-square max-h-[300px] rounded-md overflow-hidden border-2 border-[#d4af37] shadow-lg group">
+            {/* Prominent High-Prestige Sovereign Insignia Frame */}
+            <div className="relative w-full aspect-4/3 sm:aspect-square max-h-[300px] rounded-md overflow-hidden border-2 border-[#d4af37] shadow-lg bg-[#0c1322] flex items-center justify-center p-2 group">
               <img 
-                src="/assets/aistudio/WhatsApp_Image_2026-01-09_at_13.01.23_3b22d7ab.jpeg" 
-                alt="Suchita Sancheti, Founder & Enterprise Architect, The Unbounded Leadership Co." 
-                className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
+                src="/assets/tulc-gold-navy-crest.jpg" 
+                alt="Suchita Sancheti · The Unbounded Leadership Co. Insignia" 
+                className="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-500"
               />
               <div className="absolute bottom-2 left-2 right-2 bg-[#17181c]/90 backdrop-blur-xs px-2.5 py-1.5 rounded-xs border border-[#d4af37]/40 text-center">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#d4af37] font-bold">
-                  Suchita Sancheti · Principal Architect
+                  Suchita Sancheti · Sovereign Insignia
                 </span>
               </div>
             </div>

@@ -127,21 +127,33 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
     <section id="diagnostic" className="py-10 sm:py-12 lg:py-14 border-b border-[#e5decfe0] bg-[#f8f6f0] relative">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="max-w-3xl mb-5 sm:mb-6">
-          <div className="flex flex-wrap items-center gap-2 text-xs uppercase text-[#9d7b38] font-bold mb-1.5 sm:mb-2">
-            <span className="bg-[#17181c] text-[#d4af37] px-2 py-0.5 rounded-xs font-mono">Phase 2 · In-Depth Assessment</span>
-            <span aria-hidden="true" className="text-[#c9bea9]">·</span>
-            <span className="text-[#17181c] font-bold">Patent Pending Ref: L.O.S.-P721</span>
-            <span aria-hidden="true" className="text-[#c9bea9]">·</span>
-            <span>Architectural Vectoring</span>
+        {/* Section Header with Official Crest */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-5 sm:mb-6">
+          <div className="max-w-3xl">
+            <div className="flex flex-wrap items-center gap-2 text-xs uppercase text-[#9d7b38] font-bold mb-1.5 sm:mb-2">
+              <span className="bg-[#17181c] text-[#d4af37] px-2 py-0.5 rounded-xs font-mono">Phase 2 · In-Depth Assessment</span>
+              <span aria-hidden="true" className="text-[#c9bea9]">·</span>
+              <span className="text-[#17181c] font-bold">Patent Pending Ref: L.O.S.-P721</span>
+              <span aria-hidden="true" className="text-[#c9bea9]">·</span>
+              <span>Architectural Vectoring</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17181c] leading-tight">
+              The In-Depth Leadership Operating System (L.O.S.) Diagnostic™
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-[#4e5159] font-normal leading-relaxed italic">
+              Conventional leadership surveys measure surface symptoms. Our <strong className="font-bold text-[#17181c] not-italic">patent-pending architectural diagnostic</strong> isolates where operational drag and latency accumulate across meetings, committees, and consensus loops.
+            </p>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17181c] leading-tight">
-            The In-Depth Leadership Operating System (L.O.S.) Diagnostic™
-          </h2>
-          <p className="mt-2 text-sm sm:text-base text-[#4e5159] font-normal leading-relaxed italic">
-            Conventional leadership surveys measure surface symptoms. Our <strong className="font-bold text-[#17181c] not-italic">patent-pending architectural diagnostic</strong> isolates where operational drag and latency accumulate across meetings, committees, and consensus loops.
-          </p>
+
+          <div className="shrink-0 hidden sm:block">
+            <div className="p-1.5 bg-[#0c1322] border-2 border-[#d4af37] rounded-md shadow-md max-w-[170px]">
+              <img 
+                src="/assets/tulc-gold-navy-crest.jpg" 
+                alt="The Sovereign Dossier™ Insignia" 
+                className="w-full h-auto rounded-xs object-contain"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Diagnostic Cockpit Container */}

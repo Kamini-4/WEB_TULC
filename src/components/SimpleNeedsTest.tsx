@@ -470,20 +470,29 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
               /* IN-DEPTH FORENSIC REPORT — DEEP BLACK, IMMUTABLE PERSUASION & URGENT ONBOARDING ENGINE */
               <div className="bg-black border-2 border-[#d4af37] rounded-xl p-5 sm:p-8 lg:p-10 shadow-2xl space-y-8 animate-in fade-in duration-300 text-white">
                 
-                {/* Header of Report with prominent Back and Retake actions */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-stone-800">
-                  <div>
-                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                      <span className="px-2.5 py-0.5 rounded-xs bg-[#d4af37] text-black text-[10px] font-mono uppercase font-black tracking-widest">
-                        Confidential Forensic Memorandum
-                      </span>
-                      <span className="text-[11px] font-mono text-[#d4af37]">
-                        Privileged Advisory Synthesis · Signed by Suchita Sancheti
-                      </span>
+                {/* Header of Report with prominent Back and Retake actions and Official Crest */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-stone-800">
+                  <div className="flex items-start sm:items-center gap-4">
+                    <div className="shrink-0 p-1.5 bg-[#0c1322] border-2 border-[#d4af37]/80 rounded-md shadow-lg max-w-[130px] sm:max-w-[150px]">
+                      <img 
+                        src="/assets/tulc-gold-navy-crest.jpg" 
+                        alt="The Sovereign Dossier Official Seal" 
+                        className="w-full h-auto rounded-xs object-contain"
+                      />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight">
-                      C-Suite Sovereignty Ledger & Vulnerability Map
-                    </h3>
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                        <span className="px-2.5 py-0.5 rounded-xs bg-[#d4af37] text-black text-[10px] font-mono uppercase font-black tracking-widest">
+                          Confidential Forensic Memorandum
+                        </span>
+                        <span className="text-[11px] font-mono text-[#d4af37]">
+                          Privileged Advisory Synthesis · Signed by Suchita Sancheti
+                        </span>
+                      </div>
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight">
+                        C-Suite Sovereignty Ledger & Vulnerability Map
+                      </h3>
+                    </div>
                   </div>
 
                   <div className="flex items-center gap-2 shrink-0">

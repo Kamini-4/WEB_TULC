@@ -89,8 +89,18 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header Badge & Title */}
+        {/* Header Badge & Title with Official Gold & Navy Crest */}
         <div className="max-w-4xl mx-auto text-center space-y-4 mb-10 sm:mb-14">
+          <div className="flex justify-center mb-3">
+            <div className="p-2 rounded-lg border-2 border-[#d4af37] shadow-2xl bg-[#0c1322] max-w-[240px] sm:max-w-[280px]">
+              <img 
+                src="/assets/tulc-gold-navy-crest.jpg" 
+                alt="The Sovereign Dossier Official Crest" 
+                className="w-full h-auto rounded-xs object-contain"
+              />
+            </div>
+          </div>
+
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#181920] border border-[#d4af37]/60 text-xs font-mono text-[#d4af37] uppercase tracking-wider shadow-lg">
             <ShieldCheck className="w-4 h-4 text-[#d4af37]" />
             <span>Patent-Pending Diagnostic Instrument · Ref: L.O.S.-P721</span>

@@ -30,9 +30,9 @@ export const Header: React.FC<HeaderProps> = ({
           className="flex items-center gap-3 sm:gap-4 text-base sm:text-lg font-bold text-[#17181c] hover:text-[#9d7b38] transition-colors tracking-tight shrink-0 group py-1"
         >
           <img 
-            src="/assets/aistudio/WhatsApp_Image_2026-01-09_at_13.01.23_3b22d7ab.jpeg" 
+            src="/assets/tulc-gold-navy-crest.jpg" 
             alt="The Unbounded Leadership Co. Crest & Insignia" 
-            className="h-14 sm:h-16 md:h-18 w-auto max-w-[140px] sm:max-w-[200px] rounded-sm object-contain border-2 border-[#9d7b38]/60 shadow-sm group-hover:border-[#9d7b38] transition-all bg-white/80 p-0.5 shrink-0"
+            className="h-14 sm:h-16 md:h-18 w-auto max-w-[140px] sm:max-w-[200px] rounded-sm object-contain border-2 border-[#9d7b38]/70 shadow-sm group-hover:border-[#9d7b38] transition-all bg-[#0a1122] p-0.5 shrink-0"
             style={{ imageRendering: '-webkit-optimize-contrast' }}
           />
           <div className="flex flex-col text-left">

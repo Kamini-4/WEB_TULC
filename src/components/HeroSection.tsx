@@ -29,15 +29,43 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
           <span>The Work That Matters</span>
         </div>
 
-        {/* Main Headline with punchy, unvarnished cadence */}
-        <div className="max-w-4xl mb-6 sm:mb-7">
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#17181c] leading-[1.15] [text-wrap:balance]">
-            Management is about compliance. <br className="hidden sm:inline" />
-            <span className="text-[#9d7b38]">Leadership is about courage.</span>
-          </h1>
-          <p className="mt-3.5 sm:mt-4 text-sm sm:text-base lg:text-lg text-[#4e5159] font-normal leading-relaxed max-w-3xl italic">
-            When organizations stall, it is rarely a strategy problem. It is almost always an <strong className="font-bold text-[#17181c] not-italic">architecture problem</strong>. Consensus diffuses authority across endless decks. Decisive mandate demands sovereign clarity. <strong className="font-bold text-[#9d7b38] not-italic">We re-architect the operating system so leadership operates with total velocity.</strong>
-          </p>
+        {/* Main Headline & Official Insignia on the Main Page */}
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 sm:gap-6 lg:gap-8 mb-6 sm:mb-7">
+          <div className="max-w-3xl flex-1">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#17181c] leading-[1.15] [text-wrap:balance]">
+              Management is about compliance. <br className="hidden sm:inline" />
+              <span className="text-[#9d7b38]">Leadership is about courage.</span>
+            </h1>
+            <p className="mt-3 sm:mt-4 text-[14px] sm:text-base lg:text-lg text-[#4e5159] font-normal leading-relaxed max-w-3xl italic">
+              When organizations stall, it is rarely a strategy problem. It is almost always an <strong className="font-bold text-[#17181c] not-italic">architecture problem</strong>. Consensus diffuses authority across endless decks. Decisive mandate demands sovereign clarity.
+            </p>
+
+            {/* Dedicated Statement on Another Line: in 90 days & 3 pain points */}
+            <div className="mt-4 sm:mt-5 p-3.5 sm:p-5 rounded-lg bg-[#faf6ee] border-l-4 border-[#9d7b38] border-y border-r border-[#ebdcc0]/70 shadow-2xs max-w-3xl">
+              <p className="text-[14px] sm:text-base md:text-lg lg:text-[18.5px] font-serif font-bold text-[#17181c] leading-snug sm:leading-relaxed">
+                We re-architect the operating system <span className="text-[#9d7b38] font-black underline decoration-[#9d7b38]/40 underline-offset-4">in 90 days</span> so leadership operates with total velocity —{' '}
+                <span className="font-serif font-medium text-[#44403c] block sm:inline mt-1.5 sm:mt-0">
+                  without endless consensus committees, without bureaucratic approval bottlenecks, and without key-person operational drag.
+                </span>
+              </p>
+            </div>
+          </div>
+
+          {/* Official Gold & Navy Crest on Main Page — Fluid Across All Devices */}
+          <div className="shrink-0 self-center lg:self-auto order-first lg:order-last mb-2 lg:mb-0">
+            <div className="p-2 sm:p-2.5 bg-[#0c1322] border-2 border-[#d4af37]/80 rounded-lg shadow-xl w-36 sm:w-44 lg:w-[210px] group hover:border-[#d4af37] transition-all">
+              <img 
+                src="/assets/tulc-gold-navy-crest.jpg" 
+                alt="The Unbounded Leadership Co. Official Seal" 
+                className="w-full h-auto rounded-xs object-contain"
+              />
+              <div className="pt-1.5 text-center">
+                <span className="text-[8.5px] sm:text-[9.5px] font-mono uppercase tracking-widest text-[#d4af37] font-bold block">
+                  Sovereign Insignia
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Executive Action Row */}
