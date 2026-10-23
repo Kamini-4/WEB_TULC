@@ -33,8 +33,10 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 sm:gap-6 lg:gap-8 mb-6 sm:mb-7">
           <div className="max-w-3xl flex-1">
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#17181c] leading-[1.15] [text-wrap:balance]">
-              Management is about compliance. <br className="hidden sm:inline" />
-              <span className="text-[#9d7b38]">Leadership is about courage.</span>
+              Sovereign Enterprise Architecture & Leadership Operating Systems
+              <span className="block text-xl sm:text-2xl lg:text-3xl text-[#9d7b38] font-serif font-semibold mt-2 sm:mt-2.5">
+                Management is about compliance. Leadership is about courage.
+              </span>
             </h1>
             <p className="mt-3 sm:mt-4 text-[14px] sm:text-base lg:text-lg text-[#4e5159] font-normal leading-relaxed max-w-3xl italic">
               When organizations stall, it is rarely a strategy problem. It is almost always an <strong className="font-bold text-[#17181c] not-italic">architecture problem</strong>. Consensus diffuses authority across endless decks. Decisive mandate demands sovereign clarity.
@@ -58,6 +60,10 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
                 src="/assets/tulc-gold-navy-crest.jpg" 
                 alt="The Unbounded Leadership Co. Official Seal" 
                 className="w-full h-auto rounded-xs object-contain"
+                width="210"
+                height="140"
+                fetchPriority="high"
+                decoding="sync"
               />
               <div className="pt-1.5 text-center">
                 <span className="text-[8.5px] sm:text-[9.5px] font-mono uppercase tracking-widest text-[#d4af37] font-bold block">
@@ -98,120 +104,125 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
         </div>
 
         {/* THE 4 BLACK BOXES — COMPACT, ZERO EMPTY SPACE, BACKED EMPIRICAL STATISTICS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 pt-6 border-t border-[#e5decfe0]">
-          
-          {/* Box 1: 72% Consensus Friction (McKinsey) */}
-          <div className="p-4 sm:p-5 rounded-lg bg-[#141416] border border-[#2b2d33] hover:border-[#d4af37] shadow-lg hover:shadow-[#c5a059]/15 transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift">
-            <div>
-              <div className="flex items-baseline justify-between">
-                <div className="text-2xl sm:text-3xl lg:text-3xl font-bold text-[#d4af37] tabular-nums">
-                  72%
+        <div className="pt-6 border-t border-[#e5decfe0]">
+          <h2 className="text-xs uppercase text-[#9d7b38] font-bold tracking-wider mb-3">
+            Empirical Benchmarks on Executive Governance Drag
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            
+            {/* Box 1: 72% Consensus Friction (McKinsey) */}
+            <div className="p-4 sm:p-5 rounded-lg bg-[#141416] border border-[#2b2d33] hover:border-[#d4af37] shadow-lg hover:shadow-[#c5a059]/15 transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift">
+              <div>
+                <div className="flex items-baseline justify-between">
+                  <div className="text-2xl sm:text-3xl lg:text-3xl font-bold text-[#d4af37] tabular-nums">
+                    72%
+                  </div>
+                  <span className="text-[10px] font-bold uppercase text-[#c5a059] tracking-wider">
+                    Consensus Drag
+                  </span>
                 </div>
-                <span className="text-[10px] font-bold uppercase text-[#c5a059] tracking-wider">
-                  Consensus Drag
-                </span>
+                <div className="mt-2.5">
+                  <h3 className="text-xs sm:text-sm font-bold text-white">
+                    Capital isn't accounting. It's conviction.
+                  </h3>
+                  <div className="text-xs text-[#a6a9b2] mt-1 leading-relaxed italic">
+                    72% of senior leaders report bad strategic decisions stem from consensus compromises rather than analytical error.
+                  </div>
+                </div>
               </div>
-              <div className="mt-2.5">
-                <div className="text-xs sm:text-sm font-bold text-white">
-                  Capital isn't accounting. It's conviction.
-                </div>
-                <div className="text-xs text-[#a6a9b2] mt-1 leading-relaxed italic">
-                  72% of senior leaders report bad strategic decisions stem from consensus compromises rather than analytical error.
-                </div>
+              <div className="mt-3 pt-2.5 border-t border-[#23252b] flex items-center justify-between text-[10px] text-[#8e929b]">
+                <span className="font-medium text-[#c5a059]">McKinsey Decision Survey</span>
+                <span className="text-[#686b74]">Empirical Benchmark</span>
               </div>
+              <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-[#d4af37] opacity-70 group-hover:opacity-100 transition-opacity" />
             </div>
-            <div className="mt-3 pt-2.5 border-t border-[#23252b] flex items-center justify-between text-[10px] text-[#8e929b]">
-              <span className="font-medium text-[#c5a059]">McKinsey Decision Survey</span>
-              <span className="text-[#686b74]">Empirical Benchmark</span>
-            </div>
-            <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-[#d4af37] opacity-70 group-hover:opacity-100 transition-opacity" />
-          </div>
 
-          {/* Box 2: 61% Time on Alignment vs Market (HBR) */}
-          <div className="p-4 sm:p-5 rounded-lg bg-[#141416] border border-[#2b2d33] hover:border-[#d4af37] shadow-lg hover:shadow-[#c5a059]/15 transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift">
-            <div>
-              <div className="flex items-baseline justify-between">
-                <div className="text-2xl sm:text-3xl lg:text-3xl font-bold text-[#d4af37] tabular-nums">
-                  61%
+            {/* Box 2: 61% Time on Alignment vs Market (HBR) */}
+            <div className="p-4 sm:p-5 rounded-lg bg-[#141416] border border-[#2b2d33] hover:border-[#d4af37] shadow-lg hover:shadow-[#c5a059]/15 transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift">
+              <div>
+                <div className="flex items-baseline justify-between">
+                  <div className="text-2xl sm:text-3xl lg:text-3xl font-bold text-[#d4af37] tabular-nums">
+                    61%
+                  </div>
+                  <span className="text-[10px] font-bold uppercase text-[#c5a059] tracking-wider">
+                    Alignment Bleed
+                  </span>
                 </div>
-                <span className="text-[10px] font-bold uppercase text-[#c5a059] tracking-wider">
-                  Alignment Bleed
-                </span>
+                <div className="mt-2.5">
+                  <h3 className="text-xs sm:text-sm font-bold text-white">
+                    Meetings aren't strategy.
+                  </h3>
+                  <div className="text-xs text-[#a6a9b2] mt-1 leading-relaxed italic">
+                    61% of executive hours are consumed by internal alignment politics rather than decisive market execution.
+                  </div>
+                </div>
               </div>
-              <div className="mt-2.5">
-                <div className="text-xs sm:text-sm font-bold text-white">
-                  Meetings aren't strategy.
-                </div>
-                <div className="text-xs text-[#a6a9b2] mt-1 leading-relaxed italic">
-                  61% of executive hours are consumed by internal alignment politics rather than decisive market execution.
-                </div>
+              <div className="mt-3 pt-2.5 border-t border-[#23252b] flex items-center justify-between text-[10px] text-[#8e929b]">
+                <span className="font-medium text-[#c5a059]">Harvard Business Review</span>
+                <span className="text-[#686b74]">C-Suite Time Study</span>
               </div>
+              <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-[#d4af37] opacity-70 group-hover:opacity-100 transition-opacity" />
             </div>
-            <div className="mt-3 pt-2.5 border-t border-[#23252b] flex items-center justify-between text-[10px] text-[#8e929b]">
-              <span className="font-medium text-[#c5a059]">Harvard Business Review</span>
-              <span className="text-[#686b74]">C-Suite Time Study</span>
-            </div>
-            <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-[#d4af37] opacity-70 group-hover:opacity-100 transition-opacity" />
-          </div>
 
-          {/* Box 3: 82% Succession Vulnerability (PwC Directors Survey) */}
-          <div className="p-4 sm:p-5 rounded-lg bg-[#141416] border border-[#2b2d33] hover:border-[#d4af37] shadow-lg hover:shadow-[#c5a059]/15 transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift">
-            <div>
-              <div className="flex items-baseline justify-between">
-                <div className="text-2xl sm:text-3xl lg:text-3xl font-bold text-[#d4af37] tabular-nums">
-                  82%
+            {/* Box 3: 82% Succession Vulnerability (PwC Directors Survey) */}
+            <div className="p-4 sm:p-5 rounded-lg bg-[#141416] border border-[#2b2d33] hover:border-[#d4af37] shadow-lg hover:shadow-[#c5a059]/15 transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift">
+              <div>
+                <div className="flex items-baseline justify-between">
+                  <div className="text-2xl sm:text-3xl lg:text-3xl font-bold text-[#d4af37] tabular-nums">
+                    82%
+                  </div>
+                  <span className="text-[10px] font-bold uppercase text-[#c5a059] tracking-wider">
+                    Succession Risk
+                  </span>
                 </div>
-                <span className="text-[10px] font-bold uppercase text-[#c5a059] tracking-wider">
-                  Succession Risk
-                </span>
+                <div className="mt-2.5">
+                  <h3 className="text-xs sm:text-sm font-bold text-white">
+                    People don't leave hard work.
+                  </h3>
+                  <div className="text-xs text-[#a6a9b2] mt-1 leading-relaxed italic">
+                    82% of enterprise boards identify uncodified succession benches as their primary unhedged governance risk.
+                  </div>
+                </div>
               </div>
-              <div className="mt-2.5">
-                <div className="text-xs sm:text-sm font-bold text-white">
-                  People don't leave hard work.
-                </div>
-                <div className="text-xs text-[#a6a9b2] mt-1 leading-relaxed italic">
-                  82% of enterprise boards identify uncodified succession benches as their primary unhedged governance risk.
-                </div>
+              <div className="mt-3 pt-2.5 border-t border-[#23252b] flex items-center justify-between text-[10px] text-[#8e929b]">
+                <span className="font-medium text-[#c5a059]">PwC Directors Survey</span>
+                <span className="text-[#686b74]">Boardroom Benchmark</span>
               </div>
+              <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-[#d4af37] opacity-70 group-hover:opacity-100 transition-opacity" />
             </div>
-            <div className="mt-3 pt-2.5 border-t border-[#23252b] flex items-center justify-between text-[10px] text-[#8e929b]">
-              <span className="font-medium text-[#c5a059]">PwC Directors Survey</span>
-              <span className="text-[#686b74]">Boardroom Benchmark</span>
-            </div>
-            <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-[#d4af37] opacity-70 group-hover:opacity-100 transition-opacity" />
-          </div>
 
-          {/* Box 4: < 14 Days Audit Velocity (Patent-Pending L.O.S. Diagnostic) */}
-          <div 
-            onClick={onLaunchDiagnostic}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => { if (e.key === 'Enter') onLaunchDiagnostic(); }}
-            className="p-4 sm:p-5 rounded-lg bg-[#141416] border border-[#d4af37] shadow-lg hover:shadow-[#c5a059]/25 transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift cursor-pointer"
-          >
-            <div>
-              <div className="flex items-baseline justify-between">
-                <div className="text-2xl sm:text-3xl lg:text-3xl font-bold text-gold-gradient tabular-nums">
-                  &lt; 14 Days
+            {/* Box 4: < 14 Days Audit Velocity (Patent-Pending L.O.S. Diagnostic) */}
+            <div 
+              onClick={onLaunchDiagnostic}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === 'Enter') onLaunchDiagnostic(); }}
+              className="p-4 sm:p-5 rounded-lg bg-[#141416] border border-[#d4af37] shadow-lg hover:shadow-[#c5a059]/25 transition-all duration-300 relative group flex flex-col justify-between fluid-card-lift cursor-pointer"
+            >
+              <div>
+                <div className="flex items-baseline justify-between">
+                  <div className="text-2xl sm:text-3xl lg:text-3xl font-bold text-gold-gradient tabular-nums">
+                    &lt; 14 Days
+                  </div>
+                  <span className="text-[10px] font-bold uppercase text-[#d4af37] tracking-wider">
+                    Friction Audit
+                  </span>
                 </div>
-                <span className="text-[10px] font-bold uppercase text-[#d4af37] tracking-wider">
-                  Friction Audit
-                </span>
+                <div className="mt-2.5">
+                  <h3 className="text-xs sm:text-sm font-bold text-white">
+                    You already know where it hurts.
+                  </h3>
+                  <div className="text-xs text-[#a6a9b2] mt-1 leading-relaxed italic">
+                    Our patent-pending audit isolates structural friction vectors and restores executive decision autonomy within 14 days.
+                  </div>
+                </div>
               </div>
-              <div className="mt-2.5">
-                <div className="text-xs sm:text-sm font-bold text-white">
-                  You already know where it hurts.
-                </div>
-                <div className="text-xs text-[#a6a9b2] mt-1 leading-relaxed italic">
-                  Our patent-pending audit isolates structural friction vectors and restores executive decision autonomy within 14 days.
-                </div>
+              <div className="mt-3 pt-2.5 border-t border-[#23252b] flex items-center justify-between text-[10px] text-[#8e929b]">
+                <span className="font-medium text-[#d4af37]">Patent-Pending L.O.S.™</span>
+                <span className="text-[#686b74]">Empirical Protocol</span>
               </div>
+              <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-[#d4af37] animate-gold-pulse" />
             </div>
-            <div className="mt-3 pt-2.5 border-t border-[#23252b] flex items-center justify-between text-[10px] text-[#8e929b]">
-              <span className="font-medium text-[#d4af37]">Patent-Pending L.O.S.™</span>
-              <span className="text-[#686b74]">Empirical Protocol</span>
-            </div>
-            <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-[#d4af37] animate-gold-pulse" />
           </div>
         </div>
       </div>

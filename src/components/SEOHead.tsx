@@ -54,9 +54,20 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   breadcrumbs
 }) => {
   useEffect(() => {
-    const fullTitle = title.includes('The Unbounded Leadership Co.')
-      ? title
-      : `${title} | The Unbounded Leadership Co.`;
+    // Keep title strictly <= 60 characters for SEO Best Practices
+    let cleanTitle = title.trim();
+    if (!cleanTitle.includes('The Unbounded Leadership Co.') && !cleanTitle.includes('TULC')) {
+      if (cleanTitle.length + 7 <= 60) {
+        cleanTitle = `${cleanTitle} | TULC`;
+      }
+    }
+    const fullTitle = cleanTitle.length > 60 ? cleanTitle.slice(0, 57) + '...' : cleanTitle;
+
+    // Keep meta description strictly under 160 characters (120-155 ideal)
+    let cleanDesc = description.trim();
+    if (cleanDesc.length > 155) {
+      cleanDesc = cleanDesc.slice(0, 152) + '...';
+    }
     
     // 1. Page Title
     document.title = fullTitle;
@@ -67,7 +78,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     setCanonical(canonicalUrl);
 
     // 3. Standard Meta Description & Keywords
-    setMetaTag('name', 'description', description);
+    setMetaTag('name', 'description', cleanDesc);
     if (keywords) {
       setMetaTag('name', 'keywords', keywords);
     }

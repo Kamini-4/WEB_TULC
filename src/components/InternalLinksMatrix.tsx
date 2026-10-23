@@ -61,9 +61,9 @@ export const InternalLinksMatrix: React.FC<InternalLinksMatrixProps> = ({ curren
             <div className="text-[10px] font-mono uppercase tracking-widest text-[#8c6708] font-bold">
               Institutional Ecosystem Matrix
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-[#1c1917] tracking-tight">
+            <h2 className="text-lg sm:text-xl font-bold text-[#1c1917] tracking-tight">
               Interconnected Strategic Resources & Operational Infrastructure
-            </h3>
+            </h2>
           </div>
           <Link
             to="/intake"
@@ -77,9 +77,9 @@ export const InternalLinksMatrix: React.FC<InternalLinksMatrixProps> = ({ curren
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {hubs.map((hub) => (
             <div key={hub.title} className="space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-[#1c1917] pb-1 border-b border-[#ded6c5]/60">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#1c1917] pb-1 border-b border-[#ded6c5]/60">
                 {hub.title}
-              </h4>
+              </h3>
               <ul className="space-y-2.5">
                 {hub.links.map((link) => {
                   const isCurrent = currentPath === link.path;

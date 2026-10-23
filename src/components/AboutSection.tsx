@@ -10,8 +10,11 @@ import {
   Target, 
   Eye, 
   Clock, 
-  Lock 
+  Lock,
+  Phone,
+  Mail
 } from 'lucide-react';
+import { LinkedinIcon, InstagramIcon } from './SocialIcons';
 
 interface AboutSectionProps {
   onOpenConsultation: () => void;
@@ -88,6 +91,28 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#9d7b38] shrink-0" />
                 <span>100% focused on Enterprise Decoupling ($10M–$100M+)</span>
+              </div>
+            </div>
+
+            {/* Direct Contact & Social Links */}
+            <div className="p-3 rounded bg-[#faf6ee] border border-[#ebdcc0] space-y-1.5 text-xs">
+              <a href="tel:+919325346704" className="flex items-center gap-1.5 text-[#17181c] hover:text-[#9d7b38] font-bold">
+                <Phone className="w-3.5 h-3.5 text-[#9d7b38]" />
+                <span>+91 9325346704</span>
+              </a>
+              <a href="mailto:suchita@theunboundedleadership.com" className="flex items-center gap-1.5 text-[#484b54] hover:text-[#9d7b38]">
+                <Mail className="w-3.5 h-3.5 text-[#9d7b38]" />
+                <span className="truncate">suchita@theunboundedleadership.com</span>
+              </a>
+              <div className="pt-1.5 border-t border-[#ebdcc0]/60 flex items-center gap-3">
+                <a href="https://www.linkedin.com/in/suchita-sancheti" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[#0077b5] font-semibold hover:underline">
+                  <LinkedinIcon className="w-3.5 h-3.5" />
+                  <span>LinkedIn</span>
+                </a>
+                <a href="https://www.instagram.com/transformingleadership" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[#e4405f] font-semibold hover:underline">
+                  <InstagramIcon className="w-3.5 h-3.5" />
+                  <span>@transformingleadership</span>
+                </a>
               </div>
             </div>
 

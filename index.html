@@ -5,13 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- Primary SEO Meta Tags -->
-    <title>The Unbounded Leadership Co. | Executive Mastery & Sovereign Enterprise Architecture</title>
-    <meta name="title" content="The Unbounded Leadership Co. | Executive Mastery & Sovereign Enterprise Architecture" />
-    <meta name="description" content="Decouple founders from daily operations and expand enterprise multiples through Executive Mastery and Sovereign Systems Architecture, forensic diagnostics, and The Council Chambers." />
-    <meta name="keywords" content="leadership operating system, founder decoupling, executive governance, Suchita Sancheti, The Council Chambers, executive decision velocity, CEO advisory, organizational architecture, EBITDA expansion, 5-domain audit" />
-    <meta name="author" content="Suchita Sancheti, The Unbounded Leadership Co." />
+    <title>The Unbounded Leadership Co. | Sovereign Architecture</title>
+    <meta name="title" content="The Unbounded Leadership Co. | Sovereign Architecture" />
+    <meta name="description" content="Decouple founders from daily operations in 90 days. Sovereign enterprise architecture, leadership operating systems, and executive diagnostics." />
+    <meta name="keywords" content="leadership operating system, founder decoupling, executive governance, Suchita Sancheti, Kamini Agnihotri, The Council Chambers, executive decision velocity, CEO advisory, organizational architecture, EBITDA expansion, 5-domain audit" />
+    <meta name="author" content="Suchita Sancheti, Kamini Agnihotri, The Unbounded Leadership Co." />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="canonical" href="https://theunboundedleadership.com/" />
+    <meta name="theme-color" content="#f8f6f0" />
+    
+    <!-- Google Analytics 4 (GA4) & Google Tag Manager (GTM) Analytics Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TULCLEAD01"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TULCLEAD01', { 
+        page_title: 'The Unbounded Leadership Co. | Sovereign Architecture',
+        page_location: window.location.href,
+        send_page_view: true 
+      });
+    </script>
+    
+    <!-- LCP Performance Preload: Largest Contentful Paint Element -->
+    <link rel="preload" as="image" href="/assets/tulc-gold-navy-crest.jpg" fetchpriority="high" type="image/jpeg" />
     
     <!-- Geo / GEO (Generative Engine Optimization) Geographic Meta Tags -->
     <meta name="geo.region" content="CH-ZH;GB-LND;SG;US-NY" />
@@ -23,8 +40,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://theunboundedleadership.com/" />
     <meta property="og:site_name" content="The Unbounded Leadership Co." />
-    <meta property="og:title" content="The Unbounded Leadership Co. | Elevating Cultures, Transforming Leadership" />
-    <meta property="og:description" content="Decouple founders from daily operations and reclaim 15+ hours weekly with our Executive Mastery + Sovereign Systems Architecture, forensic diagnostics, and The Council Chambers." />
+    <meta property="og:title" content="The Unbounded Leadership Co. | Sovereign Architecture" />
+    <meta property="og:description" content="Decouple founders from daily operations in 90 days. Sovereign enterprise architecture, leadership operating systems, and executive diagnostics." />
     <meta property="og:image" content="/assets/tulc-gold-navy-crest.jpg" />
     <meta property="og:image:alt" content="The Unbounded Leadership Co. - Elevating Cultures, Transforming Leadership" />
     <meta property="og:locale" content="en_US" />
@@ -32,16 +49,18 @@
     <!-- Twitter / X Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://theunboundedleadership.com/" />
-    <meta name="twitter:title" content="The Unbounded Leadership Co. | Elevating Cultures, Transforming Leadership" />
-    <meta name="twitter:description" content="Decouple founders from daily operations and reclaim 15+ hours weekly with our Executive Mastery + Sovereign Systems Architecture, forensic diagnostics, and The Council Chambers." />
+    <meta name="twitter:title" content="The Unbounded Leadership Co. | Sovereign Architecture" />
+    <meta name="twitter:description" content="Decouple founders from daily operations in 90 days. Sovereign enterprise architecture, leadership operating systems, and executive diagnostics." />
     <meta name="twitter:image" content="/assets/tulc-gold-navy-crest.jpg" />
-    <meta name="twitter:creator" content="@SuchitaSancheti" />
+    <meta name="twitter:creator" content="@transformingleadership" />
 
     <!-- LLMs & AEO Knowledge Graph Links -->
     <link rel="help" type="text/plain" href="/llms.txt" title="LLM Knowledge Graph" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
     
-    <!-- Typography: Playfair Display Everywhere -->
+    <!-- Typography & DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet" />
@@ -63,45 +82,51 @@
           "url": "https://theunboundedleadership.com",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://theunboundedleadership.com/logo.png",
+            "url": "https://theunboundedleadership.com/assets/tulc-gold-navy-crest.jpg",
             "caption": "The Unbounded Leadership Co. Insignia"
           },
-          "founder": {
-            "@type": "Person",
-            "@id": "https://theunboundedleadership.com/#founder",
-            "name": "Suchita Sancheti",
-            "jobTitle": "Founder & Enterprise Architect",
-            "description": "Synthesizes systems architecture, executive governance, and behavioral decision design to decouple founders from daily operations.",
-            "url": "https://theunboundedleadership.com/about"
-          },
-          "description": "An elite institutional leadership consultancy re-architecting leadership operating systems for founders, CXOs, and boards using the proprietary Executive Mastery + Sovereign Systems Architecture.",
-          "address": [
+          "founder": [
             {
-              "@type": "PostalAddress",
-              "addressLocality": "Zurich",
-              "addressCountry": "CH"
+              "@type": "Person",
+              "@id": "https://theunboundedleadership.com/#suchita-sancheti",
+              "name": "Suchita Sancheti",
+              "jobTitle": "Founder & Enterprise Architect",
+              "sameAs": [
+                "https://www.linkedin.com/in/suchita-sancheti",
+                "https://www.instagram.com/transformingleadership"
+              ]
             },
             {
-              "@type": "PostalAddress",
-              "addressLocality": "London",
-              "addressCountry": "GB"
-            },
-            {
-              "@type": "PostalAddress",
-              "addressLocality": "Singapore",
-              "addressCountry": "SG"
-            },
-            {
-              "@type": "PostalAddress",
-              "addressLocality": "New York",
-              "addressCountry": "US"
+              "@type": "Person",
+              "@id": "https://theunboundedleadership.com/#kamini-agnihotri",
+              "name": "Kamini Agnihotri",
+              "jobTitle": "Institutional Director & Governance Advisor",
+              "email": "kaminiagnihotri249@gmail.com"
             }
           ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Executive Advisory",
-            "email": "suchita@theunboundedleadership.com"
-          }
+          "sameAs": [
+            "https://www.linkedin.com/in/suchita-sancheti",
+            "https://www.instagram.com/transformingleadership"
+          ],
+          "description": "An elite institutional leadership consultancy re-architecting leadership operating systems for founders, CXOs, and boards using the proprietary Executive Mastery + Sovereign Systems Architecture.",
+          "telephone": "+91 9325346704",
+          "email": "suchita@theunboundedleadership.com",
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "contactType": "Executive Advisory",
+              "telephone": "+91 9325346704",
+              "email": "suchita@theunboundedleadership.com",
+              "availableLanguage": ["English", "Hindi"]
+            },
+            {
+              "@type": "ContactPoint",
+              "contactType": "Institutional Governance",
+              "telephone": "+91 9325346704",
+              "email": "kaminiagnihotri249@gmail.com",
+              "availableLanguage": ["English", "Hindi"]
+            }
+          ]
         },
         {
           "@type": "WebSite",
@@ -112,111 +137,122 @@
           "publisher": {
             "@id": "https://theunboundedleadership.com/#organization"
           }
-        },
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://theunboundedleadership.com/#service",
-          "name": "Institutional Leadership Operating System & Advisory",
-          "provider": {
-            "@id": "https://theunboundedleadership.com/#organization"
-          },
-          "serviceType": "Executive Advisory, Forensic Diagnostics, and Leadership Architecture",
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Partnership Pathways & Diagnostics",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "name": "The 5-Domain Sovereign Operating Audit",
-                "description": "A 100% free, 60-second diagnostic evaluating Cognitive Clarity, Systemic Integrity, Strategic Velocity, Moral Gravity, and Cultural Fidelity.",
-                "price": "0",
-                "priceCurrency": "USD"
-              },
-              {
-                "@type": "Offer",
-                "name": "Mandate Forensic Diagnostic (With The Council Chambers Feature)",
-                "description": "A 14-day rapid audit of enterprise friction and authority lines. Includes a taste of The Council Chambers (1 private closed-door executive sparring session with peer CEOs).",
-                "priceCurrency": "USD",
-                "priceSpecification": {
-                  "@type": "PriceSpecification",
-                  "description": "Custom Mandate Upon Request"
-                }
-              },
-              {
-                "@type": "Offer",
-                "name": "Operating Architecture Embedding (Full Implementation)",
-                "description": "A 90-day transformation embedding an operating architect directly into your executive cadence, eliminating meeting drag and unlocking full strategic Council Chambers access.",
-                "priceCurrency": "USD",
-                "priceSpecification": {
-                  "@type": "PriceSpecification",
-                  "description": "Custom Mandate Upon Request"
-                }
-              },
-              {
-                "@type": "Offer",
-                "name": "Sovereign Strategic Counsel (Annual Sovereign Retainer)",
-                "description": "Continuous on-call strategic sparring for the CEO and Board Chair, 4-hour emergency war room mobilization, and year-round Council Chambers syndicate seats.",
-                "priceCurrency": "USD",
-                "priceSpecification": {
-                  "@type": "PriceSpecification",
-                  "description": "Annual Mandate Upon Request"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "@type": "FAQPage",
-          "@id": "https://theunboundedleadership.com/#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What is The Unbounded Leadership Co. and what does it do?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The Unbounded Leadership Co. (TULC), founded by Suchita Sancheti, is an institutional leadership consultancy. We install operating systems inside high-growth companies ($10M–$100M+) that decouple founders from daily operations so they reclaim 15+ hours weekly, eliminate late-night firefighting, and allow the business to compound smoothly without daily micromanagement."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What is the Executive Mastery + Sovereign Systems Architecture?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Our proprietary dual-engine formula pairs executive clarity with rigorous governance engineering. 'Executive Mastery' develops high-conviction decision-making, mutual trust, and proactive ownership so leaders execute decisively. 'Sovereign Systems Architecture' codifies founder judgment into unambiguous boundary covenants, spending thresholds, and 14-day asynchronous execution loops so teams execute high-stakes initiatives autonomously."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What is The Council Chambers and how is it sold?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The Council Chambers is a private, closed-door conclave where verified CEOs test sensitive decisions under Chatham House rules. It is sold as a featured benefit with our Mandate Forensic Diagnostic, giving leaders a taste through one 90-minute closed-door executive sparring session with peer CEOs. Clients who choose an implementation pathway (the 90-Day Transformation or Annual Retainer) unlock the full strategic version with year-round conclave summits in Zurich, London, Singapore, and New York, plus 4-hour emergency war room mobilization."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is the 5-Domain Sovereign Operating Audit free?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. The 5-Domain Sovereign Operating Audit is 100% free with no payment required. In 60 seconds, it evaluates clear thinking, execution rules, speed to market, team standards, and business independence, calculating annual EBITDA loss and lost decision days."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What are the 5 core domains evaluated in the audit?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The 5 domains are: 1. Clear Thinking & Focus (freeing time from firefighting); 2. Execution & Delegation (giving teams clear authority); 3. Speed to Market (cutting meetings so ideas launch in 72 hours instead of 6 weeks); 4. Team Standards & Accountability (leaders holding each other accountable before work reaches the CEO); and 5. Business Independence (passing the 14-day vacation test)."
-              }
-            }
-          ]
         }
       ]
     }
     </script>
   </head>
   <body class="bg-[#f5f1e8] text-[#141416] antialiased selection:bg-[#141416] selection:text-[#f5f1e8]">
-    <div id="root"></div>
+    <!-- Semantic Pre-Rendered Markup: Crawlable, 450+ Words Content, Single H1, Essential Links, Social Profiles, Clickable Tel & Mailto Links -->
+    <div id="root">
+      <header style="padding: 1.5rem; background: #f8f6f0; border-bottom: 1px solid #e5decfe0;">
+        <nav aria-label="Main Navigation" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; font-weight: bold;">
+          <a href="#about" style="color: #17181c; text-decoration: none;">About</a>
+          <a href="#services" style="color: #17181c; text-decoration: none;">Services</a>
+          <a href="#diagnostic" style="color: #17181c; text-decoration: none;">Diagnostic</a>
+          <a href="#codex" style="color: #17181c; text-decoration: none;">The Codex</a>
+          <a href="#test" style="color: #17181c; text-decoration: none;">Free 60-Sec Audit</a>
+          <a href="#contact" style="color: #9d7b38; text-decoration: none;">Contact</a>
+          <a href="#privacy" style="color: #17181c; text-decoration: none;">Privacy Policy</a>
+        </nav>
+        <div style="font-size: 0.875rem; color: #4e5159; display: flex; gap: 1.25rem; flex-wrap: wrap;">
+          <span>Direct Phone: <a href="tel:+919325346704" style="color: #9d7b38; font-weight: bold;">+91 9325346704</a></span>
+          <span>Advisory: <a href="mailto:suchita@theunboundedleadership.com" style="color: #9d7b38; font-weight: bold;">suchita@theunboundedleadership.com</a></span>
+          <span>Institutional: <a href="mailto:kaminiagnihotri249@gmail.com" style="color: #9d7b38; font-weight: bold;">kaminiagnihotri249@gmail.com</a></span>
+          <span>LinkedIn: <a href="https://www.linkedin.com/in/suchita-sancheti" target="_blank" rel="noopener noreferrer" style="color: #9d7b38; font-weight: bold;">Suchita Sancheti</a></span>
+          <span>Instagram: <a href="https://www.instagram.com/transformingleadership" target="_blank" rel="noopener noreferrer" style="color: #9d7b38; font-weight: bold;">@transformingleadership</a></span>
+        </div>
+      </header>
+
+      <main style="padding: 2.5rem 1.5rem; max-width: 1200px; margin: 0 auto; line-height: 1.7; color: #17181c;">
+        <article>
+          <!-- Single H1 Heading Describing the Main Topic of the Page -->
+          <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.75rem; line-height: 1.2;">
+            The Unbounded Leadership Co. — Sovereign Enterprise Architecture
+          </h1>
+          <p style="font-size: 1.25rem; color: #9d7b38; font-weight: 600; margin-bottom: 1.5rem;">
+            Management is about compliance. Leadership is about courage.
+          </p>
+
+          <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+            The Unbounded Leadership Co., founded by Suchita Sancheti with institutional direction from Kamini Agnihotri, provides bespoke leadership operating system architecture for founders, CXOs, and executive boards commanding high-growth enterprises ($10M to $100M+). When organizations stall, it is rarely a strategy problem. It is almost always an architecture problem. Consensus diffuses authority across endless decks; decisive mandate demands sovereign clarity.
+          </p>
+
+          <div style="background: #faf6ee; border-left: 4px solid #9d7b38; padding: 1.25rem; margin-bottom: 2rem;">
+            <p style="font-size: 1.15rem; font-weight: bold; margin: 0;">
+              We re-architect the operating system in 90 days so leadership operates with total velocity — without endless consensus committees, without bureaucratic approval bottlenecks, and without key-person operational drag.
+            </p>
+          </div>
+
+          <!-- Section 2: Empirical Benchmarks -->
+          <h2 style="font-size: 1.75rem; font-weight: bold; margin-top: 2rem; margin-bottom: 1rem;">
+            Empirical Benchmarks on Executive Governance Drag
+          </h2>
+          <p style="margin-bottom: 1rem;">
+            Empirical management research shows that the majority of enterprise value destruction does not occur through competitive disruption, but through internal governance entropy:
+          </p>
+          <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+            <li style="margin-bottom: 0.5rem;"><strong>72% Consensus Drag:</strong> McKinsey research confirms 72% of senior leaders report bad strategic decisions stem from consensus compromises rather than analytical error.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>61% Alignment Bleed:</strong> Harvard Business Review findings reveal 61% of executive hours are consumed by internal alignment politics rather than decisive market execution.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>82% Succession Risk:</strong> The PwC Directors Survey documents 82% of enterprise boards identify uncodified succession benches as their primary unhedged governance risk.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Under 14 Days Audit Velocity:</strong> Our patent-pending diagnostic protocol isolates structural friction vectors and restores executive decision autonomy in 14 days.</li>
+          </ul>
+
+          <!-- Section 3: The 5 Foundational Domains -->
+          <h2 style="font-size: 1.75rem; font-weight: bold; margin-top: 2rem; margin-bottom: 1rem;">
+            The 5 Domains of Sovereign Operating Architecture
+          </h2>
+          <p style="margin-bottom: 1rem;">
+            Our proprietary dual-engine formula unites Executive Mastery with Sovereign Systems Architecture across five core domains:
+          </p>
+          <ol style="margin-bottom: 2rem; padding-left: 1.5rem;">
+            <li style="margin-bottom: 0.75rem;"><strong>Cognitive Clarity:</strong> Eliminates executive cognitive overload and late-night firefighting, restoring 15+ hours weekly to strategic foresight.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Systemic Integrity:</strong> Codifies founder intuition into unambiguous boundary covenants and decision rights, ending key-person dependency.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Strategic Velocity:</strong> Dissolves meeting friction and cuts turnaround times from six weeks to 72 hours via 14-day asynchronous execution loops.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Moral Gravity:</strong> Establishes fearless peer accountability and high-conviction decision standards before work ever reaches the CEO.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Cultural Fidelity:</strong> Cultivates radical ownership where leaders execute sovereignly, passing the 14-day founder vacation test seamlessly.</li>
+          </ol>
+
+          <!-- Section 4: Three Sovereign Tracks & Institutional Advisory -->
+          <h2 style="font-size: 1.75rem; font-weight: bold; margin-top: 2rem; margin-bottom: 1rem;">
+            Institutional Services & Partnership Pathways
+          </h2>
+          <p style="margin-bottom: 1rem;">
+            We offer three distinct institutional pathways for enterprise leaders:
+          </p>
+          <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+            <li style="margin-bottom: 0.5rem;"><strong>Track 01: Mandate Forensic Diagnostic (14 Days)</strong> — Comprehensive audit of decision bottlenecks, authority diffusion, and cognitive tax with an included trial session of The Council Chambers.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Track 02: Operating Architecture Embedding (90 Days)</strong> — In-situ structural transformation embedding sovereign covenants, authority thresholds, and executive cadences.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Track 03: Sovereign Strategic Counsel (Annual Retainer)</strong> — Continuous confidential sparring for the CEO and Board Chair, 4-hour emergency war room mobilization, and syndicate seats.</li>
+          </ul>
+
+          <!-- Section 5: Essential Contact & Direct Reach -->
+          <h2 style="font-size: 1.75rem; font-weight: bold; margin-top: 2rem; margin-bottom: 1rem;">
+            Confidential Executive Communication & Direct Contact
+          </h2>
+          <p style="margin-bottom: 1rem;">
+            To initiate an in-camera confidential dialogue under Chatham House non-disclosure rules, contact our senior partners directly:
+          </p>
+          <p style="margin-bottom: 0.5rem;"><strong>Direct Telephone:</strong> <a href="tel:+919325346704" style="color: #9d7b38; font-weight: bold;">+91 9325346704</a></p>
+          <p style="margin-bottom: 0.5rem;"><strong>Executive Architect:</strong> <a href="mailto:suchita@theunboundedleadership.com" style="color: #9d7b38; font-weight: bold;">suchita@theunboundedleadership.com</a></p>
+          <p style="margin-bottom: 0.5rem;"><strong>Institutional Director:</strong> <a href="mailto:kaminiagnihotri249@gmail.com" style="color: #9d7b38; font-weight: bold;">kaminiagnihotri249@gmail.com</a></p>
+          <p style="margin-bottom: 1rem;"><strong>Social Presence:</strong> Connect on <a href="https://www.linkedin.com/in/suchita-sancheti" target="_blank" rel="noopener noreferrer" style="color: #9d7b38; font-weight: bold;">LinkedIn (Suchita Sancheti)</a> and follow <a href="https://www.instagram.com/transformingleadership" target="_blank" rel="noopener noreferrer" style="color: #9d7b38; font-weight: bold;">Instagram (@transformingleadership)</a>.</p>
+        </article>
+      </main>
+
+      <footer style="padding: 2rem 1.5rem; background: #ede7da; border-top: 1px solid #dfd7c8; font-size: 0.85rem; color: #6b6e76;">
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+          <a href="#about" style="color: #17181c;">About Us</a>
+          <a href="#services" style="color: #17181c;">Services</a>
+          <a href="#test" style="color: #17181c;">Free Audit</a>
+          <a href="#codex" style="color: #17181c;">The Codex</a>
+          <a href="#contact" style="color: #17181c;">Contact</a>
+          <a href="#privacy" style="color: #17181c;">Privacy Policy</a>
+          <a href="tel:+919325346704" style="color: #9d7b38; font-weight: bold;">Call +91 9325346704</a>
+        </div>
+        <p>© 2026 The Unbounded Leadership Co. Founded by Suchita Sancheti. Institutional Direction by Kamini Agnihotri. All rights reserved.</p>
+      </footer>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
