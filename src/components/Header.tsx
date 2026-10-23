@@ -23,54 +23,7 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header className="sticky top-0 z-50 bg-[#f8f6f0]/95 backdrop-blur-md border-b border-[#e5decfe0] transition-colors">
       
-      {/* Top Sovereign Utility Ribbon: Direct Telephone, Email, and Verified Social Channels */}
-      <div className="bg-[#141416] text-[#c7cad1] text-[11px] font-mono py-1.5 px-4 sm:px-6 lg:px-8 border-b border-[#23252b]">
-        <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3 sm:gap-5 flex-wrap">
-            <a 
-              href="tel:+919325346704" 
-              className="flex items-center gap-1.5 text-[#e5decfe0] hover:text-[#d4af37] transition-colors"
-            >
-              <Phone className="w-3 h-3 text-[#d4af37]" />
-              <span className="font-bold">+91 9325346704</span>
-            </a>
-            <span className="hidden sm:inline text-[#44464f]">|</span>
-            <a 
-              href="mailto:suchita@theunboundedleadership.com" 
-              className="hidden sm:flex items-center gap-1.5 text-[#e5decfe0] hover:text-[#d4af37] transition-colors"
-            >
-              <Mail className="w-3 h-3 text-[#d4af37]" />
-              <span>suchita@theunboundedleadership.com</span>
-            </a>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <span className="hidden md:inline text-[10px] uppercase text-[#8e929b] tracking-wider">
-              Executive Presence:
-            </span>
-            <a 
-              href="https://www.linkedin.com/in/suchita-sancheti" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="Suchita Sancheti LinkedIn Profile"
-              className="text-[#c7cad1] hover:text-[#d4af37] transition-colors flex items-center gap-1"
-            >
-              <LinkedinIcon className="w-3 h-3 text-[#0077b5]" />
-              <span className="text-[10px] hidden sm:inline">LinkedIn</span>
-            </a>
-            <a 
-              href="https://www.instagram.com/transformingleadership" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="The Unbounded Leadership Co. Instagram Profile"
-              className="text-[#c7cad1] hover:text-[#d4af37] transition-colors flex items-center gap-1"
-            >
-              <InstagramIcon className="w-3 h-3 text-[#e4405f]" />
-              <span className="text-[10px] hidden sm:inline">@transformingleadership</span>
-            </a>
-          </div>
-        </div>
-      </div>
+      {/* Top Sovereign Header */}
 
       {/* Main Header Bar */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 md:h-24 flex items-center justify-between gap-4">
