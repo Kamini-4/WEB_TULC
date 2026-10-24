@@ -6,6 +6,7 @@ import {
   Shield, 
   Layers, 
   ArrowRight, 
+  ArrowLeft,
   CheckCircle2, 
   Sparkles, 
   TrendingUp, 
@@ -262,9 +263,11 @@ export const DomainDescriptions: React.FC<DomainDescriptionsProps> = ({
             onClick={() => {
               window.location.hash = 'top';
             }}
-            className="text-xs font-mono text-stone-400 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 py-1"
+            aria-label="Go back"
+            title="Go back"
+            className="p-2 rounded-full text-stone-400 hover:text-white hover:bg-stone-800 transition-colors cursor-pointer flex items-center justify-center min-w-[36px] min-h-[36px]"
           >
-            <span>← Return to Home Overview</span>
+            <ArrowLeft className="w-5 h-5 text-[#d4af37]" />
           </button>
         </div>
       </div>

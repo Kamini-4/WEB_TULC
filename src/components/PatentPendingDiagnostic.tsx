@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DiagnosticLevers, DiagnosticResult, PartnershipModelId } from '../types';
 import { generateExecutiveMemorandum } from '../services/gemini';
-import { Loader2, Sparkles, Activity, ShieldCheck, ArrowRight, RefreshCw, FileText } from 'lucide-react';
+import { Loader2, Sparkles, Activity, ShieldCheck, ArrowRight, ArrowLeft, RefreshCw, FileText } from 'lucide-react';
 import { SovereignDossierFeatures } from './SovereignDossierFeatures';
 
 interface DiagnosticProps {
@@ -474,9 +474,11 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                       onClick={() => {
                         window.location.hash = 'top';
                       }}
-                      className="text-[#6b6e76] hover:text-[#17181c] transition-colors py-1 cursor-pointer"
+                      aria-label="Go back"
+                      title="Go back"
+                      className="p-1.5 -mr-1 rounded-full text-[#6b6e76] hover:text-[#9d7b38] hover:bg-[#ede5d6] transition-colors cursor-pointer flex items-center justify-center min-w-[32px] min-h-[32px]"
                     >
-                      ← Back to Home
+                      <ArrowLeft className="w-4 h-4 text-[#9d7b38]" />
                     </button>
                   </div>
                 </div>

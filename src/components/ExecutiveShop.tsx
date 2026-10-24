@@ -544,9 +544,11 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
         <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[#dfd7c8]">
           <button
             onClick={onBackToHome}
-            className="text-xs font-bold uppercase text-[#555861] hover:text-[#17181c] transition-colors flex items-center gap-2 cursor-pointer py-1"
+            aria-label="Go back"
+            title="Go back"
+            className="p-2 -ml-2 rounded-full text-[#17181c] hover:text-[#9d7b38] hover:bg-[#ede5d6] transition-colors flex items-center justify-center cursor-pointer min-w-[36px] min-h-[36px]"
           >
-            <span>← Return to Home Overview</span>
+            <ArrowLeft className="w-5 h-5 text-[#9d7b38]" />
           </button>
 
           <button

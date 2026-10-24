@@ -2,32 +2,27 @@
 
 ## Core Architectural Directives
 
-### 1. The Sovereign Council Chamber™: Advisory Feature Showcase
-- **Placement**: Integrated exclusively inside the Services section (`#council-feature`) as an elite quarterly conclave capability in Zurich, London, Singapore, and NYC under the Chatham House Rule.
-- **Selling the Feature**: Positioned as the highest echelon of executive advisory included in The Sovereign Retainer™ and The Sovereign Embedding™, rather than an interactive website widget.
-- **Full Scope Disclosure**: Details the 5 Domain Chambers, Triad Roundtable Deliberation, and Sovereign Decoupling Protocols that clients experience during closed-door conclaves.
+### 1. Executive Newsletters & Value-Driven Dispatches (Simon Sinek, Deepali Vyas & Brené Brown Tone)
+- **1-on-1 Conversational Letters from Suchita Sancheti**: Each dispatch features an intimate, heartfelt opening from Suchita's desk painting the real-time picture of boardroom fatigue, late-night office hours, and the burden of leadership. Validates their human reality without corporate jargon or taboo words.
+- **The Big Questions Answered**: Explicitly highlights and resolves the fundamental questions keeping leaders awake (e.g. *Why does my team freeze without permission?*, *Why does scaling feel exhausting?*, *How do I transition from indispensable hero to sovereign architect?*).
+- **Featured Book Frameworks**: Excerpts and core principles drawn directly from Suchita Sancheti's book: *"Sovereign Architecture: The Modern Leader's Guide to Building an Enduring, Self-Governing Enterprise"*.
+- **AEO & GEO Optimization**:
+  - Direct Executive Answer node (`.article-direct-answer`) optimized for Google AI Overviews, Perplexity, Gemini, and ChatGPT citation.
+  - Dynamic Schema.org `TechArticle` and `FAQPage` JSON-LD injection via `SEOHead` for rich search engine snippets.
+  - Real-world FAQ Q&A accordion addressing high-intent executive search queries.
+- **High-Trust Services Conviction**: Concludes with a warm, reassuring invitation ("You Do Not Have to Carry This Alone. We Re-Architect Your Operating System in 90 Days"), conveying deep faith in TULC's services and guiding them into private dialogue.
 
-### 2. Executive Shop: High-Intent Lead Funnel
-- **Requoted Pricing**: Scaled strategically as a lead funnel ($75–$290 per codified publication, $490 for the 198-Page 5-Volume Master Suite).
-- **100% Retainer/Audit Credit Guarantee**: Every dollar allocated to a publication is automatically credited toward any future diagnostic audit or sovereign advisory retainer.
-- **Institutional Dignity**: Replaced low-rent e-commerce terms with institutional nomenclature (Specimen Evaluation, Codified Publication, Instant Vault Clone, Direct Wire & Invoice Requisition).
-- **Zero "PDF" References**: Completely eliminated all occurrences of the text "PDF" from all components, shop cards, navigation headers, footers, mobile bottom dock, and data stores.
+### 2. Sovereign Header & Landing Page Layout
+- **Clean Executive Header**: Removed direct phone numbers and email ribbons from the top header navigation and mobile drawer for an uncluttered, high-prestige presence.
+- **Center-Oriented Landing Page**: Centered the hero section typography, including institutional kicker, official crest seal, primary H1 headline, sub-headline, strategic insight, dedicated 90-day operating system statement box, CTA buttons, and boardroom privilege trust seals.
+- **Founder Authority & Photo**: Suchita Sancheti's photo (`/assets/suchita-sancheti.jpg`) integrated into the founder bio card in the About section with verified authority badges.
+- **Icon-Only Back Navigation**: All subpage back buttons across the site are icon-only arrow buttons (`<ArrowLeft className="w-5 h-5" />`), removing text while retaining accessibility labels.
 
-### 3. Comprehensive Back Button & Navigation Integrity
-- Prominent `← Return` and `← Back` buttons placed across all sub-views:
-  - Free 60-Second Test & Forensic Audit View
-  - Patent-Pending Sovereign Dossier™ Diagnostic Engine
-  - 5-Domain Architecture Deep Dive
-  - Executive Publications Shop
-  - Intelligence Library & Dispatches
-  - Vision, Mission & Philosophy
-  - Confidential Inquiry & Strategic Requisition
-- Top bar breadcrumb navigational bar with one-click return to Home Overview.
-
-### 4. Language & Taboo Word Compliance
+### 3. Language & Taboo Word Compliance
 - Strict zero-tolerance compliance verified across the entire codebase for:
   - `fear`
   - `empathise` / `empathize`
   - `hide` / `hides`
   - `live in slack`
-- Verified clean build and TypeScript type-checking (`tsc --noEmit`).
+  - `PDF`
+- 100% clean TypeScript type check and production build verified.

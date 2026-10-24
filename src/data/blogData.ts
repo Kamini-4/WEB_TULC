@@ -1,3 +1,20 @@
+import { 
+  BLOG_INSIGHTS, 
+  ConversationalLetter, 
+  BigQuestionAnswer, 
+  BookExcerpt, 
+  AeoDirectAnswer, 
+  DispatchFaqItem 
+} from './blogInsights';
+
+export type { 
+  ConversationalLetter, 
+  BigQuestionAnswer, 
+  BookExcerpt, 
+  AeoDirectAnswer, 
+  DispatchFaqItem 
+};
+
 export interface ThreeStepSolution {
   step1: {
     title: string;
@@ -59,9 +76,14 @@ export interface BlogPost {
     description: string;
   };
   linkedInPostSummary: string;
+  conversationalLetter?: ConversationalLetter;
+  theBigQuestion?: BigQuestionAnswer;
+  bookExcerpt?: BookExcerpt;
+  aeoDirectAnswer?: AeoDirectAnswer;
+  faqItems?: DispatchFaqItem[];
 }
 
-export const BLOG_POSTS: BlogPost[] = [
+const RAW_BLOG_POSTS: BlogPost[] = [
   // -------------------------------------------------------------
   // ARTICLE 01
   // -------------------------------------------------------------
@@ -1478,3 +1500,16 @@ export const BLOG_POSTS: BlogPost[] = [
     linkedInPostSummary: 'If your private equity operating partners are acting as interim COOs for struggling portfolio companies, your fund model is broken.\n\nPartners should be driving bolt-on M&A and high-alpha deals, not arbitrating customer complaints.\n\n3 steps to portfolio sovereignty:\n1. Install standardized decision covenants across all PortCos in their first 100 days.\n2. Track Decision Latency and Meeting Drag as leading indicators.\n3. Ban partner firefighting: force portfolio leadership to operate autonomously.\n\nTurn portfolio management into a compounding machine. ⬇️'
   }
 ];
+
+export const BLOG_POSTS: BlogPost[] = RAW_BLOG_POSTS.map(post => {
+  const insight = BLOG_INSIGHTS[post.id];
+  if (!insight) return post;
+  return {
+    ...post,
+    conversationalLetter: insight.conversationalLetter,
+    theBigQuestion: insight.theBigQuestion,
+    bookExcerpt: insight.bookExcerpt,
+    aeoDirectAnswer: insight.aeoDirectAnswer,
+    faqItems: insight.faqItems,
+  };
+});

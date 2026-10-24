@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Zap, ArrowRight, Phone, Mail, Lock } from 'lucide-react';
+import { Menu, X, Zap, ArrowRight, Lock } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
 
 interface HeaderProps {
@@ -151,18 +151,19 @@ export const Header: React.FC<HeaderProps> = ({
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#f8f6f0] border-b border-[#e5decfe0] px-4 pt-2 pb-6 space-y-3 shadow-lg animate-in slide-in-from-top-2 duration-200">
           
-          {/* Quick Direct Mobile Contact */}
+          {/* Executive Presence Links */}
           <div className="p-3 rounded bg-[#f3ede1] border border-[#d8cebe] flex items-center justify-between text-xs">
-            <a href="tel:+919325346704" className="flex items-center gap-1.5 font-bold text-[#17181c]">
-              <Phone className="w-3.5 h-3.5 text-[#9d7b38]" />
-              <span>+91 9325346704</span>
-            </a>
-            <div className="flex items-center gap-2.5">
-              <a href="https://www.linkedin.com/in/suchita-sancheti" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <span className="font-mono text-[10px] uppercase tracking-wider text-[#685327] font-bold">
+              Executive Presence
+            </span>
+            <div className="flex items-center gap-3">
+              <a href="https://www.linkedin.com/in/suchita-sancheti" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="flex items-center gap-1 text-[#0077b5] font-semibold">
                 <LinkedinIcon className="w-4 h-4 text-[#0077b5]" />
+                <span className="text-[11px]">LinkedIn</span>
               </a>
-              <a href="https://www.instagram.com/transformingleadership" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a href="https://www.instagram.com/transformingleadership" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="flex items-center gap-1 text-[#e4405f] font-semibold">
                 <InstagramIcon className="w-4 h-4 text-[#e4405f]" />
+                <span className="text-[11px]">Instagram</span>
               </a>
             </div>
           </div>

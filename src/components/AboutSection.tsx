@@ -3,6 +3,7 @@ import {
   Compass, 
   ShieldCheck, 
   ArrowRight, 
+  ArrowLeft,
   Award, 
   CheckCircle2, 
   HeartHandshake, 
@@ -50,16 +51,22 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
           {/* Left Column: Suchita Sancheti Portrait & Bio Dossier (4 Cols) */}
           <div className="lg:col-span-4 bg-[#ffffff] border-2 border-[#d4af37]/60 rounded-lg p-5 sm:p-6 shadow-md space-y-4">
             
-            {/* Prominent High-Prestige Sovereign Insignia Frame */}
-            <div className="relative w-full aspect-4/3 sm:aspect-square max-h-[300px] rounded-md overflow-hidden border-2 border-[#d4af37] shadow-lg bg-[#0c1322] flex items-center justify-center p-2 group">
+            {/* Founder Portrait: Suchita Sancheti */}
+            <div className="relative w-full aspect-[4/5] sm:aspect-square max-h-[340px] rounded-md overflow-hidden border-2 border-[#d4af37] shadow-lg bg-[#141416] group">
               <img 
-                src="/assets/tulc-gold-navy-crest.jpg" 
-                alt="Suchita Sancheti · The Unbounded Leadership Co. Insignia" 
-                className="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-500"
+                src="/assets/suchita-sancheti.jpg" 
+                alt="Suchita Sancheti — Founder & Enterprise Architect, The Unbounded Leadership Co." 
+                className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
+                width="400"
+                height="450"
+                loading="eager"
               />
-              <div className="absolute bottom-2 left-2 right-2 bg-[#17181c]/90 backdrop-blur-xs px-2.5 py-1.5 rounded-xs border border-[#d4af37]/40 text-center">
+              <div className="absolute bottom-2 left-2 right-2 bg-[#17181c]/90 backdrop-blur-xs px-2.5 py-1.5 rounded-xs border border-[#d4af37]/40 flex items-center justify-between">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#d4af37] font-bold">
-                  Suchita Sancheti · Sovereign Insignia
+                  Suchita Sancheti
+                </span>
+                <span className="text-[9px] font-mono uppercase tracking-wider text-[#e5decfe0]">
+                  Founder & Architect
                 </span>
               </div>
             </div>
@@ -237,9 +244,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
               onClick={() => {
                 window.location.hash = 'top';
               }}
-              className="text-[#6b6e76] hover:text-[#17181c] transition-colors py-1 cursor-pointer font-bold flex items-center gap-1.5"
+              aria-label="Go back"
+              title="Go back"
+              className="p-2 -ml-2 rounded-full text-[#17181c] hover:text-[#9d7b38] hover:bg-[#ede5d6] transition-colors cursor-pointer flex items-center justify-center min-w-[36px] min-h-[36px]"
             >
-              <span>← Return to Home Overview</span>
+              <ArrowLeft className="w-5 h-5 text-[#9d7b38]" />
             </button>
 
             <button

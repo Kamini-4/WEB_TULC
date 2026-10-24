@@ -201,10 +201,11 @@ export const App: React.FC = () => {
       <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-3">
         <button
           onClick={() => navigateTo('home')}
-          className="inline-flex items-center gap-2 text-xs font-bold uppercase text-[#17181c] hover:text-[#9d7b38] transition-colors cursor-pointer py-1"
+          aria-label="Go back"
+          title="Go back"
+          className="p-2 -ml-2 rounded-full text-[#17181c] hover:text-[#9d7b38] hover:bg-[#e4dcce] transition-colors cursor-pointer flex items-center justify-center min-w-[36px] min-h-[36px]"
         >
-          <ArrowLeft className="w-4 h-4 text-[#9d7b38]" />
-          <span>Return to Overview</span>
+          <ArrowLeft className="w-5 h-5 text-[#9d7b38]" />
         </button>
         <div className="text-right">
           <span className="text-xs font-bold text-[#17181c] uppercase">{title}</span>

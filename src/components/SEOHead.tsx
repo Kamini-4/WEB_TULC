@@ -122,7 +122,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
           '@id': `${BASE_URL}/#organization`,
           'name': 'The Unbounded Leadership Co.',
           'url': BASE_URL,
-          'logo': `${BASE_URL}/logo.jpeg`
+          'logo': `${BASE_URL}/logo.png`
         }
       }
     ];
@@ -163,7 +163,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
           'url': BASE_URL,
           'logo': {
             '@type': 'ImageObject',
-            'url': `${BASE_URL}/logo.jpeg`
+            'url': `${BASE_URL}/logo.png`
           }
         },
         'mainEntityOfPage': {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ConsultationInquiry, PartnershipModelId } from '../types';
-import { Lock, ShieldCheck, CheckCircle2, Send, Clock, FileText, Loader2, Phone, Mail } from 'lucide-react';
+import { Lock, ShieldCheck, CheckCircle2, Send, Clock, FileText, Loader2, Phone, Mail, ArrowLeft } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
 
 interface InquiryProps {
@@ -210,9 +210,11 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                     onClick={() => {
                       window.location.hash = 'top';
                     }}
-                    className="px-5 py-2.5 text-xs uppercase text-[#6b6e76] hover:text-[#17181c] bg-white border border-[#d8cebe] rounded-sm transition-colors font-bold text-center min-h-[40px] cursor-pointer"
+                    aria-label="Go back"
+                    title="Go back"
+                    className="p-2.5 rounded-full text-[#17181c] hover:text-[#9d7b38] hover:bg-[#ede5d6] border border-[#d8cebe] transition-colors flex items-center justify-center min-w-[42px] min-h-[42px] cursor-pointer"
                   >
-                    ← Return to Overview
+                    <ArrowLeft className="w-5 h-5 text-[#9d7b38]" />
                   </button>
                 </div>
               </div>
@@ -378,9 +380,11 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                       window.location.hash = 'top';
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="text-[#6b6e76] hover:text-[#17181c] transition-colors py-1 cursor-pointer"
+                    aria-label="Go back"
+                    title="Go back"
+                    className="p-2 -ml-2 rounded-full text-[#17181c] hover:text-[#9d7b38] hover:bg-[#ede5d6] transition-colors cursor-pointer flex items-center justify-center min-w-[36px] min-h-[36px]"
                   >
-                    ← Return to Overview
+                    <ArrowLeft className="w-5 h-5 text-[#9d7b38]" />
                   </button>
 
                   <button

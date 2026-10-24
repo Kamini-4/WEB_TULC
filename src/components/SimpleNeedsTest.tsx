@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { 
   ArrowRight, 
+  ArrowLeft,
   RotateCcw, 
   AlertTriangle, 
   TrendingDown, 
@@ -448,16 +449,20 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                         setCurrentStep(currentStep - 1);
                         setAnswers(answers.slice(0, -1));
                       }}
-                      className="text-xs font-mono text-[#6e727c] hover:text-[#17181c] transition-colors flex items-center gap-1.5 cursor-pointer py-1 font-bold"
+                      aria-label="Go back"
+                      title="Go back"
+                      className="p-2 -ml-2 rounded-full text-[#17181c] hover:text-[#9d7b38] hover:bg-[#ede5d6] transition-colors flex items-center justify-center cursor-pointer min-w-[36px] min-h-[36px]"
                     >
-                      <span>← Return to previous domain</span>
+                      <ArrowLeft className="w-5 h-5 text-[#9d7b38]" />
                     </button>
                   ) : (
                     <button
                       onClick={() => setIsOpen(false)}
-                      className="text-xs font-mono text-[#6e727c] hover:text-[#17181c] transition-colors flex items-center gap-1.5 cursor-pointer py-1 font-bold"
+                      aria-label="Close"
+                      title="Close"
+                      className="p-2 -ml-2 rounded-full text-[#17181c] hover:text-[#9d7b38] hover:bg-[#ede5d6] transition-colors flex items-center justify-center cursor-pointer min-w-[36px] min-h-[36px]"
                     >
-                      <span>← Close / Return to overview</span>
+                      <ArrowLeft className="w-5 h-5 text-[#9d7b38]" />
                     </button>
                   )}
 

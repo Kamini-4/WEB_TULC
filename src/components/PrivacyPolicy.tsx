@@ -15,10 +15,11 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBackToHome, onNa
         <div className="flex items-center justify-between gap-4 mb-6 pb-4 border-b border-[#e5decfe0]">
           <button
             onClick={onBackToHome}
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#6e727c] hover:text-[#17181c] transition-colors py-1 cursor-pointer"
+            aria-label="Go back"
+            title="Go back"
+            className="p-2 -ml-2 rounded-full text-[#17181c] hover:text-[#9d7b38] hover:bg-[#ede5d6] transition-colors cursor-pointer flex items-center justify-center min-w-[36px] min-h-[36px]"
           >
-            <ArrowLeft className="w-4 h-4 text-[#9d7b38]" />
-            <span>Return to Executive Overview</span>
+            <ArrowLeft className="w-5 h-5 text-[#9d7b38]" />
           </button>
           <div className="flex items-center gap-2 text-[11px] font-mono text-[#9d7b38] uppercase font-bold">
             <Lock className="w-3.5 h-3.5" />

@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { BLOG_POSTS, BlogPost } from '../data/blogData';
+import { SEOHead } from './SEOHead';
 import { 
   BookOpen, 
   Sparkles, 
@@ -9,6 +10,7 @@ import {
   ChevronRight, 
   HelpCircle, 
   ArrowRight, 
+  ArrowLeft,
   AlertTriangle,
   FileText,
   Bookmark,
@@ -16,7 +18,8 @@ import {
   Layers,
   ShieldCheck,
   Zap,
-  Target
+  Target,
+  MessageSquare
 } from 'lucide-react';
 
 interface BlogSectionProps {
@@ -159,11 +162,23 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                     </div>
 
                     <div className="mt-3.5 pt-2.5 border-t border-[#f0eade] flex items-center justify-between text-xs">
-                      <span className={`font-mono text-[11px] font-bold ${
-                        isSelected ? 'text-[#9d7b38]' : 'text-[#6e727c]'
-                      }`}>
-                        {isSelected ? '✦ Currently Reading' : 'Explore 3-Step Protocol →'}
-                      </span>
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span className={`font-mono text-[10.5px] font-bold ${
+                          isSelected ? 'text-[#9d7b38]' : 'text-[#6e727c]'
+                        }`}>
+                          {isSelected ? '✦ Reading' : 'Explore 3-Step Protocol →'}
+                        </span>
+                        {post.theBigQuestion && (
+                          <span className="text-[9px] font-mono text-[#8c6708] bg-[#faf6ee] px-1 py-0.5 rounded-2xs border border-[#ebdcc0] font-semibold">
+                            Q&A
+                          </span>
+                        )}
+                        {post.bookExcerpt && (
+                          <span className="text-[9px] font-mono text-[#17181c] bg-[#f0eade] px-1 py-0.5 rounded-2xs font-semibold">
+                            Book
+                          </span>
+                        )}
+                      </div>
                       <ChevronRight className={`w-3.5 h-3.5 transition-transform ${
                         isSelected ? 'rotate-90 text-[#9d7b38]' : 'text-[#a6a9b2]'
                       }`} />
@@ -230,6 +245,23 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               </button>
             </div>
 
+            {/* Dynamic SEOHead for Article / FAQ Schema & AEO */}
+            <SEOHead
+              title={`${selectedPost.title} | TULC Intelligence`}
+              description={selectedPost.executiveSummary}
+              canonicalPath={`/library/${selectedPost.slug}`}
+              keywords={selectedPost.keywords.join(', ')}
+              type="article"
+              articleData={{
+                datePublished: '2026-08-01T08:00:00+00:00',
+                dateModified: '2026-10-24T00:00:00+00:00',
+                authorName: 'Suchita Sancheti',
+                category: selectedPost.category,
+                wordCount: 1600
+              }}
+              faqData={selectedPost.faqItems?.map(f => ({ question: f.question, answer: f.answer }))}
+            />
+
             {/* Title & Subtitle */}
             <div className="space-y-3">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17181c] leading-[1.2] tracking-tight font-serif">
@@ -239,6 +271,104 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                 {selectedPost.subtitle}
               </p>
             </div>
+
+            {/* DIRECT EXECUTIVE ANSWER (AEO & GEO KEY TAKEAWAY) */}
+            {selectedPost.aeoDirectAnswer && (
+              <div className="article-direct-answer p-4 sm:p-5 rounded-md bg-[#faf6ee] border-2 border-[#9d7b38]/60 shadow-xs space-y-2">
+                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#9d7b38] font-bold">
+                  <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
+                  <span>Direct Executive Answer (AEO / GEO Key Takeaway)</span>
+                </div>
+                <p className="text-sm font-serif font-bold text-[#17181c] leading-relaxed">
+                  {selectedPost.aeoDirectAnswer.coreDefinition}
+                </p>
+                <div className="text-xs font-serif text-[#555861] leading-relaxed pt-2 border-t border-[#ebdcc0] flex items-start gap-2">
+                  <span className="font-mono uppercase text-[10px] text-[#8c6708] font-bold shrink-0 mt-0.5">ACTIONABLE PROTOCOL:</span>
+                  <span>{selectedPost.aeoDirectAnswer.executiveActionSnippet}</span>
+                </div>
+              </div>
+            )}
+
+            {/* CONVERSATIONAL 1-ON-1 LETTER FROM SUCHITA SANCHETI (Simon Sinek & Brené Brown Style) */}
+            {selectedPost.conversationalLetter && (
+              <div className="p-5 sm:p-7 rounded-lg bg-gradient-to-br from-[#ffffff] via-[#fdfbf7] to-[#faf6ee] border-2 border-[#e5decfe0] shadow-sm space-y-4 relative overflow-hidden">
+                <div className="flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b border-[#ebdcc0]">
+                  <div className="flex items-center gap-3">
+                    <img 
+                      src="/assets/suchita-sancheti.jpg" 
+                      alt="Suchita Sancheti" 
+                      className="w-11 h-11 rounded-full object-cover object-top border-2 border-[#d4af37] shadow-xs shrink-0" 
+                    />
+                    <div>
+                      <div className="text-xs font-bold text-[#17181c] font-serif">
+                        Suchita Sancheti
+                      </div>
+                      <div className="text-[10px] font-mono text-[#8c6708] uppercase tracking-wider">
+                        Founder & Enterprise Architect
+                      </div>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#9d7b38] font-bold px-2.5 py-1 bg-[#faf6ee] rounded-xs border border-[#ebdcc0] flex items-center gap-1.5">
+                    <MessageSquare className="w-3 h-3 text-[#9d7b38]" />
+                    <span>A 1-on-1 Note for You</span>
+                  </span>
+                </div>
+
+                <div className="space-y-3 font-serif">
+                  <p className="text-sm sm:text-base font-bold text-[#17181c] italic">
+                    "{selectedPost.conversationalLetter.salutation}"
+                  </p>
+                  <p className="text-xs sm:text-sm text-[#44464d] leading-relaxed">
+                    {selectedPost.conversationalLetter.openingScene}
+                  </p>
+                  <div className="p-4 rounded-md bg-[#faf3e8]/90 border-l-4 border-[#9d7b38] border-y border-r border-[#ebdcc0]/60 text-xs sm:text-[13.5px] text-[#2c2d33] leading-relaxed italic">
+                    {selectedPost.conversationalLetter.heartfeltValidation}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* THE BIG QUESTION KEEPING YOU AWAKE & DEFINITIVE ANSWER */}
+            {selectedPost.theBigQuestion && (
+              <div className="p-5 sm:p-6 rounded-lg bg-[#141416] text-white border-2 border-[#d4af37]/70 shadow-lg space-y-3">
+                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#d4af37] font-bold">
+                  <HelpCircle className="w-4 h-4 text-[#d4af37]" />
+                  <span>The Big Question Answered</span>
+                </div>
+                <h3 className="text-base sm:text-lg lg:text-xl font-serif font-bold text-white leading-snug">
+                  "{selectedPost.theBigQuestion.question}"
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-200 font-serif leading-relaxed pt-2.5 border-t border-[#2d313b]">
+                  {selectedPost.theBigQuestion.answer}
+                </p>
+                <div className="pt-2 text-xs font-mono text-[#d4af37] flex items-start gap-2 bg-[#1f222a] p-2.5 rounded-xs border border-[#343844]">
+                  <span className="font-bold text-[10px] uppercase text-stone-300 shrink-0">The Strategic Shift:</span>
+                  <span className="text-[#e2c168]">{selectedPost.theBigQuestion.actionableShift}</span>
+                </div>
+              </div>
+            )}
+
+            {/* FROM SUCHITA'S BOOK: SOVEREIGN ARCHITECTURE */}
+            {selectedPost.bookExcerpt && (
+              <div className="p-5 rounded-lg bg-[#faf6ee] border border-[#d8cebe] border-l-4 border-[#9d7b38] shadow-xs space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#9d7b38] font-bold">
+                    <BookOpen className="w-4 h-4 text-[#9d7b38]" />
+                    <span>From Suchita's Book: {selectedPost.bookExcerpt.chapter}</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-[#8c6708] italic font-semibold">
+                    Sovereign Architecture (The Book)
+                  </span>
+                </div>
+                <blockquote className="text-xs sm:text-sm font-serif italic text-[#17181c] leading-relaxed pl-3 border-l-2 border-[#d4af37]/60">
+                  "{selectedPost.bookExcerpt.passage}"
+                </blockquote>
+                <div className="pt-2 text-xs font-mono text-[#685327] flex items-start gap-2 border-t border-[#ebdcc0]">
+                  <span className="font-bold uppercase text-[9.5px] shrink-0 text-[#9d7b38]">Introspective Reflection:</span>
+                  <span className="italic text-[#4e5159]">{selectedPost.bookExcerpt.reflectionPrompt}</span>
+                </div>
+              </div>
+            )}
 
             {/* STRAIGHT OUT CALL THE PROBLEM: THE BRUTAL BOARDROOM REALITY */}
             <div className="p-5 sm:p-6 rounded-md bg-[#faf3e8] border-l-4 border-amber-600 border-y border-r border-[#ebd7b5] text-xs sm:text-sm space-y-2 shadow-2xs">
@@ -462,25 +592,59 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               </p>
             </div>
 
-            {/* TULC Solution Callout & Action */}
-            <div className="p-6 rounded-md bg-[#17181c] text-white border border-[#d4af37]/60 text-center space-y-3 shadow-md">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-[#d4af37] font-bold">
-                The Unbounded Leadership Protocol
-              </span>
-              <h4 className="text-xl sm:text-2xl font-bold text-white tracking-tight font-serif">
-                Stop Managing Fires. Command Your Operating Architecture.
-              </h4>
-              <p className="text-xs sm:text-sm text-stone-300 max-w-xl mx-auto leading-relaxed">
-                {selectedPost.tulcSolutionCallout}
-              </p>
+            {/* EXECUTIVE INQUIRIES & SEARCH ANSWERS (AEO & GEO FAQ) */}
+            {selectedPost.faqItems && selectedPost.faqItems.length > 0 && (
+              <div className="p-5 sm:p-6 rounded-lg bg-white border border-[#ded6c5] shadow-xs space-y-4">
+                <div className="flex items-center justify-between pb-2.5 border-b border-[#ebdcc0]">
+                  <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#9d7b38] font-bold">
+                    <HelpCircle className="w-4 h-4 text-[#9d7b38]" />
+                    <span>Executive Inquiries & Search Answers (AEO / GEO FAQ)</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-[#8c6708] uppercase font-semibold">
+                    Direct Answer Engine Node
+                  </span>
+                </div>
+                <div className="space-y-3">
+                  {selectedPost.faqItems.map((item, qIdx) => (
+                    <div key={qIdx} className="p-3.5 rounded bg-[#faf8f5] border border-[#ebdcc0] space-y-1.5">
+                      <h4 className="text-xs sm:text-sm font-serif font-bold text-[#17181c]">
+                        {item.question}
+                      </h4>
+                      <p className="text-xs text-[#4e5159] font-serif leading-relaxed">
+                        {item.answer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
-              <div className="pt-2">
+            {/* THE SOVEREIGN COVENANT & WELCOMING INVITATION (Convey & Convince with Absolute Faith in Services) */}
+            <div className="p-6 sm:p-8 rounded-lg bg-[#141416] text-white border-2 border-[#d4af37] text-center space-y-4 shadow-xl relative overflow-hidden">
+              <div className="inline-block px-3 py-1 bg-[#d4af37]/15 border border-[#d4af37]/40 text-[#d4af37] text-[10px] font-mono uppercase tracking-widest font-bold rounded-xs">
+                The Unbounded Leadership Covenant
+              </div>
+              <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight font-serif max-w-xl mx-auto">
+                You Do Not Have to Carry This Alone. We Re-Architect Your Operating System in 90 Days.
+              </h4>
+              <p className="text-xs sm:text-sm text-stone-300 max-w-2xl mx-auto leading-relaxed font-serif">
+                We have profound faith in this work because we witness the transformation firsthand: founders regaining 15+ hours of strategic clarity every week, leadership teams executing with autonomous conviction, and enterprises compounding value without key-person operational drag. Whenever you are ready to explore what sovereign operating architecture looks like for your boardroom, we welcome a private, confidential dialogue.
+              </p>
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <button
-                  onClick={() => onOpenConsultation(`Inquiry following Essay: "${selectedPost.title}"`)}
-                  className="px-6 py-3 bg-gradient-to-r from-[#d4af37] to-[#b8860b] hover:from-[#e5be48] hover:to-[#c99518] text-[#17181c] font-bold text-xs uppercase tracking-wider rounded-sm transition-all shadow-md inline-flex items-center gap-2 cursor-pointer active:scale-98"
+                  onClick={() => onOpenConsultation(`Dialogue initiated via Dispatch: "${selectedPost.title}"`)}
+                  className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b8860b] hover:from-[#e5be48] hover:to-[#c99518] text-[#17181c] font-bold text-xs uppercase tracking-wider rounded-sm transition-all shadow-md inline-flex items-center justify-center gap-2 cursor-pointer active:scale-98"
                 >
-                  <span>{selectedPost.callToAction.primaryText}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Initiate In-Camera Executive Dialogue</span>
+                  <ArrowRight className="w-4 h-4 text-[#17181c]" />
+                </button>
+                <button
+                  onClick={() => {
+                    window.location.hash = 'test';
+                  }}
+                  className="w-full sm:w-auto px-5 py-3.5 bg-[#22242c] hover:bg-[#2c2f38] text-[#e5decfe0] hover:text-white border border-[#444754] text-xs font-mono uppercase tracking-wider rounded-sm transition-all inline-flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span>Take Free 60-Sec Audit (Self-Diagnostic)</span>
                 </button>
               </div>
             </div>
@@ -491,9 +655,11 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                 onClick={() => {
                   window.location.hash = 'top';
                 }}
-                className="text-[#6e727c] hover:text-[#17181c] transition-colors py-1 cursor-pointer font-bold flex items-center gap-1.5"
+                aria-label="Go back"
+                title="Go back"
+                className="p-2 -ml-2 rounded-full text-[#17181c] hover:text-[#9d7b38] hover:bg-[#ede5d6] transition-colors cursor-pointer flex items-center justify-center min-w-[36px] min-h-[36px]"
               >
-                <span>← Return to Home Overview</span>
+                <ArrowLeft className="w-5 h-5 text-[#9d7b38]" />
               </button>
 
               <button
