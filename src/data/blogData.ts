@@ -1,5 +1,6 @@
 import { 
   BLOG_INSIGHTS, 
+  DISPATCH_IMAGES,
   ConversationalLetter, 
   BigQuestionAnswer, 
   BookExcerpt, 
@@ -55,6 +56,7 @@ export interface BlogPost {
   readTime: string;
   category: string;
   keywords: string[];
+  imageUrl?: string;
   executiveSummary: string;
   threeStepSolution: ThreeStepSolution;
   diagram: ArchitectureDiagram;
@@ -99,7 +101,7 @@ const RAW_BLOG_POSTS: BlogPost[] = [
     readTime: '6 min read',
     category: 'Sovereign Systems Architecture',
     keywords: ['Founder Decoupling', 'Valuation Multiple', 'Executive Bottleneck', 'Decision Rights', 'TULC Architecture'],
-    executiveSummary: 'This dispatch breaks down the mathematical penalty of founder visibility on private equity multiples and provides the precise 3-step sovereign protocol to convert magnetic executive intuition into an autonomous corporate substrate.',
+    executiveSummary: 'This dispatch breaks down the mathematical penalty of founder visibility on private equity multiples and provides the sovereign execution framework to convert magnetic executive intuition into an autonomous corporate substrate.',
     threeStepSolution: {
       step1: {
         title: 'Step 1: The Authority Audit & Triage Matrix',
@@ -892,7 +894,7 @@ const RAW_BLOG_POSTS: BlogPost[] = [
     readTime: '7 min read',
     category: 'Leadership Architecture & Talent',
     keywords: ['Talent Retention', 'Executive Onboarding', 'Authority Covenants', 'High Performance', 'Leadership Drag'],
-    executiveSummary: 'An investigation into why elite executive hires stall in founder-led firms, and the 3-step sovereign onboarding protocol that unlocks full potential in 30 days.',
+    executiveSummary: 'An investigation into why elite executive hires stall in founder-led firms, and the sovereign onboarding architecture that unlocks full potential in 30 days.',
     threeStepSolution: {
       step1: {
         title: 'Step 1: Deliver the Sovereign Territory Covenant',
@@ -1503,9 +1505,11 @@ const RAW_BLOG_POSTS: BlogPost[] = [
 
 export const BLOG_POSTS: BlogPost[] = RAW_BLOG_POSTS.map(post => {
   const insight = BLOG_INSIGHTS[post.id];
-  if (!insight) return post;
+  const image = DISPATCH_IMAGES[post.id] || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80';
+  if (!insight) return { ...post, imageUrl: image };
   return {
     ...post,
+    imageUrl: image,
     conversationalLetter: insight.conversationalLetter,
     theBigQuestion: insight.theBigQuestion,
     bookExcerpt: insight.bookExcerpt,

@@ -82,7 +82,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               <span className="text-[#9d7b38]">Sovereign Founders & Enterprise CXOs</span>
             </h2>
             <p className="text-sm text-[#4e5159] leading-relaxed">
-              Straightforward problem diagnoses, concrete 3-step sovereign remedies, and battle-tested governance architecture for leaders commanding $10M–$100M+ enterprises.
+              Straightforward problem diagnoses, concrete sovereign remedies, and battle-tested governance architecture for leaders commanding $10M–$100M+ enterprises.
             </p>
           </div>
 
@@ -94,7 +94,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               placeholder="Search 18 dispatches (e.g. EBITDA, AI, Vacation)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 bg-white border border-[#d8cebe] rounded-sm text-xs text-[#17181c] placeholder:text-[#888] focus:outline-none focus:border-[#9d7b38] shadow-2xs"
+              className="w-full pl-9 pr-3 py-2 bg-white border border-[#d8cebe] rounded-none text-xs text-[#17181c] placeholder:text-[#888] focus:outline-none focus:border-[#9d7b38] shadow-2xs"
             />
           </div>
         </div>
@@ -105,7 +105,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-3 py-1.5 rounded-sm text-xs font-mono transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-none text-xs font-mono transition-all cursor-pointer ${
                 activeCategory === cat
                   ? 'bg-[#17181c] text-[#d4af37] font-bold shadow-xs'
                   : 'bg-[#ede5d6] text-[#4e5159] hover:bg-[#e4dcce] hover:text-[#17181c]'
@@ -119,15 +119,15 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
         {/* Main Split Layout: Article List on Left, Deep Reader on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           
-          {/* Left Column: Essay Selection Cards (5 Cols) */}
+          {/* Left Column: Essay Selection Cards (5 Cols) - Squared & Vivid */}
           <div className="lg:col-span-5 space-y-3.5 max-h-[1400px] overflow-y-auto pr-1 custom-scrollbar">
             <div className="flex items-center justify-between text-xs font-mono uppercase tracking-wider text-[#6e727c] px-1 pb-1">
               <span>Dispatches ({filteredPosts.length})</span>
-              <span className="text-[#9d7b38]">3-Step Solutions Included</span>
+              <span className="text-[#9d7b38] font-bold">Actionable Frameworks</span>
             </div>
 
             {filteredPosts.length === 0 ? (
-              <div className="p-8 text-center bg-white border border-[#ded6c5] rounded-md text-xs text-[#6e727c]">
+              <div className="p-8 text-center bg-white border border-[#ded6c5] rounded-none text-xs text-[#6e727c]">
                 No dispatches match your search query. Try searching for "EBITDA", "Consensus", or "Delegation".
               </div>
             ) : (
@@ -137,28 +137,41 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                   <div
                     key={post.id}
                     onClick={() => handleSelectPost(post)}
-                    className={`p-4 sm:p-5 rounded-md border transition-all duration-200 cursor-pointer text-left flex flex-col justify-between ${
+                    className={`p-4 sm:p-5 rounded-none border transition-all duration-200 cursor-pointer text-left flex flex-col justify-between ${
                       isSelected
                         ? 'bg-[#ffffff] border-2 border-[#17181c] shadow-md ring-1 ring-[#17181c]/10'
                         : 'bg-[#faf8f5] border-[#ded6c5] hover:border-[#9d7b38] hover:bg-[#ffffff] shadow-2xs'
                     }`}
                   >
-                    <div>
-                      <div className="flex items-center justify-between text-[11px] font-mono text-[#6e727c] mb-2">
-                        <span className="text-[#9d7b38] font-semibold">{post.category}</span>
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-3 h-3 text-[#9d7b38]" />
-                          {post.readTime}
-                        </span>
+                    <div className="flex gap-3 sm:gap-4 items-start">
+                      {post.imageUrl && (
+                        <div className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 overflow-hidden rounded-none border border-[#d8cebe] bg-[#ede5d6]">
+                          <img 
+                            src={post.imageUrl} 
+                            alt={post.title} 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                        </div>
+                      )}
+
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between text-[11px] font-mono text-[#6e727c] mb-1.5">
+                          <span className="text-[#9d7b38] font-semibold truncate">{post.category}</span>
+                          <span className="flex items-center gap-1 shrink-0">
+                            <Clock className="w-3 h-3 text-[#9d7b38]" />
+                            {post.readTime}
+                          </span>
+                        </div>
+
+                        <h3 className="text-sm sm:text-base font-bold text-[#17181c] mb-1.5 leading-snug font-serif line-clamp-2">
+                          {post.title}
+                        </h3>
+
+                        <p className="text-xs text-[#57534e] line-clamp-2 leading-relaxed italic">
+                          "{post.hook}"
+                        </p>
                       </div>
-
-                      <h3 className="text-sm sm:text-base font-bold text-[#17181c] mb-2 leading-snug font-serif">
-                        {post.title}
-                      </h3>
-
-                      <p className="text-xs text-[#57534e] line-clamp-2 leading-relaxed italic">
-                        "{post.hook}"
-                      </p>
                     </div>
 
                     <div className="mt-3.5 pt-2.5 border-t border-[#f0eade] flex items-center justify-between text-xs">
@@ -166,15 +179,15 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                         <span className={`font-mono text-[10.5px] font-bold ${
                           isSelected ? 'text-[#9d7b38]' : 'text-[#6e727c]'
                         }`}>
-                          {isSelected ? '✦ Reading' : 'Explore 3-Step Protocol →'}
+                          {isSelected ? '✦ Reading Now' : 'Read Full Dispatch →'}
                         </span>
                         {post.theBigQuestion && (
-                          <span className="text-[9px] font-mono text-[#8c6708] bg-[#faf6ee] px-1 py-0.5 rounded-2xs border border-[#ebdcc0] font-semibold">
+                          <span className="text-[9px] font-mono text-[#8c6708] bg-[#faf6ee] px-1 py-0.5 rounded-none border border-[#ebdcc0] font-semibold">
                             Q&A
                           </span>
                         )}
                         {post.bookExcerpt && (
-                          <span className="text-[9px] font-mono text-[#17181c] bg-[#f0eade] px-1 py-0.5 rounded-2xs font-semibold">
+                          <span className="text-[9px] font-mono text-[#17181c] bg-[#f0eade] px-1 py-0.5 rounded-none font-semibold">
                             Book
                           </span>
                         )}
@@ -207,16 +220,16 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
             </div>
           </div>
 
-          {/* Right Column: Full Essay Reader View (7 Cols) */}
+          {/* Right Column: Full Essay Reader View (7 Cols) — Article First, Squared & Vivid */}
           <div 
             id="blog-reader-view"
-            className="lg:col-span-7 bg-[#ffffff] border border-[#d8cebe] rounded-lg p-5 sm:p-8 lg:p-10 shadow-md space-y-8 scroll-mt-24"
+            className="lg:col-span-7 bg-[#ffffff] border border-[#d8cebe] rounded-none p-5 sm:p-8 lg:p-10 shadow-md space-y-8 scroll-mt-24"
           >
             
             {/* Article Top Bar */}
             <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-[#f0eade]">
               <div className="flex items-center gap-2.5">
-                <span className="px-2.5 py-1 rounded-xs bg-[#f0eade] text-[#17181c] text-xs font-mono font-bold">
+                <span className="px-2.5 py-1 rounded-none bg-[#f0eade] text-[#17181c] text-xs font-mono font-bold">
                   {selectedPost.category}
                 </span>
                 <span className="text-xs font-mono text-[#6e727c] flex items-center gap-1">
@@ -228,7 +241,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               {/* LinkedIn Copy Button */}
               <button
                 onClick={() => handleCopyLinkedIn(selectedPost.id, selectedPost.linkedInPostSummary)}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xs bg-[#17181c] hover:bg-[#282a30] text-[#d4af37] text-xs font-mono transition-all cursor-pointer shadow-2xs"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-[#17181c] hover:bg-[#282a30] text-[#d4af37] text-xs font-mono transition-all cursor-pointer shadow-2xs"
                 title="Copy formatted post ready for LinkedIn"
               >
                 {copiedLinkedInId === selectedPost.id ? (
@@ -262,6 +275,27 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               faqData={selectedPost.faqItems?.map(f => ({ question: f.question, answer: f.answer }))}
             />
 
+            {/* VIVID TOPIC IMAGE (Topic Photography) */}
+            {selectedPost.imageUrl && (
+              <div className="relative w-full aspect-16/9 sm:aspect-21/9 overflow-hidden rounded-none border border-[#d8cebe] shadow-xs bg-[#ede5d6]">
+                <img 
+                  src={selectedPost.imageUrl} 
+                  alt={selectedPost.title} 
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-3 sm:left-4 right-3 sm:right-4 flex items-center justify-between text-white text-[11px] font-mono">
+                  <span className="bg-[#17181c]/90 px-2.5 py-1 border border-[#d4af37]/70 font-bold text-[#d4af37]">
+                    {selectedPost.category} · Sovereign Leadership
+                  </span>
+                  <span className="text-stone-300 hidden sm:inline">
+                    Authored by Suchita Sancheti
+                  </span>
+                </div>
+              </div>
+            )}
+
             {/* Title & Subtitle */}
             <div className="space-y-3">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17181c] leading-[1.2] tracking-tight font-serif">
@@ -274,7 +308,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
 
             {/* DIRECT EXECUTIVE ANSWER (AEO & GEO KEY TAKEAWAY) */}
             {selectedPost.aeoDirectAnswer && (
-              <div className="article-direct-answer p-4 sm:p-5 rounded-md bg-[#faf6ee] border-2 border-[#9d7b38]/60 shadow-xs space-y-2">
+              <div className="article-direct-answer p-4 sm:p-5 rounded-none bg-[#faf6ee] border-2 border-[#9d7b38]/60 shadow-xs space-y-2">
                 <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#9d7b38] font-bold">
                   <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
                   <span>Direct Executive Answer (AEO / GEO Key Takeaway)</span>
@@ -289,9 +323,9 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               </div>
             )}
 
-            {/* CONVERSATIONAL 1-ON-1 LETTER FROM SUCHITA SANCHETI (Simon Sinek & Brené Brown Style) */}
+            {/* CONVERSATIONAL 1-ON-1 LETTER FROM SUCHITA SANCHETI */}
             {selectedPost.conversationalLetter && (
-              <div className="p-5 sm:p-7 rounded-lg bg-gradient-to-br from-[#ffffff] via-[#fdfbf7] to-[#faf6ee] border-2 border-[#e5decfe0] shadow-sm space-y-4 relative overflow-hidden">
+              <div className="p-5 sm:p-7 rounded-none bg-gradient-to-br from-[#ffffff] via-[#fdfbf7] to-[#faf6ee] border-2 border-[#e5decfe0] shadow-sm space-y-4 relative overflow-hidden">
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b border-[#ebdcc0]">
                   <div className="flex items-center gap-3">
                     <img 
@@ -308,7 +342,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                       </div>
                     </div>
                   </div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#9d7b38] font-bold px-2.5 py-1 bg-[#faf6ee] rounded-xs border border-[#ebdcc0] flex items-center gap-1.5">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#9d7b38] font-bold px-2.5 py-1 bg-[#faf6ee] rounded-none border border-[#ebdcc0] flex items-center gap-1.5">
                     <MessageSquare className="w-3 h-3 text-[#9d7b38]" />
                     <span>A 1-on-1 Note for You</span>
                   </span>
@@ -321,57 +355,89 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                   <p className="text-xs sm:text-sm text-[#44464d] leading-relaxed">
                     {selectedPost.conversationalLetter.openingScene}
                   </p>
-                  <div className="p-4 rounded-md bg-[#faf3e8]/90 border-l-4 border-[#9d7b38] border-y border-r border-[#ebdcc0]/60 text-xs sm:text-[13.5px] text-[#2c2d33] leading-relaxed italic">
+                  <div className="p-4 rounded-none bg-[#faf3e8]/90 border-l-4 border-[#9d7b38] border-y border-r border-[#ebdcc0]/60 text-xs sm:text-[13.5px] text-[#2c2d33] leading-relaxed italic">
                     {selectedPost.conversationalLetter.heartfeltValidation}
                   </div>
                 </div>
               </div>
             )}
 
-            {/* THE BIG QUESTION KEEPING YOU AWAKE & DEFINITIVE ANSWER */}
-            {selectedPost.theBigQuestion && (
-              <div className="p-5 sm:p-6 rounded-lg bg-[#141416] text-white border-2 border-[#d4af37]/70 shadow-lg space-y-3">
-                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#d4af37] font-bold">
-                  <HelpCircle className="w-4 h-4 text-[#d4af37]" />
-                  <span>The Big Question Answered</span>
-                </div>
-                <h3 className="text-base sm:text-lg lg:text-xl font-serif font-bold text-white leading-snug">
-                  "{selectedPost.theBigQuestion.question}"
-                </h3>
-                <p className="text-xs sm:text-sm text-stone-200 font-serif leading-relaxed pt-2.5 border-t border-[#2d313b]">
-                  {selectedPost.theBigQuestion.answer}
-                </p>
-                <div className="pt-2 text-xs font-mono text-[#d4af37] flex items-start gap-2 bg-[#1f222a] p-2.5 rounded-xs border border-[#343844]">
-                  <span className="font-bold text-[10px] uppercase text-stone-300 shrink-0">The Strategic Shift:</span>
-                  <span className="text-[#e2c168]">{selectedPost.theBigQuestion.actionableShift}</span>
-                </div>
-              </div>
-            )}
+            {/* Controversial Opening */}
+            <div className="p-5 rounded-none bg-[#faf8f5] border-l-4 border-[#9d7b38] text-[#17181c] text-sm sm:text-base leading-relaxed font-serif italic">
+              "{selectedPost.controversialOpening}"
+            </div>
 
-            {/* FROM SUCHITA'S BOOK: SOVEREIGN ARCHITECTURE */}
-            {selectedPost.bookExcerpt && (
-              <div className="p-5 rounded-lg bg-[#faf6ee] border border-[#d8cebe] border-l-4 border-[#9d7b38] shadow-xs space-y-3">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#9d7b38] font-bold">
-                    <BookOpen className="w-4 h-4 text-[#9d7b38]" />
-                    <span>From Suchita's Book: {selectedPost.bookExcerpt.chapter}</span>
+            {/* FIRST COMES THE ARTICLE: Full Body Sections & Case Analyses */}
+            <div className="space-y-8 sm:space-y-10 border-b border-[#f0eade] pb-8">
+              {selectedPost.bodySections.map((section, idx) => (
+                <div key={idx} className="space-y-3.5">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#17181c] tracking-tight font-serif">
+                    {section.heading}
+                  </h2>
+                  {section.subheading && (
+                    <h3 className="text-xs sm:text-sm font-mono text-[#9d7b38] font-bold">
+                      {section.subheading}
+                    </h3>
+                  )}
+
+                  <div className="space-y-3 text-sm sm:text-base text-[#4e5159] leading-relaxed">
+                    {section.content.map((p, pIdx) => (
+                      <p 
+                        key={pIdx} 
+                        dangerouslySetInnerHTML={{ 
+                          __html: p
+                            .replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#17181c] font-bold">$1</strong>')
+                            .replace(/\*(.*?)\*/g, '<em class="text-[#8c6708] italic font-semibold">$1</em>') 
+                        }} 
+                      />
+                    ))}
                   </div>
-                  <span className="text-[10px] font-mono text-[#8c6708] italic font-semibold">
-                    Sovereign Architecture (The Book)
-                  </span>
-                </div>
-                <blockquote className="text-xs sm:text-sm font-serif italic text-[#17181c] leading-relaxed pl-3 border-l-2 border-[#d4af37]/60">
-                  "{selectedPost.bookExcerpt.passage}"
-                </blockquote>
-                <div className="pt-2 text-xs font-mono text-[#685327] flex items-start gap-2 border-t border-[#ebdcc0]">
-                  <span className="font-bold uppercase text-[9.5px] shrink-0 text-[#9d7b38]">Introspective Reflection:</span>
-                  <span className="italic text-[#4e5159]">{selectedPost.bookExcerpt.reflectionPrompt}</span>
-                </div>
-              </div>
-            )}
 
-            {/* STRAIGHT OUT CALL THE PROBLEM: THE BRUTAL BOARDROOM REALITY */}
-            <div className="p-5 sm:p-6 rounded-md bg-[#faf3e8] border-l-4 border-amber-600 border-y border-r border-[#ebd7b5] text-xs sm:text-sm space-y-2 shadow-2xs">
+                  {/* Executive Framework Case Breakdown */}
+                  {section.executiveFramework && (
+                    <div className="mt-4 p-4 sm:p-5 rounded-none bg-[#17181c] text-white border border-[#3e4350] space-y-3 text-xs sm:text-sm font-serif shadow-sm">
+                      <div className="text-xs font-mono uppercase tracking-widest text-[#d4af37] font-bold flex items-center gap-1.5 pb-2 border-b border-[#2d313b]">
+                        <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
+                        <span>Executive In-Camera Case Analysis</span>
+                      </div>
+
+                      {/* Problem Story */}
+                      <div className="space-y-0.5">
+                        <span className="text-[11px] font-mono text-[#d4af37] uppercase font-bold tracking-wider">
+                          The Operational Tension:
+                        </span>
+                        <p className="text-stone-300 italic text-xs leading-relaxed">
+                          "{section.executiveFramework.problemStory}"
+                        </p>
+                      </div>
+
+                      {/* Compounding Friction */}
+                      <div className="pt-2 border-t border-[#2d313b] space-y-0.5">
+                        <span className="text-[11px] font-mono text-rose-400 uppercase font-bold tracking-wider">
+                          Compounding Toll on Enterprise Valuation:
+                        </span>
+                        <p className="text-stone-300 text-xs leading-relaxed">
+                          {section.executiveFramework.affects}
+                        </p>
+                      </div>
+
+                      {/* Sovereign Solution */}
+                      <div className="pt-2 border-t border-[#2d313b] space-y-0.5 bg-[#22252c] p-3 rounded-none border-l-2 border-[#d4af37]">
+                        <span className="text-[11px] font-mono text-emerald-400 uppercase font-bold tracking-wider">
+                          The Sovereign Remedy:
+                        </span>
+                        <p className="text-white font-semibold text-xs leading-relaxed">
+                          {section.executiveFramework.solution}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* UNVARNISHED PROBLEM: THE DIRECT BOARDROOM DIAGNOSIS */}
+            <div className="p-5 sm:p-6 rounded-none bg-[#faf3e8] border-l-4 border-amber-600 border-y border-r border-[#ebd7b5] text-xs sm:text-sm space-y-2 shadow-2xs">
               <div className="font-mono text-xs uppercase tracking-wider text-amber-900 font-bold flex items-center gap-2">
                 <AlertTriangle className="w-4 h-4 text-amber-700" />
                 <span>The Unvarnished Problem (Direct Boardroom Diagnosis)</span>
@@ -381,12 +447,12 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               </p>
             </div>
 
-            {/* CONCRETE 3-STEP SOVEREIGN SOLUTION */}
-            <div className="p-5 sm:p-6 rounded-md bg-[#141416] text-white border border-[#2b2d33] space-y-4 shadow-md">
+            {/* SQUARED SOVEREIGN EXECUTION STEPS */}
+            <div className="p-5 sm:p-6 rounded-none bg-[#141416] text-white border border-[#2b2d33] space-y-4 shadow-md">
               <div className="flex items-center justify-between border-b border-[#2d313b] pb-3">
                 <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#d4af37] font-bold">
                   <Target className="w-4 h-4 text-[#d4af37]" />
-                  <span>The 3-Step Sovereign Remedy</span>
+                  <span>Sovereign Execution Steps</span>
                 </div>
                 <span className="text-[10px] font-mono text-[#a6a9b2] uppercase">
                   Actionable Architecture
@@ -395,9 +461,9 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {/* Step 1 */}
-                <div className="p-3.5 rounded bg-[#1f2127] border border-[#343742] space-y-2">
+                <div className="p-3.5 rounded-none bg-[#1f2127] border border-[#343742] space-y-2">
                   <div className="flex items-center gap-1.5 text-[#d4af37] font-mono text-xs font-bold">
-                    <span className="w-5 h-5 rounded-full bg-[#d4af37]/20 border border-[#d4af37] flex items-center justify-center text-[10px]">1</span>
+                    <span className="w-5 h-5 rounded-none bg-[#d4af37]/20 border border-[#d4af37] flex items-center justify-center text-[10px]">1</span>
                     <span className="truncate">{selectedPost.threeStepSolution.step1.title}</span>
                   </div>
                   <p className="text-xs text-stone-300 leading-relaxed font-serif">
@@ -410,9 +476,9 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                 </div>
 
                 {/* Step 2 */}
-                <div className="p-3.5 rounded bg-[#1f2127] border border-[#343742] space-y-2">
+                <div className="p-3.5 rounded-none bg-[#1f2127] border border-[#343742] space-y-2">
                   <div className="flex items-center gap-1.5 text-[#d4af37] font-mono text-xs font-bold">
-                    <span className="w-5 h-5 rounded-full bg-[#d4af37]/20 border border-[#d4af37] flex items-center justify-center text-[10px]">2</span>
+                    <span className="w-5 h-5 rounded-none bg-[#d4af37]/20 border border-[#d4af37] flex items-center justify-center text-[10px]">2</span>
                     <span className="truncate">{selectedPost.threeStepSolution.step2.title}</span>
                   </div>
                   <p className="text-xs text-stone-300 leading-relaxed font-serif">
@@ -425,9 +491,9 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                 </div>
 
                 {/* Step 3 */}
-                <div className="p-3.5 rounded bg-[#1f2127] border border-[#343742] space-y-2">
+                <div className="p-3.5 rounded-none bg-[#1f2127] border border-[#343742] space-y-2">
                   <div className="flex items-center gap-1.5 text-[#d4af37] font-mono text-xs font-bold">
-                    <span className="w-5 h-5 rounded-full bg-[#d4af37]/20 border border-[#d4af37] flex items-center justify-center text-[10px]">3</span>
+                    <span className="w-5 h-5 rounded-none bg-[#d4af37]/20 border border-[#d4af37] flex items-center justify-center text-[10px]">3</span>
                     <span className="truncate">{selectedPost.threeStepSolution.step3.title}</span>
                   </div>
                   <p className="text-xs text-stone-300 leading-relaxed font-serif">
@@ -443,7 +509,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
 
             {/* ARCHITECTURE DIAGRAM & METRIC COMPARISON */}
             {selectedPost.diagram && (
-              <div className="p-5 sm:p-6 rounded-md bg-[#0f1115] text-stone-200 border border-[#2b2e38] space-y-4 shadow-md">
+              <div className="p-5 sm:p-6 rounded-none bg-[#0f1115] text-stone-200 border border-[#2b2e38] space-y-4 shadow-md">
                 <div className="flex items-center justify-between border-b border-[#252833] pb-2.5">
                   <span className="text-[11px] font-mono uppercase tracking-widest text-[#d4af37] font-bold flex items-center gap-1.5">
                     <Layers className="w-3.5 h-3.5" />
@@ -459,7 +525,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                 </div>
 
                 {/* Monospace ASCII Flow Blueprint */}
-                <div className="p-3 sm:p-4 rounded bg-[#07080a] border border-[#1e2029] overflow-x-auto text-[11px] font-mono text-[#d4af37] leading-relaxed whitespace-pre selection:bg-[#d4af37] selection:text-black">
+                <div className="p-3 sm:p-4 rounded-none bg-[#07080a] border border-[#1e2029] overflow-x-auto text-[11px] font-mono text-[#d4af37] leading-relaxed whitespace-pre selection:bg-[#d4af37] selection:text-black">
                   {selectedPost.diagram.asciiFlow.trim()}
                 </div>
 
@@ -492,82 +558,49 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               </div>
             )}
 
-            {/* Controversial Opening */}
-            <div className="p-5 rounded-md bg-[#faf8f5] border-l-4 border-[#9d7b38] text-[#17181c] text-sm sm:text-base leading-relaxed font-serif italic">
-              "{selectedPost.controversialOpening}"
-            </div>
-
-            {/* Body Sections */}
-            <div className="space-y-8 sm:space-y-10">
-              {selectedPost.bodySections.map((section, idx) => (
-                <div key={idx} className="space-y-3.5">
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#17181c] tracking-tight font-serif">
-                    {section.heading}
-                  </h2>
-                  {section.subheading && (
-                    <h3 className="text-xs sm:text-sm font-mono text-[#9d7b38] font-bold">
-                      {section.subheading}
-                    </h3>
-                  )}
-
-                  <div className="space-y-3 text-sm sm:text-base text-[#4e5159] leading-relaxed">
-                    {section.content.map((p, pIdx) => (
-                      <p 
-                        key={pIdx} 
-                        dangerouslySetInnerHTML={{ 
-                          __html: p
-                            .replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#17181c] font-bold">$1</strong>')
-                            .replace(/\*(.*?)\*/g, '<em class="text-[#8c6708] italic font-semibold">$1</em>') 
-                        }} 
-                      />
-                    ))}
-                  </div>
-
-                  {/* Executive Framework Case Breakdown */}
-                  {section.executiveFramework && (
-                    <div className="mt-4 p-4 sm:p-5 rounded-md bg-[#17181c] text-white border border-[#3e4350] space-y-3 text-xs sm:text-sm font-serif shadow-sm">
-                      <div className="text-xs font-mono uppercase tracking-widest text-[#d4af37] font-bold flex items-center gap-1.5 pb-2 border-b border-[#2d313b]">
-                        <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
-                        <span>Executive In-Camera Case Analysis</span>
-                      </div>
-
-                      {/* Problem Story */}
-                      <div className="space-y-0.5">
-                        <span className="text-[11px] font-mono text-[#d4af37] uppercase font-bold tracking-wider">
-                          The Operational Tension:
-                        </span>
-                        <p className="text-stone-300 italic text-xs leading-relaxed">
-                          "{section.executiveFramework.problemStory}"
-                        </p>
-                      </div>
-
-                      {/* Compounding Friction */}
-                      <div className="pt-2 border-t border-[#2d313b] space-y-0.5">
-                        <span className="text-[11px] font-mono text-rose-400 uppercase font-bold tracking-wider">
-                          Compounding Toll on Enterprise Valuation:
-                        </span>
-                        <p className="text-stone-300 text-xs leading-relaxed">
-                          {section.executiveFramework.affects}
-                        </p>
-                      </div>
-
-                      {/* Sovereign Solution */}
-                      <div className="pt-2 border-t border-[#2d313b] space-y-0.5 bg-[#22252c] p-3 rounded-xs border-l-2 border-[#d4af37]">
-                        <span className="text-[11px] font-mono text-emerald-400 uppercase font-bold tracking-wider">
-                          The Sovereign Remedy:
-                        </span>
-                        <p className="text-white font-semibold text-xs leading-relaxed">
-                          {section.executiveFramework.solution}
-                        </p>
-                      </div>
-                    </div>
-                  )}
+            {/* THE BIG QUESTION KEEPING YOU AWAKE & DEFINITIVE ANSWER */}
+            {selectedPost.theBigQuestion && (
+              <div className="p-5 sm:p-6 rounded-none bg-[#141416] text-white border-2 border-[#d4af37]/70 shadow-lg space-y-3">
+                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#d4af37] font-bold">
+                  <HelpCircle className="w-4 h-4 text-[#d4af37]" />
+                  <span>The Big Question Answered</span>
                 </div>
-              ))}
-            </div>
+                <h3 className="text-base sm:text-lg lg:text-xl font-serif font-bold text-white leading-snug">
+                  "{selectedPost.theBigQuestion.question}"
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-200 font-serif leading-relaxed pt-2.5 border-t border-[#2d313b]">
+                  {selectedPost.theBigQuestion.answer}
+                </p>
+                <div className="pt-2 text-xs font-mono text-[#d4af37] flex items-start gap-2 bg-[#1f222a] p-2.5 rounded-none border border-[#343844]">
+                  <span className="font-bold text-[10px] uppercase text-stone-300 shrink-0">The Strategic Shift:</span>
+                  <span className="text-[#e2c168]">{selectedPost.theBigQuestion.actionableShift}</span>
+                </div>
+              </div>
+            )}
 
+            {/* FROM SUCHITA'S BOOK: SOVEREIGN ARCHITECTURE */}
+            {selectedPost.bookExcerpt && (
+              <div className="p-5 rounded-none bg-[#faf6ee] border border-[#d8cebe] border-l-4 border-[#9d7b38] shadow-xs space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#9d7b38] font-bold">
+                    <BookOpen className="w-4 h-4 text-[#9d7b38]" />
+                    <span>From Suchita's Book: {selectedPost.bookExcerpt.chapter}</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-[#8c6708] italic font-semibold">
+                    Sovereign Architecture (The Book)
+                  </span>
+                </div>
+                <blockquote className="text-xs sm:text-sm font-serif italic text-[#17181c] leading-relaxed pl-3 border-l-2 border-[#d4af37]/60">
+                  "{selectedPost.bookExcerpt.passage}"
+                </blockquote>
+                <div className="pt-2 text-xs font-mono text-[#685327] flex items-start gap-2 border-t border-[#ebdcc0]">
+                  <span className="font-bold uppercase text-[9.5px] shrink-0 text-[#9d7b38]">Introspective Reflection:</span>
+                  <span className="italic text-[#4e5159]">{selectedPost.bookExcerpt.reflectionPrompt}</span>
+                </div>
+              </div>
+            )}
             {/* Strategic Executive Takeaways */}
-            <div className="p-5 rounded-md bg-[#faf8f5] border border-[#ded6c5] space-y-3">
+            <div className="p-5 rounded-none bg-[#faf8f5] border border-[#ded6c5] space-y-3">
               <h4 className="text-sm font-bold uppercase tracking-wider text-[#17181c] font-mono">
                 Key Strategic Takeaways
               </h4>
@@ -582,7 +615,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
             </div>
 
             {/* Introspective Boardroom Prompt */}
-            <div className="p-5 rounded-md bg-[#f0eade] border border-[#ded6c5] space-y-1.5">
+            <div className="p-5 rounded-none bg-[#f0eade] border border-[#ded6c5] space-y-1.5">
               <div className="flex items-center gap-1.5 text-xs font-mono text-[#9d7b38] uppercase font-bold tracking-wider">
                 <HelpCircle className="w-4 h-4 text-[#9d7b38]" />
                 <span>Boardroom Introspective Prompt</span>
@@ -594,7 +627,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
 
             {/* EXECUTIVE INQUIRIES & SEARCH ANSWERS (AEO & GEO FAQ) */}
             {selectedPost.faqItems && selectedPost.faqItems.length > 0 && (
-              <div className="p-5 sm:p-6 rounded-lg bg-white border border-[#ded6c5] shadow-xs space-y-4">
+              <div className="p-5 sm:p-6 rounded-none bg-white border border-[#ded6c5] shadow-xs space-y-4">
                 <div className="flex items-center justify-between pb-2.5 border-b border-[#ebdcc0]">
                   <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#9d7b38] font-bold">
                     <HelpCircle className="w-4 h-4 text-[#9d7b38]" />
@@ -606,7 +639,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                 </div>
                 <div className="space-y-3">
                   {selectedPost.faqItems.map((item, qIdx) => (
-                    <div key={qIdx} className="p-3.5 rounded bg-[#faf8f5] border border-[#ebdcc0] space-y-1.5">
+                    <div key={qIdx} className="p-3.5 rounded-none bg-[#faf8f5] border border-[#ebdcc0] space-y-1.5">
                       <h4 className="text-xs sm:text-sm font-serif font-bold text-[#17181c]">
                         {item.question}
                       </h4>
@@ -619,9 +652,9 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               </div>
             )}
 
-            {/* THE SOVEREIGN COVENANT & WELCOMING INVITATION (Convey & Convince with Absolute Faith in Services) */}
-            <div className="p-6 sm:p-8 rounded-lg bg-[#141416] text-white border-2 border-[#d4af37] text-center space-y-4 shadow-xl relative overflow-hidden">
-              <div className="inline-block px-3 py-1 bg-[#d4af37]/15 border border-[#d4af37]/40 text-[#d4af37] text-[10px] font-mono uppercase tracking-widest font-bold rounded-xs">
+            {/* THE SOVEREIGN COVENANT & WELCOMING INVITATION */}
+            <div className="p-6 sm:p-8 rounded-none bg-[#141416] text-white border-2 border-[#d4af37] text-center space-y-4 shadow-xl relative overflow-hidden">
+              <div className="inline-block px-3 py-1 bg-[#d4af37]/15 border border-[#d4af37]/40 text-[#d4af37] text-[10px] font-mono uppercase tracking-widest font-bold rounded-none">
                 The Unbounded Leadership Covenant
               </div>
               <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight font-serif max-w-xl mx-auto">
@@ -633,16 +666,21 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <button
                   onClick={() => onOpenConsultation(`Dialogue initiated via Dispatch: "${selectedPost.title}"`)}
-                  className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b8860b] hover:from-[#e5be48] hover:to-[#c99518] text-[#17181c] font-bold text-xs uppercase tracking-wider rounded-sm transition-all shadow-md inline-flex items-center justify-center gap-2 cursor-pointer active:scale-98"
+                  className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b8860b] hover:from-[#e5be48] hover:to-[#c99518] text-[#17181c] font-bold text-xs uppercase tracking-wider rounded-none transition-all shadow-md inline-flex items-center justify-center gap-2 cursor-pointer active:scale-98"
                 >
                   <span>Initiate In-Camera Executive Dialogue</span>
                   <ArrowRight className="w-4 h-4 text-[#17181c]" />
                 </button>
                 <button
                   onClick={() => {
-                    window.location.hash = 'test';
+                    const el = document.getElementById('inaction-calculator') || document.getElementById('simple-test');
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      window.location.hash = 'test';
+                    }
                   }}
-                  className="w-full sm:w-auto px-5 py-3.5 bg-[#22242c] hover:bg-[#2c2f38] text-[#e5decfe0] hover:text-white border border-[#444754] text-xs font-mono uppercase tracking-wider rounded-sm transition-all inline-flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto px-5 py-3.5 bg-[#22242c] hover:bg-[#2c2f38] text-[#e5decfe0] hover:text-white border border-[#444754] text-xs font-mono uppercase tracking-wider rounded-none transition-all inline-flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>Take Free 60-Sec Audit (Self-Diagnostic)</span>
                 </button>

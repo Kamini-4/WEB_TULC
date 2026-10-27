@@ -42,17 +42,28 @@ export const RecentDispatchesPreview: React.FC<RecentDispatchesPreviewProps> = (
           </button>
         </div>
 
-        {/* 3 Featured Dispatch Cards */}
+        {/* 3 Featured Dispatch Cards - Squared & Vivid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-          {featuredPosts.map((post, idx) => (
+          {featuredPosts.map((post) => (
             <div
               key={post.id}
               onClick={onOpenFullLibrary}
-              className="p-5 rounded-lg bg-[#ffffff] border border-[#d8cebe] hover:border-[#9d7b38] shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between group"
+              className="p-5 rounded-none bg-[#ffffff] border border-[#d8cebe] hover:border-[#9d7b38] shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between group"
             >
-              <div className="space-y-2.5">
+              <div className="space-y-3">
+                {post.imageUrl && (
+                  <div className="w-full aspect-16/9 overflow-hidden rounded-none border border-[#d8cebe] bg-[#ede5d6]">
+                    <img 
+                      src={post.imageUrl} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+
                 <div className="flex items-center justify-between text-[11px] font-mono text-[#8f6d28]">
-                  <span className="px-2 py-0.5 rounded-xs bg-[#faf6ee] border border-[#ebdcc0] font-bold">
+                  <span className="px-2 py-0.5 rounded-none bg-[#faf6ee] border border-[#ebdcc0] font-bold">
                     {post.category}
                   </span>
                   <span className="flex items-center gap-1 text-[#6b6e76]">

@@ -238,9 +238,27 @@ export const App: React.FC = () => {
 
             {/* Front Page Hero Section */}
             <HeroSection
-              onLaunchDiagnostic={() => navigateTo('test')}
+              onLaunchDiagnostic={() => {
+                const el = document.getElementById('inaction-calculator') || document.getElementById('simple-test');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  navigateTo('test');
+                }
+              }}
               onExplorePartnerships={() => navigateTo('partnerships')}
             />
+
+            {/* Inaction Calculator & Diagnostic on Front Page */}
+            <div id="inaction-calculator" className="scroll-mt-16">
+              <Suspense fallback={<div className="py-12 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading Assessment...</div>}>
+                <SimpleNeedsTest
+                  onConsultationRequest={handleConsultationRequestFromDiagnostic}
+                  onExplorePartnerships={() => navigateTo('partnerships')}
+                  onProceedToInDepth={() => navigateTo('diagnostic')}
+                />
+              </Suspense>
+            </div>
 
             {/* About Section First */}
             <AboutSection
@@ -250,18 +268,27 @@ export const App: React.FC = () => {
             {/* Direct Executive Video Briefing */}
             <VideoBriefingSection
               onOpenConsultation={() => navigateTo('contact')}
-              onTakeTest={() => navigateTo('test')}
-            />
-
-            {/* Separate Test Invitation Banner */}
-            <TestInvitationBanner
-              onLaunchTest={() => navigateTo('test')}
+              onTakeTest={() => {
+                const el = document.getElementById('inaction-calculator') || document.getElementById('simple-test');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  navigateTo('test');
+                }
+              }}
             />
 
             {/* Separate 5 Domains Preview Banner */}
             <DomainPreviewBanner
               onOpenDomains={() => navigateTo('domains')}
-              onTakeTest={() => navigateTo('test')}
+              onTakeTest={() => {
+                const el = document.getElementById('inaction-calculator') || document.getElementById('simple-test');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  navigateTo('test');
+                }
+              }}
             />
 
             {/* The 3 Partnership Pathways */}
