@@ -57,174 +57,23 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
 
   const handleSelectPost = (post: BlogPost) => {
     setSelectedPost(post);
-    // On mobile, smooth scroll to the article reader
-    if (window.innerWidth < 1024) {
-      const readerEl = document.getElementById('blog-reader-view');
-      if (readerEl) {
-        readerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+    const readerEl = document.getElementById('blog-reader-view');
+    if (readerEl) {
+      readerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
   return (
-    <section id="blogs" className="py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#e5decfe0] bg-[#f5f1e8] relative">
+    <section id="blogs" className="py-8 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 border-b border-[#e5decfe0] bg-[#f5f1e8] relative">
       <div className="max-w-[1440px] mx-auto">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8">
-          <div className="space-y-2.5 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#17181c] text-[#d4af37] text-xs font-mono uppercase tracking-normal font-bold rounded-xs shadow-xs">
-              <BookOpen className="w-3.5 h-3.5 text-[#d4af37]" />
-              <span>Sovereign Intelligence · 18 Value-Driven Strategic Dispatches</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17181c] leading-tight tracking-tight [text-wrap:balance] font-serif">
-              Challenging Dogma for <br className="hidden sm:inline" />
-              <span className="text-[#9d7b38]">Sovereign Founders & Enterprise CXOs</span>
-            </h2>
-            <p className="text-sm text-[#4e5159] leading-relaxed">
-              Straightforward problem diagnoses, concrete sovereign remedies, and battle-tested governance architecture for leaders commanding $10M–$100M+ enterprises.
-            </p>
-          </div>
-
-          {/* Search Input */}
-          <div className="w-full md:w-72 relative">
-            <Search className="w-4 h-4 text-[#8f6d28] absolute left-3 top-1/2 -translate-y-1/2" />
-            <input 
-              type="text"
-              placeholder="Search 18 dispatches (e.g. EBITDA, AI, Vacation)..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 bg-white border border-[#d8cebe] rounded-none text-xs text-[#17181c] placeholder:text-[#888] focus:outline-none focus:border-[#9d7b38] shadow-2xs"
-            />
-          </div>
-        </div>
-
-        {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center gap-2 pb-6 border-b border-[#dfd7c8] mb-8">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-3 py-1.5 rounded-none text-xs font-mono transition-all cursor-pointer ${
-                activeCategory === cat
-                  ? 'bg-[#17181c] text-[#d4af37] font-bold shadow-xs'
-                  : 'bg-[#ede5d6] text-[#4e5159] hover:bg-[#e4dcce] hover:text-[#17181c]'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Main Split Layout: Article List on Left, Deep Reader on Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
-          
-          {/* Left Column: Essay Selection Cards (5 Cols) - Squared & Vivid */}
-          <div className="lg:col-span-5 space-y-3.5 max-h-[1400px] overflow-y-auto pr-1 custom-scrollbar">
-            <div className="flex items-center justify-between text-xs font-mono uppercase tracking-wider text-[#6e727c] px-1 pb-1">
-              <span>Dispatches ({filteredPosts.length})</span>
-              <span className="text-[#9d7b38] font-bold">Actionable Frameworks</span>
-            </div>
-
-            {filteredPosts.length === 0 ? (
-              <div className="p-8 text-center bg-white border border-[#ded6c5] rounded-none text-xs text-[#6e727c]">
-                No dispatches match your search query. Try searching for "EBITDA", "Consensus", or "Delegation".
-              </div>
-            ) : (
-              filteredPosts.map((post) => {
-                const isSelected = selectedPost.id === post.id;
-                return (
-                  <div
-                    key={post.id}
-                    onClick={() => handleSelectPost(post)}
-                    className={`p-4 sm:p-5 rounded-none border transition-all duration-200 cursor-pointer text-left flex flex-col justify-between ${
-                      isSelected
-                        ? 'bg-[#ffffff] border-2 border-[#17181c] shadow-md ring-1 ring-[#17181c]/10'
-                        : 'bg-[#faf8f5] border-[#ded6c5] hover:border-[#9d7b38] hover:bg-[#ffffff] shadow-2xs'
-                    }`}
-                  >
-                    <div className="flex gap-3 sm:gap-4 items-start">
-                      {post.imageUrl && (
-                        <div className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 overflow-hidden rounded-none border border-[#d8cebe] bg-[#ede5d6]">
-                          <img 
-                            src={post.imageUrl} 
-                            alt={post.title} 
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            loading="lazy"
-                          />
-                        </div>
-                      )}
-
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between text-[11px] font-mono text-[#6e727c] mb-1.5">
-                          <span className="text-[#9d7b38] font-semibold truncate">{post.category}</span>
-                          <span className="flex items-center gap-1 shrink-0">
-                            <Clock className="w-3 h-3 text-[#9d7b38]" />
-                            {post.readTime}
-                          </span>
-                        </div>
-
-                        <h3 className="text-sm sm:text-base font-bold text-[#17181c] mb-1.5 leading-snug font-serif line-clamp-2">
-                          {post.title}
-                        </h3>
-
-                        <p className="text-xs text-[#57534e] line-clamp-2 leading-relaxed italic">
-                          "{post.hook}"
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="mt-3.5 pt-2.5 border-t border-[#f0eade] flex items-center justify-between text-xs">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className={`font-mono text-[10.5px] font-bold ${
-                          isSelected ? 'text-[#9d7b38]' : 'text-[#6e727c]'
-                        }`}>
-                          {isSelected ? '✦ Reading Now' : 'Read Full Dispatch →'}
-                        </span>
-                        {post.theBigQuestion && (
-                          <span className="text-[9px] font-mono text-[#8c6708] bg-[#faf6ee] px-1 py-0.5 rounded-none border border-[#ebdcc0] font-semibold">
-                            Q&A
-                          </span>
-                        )}
-                        {post.bookExcerpt && (
-                          <span className="text-[9px] font-mono text-[#17181c] bg-[#f0eade] px-1 py-0.5 rounded-none font-semibold">
-                            Book
-                          </span>
-                        )}
-                      </div>
-                      <ChevronRight className={`w-3.5 h-3.5 transition-transform ${
-                        isSelected ? 'rotate-90 text-[#9d7b38]' : 'text-[#a6a9b2]'
-                      }`} />
-                    </div>
-                  </div>
-                );
-              })
-            )}
-
-            {/* Quick Briefing Request Card */}
-            <div className="p-4 rounded-md bg-[#17181c] text-white border border-[#3e4350] space-y-2 shadow-xs mt-4">
-              <div className="flex items-center gap-2 text-xs font-mono text-[#d4af37] font-bold uppercase">
-                <Bookmark className="w-3.5 h-3.5" />
-                <span>Executive Briefing Conclave</span>
-              </div>
-              <p className="text-xs text-stone-300 leading-relaxed">
-                Need these protocols installed directly into your C-suite? Request an In-Camera Executive Briefing with Suchita Sancheti.
-              </p>
-              <button
-                onClick={() => onOpenConsultation('Executive Briefing Request via Library')}
-                className="pt-1 text-xs font-mono text-[#d4af37] hover:text-white transition-colors flex items-center gap-1 font-bold cursor-pointer"
-              >
-                <span>Initiate Private Briefing Dialogue</span>
-                <ArrowRight className="w-3 h-3" />
-              </button>
-            </div>
-          </div>
-
-          {/* Right Column: Full Essay Reader View (7 Cols) — Article First, Squared & Vivid */}
-          <div 
-            id="blog-reader-view"
-            className="lg:col-span-7 bg-[#ffffff] border border-[#d8cebe] rounded-none p-5 sm:p-8 lg:p-10 shadow-md space-y-8 scroll-mt-24"
-          >
+        {/* FIRST THING THEY SEE: THE COMPLETE ARTICLE READER */}
+        <div 
+          id="blog-reader-view"
+          className="max-w-4xl mx-auto bg-[#ffffff] border border-[#d8cebe] rounded-none p-5 sm:p-8 lg:p-10 shadow-md space-y-8 scroll-mt-20 mb-12 sm:mb-16"
+        >
             
             {/* Article Top Bar */}
             <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-[#f0eade]">
@@ -238,24 +87,35 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                 </span>
               </div>
 
-              {/* LinkedIn Copy Button */}
-              <button
-                onClick={() => handleCopyLinkedIn(selectedPost.id, selectedPost.linkedInPostSummary)}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-[#17181c] hover:bg-[#282a30] text-[#d4af37] text-xs font-mono transition-all cursor-pointer shadow-2xs"
-                title="Copy formatted post ready for LinkedIn"
-              >
-                {copiedLinkedInId === selectedPost.id ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-emerald-400 font-bold">Copied to Clipboard!</span>
-                  </>
-                ) : (
-                  <>
-                    <Share2 className="w-3.5 h-3.5" />
-                    <span>Copy for LinkedIn</span>
-                  </>
-                )}
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => {
+                    document.getElementById('all-dispatches-grid')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-[#f0eade] hover:bg-[#e4dcce] text-[#17181c] text-xs font-mono transition-all cursor-pointer border border-[#ded6c5]"
+                >
+                  <span>All 18 Dispatches (Grid) ↓</span>
+                </button>
+
+                {/* LinkedIn Copy Button */}
+                <button
+                  onClick={() => handleCopyLinkedIn(selectedPost.id, selectedPost.linkedInPostSummary)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-[#17181c] hover:bg-[#282a30] text-[#d4af37] text-xs font-mono transition-all cursor-pointer shadow-2xs"
+                  title="Copy formatted post ready for LinkedIn"
+                >
+                  {copiedLinkedInId === selectedPost.id ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-emerald-400" />
+                      <span className="text-emerald-400 font-bold">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Share2 className="w-3.5 h-3.5" />
+                      <span>Copy for LinkedIn</span>
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
 
             {/* Dynamic SEOHead for Article / FAQ Schema & AEO */}
@@ -712,7 +572,166 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
 
           </div>
 
-        </div>
+          {/* ALL DISPATCHES: 2 IN A ROW SQUARE GRID */}
+          <div id="all-dispatches-grid" className="max-w-[1440px] mx-auto pt-10 border-t-2 border-[#d8cebe] space-y-8 scroll-mt-20">
+            
+            {/* Header: Clean, Dignified */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-5">
+              <div className="space-y-2 max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#17181c] text-[#d4af37] text-xs font-mono uppercase tracking-normal font-bold rounded-none shadow-xs">
+                  <BookOpen className="w-3.5 h-3.5 text-[#d4af37]" />
+                  <span>Sovereign Intelligence · 18 Strategic Dispatches</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17181c] leading-tight tracking-tight font-serif">
+                  Executive Dispatches & Monographs
+                </h2>
+                <p className="text-sm text-[#4e5159] leading-relaxed">
+                  Direct boardroom diagnoses, concrete sovereign remedies, and battle-tested governance architecture for leaders commanding $10M–$100M+ enterprises.
+                </p>
+              </div>
+
+              {/* Search Input */}
+              <div className="w-full md:w-80 relative">
+                <Search className="w-4 h-4 text-[#8f6d28] absolute left-3 top-1/2 -translate-y-1/2" />
+                <input 
+                  type="text"
+                  placeholder="Search 18 dispatches (e.g. EBITDA, AI, Vacation)..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-9 pr-3 py-2 bg-white border border-[#d8cebe] rounded-none text-xs text-[#17181c] placeholder:text-[#888] focus:outline-none focus:border-[#9d7b38] shadow-2xs"
+                />
+              </div>
+            </div>
+
+            {/* Category Filter Pills */}
+            <div className="flex flex-wrap items-center gap-2 pb-6 border-b border-[#dfd7c8]">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-3 py-1.5 rounded-none text-xs font-mono transition-all cursor-pointer ${
+                    activeCategory === cat
+                      ? 'bg-[#17181c] text-[#d4af37] font-bold shadow-xs'
+                      : 'bg-[#ede5d6] text-[#4e5159] hover:bg-[#e4dcce] hover:text-[#17181c]'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            {/* 2 IN A ROW SQUARE GRID */}
+            {filteredPosts.length === 0 ? (
+              <div className="p-10 text-center bg-white border border-[#ded6c5] rounded-none text-xs text-[#6e727c]">
+                No dispatches match your search query. Try searching for "EBITDA", "Consensus", or "Delegation".
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                {filteredPosts.map((post) => {
+                  const isSelected = selectedPost.id === post.id;
+                  return (
+                    <div
+                      key={post.id}
+                      onClick={() => handleSelectPost(post)}
+                      className={`p-5 sm:p-6 rounded-none border transition-all duration-200 cursor-pointer flex flex-col justify-between group ${
+                        isSelected
+                          ? 'bg-[#ffffff] border-2 border-[#17181c] shadow-lg ring-1 ring-[#17181c]/10'
+                          : 'bg-[#faf8f5] border-[#ded6c5] hover:border-[#9d7b38] hover:bg-[#ffffff] shadow-2xs hover:shadow-md'
+                      }`}
+                    >
+                      <div className="space-y-4">
+                        {/* Topic Image in Square / Crisp Geometry */}
+                        {post.imageUrl && (
+                          <div className="w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden rounded-none border border-[#d8cebe] bg-[#ede5d6] relative">
+                            <img 
+                              src={post.imageUrl} 
+                              alt={post.title} 
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              loading="lazy"
+                            />
+                            <div className="absolute top-2.5 left-2.5">
+                              <span className="px-2.5 py-1 bg-[#17181c]/90 text-[#d4af37] text-[10px] font-mono uppercase font-bold tracking-wider border border-[#d4af37]/60">
+                                {post.category}
+                              </span>
+                            </div>
+                            <div className="absolute bottom-2.5 right-2.5">
+                              <span className="px-2.5 py-0.5 bg-black/85 text-stone-200 text-[10px] font-mono flex items-center gap-1 border border-stone-700">
+                                <Clock className="w-3 h-3 text-[#d4af37]" />
+                                <span>{post.readTime}</span>
+                              </span>
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between text-[11px] font-mono text-[#6e727c]">
+                            <span className="text-[#9d7b38] font-bold uppercase">{post.category}</span>
+                            {isSelected ? (
+                              <span className="px-2 py-0.5 bg-[#17181c] text-[#d4af37] text-[10px] font-bold">
+                                ✦ Currently Reading Above
+                              </span>
+                            ) : (
+                              <span className="text-[#8c6708] text-[10px]">
+                                Click to Read Above
+                              </span>
+                            )}
+                          </div>
+
+                          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-[#17181c] group-hover:text-[#9d7b38] transition-colors leading-snug font-serif">
+                            {post.title}
+                          </h3>
+
+                          <p className="text-xs sm:text-sm text-[#57534e] leading-relaxed italic line-clamp-3">
+                            "{post.hook}"
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="mt-5 pt-3.5 border-t border-[#f0eade] flex items-center justify-between text-xs font-semibold">
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <span className={`font-mono text-xs font-bold ${
+                            isSelected ? 'text-[#9d7b38]' : 'text-[#17181c] group-hover:text-[#9d7b38]'
+                          }`}>
+                            {isSelected ? '✦ Reading Above' : 'Read Full Dispatch →'}
+                          </span>
+                          {post.theBigQuestion && (
+                            <span className="text-[9px] font-mono text-[#8c6708] bg-[#faf6ee] px-1 py-0.5 rounded-none border border-[#ebdcc0] font-semibold">
+                              Q&A
+                            </span>
+                          )}
+                          {post.bookExcerpt && (
+                            <span className="text-[9px] font-mono text-[#17181c] bg-[#f0eade] px-1 py-0.5 rounded-none font-semibold">
+                              Book
+                            </span>
+                          )}
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-[#9d7b38] group-hover:translate-x-1.5 transition-transform" />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Quick Briefing Conclave Card */}
+            <div className="p-5 sm:p-6 rounded-none bg-[#17181c] text-white border border-[#3e4350] space-y-3 shadow-md mt-8">
+              <div className="flex items-center gap-2 text-xs font-mono text-[#d4af37] font-bold uppercase">
+                <Bookmark className="w-3.5 h-3.5" />
+                <span>Executive Briefing Conclave</span>
+              </div>
+              <p className="text-xs sm:text-sm text-stone-300 leading-relaxed max-w-3xl">
+                Need these protocols installed directly into your C-suite? Request an In-Camera Executive Briefing with Suchita Sancheti to re-architect your leadership operating system in 90 days.
+              </p>
+              <button
+                onClick={() => onOpenConsultation('Executive Briefing Request via Library')}
+                className="pt-1 text-xs font-mono text-[#d4af37] hover:text-white transition-colors flex items-center gap-1.5 font-bold cursor-pointer"
+              >
+                <span>Initiate Private Briefing Dialogue</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+          </div>
 
       </div>
     </section>

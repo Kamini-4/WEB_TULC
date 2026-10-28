@@ -10,7 +10,7 @@ interface RecentDispatchesPreviewProps {
 export const RecentDispatchesPreview: React.FC<RecentDispatchesPreviewProps> = ({
   onOpenFullLibrary
 }) => {
-  const featuredPosts = BLOG_POSTS.slice(0, 3);
+  const featuredPosts = BLOG_POSTS.slice(0, 4);
 
   return (
     <section id="dispatches-preview" className="py-10 sm:py-12 lg:py-14 border-b border-[#e5decfe0] bg-[#f8f6f0] relative">
@@ -42,8 +42,8 @@ export const RecentDispatchesPreview: React.FC<RecentDispatchesPreviewProps> = (
           </button>
         </div>
 
-        {/* 3 Featured Dispatch Cards - Squared & Vivid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+        {/* Featured Dispatch Cards - 2 in a Row Square Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {featuredPosts.map((post) => (
             <div
               key={post.id}
