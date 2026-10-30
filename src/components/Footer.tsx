@@ -83,6 +83,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Case Studies
             </a>
             <a
+              href="#portal"
+              onClick={(e) => { e.preventDefault(); onNavigate('portal'); }}
+              className="hover:text-[#9d7b38] transition-colors py-1 flex items-center gap-1 font-bold text-[#141416]"
+            >
+              <Lock className="w-3.5 h-3.5 text-[#9d7b38]" />
+              <span>Client Portal</span>
+            </a>
+            <a
               href="#contact"
               onClick={(e) => { e.preventDefault(); onNavigate('contact'); }}
               className="text-[#9d7b38] hover:text-[#7d5f24] font-bold transition-colors py-1"

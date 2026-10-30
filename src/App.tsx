@@ -24,6 +24,7 @@ const BlogSection = lazy(() => import('./components/BlogSection').then(m => ({ d
 const ExecutiveWarRoom = lazy(() => import('./components/ExecutiveWarRoom').then(m => ({ default: m.ExecutiveWarRoom })));
 const InstitutionalCaseStudies = lazy(() => import('./components/InstitutionalCaseStudies').then(m => ({ default: m.InstitutionalCaseStudies })));
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
+const InstitutionalPortal = lazy(() => import('./components/InstitutionalPortal').then(m => ({ default: m.InstitutionalPortal })));
 
 export type AppView = 
   | 'home' 
@@ -36,7 +37,8 @@ export type AppView =
   | 'war-room' 
   | 'case-studies'
   | 'privacy'
-  | 'contact';
+  | 'contact'
+  | 'portal';
 
 export const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<AppView>('home');
@@ -70,6 +72,9 @@ export const App: React.FC = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash === 'contact' || hash === 'inquiry') {
         setCurrentView('contact');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === 'portal' || hash === 'clearance' || hash === 'client-portal' || hash === 'gate') {
+        setCurrentView('portal');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash === 'council' || hash === 'council-chambers') {
         setCurrentView('home');
@@ -141,6 +146,10 @@ export const App: React.FC = () => {
     } else if (target === 'contact' || target === 'inquiry') {
       setCurrentView('contact');
       window.location.hash = 'contact';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'portal' || target === 'clearance') {
+      setCurrentView('portal');
+      window.location.hash = 'portal';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (target === 'council' || target === 'council-chambers') {
       setCurrentView('home');
@@ -476,6 +485,24 @@ export const App: React.FC = () => {
               initialPartnership={selectedPartnership}
               initialContext={inquiryContext}
             />
+          </div>
+        )}
+
+        {/* 12. DEDICATED INSTITUTIONAL CLEARANCE & CLIENT PORTAL */}
+        {currentView === 'portal' && (
+          <div>
+            <SEOHead
+              title="Institutional Clearance & Sovereign Client Portal | TULC"
+              description="Authorized cryptographic access terminal for active retainer enterprise clients, board directors, and institutional partners."
+              canonicalPath="/portal"
+            />
+            {renderSubpageBreadcrumb('Institutional Clearance Portal', 'Encrypted Client Access & Stress-Testing Suite')}
+            <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Authenticating Clearance Gateway...</div>}>
+              <InstitutionalPortal
+                onBackToHome={() => navigateTo('home')}
+                onRequestAccess={() => navigateTo('contact')}
+              />
+            </Suspense>
           </div>
         )}
 

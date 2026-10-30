@@ -113,6 +113,18 @@ export const Header: React.FC<HeaderProps> = ({
             Dispatches
           </a>
           <a
+            href="#portal"
+            onClick={(e) => { e.preventDefault(); handleNavClick('portal'); }}
+            className={`transition-colors whitespace-nowrap py-1 border-b-2 flex items-center gap-1.5 ${
+              currentView === 'portal'
+                ? 'text-[#17181c] border-[#9d7b38] font-bold'
+                : 'text-[#484b54] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
+            }`}
+          >
+            <Lock className="w-3.5 h-3.5 text-[#9d7b38]" />
+            <span>Portal</span>
+          </a>
+          <a
             href="#contact"
             onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
@@ -225,6 +237,17 @@ export const Header: React.FC<HeaderProps> = ({
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
               <span>Dispatches & Strategic Intelligence</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
+            </a>
+            <a
+              href="#portal"
+              onClick={(e) => { e.preventDefault(); handleNavClick('portal'); }}
+              className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between font-bold text-[#17181c]"
+            >
+              <div className="flex items-center gap-2">
+                <Lock className="w-4 h-4 text-[#9d7b38]" />
+                <span>Portal (Institutional Clearance Desk)</span>
+              </div>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
