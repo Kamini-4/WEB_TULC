@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { BLOG_POSTS, BlogPost } from '../data/blogData';
 import { SEOHead } from './SEOHead';
+import { useFounderPhoto } from '../utils/founderPhoto';
 import { 
   BookOpen, 
   Sparkles, 
@@ -28,6 +29,7 @@ interface BlogSectionProps {
 
 export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) => {
   const [selectedPost, setSelectedPost] = useState<BlogPost>(BLOG_POSTS[0]);
+  const { photoUrl: founderPhotoUrl } = useFounderPhoto('/assets/suchita-portrait.svg');
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [copiedLinkedInId, setCopiedLinkedInId] = useState<string | null>(null);
@@ -183,39 +185,39 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               </div>
             )}
 
-            {/* CONVERSATIONAL 1-ON-1 LETTER FROM SUCHITA SANCHETI */}
+            {/* CONVERSATIONAL 1-ON-1 LETTER FROM SUCHITA SANCHETI (BLACK BACKGROUND & GOLDEN TEXT) */}
             {selectedPost.conversationalLetter && (
-              <div className="p-5 sm:p-7 rounded-none bg-gradient-to-br from-[#ffffff] via-[#fdfbf7] to-[#faf6ee] border-2 border-[#e5decfe0] shadow-sm space-y-4 relative overflow-hidden">
-                <div className="flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b border-[#ebdcc0]">
+              <div className="p-5 sm:p-7 rounded-none bg-[#0c0d14] border-2 border-[#d4af37] shadow-xl space-y-4 relative overflow-hidden text-[#f4ecd8]">
+                <div className="flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b border-[#d4af37]/40">
                   <div className="flex items-center gap-3">
                     <img 
-                      src="/assets/suchita-sancheti.jpg" 
+                      src={founderPhotoUrl} 
                       alt="Suchita Sancheti" 
-                      className="w-11 h-11 rounded-full object-cover object-top border-2 border-[#d4af37] shadow-xs shrink-0" 
+                      className="w-12 h-12 rounded-full object-cover object-[center_15%] border-2 border-[#d4af37] shadow-md shrink-0 bg-[#050608]" 
                     />
                     <div>
-                      <div className="text-xs font-bold text-[#17181c] font-serif">
+                      <div className="text-sm font-bold text-[#f3e5ab] font-serif">
                         Suchita Sancheti
                       </div>
-                      <div className="text-[10px] font-mono text-[#8c6708] uppercase tracking-wider">
+                      <div className="text-[10px] font-mono text-[#d4af37] uppercase tracking-wider font-bold">
                         Founder & Enterprise Architect
                       </div>
                     </div>
                   </div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#9d7b38] font-bold px-2.5 py-1 bg-[#faf6ee] rounded-none border border-[#ebdcc0] flex items-center gap-1.5">
-                    <MessageSquare className="w-3 h-3 text-[#9d7b38]" />
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#d4af37] font-bold px-3 py-1 bg-[#13141f] rounded-none border border-[#d4af37]/50 flex items-center gap-1.5 shadow-sm">
+                    <MessageSquare className="w-3.5 h-3.5 text-[#d4af37]" />
                     <span>A 1-on-1 Note for You</span>
                   </span>
                 </div>
 
                 <div className="space-y-3 font-serif">
-                  <p className="text-sm sm:text-base font-bold text-[#17181c] italic">
+                  <p className="text-sm sm:text-base font-bold text-[#f3e5ab] italic">
                     "{selectedPost.conversationalLetter.salutation}"
                   </p>
-                  <p className="text-xs sm:text-sm text-[#44464d] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#ded8cb] leading-relaxed">
                     {selectedPost.conversationalLetter.openingScene}
                   </p>
-                  <div className="p-4 rounded-none bg-[#faf3e8]/90 border-l-4 border-[#9d7b38] border-y border-r border-[#ebdcc0]/60 text-xs sm:text-[13.5px] text-[#2c2d33] leading-relaxed italic">
+                  <div className="p-4 rounded-none bg-[#131420] border-l-4 border-[#d4af37] border-y border-r border-[#d4af37]/40 text-xs sm:text-[13.5px] text-[#f3e5ab] leading-relaxed italic shadow-inner">
                     {selectedPost.conversationalLetter.heartfeltValidation}
                   </div>
                 </div>
@@ -562,11 +564,11 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
 
               <button
                 onClick={() => {
-                  window.location.hash = 'codex';
+                  window.location.hash = 'blueprints';
                 }}
                 className="text-[#9d7b38] hover:text-[#7d5f24] transition-colors py-1 cursor-pointer font-bold flex items-center gap-1.5"
               >
-                <span>Explore The Sovereign Codex & Toolkits →</span>
+                <span>Explore Sovereign Blueprints & Toolkits →</span>
               </button>
             </div>
 

@@ -268,7 +268,7 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
           <div className="max-w-3xl relative z-10 space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1c1d24] border border-[#d4af37]/60 rounded-full text-[10px] font-mono uppercase text-[#d4af37] font-bold">
               <Sparkles className="w-3 h-3 text-[#d4af37]" />
-              <span>The Sovereign Codex · Executive Lead Funnel</span>
+              <span>Sovereign Blueprints · Executive Toolkits</span>
               <span className="text-[#888]">·</span>
               <span className="text-[#4ade80] flex items-center gap-1">
                 <Flame className="w-3 h-3" /> Early Bird Allocation Active
@@ -277,7 +277,7 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
 
             {/* Smaller font size for title as requested */}
             <h1 className="text-xl sm:text-2xl md:text-3xl font-serif font-bold leading-tight tracking-tight text-white">
-              The Sovereign Codex & Field Toolkits
+              Executive Blueprints & Field Toolkits
             </h1>
 
             <p className="text-xs sm:text-sm text-stone-300 font-serif leading-relaxed">
@@ -478,10 +478,10 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
               <span>EMPIRICAL ROI CALCULATION</span>
             </div>
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#17181c]">
-              Why The Codex is the Highest Value-for-Money Investment in Executive Governance
+              Why Executive Blueprints are the Highest Value-for-Money Investment in Governance
             </h2>
             <p className="mt-2 text-xs sm:text-sm text-[#4b5563] font-serif leading-relaxed">
-              We engineered The Sovereign Codex to serve as a high-intent lead funnel for enterprise leaders. Here is the rigorous mathematical calculation behind why this is an undeniable return on capital:
+              We engineered these Sovereign Blueprints to serve as high-impact operational instruments for enterprise leaders. Here is the rigorous mathematical calculation behind why this is an undeniable return on capital:
             </p>
           </div>
 
@@ -495,7 +495,7 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                 Net-Zero Advisory Offset
               </h3>
               <p className="text-xs text-[#555861] leading-relaxed">
-                100% of your Codex acquisition fee is credited directly as a dollar-for-dollar financial deduction against any future Diagnostic Audit or Sovereign Retainer invoice.
+                100% of your Blueprint acquisition fee is credited directly as a dollar-for-dollar financial deduction against any future Diagnostic Audit or Sovereign Retainer invoice.
               </p>
             </div>
 
@@ -508,7 +508,7 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                 Consulting Cost Arbitrage
               </h3>
               <p className="text-xs text-[#555861] leading-relaxed">
-                Traditional consulting firms bill $150,000–$300,000 to deploy junior associates who interview staff for 6 months. The Codex delivers unvarnished operational law immediately on Monday morning.
+                Traditional consulting firms bill $150,000–$300,000 to deploy junior associates who interview staff for 6 months. These Blueprints deliver unvarnished operational law immediately on Monday morning.
               </p>
             </div>
 

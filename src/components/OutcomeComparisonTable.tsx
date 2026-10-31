@@ -381,31 +381,31 @@ export const OutcomeComparisonTable: React.FC<OutcomeComparisonProps> = ({
                   </div>
                 </div>
 
-                {/* The Unbounded Leadership Co. Column */}
-                <div className="col-span-4 p-6 bg-[#1a1b20] text-white flex flex-col justify-between relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-[#9d7b38]/10 blur-xl pointer-events-none" />
+                {/* The Unbounded Leadership Co. Column — Deep Black & Golden Text */}
+                <div className="col-span-4 p-6 bg-[#000000] text-[#f4ecd8] border-l-2 border-r-2 border-[#d4af37] flex flex-col justify-between relative overflow-hidden shadow-2xl">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-[#d4af37]/10 blur-2xl pointer-events-none" />
                   
                   <div>
                     <div className="flex items-start justify-between gap-2 mb-2">
                       <div className="flex items-start gap-2">
                         <Check className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
-                        <h4 className="font-serif text-sm font-bold text-white leading-snug">
+                        <h4 className="font-serif text-sm font-bold text-[#f3e5ab] leading-snug">
                           {row.theTulcWay.title}
                         </h4>
                       </div>
                       {row.theTulcWay.badge && (
-                        <span className="text-[9px] font-mono uppercase bg-[#d4af37]/20 border border-[#d4af37]/60 text-[#d4af37] px-1.5 py-0.5 rounded-xs shrink-0 font-bold">
+                        <span className="text-[9px] font-mono uppercase bg-[#141520] border border-[#d4af37] text-[#f3e5ab] px-2 py-0.5 rounded-xs shrink-0 font-bold shadow-xs">
                           {row.theTulcWay.badge}
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-[#d1d5db] leading-relaxed pl-6 font-light">
+                    <p className="text-xs text-[#ded8cb] leading-relaxed pl-6 font-normal">
                       {row.theTulcWay.description}
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-[#343740] pl-6 flex items-center justify-between">
-                    <span className="text-[11px] font-mono text-[#d4af37] font-bold block">
+                  <div className="mt-4 pt-3 border-t border-[#d4af37]/40 pl-6 flex items-center justify-between">
+                    <span className="text-[11px] font-mono text-[#f3e5ab] font-bold block">
                       Outcome: {row.theTulcWay.result}
                     </span>
                   </div>
@@ -450,29 +450,29 @@ export const OutcomeComparisonTable: React.FC<OutcomeComparisonProps> = ({
                 </div>
               </div>
 
-              {/* TULC Sovereign Way */}
-              <div className="p-5 bg-[#17181c] text-white relative">
+              {/* TULC Sovereign Way — Black Background & Golden Text */}
+              <div className="p-5 bg-[#000000] border-2 border-[#d4af37] text-[#f4ecd8] relative shadow-lg">
                 <div className="flex items-center justify-between gap-2 mb-2">
                   <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#d4af37] font-bold">
                     <Check className="w-4 h-4 text-[#d4af37] shrink-0" />
-                    <span>The Unbounded Leadership Co.</span>
+                    <span className="text-[#f3e5ab]">The Unbounded Leadership Co.</span>
                   </div>
                   {row.theTulcWay.badge && (
-                    <span className="text-[9px] font-mono uppercase bg-[#d4af37]/20 border border-[#d4af37]/60 text-[#d4af37] px-1.5 py-0.5 rounded-xs font-bold">
+                    <span className="text-[9px] font-mono uppercase bg-[#141520] border border-[#d4af37] text-[#f3e5ab] px-2 py-0.5 rounded-xs font-bold shadow-xs">
                       {row.theTulcWay.badge}
                     </span>
                   )}
                 </div>
 
-                <h4 className="font-serif text-base font-bold text-white mb-2">
+                <h4 className="font-serif text-base font-bold text-[#f3e5ab] mb-2">
                   {row.theTulcWay.title}
                 </h4>
 
-                <p className="text-xs text-[#d1d5db] leading-relaxed mb-4 font-light">
+                <p className="text-xs text-[#ded8cb] leading-relaxed mb-4">
                   {row.theTulcWay.description}
                 </p>
 
-                <div className="text-xs font-mono text-[#d4af37] bg-[#22242a] p-2.5 rounded-xs border border-[#9d7b38]/40 font-bold flex items-center justify-between">
+                <div className="text-xs font-mono text-[#f3e5ab] bg-[#12131b] p-2.5 rounded-xs border border-[#d4af37]/60 font-bold flex items-center justify-between">
                   <span>{row.theTulcWay.result}</span>
                   <Check className="w-3.5 h-3.5 text-[#d4af37]" />
                 </div>
@@ -482,20 +482,20 @@ export const OutcomeComparisonTable: React.FC<OutcomeComparisonProps> = ({
           ))}
         </div>
 
-        {/* Bottom Synthesis & Call to Action Zone */}
-        <div className="mt-12 sm:mt-16 p-6 sm:p-10 rounded-sm bg-[#17181c] border-2 border-[#9d7b38]/60 text-white shadow-xl relative overflow-hidden text-center max-w-4xl mx-auto">
-          <div className="absolute top-0 right-0 w-48 h-48 bg-[#9d7b38]/10 blur-3xl pointer-events-none" />
+        {/* Bottom Synthesis & Call to Action Zone — Black Background & Golden Text */}
+        <div className="mt-12 sm:mt-16 p-6 sm:p-10 rounded-sm bg-[#08090d] border-2 border-[#d4af37] text-[#f4ecd8] shadow-2xl relative overflow-hidden text-center max-w-4xl mx-auto">
+          <div className="absolute top-0 right-0 w-48 h-48 bg-[#d4af37]/15 blur-3xl pointer-events-none" />
           
           <div className="relative z-10 max-w-2xl mx-auto">
             <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#d4af37] font-bold block mb-2">
               The Sovereign Verdict
             </span>
 
-            <h3 className="text-2xl sm:text-3xl font-bold font-serif mb-4 text-white">
+            <h3 className="text-2xl sm:text-3xl font-bold font-serif mb-4 text-[#f3e5ab]">
               Stop Paying For Advice. Invest In <span className="italic text-[#d4af37]">Permanent Machinery.</span>
             </h3>
 
-            <p className="text-sm sm:text-base text-[#d1d5db] font-serif leading-relaxed font-light mb-8">
+            <p className="text-sm sm:text-base text-[#ded8cb] font-serif leading-relaxed mb-8">
               Every day your enterprise depends on your personal intervention is a day your strategic valuation sits discounted. In 60 seconds, calculate the exact friction vector in your leadership operating system.
             </p>
 
@@ -503,16 +503,16 @@ export const OutcomeComparisonTable: React.FC<OutcomeComparisonProps> = ({
               <button
                 type="button"
                 onClick={onTakeTest}
-                className="w-full sm:w-auto px-7 py-3.5 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider bg-[#d4af37] hover:bg-[#e6c352] text-[#17181c] rounded-xs shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+                className="w-full sm:w-auto px-7 py-3.5 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] hover:brightness-110 text-[#0c0d12] rounded-xs shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
               >
-                <Zap className="w-4 h-4 text-[#17181c]" />
+                <Zap className="w-4 h-4 text-[#0c0d12]" />
                 <span>Take 60-Sec Friction Audit (Free)</span>
               </button>
 
               <button
                 type="button"
                 onClick={onOpenConsultation}
-                className="w-full sm:w-auto px-7 py-3.5 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider bg-[#252830] hover:bg-[#323640] text-white border border-[#9d7b38]/40 hover:border-[#d4af37] rounded-xs transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+                className="w-full sm:w-auto px-7 py-3.5 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider bg-[#141520] hover:bg-[#1d1f2d] text-[#f3e5ab] border border-[#d4af37]/70 hover:border-[#d4af37] rounded-xs transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
               >
                 <span>Initiate Confidential Inquiry</span>
                 <ArrowRight className="w-4 h-4 text-[#d4af37]" />

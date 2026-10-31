@@ -61,7 +61,7 @@ export const App: React.FC = () => {
       } else if (hash === 'diagnostic') {
         setCurrentView('diagnostic');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'shop' || hash === 'store' || hash === 'documents' || hash === 'publications' || hash === 'codex') {
+      } else if (hash === 'shop' || hash === 'store' || hash === 'documents' || hash === 'publications' || hash === 'codex' || hash === 'blueprints') {
         setCurrentView('shop');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash === 'blogs' || hash === 'library' || hash === 'dispatches') {
@@ -153,9 +153,9 @@ export const App: React.FC = () => {
       setTimeout(() => {
         document.getElementById('comparison')?.scrollIntoView({ behavior: 'smooth' });
       }, 60);
-    } else if (target === 'shop' || target === 'store' || target === 'publications' || target === 'codex') {
+    } else if (target === 'shop' || target === 'store' || target === 'publications' || target === 'codex' || target === 'blueprints') {
       setCurrentView('shop');
-      window.location.hash = 'codex';
+      window.location.hash = 'blueprints';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (target === 'privacy' || target === 'privacy-policy') {
       setCurrentView('privacy');
@@ -454,15 +454,15 @@ export const App: React.FC = () => {
           </div>
         )}
 
-        {/* 6. DEDICATED SOVEREIGN CODEX & EXECUTIVE BLUEPRINTS VIEW */}
+        {/* 6. DEDICATED SOVEREIGN BLUEPRINTS VIEW */}
         {currentView === 'shop' && (
           <div>
             <SEOHead
-              title="The Sovereign Codex | TULC"
-              description="Codified institutional publications and frameworks for founder decoupling and leadership operating systems."
-              canonicalPath="/codex"
+              title="Executive Blueprints & Systems | TULC"
+              description="Codified institutional blueprints and operating frameworks for founder decoupling and leadership operating systems."
+              canonicalPath="/blueprints"
             />
-            <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading The Codex...</div>}>
+            <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading Executive Blueprints...</div>}>
               <ExecutiveShop
                 onBackToHome={() => navigateTo('home')}
                 onExploreServices={() => navigateTo('partnerships')}

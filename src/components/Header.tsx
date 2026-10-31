@@ -91,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({
             The Diagnostic
           </a>
           <a
-            href="#codex"
+            href="#blueprints"
             onClick={(e) => { e.preventDefault(); handleNavClick('shop'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
               currentView === 'shop'
@@ -99,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({
                 : 'text-[#484b54] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
             }`}
           >
-            The Codex
+            Blueprints
           </a>
           <a
             href="#library"
@@ -206,12 +206,12 @@ export const Header: React.FC<HeaderProps> = ({
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
-              href="#codex"
+              href="#blueprints"
               onClick={(e) => { e.preventDefault(); handleNavClick('shop'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between font-bold text-[#17181c]"
             >
               <div className="flex items-center gap-2">
-                <span>The Codex (3 Sovereign Blueprints)</span>
+                <span>Executive Blueprints (3 Sovereign Tracks)</span>
                 <span className="text-[9px] font-mono font-bold bg-[#17181c] text-[#d4af37] px-1.5 py-0.5 rounded-xs">
                   50% OFF
                 </span>
