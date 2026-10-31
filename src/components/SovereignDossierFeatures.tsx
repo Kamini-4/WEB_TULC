@@ -75,24 +75,24 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
   ];
 
   return (
-    <section className="bg-black text-[#f8f6f0] py-14 sm:py-20 border-y-2 border-[#d4af37]/40 relative overflow-hidden font-sans">
-      {/* Background Architectural Grid Pattern */}
+    <section className="bg-[#f8f6f0] text-[#17181c] py-12 sm:py-16 border-y border-[#dfd7c8] relative overflow-hidden font-sans">
+      {/* Background Subtle Architectural Grid */}
       <div 
-        className="absolute inset-0 opacity-10 pointer-events-none"
+        className="absolute inset-0 opacity-15 pointer-events-none"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #d4af37 1px, transparent 0)`,
-          backgroundSize: '36px 36px'
+          backgroundImage: `radial-gradient(circle at 1px 1px, #9d7b38 1px, transparent 0)`,
+          backgroundSize: '32px 32px'
         }}
       />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#d4af37]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#9d7b38]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#d4af37]/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#9d7b38]/8 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Badge & Title with Official Gold & Navy Crest */}
-        <div className="max-w-4xl mx-auto text-center space-y-4 mb-10 sm:mb-14">
+        <div className="max-w-4xl mx-auto text-center space-y-4 mb-10 sm:mb-12">
           <div className="flex justify-center mb-3">
-            <div className="p-2 rounded-lg border-2 border-[#d4af37] shadow-2xl bg-[#0c1322] max-w-[240px] sm:max-w-[280px]">
+            <div className="p-2 rounded-lg border-2 border-[#d4af37] shadow-xl bg-[#0c1322] max-w-[220px] sm:max-w-[260px]">
               <img 
                 src="/assets/tulc-gold-navy-crest.jpg" 
                 alt="The Sovereign Dossier Official Crest" 
@@ -101,21 +101,21 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
             </div>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#181920] border border-[#d4af37]/60 text-xs font-mono text-[#d4af37] uppercase tracking-wider shadow-lg">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17181c] border border-[#d4af37] text-xs font-mono text-[#d4af37] uppercase tracking-wider shadow-sm">
             <ShieldCheck className="w-4 h-4 text-[#d4af37]" />
             <span>Patent-Pending Diagnostic Instrument · Ref: L.O.S.-P721</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif tracking-tight text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif tracking-tight text-[#17181c] leading-tight">
             The Sovereign Dossier™
           </h2>
 
-          <p className="text-base sm:text-lg text-[#dcdfe6] leading-relaxed max-w-3xl mx-auto font-normal">
+          <p className="text-base sm:text-lg text-[#4e5159] leading-relaxed max-w-3xl mx-auto font-normal">
             The Sovereign Dossier is an unsparing, PhD-level diagnostic instrument engineered for high-consequence founders, family principals, and enterprise boards.
           </p>
 
-          <p className="text-xs sm:text-sm text-[#a8abb4] italic leading-relaxed max-w-2xl mx-auto border-t border-b border-stone-800 py-3">
-            Unlike conventional personality tests or qualitative consulting slides, the Dossier diagnoses <span className="text-[#d4af37] not-italic font-semibold">organizational cybernetics</span>, <span className="text-[#d4af37] not-italic font-semibold">leadership entropy</span>, and <span className="text-[#d4af37] not-italic font-semibold">institutional perpetuity</span>.
+          <p className="text-xs sm:text-sm text-[#6b6e76] italic leading-relaxed max-w-2xl mx-auto border-t border-b border-[#dfd7c8] py-3 bg-[#faf8f4]/60">
+            Unlike conventional personality tests or qualitative consulting slides, the Dossier diagnoses <span className="text-[#9d7b38] not-italic font-bold">organizational cybernetics</span>, <span className="text-[#9d7b38] not-italic font-bold">leadership entropy</span>, and <span className="text-[#9d7b38] not-italic font-bold">institutional perpetuity</span>.
           </p>
         </div>
 
@@ -123,30 +123,30 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
         <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-10">
           <button
             onClick={() => setActiveTab('all')}
-            className={`px-5 py-2.5 text-xs font-mono uppercase tracking-wider font-bold rounded-sm transition-all border ${
+            className={`px-5 py-2.5 text-xs font-mono uppercase tracking-wider font-bold rounded-xs transition-all border cursor-pointer ${
               activeTab === 'all'
-                ? 'bg-[#d4af37] text-black border-[#d4af37] shadow-lg shadow-[#d4af37]/20'
-                : 'bg-[#14151a] text-stone-300 border-stone-800 hover:border-[#d4af37]/50 hover:text-white'
+                ? 'bg-[#17181c] text-[#f8f6f0] border-[#17181c] shadow-sm'
+                : 'bg-[#f0eade] text-[#4e5159] border-[#dfd7c8] hover:border-[#9d7b38] hover:text-[#17181c]'
             }`}
           >
             Complete Architecture
           </button>
           <button
             onClick={() => setActiveTab('part1')}
-            className={`px-5 py-2.5 text-xs font-mono uppercase tracking-wider font-bold rounded-sm transition-all border ${
+            className={`px-5 py-2.5 text-xs font-mono uppercase tracking-wider font-bold rounded-xs transition-all border cursor-pointer ${
               activeTab === 'part1'
-                ? 'bg-[#d4af37] text-black border-[#d4af37] shadow-lg shadow-[#d4af37]/20'
-                : 'bg-[#14151a] text-stone-300 border-stone-800 hover:border-[#d4af37]/50 hover:text-white'
+                ? 'bg-[#17181c] text-[#f8f6f0] border-[#17181c] shadow-sm'
+                : 'bg-[#f0eade] text-[#4e5159] border-[#dfd7c8] hover:border-[#9d7b38] hover:text-[#17181c]'
             }`}
           >
             Part I: What The Dossier Reveals
           </button>
           <button
             onClick={() => setActiveTab('part2')}
-            className={`px-5 py-2.5 text-xs font-mono uppercase tracking-wider font-bold rounded-sm transition-all border ${
+            className={`px-5 py-2.5 text-xs font-mono uppercase tracking-wider font-bold rounded-xs transition-all border cursor-pointer ${
               activeTab === 'part2'
-                ? 'bg-[#d4af37] text-black border-[#d4af37] shadow-lg shadow-[#d4af37]/20'
-                : 'bg-[#14151a] text-stone-300 border-stone-800 hover:border-[#d4af37]/50 hover:text-white'
+                ? 'bg-[#17181c] text-[#f8f6f0] border-[#17181c] shadow-sm'
+                : 'bg-[#f0eade] text-[#4e5159] border-[#dfd7c8] hover:border-[#9d7b38] hover:text-[#17181c]'
             }`}
           >
             Part II: Undeniable & Ungameable Features
@@ -157,13 +157,13 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
         {/* PART I: WHAT THE DOSSIER REVEALS */}
         {/* ========================================================================= */}
         {(activeTab === 'all' || activeTab === 'part1') && (
-          <div className="space-y-8 mb-14">
+          <div className="space-y-8 mb-12">
             
-            <div className="flex items-center gap-3 border-b-2 border-[#d4af37]/40 pb-3">
-              <span className="px-2.5 py-1 bg-[#d4af37] text-black font-mono font-black text-xs uppercase tracking-wider rounded-xs">
+            <div className="flex items-center gap-3 border-b-2 border-[#d4af37] pb-3">
+              <span className="px-2.5 py-1 bg-[#17181c] text-[#d4af37] font-mono font-bold text-xs uppercase tracking-wider rounded-xs">
                 Part I
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold font-serif text-white tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-bold font-serif text-[#17181c] tracking-tight">
                 What the Dossier Reveals
               </h3>
             </div>
@@ -171,30 +171,30 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               
               {/* 1. The Real Cost of Founder Dependency */}
-              <div className="p-6 rounded-lg bg-[#0e0f14] border border-[#d4af37]/50 shadow-xl space-y-4 hover:border-[#d4af37] transition-all">
-                <div className="flex items-center gap-2.5 text-[#d4af37]">
-                  <Activity className="w-5 h-5 text-[#d4af37]" />
+              <div className="p-6 rounded-lg bg-white border-2 border-[#d8cebe] shadow-xs space-y-4 hover:border-[#9d7b38] transition-all">
+                <div className="flex items-center gap-2.5 text-[#9d7b38]">
+                  <Activity className="w-5 h-5 text-[#9d7b38]" />
                   <span className="text-xs font-mono uppercase tracking-wider font-bold">Vector 01</span>
                 </div>
-                <h4 className="text-lg sm:text-xl font-bold font-serif text-white">
+                <h4 className="text-lg sm:text-xl font-bold font-serif text-[#17181c]">
                   1. The Real Cost of Founder Dependency
                 </h4>
-                <div className="space-y-3.5 text-xs sm:text-sm text-stone-300 leading-relaxed">
-                  <div className="p-3 bg-black/60 rounded border border-stone-800 space-y-1">
-                    <span className="font-bold text-[#d4af37] font-mono block">Principal Dependency Ratio</span>
-                    <p className="text-stone-300">
-                      The exact percentage of critical enterprise operations that ground to a halt unless the founder applies "heroic intervention."
+                <div className="space-y-3.5 text-xs sm:text-sm text-[#4e5159] leading-relaxed">
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8] space-y-1">
+                    <span className="font-bold text-[#17181c] font-mono text-xs block">Principal Dependency Ratio</span>
+                    <p className="text-[#555861]">
+                      The exact percentage of critical enterprise operations that ground to a halt unless the founder applies heroic intervention.
                     </p>
                   </div>
-                  <div className="p-3 bg-black/60 rounded border border-stone-800 space-y-1">
-                    <span className="font-bold text-[#d4af37] font-mono block">Systemic Survival Index</span>
-                    <p className="text-stone-300">
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8] space-y-1">
+                    <span className="font-bold text-[#17181c] font-mono text-xs block">Systemic Survival Index</span>
+                    <p className="text-[#555861]">
                       The mathematical probability that the enterprise survives 30, 90, or 365 days of high-velocity growth if the founder suddenly steps away.
                     </p>
                   </div>
-                  <div className="p-3 bg-black/60 rounded border border-stone-800 space-y-1">
-                    <span className="font-bold text-[#d4af37] font-mono block">Economic Opportunity Burn</span>
-                    <p className="text-stone-300">
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8] space-y-1">
+                    <span className="font-bold text-[#17181c] font-mono text-xs block">Economic Opportunity Burn</span>
+                    <p className="text-[#555861]">
                       The quantifiable dollar capital and strategic bandwidth squandered while the apex leader is trapped firefighting operational friction rather than compounding sovereign alpha.
                     </p>
                   </div>
@@ -202,24 +202,24 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
               </div>
 
               {/* 2. Signal Refraction & Intent Fragmentation */}
-              <div className="p-6 rounded-lg bg-[#0e0f14] border border-[#d4af37]/50 shadow-xl space-y-4 hover:border-[#d4af37] transition-all">
-                <div className="flex items-center gap-2.5 text-[#d4af37]">
-                  <Binary className="w-5 h-5 text-[#d4af37]" />
+              <div className="p-6 rounded-lg bg-white border-2 border-[#d8cebe] shadow-xs space-y-4 hover:border-[#9d7b38] transition-all">
+                <div className="flex items-center gap-2.5 text-[#9d7b38]">
+                  <Binary className="w-5 h-5 text-[#9d7b38]" />
                   <span className="text-xs font-mono uppercase tracking-wider font-bold">Vector 02</span>
                 </div>
-                <h4 className="text-lg sm:text-xl font-bold font-serif text-white">
+                <h4 className="text-lg sm:text-xl font-bold font-serif text-[#17181c]">
                   2. Signal Refraction & Intent Fragmentation
                 </h4>
-                <div className="space-y-3.5 text-xs sm:text-sm text-stone-300 leading-relaxed">
-                  <div className="p-3 bg-black/60 rounded border border-stone-800 space-y-1">
-                    <span className="font-bold text-[#d4af37] font-mono block">Intent-to-Execution Dilution (Refraction Index)</span>
-                    <p className="text-stone-300">
+                <div className="space-y-3.5 text-xs sm:text-sm text-[#4e5159] leading-relaxed">
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8] space-y-1">
+                    <span className="font-bold text-[#17181c] font-mono text-xs block">Intent-to-Execution Dilution (Refraction Index)</span>
+                    <p className="text-[#555861]">
                       How much strategic intent is lost or distorted between the founder’s mind and the front-line operator.
                     </p>
                   </div>
-                  <div className="p-3 bg-black/60 rounded border border-stone-800 space-y-1">
-                    <span className="font-bold text-[#d4af37] font-mono block">Metabolic Burn & Escalation Density</span>
-                    <p className="text-stone-300">
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8] space-y-1">
+                    <span className="font-bold text-[#17181c] font-mono text-xs block">Metabolic Burn & Escalation Density</span>
+                    <p className="text-[#555861]">
                       The hidden friction tax paid by the organization—measuring approval bottlenecks, decision latency, and stalled authority handoffs.
                     </p>
                   </div>
@@ -227,39 +227,39 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
               </div>
 
               {/* 3. Systemic Traps & Anomaly Loops */}
-              <div className="p-6 rounded-lg bg-[#0e0f14] border border-[#d4af37]/50 shadow-xl space-y-4 hover:border-[#d4af37] transition-all lg:col-span-2">
-                <div className="flex items-center gap-2.5 text-[#d4af37]">
-                  <AlertTriangle className="w-5 h-5 text-amber-400" />
-                  <span className="text-xs font-mono uppercase tracking-wider font-bold">Vector 03</span>
+              <div className="p-6 rounded-lg bg-white border-2 border-[#d8cebe] shadow-xs space-y-4 hover:border-[#9d7b38] transition-all lg:col-span-2">
+                <div className="flex items-center gap-2.5 text-[#9d7b38]">
+                  <AlertTriangle className="w-5 h-5 text-amber-600" />
+                  <span className="text-xs font-mono uppercase tracking-wider font-bold text-amber-700">Vector 03</span>
                 </div>
-                <h4 className="text-lg sm:text-xl font-bold font-serif text-white">
+                <h4 className="text-lg sm:text-xl font-bold font-serif text-[#17181c]">
                   3. Systemic Traps & Anomaly Loops
                 </h4>
-                <p className="text-xs sm:text-sm text-stone-400 italic">
+                <p className="text-xs sm:text-sm text-[#6b6e76] italic">
                   Exposes insidious organizational failure patterns before they manifest as crises:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                  <div className="p-3.5 bg-black/70 rounded border border-amber-900/60 space-y-1">
-                    <span className="font-bold text-amber-300 font-mono text-xs block">The Authority Loop</span>
-                    <p className="text-stone-300 text-xs">
+                  <div className="p-3.5 bg-[#fffdfa] rounded-md border border-[#ebdcc0] space-y-1">
+                    <span className="font-bold text-[#966b1e] font-mono text-xs block">The Authority Loop</span>
+                    <p className="text-[#555861] text-xs">
                       High founder clarity compensating for broken, drag-heavy operational systems.
                     </p>
                   </div>
-                  <div className="p-3.5 bg-black/70 rounded border border-amber-900/60 space-y-1">
-                    <span className="font-bold text-amber-300 font-mono text-xs block">The Consensus Trap</span>
-                    <p className="text-stone-300 text-xs">
-                      Over-indexing on harmony while execution velocity decays to zero.
+                  <div className="p-3.5 bg-[#fffdfa] rounded-md border border-[#ebdcc0] space-y-1">
+                    <span className="font-bold text-[#966b1e] font-mono text-xs block">The Consensus Trap</span>
+                    <p className="text-[#555861] text-xs">
+                      Over-indexing on harmony while execution velocity decays toward zero.
                     </p>
                   </div>
-                  <div className="p-3.5 bg-black/70 rounded border border-amber-900/60 space-y-1">
-                    <span className="font-bold text-amber-300 font-mono text-xs block">The Fragile Alpha</span>
-                    <p className="text-stone-300 text-xs">
+                  <div className="p-3.5 bg-[#fffdfa] rounded-md border border-[#ebdcc0] space-y-1">
+                    <span className="font-bold text-[#966b1e] font-mono text-xs block">The Fragile Alpha</span>
+                    <p className="text-[#555861] text-xs">
                       High commercial expansion decoupled from ethical and governance bedrock.
                     </p>
                   </div>
-                  <div className="p-3.5 bg-black/70 rounded border border-amber-900/60 space-y-1">
-                    <span className="font-bold text-amber-300 font-mono text-xs block">The Ghost Command</span>
-                    <p className="text-stone-300 text-xs">
+                  <div className="p-3.5 bg-[#fffdfa] rounded-md border border-[#ebdcc0] space-y-1">
+                    <span className="font-bold text-[#966b1e] font-mono text-xs block">The Ghost Command</span>
+                    <p className="text-[#555861] text-xs">
                       The leader's physical presence substituting for documented institutional law.
                     </p>
                   </div>
@@ -267,51 +267,51 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
               </div>
 
               {/* 4. The 5-Domain Architecture Benchmark */}
-              <div className="p-6 rounded-lg bg-[#0e0f14] border border-[#d4af37]/50 shadow-xl space-y-5 hover:border-[#d4af37] transition-all lg:col-span-2">
-                <div className="flex items-center gap-2.5 text-[#d4af37]">
-                  <Layers className="w-5 h-5 text-[#d4af37]" />
+              <div className="p-6 rounded-lg bg-white border-2 border-[#d8cebe] shadow-xs space-y-5 hover:border-[#9d7b38] transition-all lg:col-span-2">
+                <div className="flex items-center gap-2.5 text-[#9d7b38]">
+                  <Layers className="w-5 h-5 text-[#9d7b38]" />
                   <span className="text-xs font-mono uppercase tracking-wider font-bold">Vector 04</span>
                 </div>
                 <div>
-                  <h4 className="text-lg sm:text-xl font-bold font-serif text-white">
+                  <h4 className="text-lg sm:text-xl font-bold font-serif text-[#17181c]">
                     4. The 5-Domain Architecture Benchmark
                   </h4>
-                  <p className="text-xs sm:text-sm text-stone-400 mt-1">
+                  <p className="text-xs sm:text-sm text-[#6b6e76] mt-1">
                     Diagnoses the enterprise across the 5 Immutable Core Domains:
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-                  <div className="p-3 bg-black/60 rounded border border-stone-800">
-                    <span className="text-[11px] font-mono text-[#d4af37] uppercase block font-bold">Domain 01</span>
-                    <div className="font-bold text-white text-xs mt-0.5">Cognitive Clarity</div>
-                    <div className="text-[11px] text-stone-400 mt-1">Psychological Sovereignty vs. Decision Exhaustion</div>
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8]">
+                    <span className="text-[11px] font-mono text-[#9d7b38] uppercase block font-bold">Domain 01</span>
+                    <div className="font-bold text-[#17181c] text-xs mt-0.5">Cognitive Clarity</div>
+                    <div className="text-[11px] text-[#555861] mt-1">Psychological Sovereignty vs. Decision Exhaustion</div>
                   </div>
-                  <div className="p-3 bg-black/60 rounded border border-stone-800">
-                    <span className="text-[11px] font-mono text-[#d4af37] uppercase block font-bold">Domain 02</span>
-                    <div className="font-bold text-white text-xs mt-0.5">Cultural Fidelity</div>
-                    <div className="text-[11px] text-stone-400 mt-1">Distributed Intelligence vs. Operational Silos</div>
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8]">
+                    <span className="text-[11px] font-mono text-[#9d7b38] uppercase block font-bold">Domain 02</span>
+                    <div className="font-bold text-[#17181c] text-xs mt-0.5">Cultural Fidelity</div>
+                    <div className="text-[11px] text-[#555861] mt-1">Distributed Intelligence vs. Operational Silos</div>
                   </div>
-                  <div className="p-3 bg-black/60 rounded border border-stone-800">
-                    <span className="text-[11px] font-mono text-[#d4af37] uppercase block font-bold">Domain 03</span>
-                    <div className="font-bold text-white text-xs mt-0.5">Strategic Velocity</div>
-                    <div className="text-[11px] text-stone-400 mt-1">Asymmetric Market Advantage vs. Inertial Drag</div>
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8]">
+                    <span className="text-[11px] font-mono text-[#9d7b38] uppercase block font-bold">Domain 03</span>
+                    <div className="font-bold text-[#17181c] text-xs mt-0.5">Strategic Velocity</div>
+                    <div className="text-[11px] text-[#555861] mt-1">Asymmetric Market Advantage vs. Inertial Drag</div>
                   </div>
-                  <div className="p-3 bg-black/60 rounded border border-stone-800">
-                    <span className="text-[11px] font-mono text-[#d4af37] uppercase block font-bold">Domain 04</span>
-                    <div className="font-bold text-white text-xs mt-0.5">Systemic Integrity</div>
-                    <div className="text-[11px] text-stone-400 mt-1">Zero-Latency Manifestation vs. Single-Point Bottlenecks</div>
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8]">
+                    <span className="text-[11px] font-mono text-[#9d7b38] uppercase block font-bold">Domain 04</span>
+                    <div className="font-bold text-[#17181c] text-xs mt-0.5">Systemic Integrity</div>
+                    <div className="text-[11px] text-[#555861] mt-1">Zero-Latency Delivery vs. Single Bottlenecks</div>
                   </div>
-                  <div className="p-3 bg-black/60 rounded border border-stone-800">
-                    <span className="text-[11px] font-mono text-[#d4af37] uppercase block font-bold">Domain 05</span>
-                    <div className="font-bold text-white text-xs mt-0.5">Moral Gravity</div>
-                    <div className="text-[11px] text-stone-400 mt-1">Institutional Perpetuity vs. Reputational Decay</div>
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8]">
+                    <span className="text-[11px] font-mono text-[#9d7b38] uppercase block font-bold">Domain 05</span>
+                    <div className="font-bold text-[#17181c] text-xs mt-0.5">Moral Gravity</div>
+                    <div className="text-[11px] text-[#555861] mt-1">Institutional Perpetuity vs. Reputational Decay</div>
                   </div>
                 </div>
 
                 {/* Objective Maturity Tiers 1 through 4 */}
-                <div className="pt-4 border-t border-stone-800 space-y-3">
-                  <div className="text-xs font-mono uppercase tracking-wider text-[#d4af37] font-bold">
+                <div className="pt-4 border-t border-[#dfd7c8] space-y-3">
+                  <div className="text-xs font-mono uppercase tracking-wider text-[#9d7b38] font-bold">
                     Objective Maturity Tiers & Valuation Multiple Expansion Estimates:
                   </div>
 
@@ -323,20 +323,22 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
                         <div
                           key={t.tier}
                           onClick={() => setActiveSimTier(tierNum)}
-                          className={`p-3.5 rounded border transition-all cursor-pointer ${
+                          className={`p-3.5 rounded-md border transition-all cursor-pointer ${
                             isSelected
-                              ? 'bg-[#181922] border-[#d4af37] shadow-lg shadow-[#d4af37]/20 ring-1 ring-[#d4af37]'
-                              : 'bg-black/80 border-stone-800 hover:border-stone-600'
+                              ? 'bg-[#17181c] text-white border-2 border-[#d4af37] shadow-md ring-1 ring-[#d4af37]'
+                              : 'bg-white border-[#d8cebe] hover:border-[#9d7b38] text-[#17181c]'
                           }`}
                         >
-                          <div className="text-xs font-bold text-white flex items-center justify-between">
-                            <span>{t.tier}</span>
+                          <div className="text-xs font-bold flex items-center justify-between">
+                            <span className={isSelected ? 'text-[#d4af37]' : 'text-[#17181c]'}>{t.tier}</span>
                             {isSelected && <span className="w-2 h-2 rounded-full bg-[#d4af37]" />}
                           </div>
-                          <div className="text-[11px] text-stone-400 mt-1 leading-relaxed">
+                          <div className={`text-[11px] mt-1 leading-relaxed ${isSelected ? 'text-stone-300' : 'text-[#555861]'}`}>
                             {t.desc}
                           </div>
-                          <div className="mt-2 pt-2 border-t border-stone-800 text-[11px] font-mono text-[#d4af37] font-semibold">
+                          <div className={`mt-2 pt-2 border-t text-[11px] font-mono font-semibold ${
+                            isSelected ? 'border-stone-800 text-[#d4af37]' : 'border-[#dfd7c8] text-[#9d7b38]'
+                          }`}>
                             {t.multiple}
                           </div>
                         </div>
@@ -357,11 +359,11 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
         {(activeTab === 'all' || activeTab === 'part2') && (
           <div className="space-y-8 mb-12">
             
-            <div className="flex items-center gap-3 border-b-2 border-[#d4af37]/40 pb-3">
-              <span className="px-2.5 py-1 bg-[#d4af37] text-black font-mono font-black text-xs uppercase tracking-wider rounded-xs">
+            <div className="flex items-center gap-3 border-b-2 border-[#d4af37] pb-3">
+              <span className="px-2.5 py-1 bg-[#17181c] text-[#d4af37] font-mono font-bold text-xs uppercase tracking-wider rounded-xs">
                 Part II
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold font-serif text-white tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-bold font-serif text-[#17181c] tracking-tight">
                 Undeniable & Ungameable Features
               </h3>
             </div>
@@ -369,36 +371,36 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               
               {/* Feature 1: Anti-Gaming & "Rubbish" Stress-Test Defense */}
-              <div className="p-6 rounded-lg bg-[#0e0f14] border border-[#d4af37]/50 shadow-xl space-y-4 hover:border-[#d4af37] transition-all">
-                <div className="flex items-center gap-2.5 text-[#d4af37]">
-                  <ShieldCheck className="w-5 h-5 text-[#d4af37]" />
+              <div className="p-6 rounded-lg bg-white border-2 border-[#d8cebe] shadow-xs space-y-4 hover:border-[#9d7b38] transition-all">
+                <div className="flex items-center gap-2.5 text-[#9d7b38]">
+                  <ShieldCheck className="w-5 h-5 text-[#9d7b38]" />
                   <span className="text-xs font-mono uppercase tracking-wider font-bold">Feature 01</span>
                 </div>
-                <h4 className="text-lg sm:text-xl font-bold font-serif text-white">
+                <h4 className="text-lg sm:text-xl font-bold font-serif text-[#17181c]">
                   1. Anti-Gaming & "Rubbish" Stress-Test Defense
                 </h4>
-                <p className="text-xs sm:text-sm text-stone-300 leading-relaxed italic">
+                <p className="text-xs sm:text-sm text-[#4e5159] leading-relaxed italic">
                   High-status executives frequently attempt to game assessments using rehearsed corporate platitudes, consulting buzzwords, or performative modesty.
                 </p>
                 <div className="space-y-3 pt-1">
-                  <span className="text-xs font-mono uppercase text-[#d4af37] font-bold block">
+                  <span className="text-xs font-mono uppercase text-[#9d7b38] font-bold block">
                     The Dossier runs an active Anti-Gaming Audit:
                   </span>
-                  <div className="p-3 bg-black/60 rounded border border-stone-800 space-y-1">
-                    <span className="font-bold text-white text-xs block">Semantic Substance Ratio (0–100%)</span>
-                    <p className="text-stone-300 text-xs">
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8] space-y-1">
+                    <span className="font-bold text-[#17181c] text-xs block">Semantic Substance Ratio (0–100%)</span>
+                    <p className="text-[#555861] text-xs">
                       Calculates an unvarnished Semantic Substance Ratio (0–100%) distinguishing concrete operational commitments from empty rhetoric.
                     </p>
                   </div>
-                  <div className="p-3 bg-black/60 rounded border border-stone-800 space-y-1">
-                    <span className="font-bold text-white text-xs block">Rhetorical Evasion Flagging</span>
-                    <p className="text-stone-300 text-xs">
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8] space-y-1">
+                    <span className="font-bold text-[#17181c] text-xs block">Rhetorical Evasion Flagging</span>
+                    <p className="text-[#555861] text-xs">
                       Flags rhetorical evasions ("synergizing cross-functional alignment", "moving the needle").
                     </p>
                   </div>
-                  <div className="p-3 bg-black/60 rounded border border-stone-800 space-y-1">
-                    <span className="font-bold text-white text-xs block">Social Desirability Delta</span>
-                    <p className="text-stone-300 text-xs">
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8] space-y-1">
+                    <span className="font-bold text-[#17181c] text-xs block">Social Desirability Delta</span>
+                    <p className="text-[#555861] text-xs">
                       Measures the Social Desirability Delta to identify where the leader is telling the system what they think a CEO "ought" to say.
                     </p>
                   </div>
@@ -406,30 +408,30 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
               </div>
 
               {/* Feature 2: Dual-Channel Acoustic & Behavioral Cross-Examination */}
-              <div className="p-6 rounded-lg bg-[#0e0f14] border border-[#d4af37]/50 shadow-xl space-y-4 hover:border-[#d4af37] transition-all">
-                <div className="flex items-center gap-2.5 text-[#d4af37]">
-                  <Mic className="w-5 h-5 text-[#d4af37]" />
+              <div className="p-6 rounded-lg bg-white border-2 border-[#d8cebe] shadow-xs space-y-4 hover:border-[#9d7b38] transition-all">
+                <div className="flex items-center gap-2.5 text-[#9d7b38]">
+                  <Mic className="w-5 h-5 text-[#9d7b38]" />
                   <span className="text-xs font-mono uppercase tracking-wider font-bold">Feature 02</span>
                 </div>
-                <h4 className="text-lg sm:text-xl font-bold font-serif text-white">
+                <h4 className="text-lg sm:text-xl font-bold font-serif text-[#17181c]">
                   2. Dual-Channel Acoustic & Behavioral Cross-Examination
                 </h4>
                 <div className="space-y-3 pt-1">
-                  <div className="p-3 bg-black/60 rounded border border-stone-800 space-y-1">
-                    <span className="font-bold text-[#d4af37] text-xs font-mono block">Observable Vocal Prosody</span>
-                    <p className="text-stone-300 text-xs">
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8] space-y-1">
+                    <span className="font-bold text-[#17181c] text-xs font-mono block">Observable Vocal Prosody</span>
+                    <p className="text-[#555861] text-xs">
                       When the leader submits an audio declaration, the engine analyzes cadence, pitch variance, and glottal tension without subjective human bias.
                     </p>
                   </div>
-                  <div className="p-3 bg-black/60 rounded border border-stone-800 space-y-1">
-                    <span className="font-bold text-[#d4af37] text-xs font-mono block">Semantic-Acoustic Divergence</span>
-                    <p className="text-stone-300 text-xs">
-                      Cross-examines spoken claims against physical delivery and written choices. If a founder declares “my executive bench operates completely autonomously” while their written data indicates decision logjams and acoustic telemetry reveals micro-hesitations, the Dossier pinpoints that exact cognitive dissonance.
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8] space-y-1">
+                    <span className="font-bold text-[#17181c] text-xs font-mono block">Semantic-Acoustic Divergence</span>
+                    <p className="text-[#555861] text-xs">
+                      Cross-examines spoken claims against physical delivery and written choices. If a founder declares “my executive bench operates completely autonomously” while their written data indicates decision logjams, the Dossier pinpoints that exact cognitive dissonance.
                     </p>
                   </div>
-                  <div className="p-3 bg-black/60 rounded border border-stone-800 space-y-1">
-                    <span className="font-bold text-[#d4af37] text-xs font-mono block">Dwell Time & Revision Telemetry</span>
-                    <p className="text-stone-300 text-xs">
+                  <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8] space-y-1">
+                    <span className="font-bold text-[#17181c] text-xs font-mono block">Dwell Time & Revision Telemetry</span>
+                    <p className="text-[#555861] text-xs">
                       Tracks micro-hesitations, latency to first action, and option toggles before decision lock, exposing private uncertainty on high-stakes topics.
                     </p>
                   </div>
@@ -437,54 +439,54 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
               </div>
 
               {/* Feature 3: Strict Score-Narrative Parity Engine (Protocol C & D) */}
-              <div className="p-6 rounded-lg bg-[#0e0f14] border border-[#d4af37]/50 shadow-xl space-y-3 hover:border-[#d4af37] transition-all">
-                <div className="flex items-center gap-2.5 text-[#d4af37]">
-                  <Scale className="w-5 h-5 text-[#d4af37]" />
+              <div className="p-6 rounded-lg bg-white border-2 border-[#d8cebe] shadow-xs space-y-3 hover:border-[#9d7b38] transition-all">
+                <div className="flex items-center gap-2.5 text-[#9d7b38]">
+                  <Scale className="w-5 h-5 text-[#9d7b38]" />
                   <span className="text-xs font-mono uppercase tracking-wider font-bold">Feature 03</span>
                 </div>
-                <h4 className="text-lg sm:text-xl font-bold font-serif text-white">
+                <h4 className="text-lg sm:text-xl font-bold font-serif text-[#17181c]">
                   3. Strict Score-Narrative Parity Engine (Protocol C & D)
                 </h4>
-                <p className="text-xs sm:text-sm text-stone-300 leading-relaxed italic">
+                <p className="text-xs sm:text-sm text-[#4e5159] leading-relaxed italic">
                   Conventional AI reporting often outputs glowing praise that contradicts poor quantitative scores.
                 </p>
-                <div className="p-3.5 bg-black/60 rounded border border-stone-800 space-y-2 text-xs sm:text-sm text-stone-300">
+                <div className="p-3.5 bg-[#faf8f4] rounded-md border border-[#dfd7c8] space-y-2 text-xs sm:text-sm text-[#4e5159]">
                   <p>
-                    The Dossier enforces an <strong className="text-white">immutable parity audit</strong>: narrative text must strictly match numerical domain metrics.
+                    The Dossier enforces an <strong className="text-[#17181c]">immutable parity audit</strong>: narrative text must strictly match numerical domain metrics.
                   </p>
-                  <p className="text-stone-400 text-xs">
+                  <p className="text-[#6b6e76] text-xs">
                     If contradictory praise or hallucinated alignment is detected, the engine triggers an automatic failover to a deterministic mathematical matrix.
                   </p>
                 </div>
               </div>
 
               {/* Feature 4: The Inquisitor Counter-Hypothesis */}
-              <div className="p-6 rounded-lg bg-[#0e0f14] border border-[#d4af37]/50 shadow-xl space-y-3 hover:border-[#d4af37] transition-all">
-                <div className="flex items-center gap-2.5 text-[#d4af37]">
-                  <AlertTriangle className="w-5 h-5 text-rose-400" />
-                  <span className="text-xs font-mono uppercase tracking-wider font-bold text-rose-400">Feature 04</span>
+              <div className="p-6 rounded-lg bg-white border-2 border-[#d8cebe] shadow-xs space-y-3 hover:border-[#9d7b38] transition-all">
+                <div className="flex items-center gap-2.5 text-rose-700">
+                  <AlertTriangle className="w-5 h-5 text-rose-600" />
+                  <span className="text-xs font-mono uppercase tracking-wider font-bold text-rose-700">Feature 04</span>
                 </div>
-                <h4 className="text-lg sm:text-xl font-bold font-serif text-white">
+                <h4 className="text-lg sm:text-xl font-bold font-serif text-[#17181c]">
                   4. The Inquisitor Counter-Hypothesis
                 </h4>
-                <div className="p-3.5 bg-black/60 rounded border border-rose-950/70 space-y-2 text-xs sm:text-sm text-stone-300">
+                <div className="p-3.5 bg-[#fff8f8] rounded-md border border-rose-200 space-y-2 text-xs sm:text-sm text-[#4e5159]">
                   <p>
-                    Dedicates an adversarial section to formulating the <strong className="text-rose-300">exact counter-thesis</strong> an activist investor, predator competitor, or dissident board faction would deploy against the founder’s current operating posture.
+                    Dedicates an adversarial section to formulating the <strong className="text-rose-800">exact counter-thesis</strong> an activist investor, predator competitor, or dissident board faction would deploy against the founder’s current operating posture.
                   </p>
-                  <p className="text-stone-400 text-xs italic">
+                  <p className="text-[#6b6e76] text-xs italic">
                     Exposes vulnerable blindspots before external adversaries exploit them.
                   </p>
                 </div>
               </div>
 
-              {/* Feature 5: Cryptographic System Verification Hash */}
-              <div className="p-6 rounded-lg bg-[#0e0f14] border border-[#d4af37]/50 shadow-xl space-y-4 hover:border-[#d4af37] transition-all lg:col-span-2">
+              {/* Feature 5: Cryptographic System Verification Hash (Authoritative Obsidian & 24K Gold Anchor) */}
+              <div className="p-6 sm:p-7 rounded-lg bg-[#0c0d14] text-[#f8f6f0] border-2 border-[#d4af37] shadow-xl space-y-4 lg:col-span-2">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2.5 text-[#d4af37]">
                     <Lock className="w-5 h-5 text-[#d4af37]" />
                     <span className="text-xs font-mono uppercase tracking-wider font-bold">Feature 05</span>
                   </div>
-                  <span className="text-[11px] font-mono text-[#d4af37] bg-[#1a1b22] px-2 py-0.5 rounded border border-[#d4af37]/40">
+                  <span className="text-[11px] font-mono text-[#d4af37] bg-[#1a1b22] px-2.5 py-1 rounded border border-[#d4af37]/50 font-bold">
                     SHA-256 Protocol
                   </span>
                 </div>
@@ -515,25 +517,25 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
                   <div className="bg-[#121318] p-3 rounded border border-stone-800 text-[#d4af37] break-all select-all font-mono text-xs">
                     0x{simulatedHash}
                   </div>
-                  <div className="flex justify-between items-center text-[10px] text-stone-500 pt-1">
+                  <div className="flex justify-between items-center text-[10px] text-stone-400 pt-1">
                     <span>Target: Board Audit Committee & Lead Independent Director</span>
-                    <span className="text-emerald-400">Status: Cryptographically Sealed & Validated</span>
+                    <span className="text-emerald-400 font-semibold">Status: Cryptographically Sealed & Validated</span>
                   </div>
                 </div>
               </div>
 
               {/* Feature 6: Codified Decoupling Blueprint & Mandate Print Engine */}
-              <div className="p-6 rounded-lg bg-[#0e0f14] border border-[#d4af37]/50 shadow-xl space-y-4 hover:border-[#d4af37] transition-all lg:col-span-2">
-                <div className="flex items-center gap-2.5 text-[#d4af37]">
-                  <Printer className="w-5 h-5 text-[#d4af37]" />
+              <div className="p-6 rounded-lg bg-white border-2 border-[#d8cebe] shadow-xs space-y-4 hover:border-[#9d7b38] transition-all lg:col-span-2">
+                <div className="flex items-center gap-2.5 text-[#9d7b38]">
+                  <Printer className="w-5 h-5 text-[#9d7b38]" />
                   <span className="text-xs font-mono uppercase tracking-wider font-bold">Feature 06</span>
                 </div>
-                <h4 className="text-lg sm:text-xl font-bold font-serif text-white">
+                <h4 className="text-lg sm:text-xl font-bold font-serif text-[#17181c]">
                   6. Codified Decoupling Blueprint & Mandate Print Engine
                 </h4>
-                <div className="p-4 bg-black/70 rounded border border-stone-800 text-xs sm:text-sm text-stone-300 space-y-2 leading-relaxed">
+                <div className="p-4 bg-[#faf8f4] rounded-md border border-[#dfd7c8] text-xs sm:text-sm text-[#4e5159] space-y-2 leading-relaxed">
                   <p>
-                    Concludes not with abstract advice, but with an actionable <strong className="text-white">Decoupling Action Directive</strong> and print-ready <strong className="text-white">Board Mandate</strong> formatted with legal watermarks, risk disclosures, and structured milestones to transition an organization from founder dependency into perpetual, self-compounding sovereignty.
+                    Concludes not with abstract advice, but with an actionable <strong className="text-[#17181c]">Decoupling Action Directive</strong> and print-ready <strong className="text-[#17181c]">Board Mandate</strong> formatted with legal watermarks, risk disclosures, and structured milestones to transition an organization from founder dependency into perpetual, self-compounding sovereignty.
                   </p>
                 </div>
               </div>
@@ -542,8 +544,8 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
           </div>
         )}
 
-        {/* Action Callout Bar */}
-        <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-r from-[#171821] via-black to-[#171821] border-2 border-[#d4af37] shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Action Callout Bar — Balanced Obsidian & Brushed 24K Gold Banner */}
+        <div className="p-6 sm:p-8 rounded-lg bg-[#17181c] border-2 border-[#d4af37] shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1.5 text-center md:text-left">
             <div className="text-xs font-mono uppercase tracking-wider text-[#d4af37] font-bold flex items-center justify-center md:justify-start gap-2">
               <Sparkles className="w-4 h-4 text-[#d4af37]" />
@@ -561,7 +563,7 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
             {onTakeTest && (
               <button
                 onClick={onTakeTest}
-                className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-[#d4af37] via-[#e8c868] to-[#b8860b] hover:opacity-95 text-black font-extrabold text-xs uppercase tracking-wider rounded-sm transition-all shadow-xl flex items-center justify-center gap-2 cursor-pointer font-mono"
+                className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-[#d4af37] via-[#e8c868] to-[#b8860b] hover:opacity-95 text-black font-extrabold text-xs uppercase tracking-wider rounded-xs transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer font-mono"
               >
                 <span>Take 60-Sec Audit</span>
                 <ArrowRight className="w-4 h-4" />
@@ -570,7 +572,7 @@ export const SovereignDossierFeatures: React.FC<SovereignDossierFeaturesProps> =
             {onBookBriefing && (
               <button
                 onClick={onBookBriefing}
-                className="w-full sm:w-auto px-6 py-3.5 bg-[#1b1c24] hover:bg-[#252733] text-white font-bold text-xs uppercase tracking-wider rounded-sm border border-stone-700 transition-colors flex items-center justify-center gap-2 cursor-pointer font-mono"
+                className="w-full sm:w-auto px-6 py-3.5 bg-[#252733] hover:bg-[#323545] text-white font-bold text-xs uppercase tracking-wider rounded-xs border border-stone-600 transition-colors flex items-center justify-center gap-2 cursor-pointer font-mono"
               >
                 <span>Request In-Camera Briefing</span>
               </button>

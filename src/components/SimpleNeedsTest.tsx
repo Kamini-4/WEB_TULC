@@ -7,35 +7,28 @@ import {
   TrendingDown, 
   ShieldCheck, 
   Clock, 
-  Zap, 
   CheckCircle2, 
   Sparkles,
-  ChevronDown,
   Brain,
   Cpu,
   Layers,
-  Shield,
-  HelpCircle,
-  FileText
+  Calendar,
+  Users
 } from 'lucide-react';
-import { SovereignDossierFeatures } from './SovereignDossierFeatures';
 
 interface DomainQuestion {
   id: string;
   domainNumber: string;
   domainName: string;
-  domainSubtitle: string;
-  oneSentenceMission: string;
-  icon: typeof Brain;
   prompt: string;
   options: {
     label: string;
     description: string;
-    penaltyDays: number;
-    score: number; // 0 to 20 per domain (total 100)
-    ebitdaImpactPercent: number;
-    painPointDiagnostic: string;
-    desiredOutcome: string;
+    score: number; // 0 to 20
+    lostHours: number;
+    delayCost: number;
+    frictionSummary: string;
+    fixAction: string;
   }[];
 }
 
@@ -43,197 +36,182 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
   {
     id: 'cognitive_clarity',
     domainNumber: '01',
-    domainName: 'Bandwidth Insulation & Focus Sovereignty',
-    domainSubtitle: 'Protecting executive calendar & bandwidth from tactical firefighting',
-    oneSentenceMission: 'Insulates executive focus from reactive firefighting, returning 15+ hours weekly for capital allocation and strategic growth.',
-    icon: Brain,
+    domainName: 'Executive Time & Focus',
     prompt: 'Where does most of your time and mental focus go on an average work week?',
     options: [
       {
-        label: 'Firefighting & Tactical Escalations',
-        description: 'My calendar is consumed by urgent messages, putting out fires, and answering operational questions my team should resolve.',
-        penaltyDays: 14,
+        label: 'Firefighting & Daily Emergencies',
+        description: 'My day is consumed by urgent Slack messages, putting out fires, and answering operational questions my team should solve.',
         score: 4,
-        ebitdaImpactPercent: 4.5,
-        painPointDiagnostic: 'Executive bandwidth is trapped in tactical triage; high-leverage strategic insight is held hostage by daily operational noise.',
-        desiredOutcome: 'Install executive insulation protocols to reclaim 15+ hours weekly for strategic growth and capital compounding.'
+        lostHours: 15,
+        delayCost: 45000,
+        frictionSummary: 'Your focus is trapped in daily noise. High-level strategy is constantly delayed.',
+        fixAction: 'Set clear escalation rules so routine issues never reach your desk.'
       },
       {
-        label: 'Fragmented Attention & Constant Interruptions',
-        description: 'I try to protect time for deep strategic work, but sudden escalations and sign-off requests repeatedly pull me back in.',
-        penaltyDays: 7,
+        label: 'Constant Interruptions & Approval Requests',
+        description: 'I try to focus on big initiatives, but team members keep knocking or emailing asking for my approval before they act.',
         score: 11,
-        ebitdaImpactPercent: 2.5,
-        painPointDiagnostic: 'Escalation thresholds are ambiguous, causing direct reports to pass routine trade-offs upward to your desk.',
-        desiredOutcome: 'Institute explicit boundary covenants so senior managers resolve operational trade-offs autonomously.'
+        lostHours: 8,
+        delayCost: 25000,
+        frictionSummary: 'Unclear decision boundaries cause managers to seek reassurance instead of taking ownership.',
+        fixAction: 'Give team leads pre-approved spending limits up to $5,000 without sign-offs.'
       },
       {
-        label: 'Protected Strategic Focus',
-        description: 'My focus is defended; zero routine operational questions reach my desk, and my leadership team resolves friction without me.',
-        penaltyDays: 0,
+        label: 'Protected Strategic Growth',
+        description: 'My focus is defended. Zero routine questions reach me; my senior team resolves problems on their own.',
         score: 20,
-        ebitdaImpactPercent: 0,
-        painPointDiagnostic: 'Your executive schedule is impeccably defended, leaving clear cognitive bandwidth for high-conviction decisions.',
-        desiredOutcome: 'Maintain invariant decision boundaries and scale enterprise operations with total composure.'
+        lostHours: 0,
+        delayCost: 0,
+        frictionSummary: 'Your focus is defended. You have bandwidth for high-conviction moves.',
+        fixAction: 'Keep maintaining invariant boundaries as you scale.'
       }
     ]
   },
   {
     id: 'systemic_integrity',
     domainNumber: '02',
-    domainName: 'Delegation Architecture & Execution Fidelity',
-    domainSubtitle: 'Codifying decision boundaries so teams execute with 100% fidelity without sign-offs',
-    oneSentenceMission: 'Translates executive standards into codified decision thresholds so leaders deliver flawless execution with zero rework.',
-    icon: Cpu,
-    prompt: 'When you hand off a major initiative or responsibility to your leadership team, what usually happens?',
+    domainName: 'Delegation & Execution',
+    prompt: 'When you hand off a major initiative or responsibility to your leadership team, what happens?',
     options: [
       {
-        label: 'Incomplete Output & Executive Rework',
-        description: 'Deliverables fall short of standards, forcing me to step in, rewrite, or salvage execution myself.',
-        penaltyDays: 16,
+        label: 'Incomplete Output & Personal Rework',
+        description: 'Work comes back incomplete or below standard, forcing me to step in, rewrite, or finish it myself.',
         score: 4,
-        ebitdaImpactPercent: 5.5,
-        painPointDiagnostic: 'Direct reports rely on you as a safety net, which prevents genuine decentralized ownership and dilutes output.',
-        desiredOutcome: 'Codify executive standards into immutable decision blueprints that guarantee flawless autonomous delivery.'
+        lostHours: 14,
+        delayCost: 50000,
+        frictionSummary: 'Your team treats you as a safety net, which destroys their confidence and multiplies your hours.',
+        fixAction: 'Codify standards into 1-page checklists that define what finished work looks like.'
       },
       {
-        label: 'Hesitant Escalation & Approval Drag',
-        description: 'They manage routine items well, but hesitate and seek confirmation before committing capital or deciding tough trade-offs.',
-        penaltyDays: 9,
+        label: 'Hesitant Delays on Tough Calls',
+        description: 'They manage routine work well, but freeze when tough trade-offs or difficult decisions are required.',
         score: 12,
-        ebitdaImpactPercent: 3.0,
-        painPointDiagnostic: 'Hesitation around unratified liability slows operational velocity and draws you into routine procedural reviews.',
-        desiredOutcome: 'Grant pre-ratified spending covenants and explicit veto frameworks to unlock autonomous velocity.'
+        lostHours: 6,
+        delayCost: 20000,
+        frictionSummary: 'Fear of making a mistake slows momentum and brings decisions back to your desk.',
+        fixAction: 'Institute reversible decision rules: let them decide anything that can be undone.'
       },
       {
         label: 'Flawless Autonomous Delivery',
-        description: 'Initiatives conclude on schedule to exact standards with zero executive intervention or rework required.',
-        penaltyDays: 0,
+        description: 'Work finishes on schedule to exact standards with zero need for me to step in or review.',
         score: 20,
-        ebitdaImpactPercent: 0,
-        painPointDiagnostic: 'Your leadership bench operates with complete maturity and decisive individual accountability.',
-        desiredOutcome: 'Scale enterprise divisions and enter new markets without requiring additional executive supervision.'
+        lostHours: 0,
+        delayCost: 0,
+        frictionSummary: 'Your team executes decisively with high ownership and low supervision.',
+        fixAction: 'Scale new units without adding management layers.'
       }
     ]
   },
   {
     id: 'strategic_velocity',
     domainNumber: '03',
-    domainName: 'Market Agility & Decision Compression',
-    domainSubtitle: 'Compressing decision cadences from 6 weeks to 72 hours via single-person vetoes',
-    oneSentenceMission: 'Eliminates consensus committee gridlock so your enterprise manifests strategic pivots in 72 hours instead of 6 weeks.',
-    icon: Zap,
-    prompt: 'When a critical strategic decision or market pivot is decided, how quickly does it turn into live action across the company?',
+    domainName: 'Decision Speed & Meetings',
+    prompt: 'How fast does your company make critical business decisions?',
     options: [
       {
-        label: 'Committee Gridlock & Consensus Drag (6 to 12+ Weeks)',
-        description: 'Decisions bounce across multi-department review decks, alignment meetings, and sequential approval rounds.',
-        penaltyDays: 24,
+        label: 'Stuck in Endless Review Meetings',
+        description: 'Decisions bounce through multiple meetings and committee reviews. Weeks pass before anything gets signed off.',
         score: 4,
-        ebitdaImpactPercent: 6.0,
-        painPointDiagnostic: 'Diffused accountability stalls action, allowing competitors to capture valuable market opportunities.',
-        desiredOutcome: 'Compress decision cycle latency from 60+ days down to 72 hours via single-principal veto frameworks.'
+        lostHours: 12,
+        delayCost: 40000,
+        frictionSummary: 'Consensus meetings disguise fear of accountability. Speed decays to zero.',
+        fixAction: 'Assign exactly 1 owner to each decision. Remove committee approvals.'
       },
       {
-        label: 'Linear Approval Cascades (3 to 5 Weeks)',
-        description: 'Initiatives move through standard linear gates with weekly status check-ins and handoff delays.',
-        penaltyDays: 10,
-        score: 12,
-        ebitdaImpactPercent: 3.0,
-        painPointDiagnostic: 'Meeting rituals dilute urgency and delay high-value customer acquisitions and product deployments.',
-        desiredOutcome: 'Replace bi-weekly status rituals with 14-day asynchronous execution loops and rapid deployment sprints.'
+        label: 'Frequent Second-Guessing After Sign-Off',
+        description: 'We agree on a plan, but people hesitate, reopen debates, or wait for final reassurance before executing.',
+        score: 11,
+        lostHours: 6,
+        delayCost: 20000,
+        frictionSummary: 'Lack of clear written authority creates backchannel doubts and sluggish rollout.',
+        fixAction: 'Install 14-day autonomous delivery sprints with clear deadlines.'
       },
       {
-        label: 'High-Velocity Execution (Under 72 Hours)',
-        description: 'Leaders possess explicit authority to deploy budget and mobilize personnel immediately upon strategic signal.',
-        penaltyDays: 1,
+        label: 'Decisive 72-Hour Execution Loops',
+        description: 'Designated leaders make decisions within 72 hours and execute with full authority and speed.',
         score: 20,
-        ebitdaImpactPercent: 0,
-        painPointDiagnostic: 'Your institution operates at market-leading velocity, compounding competitive advantage through relentless execution.',
-        desiredOutcome: 'Compound market dominance through continuous asynchronous operational superiority.'
+        lostHours: 0,
+        delayCost: 0,
+        frictionSummary: 'High market velocity. You outpace slower, committee-bound competitors.',
+        fixAction: 'Preserve direct execution loops as revenue grows.'
       }
     ]
   },
   {
     id: 'moral_gravity',
     domainNumber: '04',
-    domainName: 'Peer Calibration & Cultural Standards',
-    domainSubtitle: 'Enforcing peer-to-peer accountability so substandard work is arrested immediately',
-    oneSentenceMission: 'Installs peer accountability cadences where leaders self-regulate and challenge mediocrity before it reaches executive exposure.',
-    icon: Shield,
-    prompt: 'When an executive deliverable or team performance falls below institutional standards, how is it confronted?',
+    domainName: 'Founder Absence Stress-Test',
+    prompt: 'What happens to your business if you take an unexpected 30-day absence?',
     options: [
       {
-        label: 'Single-Person Filter (You Must Fix It)',
-        description: 'Nobody addresses the deficiency unless I personally step in, point it out, and demand a correction.',
-        penaltyDays: 12,
+        label: 'Operations Freeze & Revenue Stalls',
+        description: 'Critical client deals, key hires, and major projects ground to a complete halt until I return.',
         score: 4,
-        ebitdaImpactPercent: 4.5,
-        painPointDiagnostic: 'You are operating as the sole proofreader and disciplinarian, burning valuable leadership capital on baseline quality.',
-        desiredOutcome: 'Install mutual quality covenants so the executive team rigorously challenges and elevates work autonomously.'
+        lostHours: 16,
+        delayCost: 60000,
+        frictionSummary: 'Extreme key-person dependency. The business is an extension of your stamina.',
+        fixAction: 'Decouple essential systems so client delivery runs automatically without you.'
       },
       {
-        label: 'Diplomatic Avoidance (Polite Silence)',
-        description: 'Shortfalls are avoided in group discussions to maintain collegiality, leaving structural underperformance unaddressed.',
-        penaltyDays: 8,
-        score: 11,
-        ebitdaImpactPercent: 2.5,
-        painPointDiagnostic: 'Artificial harmony masks performance drag, slowly eroding institutional excellence and profitability.',
-        desiredOutcome: 'Cultivate high-trust executive candor where senior leaders challenge each other constructively.'
+        label: 'Day-to-Day Survives, Strategic Growth Stops',
+        description: 'Routine customer work gets done, but strategic initiatives pause and tough problems pile up on my desk.',
+        score: 12,
+        lostHours: 8,
+        delayCost: 25000,
+        frictionSummary: 'Operational tasks are delegated, but strategic decision rights remain locked in your head.',
+        fixAction: 'Designate interim operational command with pre-set authority covenants.'
       },
       {
-        label: 'Self-Regulating Peer Calibration',
-        description: 'The leadership bench self-regulates immediately; peers challenge and elevate deliverables before boardroom review.',
-        penaltyDays: 0,
+        label: 'Company Runs and Expands Smoothly',
+        description: 'The executive bench operates autonomously, meeting growth targets with zero disruption.',
         score: 20,
-        ebitdaImpactPercent: 0,
-        painPointDiagnostic: 'Your leadership team demonstrates collective stewardship, fiercely defending institutional integrity.',
-        desiredOutcome: 'Scale headcount and enterprise footprint without diluting uncompromising operational standards.'
+        lostHours: 0,
+        delayCost: 0,
+        frictionSummary: 'True sovereign organization. Your company holds institutional perpetuity.',
+        fixAction: 'Explore high-multiple strategic acquisition or perpetual board leadership.'
       }
     ]
   },
   {
     id: 'cultural_fidelity',
     domainNumber: '05',
-    domainName: 'Institutional Perpetuity & Decoupling',
-    domainSubtitle: 'Ensuring enterprise momentum accelerates even during complete executive absence',
-    oneSentenceMission: 'Dismantles single-person dependency so the enterprise compounds faster during a 14-day executive absence than when present.',
-    icon: Layers,
-    prompt: 'If you completely disconnected from all calls, emails, and messages for two full weeks, what would happen?',
+    domainName: 'Leadership Team Alignment',
+    prompt: 'How aligned is your senior leadership team on company priorities?',
     options: [
       {
-        label: 'Operational Paralysis (Key-Person Dependency)',
-        description: 'Major transactions freeze, partner disputes bottleneck, and executive momentum halts awaiting my return.',
-        penaltyDays: 28,
+        label: 'Departmental Silos & Disagreements',
+        description: 'Leads pull in conflicting directions, protect their own departments, and drag me in to arbitrate disagreements.',
         score: 4,
-        ebitdaImpactPercent: 7.5,
-        painPointDiagnostic: 'You have built a business that relies heavily on you personally; stepping away threatens stability.',
-        desiredOutcome: 'Decouple founder and executive dependency in 90 days, enabling autonomous operational perpetuity.'
+        lostHours: 10,
+        delayCost: 35000,
+        frictionSummary: 'Departmental friction wastes executive energy and fragments company focus.',
+        fixAction: 'Tie executive rewards to unified enterprise outcomes, not individual department metrics.'
       },
       {
-        label: 'Status Quo Stagnation (Coasting on Momentum)',
-        description: 'Routine operations continue smoothly, but high-stakes contracts, partnerships, and new initiatives pause.',
-        penaltyDays: 12,
+        label: 'Polite Agreement in Meetings, Slow Execution in Practice',
+        description: 'Everyone nods and agrees during our executive meetings, but execution slows down once the door closes.',
         score: 12,
-        ebitdaImpactPercent: 3.5,
-        painPointDiagnostic: 'The business maintains status quo but lacks decentralized authority to close transformative opportunities without you.',
-        desiredOutcome: 'Ratify sovereign negotiation mandates empowering C-suite direct reports to close major contracts independently.'
+        lostHours: 5,
+        delayCost: 15000,
+        frictionSummary: 'Passive resistance and lack of clear commitments stall team follow-through.',
+        fixAction: 'Require written commitments and public 14-day completion scorecards.'
       },
       {
-        label: 'Accelerating Sovereign Momentum (Fully Decoupled)',
-        description: 'The enterprise accelerates; leadership closes strategic deals, expands margins, and compounds value with zero disruption.',
-        penaltyDays: 0,
+        label: 'Total Alignment & Mutual Accountability',
+        description: 'Senior leaders challenge each other constructively, own decisions completely, and resolve friction together.',
         score: 20,
-        ebitdaImpactPercent: 0,
-        painPointDiagnostic: 'The pinnacle of organizational maturity: a self-governing sovereign institution commanding premium enterprise valuation.',
-        desiredOutcome: 'Scale enterprise equity perpetually while enjoying unencumbered executive sovereignty.'
+        lostHours: 0,
+        delayCost: 0,
+        frictionSummary: 'High-trust, high-accountability executive bench.',
+        fixAction: 'Nurture decentralized leadership as you enter new markets.'
       }
     ]
   }
 ];
 
 interface SimpleNeedsTestProps {
-  onConsultationRequest: (testSummary: string) => void;
+  onConsultationRequest: (summary: any) => void;
   onExplorePartnerships: () => void;
   onProceedToInDepth: () => void;
 }
@@ -243,15 +221,14 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
   onExplorePartnerships,
   onProceedToInDepth
 }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [answers, setAnswers] = useState<number[]>([]);
-  const [annualRevenue, setAnnualRevenue] = useState<number>(15000000); // $15M default
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
 
   const handleSelectOption = (optionIndex: number) => {
-    const updated = [...answers, optionIndex];
-    setAnswers(updated);
+    const updatedAnswers = [...answers];
+    updatedAnswers[currentStep] = optionIndex;
+    setAnswers(updatedAnswers);
 
     if (currentStep < FIVE_DOMAINS_QUESTIONS.length - 1) {
       setCurrentStep(currentStep + 1);
@@ -266,521 +243,343 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
     setIsCompleted(false);
   };
 
-  // Calculations across 5 domains
-  const totalScore = answers.reduce((sum, optIdx, qIdx) => {
-    return sum + (FIVE_DOMAINS_QUESTIONS[qIdx]?.options[optIdx]?.score || 0);
+  // Computations
+  const totalScore = answers.reduce((acc, optIdx, qIdx) => {
+    const q = FIVE_DOMAINS_QUESTIONS[qIdx];
+    return acc + (q?.options[optIdx]?.score ?? 0);
   }, 0);
 
-  const totalPenaltyDays = answers.reduce((sum, optIdx, qIdx) => {
-    return sum + (FIVE_DOMAINS_QUESTIONS[qIdx]?.options[optIdx]?.penaltyDays || 0);
+  const totalLostHours = answers.reduce((acc, optIdx, qIdx) => {
+    const q = FIVE_DOMAINS_QUESTIONS[qIdx];
+    return acc + (q?.options[optIdx]?.lostHours ?? 0);
   }, 0);
 
-  const totalEbitdaLossPercent = answers.reduce((sum, optIdx, qIdx) => {
-    return sum + (FIVE_DOMAINS_QUESTIONS[qIdx]?.options[optIdx]?.ebitdaImpactPercent || 0);
+  const totalDelayCost = answers.reduce((acc, optIdx, qIdx) => {
+    const q = FIVE_DOMAINS_QUESTIONS[qIdx];
+    return acc + (q?.options[optIdx]?.delayCost ?? 0);
   }, 0);
 
-  const estimatedAnnualEbitdaBleed = (annualRevenue * totalEbitdaLossPercent) / 100;
-  const needsUsVerdict = totalScore < 75;
+  const isSevereBottleneck = totalScore < 50;
+  const isModerateFriction = totalScore >= 50 && totalScore < 80;
 
-  const handleSendResultsToBriefing = () => {
-    const summary = `5-Domain Sovereign Operating Audit Results:
-- Overall Sovereignty Index: ${totalScore}/100 (${needsUsVerdict ? 'CRITICAL BOTTLENECK - REQUIRES OPERATIONAL DECOUPLING' : 'SOVEREIGN MATURITY'})
-- Annual Revenue Baseline: $${(annualRevenue / 1000000).toFixed(1)}M USD
-- Annual Inaction Tax (EBITDA Bleed): $${(estimatedAnnualEbitdaBleed / 1000).toFixed(0)}k USD (${totalEbitdaLossPercent.toFixed(1)}% of top-line)
-- Accumulated Decision Latency: ${totalPenaltyDays} Days delay per strategic cycle
-- Bandwidth Recovery Opportunity: 15–20 Hours Every Week
-- 5 Domains Evaluated:
-  1. Cognitive Clarity: ${FIVE_DOMAINS_QUESTIONS[0].options[answers[0] ?? 0]?.label} (${FIVE_DOMAINS_QUESTIONS[0].options[answers[0] ?? 0]?.score}/20 pts)
-  2. Systemic Integrity: ${FIVE_DOMAINS_QUESTIONS[1].options[answers[1] ?? 0]?.label} (${FIVE_DOMAINS_QUESTIONS[1].options[answers[1] ?? 0]?.score}/20 pts)
-  3. Strategic Velocity: ${FIVE_DOMAINS_QUESTIONS[2].options[answers[2] ?? 0]?.label} (${FIVE_DOMAINS_QUESTIONS[2].options[answers[2] ?? 0]?.score}/20 pts)
-  4. Moral Gravity: ${FIVE_DOMAINS_QUESTIONS[3].options[answers[3] ?? 0]?.label} (${FIVE_DOMAINS_QUESTIONS[3].options[answers[3] ?? 0]?.score}/20 pts)
-  5. Cultural Fidelity: ${FIVE_DOMAINS_QUESTIONS[4].options[answers[4] ?? 0]?.label} (${FIVE_DOMAINS_QUESTIONS[4].options[answers[4] ?? 0]?.score}/20 pts)
-- Recommendation: Proceed immediately to In-Depth L.O.S. Diagnostic & Confidential Advisory Debrief.`;
-
+  const handleScheduleCall = () => {
+    const summary = {
+      score: totalScore,
+      lostHours: totalLostHours,
+      delayCost: totalDelayCost,
+      status: isSevereBottleneck ? 'Critical Bottleneck' : isModerateFriction ? 'Moderate Friction' : 'Autonomous High-Performer'
+    };
     onConsultationRequest(summary);
   };
 
   const currentQ = FIVE_DOMAINS_QUESTIONS[currentStep];
-  const CurrentIcon = currentQ?.icon || Brain;
 
   return (
-    <section id="simple-test" className="py-10 sm:py-12 lg:py-14 px-4 sm:px-6 lg:px-8 border-b border-[#e5decfe0] bg-[#f8f6f0] relative">
-      <div className="max-w-4xl mx-auto">
+    <section id="simple-test" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f6f0] text-black">
+      <div className="max-w-3xl mx-auto">
         
-        {/* Section Header Card — Questions appear immediately without gates */}
-        <div className="bg-[#ffffff] border border-[#d8cebe] rounded-lg p-5 sm:p-7 shadow-xs mb-6 text-center space-y-3">
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#17181c] text-[#d4af37] text-xs font-mono uppercase font-bold rounded-xs shadow-2xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
-              <span>100% Free · 60-Second Inaction Calculator</span>
-            </span>
-            <span className="text-xs font-mono text-[#8f6d28] font-bold bg-[#faf6ee] border border-[#ebdcc0] px-2.5 py-1 rounded-xs">
-              Instant Drag & EBITDA Bleed Calculation
-            </span>
-          </div>
+        {!isCompleted ? (
+          /* ========================================================================= */
+          /* QUESTIONNAIRE: OVERLY SIMPLIFIED, GENEROUS SPACING, JET BLACK TEXT        */
+          /* ========================================================================= */
+          <div className="space-y-8">
+            
+            {/* Header: Clean, Crisp, Zero Clutter */}
+            <div className="text-center space-y-3 pb-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black text-[#d4af37] text-xs font-mono uppercase font-bold rounded-xs tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
+                <span>60-Second Operating Audit</span>
+              </span>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17181c] leading-tight tracking-tight [text-wrap:balance]">
-            Leadership Operational Reality Check
-          </h2>
-          
-          <p className="text-sm sm:text-base text-[#4e5159] leading-relaxed max-w-2xl mx-auto">
-            Answer 5 straightforward questions about your company's day-to-day operations to calculate your Inaction Cost and discover where leadership drag is quietly stalling enterprise momentum.
-          </p>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black tracking-tight">
+                Where is your business getting stuck?
+              </h2>
 
-          <div className="pt-1 flex items-center justify-center gap-2 text-xs font-mono text-[#6e727c]">
-            {!isCompleted ? (
-              <div className="inline-flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Question {currentStep + 1} of 5</span>
-              </div>
-            ) : (
-              <button
-                onClick={handleReset}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-[#f0eade] hover:bg-[#e4ded0] text-xs font-mono text-[#17181c] rounded-xs transition-colors cursor-pointer border border-[#ded6c5]"
-              >
-                <RotateCcw className="w-3.5 h-3.5 text-[#9d7b38]" />
-                <span>Retake Assessment</span>
-              </button>
-            )}
-          </div>
-        </div>
+              <p className="text-sm sm:text-base text-zinc-900 max-w-xl mx-auto leading-relaxed">
+                Answer 5 simple questions about your daily operations to see how much time and momentum you lose to bottleneck delays.
+              </p>
+            </div>
 
-        {/* QUESTIONS APPEAR FIRST AND IMMEDIATELY */}
-        <div>
-          {!isCompleted ? (
-            /* Questionnaire Card: Discrete, Clean, Real-Time Problem Aware */
-            <div className="bg-[#ffffff] border border-[#d8cebe] rounded-lg p-5 sm:p-8 shadow-sm transition-all relative">
+            {/* Question Card */}
+            <div className="bg-white rounded-xl border-2 border-[#d8cebe] p-6 sm:p-9 shadow-sm space-y-6">
               
-              {/* Discrete Step Indicator — No domain names or measurement metrics exposed */}
-              <div className="mb-6">
-                <div className="flex items-center justify-between text-xs font-mono text-[#6e727c] mb-2.5">
-                  <div className="flex items-center gap-2">
-                    <span className="font-bold text-[#17181c] uppercase tracking-wider">
-                      Question {currentStep + 1} of 5
-                    </span>
-                  </div>
-                  <span className="text-[#9d7b38] font-bold font-mono">
-                    {Math.round(((currentStep + 1) / FIVE_DOMAINS_QUESTIONS.length) * 100)}% Complete
-                  </span>
+              {/* Step indicator */}
+              <div className="flex items-center justify-between pb-4 border-b border-[#ebdcc0]">
+                <div className="text-xs font-mono font-bold uppercase tracking-wider text-black">
+                  Question {currentStep + 1} of 5 · <span className="text-[#9d7b38]">{currentQ.domainName}</span>
                 </div>
-
-                {/* 5-Step Progress Indicators */}
-                <div className="grid grid-cols-5 gap-1.5 h-1.5 rounded-full overflow-hidden bg-[#f0eade]">
-                  {FIVE_DOMAINS_QUESTIONS.map((_, idx) => (
-                    <div
-                      key={idx}
-                      className={`h-full transition-all duration-300 ${
-                        idx <= currentStep ? 'bg-[#9d7b38]' : 'bg-transparent'
-                      }`}
-                    />
-                  ))}
-                </div>
-
-                <div className="text-[11px] font-mono text-[#8f6d28] mt-1.5">
-                  Confidential Leadership Diagnostic · Select the reality that best describes your company
+                <div className="text-xs font-mono font-bold text-black">
+                  {Math.round(((currentStep + 1) / FIVE_DOMAINS_QUESTIONS.length) * 100)}%
                 </div>
               </div>
 
-              {/* Question Prompt */}
-              <div className="mb-6 space-y-1.5">
-                <h3 className="text-lg sm:text-xl font-bold text-[#17181c] leading-snug">
-                  {currentQ.prompt}
-                </h3>
+              {/* Progress bar */}
+              <div className="w-full bg-[#ede5d6] h-2 rounded-full overflow-hidden">
+                <div 
+                  className="bg-black h-full transition-all duration-300"
+                  style={{ width: `${((currentStep + 1) / FIVE_DOMAINS_QUESTIONS.length) * 100}%` }}
+                />
               </div>
 
-              {/* Simplified, Real-Life Problem Options */}
-              <div className="space-y-3">
+              {/* Question Text in Jet Black */}
+              <h3 className="text-lg sm:text-2xl font-bold text-black leading-snug pt-2">
+                {currentQ.prompt}
+              </h3>
+
+              {/* Options */}
+              <div className="space-y-3.5 pt-1">
                 {currentQ.options.map((opt, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleSelectOption(idx)}
-                    className="w-full text-left p-4 sm:p-5 rounded-md bg-[#faf8f5] hover:bg-[#17181c] text-[#17181c] hover:text-white border border-[#ded6c5] hover:border-[#17181c] transition-all duration-200 cursor-pointer group flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs hover:shadow-md"
+                    className="w-full text-left p-5 rounded-lg bg-[#faf8f4] hover:bg-black text-black hover:text-white border-2 border-[#e2d8c9] hover:border-black transition-all duration-200 cursor-pointer group flex items-start justify-between gap-4 shadow-xs hover:shadow-md"
                   >
-                    <div className="space-y-1 pr-2">
-                      <div className="text-sm sm:text-base font-bold flex items-center gap-2 group-hover:text-[#d4af37] transition-colors">
-                        <span className="w-6 h-6 rounded-full bg-[#ede5d6] text-[#17181c] group-hover:bg-[#d4af37] group-hover:text-[#17181c] text-xs font-mono font-bold flex items-center justify-center shrink-0">
+                    <div className="space-y-1.5 flex-1">
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-6 h-6 rounded-full bg-[#ebdcc0] text-black group-hover:bg-[#d4af37] group-hover:text-black text-xs font-mono font-black flex items-center justify-center shrink-0">
                           {String.fromCharCode(65 + idx)}
                         </span>
-                        <span>{opt.label}</span>
+                        <span className="text-base font-bold text-black group-hover:text-white">
+                          {opt.label}
+                        </span>
                       </div>
-                      <p className="text-xs sm:text-[13px] text-[#5e626d] group-hover:text-stone-300 pl-8 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-zinc-800 group-hover:text-zinc-200 pl-8 leading-relaxed font-normal">
                         {opt.description}
                       </p>
                     </div>
 
-                    <div className="shrink-0 pl-8 sm:pl-0 flex items-center gap-1 text-xs font-mono text-[#9d7b38] group-hover:text-[#d4af37] font-semibold">
-                      <span>Select</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                    <ArrowRight className="w-4 h-4 text-[#9d7b38] group-hover:text-[#d4af37] group-hover:translate-x-1 transition-transform shrink-0 mt-1" />
                   </button>
                 ))}
               </div>
 
-              {/* Navigation Back Controls */}
-              <div className="mt-6 pt-4 border-t border-[#f0eade] flex items-center justify-between">
-                {currentStep > 0 ? (
+              {/* Back button */}
+              {currentStep > 0 && (
+                <div className="pt-3 flex justify-start">
                   <button
                     onClick={() => {
                       setCurrentStep(currentStep - 1);
                       setAnswers(answers.slice(0, -1));
                     }}
-                    aria-label="Go back"
-                    title="Go back"
-                    className="p-2 -ml-2 rounded-full text-[#17181c] hover:text-[#9d7b38] hover:bg-[#ede5d6] transition-colors flex items-center justify-center cursor-pointer min-w-[36px] min-h-[36px]"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-black hover:text-[#9d7b38] cursor-pointer"
                   >
-                    <ArrowLeft className="w-5 h-5 text-[#9d7b38]" />
+                    <ArrowLeft className="w-3.5 h-3.5" />
+                    <span>Back to previous question</span>
                   </button>
-                ) : (
-                  <div className="text-[11px] font-mono text-[#8f6d28]">
-                    Takes 60 seconds
-                  </div>
-                )}
+                </div>
+              )}
 
-                <span className="text-[11px] font-mono text-[#8f6d28]">
-                  Question {currentStep + 1} of 5
-                </span>
-              </div>
             </div>
-          ) : (
-              /* IN-DEPTH FORENSIC REPORT — DEEP BLACK, IMMUTABLE PERSUASION & URGENT ONBOARDING ENGINE */
-              <div className="bg-black border-2 border-[#d4af37] rounded-xl p-5 sm:p-8 lg:p-10 shadow-2xl space-y-8 animate-in fade-in duration-300 text-white">
-                
-                {/* Header of Report with prominent Back and Retake actions and Official Crest */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-stone-800">
-                  <div className="flex items-start sm:items-center gap-4">
-                    <div className="shrink-0 p-1.5 bg-[#0c1322] border-2 border-[#d4af37]/80 rounded-md shadow-lg max-w-[130px] sm:max-w-[150px]">
-                      <img 
-                        src="/assets/tulc-gold-navy-crest.jpg" 
-                        alt="The Sovereign Dossier Official Seal" 
-                        className="w-full h-auto rounded-xs object-contain"
-                      />
-                    </div>
-                    <div>
-                      <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                        <span className="px-2.5 py-0.5 rounded-xs bg-[#d4af37] text-black text-[10px] font-mono uppercase font-black tracking-widest">
-                          Confidential Forensic Memorandum
-                        </span>
-                        <span className="text-[11px] font-mono text-[#d4af37]">
-                          Privileged Advisory Synthesis · Signed by Suchita Sancheti
-                        </span>
-                      </div>
-                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight">
-                        C-Suite Sovereignty Ledger & Vulnerability Map
-                      </h3>
-                    </div>
-                  </div>
 
-                  <div className="flex items-center gap-2 shrink-0">
-                    <button
-                      onClick={handleReset}
-                      className="px-3.5 py-2 text-xs font-mono uppercase text-stone-300 hover:text-white bg-[#191a22] hover:bg-[#252834] border border-stone-700 rounded-sm transition-colors cursor-pointer flex items-center gap-1.5"
-                    >
-                      <RotateCcw className="w-3.5 h-3.5 text-[#d4af37]" />
-                      <span>Retake Test</span>
-                    </button>
-
-                    <button
-                      onClick={() => {
-                        setIsOpen(false);
-                        window.location.hash = 'top';
-                      }}
-                      className="px-3.5 py-2 text-xs font-mono uppercase text-stone-300 hover:text-white bg-[#191a22] hover:bg-[#252834] border border-stone-700 rounded-sm transition-colors cursor-pointer"
-                    >
-                      ← Back to Top
-                    </button>
-                  </div>
-                </div>
-
-                {/* THE UNVARNISHED CXO VERDICT: PRESSING WHERE IT HURTS */}
-                <div className="p-6 sm:p-7 rounded-lg bg-[#0e0f12] text-white border-2 border-[#d4af37] shadow-xl">
-                  <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-                    <div className="space-y-3 max-w-2xl">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className={`px-2.5 py-0.5 rounded-xs text-[11px] font-mono uppercase font-black ${
-                          needsUsVerdict ? 'bg-rose-900/90 text-rose-200 border border-rose-500' : 'bg-emerald-900/90 text-emerald-200 border border-emerald-500'
-                        }`}>
-                          {needsUsVerdict ? 'DIAGNOSIS: ACUTE OPERATIONAL CONFINEMENT' : 'DIAGNOSIS: GOVERNANCE FRICTION DETECTED'}
-                        </span>
-                        <span className="text-xs font-mono text-[#d4af37] font-semibold">
-                          Executive Sovereignty Score: {totalScore} / 100
-                        </span>
-                      </div>
-
-                      <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-white">
-                        {needsUsVerdict 
-                          ? 'You built an empire, but your leadership operating system has trapped you inside it.'
-                          : 'Your enterprise demonstrates resilience, but latent structural latency compromises scale.'}
-                      </h4>
-
-                      <p className="text-xs sm:text-sm text-stone-300 leading-relaxed italic border-l-2 border-[#d4af37] pl-3.5">
-                        {needsUsVerdict ? (
-                          <>
-                            "You are currently the primary operational bottleneck of your enterprise. When strategic initiatives, pricing deviations, and personnel disputes flow back to your desk, your leadership bench develops learned helplessness. Every day you delay installing sovereign decision architecture compounds operational drag, bleeds enterprise EBITDA, and discounts your valuation multiple."
-                          </>
-                        ) : (
-                          <>
-                            "Your core operational circuits function cleanly, but cross-functional hesitation and approval delays continue to cost valuable strategic velocity. The next step is installing permanent institutional governance."
-                          </>
-                        )}
-                      </p>
-                    </div>
-
-                    {/* Score Dial */}
-                    <div className="shrink-0 self-center lg:self-auto flex flex-col items-center justify-center w-32 h-32 sm:w-36 sm:h-36 rounded-full border-4 border-[#d4af37] bg-[#14151a] text-center shadow-2xl ring-4 ring-[#d4af37]/20">
-                      <span className="text-3xl sm:text-4xl font-bold font-mono text-[#d4af37] tabular-nums">
-                        {totalScore}%
-                      </span>
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-stone-400 mt-0.5">
-                        Sovereign Index
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* THE QUANTIFIED INACTION TAX (CREATING EXTREME URGENCY) */}
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="text-xs font-mono uppercase tracking-wider text-[#d4af37] font-bold">
-                      Forensic Metrics & Compounding Inaction Cost:
-                    </div>
-                    <span className="text-[11px] font-mono text-stone-400">
-                      Calibrated for ${(annualRevenue / 1000000).toFixed(1)}M USD Revenue
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
-                    
-                    {/* Metric 1: Daily Cost */}
-                    <div className="p-4 rounded-lg bg-[#111216] border border-rose-800/80 shadow-md space-y-1">
-                      <div className="flex items-center gap-1.5 text-xs text-rose-400 font-bold uppercase font-mono">
-                        <TrendingDown className="w-4 h-4 text-rose-400" />
-                        <span>Daily Cost of Delay</span>
-                      </div>
-                      <div className="text-2xl font-bold font-mono text-rose-300 tabular-nums">
-                        ${Math.round(estimatedAnnualEbitdaBleed / 365).toLocaleString()} / day
-                      </div>
-                      <div className="text-[11px] text-stone-400">
-                        Every day without codified architecture burns real capital in executive drag.
-                      </div>
-                    </div>
-
-                    {/* Metric 2: Annual EBITDA Drain */}
-                    <div className="p-4 rounded-lg bg-[#111216] border border-rose-800/80 shadow-md space-y-1">
-                      <div className="flex items-center gap-1.5 text-xs text-rose-400 font-bold uppercase font-mono">
-                        <AlertTriangle className="w-4 h-4 text-rose-400" />
-                        <span>Annual EBITDA Leak</span>
-                      </div>
-                      <div className="text-2xl font-bold font-mono text-rose-300 tabular-nums">
-                        ${(estimatedAnnualEbitdaBleed / 1000).toLocaleString(undefined, { maximumFractionDigits: 0 })}k / yr
-                      </div>
-                      <div className="text-[11px] text-stone-400">
-                        {totalEbitdaLossPercent.toFixed(1)}% of gross top-line forfeited to coordination friction.
-                      </div>
-                    </div>
-
-                    {/* Metric 3: Decision Cycle Delay */}
-                    <div className="p-4 rounded-lg bg-[#111216] border border-amber-800/80 shadow-md space-y-1">
-                      <div className="flex items-center gap-1.5 text-xs text-amber-400 font-bold uppercase font-mono">
-                        <Clock className="w-4 h-4 text-amber-400" />
-                        <span>Decision Cycle Drag</span>
-                      </div>
-                      <div className="text-2xl font-bold font-mono text-amber-300 tabular-nums">
-                        {totalPenaltyDays} Days → 72 Hrs
-                      </div>
-                      <div className="text-[11px] text-stone-400">
-                        Strategic pivots stall across committee rounds while competitors deploy in days.
-                      </div>
-                    </div>
-
-                    {/* Metric 4: Valuation Multiple Discount */}
-                    <div className="p-4 rounded-lg bg-[#111216] border border-[#d4af37]/70 shadow-md space-y-1">
-                      <div className="flex items-center gap-1.5 text-xs text-[#d4af37] font-bold uppercase font-mono">
-                        <ShieldCheck className="w-4 h-4 text-[#d4af37]" />
-                        <span>Multiple Penalty</span>
-                      </div>
-                      <div className="text-2xl font-bold font-mono text-white tabular-nums">
-                        -25% to -35%
-                      </div>
-                      <div className="text-[11px] text-stone-400">
-                        Institutional investors heavily discount firms tethered to key-person dependency.
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-                {/* Revenue Calibrator Slider (Black Theme) */}
-                <div className="p-4 sm:p-5 bg-[#0f1014] border border-stone-800 rounded-lg space-y-3 text-xs">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                    <span className="text-stone-300 font-bold uppercase tracking-wider font-mono">
-                      Calibrate Annual Enterprise Revenue Baseline:
-                    </span>
-                    <span className="text-[#d4af37] font-bold text-base sm:text-lg font-mono">
-                      ${(annualRevenue / 1000000).toFixed(1)}M USD Annual Revenue
-                    </span>
-                  </div>
-                  <input
-                    type="range"
-                    min={2000000}
-                    max={100000000}
-                    step={1000000}
-                    value={annualRevenue}
-                    onChange={(e) => setAnnualRevenue(Number(e.target.value))}
-                    className="w-full accent-[#d4af37] cursor-pointer h-2 bg-stone-800 rounded-lg"
+          </div>
+        ) : (
+          /* ========================================================================= */
+          /* REPORT: STRATEGIC, OVERLY SIMPLIFIED 3-CARD SCORECARD (ZERO CLUTTER)     */
+          /* ========================================================================= */
+          <div className="space-y-8 animate-in fade-in duration-300">
+            
+            {/* Top Bar with Seal & Retake Button */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#d8cebe]">
+              <div className="flex items-center gap-3">
+                <div className="p-1.5 bg-[#0c1322] border-2 border-[#d4af37] rounded-md shadow-sm w-16 h-16 shrink-0 flex items-center justify-center">
+                  <img 
+                    src="/assets/tulc-gold-navy-crest.jpg" 
+                    alt="The Sovereign Seal" 
+                    className="max-h-full max-w-full object-contain"
                   />
-                  <div className="flex justify-between text-[10px] font-mono text-stone-500">
-                    <span>$2M (Emerging Scale-Up)</span>
-                    <span>$20M (Mid-Market Engine)</span>
-                    <span>$100M+ (Enterprise Conglomerate)</span>
-                  </div>
                 </div>
-
-                {/* 5 Strategic Invariants Forensic Friction Breakdown */}
-                <div className="p-5 sm:p-6 rounded-lg bg-[#0e0f13] border border-stone-800 space-y-4 text-xs">
-                  <div className="flex items-center justify-between border-b border-stone-800 pb-2">
-                    <span className="font-mono uppercase tracking-wider text-[#d4af37] font-bold text-xs">
-                      Forensic Audit Breakdown Across the 5 Strategic Invariants:
-                    </span>
-                    <span className="text-[11px] font-mono text-stone-400">
-                      Audit Lead: Suchita Sancheti
-                    </span>
-                  </div>
-
-                  <div className="space-y-4">
-                    {FIVE_DOMAINS_QUESTIONS.map((q, idx) => {
-                      const selectedOpt = q.options[answers[idx] ?? 0];
-                      const Icon = q.icon;
-                      return (
-                        <div key={q.id} className="pt-3 border-t border-stone-800/80 first:pt-0 first:border-0 space-y-1.5">
-                          <div className="flex items-center justify-between font-bold text-white">
-                            <span className="flex items-center gap-2">
-                              <Icon className="w-4 h-4 text-[#d4af37]" />
-                              <span className="text-sm font-serif">Strategic Invariant {q.domainNumber}: {q.domainName}</span>
-                            </span>
-                            <span className="font-mono text-[#d4af37]">{selectedOpt.score} / 20 pts</span>
-                          </div>
-                          <div className="text-stone-300 leading-relaxed pl-6">
-                            <span className="font-semibold text-rose-400 font-mono uppercase text-[11px]">Identified Friction:</span> {selectedOpt.painPointDiagnostic}
-                          </div>
-                          <div className="text-emerald-300 leading-relaxed pl-6">
-                            <span className="font-semibold text-emerald-400 font-mono uppercase text-[11px]">Sovereign Fix:</span> {selectedOpt.desiredOutcome}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                <div>
+                  <span className="text-[11px] font-mono uppercase text-[#9d7b38] font-black tracking-widest block">
+                    Confidential Operating Report
+                  </span>
+                  <h2 className="text-xl sm:text-2xl font-black text-black">
+                    Your Operational Reality Check
+                  </h2>
                 </div>
+              </div>
 
-                {/* WHY TRADITIONAL CONSULTING FAILS & WHY TULC IS ESSENTIAL */}
-                <div className="p-5 sm:p-6 rounded-lg bg-[#111217] border border-[#d4af37]/40 space-y-3 text-xs text-stone-300">
-                  <div className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 font-mono">
-                    <Sparkles className="w-4 h-4 text-[#d4af37]" />
-                    <span>Why Conventional Solutions Have Failed Your C-Suite:</span>
-                  </div>
-                  <p className="leading-relaxed italic">
-                    "Management consultants sell 200-page slide decks that leave unwritten rules and committee paralysis intact. Executive coaches treat executive exhaustion as personal stress rather than architectural failure. Neither changes your governance cybernetics. Suchita Sancheti enters your boardroom to install explicit boundary covenants, dismantle founder bottleneck dependencies, and install 14-day asynchronous execution cadences that compound permanently without you."
-                  </p>
+              <button
+                onClick={handleReset}
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-mono font-bold text-black bg-white hover:bg-[#ede5d6] border border-[#d8cebe] rounded-sm transition-colors cursor-pointer self-start sm:self-auto"
+              >
+                <RotateCcw className="w-3.5 h-3.5 text-[#9d7b38]" />
+                <span>Retake Audit</span>
+              </button>
+            </div>
+
+            {/* CARD 1: THE CORE VERDICT (JET BLACK & GOLD ANCHOR) */}
+            <div className="p-7 sm:p-9 rounded-xl bg-black text-white border-2 border-[#d4af37] shadow-xl space-y-4">
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <span className={`px-3 py-1 rounded-xs text-xs font-mono uppercase font-black tracking-wider ${
+                  isSevereBottleneck ? 'bg-rose-900 text-rose-200' : isModerateFriction ? 'bg-amber-900 text-amber-200' : 'bg-emerald-900 text-emerald-200'
+                }`}>
+                  {isSevereBottleneck ? 'Status: Severe Founder Bottleneck' : isModerateFriction ? 'Status: Moderate Operational Friction' : 'Status: High Autonomous Sovereignty'}
+                </span>
+
+                <div className="text-sm font-mono text-[#d4af37] font-bold">
+                  Score: <strong className="text-2xl text-white">{totalScore}</strong> / 100
                 </div>
+              </div>
 
-                {/* URGENT ONBOARDING CALL TO ACTION — LIMITED QUARTERLY MANDATES */}
-                <div className="p-6 sm:p-8 rounded-lg bg-gradient-to-br from-[#181920] via-black to-[#181920] text-white border-2 border-[#d4af37] space-y-5 shadow-2xl relative overflow-hidden">
-                  <div className="absolute top-0 right-0 px-3 py-1 bg-[#d4af37] text-black text-[10px] font-mono uppercase font-black tracking-widest rounded-bl-sm">
-                    Advisory Intake Constraint: Only 2 Mandates / Quarter
-                  </div>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-[#f4ecd8] leading-snug">
+                {isSevereBottleneck 
+                  ? 'You built a great business, but you are currently trapped inside it.'
+                  : isModerateFriction
+                  ? 'Your company gets work done, but decision delays are slowing your growth.'
+                  : 'Your executive bench runs with high autonomy and disciplined execution.'}
+              </h3>
 
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-xs font-mono text-[#d4af37] uppercase tracking-wider font-bold">
-                      <Sparkles className="w-4 h-4 text-[#d4af37]" />
-                      <span>Immediate Onboarding & Sovereign Intervention</span>
-                    </div>
+              <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
+                {isSevereBottleneck ? (
+                  <>
+                    Because routine decisions, spending sign-offs, and daily fires flow to your desk, your leadership team has developed learned helplessness. When you are the only one who can make a call, the entire business moves at the speed of your personal stamina.
+                  </>
+                ) : isModerateFriction ? (
+                  <>
+                    Your team handles day-to-day work, but they hesitate on major trade-offs. Decisions bounce across multiple meetings and reviews, causing you to spend valuable hours in unnecessary alignment sessions.
+                  </>
+                ) : (
+                  <>
+                    Your team operates with strong ownership. Your next frontier is installing permanent governance and enterprise systems so the company compounds seamlessly whether you are in the office or away.
+                  </>
+                )}
+              </p>
+            </div>
 
-                    <h4 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                      Stop Paying The Daily Inaction Tax. <br />
-                      <span className="text-[#d4af37]">Onboard With Suchita Sancheti Today.</span>
+            {/* CARD 2: THE TWO CRITICAL NUMBERS (GENEROUS SPACING, JET BLACK TYPOGRAPHY) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              
+              {/* Lost Hours */}
+              <div className="p-6 sm:p-7 rounded-xl bg-white border-2 border-[#d8cebe] shadow-sm space-y-2">
+                <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase text-rose-700">
+                  <Clock className="w-4 h-4 text-rose-700" />
+                  <span>Executive Time Lost</span>
+                </div>
+                <div className="text-3xl sm:text-4xl font-black text-black">
+                  {totalLostHours}+ Hours / Wk
+                </div>
+                <p className="text-xs sm:text-sm text-zinc-900 leading-relaxed pt-1 font-medium">
+                  Spent putting out fires, answering routine messages, and attending status meetings your managers should handle without you.
+                </p>
+              </div>
+
+              {/* Financial Inaction Cost */}
+              <div className="p-6 sm:p-7 rounded-xl bg-white border-2 border-[#d8cebe] shadow-sm space-y-2">
+                <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase text-amber-800">
+                  <TrendingDown className="w-4 h-4 text-amber-800" />
+                  <span>Annual Delay Cost</span>
+                </div>
+                <div className="text-3xl sm:text-4xl font-black text-black">
+                  ${totalDelayCost.toLocaleString()} / Yr
+                </div>
+                <p className="text-xs sm:text-sm text-zinc-900 leading-relaxed pt-1 font-medium">
+                  Lost enterprise value and slowed execution caused by delayed initiatives waiting for executive review.
+                </p>
+              </div>
+
+            </div>
+
+            {/* CARD 3: THE 3-STEP FIX IN 90 DAYS (PLAIN ENGLISH, JET BLACK TEXT) */}
+            <div className="p-7 sm:p-8 rounded-xl bg-white border-2 border-[#d8cebe] shadow-sm space-y-6">
+              <div>
+                <span className="text-xs font-mono uppercase text-[#9d7b38] font-bold tracking-wider block">
+                  The 90-Day Decoupling Roadmap
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black text-black mt-1">
+                  Three Steps to Remove Yourself as the Bottleneck:
+                </h3>
+              </div>
+
+              <div className="space-y-4">
+                
+                {/* Step 1 */}
+                <div className="p-4 rounded-lg bg-[#faf8f4] border border-[#e2d8c9] flex items-start gap-3.5">
+                  <span className="w-7 h-7 rounded-full bg-black text-[#d4af37] text-xs font-mono font-black flex items-center justify-center shrink-0 mt-0.5">
+                    1
+                  </span>
+                  <div className="space-y-1">
+                    <h4 className="text-base font-bold text-black">
+                      Set $5,000 Pre-Approved Authority Limits
                     </h4>
-
-                    <p className="text-xs sm:text-sm text-stone-300 leading-relaxed max-w-3xl">
-                      Every week of delay drains an estimated <strong>${(estimatedAnnualEbitdaBleed / 52).toLocaleString(undefined, { maximumFractionDigits: 0 })} USD</strong> in operational latency. To guarantee senior-partner immersion, Suchita Sancheti personally leads every mandate, capping new client onboarding to two enterprises per quarter.
+                    <p className="text-xs sm:text-sm text-zinc-900 leading-relaxed">
+                      Give your managers explicit permission to make operational decisions under $5,000 immediately without messaging you or waiting for approval.
                     </p>
                   </div>
+                </div>
 
-                  {/* High-Intent Conversion CTAs */}
-                  <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
-                    <button
-                      onClick={handleSendResultsToBriefing}
-                      className="px-8 py-4 bg-gradient-to-r from-[#d4af37] via-[#e5c158] to-[#b8860b] hover:opacity-95 text-black font-extrabold text-xs uppercase tracking-wider rounded-sm transition-all shadow-xl flex items-center justify-center gap-2.5 cursor-pointer active:scale-98 font-mono"
-                    >
-                      <Sparkles className="w-4 h-4" />
-                      <span>Onboard Today · Lock Sovereign Mandate</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-
-                    <button
-                      onClick={onProceedToInDepth}
-                      className="px-6 py-4 bg-[#1f2129] hover:bg-[#2c2f3a] text-white font-semibold text-xs uppercase tracking-wider rounded-sm border border-stone-600 transition-colors flex items-center justify-center gap-2 cursor-pointer font-mono"
-                    >
-                      <span>Launch In-Depth L.O.S. Diagnostic™</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
-                    </button>
-                  </div>
-
-                  <div className="text-[11px] text-stone-400 flex items-center gap-2 pt-1 font-mono">
-                    <ShieldCheck className="w-4 h-4 text-[#d4af37]" />
-                    <span>Strict Boardroom Privilege · Direct 1-on-1 Advisory with Suchita Sancheti</span>
+                {/* Step 2 */}
+                <div className="p-4 rounded-lg bg-[#faf8f4] border border-[#e2d8c9] flex items-start gap-3.5">
+                  <span className="w-7 h-7 rounded-full bg-black text-[#d4af37] text-xs font-mono font-black flex items-center justify-center shrink-0 mt-0.5">
+                    2
+                  </span>
+                  <div className="space-y-1">
+                    <h4 className="text-base font-bold text-black">
+                      Replace Status Meetings with 14-Day Delivery Sprints
+                    </h4>
+                    <p className="text-xs sm:text-sm text-zinc-900 leading-relaxed">
+                      Eliminate routine check-in calls. Assign exactly one owner per initiative and hold them accountable to measurable 14-day delivery loops.
+                    </p>
                   </div>
                 </div>
 
-                {/* THE SOVEREIGN DOSSIER™ PATENT-PENDING REPORT ARCHITECTURE DEEP-DIVE */}
-                <div className="mt-8 pt-4 border-t border-stone-800">
-                  <div className="mb-4 text-center">
-                    <span className="text-[11px] font-mono uppercase text-[#d4af37] tracking-widest font-bold">
-                      Patent-Pending Diagnostic Architecture · Deep Dive
-                    </span>
-                    <h4 className="text-xl sm:text-2xl font-bold font-serif text-white mt-1">
-                      The Sovereign Dossier™ Forensic Specifications
+                {/* Step 3 */}
+                <div className="p-4 rounded-lg bg-[#faf8f4] border border-[#e2d8c9] flex items-start gap-3.5">
+                  <span className="w-7 h-7 rounded-full bg-black text-[#d4af37] text-xs font-mono font-black flex items-center justify-center shrink-0 mt-0.5">
+                    3
+                  </span>
+                  <div className="space-y-1">
+                    <h4 className="text-base font-bold text-black">
+                      Decouple the Founder (The 30-Day Absence Test)
                     </h4>
-                  </div>
-                  <SovereignDossierFeatures
-                    onTakeTest={() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    onBookBriefing={handleSendResultsToBriefing}
-                  />
-
-                  {/* Bottom Navigation & Reset Row */}
-                  <div className="mt-6 pt-6 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono">
-                    <button
-                      onClick={handleReset}
-                      className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#191a22] hover:bg-[#252834] text-stone-300 hover:text-white rounded-sm border border-stone-700 transition-colors cursor-pointer"
-                    >
-                      <RotateCcw className="w-3.5 h-3.5 text-[#d4af37]" />
-                      <span>← Retake 5-Domain Assessment</span>
-                    </button>
-
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => {
-                          setIsOpen(false);
-                          window.location.hash = 'top';
-                        }}
-                        className="px-4 py-2.5 bg-[#191a22] hover:bg-[#252834] text-stone-300 hover:text-white rounded-sm border border-stone-700 transition-colors cursor-pointer"
-                      >
-                        ← Back to Top Overview
-                      </button>
-
-                      <button
-                        onClick={onExplorePartnerships}
-                        className="px-4 py-2.5 bg-gradient-to-r from-[#d4af37] to-[#c5a059] text-black font-bold uppercase rounded-sm transition-all shadow-md cursor-pointer"
-                      >
-                        View Services Tracks →
-                      </button>
-                    </div>
+                    <p className="text-xs sm:text-sm text-zinc-900 leading-relaxed">
+                      Document operating rules so your business generates revenue and serves clients flawlessly even if you take an entire month completely off.
+                    </p>
                   </div>
                 </div>
 
               </div>
-            )}
+            </div>
+
+            {/* DIRECT ACTION SECTION: ONE HIGH-IMPACT NEXT STEP */}
+            <div className="p-7 sm:p-9 rounded-xl bg-black text-white border-2 border-[#d4af37] shadow-xl text-center space-y-5">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#17181c] border border-[#d4af37] rounded-full text-xs font-mono text-[#d4af37] font-bold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
+                <span>Confidential Advisory</span>
+              </div>
+
+              <div className="space-y-2 max-w-xl mx-auto">
+                <h3 className="text-2xl sm:text-3xl font-black text-[#f4ecd8] leading-tight">
+                  Ready to Reclaim 15+ Hours Every Week?
+                </h3>
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  Book a confidential 20-minute strategy call directly with Suchita Sancheti. We will review your operating bottlenecks and design your 90-day decoupling plan.
+                </p>
+              </div>
+
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+                <button
+                  onClick={handleScheduleCall}
+                  className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] hover:brightness-110 text-black font-black text-xs uppercase tracking-wider rounded-xs transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer font-mono"
+                >
+                  <span>Book 20-Min Strategy Call</span>
+                  <ArrowRight className="w-4 h-4 text-black" />
+                </button>
+
+                <button
+                  onClick={onProceedToInDepth}
+                  className="w-full sm:w-auto px-6 py-4 bg-[#141520] hover:bg-[#1f2233] text-white font-bold text-xs uppercase tracking-wider rounded-xs border border-zinc-700 transition-colors flex items-center justify-center gap-2 cursor-pointer font-mono"
+                >
+                  <span>Explore Phase 2 Diagnostic</span>
+                </button>
+              </div>
+
+              <div className="text-[11px] font-mono text-zinc-400 pt-1">
+                Strict Chatham House Rule · 100% Confidential
+              </div>
+            </div>
+
           </div>
+        )}
 
       </div>
     </section>

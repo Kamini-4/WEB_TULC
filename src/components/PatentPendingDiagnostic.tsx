@@ -196,14 +196,14 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
               </button>
               <button
                 onClick={() => setActiveTab('dossier')}
-                className={`px-3 py-1.5 text-xs font-bold rounded transition-colors flex items-center justify-center gap-1.5 min-h-[38px] ${
+                className={`px-3 py-1.5 text-xs font-bold rounded transition-colors flex items-center justify-center gap-1.5 min-h-[38px] cursor-pointer ${
                   activeTab === 'dossier'
-                    ? 'bg-black text-[#d4af37] border-2 border-[#d4af37] shadow-xs'
-                    : 'text-[#17181c] hover:text-[#d4af37] bg-[#14151a] text-white border border-[#2b2d33]'
+                    ? 'bg-[#17181c] text-[#d4af37] border-2 border-[#d4af37] shadow-xs'
+                    : 'text-[#4e5159] hover:text-[#17181c] bg-[#f0eade] border border-[#dfd7c8]'
                 }`}
               >
-                <FileText className="w-3.5 h-3.5 text-[#d4af37]" />
-                <span>3. The Sovereign Dossier™ (Features)</span>
+                <FileText className="w-3.5 h-3.5 text-[#9d7b38]" />
+                <span>3. The Sovereign Dossier™</span>
               </button>
             </div>
           </div>
@@ -217,12 +217,12 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                 {/* Switch 1: Decision Speed */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <label className="text-xs uppercase font-bold text-[#17181c]">
+                    <label className="text-xs uppercase font-black text-black">
                       Governance Vector 01 · Decision Speed & Follow-Through
                     </label>
-                    <span className="text-[11px] text-[#6b6e76] italic">Where do decisions get delayed?</span>
+                    <span className="text-[11px] text-zinc-800 font-medium">Where do decisions get delayed?</span>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                     {[
                       {
                         id: 'consensus-stalled',
@@ -243,14 +243,14 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                       <button
                         key={opt.id}
                         onClick={() => handleSelectOption('decisionVelocity', opt.id as any)}
-                        className={`p-3 rounded text-left border transition-all min-h-[58px] cursor-pointer ${
+                        className={`p-3.5 rounded text-left border-2 transition-all min-h-[64px] cursor-pointer ${
                           levers.decisionVelocity === opt.id
-                            ? 'bg-[#17181c] border-[#17181c] text-[#f8f6f0] shadow-xs'
-                            : 'bg-[#fcfaf7] border-[#e5decfe0] hover:border-[#c5a059] text-[#17181c]'
+                            ? 'bg-black border-black text-white shadow-xs'
+                            : 'bg-[#faf8f4] border-[#d8cebe] hover:border-black text-black'
                         }`}
                       >
-                        <div className="text-xs font-bold">{opt.label}</div>
-                        <div className={`text-[10px] sm:text-[11px] mt-0.5 italic ${levers.decisionVelocity === opt.id ? 'text-[#c4c7d2]' : 'text-[#6b6e76]'}`}>
+                        <div className="text-xs font-black">{opt.label}</div>
+                        <div className={`text-[11px] mt-0.5 ${levers.decisionVelocity === opt.id ? 'text-zinc-200' : 'text-zinc-800'}`}>
                           {opt.sub}
                         </div>
                       </button>
@@ -261,12 +261,12 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                 {/* Switch 2: Board Alignment */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <label className="text-xs uppercase font-bold text-[#17181c]">
+                    <label className="text-xs uppercase font-black text-black">
                       Governance Vector 02 · Board & Leadership Team Alignment
                     </label>
-                    <span className="text-[11px] text-[#6b6e76] italic">Support vs. Interrogation</span>
+                    <span className="text-[11px] text-zinc-800 font-medium">Support vs. Interrogation</span>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                     {[
                       {
                         id: 'factional-impasse',
@@ -287,14 +287,14 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                       <button
                         key={opt.id}
                         onClick={() => handleSelectOption('boardAlignment', opt.id as any)}
-                        className={`p-3 rounded text-left border transition-all min-h-[58px] cursor-pointer ${
+                        className={`p-3.5 rounded text-left border-2 transition-all min-h-[64px] cursor-pointer ${
                           levers.boardAlignment === opt.id
-                            ? 'bg-[#17181c] border-[#17181c] text-[#f8f6f0] shadow-xs'
-                            : 'bg-[#fcfaf7] border-[#e5decfe0] hover:border-[#c5a059] text-[#17181c]'
+                            ? 'bg-black border-black text-white shadow-xs'
+                            : 'bg-[#faf8f4] border-[#d8cebe] hover:border-black text-black'
                         }`}
                       >
-                        <div className="text-xs font-bold">{opt.label}</div>
-                        <div className={`text-[10px] sm:text-[11px] mt-0.5 italic ${levers.boardAlignment === opt.id ? 'text-[#c4c7d2]' : 'text-[#6b6e76]'}`}>
+                        <div className="text-xs font-black">{opt.label}</div>
+                        <div className={`text-[11px] mt-0.5 ${levers.boardAlignment === opt.id ? 'text-zinc-200' : 'text-zinc-800'}`}>
                           {opt.sub}
                         </div>
                       </button>
@@ -305,12 +305,12 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                 {/* Switch 3: Succession Resilience */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <label className="text-xs uppercase font-bold text-[#17181c]">
+                    <label className="text-xs uppercase font-black text-black">
                       Governance Vector 03 · Key-Person Independence & Bench Strength
                     </label>
-                    <span className="text-[11px] text-[#6b6e76] italic">Could the business run without you?</span>
+                    <span className="text-[11px] text-zinc-800 font-medium">Could the business run without you?</span>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                     {[
                       {
                         id: 'single-point-fragile',
@@ -331,14 +331,14 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                       <button
                         key={opt.id}
                         onClick={() => handleSelectOption('successionResilience', opt.id as any)}
-                        className={`p-3 rounded text-left border transition-all min-h-[58px] cursor-pointer ${
+                        className={`p-3.5 rounded text-left border-2 transition-all min-h-[64px] cursor-pointer ${
                           levers.successionResilience === opt.id
-                            ? 'bg-[#17181c] border-[#17181c] text-[#f8f6f0] shadow-xs'
-                            : 'bg-[#fcfaf7] border-[#e5decfe0] hover:border-[#c5a059] text-[#17181c]'
+                            ? 'bg-black border-black text-white shadow-xs'
+                            : 'bg-[#faf8f4] border-[#d8cebe] hover:border-black text-black'
                         }`}
                       >
-                        <div className="text-xs font-bold">{opt.label}</div>
-                        <div className={`text-[10px] sm:text-[11px] mt-0.5 italic ${levers.successionResilience === opt.id ? 'text-[#c4c7d2]' : 'text-[#6b6e76]'}`}>
+                        <div className="text-xs font-black">{opt.label}</div>
+                        <div className={`text-[11px] mt-0.5 ${levers.successionResilience === opt.id ? 'text-zinc-200' : 'text-zinc-800'}`}>
                           {opt.sub}
                         </div>
                       </button>
@@ -347,11 +347,11 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                 </div>
 
                 {/* Diagnostic Footer Notice */}
-                <div className="p-3 rounded bg-[#faf6ee] border border-[#ebdcc0] flex items-center justify-between gap-3">
+                <div className="p-3.5 rounded bg-[#faf8f4] border border-[#d8cebe] flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-[#9d7b38] shrink-0" />
-                    <span className="text-xs text-[#33353a]">
-                      <strong>Confidential Vector Isolation:</strong> Calculations execute locally under client privilege.
+                    <span className="text-xs text-black font-medium">
+                      <strong className="text-black font-bold">Confidential Vector Isolation:</strong> Calculations execute locally under client privilege.
                     </span>
                   </div>
                   <button
@@ -360,7 +360,7 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                       boardAlignment: 'factional-impasse',
                       successionResilience: 'single-point-fragile'
                     })}
-                    className="text-xs text-[#6b6e76] hover:text-[#17181c] flex items-center gap-1 font-semibold shrink-0"
+                    className="text-xs text-black hover:text-[#9d7b38] flex items-center gap-1 font-bold shrink-0 cursor-pointer"
                   >
                     <RefreshCw className="w-3.5 h-3.5" />
                     <span>Reset</span>
@@ -369,67 +369,67 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
               </div>
 
               {/* Right 5 Columns: Instant Diagnosis Output */}
-              <div className="lg:col-span-5 flex flex-col justify-between p-4 sm:p-5 rounded-lg bg-[#fbf9f5] border border-[#e5decfe0] shadow-xs relative">
+              <div className="lg:col-span-5 flex flex-col justify-between p-5 sm:p-6 rounded-xl bg-white border-2 border-[#d8cebe] shadow-sm relative space-y-4">
                 
                 <div>
-                  <div className="flex flex-wrap items-center justify-between pb-2.5 border-b border-[#e8e2d5] mb-3.5 gap-2">
+                  <div className="flex flex-wrap items-center justify-between pb-3 border-b border-[#ebdcc0] mb-4 gap-2">
                     <div className="flex items-center gap-1.5">
-                      <Activity className="w-4 h-4 text-[#9d7b38] animate-pulse" />
-                      <span className="text-[11px] uppercase text-[#6b6e76] font-bold">Real-Time Vector State</span>
+                      <Activity className="w-4 h-4 text-[#9d7b38]" />
+                      <span className="text-xs uppercase text-black font-black">Live Assessment Result</span>
                     </div>
-                    <span className="text-[10px] text-[#9d7b38] font-bold bg-[#faf6ee] border border-[#ebdcc0] px-2 py-0.5 rounded">
-                      Patent Pending Ref: L.O.S.-P721
+                    <span className="text-[10px] text-black font-bold bg-[#faf6ee] border border-[#ebdcc0] px-2 py-0.5 rounded font-mono">
+                      Ref: L.O.S.-P721
                     </span>
                   </div>
 
                   {/* Big Number Metrics */}
-                  <div className="grid grid-cols-2 gap-2.5 sm:gap-3 mb-3.5">
-                    <div className="p-3 rounded bg-white border border-[#e5decfe0] shadow-xs">
-                      <div className="text-[11px] text-[#6b6e76] font-medium">Institutional Friction</div>
-                      <div className="text-2xl font-bold text-[#17181c] tabular-nums mt-0.5">
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    <div className="p-4 rounded-lg bg-[#faf8f4] border border-[#d8cebe] space-y-1">
+                      <div className="text-xs text-black font-bold">Friction Index</div>
+                      <div className="text-3xl font-black text-black tabular-nums">
                         {currentResult.frictionScore}
-                        <span className="text-xs text-[#8c8f97] font-normal"> /100</span>
+                        <span className="text-xs text-zinc-600 font-normal"> /100</span>
                       </div>
-                      <div className="text-[10px] text-red-700 mt-0.5 uppercase font-bold">
+                      <div className="text-xs text-rose-800 uppercase font-bold">
                         {currentResult.frictionLevel} Risk
                       </div>
                     </div>
 
-                    <div className="p-3 rounded bg-white border border-[#e5decfe0] shadow-xs">
-                      <div className="text-[11px] text-[#6b6e76] font-medium">Velocity Drag Tax</div>
-                      <div className="text-2xl font-bold text-[#9d7b38] tabular-nums mt-0.5">
+                    <div className="p-4 rounded-lg bg-[#faf8f4] border border-[#d8cebe] space-y-1">
+                      <div className="text-xs text-black font-bold">Velocity Drag</div>
+                      <div className="text-3xl font-black text-black tabular-nums">
                         -{currentResult.velocityDragPercent}%
                       </div>
-                      <div className="text-[10px] text-[#6b6e76] mt-0.5 italic">
+                      <div className="text-xs text-black font-medium">
                         Capital cycle slowdown
                       </div>
                     </div>
                   </div>
 
                   {/* Primary Vulnerability Box */}
-                  <div className="p-3.5 rounded bg-[#17181c] text-white border border-[#2b2d33] mb-3">
-                    <div className="text-[10px] uppercase text-[#d4af37] font-bold mb-0.5">
+                  <div className="p-4 rounded-lg bg-black text-white border-2 border-[#d4af37] mb-3.5 space-y-1">
+                    <div className="text-xs uppercase text-[#d4af37] font-bold">
                       Primary Institutional Failure Mode
                     </div>
-                    <div className="text-xs sm:text-sm font-bold text-white leading-snug">
+                    <div className="text-sm sm:text-base font-black text-white leading-snug">
                       {currentResult.primaryVulnerability}
                     </div>
-                    <div className="mt-1 text-xs text-[#a6a9b2] leading-relaxed italic">
+                    <p className="text-xs text-zinc-300 leading-relaxed pt-1">
                       Organizations don't stall because they lack talent; they stall because no one has permission to make an uncomfortable call.
-                    </div>
+                    </p>
                   </div>
 
                   {/* Prescribed Partnership Pathway */}
-                  <div className="p-3.5 rounded bg-white border border-[#ebdcc0] mb-2.5">
-                    <div className="text-[10px] uppercase text-[#9d7b38] font-bold mb-0.5">
+                  <div className="p-4 rounded-lg bg-[#faf8f4] border border-[#d8cebe] space-y-1">
+                    <div className="text-xs uppercase text-[#9d7b38] font-bold">
                       Prescribed Partnership Pathway
                     </div>
-                    <div className="text-sm font-bold text-[#17181c]">
+                    <div className="text-base font-black text-black">
                       {recommendedTitle}
                     </div>
-                    <div className="text-xs text-[#54575f] mt-1 leading-relaxed italic">
+                    <p className="text-xs text-black leading-relaxed font-medium">
                       {currentResult.executivePrescription}
-                    </div>
+                    </p>
                   </div>
 
                   {/* Council Chambers Feature Inclusion */}
@@ -584,16 +584,32 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
           )}
         </div>
 
-        {/* Global Deep-Dive Section for The Sovereign Dossier on the Diagnostic page */}
-        <div className="mt-10 sm:mt-12">
-          <SovereignDossierFeatures
-            onTakeTest={() => {
-              setActiveTab('interactive');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            onBookBriefing={() => onConsultationRequest(aiMemorandum || currentResult.boardMemorandumPreview)}
-          />
-        </div>
+        {/* Sovereign Dossier Callout Banner (when on interactive/memo tab) */}
+        {activeTab !== 'dossier' && (
+          <div className="mt-8 p-5 sm:p-6 rounded-lg bg-[#faf8f4] border border-[#d8cebe] flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="space-y-1 text-center sm:text-left">
+              <span className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold tracking-wider">
+                Patent-Pending Deep-Dive · Ref: L.O.S.-P721
+              </span>
+              <h4 className="text-sm sm:text-base font-bold font-serif text-[#17181c]">
+                Looking for the Complete Sovereign Dossier™ Methodology?
+              </h4>
+              <p className="text-xs text-[#555861] max-w-xl">
+                Explore the PhD-level anti-gaming defense, acoustic prosody cross-examination, and SHA-256 cryptographic verification seal.
+              </p>
+            </div>
+            <button
+              onClick={() => {
+                setActiveTab('dossier');
+                window.scrollTo({ top: 300, behavior: 'smooth' });
+              }}
+              className="px-5 py-2.5 bg-[#17181c] text-[#f8f6f0] hover:bg-[#9d7b38] hover:text-[#17181c] text-xs font-mono font-bold uppercase tracking-wider rounded-xs transition-colors shrink-0 cursor-pointer flex items-center gap-1.5"
+            >
+              <FileText className="w-3.5 h-3.5 text-[#d4af37]" />
+              <span>View Dossier Architecture</span>
+            </button>
+          </div>
+        )}
 
       </div>
     </section>
