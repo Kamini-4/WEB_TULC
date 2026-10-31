@@ -293,7 +293,7 @@ export const App: React.FC = () => {
             />
 
             {/* Compact Executive Briefing Gateway Strip */}
-            <div className="py-4 sm:py-5 px-4 sm:px-6 lg:px-8 bg-[#17181c] text-[#f8f6f0] border-b border-[#9d7b38]/40">
+            <div className="py-2.5 sm:py-3.5 px-4 sm:px-6 lg:px-8 bg-[#17181c] text-[#f8f6f0] border-b border-[#9d7b38]/40">
               <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
                 <div className="space-y-0.5">
                   <div className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#d4af37] font-bold">
@@ -318,7 +318,7 @@ export const App: React.FC = () => {
             </div>
 
             {/* Compact 5 Sovereign Domains Gateway Strip */}
-            <div className="py-4 sm:py-5 px-4 sm:px-6 lg:px-8 bg-[#ede5d6]/70 border-b border-[#dfd7c8]">
+            <div className="py-2.5 sm:py-3.5 px-4 sm:px-6 lg:px-8 bg-[#ede5d6]/70 border-b border-[#dfd7c8]">
               <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
                 <div>
                   <span className="text-[9.5px] font-mono uppercase text-[#9d7b38] font-bold tracking-widest block">
@@ -351,7 +351,7 @@ export const App: React.FC = () => {
             </div>
 
             {/* Compact Strategic Intelligence Strip */}
-            <div className="py-4 sm:py-5 px-4 sm:px-6 lg:px-8 bg-[#f2ede2] border-b border-[#dfd7c8]">
+            <div className="py-2.5 sm:py-3.5 px-4 sm:px-6 lg:px-8 bg-[#f2ede2] border-b border-[#dfd7c8]">
               <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
                 <div>
                   <span className="text-[9.5px] font-mono uppercase text-[#9d7b38] font-bold tracking-widest block">

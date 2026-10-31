@@ -26,18 +26,18 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Top Sovereign Header */}
 
       {/* Main Header Bar */}
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 md:h-24 flex items-center justify-between gap-4">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-18 md:h-20 flex items-center justify-between gap-4">
         
         {/* Brand Zone — Prestigious Crest & 3-Line Authority Hierarchy */}
         <a 
           href="#top" 
           onClick={(e) => { e.preventDefault(); handleNavClick('top'); }}
-          className="flex items-center gap-3 sm:gap-4 text-base sm:text-lg font-bold text-[#17181c] hover:text-[#9d7b38] transition-colors tracking-tight shrink-0 group py-1"
+          className="flex items-center gap-2.5 sm:gap-3.5 text-base sm:text-lg font-bold text-[#17181c] hover:text-[#9d7b38] transition-colors tracking-tight shrink-0 group py-1"
         >
           <img 
             src="/assets/tulc-gold-navy-crest.jpg" 
             alt="The Unbounded Leadership Co. Crest & Insignia" 
-            className="h-12 sm:h-14 md:h-16 w-auto max-w-[140px] sm:max-w-[200px] rounded-sm object-contain border-2 border-[#9d7b38]/70 shadow-sm group-hover:border-[#9d7b38] transition-all bg-[#0a1122] p-0.5 shrink-0"
+            className="h-10 sm:h-12 md:h-13 w-auto max-w-[120px] sm:max-w-[160px] rounded-sm object-contain border-2 border-[#9d7b38]/70 shadow-sm group-hover:border-[#9d7b38] transition-all bg-[#0a1122] p-0.5 shrink-0"
             style={{ imageRendering: '-webkit-optimize-contrast' }}
             width="180"
             height="120"

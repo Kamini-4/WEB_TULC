@@ -10,7 +10,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section id="top" className="relative pt-8 pb-10 sm:pt-10 sm:pb-12 lg:pt-12 lg:pb-14 border-b border-[#e5decfe0] bg-[#f8f6f0] overflow-hidden">
+    <section id="top" className="relative pt-3 pb-6 sm:pt-5 sm:pb-8 lg:pt-6 lg:pb-10 border-b border-[#e5decfe0] bg-[#f8f6f0] overflow-hidden">
       {/* Soothing warm golden ambient glow */}
       <div className="absolute inset-0 pointer-events-none opacity-50">
         <div className="absolute top-0 right-1/4 w-[320px] sm:w-[600px] h-[320px] sm:h-[450px] bg-[#eedec0]/40 rounded-full blur-[100px] sm:blur-[140px] animate-fluid-float" />
@@ -20,50 +20,21 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Unboxed institutional kicker - Centered */}
-        <div className="flex flex-wrap items-center justify-center gap-2 text-xs uppercase text-[#9d7b38] mb-4 sm:mb-5 font-bold text-center">
-          <span>Institutional Advisory</span>
-          <span aria-hidden="true" className="text-[#c9bea9]">·</span>
-          <span>CXOs & Enterprise Boards</span>
-          <span aria-hidden="true" className="text-[#c9bea9]">·</span>
-          <span>The Work That Matters</span>
-        </div>
-
-        {/* Sovereign Insignia & Crest - Centered */}
-        <div className="flex justify-center mb-5 sm:mb-6">
-          <div className="p-2 sm:p-2.5 bg-[#0c1322] border-2 border-[#d4af37]/80 rounded-lg shadow-xl w-32 sm:w-40 lg:w-44 group hover:border-[#d4af37] transition-all">
-            <img 
-              src="/assets/tulc-gold-navy-crest.jpg" 
-              alt="The Unbounded Leadership Co. Official Seal" 
-              className="w-full h-auto rounded-xs object-contain"
-              width="176"
-              height="117"
-              fetchPriority="high"
-              decoding="sync"
-            />
-            <div className="pt-1.5 text-center">
-              <span className="text-[8.5px] sm:text-[9.5px] font-mono uppercase tracking-widest text-[#d4af37] font-bold block">
-                Sovereign Insignia
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Main Headline & Authority Philosophy - Centered */}
-        <div className="max-w-4xl mx-auto text-center mb-6 sm:mb-8">
+        {/* Main Headline & Authority Philosophy - Centered immediately at top */}
+        <div className="max-w-4xl mx-auto text-center mb-4 sm:mb-6">
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#17181c] leading-[1.18] [text-wrap:balance] text-center">
             Sovereign Enterprise Architecture & Leadership Operating Systems
-            <span className="block text-xl sm:text-2xl lg:text-3xl text-[#9d7b38] font-serif font-semibold mt-2.5 sm:mt-3 text-center">
+            <span className="block text-xl sm:text-2xl lg:text-3xl text-[#9d7b38] font-serif font-semibold mt-2 sm:mt-2.5 text-center">
               Management is about compliance. Leadership is about courage.
             </span>
           </h1>
-          <p className="mt-3.5 sm:mt-4 text-[14px] sm:text-base lg:text-lg text-[#4e5159] font-normal leading-relaxed max-w-3xl mx-auto italic text-center">
+          <p className="mt-2.5 sm:mt-3 text-[14px] sm:text-base lg:text-lg text-[#4e5159] font-normal leading-relaxed max-w-3xl mx-auto italic text-center">
             When organizations stall, it is rarely a strategy problem. It is almost always an <strong className="font-bold text-[#17181c] not-italic">architecture problem</strong>. Consensus diffuses authority across endless decks. Decisive mandate demands sovereign clarity.
           </p>
 
           {/* Dedicated Statement on Another Line: in 90 days & 3 pain points - Centered */}
-          <div className="mt-5 sm:mt-6 p-4 sm:p-5.5 rounded-lg bg-[#faf6ee] border-t-4 sm:border-t-0 sm:border-l-4 border-[#9d7b38] border-b border-x sm:border-y sm:border-r border-[#ebdcc0]/70 shadow-2xs max-w-3xl mx-auto text-center">
-            <p className="text-[14px] sm:text-base md:text-lg lg:text-[18.5px] font-serif font-bold text-[#17181c] leading-snug sm:leading-relaxed text-center">
+          <div className="mt-3.5 sm:mt-4 p-3.5 sm:p-4.5 rounded-lg bg-[#faf6ee] border-t-4 sm:border-t-0 sm:border-l-4 border-[#9d7b38] border-b border-x sm:border-y sm:border-r border-[#ebdcc0]/70 shadow-2xs max-w-3xl mx-auto text-center">
+            <p className="text-[14px] sm:text-base md:text-lg lg:text-[18px] font-serif font-bold text-[#17181c] leading-snug sm:leading-relaxed text-center">
               We re-architect the operating system <span className="text-[#9d7b38] font-black underline decoration-[#9d7b38]/40 underline-offset-4">in 90 days</span> so leadership operates with total velocity —{' '}
               <span className="font-serif font-medium text-[#44403c] block sm:inline mt-1.5 sm:mt-0">
                 without endless consensus committees, without bureaucratic approval bottlenecks, and without key-person operational drag.
@@ -73,7 +44,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
         </div>
 
         {/* Executive Action Row - Centered */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-12 max-w-3xl mx-auto">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-5 sm:mb-7 max-w-3xl mx-auto">
           <button
             onClick={onLaunchDiagnostic}
             onMouseEnter={() => setIsHovered(true)}
@@ -102,8 +73,8 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
         </div>
 
         {/* THE 4 BLACK BOXES — COMPACT, ZERO EMPTY SPACE, BACKED EMPIRICAL STATISTICS */}
-        <div className="pt-6 border-t border-[#e5decfe0]">
-          <h2 className="text-xs uppercase text-[#9d7b38] font-bold tracking-wider mb-4 text-center">
+        <div className="pt-4 sm:pt-5 border-t border-[#e5decfe0]">
+          <h2 className="text-xs uppercase text-[#9d7b38] font-bold tracking-wider mb-3.5 text-center">
             Empirical Benchmarks on Executive Governance Drag
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
