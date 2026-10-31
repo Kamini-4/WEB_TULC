@@ -60,6 +60,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Services
             </a>
             <a
+              href="#comparison"
+              onClick={(e) => { e.preventDefault(); onNavigate('comparison'); }}
+              className="hover:text-[#141416] transition-colors py-1 font-medium"
+            >
+              The Outcomes
+            </a>
+            <a
               href="#codex"
               onClick={(e) => { e.preventDefault(); onNavigate('shop'); }}
               className="hover:text-[#9d7b38] transition-colors flex items-center gap-1 py-1 font-bold text-[#141416]"

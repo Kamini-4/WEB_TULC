@@ -10,9 +10,10 @@ import { RecentDispatchesPreview } from './components/RecentDispatchesPreview';
 import { ConfidentialInquiry } from './components/ConfidentialInquiry';
 import { Footer } from './components/Footer';
 import { MobileBottomNav } from './components/MobileBottomNav';
+import { OutcomeComparisonTable } from './components/OutcomeComparisonTable';
 import { SEOHead } from './components/SEOHead';
 import { PartnershipModelId, PartnershipPathway } from './types';
-import { ArrowLeft, Loader2 } from 'lucide-react';
+import { ArrowLeft, Loader2, Sparkles, ArrowRight, Scale, Video, Layers, BookOpen, Compass, ShieldCheck, Zap, Lock } from 'lucide-react';
 import { ShopDocument } from './components/ExecutiveShop';
 
 // Dynamic Code Splitting for Performance & Mobile Optimization (Action Item 1 & 2)
@@ -38,7 +39,9 @@ export type AppView =
   | 'case-studies'
   | 'privacy'
   | 'contact'
-  | 'portal';
+  | 'portal'
+  | 'briefing'
+  | 'partnerships';
 
 export const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<AppView>('home');
@@ -67,6 +70,12 @@ export const App: React.FC = () => {
       } else if (hash === 'about' || hash === 'vision-mission') {
         setCurrentView('about');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === 'briefing' || hash === 'video' || hash === 'founder-briefing') {
+        setCurrentView('briefing');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === 'partnerships' || hash === 'services' || hash === 'retainer') {
+        setCurrentView('partnerships');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash === 'privacy' || hash === 'privacy-policy' || hash === 'terms') {
         setCurrentView('privacy');
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -87,15 +96,10 @@ export const App: React.FC = () => {
       } else if (hash === 'proof' || hash === 'case-studies') {
         setCurrentView('case-studies');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'partnerships' || hash === 'services') {
+      } else if (hash === 'comparison' || hash === 'outcomes' || hash === 'versus' || hash === 'why-us') {
         setCurrentView('home');
         setTimeout(() => {
-          document.getElementById('partnerships')?.scrollIntoView({ behavior: 'smooth' });
-        }, 60);
-      } else if (hash === 'briefing') {
-        setCurrentView('home');
-        setTimeout(() => {
-          document.getElementById('briefing')?.scrollIntoView({ behavior: 'smooth' });
+          document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
         }, 60);
       } else {
         if (hash === 'top' || hash === '') {
@@ -135,6 +139,20 @@ export const App: React.FC = () => {
       setCurrentView('about');
       window.location.hash = 'about';
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'briefing' || target === 'video') {
+      setCurrentView('briefing');
+      window.location.hash = 'briefing';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'partnerships' || target === 'services') {
+      setCurrentView('partnerships');
+      window.location.hash = 'services';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'comparison' || target === 'outcomes' || target === 'versus' || target === 'table') {
+      setCurrentView('home');
+      window.location.hash = 'comparison';
+      setTimeout(() => {
+        document.getElementById('comparison')?.scrollIntoView({ behavior: 'smooth' });
+      }, 60);
     } else if (target === 'shop' || target === 'store' || target === 'publications' || target === 'codex') {
       setCurrentView('shop');
       window.location.hash = 'codex';
@@ -269,48 +287,92 @@ export const App: React.FC = () => {
               </Suspense>
             </div>
 
-            {/* About Section First */}
+            {/* About Section with Photo & Embedded Small Comparison Table */}
             <AboutSection
               onOpenConsultation={() => navigateTo('contact')}
             />
 
-            {/* Direct Executive Video Briefing */}
-            <VideoBriefingSection
-              onOpenConsultation={() => navigateTo('contact')}
-              onTakeTest={() => {
-                const el = document.getElementById('inaction-calculator') || document.getElementById('simple-test');
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                  navigateTo('test');
-                }
-              }}
-            />
+            {/* Compact Executive Briefing Gateway Strip */}
+            <div className="py-4 sm:py-5 px-4 sm:px-6 lg:px-8 bg-[#17181c] text-[#f8f6f0] border-b border-[#9d7b38]/40">
+              <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
+                <div className="space-y-0.5">
+                  <div className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#d4af37] font-bold">
+                    <Sparkles className="w-3 h-3 text-[#d4af37]" />
+                    <span>Executive Briefing · 8-Minute Direct Video</span>
+                  </div>
+                  <h3 className="text-sm sm:text-base font-bold font-serif text-[#f8f6f0]">
+                    "When You Scale Without Architecture, You Just Scale Your Personal Exhaustion."
+                  </h3>
+                  <p className="text-[11px] text-[#a0a4ad] font-serif max-w-2xl">
+                    Suchita Sancheti unpacks the governing decision boundaries and 90-day decoupling methodology.
+                  </p>
+                </div>
+                <button
+                  onClick={() => navigateTo('briefing')}
+                  className="px-4 py-2 bg-[#9d7b38] hover:bg-[#88692c] text-[#17181c] font-bold text-xs uppercase font-mono tracking-wider rounded-xs transition-colors shadow-xs flex items-center gap-1.5 shrink-0 cursor-pointer"
+                >
+                  <span>Watch 8-Min Briefing</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
 
-            {/* Separate 5 Domains Preview Banner */}
-            <DomainPreviewBanner
-              onOpenDomains={() => navigateTo('domains')}
-              onTakeTest={() => {
-                const el = document.getElementById('inaction-calculator') || document.getElementById('simple-test');
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                  navigateTo('test');
-                }
-              }}
-            />
+            {/* Compact 5 Sovereign Domains Gateway Strip */}
+            <div className="py-4 sm:py-5 px-4 sm:px-6 lg:px-8 bg-[#ede5d6]/70 border-b border-[#dfd7c8]">
+              <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
+                <div>
+                  <span className="text-[9.5px] font-mono uppercase text-[#9d7b38] font-bold tracking-widest block">
+                    Sovereign Enterprise Architecture
+                  </span>
+                  <h3 className="text-sm sm:text-base font-bold font-serif text-[#17181c]">
+                    The 5 Sovereign Domains of Decoupled Leadership
+                  </h3>
+                  <p className="text-[11px] text-[#555861] font-mono mt-0.5">
+                    Cognitive Clarity · Systemic Integrity · Strategic Velocity · Moral Gravity · Cultural Fidelity
+                  </p>
+                </div>
+                <button
+                  onClick={() => navigateTo('domains')}
+                  className="px-4 py-2 border border-[#17181c] text-[#17181c] hover:bg-[#17181c] hover:text-[#f8f6f0] font-mono text-xs uppercase tracking-wider font-bold rounded-xs transition-colors shrink-0 cursor-pointer flex items-center gap-1.5"
+                >
+                  <span>Explore 5 Domains Blueprint</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
 
             {/* The 3 Partnership Pathways */}
-            <PartnershipPathways
-              selectedModelId={selectedPartnership}
-              onSelectModel={(id) => setSelectedPartnership(id)}
-              onOpenConsultationWithModel={handleOpenConsultationWithModel}
-            />
+            <div id="partnerships" className="scroll-mt-16">
+              <PartnershipPathways
+                selectedModelId={selectedPartnership}
+                onSelectModel={(id) => setSelectedPartnership(id)}
+                onOpenConsultationWithModel={handleOpenConsultationWithModel}
+              />
+            </div>
 
-            {/* Recent Strategic Dispatches Showcase */}
-            <RecentDispatchesPreview
-              onOpenFullLibrary={() => navigateTo('library')}
-            />
+            {/* Compact Strategic Intelligence Strip */}
+            <div className="py-4 sm:py-5 px-4 sm:px-6 lg:px-8 bg-[#f2ede2] border-b border-[#dfd7c8]">
+              <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
+                <div>
+                  <span className="text-[9.5px] font-mono uppercase text-[#9d7b38] font-bold tracking-widest block">
+                    Strategic Intelligence Desk
+                  </span>
+                  <h3 className="text-sm sm:text-base font-bold font-serif text-[#17181c]">
+                    19 Institutional Research Dispatches & Boardroom Monographs
+                  </h3>
+                  <p className="text-[11px] text-[#555861] font-serif italic mt-0.5">
+                    By Suchita Sancheti — addressing founder traps, executive compensation drift, and decoupling protocols.
+                  </p>
+                </div>
+                <button
+                  onClick={() => navigateTo('library')}
+                  className="px-4 py-2 bg-[#17181c] text-[#f8f6f0] hover:bg-[#9d7b38] hover:text-[#17181c] font-mono text-xs uppercase tracking-wider font-bold rounded-xs transition-colors shrink-0 cursor-pointer flex items-center gap-1.5"
+                >
+                  <span>Read 19 Strategic Dispatches</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
 
             {/* Confidential Executive Inquiry & Briefing Request */}
             <ConfidentialInquiry
@@ -503,6 +565,41 @@ export const App: React.FC = () => {
                 onRequestAccess={() => navigateTo('contact')}
               />
             </Suspense>
+          </div>
+        )}
+
+        {/* 13. DEDICATED EXECUTIVE VIDEO BRIEFING VIEW */}
+        {currentView === 'briefing' && (
+          <div>
+            <SEOHead
+              title="Executive Video Briefing | TULC"
+              description="Direct founder briefing by Suchita Sancheti on 90-day decoupling methodology and sovereign operating architecture."
+              canonicalPath="/briefing"
+            />
+            {renderSubpageBreadcrumb('Executive Video Briefing', 'Direct Founder Briefing by Suchita Sancheti')}
+            <VideoBriefingSection
+              onOpenConsultation={() => navigateTo('contact')}
+              onTakeTest={() => navigateTo('test')}
+            />
+          </div>
+        )}
+
+        {/* 14. DEDICATED PARTNERSHIP PATHWAYS & SERVICES VIEW */}
+        {currentView === 'partnerships' && (
+          <div>
+            <SEOHead
+              title="Sovereign Partnership Pathways | TULC"
+              description="Explore the 3 institutional engagement models: 90-Day Decoupling Retainer, Foundation Advisory, and Enterprise Conclave."
+              canonicalPath="/services"
+            />
+            {renderSubpageBreadcrumb('Partnership Pathways & Retainers', '3 Sovereign Engagement Tracks')}
+            <div className="py-6 sm:py-8">
+              <PartnershipPathways
+                selectedModelId={selectedPartnership}
+                onSelectModel={(id) => setSelectedPartnership(id)}
+                onOpenConsultationWithModel={handleOpenConsultationWithModel}
+              />
+            </div>
           </div>
         )}
 

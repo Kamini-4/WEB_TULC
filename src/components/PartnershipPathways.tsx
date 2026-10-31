@@ -103,6 +103,14 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
           <p className="mt-2 text-sm sm:text-base text-[#555861] leading-relaxed italic">
             We do not sell hours. We do not write reports that gather dust. Every engagement is built around <strong className="text-[#17181c] not-italic font-bold">one specific institutional shift</strong>. Choose the engagement track that matches your reality.
           </p>
+          <div className="mt-3">
+            <a 
+              href="#comparison" 
+              className="inline-flex items-center gap-1.5 text-xs font-mono text-[#9d7b38] hover:text-[#17181c] font-bold transition-colors"
+            >
+              <span>Compare what you walk away with vs. other advisory firms & coaches →</span>
+            </a>
+          </div>
         </div>
 
         {/* 3 Pathway Selector Cards */}
