@@ -33,7 +33,7 @@ export const InternalLinksMatrix: React.FC<InternalLinksMatrixProps> = ({ curren
       links: [
         { name: 'Services & Mandates', path: '/services', desc: '10-Node audits, 90-day protocol installations' },
         { name: 'Systemic Methodology', path: '/methodology', desc: '4-Phase alignment protocol & cybernetic design' },
-        { name: 'About the Founders', path: '/about', desc: 'Suchita Sancheti, Kamini Agnihotri & institutional engineering' }
+        { name: 'About the Founder', path: '/about', desc: 'Suchita Sancheti & sovereign institutional engineering' }
       ]
     },
     {

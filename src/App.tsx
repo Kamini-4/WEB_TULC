@@ -224,7 +224,7 @@ export const App: React.FC = () => {
 
   // Subpage Top Navigation Bar
   const renderSubpageBreadcrumb = (title: string, subtitle: string) => (
-    <div className="bg-[#f0eade] border-b border-[#dfd7c8] py-3.5 px-4 sm:px-6 lg:px-8">
+    <div className="bg-[#f0eade] border-b border-[#dfd7c8] py-1.5 sm:py-2 px-3 sm:px-6 lg:px-8">
       <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-3">
         <button
           onClick={() => navigateTo('home')}
@@ -477,7 +477,7 @@ export const App: React.FC = () => {
           <div>
             <SEOHead
               title="About Suchita Sancheti & The Firm | TULC"
-              description="Learn about Suchita Sancheti, Kamini Agnihotri, and the institutional methodology behind Sovereign Enterprise Architecture."
+              description="Learn about Suchita Sancheti and the institutional methodology behind Sovereign Enterprise Architecture."
               canonicalPath="/about"
             />
             {renderSubpageBreadcrumb('The Architect & The Firm', 'Vision, Mission & Executive Mastery')}

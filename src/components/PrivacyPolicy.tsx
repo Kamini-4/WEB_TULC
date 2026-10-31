@@ -49,7 +49,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBackToHome, onNa
               1. Institutional Commitment to Executive Privacy
             </h2>
             <p>
-              The Unbounded Leadership Co. (“TULC”, “we”, “our”, or “the Firm”), founded by Suchita Sancheti with institutional governance advisory from Kamini Agnihotri, provides bespoke leadership operating system architecture for founders, CXOs, and enterprise boards.
+              The Unbounded Leadership Co. (“TULC”, “we”, “our”, or “the Firm”), founded by Suchita Sancheti, provides bespoke leadership operating system architecture for founders, CXOs, and enterprise boards.
             </p>
             <p>
               We operate under an institutional standard of executive confidentiality. We do not sell, rent, monetize, or broker executive disclosures, diagnostic results, organizational metrics, or contact information to any third party, broker, ad network, or algorithmic aggregator.
@@ -129,10 +129,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBackToHome, onNa
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[#4e5159] pt-1">
                 <div>
-                  <span className="font-bold text-[#17181c]">Lead Architect:</span> Suchita Sancheti
-                </div>
-                <div>
-                  <span className="font-bold text-[#17181c]">Institutional Director:</span> Kamini Agnihotri
+                  <span className="font-bold text-[#17181c]">Lead Architect & Founder:</span> Suchita Sancheti
                 </div>
                 <div>
                   <span className="font-bold text-[#17181c]">Primary Advisory Email:</span>{' '}
@@ -141,9 +138,9 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBackToHome, onNa
                   </a>
                 </div>
                 <div>
-                  <span className="font-bold text-[#17181c]">Institutional Email:</span>{' '}
-                  <a href="mailto:kaminiagnihotri249@gmail.com" className="text-[#9d7b38] font-bold hover:underline">
-                    kaminiagnihotri249@gmail.com
+                  <span className="font-bold text-[#17181c]">Direct Confidential Email:</span>{' '}
+                  <a href="mailto:suchita135sancheti@gmail.com" className="text-[#9d7b38] font-bold hover:underline">
+                    suchita135sancheti@gmail.com
                   </a>
                 </div>
                 <div>

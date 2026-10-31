@@ -134,10 +134,10 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                 </div>
 
                 <div>
-                  <span className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold block">Institutional Governance</span>
-                  <a href="mailto:kaminiagnihotri249@gmail.com" className="flex items-center gap-1.5 text-[#17181c] hover:text-[#9d7b38] font-semibold transition-colors mt-0.5">
+                  <span className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold block">Direct Founder Desk</span>
+                  <a href="mailto:suchita135sancheti@gmail.com" className="flex items-center gap-1.5 text-[#17181c] hover:text-[#9d7b38] font-semibold transition-colors mt-0.5">
                     <Mail className="w-3.5 h-3.5 text-[#9d7b38]" />
-                    <span>kaminiagnihotri249@gmail.com</span>
+                    <span>suchita135sancheti@gmail.com</span>
                   </a>
                 </div>
 

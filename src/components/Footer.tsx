@@ -28,7 +28,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 The Unbounded Leadership Co.
               </div>
               <p className="text-[#9d7b38] font-mono text-[11px] font-bold tracking-wider uppercase">
-                Founded by Suchita Sancheti · Direction by Kamini Agnihotri
+                Founded by Suchita Sancheti · Sovereign Operating Architecture
               </p>
               <p className="text-[#6b6e76] text-xs mt-0.5 max-w-md font-normal leading-relaxed italic">
                 Engineering executive governance cadences and sovereign systems architecture for enterprise founders and institutional boards worldwide.
@@ -141,11 +141,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
 
                 <a 
-                  href="mailto:kaminiagnihotri249@gmail.com" 
+                  href="mailto:suchita135sancheti@gmail.com" 
                   className="flex items-center gap-2 text-[#17181c] hover:text-[#9d7b38] font-semibold transition-colors"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#9d7b38] shrink-0" />
-                  <span>kaminiagnihotri249@gmail.com</span>
+                  <span>suchita135sancheti@gmail.com</span>
                 </a>
               </div>
             </div>

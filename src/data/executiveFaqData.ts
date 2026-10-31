@@ -80,7 +80,7 @@ export const EXECUTIVE_FAQS: FAQItemData[] = [
   },
   {
     category: 'Payments & Engagement',
-    executiveContext: 'Executive Advisory Onboarding: "What does the timeline, format, and cadence look like once we initiate an engagement with Suchita Sancheti and Kamini Agnihotri?"',
+    executiveContext: 'Executive Advisory Onboarding: "What does the timeline, format, and cadence look like once we initiate an engagement with Suchita Sancheti?"',
     question: "What is the structure, timeline, and cadence of an executive advisory partnership with TULC?",
     answer: "Engagements typically run across three proven formats: (1) The 10-Point Sovereign Diagnostic & Friction Audit (2-week deep dive), (2) The 90-Day Alignment Sprint (codifying decision protocols, authority matrices, and executive rhythms), and (3) Ongoing Strategic Boardroom Advisory Retainers. We do not operate as detached external advisors; we work alongside founders and leadership teams until the new operating substrates execute autonomously."
   },
