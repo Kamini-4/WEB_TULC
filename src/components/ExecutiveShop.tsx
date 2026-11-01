@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   CheckCircle2, 
   ArrowRight, 
   Sparkles, 
   ArrowLeft,
   CreditCard,
-  Percent
+  Percent,
+  Download,
+  Lock
 } from 'lucide-react';
+import { PaymentModal, PaymentItem } from './payment/PaymentModal';
 
 export interface ShopDocument {
   id: string;
@@ -89,18 +92,33 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
   onExploreServices,
   onInquireDocument
 }) => {
+  const [activePaymentItem, setActivePaymentItem] = useState<PaymentItem | null>(null);
+
   const handleRequisition = (item: ToolkitItem) => {
-    const doc: ShopDocument = {
+    setActivePaymentItem({
       id: item.id,
       title: item.title,
       subtitle: item.subtitle,
-      badge: `Tier ${item.tierNumber}`,
-      pages: item.id === 'founder-decoupling-suite' ? 76 : item.id === 'execution-loop' ? 42 : 28,
-      format: 'Instant Digital PDF & Notion Workspace',
-      priceFormatted: `$${item.priceUSD} USD (100% Retainer Credited)`,
-      description: item.whatItFixes
-    };
-    onInquireDocument(doc);
+      priceUSD: item.priceUSD,
+      category: 'toolkit',
+      deliverables: item.deliverables
+    });
+  };
+
+  const handleBuyAllBundle = () => {
+    setActivePaymentItem({
+      id: 'complete-executive-bundle',
+      title: 'The Complete 3-Toolkit Sovereign Suite',
+      subtitle: 'All 3 Toolkits: Delegation Matrix + 14-Day Loop + Complete Founder Decoupling Suite (Save $140)',
+      priceUSD: 395,
+      category: 'toolkit',
+      deliverables: [
+        'Toolkit 01: The $5,000 Delegation Matrix ($95 Value)',
+        'Toolkit 02: The 14-Day Autonomous Execution Loop ($145 Value)',
+        'Toolkit 03: Complete Founder Decoupling Suite ($295 Value)',
+        'Full Lifetime Updates & Notion Workspaces Included'
+      ]
+    });
   };
 
   return (
@@ -235,6 +253,30 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
           })}
         </div>
 
+        {/* BUNDLE BUY STRIP — GET ALL 3 TOOLKITS (SAVE $140) */}
+        <div className="p-4 sm:p-5 rounded-lg bg-[#141416] border-2 border-[#d4af37] text-white shadow-md flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
+          <div className="space-y-1">
+            <div className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#d4af37] font-bold">
+              <Sparkles className="w-3 h-3 text-[#d4af37]" />
+              <span>Full Sovereign Architecture Suite · Save $140</span>
+            </div>
+            <h3 className="text-base sm:text-lg font-black text-[#f4ecd8]">
+              Acquire All 3 Executive Toolkits: Delegation + 14-Day Loop + Complete Decoupling
+            </h3>
+            <p className="text-xs text-zinc-300 max-w-2xl font-mono">
+              Individual Value: $535 · Bundled Sovereign Price: <strong className="text-[#d4af37]">$395 USD</strong> (100% credited toward future advisory retainers)
+            </p>
+          </div>
+
+          <button
+            onClick={handleBuyAllBundle}
+            className="px-5 py-2.5 bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] text-black font-black text-xs uppercase font-mono tracking-wider rounded-xs transition-all shadow-md active:scale-98 shrink-0 cursor-pointer flex items-center gap-2 whitespace-nowrap"
+          >
+            <CreditCard className="w-4 h-4 text-black" />
+            <span>Buy Complete Suite · $395</span>
+          </button>
+        </div>
+
         {/* TIGHT COMPACT FAQ */}
         <div className="bg-white rounded-lg border-2 border-[#d8cebe] p-4 sm:p-5 shadow-2xs space-y-3">
           <h2 className="text-sm sm:text-base font-black text-black">
@@ -264,6 +306,13 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
             </div>
           </div>
         </div>
+
+        {/* UNIVERSAL PAYMENT CHECKOUT MODAL */}
+        <PaymentModal
+          isOpen={!!activePaymentItem}
+          onClose={() => setActivePaymentItem(null)}
+          item={activePaymentItem}
+        />
 
       </div>
     </div>

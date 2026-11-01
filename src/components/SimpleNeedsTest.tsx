@@ -5,8 +5,11 @@ import {
   RotateCcw, 
   TrendingDown, 
   Clock, 
-  Sparkles
+  Sparkles,
+  CreditCard,
+  Lock
 } from 'lucide-react';
+import { PaymentModal, PaymentItem } from './payment/PaymentModal';
 
 interface DomainQuestion {
   id: string;
@@ -184,6 +187,7 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
+  const [activePaymentItem, setActivePaymentItem] = useState<PaymentItem | null>(null);
 
   const handleSelectOption = (optionIndex: number) => {
     const updatedAnswers = [...answers];
@@ -441,30 +445,87 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
               </div>
             </div>
 
-            {/* COMPACT ACTION SECTION */}
-            <div className="p-5 rounded-lg bg-black text-white border-2 border-[#d4af37] shadow-lg flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-              <div className="space-y-0.5">
-                <h4 className="text-base sm:text-lg font-black text-[#f4ecd8]">
-                  Ready to Reclaim 15+ Hours Every Week?
-                </h4>
-                <p className="text-xs text-zinc-300">
-                  Book a confidential 20-minute strategy call with Suchita Sancheti to design your 90-day decoupling plan.
-                </p>
+            {/* COMPACT ACTION SECTION — BOOK OR DIRECT PAYMENT REMEDY */}
+            <div className="p-5 rounded-lg bg-black text-white border-2 border-[#d4af37] shadow-lg space-y-3.5">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+                <div className="space-y-0.5">
+                  <div className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#d4af37] font-bold">
+                    <Sparkles className="w-3 h-3 text-[#d4af37]" />
+                    <span>Executive Next Step</span>
+                  </div>
+                  <h4 className="text-base sm:text-lg font-black text-[#f4ecd8]">
+                    Ready to Reclaim 15+ Hours Every Week?
+                  </h4>
+                  <p className="text-xs text-zinc-300">
+                    Book a confidential 20-minute strategy call with Suchita Sancheti or acquire immediate operating toolkits online.
+                  </p>
+                </div>
+
+                <button
+                  onClick={handleScheduleCall}
+                  className="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] hover:brightness-110 text-black font-black text-xs uppercase tracking-wider rounded-xs transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer font-mono shrink-0 whitespace-nowrap"
+                >
+                  <span>Book Free 20-Min Call</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-black" />
+                </button>
               </div>
 
-              <button
-                onClick={handleScheduleCall}
-                className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] hover:brightness-110 text-black font-black text-xs uppercase tracking-wider rounded-xs transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer font-mono shrink-0"
-              >
-                <span>Book 20-Min Call</span>
-                <ArrowRight className="w-3.5 h-3.5 text-black" />
-              </button>
+              {/* Instant Payment Remedies */}
+              <div className="pt-3 border-t border-zinc-800 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => setActivePaymentItem({
+                    id: 'delegation-matrix',
+                    title: 'The $5,000 Delegation Matrix',
+                    subtitle: 'Immediate solution to recover 15 hours/week by delegating decisions under $5,000.',
+                    priceUSD: 95,
+                    category: 'toolkit',
+                    deliverables: [
+                      '1-Page Delegation Rulebook',
+                      'Reversible Decision Matrix',
+                      'Emergency Escalation Protocol'
+                    ]
+                  })}
+                  className="w-full py-2.5 px-3 bg-zinc-900 hover:bg-zinc-800 border border-[#d4af37]/60 text-white rounded-xs text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-colors"
+                >
+                  <CreditCard className="w-3.5 h-3.5 text-[#d4af37]" />
+                  <span>Get Immediate Fix: Toolkit 01 · $95</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setActivePaymentItem({
+                    id: 'forensic-audit-deposit',
+                    title: '14-Day Mandate Forensic Audit Deposit',
+                    subtitle: 'Secure your in-depth diagnostic slot with Suchita Sancheti. 100% credited toward mandate fee.',
+                    priceUSD: 2500,
+                    category: 'retainer_deposit',
+                    deliverables: [
+                      '14-Day Forensic Mandate Audit',
+                      'Council Chambers Sparring Session with Suchita Sancheti',
+                      '100% Credited toward Mandate Retainer'
+                    ]
+                  })}
+                  className="w-full py-2.5 px-3 bg-white hover:bg-stone-100 text-black rounded-xs text-xs font-mono font-black uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-xs"
+                >
+                  <Lock className="w-3.5 h-3.5 text-[#9d7b38]" />
+                  <span>Lock Forensic Audit Deposit · $2,500</span>
+                </button>
+              </div>
             </div>
 
           </div>
         )}
 
       </div>
+
+      {/* UNIVERSAL PAYMENT MODAL */}
+      <PaymentModal
+        isOpen={!!activePaymentItem}
+        onClose={() => setActivePaymentItem(null)}
+        item={activePaymentItem}
+      />
+
     </section>
   );
 };

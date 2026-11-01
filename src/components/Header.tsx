@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Zap, ArrowRight, Lock } from 'lucide-react';
+import { Menu, X, Zap, ArrowRight, Lock, CreditCard } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
 
 interface HeaderProps {
@@ -91,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({
             The Diagnostic
           </a>
           <a
-            href="#blueprints"
+            href="#shop"
             onClick={(e) => { e.preventDefault(); handleNavClick('shop'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
               currentView === 'shop'
@@ -99,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({
                 : 'text-[#484b54] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
             }`}
           >
-            Blueprints
+            Toolkits & Pay
           </a>
           <a
             href="#library"
@@ -137,11 +137,19 @@ export const Header: React.FC<HeaderProps> = ({
           </a>
         </nav>
 
-        {/* Action Zone — Free 60-Sec Audit CTA */}
-        <div className="flex items-center gap-3 shrink-0">
+        {/* Action Zone — Free 60-Sec Audit CTA & Instant Pay */}
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <button
+            onClick={() => handleNavClick('shop')}
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold font-mono uppercase text-[#17181c] hover:bg-[#ede5d6] rounded-xs border border-[#d8cebe] transition-colors cursor-pointer"
+          >
+            <CreditCard className="w-3.5 h-3.5 text-[#9d7b38]" />
+            <span>Toolkits & Pay</span>
+          </button>
+
           <button
             onClick={() => handleNavClick('test')}
-            className="px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-[13px] font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] transition-all rounded-sm shadow-xs whitespace-nowrap active:scale-[0.98] min-h-[40px] flex items-center gap-2 cursor-pointer border border-[#9d7b38]/40"
+            className="px-3.5 py-2 sm:px-4 sm:py-2 text-xs font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] transition-all rounded-sm shadow-xs whitespace-nowrap active:scale-[0.98] min-h-[38px] flex items-center gap-1.5 cursor-pointer border border-[#9d7b38]/40"
           >
             <Zap className="w-3.5 h-3.5 text-[#d4af37]" />
             <span>Free 60-Sec Test</span>

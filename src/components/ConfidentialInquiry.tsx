@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { ConsultationInquiry, PartnershipModelId } from '../types';
-import { Lock, ShieldCheck, CheckCircle2, Send, Clock, FileText, Loader2, Phone, Mail, ArrowLeft } from 'lucide-react';
+import { Lock, ShieldCheck, CheckCircle2, Send, Clock, FileText, Loader2, Phone, Mail, ArrowLeft, CreditCard, Sparkles } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
+import { PaymentModal, PaymentItem } from './payment/PaymentModal';
 
 interface InquiryProps {
   initialPartnership?: PartnershipModelId | 'council-chambers';
@@ -25,6 +26,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [activePaymentItem, setActivePaymentItem] = useState<PaymentItem | null>(null);
   const [submissionReceipt, setSubmissionReceipt] = useState<{
     referenceId: string;
     timestamp: string;
@@ -229,6 +231,41 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                   </p>
                 </div>
 
+                {/* Priority Fast-Track Deposit Clearance Option */}
+                <div className="p-3 bg-[#faf8f4] border-2 border-[#d4af37] rounded-md flex flex-col sm:flex-row items-center justify-between gap-2.5">
+                  <div className="space-y-0.5 text-center sm:text-left">
+                    <div className="flex items-center justify-center sm:justify-start gap-1 text-[10px] font-mono uppercase text-[#9d7b38] font-black">
+                      <Sparkles className="w-3 h-3 text-[#d4af37]" />
+                      <span>Priority Executive Fast-Track</span>
+                    </div>
+                    <span className="text-xs font-black text-black block">
+                      Skip Scheduling Queue: Secure Priority Retainer Deposit ($500 USD)
+                    </span>
+                    <p className="text-[11px] text-zinc-600">
+                      Guarantees direct 24-hr consultation slot on Suchita Sancheti's calendar (100% credited).
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setActivePaymentItem({
+                      id: 'priority-briefing-deposit',
+                      title: 'Priority Advisory Briefing Clearance',
+                      subtitle: 'Guaranteed 24-hour calendar reservation with Suchita Sancheti. 100% credited toward mandate.',
+                      priceUSD: 500,
+                      category: 'fast_track_clearance',
+                      deliverables: [
+                        'Guaranteed 24-Hour Private Briefing Slot',
+                        'Pre-Session Architecture Friction Review',
+                        '100% Credited Toward Future Mandates'
+                      ]
+                    })}
+                    className="px-3.5 py-2 bg-black hover:bg-zinc-800 text-white font-mono text-xs font-bold uppercase rounded-xs transition-colors flex items-center gap-1.5 shrink-0 cursor-pointer shadow-xs whitespace-nowrap active:scale-98"
+                  >
+                    <CreditCard className="w-3.5 h-3.5 text-[#d4af37]" />
+                    <span>Pay Deposit · $500</span>
+                  </button>
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-[11px] font-bold text-[#17181c] uppercase mb-1">
@@ -355,23 +392,45 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                   </label>
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-3.5 text-xs font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] transition-all rounded-sm flex items-center justify-center gap-2 shadow-md hover:shadow-[#c5a059]/20 active:scale-[0.99] disabled:opacity-50 min-h-[46px] cursor-pointer"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin text-[#d4af37]" />
-                      <span>Encrypting & Dispatching Mandate Briefing...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Transmit Privileged Mandate Request</span>
-                      <Send className="w-4 h-4 text-[#d4af37]" />
-                    </>
-                  )}
-                </button>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-3.5 text-xs font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] transition-all rounded-sm flex items-center justify-center gap-2 shadow-md hover:shadow-[#c5a059]/20 active:scale-[0.99] disabled:opacity-50 min-h-[46px] cursor-pointer"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin text-[#d4af37]" />
+                        <span>Transmitting...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Submit Free Inquiry</span>
+                        <Send className="w-4 h-4 text-[#d4af37]" />
+                      </>
+                    )}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setActivePaymentItem({
+                      id: 'forensic-mandate-deposit',
+                      title: 'Mandate Forensic Retainer Deposit',
+                      subtitle: 'Official reservation deposit for 14-day rapid audit and executive sparring with Suchita Sancheti.',
+                      priceUSD: 2500,
+                      category: 'retainer_deposit',
+                      deliverables: [
+                        '14-Day Forensic Mandate Audit',
+                        'Council Chambers Sparring Session with Suchita Sancheti',
+                        '100% Credited toward Mandate Retainer'
+                      ]
+                    })}
+                    className="w-full py-3.5 text-xs font-bold uppercase text-black bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] hover:brightness-105 transition-all rounded-sm flex items-center justify-center gap-2 shadow-md active:scale-[0.99] min-h-[46px] cursor-pointer font-mono"
+                  >
+                    <CreditCard className="w-4 h-4 text-black" />
+                    <span>Lock Retainer · $2,500</span>
+                  </button>
+                </div>
 
                 <div className="pt-1 flex items-center justify-between text-xs font-mono">
                   <button
@@ -402,6 +461,14 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
           </div>
         </div>
       </div>
+
+      {/* UNIVERSAL PAYMENT MODAL */}
+      <PaymentModal
+        isOpen={!!activePaymentItem}
+        onClose={() => setActivePaymentItem(null)}
+        item={activePaymentItem}
+      />
+
     </section>
   );
 };

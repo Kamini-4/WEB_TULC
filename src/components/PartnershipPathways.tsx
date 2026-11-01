@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PartnershipPathway, PartnershipModelId } from '../types';
-import { ArrowRight, CheckCircle2, Download, ShieldCheck, Flame, Compass, Zap, Sparkles, Check, X } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Download, ShieldCheck, Flame, Compass, Zap, Sparkles, Check, X, CreditCard, Lock } from 'lucide-react';
+import { PaymentModal, PaymentItem } from './payment/PaymentModal';
 
 interface PathwaysProps {
   onSelectModel: (modelId: PartnershipModelId) => void;
@@ -75,11 +76,74 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
 }) => {
   const [activeModelId, setActiveModelId] = useState<PartnershipModelId>(selectedModelId);
   const [showSpecModal, setShowSpecModal] = useState<PartnershipPathway | null>(null);
+  const [activePaymentItem, setActivePaymentItem] = useState<PaymentItem | null>(null);
 
   const handleSelect = (model: PartnershipPathway) => {
     setActiveModelId(model.id);
     onSelectModel(model.id);
     onOpenConsultationWithModel(model);
+  };
+
+  const getTrackDeposit = (modelId: PartnershipModelId) => {
+    switch (modelId) {
+      case 'diagnostic':
+        return {
+          priceUSD: 2500,
+          label: 'Lock Retainer Deposit · $2,500',
+          deliverables: [
+            '14-Day Forensic Mandate Audit',
+            'Council Chambers Sparring Session with Suchita Sancheti',
+            '100% Credited toward Full Implementation'
+          ]
+        };
+      case 'embedding':
+        return {
+          priceUSD: 5000,
+          label: 'Secure Embedding Deposit · $5,000',
+          deliverables: [
+            'Priority 90-Day Calendar Lock with Suchita Sancheti',
+            'Authority Decoupling Charter Ratification',
+            '100% Credited toward 90-Day Mandate'
+          ]
+        };
+      case 'retainer':
+        return {
+          priceUSD: 5000,
+          label: 'Initiate Retainer Deposit · $5,000',
+          deliverables: [
+            'Immediate 24/7 Boardroom Advisory Clearance',
+            'Emergency War Room Mobilization within 4 Hours',
+            '100% Credited toward Annual Retainer'
+          ]
+        };
+    }
+  };
+
+  const handlePayTrackDeposit = (model: PartnershipPathway) => {
+    const deposit = getTrackDeposit(model.id);
+    setActivePaymentItem({
+      id: `mandate-deposit-${model.id}`,
+      title: `${model.name} — Retainer Deposit`,
+      subtitle: `Official reservation deposit for ${model.name} (${model.cadence}). 100% credited toward total mandate fee.`,
+      priceUSD: deposit.priceUSD,
+      category: 'retainer_deposit',
+      deliverables: deposit.deliverables
+    });
+  };
+
+  const handlePayConclaveSeat = () => {
+    setActivePaymentItem({
+      id: 'conclave-seat-reservation',
+      title: 'The Sovereign Council Chamber™ — Conclave Seat',
+      subtitle: 'Guaranteed confidential delegate seat across Zurich, London, or New York conclaves.',
+      priceUSD: 1500,
+      category: 'conclave_seat',
+      deliverables: [
+        'Chatham House Off-Site Conclave Access',
+        'Private 1-on-1 Pre-Briefing with Suchita Sancheti',
+        'Confidential Strategic Peer Review Dossier'
+      ]
+    });
   };
 
   return (
@@ -200,27 +264,34 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
 
                 {/* Bottom Card Action Buttons */}
                 <div className="p-4 sm:p-5 pt-0 border-t border-[#f0ede6] space-y-2">
+                  
+                  {/* Direct Payment / Retainer Deposit Button */}
                   <button
-                    onClick={() => handleSelect(model)}
-                    className={`w-full py-2.5 px-3 font-black text-xs font-mono uppercase tracking-wider rounded-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs active:scale-98 ${
-                      isEmbedding
-                        ? 'bg-black text-white hover:bg-zinc-800'
-                        : isRetainer
-                        ? 'bg-[#17181c] text-[#f8f6f0] hover:bg-black border border-[#d4af37]/60'
-                        : 'bg-black text-white hover:bg-zinc-800'
-                    }`}
+                    onClick={() => handlePayTrackDeposit(model)}
+                    className="w-full py-2.5 px-3 bg-black hover:bg-zinc-800 text-white font-black text-xs font-mono uppercase tracking-wider rounded-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs active:scale-98"
                   >
-                    <span>Initiate {model.name.split(' ')[0]} Track</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
+                    <CreditCard className="w-3.5 h-3.5 text-[#d4af37]" />
+                    <span>{getTrackDeposit(model.id).label}</span>
                   </button>
 
-                  <button
-                    onClick={() => setShowSpecModal(model)}
-                    className="w-full py-1.5 px-2 bg-[#faf8f4] hover:bg-[#ede5d6] text-black text-[11px] font-mono uppercase font-bold rounded-xs border border-[#d8cebe] transition-colors flex items-center justify-center gap-1 cursor-pointer"
-                  >
-                    <Download className="w-3 h-3 text-[#9d7b38]" />
-                    <span>View Detailed Spec Docket</span>
-                  </button>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    <button
+                      onClick={() => handleSelect(model)}
+                      className="w-full py-1.5 px-2 bg-white hover:bg-stone-100 text-black text-[11px] font-mono uppercase font-bold rounded-xs border border-stone-300 transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                    >
+                      <span>Inquire First</span>
+                      <ArrowRight className="w-3 h-3 text-[#9d7b38]" />
+                    </button>
+
+                    <button
+                      onClick={() => setShowSpecModal(model)}
+                      className="w-full py-1.5 px-2 bg-[#faf8f4] hover:bg-[#ede5d6] text-black text-[11px] font-mono uppercase font-bold rounded-xs border border-[#d8cebe] transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                    >
+                      <Download className="w-3 h-3 text-[#9d7b38]" />
+                      <span>Spec Docket</span>
+                    </button>
+                  </div>
+
                 </div>
 
               </div>
@@ -228,7 +299,7 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
           })}
         </div>
 
-        {/* Compact Council Chamber Capability Strip */}
+        {/* Compact Council Chamber Capability Strip with Direct Payment */}
         <div id="council-feature" className="p-4 sm:p-5 rounded-lg bg-black text-white border-2 border-[#d4af37] shadow-md flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
           <div className="space-y-0.5">
             <div className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#d4af37] font-bold">
@@ -243,15 +314,25 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
             </p>
           </div>
 
-          <button
-            onClick={() => {
-              const retainer = PARTNERSHIP_PATHWAYS.find(p => p.id === 'retainer') || PARTNERSHIP_PATHWAYS[0];
-              onOpenConsultationWithModel(retainer);
-            }}
-            className="px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] text-black font-black text-xs uppercase tracking-wider rounded-xs font-mono shrink-0 cursor-pointer shadow-xs whitespace-nowrap"
-          >
-            <span>Inquire for Conclave Seat</span>
-          </button>
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 shrink-0">
+            <button
+              onClick={handlePayConclaveSeat}
+              className="px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] text-black font-black text-xs uppercase tracking-wider rounded-xs font-mono cursor-pointer shadow-xs whitespace-nowrap flex items-center gap-1.5 active:scale-98"
+            >
+              <CreditCard className="w-3.5 h-3.5 text-black" />
+              <span>Secure Conclave Seat · $1,500</span>
+            </button>
+
+            <button
+              onClick={() => {
+                const retainer = PARTNERSHIP_PATHWAYS.find(p => p.id === 'retainer') || PARTNERSHIP_PATHWAYS[0];
+                onOpenConsultationWithModel(retainer);
+              }}
+              className="px-3.5 py-2 bg-zinc-900 hover:bg-zinc-800 text-stone-200 border border-zinc-700 text-xs uppercase font-mono tracking-wider rounded-xs cursor-pointer whitespace-nowrap"
+            >
+              <span>Inquire Protocol</span>
+            </button>
+          </div>
         </div>
 
       </div>
@@ -316,9 +397,20 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
                   onClick={() => {
                     const m = showSpecModal;
                     setShowSpecModal(null);
+                    handlePayTrackDeposit(m);
+                  }}
+                  className="px-3.5 py-1.5 bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] text-black text-xs font-black uppercase font-mono rounded-xs cursor-pointer shadow-xs flex items-center gap-1.5"
+                >
+                  <CreditCard className="w-3.5 h-3.5 text-black" />
+                  <span>Lock Retainer Deposit</span>
+                </button>
+                <button
+                  onClick={() => {
+                    const m = showSpecModal;
+                    setShowSpecModal(null);
                     handleSelect(m);
                   }}
-                  className="px-4 py-1.5 bg-black hover:bg-zinc-800 text-white text-xs font-black uppercase font-mono rounded-xs cursor-pointer"
+                  className="px-3.5 py-1.5 bg-black hover:bg-zinc-800 text-white text-xs font-black uppercase font-mono rounded-xs cursor-pointer"
                 >
                   Initiate Mandate
                 </button>
@@ -327,6 +419,13 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
           </div>
         </div>
       )}
+
+      {/* UNIVERSAL PAYMENT MODAL */}
+      <PaymentModal
+        isOpen={!!activePaymentItem}
+        onClose={() => setActivePaymentItem(null)}
+        item={activePaymentItem}
+      />
 
     </section>
   );
