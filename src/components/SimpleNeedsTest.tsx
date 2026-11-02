@@ -7,9 +7,11 @@ import {
   Clock, 
   Sparkles,
   CreditCard,
-  Lock
+  Lock,
+  Calendar
 } from 'lucide-react';
 import { PaymentModal, PaymentItem } from './payment/PaymentModal';
+import { CalendlyModal } from './CalendlyModal';
 
 interface DomainQuestion {
   id: string;
@@ -188,6 +190,7 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
   const [answers, setAnswers] = useState<number[]>([]);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [activePaymentItem, setActivePaymentItem] = useState<PaymentItem | null>(null);
+  const [showCalendlyModal, setShowCalendlyModal] = useState(false);
 
   const handleSelectOption = (optionIndex: number) => {
     const updatedAnswers = [...answers];
@@ -457,17 +460,27 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                     Ready to Reclaim 15+ Hours Every Week?
                   </h4>
                   <p className="text-xs text-zinc-300">
-                    Book a confidential 20-minute strategy call with Suchita Sancheti or acquire immediate operating toolkits online.
+                    Book a confidential 20-minute strategy call with Suchita Sancheti via Calendly or acquire immediate operating toolkits online.
                   </p>
                 </div>
 
-                <button
-                  onClick={handleScheduleCall}
-                  className="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] hover:brightness-110 text-black font-black text-xs uppercase tracking-wider rounded-xs transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer font-mono shrink-0 whitespace-nowrap"
-                >
-                  <span>Book Free 20-Min Call</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-black" />
-                </button>
+                <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2 shrink-0">
+                  <button
+                    onClick={() => setShowCalendlyModal(true)}
+                    className="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] hover:brightness-110 text-black font-black text-xs uppercase tracking-wider rounded-xs transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer font-mono shrink-0 whitespace-nowrap active:scale-98"
+                  >
+                    <Calendar className="w-3.5 h-3.5 text-black" />
+                    <span>Book on Calendly</span>
+                  </button>
+
+                  <button
+                    onClick={handleScheduleCall}
+                    className="w-full sm:w-auto px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-stone-200 border border-zinc-700 font-mono text-xs uppercase tracking-wider rounded-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                  >
+                    <span>Written Form</span>
+                    <ArrowRight className="w-3 h-3 text-[#d4af37]" />
+                  </button>
+                </div>
               </div>
 
               {/* Instant Payment Remedies */}
@@ -524,6 +537,14 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
         isOpen={!!activePaymentItem}
         onClose={() => setActivePaymentItem(null)}
         item={activePaymentItem}
+      />
+
+      {/* UNIVERSAL CALENDLY MODAL */}
+      <CalendlyModal
+        isOpen={showCalendlyModal}
+        onClose={() => setShowCalendlyModal(false)}
+        customTitle="Book 20-Min Operating Audit Debrief via Calendly"
+        contextNote={`Audit Score: ${totalScore}/100 · Identified Latency: ${totalLostHours} hrs/wk and $${totalDelayCost.toLocaleString()}/yr delay cost.`}
       />
 
     </section>

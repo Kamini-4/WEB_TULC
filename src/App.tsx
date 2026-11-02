@@ -26,6 +26,7 @@ const ExecutiveWarRoom = lazy(() => import('./components/ExecutiveWarRoom').then
 const InstitutionalCaseStudies = lazy(() => import('./components/InstitutionalCaseStudies').then(m => ({ default: m.InstitutionalCaseStudies })));
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
 const InstitutionalPortal = lazy(() => import('./components/InstitutionalPortal').then(m => ({ default: m.InstitutionalPortal })));
+const CalendlyBookingView = lazy(() => import('./components/CalendlyBookingView').then(m => ({ default: m.CalendlyBookingView })));
 
 export type AppView = 
   | 'home' 
@@ -41,7 +42,8 @@ export type AppView =
   | 'contact'
   | 'portal'
   | 'briefing'
-  | 'partnerships';
+  | 'partnerships'
+  | 'booking';
 
 export const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<AppView>('home');
@@ -81,6 +83,9 @@ export const App: React.FC = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash === 'contact' || hash === 'inquiry') {
         setCurrentView('contact');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === 'booking' || hash === 'schedule' || hash === 'calendly' || hash === 'calendar') {
+        setCurrentView('booking');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash === 'portal' || hash === 'clearance' || hash === 'client-portal' || hash === 'gate') {
         setCurrentView('portal');
@@ -164,6 +169,10 @@ export const App: React.FC = () => {
     } else if (target === 'contact' || target === 'inquiry') {
       setCurrentView('contact');
       window.location.hash = 'contact';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'booking' || target === 'schedule' || target === 'calendly' || target === 'calendar') {
+      setCurrentView('booking');
+      window.location.hash = 'booking';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (target === 'portal' || target === 'clearance') {
       setCurrentView('portal');
@@ -600,6 +609,24 @@ export const App: React.FC = () => {
                 onOpenConsultationWithModel={handleOpenConsultationWithModel}
               />
             </div>
+          </div>
+        )}
+
+        {/* 15. DEDICATED CALENDLY BOOKING VIEW */}
+        {currentView === 'booking' && (
+          <div>
+            <SEOHead
+              title="Schedule Private Executive Briefing | TULC"
+              description="Direct Calendly calendar reservation for 20-minute executive briefing with Suchita Sancheti under Chatham House rules."
+              canonicalPath="/booking"
+            />
+            {renderSubpageBreadcrumb('Executive Scheduling Desk', 'Direct Calendly Calendar Integration')}
+            <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading Calendar Interface...</div>}>
+              <CalendlyBookingView
+                onBackToHome={() => navigateTo('home')}
+                onNavigateToContact={() => navigateTo('contact')}
+              />
+            </Suspense>
           </div>
         )}
 

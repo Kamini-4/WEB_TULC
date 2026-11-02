@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Zap, Target, Eye, Phone, Mail, Shield, Lock, FileText } from 'lucide-react';
+import { BookOpen, Zap, Target, Eye, Phone, Mail, Shield, Lock, FileText, Calendar } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
 
 interface FooterProps {
@@ -105,6 +105,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Contact
             </a>
             <a
+              href="#booking"
+              onClick={(e) => { e.preventDefault(); onNavigate('booking'); }}
+              className="hover:text-[#141416] transition-colors py-1 flex items-center gap-1 font-bold text-[#141416]"
+            >
+              <Calendar className="w-3.5 h-3.5 text-[#9d7b38]" />
+              <span>Book via Calendly</span>
+            </a>
+            <a
               href="#privacy"
               onClick={(e) => { e.preventDefault(); onNavigate('privacy'); }}
               className="hover:text-[#141416] transition-colors py-1 underline underline-offset-2"
@@ -146,6 +154,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 >
                   <Mail className="w-3.5 h-3.5 text-[#9d7b38] shrink-0" />
                   <span>suchita135sancheti@gmail.com</span>
+                </a>
+
+                <a
+                  href="#booking"
+                  onClick={(e) => { e.preventDefault(); onNavigate('booking'); }}
+                  className="flex items-center gap-1.5 text-black hover:text-[#9d7b38] font-bold transition-colors bg-white px-2.5 py-1 rounded-xs border border-[#9d7b38]/50 shadow-2xs font-mono text-[11px]"
+                >
+                  <Calendar className="w-3.5 h-3.5 text-[#9d7b38] shrink-0" />
+                  <span>Book Calendly Briefing</span>
                 </a>
               </div>
             </div>

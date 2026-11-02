@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { ConsultationInquiry, PartnershipModelId } from '../types';
-import { Lock, ShieldCheck, CheckCircle2, Send, Clock, FileText, Loader2, Phone, Mail, ArrowLeft, CreditCard, Sparkles } from 'lucide-react';
+import { Lock, ShieldCheck, CheckCircle2, Send, Clock, FileText, Loader2, Phone, Mail, ArrowLeft, CreditCard, Sparkles, Calendar, ExternalLink } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
 import { PaymentModal, PaymentItem } from './payment/PaymentModal';
+import { CalendlyModal } from './CalendlyModal';
 
 interface InquiryProps {
   initialPartnership?: PartnershipModelId | 'council-chambers';
@@ -27,6 +28,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activePaymentItem, setActivePaymentItem] = useState<PaymentItem | null>(null);
+  const [showCalendlyModal, setShowCalendlyModal] = useState(false);
   const [submissionReceipt, setSubmissionReceipt] = useState<{
     referenceId: string;
     timestamp: string;
@@ -231,39 +233,51 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                   </p>
                 </div>
 
-                {/* Priority Fast-Track Deposit Clearance Option */}
-                <div className="p-3 bg-[#faf8f4] border-2 border-[#d4af37] rounded-md flex flex-col sm:flex-row items-center justify-between gap-2.5">
-                  <div className="space-y-0.5 text-center sm:text-left">
-                    <div className="flex items-center justify-center sm:justify-start gap-1 text-[10px] font-mono uppercase text-[#9d7b38] font-black">
+                {/* Priority Fast-Track & Calendly Booking Option */}
+                <div className="p-3 bg-[#faf8f4] border-2 border-[#d4af37] rounded-md flex flex-col md:flex-row items-center justify-between gap-2.5">
+                  <div className="space-y-0.5 text-center md:text-left">
+                    <div className="flex items-center justify-center md:justify-start gap-1 text-[10px] font-mono uppercase text-[#9d7b38] font-black">
                       <Sparkles className="w-3 h-3 text-[#d4af37]" />
-                      <span>Priority Executive Fast-Track</span>
+                      <span>Priority Scheduling Options</span>
                     </div>
                     <span className="text-xs font-black text-black block">
-                      Skip Scheduling Queue: Secure Priority Retainer Deposit ($500 USD)
+                      Prefer Live Calendar Sync? Book Direct on Calendly or Lock Retainer ($500)
                     </span>
                     <p className="text-[11px] text-zinc-600">
-                      Guarantees direct 24-hr consultation slot on Suchita Sancheti's calendar (100% credited).
+                      Select your preferred 20-min private briefing slot directly with Suchita Sancheti.
                     </p>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => setActivePaymentItem({
-                      id: 'priority-briefing-deposit',
-                      title: 'Priority Advisory Briefing Clearance',
-                      subtitle: 'Guaranteed 24-hour calendar reservation with Suchita Sancheti. 100% credited toward mandate.',
-                      priceUSD: 500,
-                      category: 'fast_track_clearance',
-                      deliverables: [
-                        'Guaranteed 24-Hour Private Briefing Slot',
-                        'Pre-Session Architecture Friction Review',
-                        '100% Credited Toward Future Mandates'
-                      ]
-                    })}
-                    className="px-3.5 py-2 bg-black hover:bg-zinc-800 text-white font-mono text-xs font-bold uppercase rounded-xs transition-colors flex items-center gap-1.5 shrink-0 cursor-pointer shadow-xs whitespace-nowrap active:scale-98"
-                  >
-                    <CreditCard className="w-3.5 h-3.5 text-[#d4af37]" />
-                    <span>Pay Deposit · $500</span>
-                  </button>
+
+                  <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 shrink-0">
+                    <button
+                      type="button"
+                      onClick={() => setShowCalendlyModal(true)}
+                      className="px-3.5 py-2 bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] text-black font-mono text-xs font-black uppercase rounded-xs transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs whitespace-nowrap active:scale-98"
+                    >
+                      <Calendar className="w-3.5 h-3.5 text-black" />
+                      <span>Book on Calendly</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setActivePaymentItem({
+                        id: 'priority-briefing-deposit',
+                        title: 'Priority Advisory Briefing Clearance',
+                        subtitle: 'Guaranteed 24-hour calendar reservation with Suchita Sancheti. 100% credited toward mandate.',
+                        priceUSD: 500,
+                        category: 'fast_track_clearance',
+                        deliverables: [
+                          'Guaranteed 24-Hour Private Briefing Slot',
+                          'Pre-Session Architecture Friction Review',
+                          '100% Credited Toward Future Mandates'
+                        ]
+                      })}
+                      className="px-3 py-2 bg-black hover:bg-zinc-800 text-white font-mono text-xs font-bold uppercase rounded-xs transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs whitespace-nowrap active:scale-98"
+                    >
+                      <CreditCard className="w-3.5 h-3.5 text-[#d4af37]" />
+                      <span>Deposit · $500</span>
+                    </button>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -446,15 +460,26 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                     <ArrowLeft className="w-5 h-5 text-[#9d7b38]" />
                   </button>
 
-                  <button
-                    type="button"
-                    onClick={() => {
-                      window.location.hash = 'shop';
-                    }}
-                    className="text-[#9d7b38] hover:text-[#7d5f24] transition-colors py-1 cursor-pointer font-bold"
-                  >
-                    View Executive Shop →
-                  </button>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setShowCalendlyModal(true)}
+                      className="text-black hover:text-[#9d7b38] transition-colors py-1 cursor-pointer font-bold flex items-center gap-1.5"
+                    >
+                      <Calendar className="w-3.5 h-3.5 text-[#9d7b38]" />
+                      <span>Book on Calendly →</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        window.location.hash = 'shop';
+                      }}
+                      className="text-[#9d7b38] hover:text-[#7d5f24] transition-colors py-1 cursor-pointer font-bold"
+                    >
+                      View Executive Shop →
+                    </button>
+                  </div>
                 </div>
               </form>
             )}
@@ -467,6 +492,14 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
         isOpen={!!activePaymentItem}
         onClose={() => setActivePaymentItem(null)}
         item={activePaymentItem}
+      />
+
+      {/* UNIVERSAL CALENDLY MODAL */}
+      <CalendlyModal
+        isOpen={showCalendlyModal}
+        onClose={() => setShowCalendlyModal(false)}
+        customTitle="Schedule 20-Min Executive Briefing via Calendly"
+        contextNote="You are booking a confidential, direct 20-minute video session with Suchita Sancheti under Chatham House non-disclosure rules."
       />
 
     </section>

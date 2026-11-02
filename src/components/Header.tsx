@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Zap, ArrowRight, Lock, CreditCard } from 'lucide-react';
+import { Menu, X, Zap, ArrowRight, Lock, CreditCard, Calendar } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
 
 interface HeaderProps {
@@ -125,6 +125,18 @@ export const Header: React.FC<HeaderProps> = ({
             <span>Portal</span>
           </a>
           <a
+            href="#booking"
+            onClick={(e) => { e.preventDefault(); handleNavClick('booking'); }}
+            className={`transition-colors whitespace-nowrap py-1 border-b-2 flex items-center gap-1.5 ${
+              currentView === 'booking'
+                ? 'text-[#17181c] border-[#9d7b38] font-bold'
+                : 'text-[#484b54] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
+            }`}
+          >
+            <Calendar className="w-3.5 h-3.5 text-[#9d7b38]" />
+            <span>Book Calendly</span>
+          </a>
+          <a
             href="#contact"
             onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
@@ -137,8 +149,16 @@ export const Header: React.FC<HeaderProps> = ({
           </a>
         </nav>
 
-        {/* Action Zone — Free 60-Sec Audit CTA & Instant Pay */}
+        {/* Action Zone — Free 60-Sec Audit CTA & Instant Pay & Calendly */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <button
+            onClick={() => handleNavClick('booking')}
+            className="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold font-mono uppercase text-[#17181c] bg-[#faf6ee] hover:bg-[#ede5d6] rounded-xs border border-[#9d7b38] transition-colors cursor-pointer"
+          >
+            <Calendar className="w-3.5 h-3.5 text-[#9d7b38]" />
+            <span>Book Briefing</span>
+          </button>
+
           <button
             onClick={() => handleNavClick('shop')}
             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold font-mono uppercase text-[#17181c] hover:bg-[#ede5d6] rounded-xs border border-[#d8cebe] transition-colors cursor-pointer"
@@ -255,6 +275,17 @@ export const Header: React.FC<HeaderProps> = ({
               <div className="flex items-center gap-2">
                 <Lock className="w-4 h-4 text-[#9d7b38]" />
                 <span>Portal (Institutional Clearance Desk)</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
+            </a>
+            <a
+              href="#booking"
+              onClick={(e) => { e.preventDefault(); handleNavClick('booking'); }}
+              className="py-2.5 px-3 rounded bg-[#faf6ee] border border-[#d4af37] text-black flex items-center justify-between font-bold"
+            >
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-[#9d7b38]" />
+                <span>Book 1-on-1 via Calendly</span>
               </div>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
