@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { 
   UserCheck, 
   ShieldCheck, 
@@ -8,33 +8,14 @@ import {
   Mail, 
   Share2,
   BookOpen,
-  CheckCircle2,
-  Camera,
-  Maximize2
+  CheckCircle2
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEOHead } from '../components/SEOHead';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { InternalLinksMatrix } from '../components/InternalLinksMatrix';
-import { useFounderPhoto } from '../utils/founderPhoto';
 
 export const About: React.FC = () => {
-  const { photoUrl, hasCustomPhoto, savePhoto } = useFounderPhoto('/assets/suchita-portrait.svg');
-  const [imageFit, setImageFit] = useState<'cover' | 'contain'>('cover');
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file && file.type.startsWith('image/')) {
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        const res = ev.target?.result as string;
-        if (res) savePhoto(res);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[#07080c] text-[#f4ecd8] font-serif">
       <SEOHead
@@ -72,51 +53,20 @@ export const About: React.FC = () => {
         {/* Profile Biography Card — Black Background & Golden Text */}
         <div className="bg-[#0c0d14] border-2 border-[#d4af37] rounded-md p-6 sm:p-8 shadow-2xl grid grid-cols-1 md:grid-cols-12 gap-8 items-start font-serif">
           
-          {/* Avatar / Portrait Column — 3:4 Proportional Frame with Fit Toggle */}
+          {/* Official Emblem & Crest Column — Locked Executive Insignia */}
           <div className="md:col-span-4 flex flex-col items-center text-center space-y-4">
-            <input 
-              ref={fileInputRef} 
-              type="file" 
-              accept="image/*" 
-              className="hidden" 
-              onChange={handleFileChange} 
-            />
-            
-            <div className="w-full max-w-[270px] aspect-[3/4] min-h-[350px] rounded-xs bg-[#050608] border-2 border-[#d4af37] flex flex-col items-center justify-center text-[#d4af37] shadow-xl relative overflow-hidden group">
+            <div className="w-full max-w-[270px] aspect-[4/3] rounded-xs bg-[#050608] border-2 border-[#d4af37] flex flex-col items-center justify-center text-[#d4af37] shadow-xl relative overflow-hidden p-3">
               <img 
-                src={photoUrl} 
-                alt="Suchita Sancheti" 
-                className={`w-full h-full transition-all duration-500 ${
-                  imageFit === 'contain' 
-                    ? 'object-contain p-1 bg-[#050608]' 
-                    : 'object-cover object-[center_15%] group-hover:scale-[1.02]'
-                }`}
+                src="/assets/tulc-gold-navy-crest.jpg" 
+                alt="Official Executive Crest — Suchita Sancheti" 
+                className="w-full h-full object-contain filter drop-shadow-[0_8px_16px_rgba(212,175,55,0.25)]"
+                width="360"
+                height="270"
+                loading="eager"
               />
 
               {/* Ambient Vignette */}
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#050608]/90 via-transparent to-transparent"></div>
-
-              {/* Action Buttons: Fit & Upload */}
-              <div className="absolute top-2 right-2 flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity z-10">
-                <button
-                  type="button"
-                  onClick={() => setImageFit(imageFit === 'cover' ? 'contain' : 'cover')}
-                  className="px-2 py-1 bg-[#08090e]/95 text-[#d4af37] border border-[#d4af37]/70 rounded-xs text-[9px] font-mono flex items-center gap-1 shadow-md hover:bg-[#141520] transition-colors cursor-pointer"
-                  title="Toggle fit mode"
-                >
-                  <Maximize2 className="w-2.5 h-2.5 text-[#d4af37]" />
-                  <span>{imageFit === 'cover' ? 'Fit All' : 'Fill'}</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => fileInputRef.current?.click()}
-                  className="px-2 py-1 bg-gradient-to-r from-[#d4af37] to-[#e6ca65] text-[#0a0b0f] font-bold rounded-xs text-[9.5px] font-mono flex items-center gap-1 shadow-md hover:brightness-110 transition-all cursor-pointer"
-                  title="Upload authentic WhatsApp photo"
-                >
-                  <Camera className="w-3 h-3 text-[#0a0b0f]" />
-                  <span>{hasCustomPhoto ? 'Update' : 'Upload'}</span>
-                </button>
-              </div>
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#050608]/80 via-transparent to-transparent"></div>
 
               {/* Lower Badge */}
               <div className="absolute bottom-2 left-2 right-2 bg-[#090a0f]/95 px-2.5 py-1 rounded-xs border border-[#d4af37]/60 text-left pointer-events-none shadow-md">

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { 
   Compass, 
   ShieldCheck, 
@@ -18,14 +18,9 @@ import {
   X, 
   Lock, 
   ChevronDown, 
-  ChevronUp,
-  Camera,
-  Upload,
-  RotateCcw,
-  Maximize2
+  ChevronUp
 } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
-import { useFounderPhoto } from '../utils/founderPhoto';
 
 interface AboutSectionProps {
   onOpenConsultation: () => void;
@@ -33,56 +28,6 @@ interface AboutSectionProps {
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }) => {
   const [showFullVision, setShowFullVision] = useState(false);
-  const [imageFit, setImageFit] = useState<'cover' | 'contain'>('cover');
-  const { photoUrl, hasCustomPhoto, savePhoto, resetPhoto } = useFounderPhoto('/assets/suchita-portrait.svg');
-  const [isDragging, setIsDragging] = useState(false);
-  const [uploadFeedback, setUploadFeedback] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const processFile = (file: File) => {
-    if (!file.type.startsWith('image/')) {
-      setUploadFeedback('Please select a valid image file (.jpg, .jpeg, .png).');
-      setTimeout(() => setUploadFeedback(null), 4000);
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const result = e.target?.result as string;
-      if (result) {
-        savePhoto(result);
-        setUploadFeedback('Authentic photo loaded & saved successfully!');
-        setTimeout(() => setUploadFeedback(null), 3500);
-      }
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      processFile(file);
-    }
-  };
-
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDragging(false);
-    const file = e.dataTransfer.files?.[0];
-    if (file) {
-      processFile(file);
-    }
-  };
-
-  const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDragging(true);
-  };
-
-  const handleDragLeave = (e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDragging(false);
-  };
 
   return (
     <section id="about" className="py-4 sm:py-6 px-3 sm:px-6 lg:px-8 border-b border-[#dfd7c8] bg-[#f8f6f0] text-black relative">
@@ -109,42 +54,22 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
         {/* ========================================================================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-stretch">
           
-          {/* Left Column: Authentic Portrait & Direct Contact Card (Obsidian Black & Gold Anchor) */}
+          {/* Left Column: Official Executive Insignia & Direct Contact Card (Obsidian Black & Gold Anchor) */}
           <div className="lg:col-span-4 bg-[#0c0d14] border-2 border-[#d4af37] rounded-md p-4 sm:p-5 shadow-xl flex flex-col justify-between space-y-3.5 text-[#f5ebd7] relative">
             
-            {/* Hidden Input for Instant Photo Upload */}
-            <input 
-              ref={fileInputRef} 
-              type="file" 
-              accept="image/*" 
-              className="hidden" 
-              onChange={handleFileChange} 
-            />
-
-            {/* Founder Portrait & Insignia Frame — Proportional 3:4 Portrait Ratio with Fit Controls */}
-            <div 
-              onDrop={handleDrop}
-              onDragOver={handleDragOver}
-              onDragLeave={handleDragLeave}
-              className={`relative w-full aspect-[3/4] max-w-[310px] mx-auto min-h-[340px] sm:min-h-[380px] rounded-xs overflow-hidden border-2 ${
-                isDragging ? 'border-[#d4af37] ring-4 ring-[#d4af37]/60 bg-[#1a1b26]' : 'border-[#d4af37]'
-              } shadow-2xl bg-[#050608] group flex items-center justify-center`}
-            >
+            {/* Official Heraldic Seal & Founder Emblem Frame — Locked Executive Insignia */}
+            <div className="relative w-full aspect-[4/3] max-w-[310px] mx-auto rounded-xs overflow-hidden border-2 border-[#d4af37] shadow-2xl bg-[#050608] flex items-center justify-center p-3">
               <img 
-                src={photoUrl} 
-                alt="Suchita Sancheti — Founder & Enterprise Architect, The Unbounded Leadership Co." 
-                className={`w-full h-full transition-all duration-500 ${
-                  imageFit === 'contain' 
-                    ? 'object-contain p-1 bg-[#050608]' 
-                    : 'object-cover object-[center_15%] group-hover:scale-[1.02]'
-                }`}
+                src="/assets/tulc-gold-navy-crest.jpg" 
+                alt="Official Executive Crest — The Unbounded Leadership Co. | Suchita Sancheti" 
+                className="w-full h-full object-contain filter drop-shadow-[0_8px_16px_rgba(212,175,55,0.25)]"
                 width="360"
-                height="480"
+                height="270"
                 loading="eager"
               />
 
               {/* Ambient Vignette for Premium Depth */}
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#06070a]/90 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#06070a]/80 via-transparent to-transparent"></div>
 
               {/* Status & Name Banner with Black Background & Golden Text */}
               <div className="absolute bottom-2 left-2 right-2 bg-[#0a0b0f]/95 backdrop-blur-md px-3 py-1.5 rounded-xs border border-[#d4af37]/70 flex items-center justify-between pointer-events-none shadow-xl">
@@ -161,59 +86,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                   <span className="text-[8px] font-mono text-emerald-400 uppercase tracking-widest">Active</span>
                 </div>
               </div>
-
-              {/* Top Floating Control Bar: Fit Toggle & Photo Upload/Reset */}
-              <div className="absolute top-2.5 right-2.5 flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity z-10">
-                <button
-                  type="button"
-                  onClick={() => setImageFit(imageFit === 'cover' ? 'contain' : 'cover')}
-                  className="px-2 py-1 bg-[#090a0f]/95 hover:bg-[#1a1b24] text-[#d4af37] border border-[#d4af37]/70 rounded-xs text-[9px] font-mono flex items-center gap-1 shadow-md transition-colors cursor-pointer"
-                  title={imageFit === 'cover' ? 'Switch to Fit Entire Photo (unclipped)' : 'Switch to Fill Portrait Frame'}
-                >
-                  <Maximize2 className="w-2.5 h-2.5 text-[#d4af37]" />
-                  <span>{imageFit === 'cover' ? 'Fit Whole Photo' : 'Fill Frame'}</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => fileInputRef.current?.click()}
-                  className="px-2 py-1 bg-gradient-to-r from-[#d4af37] to-[#e6ca65] hover:brightness-110 text-[#0a0b0f] font-bold rounded-xs text-[9.5px] font-mono flex items-center gap-1 shadow-md transition-colors cursor-pointer"
-                  title="Upload your authentic photo"
-                >
-                  <Camera className="w-3 h-3 text-[#0a0b0f]" />
-                  <span>{hasCustomPhoto ? 'Change' : 'Upload'}</span>
-                </button>
-                {hasCustomPhoto && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      resetPhoto();
-                      setUploadFeedback('Reset to default illustration.');
-                      setTimeout(() => setUploadFeedback(null), 3000);
-                    }}
-                    className="p-1 bg-[#090a0f]/95 hover:bg-[#1a1b24] text-[#d4af37] border border-[#d4af37]/70 rounded-xs transition-colors cursor-pointer"
-                    title="Reset photo"
-                  >
-                    <RotateCcw className="w-3 h-3" />
-                  </button>
-                )}
-              </div>
-
-              {/* Dragging Overlay */}
-              {isDragging && (
-                <div className="absolute inset-0 bg-[#07080d]/90 backdrop-blur-xs flex flex-col items-center justify-center p-3 text-center text-[#f3e5ab] z-20">
-                  <Upload className="w-8 h-8 text-[#d4af37] mb-1 animate-bounce" />
-                  <span className="text-xs font-mono font-bold text-[#d4af37]">Drop Photo Here</span>
-                  <span className="text-[10px] text-[#ded8cc]">Replaces portrait instantly</span>
-                </div>
-              )}
-
-              {/* Upload Feedback Toast */}
-              {uploadFeedback && (
-                <div className="absolute top-2 left-2 right-2 bg-[#090a0f]/95 text-[#f5ebd7] text-[10px] font-mono px-2 py-1.5 rounded-xs border border-[#d4af37] shadow-2xl flex items-center gap-1.5 z-30">
-                  <Check className="w-3 h-3 text-[#34d399] shrink-0" />
-                  <span className="truncate">{uploadFeedback}</span>
-                </div>
-              )}
             </div>
 
             {/* Quick Title & Bio */}

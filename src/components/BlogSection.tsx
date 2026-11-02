@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { BLOG_POSTS, BlogPost } from '../data/blogData';
 import { SEOHead } from './SEOHead';
-import { useFounderPhoto } from '../utils/founderPhoto';
 import { 
   BookOpen, 
   Sparkles, 
@@ -11,16 +10,16 @@ import {
   ChevronRight, 
   HelpCircle, 
   ArrowRight, 
-  ArrowLeft,
-  AlertTriangle,
-  FileText,
-  Bookmark,
-  Search,
-  Layers,
-  ShieldCheck,
-  Zap,
-  Target,
-  MessageSquare
+  ArrowLeft, 
+  AlertTriangle, 
+  FileText, 
+  Bookmark, 
+  Search, 
+  Layers, 
+  ShieldCheck, 
+  Zap, 
+  Target, 
+  MessageSquare 
 } from 'lucide-react';
 
 interface BlogSectionProps {
@@ -29,7 +28,6 @@ interface BlogSectionProps {
 
 export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) => {
   const [selectedPost, setSelectedPost] = useState<BlogPost>(BLOG_POSTS[0]);
-  const { photoUrl: founderPhotoUrl } = useFounderPhoto('/assets/suchita-portrait.svg');
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [copiedLinkedInId, setCopiedLinkedInId] = useState<string | null>(null);
@@ -191,9 +189,9 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b border-[#d4af37]/40">
                   <div className="flex items-center gap-3">
                     <img 
-                      src={founderPhotoUrl} 
-                      alt="Suchita Sancheti" 
-                      className="w-12 h-12 rounded-full object-cover object-[center_15%] border-2 border-[#d4af37] shadow-md shrink-0 bg-[#050608]" 
+                      src="/assets/tulc-gold-navy-crest.jpg" 
+                      alt="Suchita Sancheti — Founder & Enterprise Architect" 
+                      className="w-12 h-12 rounded-full object-cover border-2 border-[#d4af37] shadow-md shrink-0 bg-[#050608]" 
                     />
                     <div>
                       <div className="text-sm font-bold text-[#f3e5ab] font-serif">
