@@ -537,7 +537,11 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                     if (el) {
                       el.scrollIntoView({ behavior: 'smooth' });
                     } else {
-                      window.location.hash = 'test';
+                      try {
+                        window.history.pushState(null, '', '/audit');
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                      } catch {}
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
                   }}
                   className="w-full sm:w-auto px-5 py-3.5 bg-[#22242c] hover:bg-[#2c2f38] text-[#e5decfe0] hover:text-white border border-[#444754] text-xs font-mono uppercase tracking-wider rounded-none transition-all inline-flex items-center justify-center gap-2 cursor-pointer"
@@ -551,7 +555,11 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
             <div className="pt-4 border-t border-[#f0eade] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono">
               <button
                 onClick={() => {
-                  window.location.hash = 'top';
+                  try {
+                    window.history.pushState(null, '', '/');
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                  } catch {}
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
                 aria-label="Go back"
                 title="Go back"
@@ -562,7 +570,11 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
 
               <button
                 onClick={() => {
-                  window.location.hash = 'blueprints';
+                  try {
+                    window.history.pushState(null, '', '/shop');
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                  } catch {}
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
                 className="text-[#9d7b38] hover:text-[#7d5f24] transition-colors py-1 cursor-pointer font-bold flex items-center gap-1.5"
               >

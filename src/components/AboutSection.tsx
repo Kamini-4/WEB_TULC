@@ -353,10 +353,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
             </span>
             <div className="flex items-center gap-2">
               <a
-                href="#simple-test"
+                href="/audit"
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location.hash = 'test';
+                  try {
+                    window.history.pushState(null, '', '/audit');
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                  } catch {}
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
                 className="px-3 py-1.5 bg-black text-[#d4af37] hover:bg-zinc-800 text-xs font-mono uppercase font-bold rounded-xs transition-colors cursor-pointer"

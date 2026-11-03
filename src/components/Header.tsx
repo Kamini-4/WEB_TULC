@@ -30,7 +30,7 @@ export const Header: React.FC<HeaderProps> = ({
         
         {/* Brand Zone — Prestigious Crest & 3-Line Authority Hierarchy */}
         <a 
-          href="#top" 
+          href="/" 
           onClick={(e) => { e.preventDefault(); handleNavClick('top'); }}
           className="flex items-center gap-2.5 sm:gap-3.5 text-base sm:text-lg font-bold text-[#17181c] hover:text-[#9d7b38] transition-colors tracking-tight shrink-0 group py-1"
         >
@@ -58,7 +58,7 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Desktop Nav Zone — Key Pages clearly identified */}
         <nav aria-label="Primary Navigation" className="hidden md:flex items-center gap-5 lg:gap-7 xl:gap-8 text-[14px] lg:text-[15px] font-semibold text-[#484b54]">
           <a
-            href="#about"
+            href="/about"
             onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
               currentView === 'about'
@@ -69,7 +69,7 @@ export const Header: React.FC<HeaderProps> = ({
             About
           </a>
           <a
-            href="#services"
+            href="/services"
             onClick={(e) => { e.preventDefault(); handleNavClick('partnerships'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
               currentView === 'partnerships'
@@ -80,7 +80,7 @@ export const Header: React.FC<HeaderProps> = ({
             Services
           </a>
           <a
-            href="#diagnostic"
+            href="/diagnostic"
             onClick={(e) => { e.preventDefault(); handleNavClick('diagnostic'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
               currentView === 'diagnostic'
@@ -91,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({
             The Diagnostic
           </a>
           <a
-            href="#shop"
+            href="/shop"
             onClick={(e) => { e.preventDefault(); handleNavClick('shop'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
               currentView === 'shop'
@@ -102,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({
             Toolkits & Pay
           </a>
           <a
-            href="#library"
+            href="/library"
             onClick={(e) => { e.preventDefault(); handleNavClick('library'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
               currentView === 'library'
@@ -113,7 +113,7 @@ export const Header: React.FC<HeaderProps> = ({
             Dispatches
           </a>
           <a
-            href="#portal"
+            href="/portal"
             onClick={(e) => { e.preventDefault(); handleNavClick('portal'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 flex items-center gap-1.5 ${
               currentView === 'portal'
@@ -125,7 +125,7 @@ export const Header: React.FC<HeaderProps> = ({
             <span>Portal</span>
           </a>
           <a
-            href="#booking"
+            href="/booking"
             onClick={(e) => { e.preventDefault(); handleNavClick('booking'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 flex items-center gap-1.5 ${
               currentView === 'booking'
@@ -137,7 +137,7 @@ export const Header: React.FC<HeaderProps> = ({
             <span>Book Calendly</span>
           </a>
           <a
-            href="#contact"
+            href="/contact"
             onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}
             className={`transition-colors whitespace-nowrap py-1 border-b-2 ${
               currentView === 'contact'
@@ -210,7 +210,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <nav className="flex flex-col space-y-2 text-sm font-semibold text-[#17181c]">
             <a
-              href="#about"
+              href="/about"
               onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between font-bold"
             >
@@ -218,7 +218,7 @@ export const Header: React.FC<HeaderProps> = ({
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
-              href="#services"
+              href="/services"
               onClick={(e) => { e.preventDefault(); handleNavClick('partnerships'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
@@ -226,7 +226,7 @@ export const Header: React.FC<HeaderProps> = ({
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
-              href="#diagnostic"
+              href="/diagnostic"
               onClick={(e) => { e.preventDefault(); handleNavClick('diagnostic'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
@@ -234,7 +234,7 @@ export const Header: React.FC<HeaderProps> = ({
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
-              href="#blueprints"
+              href="/shop"
               onClick={(e) => { e.preventDefault(); handleNavClick('shop'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between font-bold text-[#17181c]"
             >
@@ -247,7 +247,7 @@ export const Header: React.FC<HeaderProps> = ({
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
-              href="#test"
+              href="/audit"
               onClick={(e) => { e.preventDefault(); handleNavClick('test'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
@@ -260,7 +260,7 @@ export const Header: React.FC<HeaderProps> = ({
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
-              href="#library"
+              href="/library"
               onClick={(e) => { e.preventDefault(); handleNavClick('library'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
@@ -268,7 +268,7 @@ export const Header: React.FC<HeaderProps> = ({
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
-              href="#portal"
+              href="/portal"
               onClick={(e) => { e.preventDefault(); handleNavClick('portal'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between font-bold text-[#17181c]"
             >
@@ -279,7 +279,7 @@ export const Header: React.FC<HeaderProps> = ({
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
-              href="#booking"
+              href="/booking"
               onClick={(e) => { e.preventDefault(); handleNavClick('booking'); }}
               className="py-2.5 px-3 rounded bg-[#faf6ee] border border-[#d4af37] text-black flex items-center justify-between font-bold"
             >
@@ -290,7 +290,7 @@ export const Header: React.FC<HeaderProps> = ({
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
-              href="#contact"
+              href="/contact"
               onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] text-[#9d7b38] flex items-center justify-between font-bold"
             >
@@ -298,12 +298,12 @@ export const Header: React.FC<HeaderProps> = ({
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
-              href="#privacy"
+              href="/privacy"
               onClick={(e) => { e.preventDefault(); handleNavClick('privacy'); }}
               className="py-2 px-3 rounded hover:bg-[#ede5d6] text-[#6b6e76] text-xs flex items-center justify-between"
             >
               <span>Privacy Policy & Data Covenant</span>
-              <ArrowRight className="w-3 h-3 text-[#9d7b38]" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
           </nav>
         </div>

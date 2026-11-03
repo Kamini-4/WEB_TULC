@@ -261,7 +261,11 @@ export const DomainDescriptions: React.FC<DomainDescriptionsProps> = ({
         <div className="pt-4 border-t border-stone-800 flex items-center justify-center">
           <button
             onClick={() => {
-              window.location.hash = 'top';
+              try {
+                window.history.pushState(null, '', '/');
+                window.dispatchEvent(new PopStateEvent('popstate'));
+              } catch {}
+              window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             aria-label="Go back"
             title="Go back"

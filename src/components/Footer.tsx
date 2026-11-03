@@ -39,35 +39,35 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Core Navigation Links */}
           <nav aria-label="Footer Navigation" className="flex flex-wrap items-center gap-3 sm:gap-4 font-semibold text-[#4a4c52]">
             <a
-              href="#top"
+              href="/"
               onClick={(e) => { e.preventDefault(); onNavigate('top'); }}
               className="hover:text-[#141416] transition-colors py-1"
             >
               Overview
             </a>
             <a
-              href="#about"
+              href="/about"
               onClick={(e) => { e.preventDefault(); onNavigate('about'); }}
               className="hover:text-[#141416] transition-colors py-1 font-bold text-[#141416]"
             >
               About
             </a>
             <a
-              href="#services"
+              href="/services"
               onClick={(e) => { e.preventDefault(); onNavigate('partnerships'); }}
               className="hover:text-[#141416] transition-colors py-1 font-bold text-[#141416]"
             >
               Services
             </a>
             <a
-              href="#comparison"
+              href="/comparison"
               onClick={(e) => { e.preventDefault(); onNavigate('comparison'); }}
               className="hover:text-[#141416] transition-colors py-1 font-medium"
             >
               The Outcomes
             </a>
             <a
-              href="#blueprints"
+              href="/shop"
               onClick={(e) => { e.preventDefault(); onNavigate('shop'); }}
               className="hover:text-[#9d7b38] transition-colors flex items-center gap-1 py-1 font-bold text-[#141416]"
             >
@@ -75,7 +75,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span>Executive Blueprints</span>
             </a>
             <a
-              href="#test"
+              href="/audit"
               onClick={(e) => { e.preventDefault(); onNavigate('test'); }}
               className="hover:text-[#9d7b38] transition-colors py-1 flex items-center gap-1 font-bold text-[#141416]"
             >
@@ -83,14 +83,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span>Free 60-Sec Test</span>
             </a>
             <a
-              href="#proof"
+              href="/case-studies"
               onClick={(e) => { e.preventDefault(); onNavigate('case-studies'); }}
               className="hover:text-[#141416] transition-colors py-1"
             >
               Case Studies
             </a>
             <a
-              href="#portal"
+              href="/portal"
               onClick={(e) => { e.preventDefault(); onNavigate('portal'); }}
               className="hover:text-[#9d7b38] transition-colors py-1 flex items-center gap-1 font-bold text-[#141416]"
             >
@@ -98,14 +98,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span>Client Portal</span>
             </a>
             <a
-              href="#contact"
+              href="/contact"
               onClick={(e) => { e.preventDefault(); onNavigate('contact'); }}
               className="text-[#9d7b38] hover:text-[#7d5f24] font-bold transition-colors py-1"
             >
               Contact
             </a>
             <a
-              href="#booking"
+              href="/booking"
               onClick={(e) => { e.preventDefault(); onNavigate('booking'); }}
               className="hover:text-[#141416] transition-colors py-1 flex items-center gap-1 font-bold text-[#141416]"
             >
@@ -113,7 +113,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span>Book via Calendly</span>
             </a>
             <a
-              href="#privacy"
+              href="/privacy"
               onClick={(e) => { e.preventDefault(); onNavigate('privacy'); }}
               className="hover:text-[#141416] transition-colors py-1 underline underline-offset-2"
             >
@@ -157,7 +157,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
 
                 <a
-                  href="#booking"
+                  href="/booking"
                   onClick={(e) => { e.preventDefault(); onNavigate('booking'); }}
                   className="flex items-center gap-1.5 text-black hover:text-[#9d7b38] font-bold transition-colors bg-white px-2.5 py-1 rounded-xs border border-[#9d7b38]/50 shadow-2xs font-mono text-[11px]"
                 >
@@ -232,7 +232,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
           <div className="flex flex-wrap items-center gap-2.5">
             <a 
-              href="#privacy" 
+              href="/privacy" 
               onClick={(e) => { e.preventDefault(); onNavigate('privacy'); }}
               className="text-[#17181c] hover:text-[#9d7b38] font-semibold underline"
             >
@@ -240,7 +240,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </a>
             <span aria-hidden="true" className="text-[#c9bea9]">·</span>
             <a 
-              href="#contact" 
+              href="/contact" 
               onClick={(e) => { e.preventDefault(); onNavigate('contact'); }}
               className="text-[#17181c] hover:text-[#9d7b38] font-semibold"
             >

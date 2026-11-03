@@ -461,7 +461,11 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                   <div className="pt-2 flex items-center justify-between text-xs font-mono">
                     <button
                       onClick={() => {
-                        window.location.hash = 'test';
+                        try {
+                          window.history.pushState(null, '', '/audit');
+                          window.dispatchEvent(new PopStateEvent('popstate'));
+                        } catch {}
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
                       className="text-[#6b6e76] hover:text-[#17181c] transition-colors py-1 cursor-pointer font-bold"
                     >
@@ -469,7 +473,11 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                     </button>
                     <button
                       onClick={() => {
-                        window.location.hash = 'top';
+                        try {
+                          window.history.pushState(null, '', '/');
+                          window.dispatchEvent(new PopStateEvent('popstate'));
+                        } catch {}
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
                       aria-label="Go back"
                       title="Go back"
@@ -502,7 +510,11 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                   </button>
                   <button
                     onClick={() => {
-                      window.location.hash = 'top';
+                      try {
+                        window.history.pushState(null, '', '/');
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                      } catch {}
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
                     className="px-3 py-1.5 text-xs font-mono text-[#6b6e76] hover:text-[#17181c] border border-[#e5decfe0] rounded bg-white min-h-[38px] cursor-pointer"
                   >
@@ -565,7 +577,11 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                   </button>
                   <button
                     onClick={() => {
-                      window.location.hash = 'top';
+                      try {
+                        window.history.pushState(null, '', '/');
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                      } catch {}
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
                     className="px-3 py-1.5 text-xs font-mono text-[#6b6e76] hover:text-[#17181c] border border-[#e5decfe0] rounded bg-white cursor-pointer"
                   >

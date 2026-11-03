@@ -302,7 +302,7 @@ export const ExecutiveWarRoom: React.FC = () => {
                     Model: Gemini 3.8 Flash Institutional Engine
                   </span>
                   <a
-                    href="#contact"
+                    href="/contact"
                     className="text-xs text-[#9d7b38] hover:text-[#7d5f24] font-bold underline underline-offset-4"
                   >
                     Engage Retained Advisory →

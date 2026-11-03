@@ -50,158 +50,169 @@ export const App: React.FC = () => {
   const [selectedPartnership, setSelectedPartnership] = useState<PartnershipModelId>('retainer');
   const [inquiryContext, setInquiryContext] = useState<string>('');
 
-  // Synchronize hash routing for direct URLs, back button, and bookmarks
+  // Map clean URL paths to view modes without hashtag in link
+  const getViewFromUrl = (): AppView => {
+    // 1. Check pathname (e.g. /portal, /services, /booking)
+    const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+    // 2. Check hash as legacy fallback (e.g. #portal)
+    const rawHash = window.location.hash.replace('#', '').toLowerCase();
+    const route = rawPath || rawHash;
+
+    if (route === 'test' || route === 'simple-test' || route === 'audit') {
+      return 'test';
+    } else if (route === 'domains' || route === '5-domains' || route === 'framework') {
+      return 'domains';
+    } else if (route === 'diagnostic') {
+      return 'diagnostic';
+    } else if (route === 'shop' || route === 'store' || route === 'documents' || route === 'publications' || route === 'codex' || route === 'blueprints' || route === 'toolkits') {
+      return 'shop';
+    } else if (route === 'blogs' || route === 'library' || route === 'dispatches' || route === 'articles') {
+      return 'library';
+    } else if (route === 'about' || route === 'vision-mission') {
+      return 'about';
+    } else if (route === 'briefing' || route === 'video' || route === 'founder-briefing') {
+      return 'briefing';
+    } else if (route === 'partnerships' || route === 'services' || route === 'retainer') {
+      return 'partnerships';
+    } else if (route === 'privacy' || route === 'privacy-policy' || route === 'terms') {
+      return 'privacy';
+    } else if (route === 'contact' || route === 'inquiry') {
+      return 'contact';
+    } else if (route === 'booking' || route === 'schedule' || route === 'calendly' || route === 'calendar') {
+      return 'booking';
+    } else if (route === 'portal' || route === 'clearance' || route === 'client-portal' || route === 'gate') {
+      return 'portal';
+    } else if (route === 'war-room') {
+      return 'war-room';
+    } else if (route === 'proof' || route === 'case-studies') {
+      return 'case-studies';
+    }
+    return 'home';
+  };
+
+  // Synchronize clean path routing for direct URLs, back/forward buttons, and bookmarks
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '').toLowerCase();
-      if (hash === 'test' || hash === 'simple-test' || hash === 'audit') {
-        setCurrentView('test');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'domains' || hash === '5-domains' || hash === 'framework') {
-        setCurrentView('domains');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'diagnostic') {
-        setCurrentView('diagnostic');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'shop' || hash === 'store' || hash === 'documents' || hash === 'publications' || hash === 'codex' || hash === 'blueprints') {
-        setCurrentView('shop');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'blogs' || hash === 'library' || hash === 'dispatches') {
-        setCurrentView('library');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'about' || hash === 'vision-mission') {
-        setCurrentView('about');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'briefing' || hash === 'video' || hash === 'founder-briefing') {
-        setCurrentView('briefing');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'partnerships' || hash === 'services' || hash === 'retainer') {
-        setCurrentView('partnerships');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'privacy' || hash === 'privacy-policy' || hash === 'terms') {
-        setCurrentView('privacy');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'contact' || hash === 'inquiry') {
-        setCurrentView('contact');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'booking' || hash === 'schedule' || hash === 'calendly' || hash === 'calendar') {
-        setCurrentView('booking');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'portal' || hash === 'clearance' || hash === 'client-portal' || hash === 'gate') {
-        setCurrentView('portal');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'council' || hash === 'council-chambers') {
-        setCurrentView('home');
-        setTimeout(() => {
-          document.getElementById('council-feature')?.scrollIntoView({ behavior: 'smooth' });
-        }, 60);
-      } else if (hash === 'war-room') {
-        setCurrentView('war-room');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'proof' || hash === 'case-studies') {
-        setCurrentView('case-studies');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === 'comparison' || hash === 'outcomes' || hash === 'versus' || hash === 'why-us') {
-        setCurrentView('home');
-        setTimeout(() => {
-          document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-        }, 60);
-      } else {
-        if (hash === 'top' || hash === '') {
-          setCurrentView('home');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+    const handleUrlChange = () => {
+      const view = getViewFromUrl();
+      setCurrentView(view);
+
+      // Sanitize any legacy hashtag in the link to clean URL path
+      if (window.location.hash) {
+        const hash = window.location.hash.replace('#', '').toLowerCase();
+        let cleanPath = '/';
+        if (hash === 'test' || hash === 'simple-test' || hash === 'audit') cleanPath = '/audit';
+        else if (hash === 'domains' || hash === '5-domains' || hash === 'framework') cleanPath = '/domains';
+        else if (hash === 'diagnostic') cleanPath = '/diagnostic';
+        else if (hash === 'shop' || hash === 'store' || hash === 'publications' || hash === 'codex' || hash === 'blueprints' || hash === 'toolkits') cleanPath = '/shop';
+        else if (hash === 'blogs' || hash === 'library' || hash === 'dispatches') cleanPath = '/library';
+        else if (hash === 'about' || hash === 'vision-mission') cleanPath = '/about';
+        else if (hash === 'briefing' || hash === 'video' || hash === 'founder-briefing') cleanPath = '/briefing';
+        else if (hash === 'partnerships' || hash === 'services' || hash === 'retainer') cleanPath = '/services';
+        else if (hash === 'privacy' || hash === 'privacy-policy' || hash === 'terms') cleanPath = '/privacy';
+        else if (hash === 'contact' || hash === 'inquiry') cleanPath = '/contact';
+        else if (hash === 'booking' || hash === 'schedule' || hash === 'calendly' || hash === 'calendar') cleanPath = '/booking';
+        else if (hash === 'portal' || hash === 'clearance' || hash === 'client-portal') cleanPath = '/portal';
+        else if (hash === 'war-room') cleanPath = '/war-room';
+        else if (hash === 'proof' || hash === 'case-studies') cleanPath = '/case-studies';
+
+        try {
+          window.history.replaceState(null, '', cleanPath);
+        } catch {}
       }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    handleUrlChange();
+    window.addEventListener('popstate', handleUrlChange);
+    window.addEventListener('hashchange', handleUrlChange);
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange);
+      window.removeEventListener('hashchange', handleUrlChange);
+    };
   }, []);
 
   const navigateTo = (target: string) => {
+    let targetPath = '/';
+    let targetView: AppView = 'home';
+    let shouldScrollToSection: string | null = null;
+
     if (target === 'top' || target === 'home') {
-      setCurrentView('home');
-      window.location.hash = 'top';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (target === 'test' || target === 'simple-test') {
-      setCurrentView('test');
-      window.location.hash = 'test';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetView = 'home';
+      targetPath = '/';
+    } else if (target === 'test' || target === 'simple-test' || target === 'audit') {
+      targetView = 'test';
+      targetPath = '/audit';
     } else if (target === 'domains' || target === '5-domains') {
-      setCurrentView('domains');
-      window.location.hash = 'domains';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetView = 'domains';
+      targetPath = '/domains';
     } else if (target === 'diagnostic') {
-      setCurrentView('diagnostic');
-      window.location.hash = 'diagnostic';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetView = 'diagnostic';
+      targetPath = '/diagnostic';
     } else if (target === 'blogs' || target === 'library' || target === 'dispatches') {
-      setCurrentView('library');
-      window.location.hash = 'library';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetView = 'library';
+      targetPath = '/library';
     } else if (target === 'about') {
-      setCurrentView('about');
-      window.location.hash = 'about';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetView = 'about';
+      targetPath = '/about';
     } else if (target === 'briefing' || target === 'video') {
-      setCurrentView('briefing');
-      window.location.hash = 'briefing';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetView = 'briefing';
+      targetPath = '/briefing';
     } else if (target === 'partnerships' || target === 'services') {
-      setCurrentView('partnerships');
-      window.location.hash = 'services';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetView = 'partnerships';
+      targetPath = '/services';
     } else if (target === 'comparison' || target === 'outcomes' || target === 'versus' || target === 'table') {
-      setCurrentView('home');
-      window.location.hash = 'comparison';
-      setTimeout(() => {
-        document.getElementById('comparison')?.scrollIntoView({ behavior: 'smooth' });
-      }, 60);
-    } else if (target === 'shop' || target === 'store' || target === 'publications' || target === 'codex' || target === 'blueprints') {
-      setCurrentView('shop');
-      window.location.hash = 'blueprints';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetView = 'home';
+      targetPath = '/';
+      shouldScrollToSection = 'comparison';
+    } else if (target === 'shop' || target === 'store' || target === 'publications' || target === 'codex' || target === 'blueprints' || target === 'toolkits') {
+      targetView = 'shop';
+      targetPath = '/shop';
     } else if (target === 'privacy' || target === 'privacy-policy') {
-      setCurrentView('privacy');
-      window.location.hash = 'privacy';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetView = 'privacy';
+      targetPath = '/privacy';
     } else if (target === 'contact' || target === 'inquiry') {
-      setCurrentView('contact');
-      window.location.hash = 'contact';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetView = 'contact';
+      targetPath = '/contact';
     } else if (target === 'booking' || target === 'schedule' || target === 'calendly' || target === 'calendar') {
-      setCurrentView('booking');
-      window.location.hash = 'booking';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetView = 'booking';
+      targetPath = '/booking';
     } else if (target === 'portal' || target === 'clearance') {
-      setCurrentView('portal');
-      window.location.hash = 'portal';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetView = 'portal';
+      targetPath = '/portal';
     } else if (target === 'council' || target === 'council-chambers') {
-      setCurrentView('home');
-      window.location.hash = 'partnerships';
-      setTimeout(() => {
-        document.getElementById('council-feature')?.scrollIntoView({ behavior: 'smooth' });
-      }, 60);
+      targetView = 'home';
+      targetPath = '/';
+      shouldScrollToSection = 'council-feature';
     } else if (target === 'war-room') {
-      setCurrentView('war-room');
-      window.location.hash = 'war-room';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetView = 'war-room';
+      targetPath = '/war-room';
     } else if (target === 'proof' || target === 'case-studies') {
-      setCurrentView('case-studies');
-      window.location.hash = 'case-studies';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      targetView = 'case-studies';
+      targetPath = '/case-studies';
     } else {
-      // In-page anchor on home view
-      setCurrentView('home');
-      window.location.hash = target;
+      // In-page section
+      targetView = 'home';
+      targetPath = '/';
+      shouldScrollToSection = target;
+    }
+
+    setCurrentView(targetView);
+
+    try {
+      if (window.location.pathname !== targetPath || window.location.hash) {
+        window.history.pushState(null, '', targetPath);
+      }
+    } catch {}
+
+    if (shouldScrollToSection) {
       setTimeout(() => {
-        const el = document.getElementById(target);
+        const el = document.getElementById(shouldScrollToSection);
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
         }
       }, 60);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 

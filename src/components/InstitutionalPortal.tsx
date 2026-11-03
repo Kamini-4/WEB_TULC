@@ -275,7 +275,7 @@ export const InstitutionalPortal: React.FC<InstitutionalPortalProps> = ({
                   </button>
                 ) : (
                   <a 
-                    href="#contact" 
+                    href="/contact" 
                     className="text-[#d4af37] hover:text-white transition-colors underline font-medium"
                   >
                     Request Clearance Key →

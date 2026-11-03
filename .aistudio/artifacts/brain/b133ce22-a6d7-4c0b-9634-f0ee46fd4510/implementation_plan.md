@@ -25,11 +25,18 @@
   - Replaced the `$2,500` Forensic Audit Deposit button in `SimpleNeedsTest.tsx` with a direct, zero-fee **"Request Forensic Audit · Free Inquiry"** action.
   - Enhanced post-submission receipt with instant access to schedule a private briefing on Calendly immediately upon submitting.
 
-### 4. Institutional Clearance Portal Target Destination
+### 4. Clean URL Path Routing (Zero-Hashtags Protocol)
+- **Removal of Hashtags (`#`)**: Converted the application from legacy hash routing (`#portal`, `#services`, `#booking`, `#about`, `#contact`) to clean HTML5 URL paths (`/portal`, `/services`, `/booking`, `/about`, `/contact`, `/shop`, `/library`, `/diagnostic`, `/audit`, `/privacy`):
+  - Updated `App.tsx` router to use `window.history.pushState` and listen to `popstate` events, ensuring clean browser address URLs.
+  - Added auto-sanitization for legacy hash links, seamlessly transforming `#portal` to `/portal` without reloading.
+  - Replaced all navigation `href` tags across `Header.tsx`, `Footer.tsx`, `AboutSection.tsx`, `PatentPendingDiagnostic.tsx`, `ConfidentialInquiry.tsx`, and `BlogSection.tsx` with clean semantic URL paths.
+  - Registered all static routes in `server/spa.ts` and `server.js` for server-side SPA fallback.
+
+### 5. Institutional Clearance Portal Target Destination
 - **Updated App URL**: Calibrated the portal redirect target across `InstitutionalPortal.tsx`, `Portal.tsx`, `database.ts`, and `server.js` to `https://institutional-assessment.ai.studio/`.
 - Verified seamless passkey authorization handoff directly redirecting verified clients to the new institutional assessment application.
 
-### 5. Language & Taboo Word Compliance
+### 6. Language & Taboo Word Compliance
 - Strict zero-tolerance compliance verified across the entire codebase for:
   - `fear`
   - `empathise` / `empathize`

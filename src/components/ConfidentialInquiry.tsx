@@ -219,7 +219,11 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
 
                   <button
                     onClick={() => {
-                      window.location.hash = 'top';
+                      try {
+                        window.history.pushState(null, '', '/');
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                      } catch {}
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
                     aria-label="Go back"
                     title="Go back"
@@ -426,7 +430,10 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                   <button
                     type="button"
                     onClick={() => {
-                      window.location.hash = 'top';
+                      try {
+                        window.history.pushState(null, '', '/');
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                      } catch {}
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
                     aria-label="Go back"
@@ -449,7 +456,11 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                     <button
                       type="button"
                       onClick={() => {
-                        window.location.hash = 'shop';
+                        try {
+                          window.history.pushState(null, '', '/shop');
+                          window.dispatchEvent(new PopStateEvent('popstate'));
+                        } catch {}
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
                       className="text-[#9d7b38] hover:text-[#7d5f24] transition-colors py-1 cursor-pointer font-bold"
                     >
