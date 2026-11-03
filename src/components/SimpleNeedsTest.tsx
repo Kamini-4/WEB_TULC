@@ -507,22 +507,11 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
 
                 <button
                   type="button"
-                  onClick={() => setActivePaymentItem({
-                    id: 'forensic-audit-deposit',
-                    title: '14-Day Mandate Forensic Audit Deposit',
-                    subtitle: 'Secure your in-depth diagnostic slot with Suchita Sancheti. 100% credited toward mandate fee.',
-                    priceUSD: 2500,
-                    category: 'retainer_deposit',
-                    deliverables: [
-                      '14-Day Forensic Mandate Audit',
-                      'Council Chambers Sparring Session with Suchita Sancheti',
-                      '100% Credited toward Mandate Retainer'
-                    ]
-                  })}
+                  onClick={handleScheduleCall}
                   className="w-full py-2.5 px-3 bg-white hover:bg-stone-100 text-black rounded-xs text-xs font-mono font-black uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-xs"
                 >
-                  <Lock className="w-3.5 h-3.5 text-[#9d7b38]" />
-                  <span>Lock Forensic Audit Deposit · $2,500</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
+                  <span>Request Forensic Audit · Free Inquiry</span>
                 </button>
               </div>
             </div>

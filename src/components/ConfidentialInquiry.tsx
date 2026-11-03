@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { ConsultationInquiry, PartnershipModelId } from '../types';
-import { Lock, ShieldCheck, CheckCircle2, Send, Clock, FileText, Loader2, Phone, Mail, ArrowLeft, CreditCard, Sparkles, Calendar, ExternalLink } from 'lucide-react';
+import { Lock, ShieldCheck, CheckCircle2, Send, Clock, FileText, Loader2, Phone, Mail, ArrowLeft, Sparkles, Calendar, ExternalLink } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
-import { PaymentModal, PaymentItem } from './payment/PaymentModal';
 import { CalendlyModal } from './CalendlyModal';
 
 interface InquiryProps {
@@ -27,7 +26,6 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [activePaymentItem, setActivePaymentItem] = useState<PaymentItem | null>(null);
   const [showCalendlyModal, setShowCalendlyModal] = useState(false);
   const [submissionReceipt, setSubmissionReceipt] = useState<{
     referenceId: string;
@@ -201,6 +199,15 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
 
                 <div className="pt-2 flex flex-col sm:flex-row gap-3">
                   <button
+                    type="button"
+                    onClick={() => setShowCalendlyModal(true)}
+                    className="px-5 py-2.5 text-xs uppercase text-black bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] hover:brightness-105 rounded-sm transition-all font-black text-center min-h-[40px] cursor-pointer flex items-center justify-center gap-2 font-mono shadow-xs"
+                  >
+                    <Calendar className="w-4 h-4 text-black" />
+                    <span>Schedule Briefing on Calendly Now</span>
+                  </button>
+
+                  <button
                     onClick={() => {
                       setSubmissionReceipt(null);
                       setFormData((prev) => ({ ...prev, fullName: '', corporateEmail: '', frictionNotes: '' }));
@@ -233,18 +240,18 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                   </p>
                 </div>
 
-                {/* Priority Fast-Track & Calendly Booking Option */}
+                {/* Direct Calendly Booking Option */}
                 <div className="p-3 bg-[#faf8f4] border-2 border-[#d4af37] rounded-md flex flex-col md:flex-row items-center justify-between gap-2.5">
                   <div className="space-y-0.5 text-center md:text-left">
                     <div className="flex items-center justify-center md:justify-start gap-1 text-[10px] font-mono uppercase text-[#9d7b38] font-black">
                       <Sparkles className="w-3 h-3 text-[#d4af37]" />
-                      <span>Priority Scheduling Options</span>
+                      <span>Direct Executive Scheduling</span>
                     </div>
                     <span className="text-xs font-black text-black block">
-                      Prefer Live Calendar Sync? Book Direct on Calendly or Lock Retainer ($500)
+                      Prefer Live Calendar Sync? Book Direct on Calendly
                     </span>
                     <p className="text-[11px] text-zinc-600">
-                      Select your preferred 20-min private briefing slot directly with Suchita Sancheti.
+                      Reserve a confidential 20-min private advisory briefing slot directly with Suchita Sancheti — complimentary & direct.
                     </p>
                   </div>
 
@@ -252,30 +259,10 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                     <button
                       type="button"
                       onClick={() => setShowCalendlyModal(true)}
-                      className="px-3.5 py-2 bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] text-black font-mono text-xs font-black uppercase rounded-xs transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs whitespace-nowrap active:scale-98"
+                      className="px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] hover:brightness-105 text-black font-mono text-xs font-black uppercase rounded-xs transition-all flex items-center gap-1.5 cursor-pointer shadow-xs whitespace-nowrap active:scale-98"
                     >
                       <Calendar className="w-3.5 h-3.5 text-black" />
-                      <span>Book on Calendly</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setActivePaymentItem({
-                        id: 'priority-briefing-deposit',
-                        title: 'Priority Advisory Briefing Clearance',
-                        subtitle: 'Guaranteed 24-hour calendar reservation with Suchita Sancheti. 100% credited toward mandate.',
-                        priceUSD: 500,
-                        category: 'fast_track_clearance',
-                        deliverables: [
-                          'Guaranteed 24-Hour Private Briefing Slot',
-                          'Pre-Session Architecture Friction Review',
-                          '100% Credited Toward Future Mandates'
-                        ]
-                      })}
-                      className="px-3 py-2 bg-black hover:bg-zinc-800 text-white font-mono text-xs font-bold uppercase rounded-xs transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs whitespace-nowrap active:scale-98"
-                    >
-                      <CreditCard className="w-3.5 h-3.5 text-[#d4af37]" />
-                      <span>Deposit · $500</span>
+                      <span>Book on Calendly (Complimentary)</span>
                     </button>
                   </div>
                 </div>
@@ -415,11 +402,11 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin text-[#d4af37]" />
-                        <span>Transmitting...</span>
+                        <span>Transmitting Docket...</span>
                       </>
                     ) : (
                       <>
-                        <span>Submit Free Inquiry</span>
+                        <span>Submit Confidential Inquiry</span>
                         <Send className="w-4 h-4 text-[#d4af37]" />
                       </>
                     )}
@@ -427,22 +414,11 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
 
                   <button
                     type="button"
-                    onClick={() => setActivePaymentItem({
-                      id: 'forensic-mandate-deposit',
-                      title: 'Mandate Forensic Retainer Deposit',
-                      subtitle: 'Official reservation deposit for 14-day rapid audit and executive sparring with Suchita Sancheti.',
-                      priceUSD: 2500,
-                      category: 'retainer_deposit',
-                      deliverables: [
-                        '14-Day Forensic Mandate Audit',
-                        'Council Chambers Sparring Session with Suchita Sancheti',
-                        '100% Credited toward Mandate Retainer'
-                      ]
-                    })}
+                    onClick={() => setShowCalendlyModal(true)}
                     className="w-full py-3.5 text-xs font-bold uppercase text-black bg-gradient-to-r from-[#d4af37] via-[#f5e6b3] to-[#d4af37] hover:brightness-105 transition-all rounded-sm flex items-center justify-center gap-2 shadow-md active:scale-[0.99] min-h-[46px] cursor-pointer font-mono"
                   >
-                    <CreditCard className="w-4 h-4 text-black" />
-                    <span>Lock Retainer · $2,500</span>
+                    <Calendar className="w-4 h-4 text-black" />
+                    <span>Book on Calendly (Direct)</span>
                   </button>
                 </div>
 
@@ -487,12 +463,6 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
         </div>
       </div>
 
-      {/* UNIVERSAL PAYMENT MODAL */}
-      <PaymentModal
-        isOpen={!!activePaymentItem}
-        onClose={() => setActivePaymentItem(null)}
-        item={activePaymentItem}
-      />
 
       {/* UNIVERSAL CALENDLY MODAL */}
       <CalendlyModal

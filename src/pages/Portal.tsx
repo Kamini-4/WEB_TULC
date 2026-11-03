@@ -7,7 +7,7 @@ import { SEOHead } from '../components/SEOHead';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { InternalLinksMatrix } from '../components/InternalLinksMatrix';
 
-const TARGET_APP_URL = "https://sovereign-audit-the-institutional-stress-test-942902734370.us-west1.run.app";
+const TARGET_APP_URL = "https://institutional-assessment.ai.studio/";
 
 const Portal: React.FC = () => {
   const navigate = useNavigate();

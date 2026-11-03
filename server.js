@@ -12,7 +12,7 @@ var config = {
   resendApiKey: process.env.RESEND_API_KEY,
   geminiApiKey: process.env.GEMINI_API_KEY,
   bingIndexNowKey: "8c92a1b3d5e7f9024680acebdf135792",
-  sovereignAuditTargetUrl: "https://sovereign-audit-the-institutional-stress-test-942902734370.us-west1.run.app"
+  sovereignAuditTargetUrl: "https://institutional-assessment.ai.studio/"
 };
 function logEnvironmentCalibration() {
   console.log("--- Institutional Environment Check ---");

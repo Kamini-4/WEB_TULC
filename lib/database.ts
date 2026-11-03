@@ -532,7 +532,7 @@ export const SovereignDB = {
         organization: lic.organization,
         tier: lic.tier,
         expiresAt: lic.expiresAt,
-        targetUrl: "https://sovereign-audit-the-institutional-stress-test-942902734370.us-west1.run.app"
+        targetUrl: "https://institutional-assessment.ai.studio/"
       };
     } catch (clientErr) {
       console.error("Client license verification check failed:", clientErr);

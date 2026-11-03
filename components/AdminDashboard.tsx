@@ -259,7 +259,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setFirebaseUser(user);
-      if (user && (user.email === 'suchita135sancheti@gmail.com' || user.email === 'suchita@theunboundedleadership.com' || user.email === 'kaminiagnihotri249@gmail.com')) {
+      if (user && (user.email === 'suchita135sancheti@gmail.com' || user.email === 'suchita@theunboundedleadership.com')) {
         setIsAuthenticated(true);
         sessionStorage.setItem('tulc_sovereign_auth', 'true');
       }
@@ -2282,7 +2282,7 @@ London • New York • Singapore`;
                       <p className="text-[10px] text-zinc-400 font-mono mt-0.5">Multi-user access control, instant copying & dispatch status</p>
                     </div>
                     <div className="text-[10px] text-zinc-500 font-mono">
-                      Target App: <a href="https://sovereign-audit-the-institutional-stress-test-942902734370.us-west1.run.app" target="_blank" rel="noreferrer" className="text-[#b8860b] underline font-bold">Cloud Run App ↗</a>
+                      Target App: <a href="https://institutional-assessment.ai.studio/" target="_blank" rel="noreferrer" className="text-[#b8860b] underline font-bold">Assessment App ↗</a>
                     </div>
                   </div>
 
@@ -2475,7 +2475,7 @@ London • New York • Singapore`;
                     </span>
                   </div>
                   <p className="text-[11px] text-zinc-500">
-                    Clients using any valid passkey are redirected seamlessly to <code className="text-zinc-300">https://sovereign-audit-the-institutional-stress-test-942902734370.us-west1.run.app</code> in the same browser window without popup blockers or external navigation tabs.
+                    Clients using any valid passkey are redirected seamlessly to <code className="text-zinc-300">https://institutional-assessment.ai.studio/</code> in the same browser window without popup blockers or external navigation tabs.
                   </p>
                 </div>
 

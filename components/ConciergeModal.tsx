@@ -32,7 +32,7 @@ const CURATED_QUESTIONS = [
   { label: 'Coaching vs Architecture', query: 'What is the difference between executive coaching and leadership architecture?' },
   { label: 'Advisory Retainers', query: 'What are the firm’s core advisory mandates and how are they structured?' },
   { label: 'Corporate Procurement & NDAs', query: 'How are client confidentiality, bilateral NDAs, and corporate SWIFT or GST procurement handled?' },
-  { label: 'About Suchita & Kamini', query: 'What is the professional background of Suchita Sancheti and Kamini Agnihotri?' },
+  { label: 'About Suchita Sancheti', query: 'What is the professional background of Founder & Enterprise Architect Suchita Sancheti?' },
   { label: 'Executive Dispatches', query: 'What core topics do your 19 research dispatches cover?' },
   { label: 'Inaction Tax', query: 'What is the Inaction Tax and how do you quantify annual coordination drag?' }
 ];
@@ -41,7 +41,7 @@ export const ConciergeModal: React.FC<ConciergeModalProps> = ({ isOpen, onClose 
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: 'assistant',
-      content: 'Welcome to The Unbounded Leadership Co. I am your Executive AI Concierge, fully synchronized with the firm’s entire institutional corpus—including all 19 research dispatches, advisory mandates, methodology, and governance doctrines.\n\nAsk me any question regarding founder bottleneck elimination, the Two-Week Step-Away Test, advisory retainers, or how Suchita Sancheti and Kamini Agnihotri partner with scaling enterprises.',
+      content: 'Welcome to The Unbounded Leadership Co. I am your Executive AI Concierge, fully synchronized with the firm’s entire institutional corpus—including all 19 research dispatches, advisory mandates, methodology, and governance doctrines.\n\nAsk me any question regarding founder bottleneck elimination, the Two-Week Step-Away Test, advisory retainers, or how Suchita Sancheti partners with scaling enterprises.',
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
@@ -324,14 +324,12 @@ When directives stall between boardroom intent and frontline delivery, enterpris
 Research shows that compressing decision-to-execution cycles from 14 days down to 48 hours yields 2.5x strategic velocity and eliminates up to 15 hours of redundant meetings each week.`;
   }
 
-  // 6. Suchita Sancheti & Kamini Agnihotri
-  if (q.includes('suchita') || q.includes('sancheti') || q.includes('who are') || q.includes('background') || q.includes('founder') || q.includes('kamini')) {
-    return `The Unbounded Leadership Co. was founded by Suchita Sancheti alongside Client Relations Coordinator Kamini Agnihotri.
+  // 6. Suchita Sancheti & Leadership
+  if (q.includes('suchita') || q.includes('sancheti') || q.includes('who are') || q.includes('background') || q.includes('founder')) {
+    return `The Unbounded Leadership Co. was founded by Suchita Sancheti.
 
 • Suchita Sancheti (Founder & Enterprise Architect): A Computer Science Engineer and Industrial Psychologist who merges enterprise systems engineering (former SAP consultant) with human behavioral dynamics. She specializes in hard-coding founder intuition into autonomous operating substrates and strictly accepts only 3 active institutional calibrations per quarter.
 (Forensic handwriting analysis is Suchita's core personal diagnostic strength, offered exclusively through private 1-on-1 consultations).
-
-• Kamini Agnihotri (Client Relations Coordinator): Coordinates bilateral non-disclosure agreements, executive intake dockets, and confidential scheduling for enterprise CXOs and holding chairs.
 
 Direct confidential communications: suchita@theunboundedleadership.com.`;
   }

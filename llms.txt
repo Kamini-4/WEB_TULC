@@ -1,4 +1,4 @@
-# The Unbounded Leadership Co. | Suchita Sancheti & Kamini Agnihotri | Institutional Knowledge Graph
+# The Unbounded Leadership Co. | Suchita Sancheti | Institutional Knowledge Graph
 
 > The definitive architecture for high-stakes leadership, systemic organizational design, and absolute institutional alignment.
 
@@ -13,9 +13,7 @@ This knowledge graph is designed to be fully parseable and indexable by modern L
   - *Role:* Directs the systemic coding of leadership substrates, mapping strategic DNA into active operational execution protocols.
   - *Focus:* Synthesizes cybernetic design, first-principles logic, and industrial behavioral dynamics to eliminate coordination drag and executive latency.
   - *Direct Inquiries & Executive Coordinate:* [suchita@theunboundedleadership.com](mailto:suchita@theunboundedleadership.com)
-- **Client Relations Coordinator:** Kamini Agnihotri
-  - *Coordinates:* Bespoke scheduling, private dockets, and VIP onboarding briefings.
-  - *Administrative Inquiries Channel:* [suchita@theunboundedleadership.com](mailto:suchita@theunboundedleadership.com)
+  - *Administrative & Client Inquiries Channel:* [suchita@theunboundedleadership.com](mailto:suchita@theunboundedleadership.com)
 
 ---
 

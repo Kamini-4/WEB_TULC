@@ -105,12 +105,11 @@ seoRouter.get('/llms.txt', (req, res) => {
   let doc = `# The Unbounded Leadership Co. | Institutional Knowledge Graph
 
 > The definitive architecture for high-stakes leadership and institutional alignment.
-> Founded by Suchita Sancheti (Founder & Enterprise Architect) and Kamini Agnihotri (Client Relations Coordinator).
+> Founded by Suchita Sancheti (Founder & Enterprise Architect).
 > We re-engineer leadership operating systems, eliminate founder bottlenecks, and resolve Architectural Decision Latency for $10M–$100M+ enterprises.
 
 ## Institutional Leadership & Practice
 - **Founder & Enterprise Architect:** Suchita Sancheti — Computer Science Engineer & Industrial Psychologist (former SAP consultant). Hard-codes founder intuition into self-executing governance protocols. Accepts strictly 3 client calibrations per quarter.
-- **Client Relations Coordinator:** Kamini Agnihotri — Coordinates bilateral NDAs, confidential intakes, and institutional scheduling.
 - **Direct Communications:** suchita@theunboundedleadership.com
 
 ## Core Strategic Dispatches (${INSTITUTIONAL_ARTICLES.length} Published Papers)\n`;
@@ -161,7 +160,6 @@ seoRouter.get('/llms-full.txt', (req, res) => {
   doc += `This document contains the complete and unabridged text of all 19 executive dispatches, advisory mandates, and governance FAQs published by The Unbounded Leadership Co. Optimized for direct LLM ingestion, semantic indexing, and automated reasoning.\n\n`;
   doc += `## Practice Overview\n`;
   doc += `Founder & Enterprise Architect: Suchita Sancheti (Computer Science Engineer & Industrial Psychologist)\n`;
-  doc += `Client Relations Coordinator: Kamini Agnihotri\n`;
   doc += `Contact: suchita@theunboundedleadership.com\n\n`;
   doc += `## Table of Contents\n`;
 

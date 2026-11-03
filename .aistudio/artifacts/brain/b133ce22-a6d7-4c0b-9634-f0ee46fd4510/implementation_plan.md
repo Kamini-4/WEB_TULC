@@ -15,10 +15,21 @@
 ### 2. Sovereign Header & Landing Page Layout
 - **Clean Executive Header**: Removed direct phone numbers and email ribbons from the top header navigation and mobile drawer for an uncluttered, high-prestige presence.
 - **Center-Oriented Landing Page**: Centered the hero section typography, including institutional kicker, official crest seal, primary H1 headline, sub-headline, strategic insight, dedicated 90-day operating system statement box, CTA buttons, and boardroom privilege trust seals.
-- **Founder Authority & Photo**: Suchita Sancheti's photo (`/assets/suchita-sancheti.jpg`) integrated into the founder bio card in the About section with verified authority badges.
-- **Icon-Only Back Navigation**: All subpage back buttons across the site are icon-only arrow buttons (`<ArrowLeft className="w-5 h-5" />`), removing text while retaining accessibility labels.
+- **Founder Authority & Photo**: Locked executive insignia/portrait in the About section with verified authority badges; removed drag-and-drop file uploaders or client-side overrides.
+- **Icon-Only Back Navigation**: Subpage back navigation across the site uses clean icon-only arrow buttons (`<ArrowLeft className="w-5 h-5" />`), retaining accessibility labels.
 
-### 3. Language & Taboo Word Compliance
+### 3. Frictionless & Deposit-Free Inquiry Protocol
+- **Zero Deposit Fees for Inquiries**: Completely eliminated all deposit fees, paywalls, and retainer reservation charges from the Confidential Inquiry docket (`ConfidentialInquiry.tsx`) and the Rapid Diagnostic Assessment (`SimpleNeedsTest.tsx`):
+  - Removed the `$500` "Deposit" button and "or Lock Retainer ($500)" copy from the priority scheduling banner in `ConfidentialInquiry.tsx`.
+  - Removed the `$2,500` "Lock Retainer" payment button from the bottom of the inquiry form, replacing it with dual direct paths: **"Submit Confidential Inquiry"** (direct transmission) and **"Book on Calendly (Direct)"** (instant calendar reservation) — both 100% complimentary.
+  - Replaced the `$2,500` Forensic Audit Deposit button in `SimpleNeedsTest.tsx` with a direct, zero-fee **"Request Forensic Audit · Free Inquiry"** action.
+  - Enhanced post-submission receipt with instant access to schedule a private briefing on Calendly immediately upon submitting.
+
+### 4. Institutional Clearance Portal Target Destination
+- **Updated App URL**: Calibrated the portal redirect target across `InstitutionalPortal.tsx`, `Portal.tsx`, `database.ts`, and `server.js` to `https://institutional-assessment.ai.studio/`.
+- Verified seamless passkey authorization handoff directly redirecting verified clients to the new institutional assessment application.
+
+### 5. Language & Taboo Word Compliance
 - Strict zero-tolerance compliance verified across the entire codebase for:
   - `fear`
   - `empathise` / `empathize`

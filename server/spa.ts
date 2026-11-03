@@ -135,10 +135,10 @@ export function hydrateHtmlMetadata(html: string, url: string): string {
     return hydratedHtml;
   }
 
-  // 4. About Founders Page
+  // 4. About Founder Page
   if (cleanPath === '/about') {
-    const pageTitle = "Founders & Governance Philosophy | The Unbounded Leadership Co.";
-    const pageDesc = "Suchita Sancheti (Founder & Enterprise Architect) and Kamini Agnihotri (Client Relations Coordinator) engineering institutional permanence.";
+    const pageTitle = "Founder & Governance Philosophy | The Unbounded Leadership Co.";
+    const pageDesc = "Suchita Sancheti (Founder & Enterprise Architect) engineering institutional permanence, founder decoupling, and sovereign enterprise architecture.";
     hydratedHtml = hydratedHtml
       .replace(/<title>.*?<\/title>/i, `<title>${pageTitle}</title>`)
       .replace(/<meta name="description" content=".*?"\/?>/i, `<meta name="description" content="${pageDesc}">`);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Lock, ArrowRight, ShieldCheck, AlertCircle, Sparkles, CheckCircle2, Clock, Building2, KeyRound, Shield, ExternalLink } from 'lucide-react';
 
-const TARGET_APP_URL = "https://sovereign-audit-the-institutional-stress-test-942902734370.us-west1.run.app";
+const TARGET_APP_URL = "https://institutional-assessment.ai.studio/";
 
 interface InstitutionalPortalProps {
   onBackToHome?: () => void;

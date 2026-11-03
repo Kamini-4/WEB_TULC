@@ -2369,7 +2369,7 @@ const Assessment: React.FC<AssessmentProps> = ({ onCtaClick }) => {
                                         <Check className="w-4 h-4 text-[#b8860b] mx-auto mb-1" />
                                         <span className="text-[8px] font-mono uppercase text-white font-bold block">Coordinate Registered</span>
                                         <p className="text-[9px] text-zinc-300 italic font-serif">
-                                          Your briefing request is logged. Kamini Agnihotri (Client Relations Coordinator) will confirm your executive session within 4 hours.
+                                          Your briefing request is logged. The executive advisory desk will confirm your session within 4 hours.
                                         </p>
                                         <button
                                           type="button"

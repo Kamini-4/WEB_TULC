@@ -33,7 +33,7 @@ export const Header: React.FC = () => {
 
   // Secondary & Strategic items housed cleanly inside Menu dropdown
   const menuLinks = [
-    { name: 'About the Firm & Founders', path: '/about', icon: UserCheck, desc: 'Suchita Sancheti, Kamini Agnihotri & leadership architecture' },
+    { name: 'About the Firm & Founder', path: '/about', icon: UserCheck, desc: 'Suchita Sancheti & sovereign leadership architecture' },
     { name: 'Systemic Methodology', path: '/methodology', icon: Compass, desc: 'Cybernetics, invariant substrates & cognitive load' },
     { name: 'Turnkey Digital Toolkits', path: '/products', icon: Layers, desc: 'Production-ready operating workspaces & delegation systems' },
     { name: 'Cognitive Tax Calculator', path: '/cognitive-tax', icon: Calculator, desc: 'Quantify annual EBITDA lost to coordination drag' },
