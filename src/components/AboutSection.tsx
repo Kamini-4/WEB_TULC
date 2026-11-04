@@ -37,7 +37,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
         <div className="max-w-3xl mx-auto text-center space-y-1">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-black text-[#d4af37] rounded-xs text-[10px] font-mono uppercase font-bold shadow-xs">
             <Compass className="w-3 h-3 text-[#d4af37]" />
-            <span>The Architect & Sovereign Standard</span>
+            <span>The Fractional COO & Decoupling Standard</span>
           </div>
 
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-black tracking-tight leading-tight">
@@ -45,7 +45,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
           </h2>
 
           <p className="text-xs sm:text-[13px] text-zinc-900 leading-relaxed italic max-w-xl mx-auto">
-            Founded by Suchita Sancheti — engineering permanent founder decoupling and sovereign enterprise architecture in 90 days.
+            Founded by Suchita Sancheti — eliminating founder dependency, scaling without the founder, and installing Fractional COO operating systems in 90 days.
           </p>
         </div>
 
@@ -94,10 +94,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                 Suchita Sancheti
               </div>
               <div className="text-xs font-bold text-[#d4af37] uppercase font-mono tracking-wider">
-                Founder & Enterprise Architect
+                Founder & Fractional COO Architect
               </div>
               <p className="text-xs text-[#ded8cb] leading-relaxed">
-                Pioneering sovereign enterprise architecture, executive cadences, and founder decoupling across India, the Middle East, and globally.
+                Eliminating founder dependency through Fractional COO operating systems, executive cadences, and autonomous scaling across India, the Middle East, and globally.
               </p>
             </div>
 
@@ -231,7 +231,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
               <div className="flex items-center gap-1.5">
                 <Scale className="w-4 h-4 text-[#d4af37]" />
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#d4af37] font-bold">
-                  The Sovereign Transformation Ledger
+                  The Executive Decoupling Ledger
                 </span>
               </div>
               <h3 className="font-serif text-sm sm:text-base font-bold text-[#f3e5ab] mt-0.5">
@@ -308,7 +308,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                   </td>
                   <td className="py-2 px-3 bg-white border-l-2 border-r-2 border-[#d4af37] text-black">
                     <span className="font-bold text-black block mb-0.5">30%–100%+ Multiple Expansion</span>
-                    Eliminates key-man risk, unlocking institutional-grade capital and sovereign exit value.
+                    Eliminates founder dependency, unlocking institutional-grade capital and top-quartile exit valuation.
                   </td>
                 </tr>
 
@@ -353,18 +353,18 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
             </span>
             <div className="flex items-center gap-2">
               <a
-                href="/audit"
+                href="/assessment"
                 onClick={(e) => {
                   e.preventDefault();
                   try {
-                    window.history.pushState(null, '', '/audit');
+                    window.history.pushState(null, '', '/assessment');
                     window.dispatchEvent(new PopStateEvent('popstate'));
                   } catch {}
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
                 className="px-3 py-1.5 bg-black text-[#d4af37] hover:bg-zinc-800 text-xs font-mono uppercase font-bold rounded-xs transition-colors cursor-pointer"
               >
-                Take 60-Sec Audit
+                Take Assessment (Free)
               </a>
               <button
                 onClick={onOpenConsultation}
@@ -377,13 +377,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
 
         </div>
 
-        {/* Collapsible Sovereign Vision & Philosophy Accordion (Compact) */}
+        {/* Collapsible Executive Vision & Philosophy Accordion (Compact) */}
         <div className="pt-1 text-center">
           <button
             onClick={() => setShowFullVision(!showFullVision)}
             className="inline-flex items-center gap-1.5 px-3 py-1 bg-white hover:bg-[#faf8f4] border border-[#d8cebe] rounded-xs text-xs font-mono font-bold text-black transition-colors cursor-pointer shadow-2xs"
           >
-            <span>{showFullVision ? 'Hide Institutional Philosophy' : 'Read Institutional Philosophy & Core Values'}</span>
+            <span>{showFullVision ? 'Collapse Institutional Philosophy' : 'Read Institutional Philosophy & Core Values'}</span>
             {showFullVision ? <ChevronUp className="w-3.5 h-3.5 text-[#9d7b38]" /> : <ChevronDown className="w-3.5 h-3.5 text-[#9d7b38]" />}
           </button>
 
@@ -395,7 +395,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                 <div className="p-3.5 rounded-xs bg-[#faf8f4] border border-[#d8cebe] space-y-1">
                   <div className="flex items-center gap-1.5 text-xs font-mono uppercase text-[#9d7b38] font-bold">
                     <Target className="w-3.5 h-3.5 text-[#9d7b38]" />
-                    <span>Our Sovereign Vision</span>
+                    <span>Our Executive Vision</span>
                   </div>
                   <h4 className="text-sm font-bold text-black font-serif">
                     Enterprises Operating Beyond Founder Dependency.
@@ -408,7 +408,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                 <div className="p-3.5 rounded-xs bg-[#faf8f4] border border-[#d8cebe] space-y-1">
                   <div className="flex items-center gap-1.5 text-xs font-mono uppercase text-[#9d7b38] font-bold">
                     <Building2 className="w-3.5 h-3.5 text-[#9d7b38]" />
-                    <span>Our Sovereign Mission</span>
+                    <span>Our Executive Mission</span>
                   </div>
                   <h4 className="text-sm font-bold text-black font-serif">
                     Permanent Founder Decoupling Within 90 Days.

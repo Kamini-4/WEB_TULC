@@ -125,7 +125,7 @@ const RAW_BLOG_POSTS: BlogPost[] = [
 [Charismatic Bottleneck] ──> Every Deal ──> Founder Sign-Off ──> 14-Day Latency ──> Multiple Discount
                                    │
                                    ▼ [TULC 3-Step Refactor]
-[Sovereign Architecture] ──> Invariant Rules ──> Edge Autonomy ──> < 24h Velocity ──> 35% Multiple Expansion
+[Scale Without The Founder] ──> Invariant Rules ──> Edge Autonomy ──> < 24h Velocity ──> 35% Multiple Expansion
       `,
       metricComparison: [
         { label: 'Decision Latency', brokenState: '7 to 14 days waiting for founder slot', sovereignState: 'Under 4 hours via codified rule envelopes' },
@@ -1056,16 +1056,16 @@ const RAW_BLOG_POSTS: BlogPost[] = [
       step1: {
         title: 'Step 1: The Core Process Deconstruction',
         action: 'Identify the top 5 revenue-generating workflows and extract their exact operational cadence into step-by-step algorithms.',
-        deliverable: 'Master Operational Codex eliminating dependency on individual memory.'
+        deliverable: 'Master Operational Playbook eliminating dependency on individual memory.'
       },
       step2: {
         title: 'Step 2: Build the Dynamic Knowledge Substrate',
-        action: 'Replace static PDFs and buried manuals with an interactive, searchable digital operating system accessible to all edge staff.',
+        action: 'Replace static legacy binders and buried manuals with an interactive, searchable digital operating system accessible to all edge staff.',
         deliverable: 'Living operational blueprint updated in real time.'
       },
       step3: {
         title: 'Step 3: Certify New Hires via Systemic Simulation',
-        action: 'Require new executive hires to pass simulated decision scenarios based on the written codex before granting operational authority.',
+        action: 'Require new executive hires to pass simulated decision scenarios based on the written playbook before granting operational authority.',
         deliverable: 'Onboarding ramp reduced from 6 months to 14 business days.'
       }
     },
@@ -1075,7 +1075,7 @@ const RAW_BLOG_POSTS: BlogPost[] = [
 [Uncompiled System] ──> Headcount Churn ──> Memory Lost ──> 6-Month Onboarding ──> Execution Drag
                                          │
                                          ▼ [TULC Systemic Compilation]
-[Compiled Substrate] ──> Living Codex ──> Instant Transfer ──> 14-Day Ramp-Up ──> Compounding Asset
+[Compiled Substrate] ──> Living Playbook ──> Instant Transfer ──> 14-Day Ramp-Up ──> Compounding Asset
       `,
       metricComparison: [
         { label: 'Onboarding Duration', brokenState: '6 to 8 months before senior hires reach breakeven', sovereignState: 'Fully productive in under 14 business days' },
@@ -1111,7 +1111,7 @@ const RAW_BLOG_POSTS: BlogPost[] = [
       primaryText: 'Compile Your Operating Architecture',
       description: 'Turn unwritten founder intuition into permanent institutional capital.'
     },
-    linkedInPostSummary: 'Software engineers would never run uncompiled code in production.\n\nWhy are you running a $40M business on unwritten human memory?\n\nEvery time a leader leaves, your hard drive is wiped.\n\n3 steps to compile your enterprise:\n1. Deconstruct the top 5 revenue loops into explicit algorithms.\n2. Build a living digital operating codex.\n3. Certify new hires via simulated decision scenarios.\n\nOwn your systems. Don\'t rent them. ⬇️'
+    linkedInPostSummary: 'Software engineers would never run uncompiled code in production.\n\nWhy are you running a $40M business on unwritten human memory?\n\nEvery time a leader leaves, your hard drive is wiped.\n\n3 steps to compile your enterprise:\n1. Deconstruct the top 5 revenue loops into explicit algorithms.\n2. Build a living digital operating playbook.\n3. Certify new hires via simulated decision scenarios.\n\nOwn your systems. Don\'t rent them. ⬇️'
   },
 
   // -------------------------------------------------------------
@@ -1431,7 +1431,7 @@ const RAW_BLOG_POSTS: BlogPost[] = [
     id: 'blog-18',
     slug: 'the-partner-bandwidth-dilemma',
     title: 'The Partner Bandwidth Dilemma: Moving from Reactive Portfolio Triage to Predictive Operational Telemetry',
-    subtitle: 'Private equity partners spend 80% of their bandwidth fighting fires in their bottom quartile. Here is how institutional funds install sovereign architecture across the portfolio.',
+    subtitle: 'Private equity partners spend 80% of their bandwidth fighting fires in their bottom quartile. Here is how institutional funds eliminate founder dependency and install executive operating systems across the portfolio.',
     hook: 'If your fund partners are acting as interim COOs for struggling portfolio companies, your fund model is broken.',
     problemDirectCallout: 'The Brutal Problem: You manage a multi-company portfolio. Two or three underperforming assets consume 85% of your operating partners’ time with emergency recruiting, board interventions, and customer firefighting. Meanwhile, your top-performing assets are starved of strategic attention, and the fund’s overall IRR suffers from executive drag.',
     mythBusted: 'MYTH: "Private equity operating partners create value by rolling up their sleeves and personally managing portfolio crises." REALITY: Partner-level firefighting creates dependency and obscures underlying governance defects.',

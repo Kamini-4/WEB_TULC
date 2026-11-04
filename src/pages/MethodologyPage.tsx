@@ -18,7 +18,7 @@ export const MethodologyPage: React.FC = () => {
       description: 'We audit the implicit decision rules trapped inside the founder\'s brain. Using proprietary cognitive taxonomy models, we uncover why exceptions escalate, where latency accumulates, and which decisions burn executive energy.',
       deliverables: [
         'Cognitive Tax & Meeting Density Audit',
-        'Implicit Taste & Quality Criteria Codex',
+        'Implicit Taste & Quality Criteria Playbook',
         'Friction Heatmap across C-Suite and Edge Teams'
       ]
     },
@@ -60,7 +60,7 @@ export const MethodologyPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] font-serif">
       <SEOHead
-        title="Systemic Methodology & Sovereign Governance Architecture"
+        title="Systemic Methodology: Scale Without The Founder & Fractional COO Architecture"
         description="The 4-phase alignment protocol, cybernetic feedback loops, invariant decision substrates, and cognitive load theory applied to enterprise scale."
         canonicalPath="/methodology"
         keywords="leadership methodology, 4-phase alignment protocol, invariant decision substrates, cybernetic management, step-away test, suchita sancheti"
@@ -113,7 +113,7 @@ export const MethodologyPage: React.FC = () => {
                 <tr>
                   <td className="p-3 font-bold text-[#1c1917]">Founder Role</td>
                   <td className="p-3">Chief exception handler and daily router</td>
-                  <td className="p-3 text-[#1c1917] font-semibold">Sovereign systems architect & capital allocator</td>
+                  <td className="p-3 text-[#1c1917] font-semibold">Autonomous systems architect & capital allocator</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-bold text-[#1c1917]">Executive Meetings</td>
@@ -181,7 +181,7 @@ export const MethodologyPage: React.FC = () => {
               to="/intake"
               className="inline-flex items-center gap-2 px-7 py-3 bg-black hover:bg-[#b8860b] text-white font-bold text-xs uppercase tracking-tight rounded-xs transition-colors shadow-xs"
             >
-              <span>Submit Sovereign Intake</span>
+              <span>Submit Confidential Intake</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link

@@ -469,11 +469,11 @@ Signed & Ratified via Sovereign Protocol Engine · The Unbounded Leadership Co.`
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
             <div className="flex items-center gap-2">
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#d4af37]">
-                The Council Chambers
+                The Executive Advisory Board
               </span>
               <span className="text-stone-500 hidden sm:inline">|</span>
               <span className="text-xs text-stone-400 font-sans hidden sm:inline">
-                Confidential Strategic Sanctuary & Sparring Room
+                Confidential CEO Sparring Room & Strategic Sanctuary
               </span>
             </div>
             <span className="px-2 py-0.5 rounded-xs bg-[#242732] border border-[#d4af37]/40 text-[#d4af37] text-[10px] font-mono font-bold uppercase">
@@ -523,7 +523,7 @@ Signed & Ratified via Sovereign Protocol Engine · The Unbounded Leadership Co.`
           <div className="flex items-center gap-2">
             <Sparkles className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
             <span>
-              <strong className="text-[#d4af37]">Included with Diagnostic:</strong> You are experiencing the foundational Council Chambers Sparring Sanctuary.
+              <strong className="text-[#d4af37]">Included with Diagnostic:</strong> You are experiencing the foundational Executive Advisory Board Sparring Sanctuary.
             </span>
           </div>
           <div className="flex items-center gap-3 shrink-0 text-[11px] font-mono">

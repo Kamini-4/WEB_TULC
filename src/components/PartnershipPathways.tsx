@@ -21,8 +21,8 @@ export const PARTNERSHIP_PATHWAYS: PartnershipPathway[] = [
     theDesire: 'An objective empirical mirror with zero political baggage that brings unspoken friction into sharp, actionable focus.',
     theOutcome: 'An indisputable map of who owns what decision, where execution is leaking, and the exact 3 structural interventions to unblock enterprise velocity.',
     deliverables: [
-      'The Council Chambers Taste: 1 Closed-Door Conclave Sparring Session',
-      'Sovereign Authority Friction Matrix: Isolating decision logjams',
+      'The Executive Advisory Board Session: 1 Closed-Door CEO Sparring Session',
+      'Founder Dependency Friction Matrix: Isolating decision logjams',
       'Board-to-C-Suite Territory Map: Ending back-channel politicking',
       '14-Day Executive Intervention Blueprint: Immediate remedies for CEO',
       'In-Camera Board Audit Presentation with Suchita Sancheti'
@@ -40,8 +40,8 @@ export const PARTNERSHIP_PATHWAYS: PartnershipPathway[] = [
     theDesire: 'An operating system that runs autonomously, where executives own their decisions with conviction and drive initiatives without routine sign-offs.',
     theOutcome: 'We embed inside your executive cadence for 90 days. We tear out consensus meetings, codify authority matrices, and install 14-day execution loops.',
     deliverables: [
-      'Full Strategic Council Chambers Access: Annual syndicate seat across Zurich, London & NY',
-      'Authority Decoupling Charter: Sovereign decision boundaries ratified by the Board',
+      'The Executive Advisory Board Access: Annual CEO sparring seat across Zurich, London & NY',
+      'Authority Decoupling Charter: Autonomous decision boundaries ratified by the Board',
       '14-Day Executive Loop Installation: Replacing 70% of committee meetings',
       'C-Suite Sparring Cadence: Live coaching on decisive mandate execution',
       'Definitive 90-Day Exit: Permanent operating infrastructure left in place'
@@ -51,21 +51,21 @@ export const PARTNERSHIP_PATHWAYS: PartnershipPathway[] = [
   {
     id: 'retainer',
     tierNumber: '03',
-    name: 'The Sovereign Retainer',
+    name: 'Fractional COO & Strategic Retainer',
     tagline: 'The private counsel leaders turn to when the stakes are existential.',
-    investmentAnchor: 'Senior Sovereign Retainer',
-    cadence: 'Annual Sovereign Mandate',
+    investmentAnchor: 'Fractional COO Retainer',
+    cadence: 'Annual Fractional COO Mandate',
     thePain: 'At the top, there is no one you can safely think aloud with. When an activist appears, succession fractures, or M&A stalls, you are on your own.',
-    theDesire: 'An uncompromising peer in your corner with no equity stake, no political agenda, and the institutional spine to say what others fear to utter.',
+    theDesire: 'An uncompromising peer in your corner with no equity stake, no political agenda, and the institutional spine to say what others hesitate to utter.',
     theOutcome: 'Continuous on-call strategic sparring for the CEO and Board Chair with Suchita Sancheti through activist defense, succession, and high-stakes transitions.',
     deliverables: [
-      'Full Strategic Council Chambers Access: Year-round sovereign conclave seat',
+      'The Executive Advisory Board: Year-round CEO sparring seat',
       'Unrestricted direct 24/7 access to Suchita Sancheti for Chair & CEO',
       'Emergency War Room Mobilization within 4 hours for unexpected crises',
       'Quarterly In-Camera Board Sparring Sessions challenging strategy early',
       'Executive Succession & Key-Person Decoupling Governance Oversight'
     ],
-    idealClient: 'Enterprise CEOs, Board Chairs, and Sovereign Trustees navigating high-stakes transitions.'
+    idealClient: 'Enterprise CEOs, Board Chairs, and Founders navigating scale and leadership transitions.'
   }
 ];
 
@@ -92,7 +92,7 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
           label: 'Lock Retainer Deposit · $2,500',
           deliverables: [
             '14-Day Forensic Mandate Audit',
-            'Council Chambers Sparring Session with Suchita Sancheti',
+            'Executive Board Sparring Session with Suchita Sancheti',
             '100% Credited toward Full Implementation'
           ]
         };
@@ -134,8 +134,8 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
   const handlePayConclaveSeat = () => {
     setActivePaymentItem({
       id: 'conclave-seat-reservation',
-      title: 'The Sovereign Council Chamber™ — Conclave Seat',
-      subtitle: 'Guaranteed confidential delegate seat across Zurich, London, or New York conclaves.',
+      title: 'The Executive Advisory Board — Delegate Seat',
+      subtitle: 'Guaranteed confidential CEO sparring and founder decoupling conclave seat across Zurich, London, or New York.',
       priceUSD: 1500,
       category: 'conclave_seat',
       deliverables: [
@@ -154,9 +154,9 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
         <div className="max-w-3xl mb-4 sm:mb-5">
           <div className="flex items-center gap-2 text-xs uppercase text-[#9d7b38] font-bold mb-1">
             <ShieldCheck className="w-4 h-4 text-[#9d7b38]" />
-            <span className="text-black font-black">Three Sovereign Advisory Tracks</span>
+            <span className="text-black font-black">Three Executive Decoupling Tracks</span>
             <span aria-hidden="true" className="text-[#c9bea9]">·</span>
-            <span>Side-by-Side Comparison</span>
+            <span>Scale Without The Founder</span>
           </div>
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-black leading-tight">
             How Leaders Partner With Us.
@@ -218,7 +218,7 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
                   <div className="p-3 bg-[#faf8f4] border border-[#e2d8c9] rounded-xs space-y-1">
                     <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#9d7b38] font-bold">
                       <Zap className="w-3 h-3 text-[#9d7b38]" />
-                      <span>Guaranteed Sovereign Outcome:</span>
+                      <span>Guaranteed Operating Outcome:</span>
                     </div>
                     <p className="text-xs text-black font-medium leading-relaxed">
                       {model.theOutcome}
@@ -299,15 +299,15 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
           })}
         </div>
 
-        {/* Compact Council Chamber Capability Strip with Direct Payment */}
+        {/* Compact Executive Advisory Board Capability Strip with Direct Payment */}
         <div id="council-feature" className="p-4 sm:p-5 rounded-lg bg-black text-white border-2 border-[#d4af37] shadow-md flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
           <div className="space-y-0.5">
             <div className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#d4af37] font-bold">
               <Sparkles className="w-3 h-3 text-[#d4af37]" />
-              <span>Elite Sovereign Capability · Off-Site Executive Conclave</span>
+              <span>Elite Executive Capability · Off-Site CEO Conclave</span>
             </div>
             <h4 className="text-sm sm:text-base font-black text-[#f4ecd8]">
-              The Sovereign Council Chamber™: Closed-Door Conclaves Across Zurich, London & NY
+              The Executive Advisory Board: Closed-Door CEO Sparring Conclaves Across Zurich, London & NY
             </h4>
             <p className="text-xs text-zinc-300 max-w-2xl">
               Confidential peer cross-examination where enterprise founders stress-test high-consequence moves under Chatham House privacy.

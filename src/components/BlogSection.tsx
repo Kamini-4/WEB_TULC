@@ -400,7 +400,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                         <tr className="border-b border-[#252833] text-[10px] font-mono text-[#8f929c] uppercase">
                           <th className="py-2 pr-4 font-bold">Performance Dimension</th>
                           <th className="py-2 pr-4 font-bold text-rose-400">Broken / Default State</th>
-                          <th className="py-2 font-bold text-emerald-400">Sovereign Architecture</th>
+                          <th className="py-2 font-bold text-emerald-400">Scale Without Founder</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-[#1e2029]">
@@ -438,7 +438,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               </div>
             )}
 
-            {/* FROM SUCHITA'S BOOK: SOVEREIGN ARCHITECTURE */}
+            {/* FROM SUCHITA'S BOOK: SCALE WITHOUT THE FOUNDER */}
             {selectedPost.bookExcerpt && (
               <div className="p-5 rounded-none bg-[#faf6ee] border border-[#d8cebe] border-l-4 border-[#9d7b38] shadow-xs space-y-3">
                 <div className="flex flex-wrap items-center justify-between gap-2">
@@ -447,7 +447,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                     <span>From Suchita's Book: {selectedPost.bookExcerpt.chapter}</span>
                   </div>
                   <span className="text-[10px] font-mono text-[#8c6708] italic font-semibold">
-                    Sovereign Architecture (The Book)
+                    Scale Without The Founder (The Book)
                   </span>
                 </div>
                 <blockquote className="text-xs sm:text-sm font-serif italic text-[#17181c] leading-relaxed pl-3 border-l-2 border-[#d4af37]/60">
@@ -538,7 +538,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                       el.scrollIntoView({ behavior: 'smooth' });
                     } else {
                       try {
-                        window.history.pushState(null, '', '/audit');
+                        window.history.pushState(null, '', '/assessment');
                         window.dispatchEvent(new PopStateEvent('popstate'));
                       } catch {}
                       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -546,7 +546,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                   }}
                   className="w-full sm:w-auto px-5 py-3.5 bg-[#22242c] hover:bg-[#2c2f38] text-[#e5decfe0] hover:text-white border border-[#444754] text-xs font-mono uppercase tracking-wider rounded-none transition-all inline-flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <span>Take Free 60-Sec Audit (Self-Diagnostic)</span>
+                  <span>Take Free Assessment (Self-Diagnostic)</span>
                 </button>
               </div>
             </div>

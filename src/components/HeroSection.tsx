@@ -23,19 +23,19 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
         {/* Main Headline & Authority Philosophy - Centered immediately at top */}
         <div className="max-w-4xl mx-auto text-center mb-4 sm:mb-6">
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#17181c] leading-[1.18] [text-wrap:balance] text-center">
-            Sovereign Enterprise Architecture & Leadership Operating Systems
+            Eliminate Founder Dependency · Scale Without The Founder
             <span className="block text-xl sm:text-2xl lg:text-3xl text-[#9d7b38] font-serif font-semibold mt-2 sm:mt-2.5 text-center">
-              Management is about compliance. Leadership is about courage.
+              Fractional COO & Executive Operating Systems in 90 Days
             </span>
           </h1>
           <p className="mt-2.5 sm:mt-3 text-[14px] sm:text-base lg:text-lg text-[#4e5159] font-normal leading-relaxed max-w-3xl mx-auto italic text-center">
-            When organizations stall, it is rarely a strategy problem. It is almost always an <strong className="font-bold text-[#17181c] not-italic">architecture problem</strong>. Consensus diffuses authority across endless decks. Decisive mandate demands sovereign clarity.
+            When organizations stall, it is rarely a market problem. It is almost always an <strong className="font-bold text-[#17181c] not-italic">executive architecture problem</strong>: the founder remains the operational bottleneck, approvals choke momentum, and teams hesitate without constant direct oversight.
           </p>
 
           {/* Dedicated Statement on Another Line: in 90 days & 3 pain points - Centered */}
           <div className="mt-3.5 sm:mt-4 p-3.5 sm:p-4.5 rounded-lg bg-[#faf6ee] border-t-4 sm:border-t-0 sm:border-l-4 border-[#9d7b38] border-b border-x sm:border-y sm:border-r border-[#ebdcc0]/70 shadow-2xs max-w-3xl mx-auto text-center">
             <p className="text-[14px] sm:text-base md:text-lg lg:text-[18px] font-serif font-bold text-[#17181c] leading-snug sm:leading-relaxed text-center">
-              We re-architect the operating system <span className="text-[#9d7b38] font-black underline decoration-[#9d7b38]/40 underline-offset-4">in 90 days</span> so leadership operates with total velocity —{' '}
+              We install autonomous operating systems <span className="text-[#9d7b38] font-black underline decoration-[#9d7b38]/40 underline-offset-4">in 90 days</span> so your company scales without founder dependency —{' '}
               <span className="font-serif font-medium text-[#44403c] block sm:inline mt-1.5 sm:mt-0">
                 without endless consensus committees, without bureaucratic approval bottlenecks, and without key-person operational drag.
               </span>
@@ -54,7 +54,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent" />
             
             <span className="relative z-10 text-gold-gradient font-bold">
-              Take The 60-Sec Test (Do You Need Us?)
+              Take The 60-Sec Test (Founder Bottleneck Audit)
             </span>
             <ArrowRight className={`relative z-10 w-4 h-4 text-[#d4af37] transition-transform duration-200 ${isHovered ? 'translate-x-1' : ''}`} />
           </button>
@@ -63,7 +63,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
             onClick={onExplorePartnerships}
             className="px-5 sm:px-6 py-3.5 text-xs font-bold uppercase text-[#17181c] hover:text-black bg-white hover:bg-[#faf7f0] border border-[#d8cebe] hover:border-[#c5a059] transition-all rounded-sm shadow-xs text-center min-h-[48px] flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto"
           >
-            <span>Services (3 Sovereign Tracks)</span>
+            <span>Services (Scale Without The Founder)</span>
           </button>
 
           <div className="flex items-center justify-center gap-2 text-xs text-[#6e727c] pt-1 sm:pt-0">

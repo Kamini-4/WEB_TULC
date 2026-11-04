@@ -33,12 +33,12 @@ export const CouncilChambersPreview: React.FC<CouncilChambersPreviewProps> = ({
               </div>
 
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
-                The Council Chambers: <br className="hidden sm:inline" />
-                <span className="text-[#d4af37]">Sparring Room for Founders & CXOs.</span>
+                The Executive Advisory Board: <br className="hidden sm:inline" />
+                <span className="text-[#d4af37]">CEO Sparring & Founder Decoupling Board.</span>
               </h2>
 
               <p className="text-xs sm:text-sm text-stone-300 leading-relaxed italic max-w-2xl">
-                "Not an echo chamber. Powered by organizational cybernetics and Tier-1 institutional research (Harvard, MIT Sloan, McKinsey, Stanford) to stress-test vulnerabilities, calculate your metabolic decision tax, and extract an immutable Code of Action."
+                "Not an echo chamber. Powered by organizational cybernetics and Tier-1 institutional research (Harvard, MIT Sloan, McKinsey, Stanford) to stress-test vulnerabilities, eliminate founder bottlenecks, and extract an immutable Code of Action."
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs text-stone-200 font-sans">
@@ -75,7 +75,7 @@ export const CouncilChambersPreview: React.FC<CouncilChambersPreviewProps> = ({
                   onClick={onOpenFullDossier}
                   className="w-full py-2.5 px-4 bg-gold-gradient text-[#141416] text-xs font-bold uppercase rounded-sm transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer active:scale-98"
                 >
-                  <span>Enter Council Chambers Sanctuary</span>
+                  <span>Enter Executive Advisory Board</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
                 <button

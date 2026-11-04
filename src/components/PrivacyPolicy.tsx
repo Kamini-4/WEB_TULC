@@ -90,7 +90,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBackToHome, onNa
               3. Chatham House Standard & Non-Disclosure Covenants
             </h2>
             <p>
-              All advisory dialogues, diagnostic scoring, and Council Chambers conclaves are governed by the Chatham House Rule: participants are free to use the information received, but neither the identity nor the affiliation of the speaker(s), nor that of any other participant, may be revealed.
+              All advisory dialogues, diagnostic scoring, and Executive Advisory Board conclaves are governed by the Chatham House Rule: participants are free to use the information received, but neither the identity nor the affiliation of the speaker(s), nor that of any other participant, may be revealed.
             </p>
             <p>
               Prior to any strategic disclosure, clients execute a mutual, binding Institutional Non-Disclosure Agreement (NDA) ensuring absolute immunity from external publicity or competitive leaks.

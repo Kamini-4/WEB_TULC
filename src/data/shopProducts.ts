@@ -543,7 +543,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
         },
         {
           number: '04',
-          title: 'The Disagree-and-Commit Legal Codex',
+          title: 'The Disagree-and-Commit Legal Playbook',
           subtitle: 'Align Multi-Disciplinary Teams Behind Chosen Direction',
           description: 'A codified operational pact that obligates dissenters to throw 100% of their operational muscle behind the chosen path once decided.',
           deliverables: ['Commitment agreement template', 'Post-decision retrospective schema', 'Dissent documentation channel'],
@@ -621,7 +621,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
   {
     id: 'asset-04-c-suite-onboarding-codex',
     assetNumber: '04/05',
-    title: 'The C-Suite Onboarding Codex & Performance Covenant',
+    title: 'The C-Suite Onboarding Playbook & Performance Covenant',
     tagline: 'Protect your capital and culture when hiring senior leaders. Establish rigorous clarity from Day 1.',
     category: 'Executive Bench',
     badge: 'De-Risking Hires • 2 Early Bird Spots',
@@ -640,7 +640,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     theWeapon: {
       leverageMechanism: 'A 4-part structured onboarding covenant that locks in 30/60/90-day deliverables, contextual DNA transfer, and explicit non-negotiables before their first day.',
       rulesOfEngagement: [
-        'Document 1: The Context Codex. Download all unwritten company history, customer landmines, and cultural rules.',
+        'Document 1: The Context Playbook. Download all unwritten company history, customer landmines, and cultural rules.',
         'Document 2: The 30/60/90 Contract. Not fluffy goals, but binary deliverables: either it shipped or it didn’t.',
         'Document 3: Cultural Non-Negotiables. The exact behaviors that protect team morale and operating rhythm.',
         'Document 4: The 45-Day Health Check. An objective score audit to identify alignment early before friction grows.'
@@ -660,7 +660,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       modules: [
         {
           number: '01',
-          title: 'The Context Codex (Institutional DNA)',
+          title: 'The Context Playbook (Institutional DNA)',
           subtitle: 'Transferring 5 Years of Founder Brain in 48 Hours',
           description: 'A structured blueprint that documents your company’s unwritten history, past failed experiments, sacred customer relationships, and landmines.',
           deliverables: ['Institutional history questionnaire', 'Past post-mortems repository', 'Stakeholder landmine map'],
@@ -709,7 +709,7 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     how: {
       systemicMechanism: 'A 4-part structured onboarding covenant that locks in 30/60/90-day deliverables, contextual DNA transfer, and explicit non-negotiables before their first day.',
       architecturalRules: [
-        'Document 1: The Context Codex.',
+        'Document 1: The Context Playbook.',
         'Document 2: The 30/60/90 Contract.',
         'Document 3: Cultural Non-Negotiables.',
         'Document 4: The 45-Day Health Check.'
@@ -717,9 +717,9 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
       governancePrinciple: 'Clear expectations are kindness. Ambiguity is cruelty that costs millions.'
     },
     what: {
-      tangibleAsset: 'The Complete C-Suite Onboarding Codex & Performance Covenant (4-Document Executive Pack in Document, Word, and Digital Workspace).',
+      tangibleAsset: 'The Complete C-Suite Onboarding Playbook & Performance Covenant (4-Document Executive Pack in Document, Word, and Digital Workspace).',
       includedFiles: [
-        'The Context Codex Master Template',
+        'The Context Playbook Master Template',
         '30/60/90-Day Executive Performance Contract',
         'Cultural Non-Negotiables Charter',
         '45-Day Leadership Calibration Evaluation Rubric',
@@ -750,13 +750,13 @@ export const SHOP_PRODUCTS: ShopProduct[] = [
     },
 
     socialProof: {
-      quote: 'We onboarded our new COO using this Codex. By Day 30 she had already restructured our supply chain without a single misstep. Worth 50x what I paid.',
+      quote: 'We onboarded our new COO using this playbook. By Day 30 she had already restructured our supply chain without a single misstep. Worth 50x what I paid.',
       author: 'Jonathan Reed',
       title: 'Managing Director, Horizon Industrial Holdings',
       metric: '30-Day Net Output'
     },
 
-    guaranteeText: 'The TULC Performance Commitment: Put your next senior hire through this Codex. If they are not fully onboarded with measurable milestone clarity by Day 45, contact us for a prompt, complete refund.'
+    guaranteeText: 'The TULC Performance Commitment: Put your next senior hire through this playbook. If they are not fully onboarded with measurable milestone clarity by Day 45, contact us for a prompt, complete refund.'
   },
 
   {
@@ -929,7 +929,7 @@ export const SOVEREIGN_VAULT_BUNDLE: BundleProduct = {
   title: 'The Complete Founder Systems Suite (All Digital Toolkits)',
   tagline: 'The complete digital operating system for high-growth founders. Replace daily operational fires with permanent written architecture.',
   badge: 'Complete Suite: 86% Off • Only 6 Bundles Left',
-  description: 'Instant access to every digital toolkit in the library. Pre-built Digital Workspace workspaces, Executive Protocol templates, decision matrices, onboarding codexes, and team diagnostics. Ready to duplicate with 1 click.',
+  description: 'Instant access to every digital toolkit in the library. Pre-built Digital Workspace workspaces, Executive Protocol templates, decision matrices, onboarding playbooks, and team diagnostics. Ready to duplicate with 1 click.',
   pricing: {
     usd: 197,
     originalUsd: 1450,
@@ -954,7 +954,7 @@ export const SOVEREIGN_VAULT_BUNDLE: BundleProduct = {
     'Asset 01: The 15-Hour Founder Bandwidth Reclamation OS (Digital Operating Master)',
     'Asset 02: The 30-Day Decoupling Runbook & Continuity System (Codified Document + Digital Workspace Vault)',
     'Asset 03: The Cross-Functional Decision Guardrails Matrix (Figma + Miro Boards)',
-    'Asset 04: The Executive Onboarding Codex (4-Document Management Pack)',
+    'Asset 04: The Executive Onboarding Playbook (4-Document Management Pack)',
     'Asset 05: The Team Operational Diagnostic & Assessment Suite'
   ],
   bonuses: [

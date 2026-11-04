@@ -50,13 +50,25 @@ export const Header: React.FC<HeaderProps> = ({
               By Suchita Sancheti
             </span>
             <span className="text-[8.5px] sm:text-[9.5px] font-mono tracking-widest text-[#9d7b38] uppercase font-bold mt-0.5">
-              Sovereign Enterprise Architecture
+              Scale Without The Founder · Fractional COO
             </span>
           </div>
         </a>
 
         {/* Desktop Nav Zone — Key Pages clearly identified */}
-        <nav aria-label="Primary Navigation" className="hidden md:flex items-center gap-5 lg:gap-7 xl:gap-8 text-[14px] lg:text-[15px] font-semibold text-[#484b54]">
+        <nav aria-label="Primary Navigation" className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-7 text-[13.5px] lg:text-[14.5px] font-semibold text-[#484b54]">
+          <a
+            href="/assessment"
+            onClick={(e) => { e.preventDefault(); handleNavClick('test'); }}
+            className={`transition-colors whitespace-nowrap py-1 border-b-2 flex items-center gap-1 ${
+              currentView === 'test'
+                ? 'text-[#17181c] border-[#9d7b38] font-bold'
+                : 'text-[#484b54] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
+            }`}
+          >
+            <Zap className="w-3 h-3 text-[#9d7b38]" />
+            <span>Assessment</span>
+          </a>
           <a
             href="/about"
             onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}
@@ -151,29 +163,32 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Action Zone — Free 60-Sec Audit CTA & Instant Pay & Calendly */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          <button
-            onClick={() => handleNavClick('booking')}
+          <a
+            href="/booking"
+            onClick={(e) => { e.preventDefault(); handleNavClick('booking'); }}
             className="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold font-mono uppercase text-[#17181c] bg-[#faf6ee] hover:bg-[#ede5d6] rounded-xs border border-[#9d7b38] transition-colors cursor-pointer"
           >
             <Calendar className="w-3.5 h-3.5 text-[#9d7b38]" />
             <span>Book Briefing</span>
-          </button>
+          </a>
 
-          <button
-            onClick={() => handleNavClick('shop')}
+          <a
+            href="/shop"
+            onClick={(e) => { e.preventDefault(); handleNavClick('shop'); }}
             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold font-mono uppercase text-[#17181c] hover:bg-[#ede5d6] rounded-xs border border-[#d8cebe] transition-colors cursor-pointer"
           >
             <CreditCard className="w-3.5 h-3.5 text-[#9d7b38]" />
             <span>Toolkits & Pay</span>
-          </button>
+          </a>
 
-          <button
-            onClick={() => handleNavClick('test')}
+          <a
+            href="/assessment"
+            onClick={(e) => { e.preventDefault(); handleNavClick('test'); }}
             className="px-3.5 py-2 sm:px-4 sm:py-2 text-xs font-bold uppercase text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] transition-all rounded-sm shadow-xs whitespace-nowrap active:scale-[0.98] min-h-[38px] flex items-center gap-1.5 cursor-pointer border border-[#9d7b38]/40"
           >
             <Zap className="w-3.5 h-3.5 text-[#d4af37]" />
-            <span>Free 60-Sec Test</span>
-          </button>
+            <span>Assessment (Free)</span>
+          </a>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -222,7 +237,7 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={(e) => { e.preventDefault(); handleNavClick('partnerships'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
-              <span>Services (3 Sovereign Tracks & Conclave)</span>
+              <span>Services (Scale Without The Founder & Fractional COO)</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
@@ -230,7 +245,7 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={(e) => { e.preventDefault(); handleNavClick('diagnostic'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
-              <span>The Diagnostic (Sovereign Dossier™)</span>
+              <span>The Diagnostic (Founder Dependency Dossier)</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
@@ -239,7 +254,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between font-bold text-[#17181c]"
             >
               <div className="flex items-center gap-2">
-                <span>Executive Blueprints (3 Sovereign Tracks)</span>
+                <span>Executive Blueprints (Fractional COO Toolkits)</span>
                 <span className="text-[9px] font-mono font-bold bg-[#17181c] text-[#d4af37] px-1.5 py-0.5 rounded-xs">
                   50% OFF
                 </span>
@@ -247,14 +262,14 @@ export const Header: React.FC<HeaderProps> = ({
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a
-              href="/audit"
+              href="/assessment"
               onClick={(e) => { e.preventDefault(); handleNavClick('test'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
               <div className="flex items-center gap-2">
-                <span>Free 60-Sec Test (Self-Audit)</span>
+                <span>Assessment (Founder Dependency Test)</span>
                 <span className="text-[9px] font-mono font-bold bg-[#d4af37]/20 text-[#8c6708] border border-[#d4af37]/50 px-1.5 py-0.5 rounded-xs">
-                  FREE
+                  FREE · 60s
                 </span>
               </div>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />

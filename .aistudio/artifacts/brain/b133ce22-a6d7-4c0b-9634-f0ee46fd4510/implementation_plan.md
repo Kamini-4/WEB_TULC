@@ -36,11 +36,44 @@
 - **Updated App URL**: Calibrated the portal redirect target across `InstitutionalPortal.tsx`, `Portal.tsx`, `database.ts`, and `server.js` to `https://institutional-assessment.ai.studio/`.
 - Verified seamless passkey authorization handoff directly redirecting verified clients to the new institutional assessment application.
 
-### 6. Language & Taboo Word Compliance
-- Strict zero-tolerance compliance verified across the entire codebase for:
-  - `fear`
-  - `empathise` / `empathize`
-  - `hide` / `hides`
-  - `live in slack`
-  - `PDF`
-- 100% clean TypeScript type check and production build verified.
+### 6. Buyer Search Terminology & Taboo Word Compliance
+- **High-Intent Buyer Keywords Implemented**:
+  - Replaced "Sovereign Enterprise Architecture" with "Scale Without The Founder", "Eliminate Founder Dependency", and "Fractional COO Architecture".
+  - Replaced "The Codex" and "Legal Codex" with "Executive Playbooks & Blueprints", "The Onboarding Playbook", and "Operating Protocols".
+  - Replaced "The Council Chambers" with "The Executive Advisory Board", "CEO Sparring & Conclave", and "Closed-Door CEO Sparring".
+- **Zero-Tolerance Taboo Words Audited & Verified (0 occurrences)**:
+  - `fear` (0 matches)
+  - `empathise` / `empathize` (0 matches)
+  - `hide` / `hides` (0 matches)
+  - `live in slack` (0 matches)
+  - `PDF` (0 matches)
+### 7. Dedicated Shareable Links for Assessment & All Pages
+- **Primary Canonical `/assessment` Route**:
+  - Direct, clean, shareable URL for the assessment at `/assessment` (with backward-compatible aliases `/audit` and `/test`).
+  - Visiting `/assessment` directly, refreshing the page, or clicking navigation loads the Founder Dependency Assessment immediately without hash fragments (`#`).
+- **Comprehensive Direct URLs for All 15 Pages**:
+  - `/` (Home / Overview)
+  - `/assessment` (Founder Dependency Assessment & Needs Test)
+  - `/diagnostic` (Phase 2 Forensic In-Depth Diagnostic)
+  - `/services` (Partnership Pathways & Retainers)
+  - `/about` (The Firm & Founder Suchita Sancheti)
+  - `/shop` (Executive Blueprints & Systems Toolkits)
+  - `/library` (Strategic Intelligence Library & 19 Dispatches)
+  - `/briefing` (Executive Video Briefing by Suchita Sancheti)
+  - `/domains` (5 Core Operating Domains)
+  - `/portal` (Institutional Clearance & Client Portal)
+  - `/booking` (Direct Calendly Executive Booking Desk)
+  - `/contact` (Confidential Advisory & Inquiry Desk)
+  - `/case-studies` (Institutional Case Proof & Performance Logs)
+  - `/war-room` (Executive War Room Simulator)
+  - `/privacy` (Privacy Policy & Data Covenant)
+- **Top Subpage Breadcrumb with Active URL & 1-Click Copy**:
+  - Displays the active clean path badge (e.g. `/assessment`) on every subpage top bar with a 1-click "Copy Link" button with dynamic visual feedback.
+- **Direct Page Links Directory in Footer**:
+  - Added a dedicated 15-page directory grid in `Footer.tsx` with direct clickable navigation and 1-click clipboard copy buttons for every page.
+- **Header Navigation Updates**:
+  - Added explicit "Assessment" direct links in both desktop navigation bar and mobile drawer.
+- **Strict Compliance Preserved**:
+  - Taboo words: strictly 0 occurrences across entire codebase.
+  - TypeScript compilation and Vite production build verified clean.
+

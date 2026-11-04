@@ -429,14 +429,14 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                     </p>
                   </div>
 
-                  {/* Council Chambers Feature Inclusion */}
+                  {/* Executive Advisory Board Sparring Inclusion */}
                   <div className="p-3 rounded bg-[#17181c] text-[#f8f6f0] border border-[#d4af37]/60 mb-3 space-y-1">
                     <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#d4af37] font-bold">
                       <Sparkles className="w-3 h-3 text-[#d4af37]" />
-                      <span>Council Chambers Feature Included</span>
+                      <span>Executive Board Sparring Included</span>
                     </div>
                     <p className="text-[11px] text-stone-300 leading-relaxed">
-                      This diagnostic gives you a <strong>taste of The Council Chambers</strong> (1 private sparring session with peer CEOs). Want the full strategic year-round version? It unlocks when you select an Implementation pathway.
+                      This diagnostic gives you a <strong>taste of The Executive Advisory Board</strong> (1 private sparring session with peer CEOs). Want the full strategic year-round version? It unlocks when you select an Implementation pathway.
                     </p>
                   </div>
                 </div>
@@ -462,14 +462,14 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
                     <button
                       onClick={() => {
                         try {
-                          window.history.pushState(null, '', '/audit');
+                          window.history.pushState(null, '', '/assessment');
                           window.dispatchEvent(new PopStateEvent('popstate'));
                         } catch {}
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
                       className="text-[#6b6e76] hover:text-[#17181c] transition-colors py-1 cursor-pointer font-bold"
                     >
-                      ← Return to Free 60-Sec Test
+                      ← Return to Free Assessment
                     </button>
                     <button
                       onClick={() => {

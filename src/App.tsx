@@ -13,7 +13,7 @@ import { MobileBottomNav } from './components/MobileBottomNav';
 import { OutcomeComparisonTable } from './components/OutcomeComparisonTable';
 import { SEOHead } from './components/SEOHead';
 import { PartnershipModelId, PartnershipPathway } from './types';
-import { ArrowLeft, Loader2, Sparkles, ArrowRight, Scale, Video, Layers, BookOpen, Compass, ShieldCheck, Zap, Lock } from 'lucide-react';
+import { ArrowLeft, Loader2, Sparkles, ArrowRight, Scale, Video, Layers, BookOpen, Compass, ShieldCheck, Zap, Lock, Copy, CheckCircle2 } from 'lucide-react';
 import { ShopDocument } from './components/ExecutiveShop';
 
 // Dynamic Code Splitting for Performance & Mobile Optimization (Action Item 1 & 2)
@@ -49,26 +49,39 @@ export const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<AppView>('home');
   const [selectedPartnership, setSelectedPartnership] = useState<PartnershipModelId>('retainer');
   const [inquiryContext, setInquiryContext] = useState<string>('');
+  const [copiedPath, setCopiedPath] = useState<string | null>(null);
+
+  const copyPageUrl = (path: string) => {
+    try {
+      const fullUrl = `${window.location.origin}${path}`;
+      navigator.clipboard.writeText(fullUrl);
+      setCopiedPath(path);
+      setTimeout(() => setCopiedPath(null), 2000);
+    } catch {
+      setCopiedPath(path);
+      setTimeout(() => setCopiedPath(null), 2000);
+    }
+  };
 
   // Map clean URL paths to view modes without hashtag in link
   const getViewFromUrl = (): AppView => {
-    // 1. Check pathname (e.g. /portal, /services, /booking)
+    // 1. Check pathname (e.g. /assessment, /portal, /services, /booking)
     const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
-    // 2. Check hash as legacy fallback (e.g. #portal)
+    // 2. Check hash as legacy fallback (e.g. #portal, #assessment)
     const rawHash = window.location.hash.replace('#', '').toLowerCase();
     const route = rawPath || rawHash;
 
-    if (route === 'test' || route === 'simple-test' || route === 'audit') {
+    if (route === 'assessment' || route === 'test' || route === 'simple-test' || route === 'audit' || route === 'founder-assessment') {
       return 'test';
     } else if (route === 'domains' || route === '5-domains' || route === 'framework') {
       return 'domains';
-    } else if (route === 'diagnostic') {
+    } else if (route === 'diagnostic' || route === 'deep-assessment' || route === 'forensic-diagnostic') {
       return 'diagnostic';
-    } else if (route === 'shop' || route === 'store' || route === 'documents' || route === 'publications' || route === 'codex' || route === 'blueprints' || route === 'toolkits') {
+    } else if (route === 'shop' || route === 'store' || route === 'documents' || route === 'publications' || route === 'blueprints' || route === 'toolkits') {
       return 'shop';
     } else if (route === 'blogs' || route === 'library' || route === 'dispatches' || route === 'articles') {
       return 'library';
-    } else if (route === 'about' || route === 'vision-mission') {
+    } else if (route === 'about' || route === 'vision-mission' || route === 'founder') {
       return 'about';
     } else if (route === 'briefing' || route === 'video' || route === 'founder-briefing') {
       return 'briefing';
@@ -100,18 +113,18 @@ export const App: React.FC = () => {
       if (window.location.hash) {
         const hash = window.location.hash.replace('#', '').toLowerCase();
         let cleanPath = '/';
-        if (hash === 'test' || hash === 'simple-test' || hash === 'audit') cleanPath = '/audit';
+        if (hash === 'assessment' || hash === 'test' || hash === 'simple-test' || hash === 'audit' || hash === 'founder-assessment') cleanPath = '/assessment';
         else if (hash === 'domains' || hash === '5-domains' || hash === 'framework') cleanPath = '/domains';
-        else if (hash === 'diagnostic') cleanPath = '/diagnostic';
-        else if (hash === 'shop' || hash === 'store' || hash === 'publications' || hash === 'codex' || hash === 'blueprints' || hash === 'toolkits') cleanPath = '/shop';
-        else if (hash === 'blogs' || hash === 'library' || hash === 'dispatches') cleanPath = '/library';
-        else if (hash === 'about' || hash === 'vision-mission') cleanPath = '/about';
+        else if (hash === 'diagnostic' || hash === 'deep-assessment' || hash === 'forensic-diagnostic') cleanPath = '/diagnostic';
+        else if (hash === 'shop' || hash === 'store' || hash === 'publications' || hash === 'blueprints' || hash === 'toolkits') cleanPath = '/shop';
+        else if (hash === 'blogs' || hash === 'library' || hash === 'dispatches' || hash === 'articles') cleanPath = '/library';
+        else if (hash === 'about' || hash === 'vision-mission' || hash === 'founder') cleanPath = '/about';
         else if (hash === 'briefing' || hash === 'video' || hash === 'founder-briefing') cleanPath = '/briefing';
         else if (hash === 'partnerships' || hash === 'services' || hash === 'retainer') cleanPath = '/services';
         else if (hash === 'privacy' || hash === 'privacy-policy' || hash === 'terms') cleanPath = '/privacy';
         else if (hash === 'contact' || hash === 'inquiry') cleanPath = '/contact';
         else if (hash === 'booking' || hash === 'schedule' || hash === 'calendly' || hash === 'calendar') cleanPath = '/booking';
-        else if (hash === 'portal' || hash === 'clearance' || hash === 'client-portal') cleanPath = '/portal';
+        else if (hash === 'portal' || hash === 'clearance' || hash === 'client-portal' || hash === 'gate') cleanPath = '/portal';
         else if (hash === 'war-room') cleanPath = '/war-room';
         else if (hash === 'proof' || hash === 'case-studies') cleanPath = '/case-studies';
 
@@ -139,35 +152,35 @@ export const App: React.FC = () => {
     if (target === 'top' || target === 'home') {
       targetView = 'home';
       targetPath = '/';
-    } else if (target === 'test' || target === 'simple-test' || target === 'audit') {
+    } else if (target === 'assessment' || target === 'test' || target === 'simple-test' || target === 'audit' || target === 'founder-assessment') {
       targetView = 'test';
-      targetPath = '/audit';
-    } else if (target === 'domains' || target === '5-domains') {
+      targetPath = '/assessment';
+    } else if (target === 'domains' || target === '5-domains' || target === 'framework') {
       targetView = 'domains';
       targetPath = '/domains';
-    } else if (target === 'diagnostic') {
+    } else if (target === 'diagnostic' || target === 'deep-assessment' || target === 'forensic-diagnostic') {
       targetView = 'diagnostic';
       targetPath = '/diagnostic';
-    } else if (target === 'blogs' || target === 'library' || target === 'dispatches') {
+    } else if (target === 'blogs' || target === 'library' || target === 'dispatches' || target === 'articles') {
       targetView = 'library';
       targetPath = '/library';
-    } else if (target === 'about') {
+    } else if (target === 'about' || target === 'founder') {
       targetView = 'about';
       targetPath = '/about';
-    } else if (target === 'briefing' || target === 'video') {
+    } else if (target === 'briefing' || target === 'video' || target === 'founder-briefing') {
       targetView = 'briefing';
       targetPath = '/briefing';
-    } else if (target === 'partnerships' || target === 'services') {
+    } else if (target === 'partnerships' || target === 'services' || target === 'retainer') {
       targetView = 'partnerships';
       targetPath = '/services';
     } else if (target === 'comparison' || target === 'outcomes' || target === 'versus' || target === 'table') {
       targetView = 'home';
       targetPath = '/';
       shouldScrollToSection = 'comparison';
-    } else if (target === 'shop' || target === 'store' || target === 'publications' || target === 'codex' || target === 'blueprints' || target === 'toolkits') {
+    } else if (target === 'shop' || target === 'store' || target === 'publications' || target === 'blueprints' || target === 'toolkits') {
       targetView = 'shop';
       targetPath = '/shop';
-    } else if (target === 'privacy' || target === 'privacy-policy') {
+    } else if (target === 'privacy' || target === 'privacy-policy' || target === 'terms') {
       targetView = 'privacy';
       targetPath = '/privacy';
     } else if (target === 'contact' || target === 'inquiry') {
@@ -176,13 +189,9 @@ export const App: React.FC = () => {
     } else if (target === 'booking' || target === 'schedule' || target === 'calendly' || target === 'calendar') {
       targetView = 'booking';
       targetPath = '/booking';
-    } else if (target === 'portal' || target === 'clearance') {
+    } else if (target === 'portal' || target === 'clearance' || target === 'client-portal' || target === 'gate') {
       targetView = 'portal';
       targetPath = '/portal';
-    } else if (target === 'council' || target === 'council-chambers') {
-      targetView = 'home';
-      targetPath = '/';
-      shouldScrollToSection = 'council-feature';
     } else if (target === 'war-room') {
       targetView = 'war-room';
       targetPath = '/war-room';
@@ -238,29 +247,59 @@ export const App: React.FC = () => {
   };
 
   const handleInquireDocument = (doc: ShopDocument) => {
-    setInquiryContext(`Institutional Publication Order: Requesting official copy of "${doc.title}" (${doc.priceFormatted} · 100% credited toward retainer/audit).`);
+    setInquiryContext(`Institutional Publication Order: Requesting official copy of "${doc.title}" (${doc.priceFormatted} · 100% credited toward retainer/assessment).`);
     navigateTo('contact');
   };
 
-  // Subpage Top Navigation Bar
-  const renderSubpageBreadcrumb = (title: string, subtitle: string) => (
-    <div className="bg-[#f0eade] border-b border-[#dfd7c8] py-1.5 sm:py-2 px-3 sm:px-6 lg:px-8">
-      <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-3">
-        <button
-          onClick={() => navigateTo('home')}
-          aria-label="Go back"
-          title="Go back"
-          className="p-2 -ml-2 rounded-full text-[#17181c] hover:text-[#9d7b38] hover:bg-[#e4dcce] transition-colors cursor-pointer flex items-center justify-center min-w-[36px] min-h-[36px]"
-        >
-          <ArrowLeft className="w-5 h-5 text-[#9d7b38]" />
-        </button>
-        <div className="text-right">
-          <span className="text-xs font-bold text-[#17181c] uppercase">{title}</span>
-          <span className="hidden sm:inline text-xs text-[#6b6e76] ml-2 font-mono">· {subtitle}</span>
+  // Subpage Top Navigation Bar with active Direct URL badge and 1-Click Copy
+  const renderSubpageBreadcrumb = (title: string, subtitle: string, directPath?: string) => {
+    const isCopied = directPath ? copiedPath === directPath : false;
+    return (
+      <div className="bg-[#f0eade] border-b border-[#dfd7c8] py-2 px-3 sm:px-6 lg:px-8">
+        <div className="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5">
+            <button
+              onClick={() => navigateTo('home')}
+              aria-label="Go back to Home"
+              title="Go back to Home"
+              className="p-1.5 -ml-1 rounded-full text-[#17181c] hover:text-[#9d7b38] hover:bg-[#e4dcce] transition-colors cursor-pointer flex items-center justify-center min-w-[34px] min-h-[34px]"
+            >
+              <ArrowLeft className="w-4 h-4 text-[#9d7b38]" />
+            </button>
+            {directPath && (
+              <div className="flex items-center gap-1.5">
+                <span className="hidden md:inline text-[11px] font-mono text-[#6b6e76]">Direct link:</span>
+                <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded-xs bg-[#ffffff] border border-[#d8cebe] text-[#9d7b38]">
+                  {directPath}
+                </span>
+                <button
+                  onClick={() => copyPageUrl(directPath)}
+                  title={`Copy direct link for ${directPath}`}
+                  className="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-mono font-medium rounded-xs bg-[#ffffff] hover:bg-[#17181c] text-[#17181c] hover:text-[#f8f6f0] border border-[#d8cebe] transition-colors cursor-pointer"
+                >
+                  {isCopied ? (
+                    <>
+                      <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                      <span className="text-emerald-700 font-bold">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3 h-3" />
+                      <span>Copy Link</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            )}
+          </div>
+          <div className="text-right ml-auto">
+            <span className="text-xs font-bold text-[#17181c] uppercase">{title}</span>
+            <span className="hidden sm:inline text-xs text-[#6b6e76] ml-2 font-mono">· {subtitle}</span>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div className="min-h-screen bg-[#f8f6f0] text-[#17181c] flex flex-col font-serif selection:bg-[#17181c] selection:text-[#f8f6f0] pb-14 md:pb-0">
@@ -278,9 +317,10 @@ export const App: React.FC = () => {
         {currentView === 'home' && (
           <>
             <SEOHead
-              title="The Unbounded Leadership Co. | Sovereign Architecture"
-              description="Decouple founders from daily operations in 90 days. Sovereign enterprise architecture, leadership operating systems, and executive diagnostics."
+              title="The Unbounded Leadership Co. | Scale Without The Founder · Fractional COO"
+              description="Eliminate founder dependency, scale without the founder, and install Fractional COO executive operating systems in 90 days."
               canonicalPath="/"
+              keywords="founder dependency, scale without the founder, fractional COO, eliminate founder bottlenecks, executive operating systems, leadership architecture"
             />
 
             {/* Front Page Hero Section */}
@@ -342,10 +382,10 @@ export const App: React.FC = () => {
               <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
                 <div>
                   <span className="text-[9.5px] font-mono uppercase text-[#9d7b38] font-bold tracking-widest block">
-                    Sovereign Enterprise Architecture
+                    Scale Without The Founder · Fractional COO
                   </span>
                   <h3 className="text-sm sm:text-base font-bold font-serif text-[#17181c]">
-                    The 5 Sovereign Domains of Decoupled Leadership
+                    The 5 Core Domains of Decoupled Leadership
                   </h3>
                   <p className="text-[11px] text-[#555861] font-mono mt-0.5">
                     Cognitive Clarity · Systemic Integrity · Strategic Velocity · Moral Gravity · Cultural Fidelity
@@ -406,12 +446,12 @@ export const App: React.FC = () => {
         {currentView === 'test' && (
           <div>
             <SEOHead
-              title="60-Second Operating Audit | TULC"
+              title="Founder Dependency Assessment & Needs Test | TULC"
               description="Evaluate key-person risk, decision lag, and organizational drag with our 100% free, confidential 60-second diagnostic."
-              canonicalPath="/test"
+              canonicalPath="/assessment"
             />
-            {renderSubpageBreadcrumb('The Sovereign Operating Audit', '100% Free · 60 Seconds · Instant Outcome Report')}
-            <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading Sovereign Assessment...</div>}>
+            {renderSubpageBreadcrumb('The Founder Dependency Assessment', '100% Free · 60 Seconds · Instant Outcome Report', '/assessment')}
+            <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading Assessment...</div>}>
               <SimpleNeedsTest
                 onConsultationRequest={handleConsultationRequestFromDiagnostic}
                 onExplorePartnerships={() => navigateTo('partnerships')}
@@ -425,11 +465,11 @@ export const App: React.FC = () => {
         {currentView === 'domains' && (
           <div>
             <SEOHead
-              title="5 Sovereign Domains | TULC"
-              description="Explore the 5 domains of sovereign operating architecture: Cognitive Clarity, Systemic Integrity, Strategic Velocity, Moral Gravity, Cultural Fidelity."
+              title="5 Core Domains of Decoupled Leadership | TULC"
+              description="Explore the 5 domains of decoupled operating architecture: Cognitive Clarity, Systemic Integrity, Strategic Velocity, Moral Gravity, Cultural Fidelity."
               canonicalPath="/domains"
             />
-            {renderSubpageBreadcrumb('5 Sovereign Operating Domains', 'Architecture Guide & Mission Blueprint')}
+            {renderSubpageBreadcrumb('5 Core Operating Domains', 'Architecture Guide & Mission Blueprint', '/domains')}
             <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading Domain Architecture...</div>}>
               <DomainDescriptions
                 onTakeTest={() => navigateTo('test')}
@@ -447,7 +487,7 @@ export const App: React.FC = () => {
               description="Patent-pending organizational architecture diagnostic isolating friction vectors across executive leadership cadences."
               canonicalPath="/diagnostic"
             />
-            {renderSubpageBreadcrumb('Phase 2 In-Depth Assessment', 'Patent-Pending L.O.S. Diagnostic™')}
+            {renderSubpageBreadcrumb('Phase 2 In-Depth Assessment', 'Patent-Pending L.O.S. Diagnostic™', '/diagnostic')}
             <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading Diagnostic Engine...</div>}>
               <PatentPendingDiagnostic
                 onSelectPartnership={handleSelectPartnership}
@@ -465,7 +505,7 @@ export const App: React.FC = () => {
               description="19 institutional research dispatches and monographs by Suchita Sancheti on executive governance and enterprise sovereignty."
               canonicalPath="/library"
             />
-            {renderSubpageBreadcrumb('Intelligence Library', '19 Strategic Dispatches by Suchita Sancheti')}
+            {renderSubpageBreadcrumb('Intelligence Library', '19 Strategic Dispatches by Suchita Sancheti', '/library')}
             <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading Intelligence Library...</div>}>
               <BlogSection
                 onOpenConsultation={handleConsultationRequestFromBlog}
@@ -480,8 +520,9 @@ export const App: React.FC = () => {
             <SEOHead
               title="Executive Blueprints & Systems | TULC"
               description="Codified institutional blueprints and operating frameworks for founder decoupling and leadership operating systems."
-              canonicalPath="/blueprints"
+              canonicalPath="/shop"
             />
+            {renderSubpageBreadcrumb('Executive Blueprints & Systems Toolkits', 'Systems Toolkits & Governance Blueprints', '/shop')}
             <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading Executive Blueprints...</div>}>
               <ExecutiveShop
                 onBackToHome={() => navigateTo('home')}
@@ -500,7 +541,7 @@ export const App: React.FC = () => {
               description="Learn about Suchita Sancheti and the institutional methodology behind Sovereign Enterprise Architecture."
               canonicalPath="/about"
             />
-            {renderSubpageBreadcrumb('The Architect & The Firm', 'Vision, Mission & Executive Mastery')}
+            {renderSubpageBreadcrumb('The Firm & Founder Suchita Sancheti', 'Vision, Mission & Executive Architecture', '/about')}
             <AboutSection
               onOpenConsultation={() => navigateTo('contact')}
             />
@@ -515,7 +556,7 @@ export const App: React.FC = () => {
               description="Simulate real-time governance friction scenarios and quantify annual EBITDA recovery with our interactive simulator."
               canonicalPath="/war-room"
             />
-            {renderSubpageBreadcrumb('Executive War Room', 'Strategic Scenario Simulator')}
+            {renderSubpageBreadcrumb('Executive War Room Simulator', 'Strategic Scenario Simulator', '/war-room')}
             <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading War Room Simulator...</div>}>
               <ExecutiveWarRoom />
             </Suspense>
@@ -530,7 +571,7 @@ export const App: React.FC = () => {
               description="Quantitative evidence and performance logs from enterprise decoupling and 90-day operating system transformations."
               canonicalPath="/case-studies"
             />
-            {renderSubpageBreadcrumb('Institutional Case Proof', 'Quantitative Evidence & Performance Logs')}
+            {renderSubpageBreadcrumb('Institutional Case Proof & Performance Logs', 'Quantitative Evidence & Performance Logs', '/case-studies')}
             <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading Case Studies...</div>}>
               <InstitutionalCaseStudies />
             </Suspense>
@@ -545,6 +586,7 @@ export const App: React.FC = () => {
               description="Institutional privacy policy, Chatham House confidentiality covenants, and GDPR/CCPA data governance standards."
               canonicalPath="/privacy"
             />
+            {renderSubpageBreadcrumb('Privacy Policy & Data Covenant', 'Institutional Privacy & Governance Standards', '/privacy')}
             <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading Privacy Docket...</div>}>
               <PrivacyPolicy
                 onBackToHome={() => navigateTo('home')}
@@ -562,7 +604,7 @@ export const App: React.FC = () => {
               description="Initiate confidential mandate dialogue under Chatham House non-disclosure rules. Direct telephone and corporate email access."
               canonicalPath="/contact"
             />
-            {renderSubpageBreadcrumb('Confidential Advisory Desk', 'Chatham House Protocol · In-Camera Privilege Enforced')}
+            {renderSubpageBreadcrumb('Confidential Advisory Desk', 'Chatham House Protocol · In-Camera Privilege Enforced', '/contact')}
             <ConfidentialInquiry
               initialPartnership={selectedPartnership}
               initialContext={inquiryContext}
@@ -578,7 +620,7 @@ export const App: React.FC = () => {
               description="Authorized cryptographic access terminal for active retainer enterprise clients, board directors, and institutional partners."
               canonicalPath="/portal"
             />
-            {renderSubpageBreadcrumb('Institutional Clearance Portal', 'Encrypted Client Access & Stress-Testing Suite')}
+            {renderSubpageBreadcrumb('Institutional Clearance Portal', 'Encrypted Client Access & Stress-Testing Suite', '/portal')}
             <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Authenticating Clearance Gateway...</div>}>
               <InstitutionalPortal
                 onBackToHome={() => navigateTo('home')}
@@ -596,7 +638,7 @@ export const App: React.FC = () => {
               description="Direct founder briefing by Suchita Sancheti on 90-day decoupling methodology and sovereign operating architecture."
               canonicalPath="/briefing"
             />
-            {renderSubpageBreadcrumb('Executive Video Briefing', 'Direct Founder Briefing by Suchita Sancheti')}
+            {renderSubpageBreadcrumb('Executive Video Briefing', 'Direct Founder Briefing by Suchita Sancheti', '/briefing')}
             <VideoBriefingSection
               onOpenConsultation={() => navigateTo('contact')}
               onTakeTest={() => navigateTo('test')}
@@ -612,7 +654,7 @@ export const App: React.FC = () => {
               description="Explore the 3 institutional engagement models: 90-Day Decoupling Retainer, Foundation Advisory, and Enterprise Conclave."
               canonicalPath="/services"
             />
-            {renderSubpageBreadcrumb('Partnership Pathways & Retainers', '3 Sovereign Engagement Tracks')}
+            {renderSubpageBreadcrumb('Partnership Pathways & Retainers', '3 Sovereign Engagement Tracks', '/services')}
             <div className="py-6 sm:py-8">
               <PartnershipPathways
                 selectedModelId={selectedPartnership}
@@ -631,7 +673,7 @@ export const App: React.FC = () => {
               description="Direct Calendly calendar reservation for 20-minute executive briefing with Suchita Sancheti under Chatham House rules."
               canonicalPath="/booking"
             />
-            {renderSubpageBreadcrumb('Executive Scheduling Desk', 'Direct Calendly Calendar Integration')}
+            {renderSubpageBreadcrumb('Executive Scheduling Desk', 'Direct Calendly Calendar Integration', '/booking')}
             <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading Calendar Interface...</div>}>
               <CalendlyBookingView
                 onBackToHome={() => navigateTo('home')}

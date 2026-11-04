@@ -116,7 +116,7 @@ const COMPARISON_DATA: ComparisonDimension[] = [
     },
     theTulcWay: {
       title: '100% Codified IP Handover to Your Board',
-      description: 'You receive the entire Sovereign Leadership Operating System (LOS™)—fully documented, customized, and transferred to your organization to own forever.',
+      description: 'You receive the complete Executive Leadership Operating System (LOS™)—fully documented, customized, and transferred to your organization to scale without the founder.',
       result: 'An enduring asset that compounds for decades.'
     }
   },
@@ -148,7 +148,7 @@ const COMPARISON_DATA: ComparisonDimension[] = [
       result: 'Exhausting timeline with shifting goalposts.'
     },
     theTulcWay: {
-      title: 'Decisive 90-Day Sovereign Sprint',
+      title: 'Decisive 90-Day Decoupling Sprint',
       description: 'A rapid, disciplined, uncompromising 90-day runway led directly by Suchita Sancheti. Zero junior staffing. Clear milestones, definitive completion, and permanent exit.',
       result: 'Clean, irreversible autonomy within 90 days.'
     }
@@ -332,7 +332,7 @@ export const OutcomeComparisonTable: React.FC<OutcomeComparisonProps> = ({
                     The Unbounded Leadership Co.
                   </span>
                   <span className="font-mono text-[10px] text-[#d4af37] uppercase tracking-widest font-semibold block">
-                    Sovereign Enterprise Architecture
+                    Scale Without The Founder · Fractional COO
                   </span>
                 </div>
               </div>
@@ -488,7 +488,7 @@ export const OutcomeComparisonTable: React.FC<OutcomeComparisonProps> = ({
           
           <div className="relative z-10 max-w-2xl mx-auto">
             <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#d4af37] font-bold block mb-2">
-              The Sovereign Verdict
+              The Executive Verdict
             </span>
 
             <h3 className="text-2xl sm:text-3xl font-bold font-serif mb-4 text-[#f3e5ab]">

@@ -194,7 +194,7 @@ export async function generateCouncilChambersDialectic(params: {
     alpha_founder: 'Alpha Founder / High-Growth Scale-Up'
   };
 
-  const systemInstruction = `You are the Lead Sovereign Advisor inside "The Council Chambers" at The Unbounded Leadership Co.
+  const systemInstruction = `You are the Lead Executive Advisor inside "The Executive Advisory Board" at The Unbounded Leadership Co.
 This is a confidential strategic sanctuary and sparring room for founders, family principals, and CXOs to confront vulnerabilities, leadership bottlenecks, and board friction without exposure.
 
 Governing Principles:
@@ -275,7 +275,7 @@ Return pure JSON matching this exact structure:
     if (deliberationMode === 'triad') {
       return {
         advisorTone: 'Triad Strategic Syndicate',
-        response: `The Council Chambers has analyzed your dilemma through the lens of institutional cybernetics. Your perceived operational friction is not a personnel flaw; it is an uncodified authority boundary that forces every strategic trade-off back into your personal cognitive queue.`,
+        response: `The Executive Advisory Board has analyzed your dilemma through the lens of institutional cybernetics. Your perceived operational friction is not a personnel flaw; it is an uncodified authority boundary that forces every strategic trade-off back into your personal cognitive queue.`,
         triadPerspectives: {
           consigliere: `You have permitted consensus politics to dilute your unilateral sovereign authority. By allowing middle management to seek consensus instead of owning binary trade-offs, you have established a corporate court where no one bears consequence. Issue an explicit veto covenant immediately.`,
           dynasticStrategist: `Every week you spend resolving internal operational friction siphons 3.5% to 5.0% of your enterprise multiple. Institutional acquirers and family office trustees heavily discount businesses that freeze without the principal's physical presence. Decoupling authority is a valuation multiplier.`,
@@ -357,7 +357,7 @@ Return pure JSON matching this exact structure:
       deliveryComposureNote: parsed.deliveryComposureNote || 'Steady delivery composure.'
     };
   } catch (err) {
-    console.error('Council Chambers dialectic error:', err);
+    console.error('Executive Advisory Board dialectic error:', err);
     return {
       advisorTone: 'Challenger Dialectic (Resilience Mode)',
       response: `Your operational friction is rooted in uncodified governance boundaries. When founders operate as universal problem solvers, the enterprise naturally defaults to defensive consensus. We must install invariant execution protocols to decouple your daily presence from institutional results.`,

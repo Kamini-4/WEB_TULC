@@ -663,7 +663,7 @@ export const ShopPage: React.FC = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#b8860b] shrink-0 mt-0.5" />
-                      <span><strong className="text-white font-medium">Asset 04 (Onboarding Codex):</strong> Day 30/60/90 binary delivery covenants reducing executive ramp from 180 to 30 days.</span>
+                      <span><strong className="text-white font-medium">Asset 04 (Onboarding Playbook):</strong> Day 30/60/90 binary delivery covenants reducing executive ramp from 180 to 30 days.</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#b8860b] shrink-0 mt-0.5" />
@@ -831,7 +831,7 @@ export const ShopPage: React.FC = () => {
         <section>
           <div className="mb-6">
             <span className="font-mono text-[8px] uppercase tracking-widest text-[#b8860b] font-black block mb-1">
-              THE LEVERAGE CODEX
+              THE LEVERAGE MATRIX & BLUEPRINT
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#111111] font-serif">
               The Operational Truth vs. The Delivered Outcome

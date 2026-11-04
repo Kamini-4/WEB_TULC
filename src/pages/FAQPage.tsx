@@ -42,7 +42,7 @@ export const FAQPage: React.FC = () => {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1c1917] tracking-tight">
-            Frequently Asked Questions: <span className="italic font-bold text-[#b8860b]">The Scaling Codex</span>
+            Frequently Asked Questions: <span className="italic font-bold text-[#b8860b]">Scaling Without The Founder</span>
           </h1>
 
           <p className="text-base sm:text-lg text-[#57534e] leading-relaxed">

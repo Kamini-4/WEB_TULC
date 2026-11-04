@@ -244,7 +244,7 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                     <span>Get Instant Access · ${item.priceUSD}</span>
                   </button>
                   <span className="text-[10px] font-mono text-zinc-600 text-center block mt-1.5">
-                    Printable PDF + Editable Templates
+                    Printable Document Brief + Editable Templates
                   </span>
                 </div>
 
@@ -258,13 +258,13 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
           <div className="space-y-1">
             <div className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#d4af37] font-bold">
               <Sparkles className="w-3 h-3 text-[#d4af37]" />
-              <span>Full Sovereign Architecture Suite · Save $140</span>
+              <span>Full Executive Decoupling Suite · Save $140</span>
             </div>
             <h3 className="text-base sm:text-lg font-black text-[#f4ecd8]">
               Acquire All 3 Executive Toolkits: Delegation + 14-Day Loop + Complete Decoupling
             </h3>
             <p className="text-xs text-zinc-300 max-w-2xl font-mono">
-              Individual Value: $535 · Bundled Sovereign Price: <strong className="text-[#d4af37]">$395 USD</strong> (100% credited toward future advisory retainers)
+              Individual Value: $535 · Bundled Executive Price: <strong className="text-[#d4af37]">$395 USD</strong> (100% credited toward future advisory retainers)
             </p>
           </div>
 
@@ -287,7 +287,7 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
             <div className="p-2.5 bg-[#faf8f4] rounded-xs border border-[#e2d8c9] space-y-1">
               <strong className="font-bold block">Instant Delivery:</strong>
               <p className="font-normal text-zinc-900 leading-relaxed">
-                Download links for print-ready PDFs and editable templates (Google Docs & Notion) appear immediately upon checkout.
+                Download links for print-ready executive documents and editable templates (Google Docs & Notion) appear immediately upon checkout.
               </p>
             </div>
 
