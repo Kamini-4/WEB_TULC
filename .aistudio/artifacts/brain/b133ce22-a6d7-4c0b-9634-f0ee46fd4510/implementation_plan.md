@@ -77,3 +77,13 @@
   - Taboo words: strictly 0 occurrences across entire codebase.
   - TypeScript compilation and Vite production build verified clean.
 
+### 8. Executive Rephrasing: "Scale Beyond Founder Dependency" & "Systems-Driven Scale"
+- Replaced the blunt and dismissive phrasing "Scale Without The Founder" / "Scale Without Founder" with politically correct, respectful executive phrasing:
+  - **Primary Crest & Authority Subhead**: `"Scale Beyond Founder Dependency · Fractional COO"`
+  - **Hero Headline**: `"Eliminate Founder Bottlenecks · Scale Beyond Founder Dependency"`
+  - **Services Engagement Track 02**: `"Track 02: Systems-Driven Scale (90-Day Operating Architecture)"`
+  - **Outcome Table & Comparison**: `"Systems-Driven Scale"` and `"...transferred to your organization to scale beyond founder dependency."`
+  - **Book Title in Dispatches**: `"Systems-Driven Scale: The Modern Leader's Guide to Eliminating Dependency & Building a Self-Governing Enterprise"`
+  - **Video Briefing Title**: `"How We Eliminate Founder Dependency and Scale Beyond Operational Bottlenecks"`
+  - **HTML & Metadata**: `"Eliminate founder dependency, scale beyond founder bottlenecks, and install Fractional COO executive operating systems in 90 days."`
+

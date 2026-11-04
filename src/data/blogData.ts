@@ -125,7 +125,7 @@ const RAW_BLOG_POSTS: BlogPost[] = [
 [Charismatic Bottleneck] ──> Every Deal ──> Founder Sign-Off ──> 14-Day Latency ──> Multiple Discount
                                    │
                                    ▼ [TULC 3-Step Refactor]
-[Scale Without The Founder] ──> Invariant Rules ──> Edge Autonomy ──> < 24h Velocity ──> 35% Multiple Expansion
+[Systems-Driven Scale] ──> Invariant Rules ──> Edge Autonomy ──> < 24h Velocity ──> 35% Multiple Expansion
       `,
       metricComparison: [
         { label: 'Decision Latency', brokenState: '7 to 14 days waiting for founder slot', sovereignState: 'Under 4 hours via codified rule envelopes' },

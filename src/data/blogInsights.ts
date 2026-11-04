@@ -74,7 +74,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 1: The Trap of Indispensability',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'Indispensability feels like significance until it becomes your prison. The highest expression of leadership is not how urgently your team calls your name, but how quietly and sovereignly they command the ship when you are walking along the shore.',
       reflectionPrompt: 'If you were unreachable for 14 continuous days starting tomorrow, what is the exact decision that would freeze first?'
     },
@@ -110,7 +110,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 4: The Courage to Decentralize',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'Consensus is the counterfeit of alignment. Alignment means we have debated with radical candor, chosen a sovereign direction, and backed the leader in the arena—even when we would have chosen differently. Consensus is just everyone agreeing to an uninspiring compromise so nobody gets blamed.',
       reflectionPrompt: 'Which recurring weekly meeting on your calendar exists solely to make people feel included rather than to produce a decisive move?'
     },
@@ -146,7 +146,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 7: The Sovereign Step-Away Protocol',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'The ultimate proof of architectural excellence is absence. If your presence is required for the machine to hum, you are not the CEO—you are the chief gear. Build a system that honors your team\'s intelligence by stepping out of their way.',
       reflectionPrompt: 'What is the one critical contract or client relationship that would halt if you lost your phone for ten days?'
     },
@@ -182,7 +182,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 2: The Myth of Collective Responsibility',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'When everyone is responsible, nobody is accountable. True psychological safety does not come from diffusing blame across twenty signatures; it comes from knowing exactly who holds the wheel and giving them the sovereign trust to drive.',
       reflectionPrompt: 'Who in your executive circle has the authority to green-light a project without asking three other peers for reassurance?'
     },
@@ -218,7 +218,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 5: Why Brilliant Teams Hesitate',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'Delegation without architecture is abdication. True delegation is giving your leaders the precise boundary covenants that make autonomy safe. When they know where the edges are, they run with total velocity.',
       reflectionPrompt: 'What is the one unwritten rule about your customer experience that your newest executive has not yet grasped?'
     },
@@ -254,7 +254,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 8: Cognitive Surplus Protection',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'A packed executive calendar is not a badge of honor; it is a confession of structural dysfunction. Great leaders protect white-space because conviction requires time to think.',
       reflectionPrompt: 'If you had 15 uninterrupted hours open on your calendar next week, what major market move would you finally execute?'
     },
@@ -290,7 +290,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 3: The Architecture of Trust',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'Sovereignty is not about isolation; it is about self-governance. When you translate your unwritten wisdom into permanent architecture, you give your team the greatest gift a founder can offer: the power to succeed without permission.',
       reflectionPrompt: 'What is the core intuition you use to evaluate new partnerships that nobody else on your team understands?'
     },
@@ -326,7 +326,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 6: Designing for Human Dignity and System Velocity',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'Governance without velocity is bureaucracy. Velocity without governance is recklessness. Autonomous architecture is the art of balancing both so leaders move with conviction while the institution remains unshakable.',
       reflectionPrompt: 'Which strategic initiative has been delayed by your board for more than two quarters because of risk aversion?'
     },
@@ -362,7 +362,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 9: The Anatomy of Sovereign Ownership',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'Culture is not created in eight hours a week. Accountability requires presence, skin in the game, and the willingness to stand in the storm alongside your team. You cannot outsource sovereign conviction.',
       reflectionPrompt: 'Where are you paying external advisors to tell you what your own leadership team already knows but lacks the system to execute?'
     },
@@ -398,7 +398,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 10: Velocity as a Moral Imperative',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'Speed is not rushing; speed is the absence of unnecessary friction. When you remove the bureaucratic checkpoints that exist to protect egos rather than outcomes, your people rediscover the joy of building.',
       reflectionPrompt: 'What decision has been sitting in your inbox for more than three days that could be reversed tomorrow with zero fatal risk?'
     },
@@ -434,7 +434,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 11: Humans + Architecture in the Age of Silicon',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'Silicon compounds computation; executive operating architecture compounds conviction. No algorithm can replace the human courage required to set a boundary, make an irreversible bet, and stand by your people.',
       reflectionPrompt: 'Where are your teams using AI to produce longer decks and reports that nobody in the C-suite has time to read?'
     },
@@ -470,7 +470,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 12: The Symphony of Sovereign Alignment',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'A collection of champions is not a championship team. Without an invariant operating architecture, high talent density simply creates high-ego friction. True alignment happens when the system is bigger than any single personality.',
       reflectionPrompt: 'Which two vice presidents in your company spend the most energy defending their departmental boundaries instead of serving the customer?'
     },
@@ -506,7 +506,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 13: The Freedom Covenant',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'The greatest gift a founder can give their company is the ability to outgrow them. When you build an enterprise that thrives in your absence, you have not abandoned your legacy; you have immortalized it.',
       reflectionPrompt: 'What is the deep, unspoken concern that keeps you from leaving your company for 30 days without your phone?'
     },
@@ -542,7 +542,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 14: Dissolving the Shadows',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'Backchannels thrive in ambiguity. When authority is clear and covenants are transparent, politics lose their power. Light is the greatest disinfectant in executive governance.',
       reflectionPrompt: 'Which key executive in your organization relies on private backchannel access to influence your decisions?'
     },
@@ -578,7 +578,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 15: From Rainmaker to Enterprise Engine',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'When you are the sales process, your company\'s ceiling is your personal calendar. When your methodology is the sales process, your company\'s ceiling is the size of the market.',
       reflectionPrompt: 'What is the one concession you routinely give clients in negotiations that your sales team is not authorized to make?'
     },
@@ -614,7 +614,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 16: The Architecture of Integration',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'Culture follows architecture, not the other way around. Give two merged teams a clear, dignified operating system with transparent boundaries, and they will forge a unified culture through shared execution.',
       reflectionPrompt: 'Which legacy operating habit from the acquired company is creating the most friction with your core executive team?'
     },
@@ -650,7 +650,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 17: The Perpetual Institution',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'A legacy is not what you leave behind for your children; it is what you build to stand sovereignly without you. Enduring institutions outlast their founders because their soul was etched into architecture.',
       reflectionPrompt: 'What is the one foundational value of your company that you are most determined to preserve across the next fifty years?'
     },
@@ -686,7 +686,7 @@ export const BLOG_INSIGHTS: Record<string, ArticleRichInsight> = {
     },
     bookExcerpt: {
       chapter: 'Chapter 18: The Sovereign Operating Rhythm',
-      bookTitle: 'Scale Without The Founder: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
+      bookTitle: 'Systems-Driven Scale: The Modern Leader\'s Guide to Eliminating Dependency & Building a Self-Governing Enterprise',
       passage: 'True mastery is quiet. When your operating architecture is sound, urgency transforms into velocity, and leadership becomes an act of strategic composure. You build the future not by running faster, but by standing firmer.',
       reflectionPrompt: 'What would your life and leadership feel like if quarter-end was the calmest week of your entire year?'
     },

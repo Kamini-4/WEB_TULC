@@ -50,7 +50,7 @@ export const Header: React.FC<HeaderProps> = ({
               By Suchita Sancheti
             </span>
             <span className="text-[8.5px] sm:text-[9.5px] font-mono tracking-widest text-[#9d7b38] uppercase font-bold mt-0.5">
-              Scale Without The Founder · Fractional COO
+              Scale Beyond Founder Dependency · Fractional COO
             </span>
           </div>
         </a>
@@ -237,7 +237,7 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={(e) => { e.preventDefault(); handleNavClick('partnerships'); }}
               className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between"
             >
-              <span>Services (Scale Without The Founder & Fractional COO)</span>
+              <span>Services (Scale Beyond Founder Dependency & Fractional COO)</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>
             <a

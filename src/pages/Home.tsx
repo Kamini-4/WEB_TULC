@@ -104,7 +104,7 @@ export const Home: React.FC = () => {
             </div>
             <div className="bg-black text-white p-3.5 sm:p-4 border border-[#b8860b]/30 hover:border-[#b8860b] transition-colors rounded-xs shadow-sm flex flex-col justify-between">
               <div className="text-xl sm:text-2xl font-bold text-[#b8860b] tracking-tight">Enterprise Scale</div>
-              <div className="text-xs text-zinc-300 mt-1 tracking-tight font-medium"><strong className="font-bold text-white">Scale Without The Founder</strong> for $10M–$100M+ Leaders</div>
+              <div className="text-xs text-zinc-300 mt-1 tracking-tight font-medium"><strong className="font-bold text-white">Scale Beyond Founder Dependency</strong> for $10M–$100M+ Leaders</div>
             </div>
           </div>
 
@@ -346,7 +346,7 @@ export const Home: React.FC = () => {
               />
               <div className="mt-2.5 text-center">
                 <span className="text-[11px] font-bold text-black block uppercase tracking-tight">
-                  Briefing: Scale Without The Founder · Fractional COO Architecture
+                  Briefing: Scale Beyond Founder Dependency · Fractional COO Architecture
                 </span>
                 <span className="text-[10px] text-[#78716c] block mt-0.5 tracking-tight">
                   Direct personal briefing with Suchita Sancheti

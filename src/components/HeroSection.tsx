@@ -23,7 +23,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
         {/* Main Headline & Authority Philosophy - Centered immediately at top */}
         <div className="max-w-4xl mx-auto text-center mb-4 sm:mb-6">
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#17181c] leading-[1.18] [text-wrap:balance] text-center">
-            Eliminate Founder Dependency · Scale Without The Founder
+            Eliminate Founder Bottlenecks · Scale Beyond Founder Dependency
             <span className="block text-xl sm:text-2xl lg:text-3xl text-[#9d7b38] font-serif font-semibold mt-2 sm:mt-2.5 text-center">
               Fractional COO & Executive Operating Systems in 90 Days
             </span>
@@ -63,7 +63,7 @@ export const HeroSection: React.FC<HeroProps> = ({ onLaunchDiagnostic, onExplore
             onClick={onExplorePartnerships}
             className="px-5 sm:px-6 py-3.5 text-xs font-bold uppercase text-[#17181c] hover:text-black bg-white hover:bg-[#faf7f0] border border-[#d8cebe] hover:border-[#c5a059] transition-all rounded-sm shadow-xs text-center min-h-[48px] flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto"
           >
-            <span>Services (Scale Without The Founder)</span>
+            <span>Services (Scale Beyond Founder Dependency)</span>
           </button>
 
           <div className="flex items-center justify-center gap-2 text-xs text-[#6e727c] pt-1 sm:pt-0">

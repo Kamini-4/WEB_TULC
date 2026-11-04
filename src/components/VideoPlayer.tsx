@@ -118,7 +118,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
               {title}
             </h4>
             <p className="text-stone-400 text-[11px] font-mono">
-              The Unbounded Leadership Co. · Scale Without The Founder · Fractional COO
+              The Unbounded Leadership Co. · Scale Beyond Founder Dependency · Fractional COO
             </p>
           </div>
         </div>

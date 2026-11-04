@@ -400,7 +400,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                         <tr className="border-b border-[#252833] text-[10px] font-mono text-[#8f929c] uppercase">
                           <th className="py-2 pr-4 font-bold">Performance Dimension</th>
                           <th className="py-2 pr-4 font-bold text-rose-400">Broken / Default State</th>
-                          <th className="py-2 font-bold text-emerald-400">Scale Without Founder</th>
+                          <th className="py-2 font-bold text-emerald-400">Systems-Driven Scale</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-[#1e2029]">
@@ -438,7 +438,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               </div>
             )}
 
-            {/* FROM SUCHITA'S BOOK: SCALE WITHOUT THE FOUNDER */}
+            {/* FROM SUCHITA'S BOOK: SYSTEMS-DRIVEN SCALE */}
             {selectedPost.bookExcerpt && (
               <div className="p-5 rounded-none bg-[#faf6ee] border border-[#d8cebe] border-l-4 border-[#9d7b38] shadow-xs space-y-3">
                 <div className="flex flex-wrap items-center justify-between gap-2">
@@ -447,7 +447,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                     <span>From Suchita's Book: {selectedPost.bookExcerpt.chapter}</span>
                   </div>
                   <span className="text-[10px] font-mono text-[#8c6708] italic font-semibold">
-                    Scale Without The Founder (The Book)
+                    Systems-Driven Scale (The Book)
                   </span>
                 </div>
                 <blockquote className="text-xs sm:text-sm font-serif italic text-[#17181c] leading-relaxed pl-3 border-l-2 border-[#d4af37]/60">

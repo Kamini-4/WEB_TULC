@@ -60,7 +60,7 @@ export const MethodologyPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f7f4ee] text-[#1c1917] font-serif">
       <SEOHead
-        title="Systemic Methodology: Scale Without The Founder & Fractional COO Architecture"
+        title="Systemic Methodology: Scale Beyond Founder Dependency & Fractional COO Architecture"
         description="The 4-phase alignment protocol, cybernetic feedback loops, invariant decision substrates, and cognitive load theory applied to enterprise scale."
         canonicalPath="/methodology"
         keywords="leadership methodology, 4-phase alignment protocol, invariant decision substrates, cybernetic management, step-away test, suchita sancheti"

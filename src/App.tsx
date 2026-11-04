@@ -317,10 +317,10 @@ export const App: React.FC = () => {
         {currentView === 'home' && (
           <>
             <SEOHead
-              title="The Unbounded Leadership Co. | Scale Without The Founder · Fractional COO"
-              description="Eliminate founder dependency, scale without the founder, and install Fractional COO executive operating systems in 90 days."
+              title="The Unbounded Leadership Co. | Scale Beyond Founder Dependency · Fractional COO"
+              description="Eliminate founder dependency, scale beyond founder bottlenecks, and install Fractional COO executive operating systems in 90 days."
               canonicalPath="/"
-              keywords="founder dependency, scale without the founder, fractional COO, eliminate founder bottlenecks, executive operating systems, leadership architecture"
+              keywords="founder dependency, scale beyond founder dependency, fractional COO, eliminate founder bottlenecks, executive operating systems, leadership architecture"
             />
 
             {/* Front Page Hero Section */}
@@ -382,7 +382,7 @@ export const App: React.FC = () => {
               <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
                 <div>
                   <span className="text-[9.5px] font-mono uppercase text-[#9d7b38] font-bold tracking-widest block">
-                    Scale Without The Founder · Fractional COO
+                    Scale Beyond Founder Dependency · Fractional COO
                   </span>
                   <h3 className="text-sm sm:text-base font-bold font-serif text-[#17181c]">
                     The 5 Core Domains of Decoupled Leadership

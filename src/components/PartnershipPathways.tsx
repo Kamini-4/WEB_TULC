@@ -156,7 +156,7 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
             <ShieldCheck className="w-4 h-4 text-[#9d7b38]" />
             <span className="text-black font-black">Three Executive Decoupling Tracks</span>
             <span aria-hidden="true" className="text-[#c9bea9]">·</span>
-            <span>Scale Without The Founder</span>
+            <span>Systems-Driven Scale</span>
           </div>
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-black leading-tight">
             How Leaders Partner With Us.

@@ -93,13 +93,13 @@ export const VideoBriefingSection: React.FC<VideoBriefingProps> = ({ onOpenConsu
               <VideoPlayer 
                 videoUrl="https://drive.google.com/file/d/1435SE1X1AMP7jWn7Dwcqx9JD1kHtov7w/view?usp=drive_link" 
                 aspectRatio="portrait"
-                title="How We Eliminate Founder Dependency and Scale Without The Founder"
+                title="How We Eliminate Founder Dependency and Scale Beyond Operational Bottlenecks"
                 className="rounded-sm"
               />
 
               <div className="text-center px-2 py-1">
                 <div className="text-xs font-bold text-[#17181c] uppercase tracking-normal">
-                  Briefing: Scale Without The Founder
+                  Briefing: Scale Beyond Founder Dependency
                 </div>
                 <div className="text-[11px] text-[#6e727c] mt-0.5">
                   Direct briefing with Suchita Sancheti (Fractional COO & Enterprise Architect)

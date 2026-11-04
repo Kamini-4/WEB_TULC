@@ -116,7 +116,7 @@ const COMPARISON_DATA: ComparisonDimension[] = [
     },
     theTulcWay: {
       title: '100% Codified IP Handover to Your Board',
-      description: 'You receive the complete Executive Leadership Operating System (LOS™)—fully documented, customized, and transferred to your organization to scale without the founder.',
+      description: 'You receive the complete Executive Leadership Operating System (LOS™)—fully documented, customized, and transferred to your organization to scale beyond founder dependency.',
       result: 'An enduring asset that compounds for decades.'
     }
   },
@@ -332,7 +332,7 @@ export const OutcomeComparisonTable: React.FC<OutcomeComparisonProps> = ({
                     The Unbounded Leadership Co.
                   </span>
                   <span className="font-mono text-[10px] text-[#d4af37] uppercase tracking-widest font-semibold block">
-                    Scale Without The Founder · Fractional COO
+                    Scale Beyond Founder Dependency · Fractional COO
                   </span>
                 </div>
               </div>

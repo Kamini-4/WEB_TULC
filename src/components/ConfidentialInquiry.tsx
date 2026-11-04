@@ -364,7 +364,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                       className="w-full bg-[#faf6ee] border border-[#ebdcc0] rounded px-3 py-2 text-base sm:text-xs text-[#9d7b38] font-bold focus:outline-none focus:border-[#9d7b38] shadow-xs min-h-[40px]"
                     >
                       <option value="retainer">Category 03 · Fractional COO & Strategic Retainer (Annual Mandate)</option>
-                      <option value="embedding">Category 02 · Operating Architecture Embedding (90-Day Scale Without Founder)</option>
+                      <option value="embedding">Category 02 · Operating Architecture Embedding (90-Day Systems-Driven Scale)</option>
                       <option value="diagnostic">Category 01 · Founder Dependency Forensic Diagnostic (14-Day Rapid Audit)</option>
                       <option value="council-chambers">The Executive Advisory Board (Annual CEO Sparring Seat)</option>
                     </select>
