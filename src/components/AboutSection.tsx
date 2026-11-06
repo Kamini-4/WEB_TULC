@@ -21,6 +21,8 @@ import {
   ChevronUp
 } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
+import { FAQSubset } from './FAQSubset';
+import { getFaqSubset } from '../data/faqData';
 
 interface AboutSectionProps {
   onOpenConsultation: () => void;
@@ -440,6 +442,22 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
 
             </div>
           )}
+        </div>
+
+        {/* The Firm & Leadership Architecture FAQ Subset */}
+        <div className="mt-8">
+          <FAQSubset
+            title="The Firm & Leadership Architecture FAQ"
+            subtitle="Core institutional definitions, global positioning, and how leadership architecture differs from coaching or training."
+            items={getFaqSubset(['faq-1', 'faq-2', 'faq-3', 'faq-4', 'faq-5'])}
+            onNavigate={(target) => {
+              try {
+                window.history.pushState(null, '', `/${target}`);
+                window.dispatchEvent(new PopStateEvent('popstate'));
+              } catch {}
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
         </div>
 
       </div>

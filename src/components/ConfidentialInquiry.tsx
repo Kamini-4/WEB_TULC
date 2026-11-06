@@ -3,6 +3,8 @@ import { ConsultationInquiry, PartnershipModelId } from '../types';
 import { Lock, ShieldCheck, CheckCircle2, Send, Clock, FileText, Loader2, Phone, Mail, ArrowLeft, Sparkles, Calendar, ExternalLink } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
 import { CalendlyModal } from './CalendlyModal';
+import { FAQSubset } from './FAQSubset';
+import { getFaqSubset } from '../data/faqData';
 
 interface InquiryProps {
   initialPartnership?: PartnershipModelId | 'council-chambers';
@@ -472,6 +474,23 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
             )}
           </div>
         </div>
+
+        {/* Engagement & Scoping FAQ Subset */}
+        <div className="mt-8">
+          <FAQSubset
+            title="Engagement, Scoping & Protocol FAQ"
+            subtitle="Essential information on transformation protocols, family office advisory, and measuring leadership architecture results."
+            items={getFaqSubset(['faq-21', 'faq-23', 'faq-24', 'faq-25', 'faq-26', 'faq-27'])}
+            onNavigate={(target) => {
+              try {
+                window.history.pushState(null, '', `/${target}`);
+                window.dispatchEvent(new PopStateEvent('popstate'));
+              } catch {}
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        </div>
+
       </div>
 
 

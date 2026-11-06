@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Zap, ArrowRight, Lock, CreditCard, Calendar } from 'lucide-react';
+import { Menu, X, Zap, ArrowRight, Lock, CreditCard, Calendar, HelpCircle } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
 
 interface HeaderProps {
@@ -47,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({
               The Unbounded Leadership Co.
             </span>
             <span className="text-[9.5px] sm:text-[10.5px] font-mono tracking-wider text-[#685327] uppercase font-medium mt-0.5">
-              By Suchita Sancheti
+              Global Leadership Consultancy · Founded by Suchita Sancheti
             </span>
             <span className="text-[8.5px] sm:text-[9.5px] font-mono tracking-widest text-[#9d7b38] uppercase font-bold mt-0.5">
               Scale Beyond Founder Dependency · Fractional COO
@@ -147,6 +147,18 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <Calendar className="w-3.5 h-3.5 text-[#9d7b38]" />
             <span>Book Calendly</span>
+          </a>
+          <a
+            href="/faq"
+            onClick={(e) => { e.preventDefault(); handleNavClick('faq'); }}
+            className={`transition-colors whitespace-nowrap py-1 border-b-2 flex items-center gap-1 ${
+              currentView === 'faq'
+                ? 'text-[#17181c] border-[#9d7b38] font-bold'
+                : 'text-[#484b54] hover:text-[#17181c] border-transparent hover:border-[#9d7b38]'
+            }`}
+          >
+            <HelpCircle className="w-3.5 h-3.5 text-[#9d7b38]" />
+            <span>FAQ</span>
           </a>
           <a
             href="/contact"
@@ -301,6 +313,17 @@ export const Header: React.FC<HeaderProps> = ({
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-[#9d7b38]" />
                 <span>Book 1-on-1 via Calendly</span>
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
+            </a>
+            <a
+              href="/faq"
+              onClick={(e) => { e.preventDefault(); handleNavClick('faq'); }}
+              className="py-2.5 px-3 rounded hover:bg-[#ede5d6] flex items-center justify-between font-bold text-[#17181c]"
+            >
+              <div className="flex items-center gap-2">
+                <HelpCircle className="w-4 h-4 text-[#9d7b38]" />
+                <span>FAQ (Corporate Architecture Guide)</span>
               </div>
               <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38]" />
             </a>

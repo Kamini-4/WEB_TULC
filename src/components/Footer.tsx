@@ -36,6 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     { name: 'Confidential Advisory Desk', path: '/contact', target: 'contact', tag: 'In-Camera' },
     { name: 'Case Proof & Performance Logs', path: '/case-studies', target: 'case-studies', tag: 'Evidence' },
     { name: 'Executive War Room Simulator', path: '/war-room', target: 'war-room', tag: 'Simulator' },
+    { name: 'Corporate FAQ (27 Answers)', path: '/faq', target: 'faq', tag: 'Architecture' },
     { name: 'Privacy Policy & Covenant', path: '/privacy', target: 'privacy', tag: 'Legal' }
   ];
   return (
@@ -59,10 +60,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 The Unbounded Leadership Co.
               </div>
               <p className="text-[#9d7b38] font-mono text-[11px] font-bold tracking-wider uppercase">
-                Founded by Suchita Sancheti · Sovereign Operating Architecture
+                Founded by Suchita Sancheti · Global Leadership Consultancy
               </p>
               <p className="text-[#6b6e76] text-xs mt-0.5 max-w-md font-normal leading-relaxed italic">
-                Engineering executive governance cadences and sovereign systems architecture for enterprise founders and institutional boards worldwide.
+                A global leadership consultancy helping founders, CEOs and leadership teams address founder dependency, decision bottlenecks and organisational misalignment through leadership architecture.
               </p>
             </div>
           </div>
@@ -119,6 +120,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               className="hover:text-[#141416] transition-colors py-1"
             >
               Case Studies
+            </a>
+            <a
+              href="/faq"
+              onClick={(e) => { e.preventDefault(); onNavigate('faq'); }}
+              className="hover:text-[#9d7b38] transition-colors py-1 font-bold text-[#141416]"
+            >
+              FAQ
             </a>
             <a
               href="/portal"
@@ -264,12 +272,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 Direct Page Links Directory
               </span>
               <p className="text-[12px] text-[#6b6e76] font-mono mt-0.5">
-                Dedicated clean URLs for all 15 institutional pages with 1-click clipboard link copy.
+                Dedicated clean URLs for all 16 institutional pages with 1-click clipboard link copy.
               </p>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-[10px] font-mono text-[#8a8070] bg-[#ffffff] border border-[#d8cebe] px-2 py-0.5 rounded-xs">
-                15 Dedicated URLs
+                16 Dedicated URLs
               </span>
             </div>
           </div>

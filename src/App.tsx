@@ -27,6 +27,7 @@ const InstitutionalCaseStudies = lazy(() => import('./components/InstitutionalCa
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
 const InstitutionalPortal = lazy(() => import('./components/InstitutionalPortal').then(m => ({ default: m.InstitutionalPortal })));
 const CalendlyBookingView = lazy(() => import('./components/CalendlyBookingView').then(m => ({ default: m.CalendlyBookingView })));
+const FAQPage = lazy(() => import('./components/FAQPage').then(m => ({ default: m.FAQPage })));
 
 export type AppView = 
   | 'home' 
@@ -43,7 +44,8 @@ export type AppView =
   | 'portal'
   | 'briefing'
   | 'partnerships'
-  | 'booking';
+  | 'booking'
+  | 'faq';
 
 export const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<AppView>('home');
@@ -99,6 +101,8 @@ export const App: React.FC = () => {
       return 'war-room';
     } else if (route === 'proof' || route === 'case-studies') {
       return 'case-studies';
+    } else if (route === 'faq' || route === 'faqs' || route === 'questions') {
+      return 'faq';
     }
     return 'home';
   };
@@ -109,8 +113,8 @@ export const App: React.FC = () => {
       const view = getViewFromUrl();
       setCurrentView(view);
 
-      // Sanitize any legacy hashtag in the link to clean URL path
-      if (window.location.hash) {
+      // Sanitize any legacy hashtag in the link to clean URL path (preserving specific #faq-* deep-link anchors)
+      if (window.location.hash && !window.location.hash.startsWith('#faq-')) {
         const hash = window.location.hash.replace('#', '').toLowerCase();
         let cleanPath = '/';
         if (hash === 'assessment' || hash === 'test' || hash === 'simple-test' || hash === 'audit' || hash === 'founder-assessment') cleanPath = '/assessment';
@@ -127,6 +131,7 @@ export const App: React.FC = () => {
         else if (hash === 'portal' || hash === 'clearance' || hash === 'client-portal' || hash === 'gate') cleanPath = '/portal';
         else if (hash === 'war-room') cleanPath = '/war-room';
         else if (hash === 'proof' || hash === 'case-studies') cleanPath = '/case-studies';
+        else if (hash === 'faq' || hash === 'faqs' || hash === 'questions') cleanPath = '/faq';
 
         try {
           window.history.replaceState(null, '', cleanPath);
@@ -198,6 +203,9 @@ export const App: React.FC = () => {
     } else if (target === 'proof' || target === 'case-studies') {
       targetView = 'case-studies';
       targetPath = '/case-studies';
+    } else if (target === 'faq' || target === 'faqs' || target === 'questions') {
+      targetView = 'faq';
+      targetPath = '/faq';
     } else {
       // In-page section
       targetView = 'home';
@@ -678,6 +686,24 @@ export const App: React.FC = () => {
               <CalendlyBookingView
                 onBackToHome={() => navigateTo('home')}
                 onNavigateToContact={() => navigateTo('contact')}
+              />
+            </Suspense>
+          </div>
+        )}
+
+        {/* 16. DEDICATED CORPORATE FAQ & ARCHITECTURE GUIDE VIEW */}
+        {currentView === 'faq' && (
+          <div>
+            <SEOHead
+              title="Corporate FAQ & Leadership Architecture Guide | The Unbounded Leadership Co."
+              description="Official 27-question guide on founder dependency, leadership architecture, decision rights, and organizational alignment by Suchita Sancheti."
+              canonicalPath="/faq"
+            />
+            {renderSubpageBreadcrumb('Corporate FAQ & Architecture Guide', '27 Verified Institutional Answers', '/faq')}
+            <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading Corporate FAQ...</div>}>
+              <FAQPage
+                onNavigate={navigateTo}
+                onOpenConsultation={() => navigateTo('contact')}
               />
             </Suspense>
           </div>

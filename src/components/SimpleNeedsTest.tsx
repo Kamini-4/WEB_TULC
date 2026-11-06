@@ -12,6 +12,8 @@ import {
 } from 'lucide-react';
 import { PaymentModal, PaymentItem } from './payment/PaymentModal';
 import { CalendlyModal } from './CalendlyModal';
+import { FAQSubset } from './FAQSubset';
+import { getFaqSubset } from '../data/faqData';
 
 interface DomainQuestion {
   id: string;
@@ -518,6 +520,22 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
 
           </div>
         )}
+
+        {/* Founder Dependency & Delegation FAQ Subset */}
+        <div className="mt-8">
+          <FAQSubset
+            title="Founder Dependency & Delegation FAQ"
+            subtitle="Essential questions on identifying bottlenecks, delegating outcomes, and stepping back without losing control."
+            items={getFaqSubset(['faq-6', 'faq-7', 'faq-8', 'faq-9', 'faq-10', 'faq-11'])}
+            onNavigate={(target) => {
+              try {
+                window.history.pushState(null, '', `/${target}`);
+                window.dispatchEvent(new PopStateEvent('popstate'));
+              } catch {}
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        </div>
 
       </div>
 
