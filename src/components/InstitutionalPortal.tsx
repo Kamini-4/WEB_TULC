@@ -276,7 +276,14 @@ export const InstitutionalPortal: React.FC<InstitutionalPortalProps> = ({
                 ) : (
                   <a 
                     href="/contact" 
-                    className="text-[#d4af37] hover:text-white transition-colors underline font-medium"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      try {
+                        window.history.pushState(null, '', '/contact');
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                      } catch {}
+                    }}
+                    className="text-[#d4af37] hover:text-white transition-colors underline font-medium cursor-pointer"
                   >
                     Request Clearance Key →
                   </a>
@@ -332,19 +339,29 @@ export const InstitutionalPortal: React.FC<InstitutionalPortalProps> = ({
                 )}
               </div>
 
-              {/* Redirection indicator */}
-              <div className="pt-2">
-                <p className="text-xs text-[#a1a1aa] mb-3 font-mono">
-                  Redirecting in <span className="text-[#d4af37] font-bold text-sm">{redirectCountdown}s</span>...
-                </p>
-                
+              {/* Launch Action Buttons */}
+              <div className="pt-2 space-y-2">
                 <button
                   id="immediate-redirect-btn"
                   onClick={executeImmediateRedirect}
                   className="w-full py-3.5 bg-[#9d7b38] text-[#0c0d0f] font-mono font-bold text-xs tracking-widest uppercase hover:bg-[#d4af37] transition-colors cursor-pointer flex items-center justify-center gap-2 rounded-xs shadow-md shadow-[#9d7b38]/30"
                 >
-                  <span>Launch Stress Test Immediately</span>
+                  <span>Launch Cloud Terminal ({TARGET_APP_URL.replace('https://', '').replace('/', '')})</span>
                   <ExternalLink className="w-4 h-4" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    try {
+                      window.history.pushState(null, '', '/diagnostic');
+                      window.dispatchEvent(new PopStateEvent('popstate'));
+                    } catch {}
+                  }}
+                  className="w-full py-3 bg-[#17181c] text-[#f8f6f0] border border-[#d4af37]/50 font-mono font-bold text-xs tracking-widest uppercase hover:bg-[#25272e] transition-colors cursor-pointer flex items-center justify-center gap-2 rounded-xs"
+                >
+                  <ShieldCheck className="w-4 h-4 text-[#d4af37]" />
+                  <span>Launch In-App Diagnostic Suite (/diagnostic)</span>
                 </button>
               </div>
 

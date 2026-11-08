@@ -14,10 +14,14 @@ if (!fs.existsSync(indexHtmlPath)) {
   process.exit(1);
 }
 
-// 1. Ensure 404.html exists for SPA fallback routing (GitHub Pages, etc.)
+// 1. Ensure 404.html exists for SPA fallback routing (GitHub Pages, Cloud Run, static hosts)
 const notFoundPath = path.join(DIST_DIR, '404.html');
 fs.copyFileSync(indexHtmlPath, notFoundPath);
 console.log('✔ dist/404.html created for SPA fallback routing');
+
+// Also update public/404.html
+const public404Path = path.resolve('public/404.html');
+fs.copyFileSync(indexHtmlPath, public404Path);
 
 // 2. Ensure .nojekyll exists so GitHub Pages serves all assets verbatim
 const nojekyllPath = path.join(DIST_DIR, '.nojekyll');
@@ -33,21 +37,68 @@ if (!fs.existsSync(cnamePath)) {
 }
 console.log('✔ dist/CNAME verified with domain theunboundedleadership.com');
 
-// 4. Pre-generate directory index files for all primary routes so static servers serve HTTP 200 directly
+// 4. Pre-generate directory index files for ALL primary routes & aliases so static hosts serve HTTP 200 directly
 const staticRoutes = [
-  'library',
-  'products',
-  'shop',
-  'toolkits',
+  // Primary 16 Dedicated URLs
   'assessment',
-  'cognitive-tax',
+  'diagnostic',
   'services',
+  'partnerships',
+  'about',
+  'shop',
+  'library',
+  'briefing',
+  'domains',
+  'portal',
+  'booking',
+  'contact',
+  'case-studies',
+  'war-room',
+  'faq',
+  'privacy',
+  'comparison',
+
+  // Common aliases & sub-routes
+  'faqs',
+  'questions',
+  'test',
+  'audit',
+  'simple-test',
+  'founder-assessment',
+  '5-domains',
+  'framework',
+  'deep-assessment',
+  'forensic-diagnostic',
+  'products',
+  'toolkits',
+  'vault',
+  'store',
+  'documents',
+  'publications',
+  'blueprints',
+  'dispatches',
+  'blogs',
+  'blog',
+  'articles',
+  'article',
+  'dispatch',
+  'video',
+  'founder-briefing',
+  'retainer',
+  'inquiry',
+  'calendly',
+  'calendar',
+  'schedule',
+  'clearance',
+  'client-portal',
+  'proof',
+  'outcomes',
+  'terms',
+  'privacy-policy',
+  'cognitive-tax',
   'mandates',
   'methodology',
-  'about',
-  'intake',
-  'article',
-  'dispatch'
+  'intake'
 ];
 
 for (const route of staticRoutes) {
@@ -58,19 +109,17 @@ for (const route of staticRoutes) {
   const routeIndexPath = path.join(routeDir, 'index.html');
   fs.copyFileSync(indexHtmlPath, routeIndexPath);
 }
-console.log(`✔ Pre-rendered directory index.html entries for ${staticRoutes.length} primary routes (HTTP 200 native serving)`);
+console.log(`✔ Pre-rendered directory index.html entries for ${staticRoutes.length} primary routes and aliases (HTTP 200 native serving across all static web hosts)`);
 
 // 5. Ensure _redirects is present for Netlify & Cloudflare Pages
 const redirectsPath = path.join(DIST_DIR, '_redirects');
-if (!fs.existsSync(redirectsPath)) {
-  fs.writeFileSync(redirectsPath, '/*    /index.html   200\n');
-}
+fs.writeFileSync(redirectsPath, '/*    /index.html   200\n');
 console.log('✔ dist/_redirects verified for Netlify/Cloudflare Pages');
 
-// 6. Ensure .htaccess is present for Apache & Hostinger
+// 6. Ensure .htaccess is present for Apache, LiteSpeed & Hostinger
 const htaccessSource = path.resolve('public/.htaccess');
 const htaccessDest = path.join(DIST_DIR, '.htaccess');
-if (fs.existsSync(htaccessSource) && !fs.existsSync(htaccessDest)) {
+if (fs.existsSync(htaccessSource)) {
   fs.copyFileSync(htaccessSource, htaccessDest);
   console.log('✔ dist/.htaccess verified for Apache/Hostinger static hosting');
 }

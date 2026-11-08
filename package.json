@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 3000",
-    "build": "tsc && vite build",
-    "preview": "vite preview --host 0.0.0.0 --port 3000",
+    "build": "tsc && vite build && node scripts/prepare-static.js",
+    "start": "node server.js",
+    "preview": "node server.js",
     "lint": "tsc --noEmit"
   },
   "dependencies": {

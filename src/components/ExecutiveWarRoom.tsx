@@ -303,7 +303,14 @@ export const ExecutiveWarRoom: React.FC = () => {
                   </span>
                   <a
                     href="/contact"
-                    className="text-xs text-[#9d7b38] hover:text-[#7d5f24] font-bold underline underline-offset-4"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      try {
+                        window.history.pushState(null, '', '/contact');
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                      } catch {}
+                    }}
+                    className="text-xs text-[#9d7b38] hover:text-[#7d5f24] font-bold underline underline-offset-4 cursor-pointer"
                   >
                     Engage Retained Advisory →
                   </a>

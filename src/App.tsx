@@ -103,6 +103,8 @@ export const App: React.FC = () => {
       return 'case-studies';
     } else if (route === 'faq' || route === 'faqs' || route === 'questions') {
       return 'faq';
+    } else if (route === 'comparison' || route === 'outcomes' || route === 'versus' || route === 'table') {
+      return 'home';
     }
     return 'home';
   };
@@ -112,6 +114,17 @@ export const App: React.FC = () => {
     const handleUrlChange = () => {
       const view = getViewFromUrl();
       setCurrentView(view);
+
+      const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+
+      // If accessing comparison page directly, scroll to the comparison ledger
+      if (rawPath === 'comparison' || rawPath === 'outcomes') {
+        setTimeout(() => {
+          const el = document.getElementById('comparison');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 120);
+        return;
+      }
 
       // Sanitize any legacy hashtag in the link to clean URL path (preserving specific #faq-* deep-link anchors)
       if (window.location.hash && !window.location.hash.startsWith('#faq-')) {
@@ -132,12 +145,22 @@ export const App: React.FC = () => {
         else if (hash === 'war-room') cleanPath = '/war-room';
         else if (hash === 'proof' || hash === 'case-studies') cleanPath = '/case-studies';
         else if (hash === 'faq' || hash === 'faqs' || hash === 'questions') cleanPath = '/faq';
+        else if (hash === 'comparison' || hash === 'outcomes') cleanPath = '/comparison';
 
         try {
           window.history.replaceState(null, '', cleanPath);
         } catch {}
       }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (window.location.hash && window.location.hash.startsWith('#faq-')) {
+        const targetId = window.location.hash.replace('#', '');
+        setTimeout(() => {
+          const el = document.getElementById(targetId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 120);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     };
 
     handleUrlChange();
