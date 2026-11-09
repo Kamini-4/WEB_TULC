@@ -1,5 +1,5 @@
-import React from 'react';
-import { ShieldCheck, Lock, FileText, ArrowLeft, Mail, Phone, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { ShieldCheck, Lock, FileText, ArrowLeft, Mail, Phone, ExternalLink, Trash2, CheckCircle2, AlertCircle } from 'lucide-react';
 
 interface PrivacyPolicyProps {
   onBackToHome: () => void;
@@ -7,6 +7,20 @@ interface PrivacyPolicyProps {
 }
 
 export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBackToHome, onNavigate }) => {
+  const [purgeStatus, setPurgeStatus] = useState<'idle' | 'cleared'>('idle');
+
+  const handlePurgeLocalData = () => {
+    try {
+      localStorage.clear();
+      sessionStorage.clear();
+      setPurgeStatus('cleared');
+      setTimeout(() => {
+        setPurgeStatus('idle');
+      }, 6000);
+    } catch {
+      setPurgeStatus('cleared');
+    }
+  };
   return (
     <div className="py-10 sm:py-14 lg:py-16 bg-[#f8f6f0] border-b border-[#e5decfe0] min-h-[80vh]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -139,8 +153,8 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBackToHome, onNa
                 </div>
                 <div>
                   <span className="font-bold text-[#17181c]">Direct Confidential Email:</span>{' '}
-                  <a href="mailto:suchita135sancheti@gmail.com" className="text-[#9d7b38] font-bold hover:underline">
-                    suchita135sancheti@gmail.com
+                  <a href="mailto:privacy@theunboundedleadership.com" className="text-[#9d7b38] font-bold hover:underline">
+                    privacy@theunboundedleadership.com
                   </a>
                 </div>
                 <div>
@@ -160,6 +174,48 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBackToHome, onNa
                   </a>
                 </div>
               </div>
+            </div>
+          </section>
+
+          {/* Section 6: Interactive Data Erasure & Right to be Forgotten Flow */}
+          <section className="space-y-4 pt-2 border-t border-[#f0e9dc]">
+            <div className="flex items-center gap-2">
+              <Trash2 className="w-5 h-5 text-[#9d7b38]" />
+              <h2 className="text-lg sm:text-xl font-bold text-[#17181c] font-serif">
+                6. Exercise Right to Erasure & Local Storage Purge (GDPR Art. 17 / CCPA)
+              </h2>
+            </div>
+            <p className="text-xs text-[#52555e] leading-relaxed">
+              In accordance with GDPR Article 17 ("Right to be Forgotten") and CCPA California Consumer Privacy standards, you may immediately wipe any locally cached diagnostic data, consultation drafts, and session credentials stored in your browser, or request a complete cryptographic deletion of records from our institutional database.
+            </p>
+
+            {purgeStatus === 'cleared' && (
+              <div className="p-3.5 bg-emerald-50 border border-emerald-300 rounded-md flex items-start gap-2.5 text-xs text-emerald-900 animate-in fade-in duration-200">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <div>
+                  <strong className="block font-bold">Local Device Storage Completely Erased</strong>
+                  <span>All local browser storage, cached consultation parameters, and session tokens have been permanently wiped from this browser.</span>
+                </div>
+              </div>
+            )}
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+              <button
+                type="button"
+                onClick={handlePurgeLocalData}
+                className="px-4 py-2.5 bg-[#9d7b38] hover:bg-[#86682e] text-white text-xs font-bold uppercase rounded-sm transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs active:scale-98"
+              >
+                <Trash2 className="w-3.5 h-3.5" />
+                <span>Purge All Local Device Cache & Session Data</span>
+              </button>
+
+              <a
+                href="mailto:privacy@theunboundedleadership.com?subject=GDPR%20Article%2017%20Data%20Erasure%20Request&body=To%20the%20Data%20Protection%20Officer%20at%20The%20Unbounded%20Leadership%20Co.%3A%0A%0APlease%20permanently%20erase%20and%20anonymize%20all%20intake%20records%2C%20diagnostic%20submissions%2C%20and%20corporate%20contact%20information%20associated%20with%20my%20email%20address%20pursuant%20to%20GDPR%20Article%2017%20and%20CCPA.%0A%0AMy%20Corporate%20Email%3A%20%0AOrganization%3A%20%0A%0AThank%20you."
+                className="px-4 py-2.5 bg-white border border-[#9d7b38] hover:bg-[#faf7f0] text-[#9d7b38] text-xs font-bold uppercase rounded-sm transition-colors flex items-center justify-center gap-2 cursor-pointer text-center"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                <span>Submit Institutional Deletion Request (GDPR / CCPA)</span>
+              </a>
             </div>
           </section>
 

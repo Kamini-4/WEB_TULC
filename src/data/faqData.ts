@@ -234,9 +234,9 @@ export const FAQ_ITEMS: FAQItem[] = [
     question: 'Why am I constantly fixing my team’s work?',
     answer: 'Repeatedly fixing work can indicate unclear standards, capability gaps, insufficient resources or poorly defined responsibilities. Start by checking whether the expected quality and decision criteria were clear before work began. Make standards explicit, use appropriate early checkpoints and ask the owner to propose corrections before automatically taking the responsibility back.',
     relevantLink: {
-      label: 'Launch Executive War Room Simulator',
-      target: 'war-room',
-      path: '/war-room'
+      label: 'Explore Forensic Diagnostic',
+      target: 'diagnostic',
+      path: '/diagnostic'
     }
   },
   {

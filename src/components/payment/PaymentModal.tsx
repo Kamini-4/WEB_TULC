@@ -68,14 +68,29 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
   const [organization, setOrganization] = useState('');
   const [validationError, setValidationError] = useState<string | null>(null);
 
-  // Reset states when item opens or closes
+  // Reset states and zero out payment card memory when modal status changes
   useEffect(() => {
     if (isOpen) {
       setReceipt(null);
       setIsProcessing(false);
       setValidationError(null);
+    } else {
+      setCardNumber('');
+      setCardExpiry('');
+      setCardCvc('');
+      setCardName('');
     }
   }, [isOpen, item]);
+
+  const handleCloseModal = () => {
+    // Immediate memory purge of cardholder data
+    setCardNumber('');
+    setCardExpiry('');
+    setCardCvc('');
+    setCardName('');
+    setValidationError(null);
+    onClose();
+  };
 
   if (!isOpen || !item) return null;
 
@@ -163,6 +178,12 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
         creditVoucherCode: `CREDIT-90DAY-${randNum.toString().slice(0, 4)}`
       };
 
+      // Instantly purge card credentials from memory
+      setCardNumber('');
+      setCardExpiry('');
+      setCardCvc('');
+      setCardName('');
+
       setReceipt(newReceipt);
       setIsProcessing(false);
       if (onSuccess) {
@@ -215,7 +236,7 @@ Confidential & Privileged — The Unbounded Leadership Co.`;
       >
         {/* Close button */}
         <button
-          onClick={onClose}
+          onClick={handleCloseModal}
           className="absolute top-3.5 right-3.5 p-1.5 text-zinc-600 hover:text-black rounded-full hover:bg-stone-100 transition-colors cursor-pointer"
           aria-label="Close Payment Modal"
         >
@@ -299,7 +320,7 @@ Confidential & Privileged — The Unbounded Leadership Co.`;
               </button>
 
               <button
-                onClick={onClose}
+                onClick={handleCloseModal}
                 className="w-full py-2 px-3 border border-stone-300 hover:bg-stone-100 text-black font-mono font-bold text-xs uppercase tracking-wider rounded-xs transition-colors cursor-pointer"
               >
                 Return to Advisory Hub

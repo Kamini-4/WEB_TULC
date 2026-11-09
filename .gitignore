@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production build outputs
+dist/
+dist-ssr/
+build/
+
+# Environment Variables & Secrets (CRITICAL: NEVER commit real keys/secrets)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+!.env.example
+
+# Credentials & Key Stores
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+
+# Editor and OS system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+
+# Debug & Execution Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+
+# Temporary distribution archives
+*.zip
+*.tar.gz
+hostinger-build.zip

@@ -22,7 +22,6 @@ const DomainDescriptions = lazy(() => import('./components/DomainDescriptions').
 const PatentPendingDiagnostic = lazy(() => import('./components/PatentPendingDiagnostic').then(m => ({ default: m.PatentPendingDiagnostic })));
 const ExecutiveShop = lazy(() => import('./components/ExecutiveShop').then(m => ({ default: m.ExecutiveShop })));
 const BlogSection = lazy(() => import('./components/BlogSection').then(m => ({ default: m.BlogSection })));
-const ExecutiveWarRoom = lazy(() => import('./components/ExecutiveWarRoom').then(m => ({ default: m.ExecutiveWarRoom })));
 const InstitutionalCaseStudies = lazy(() => import('./components/InstitutionalCaseStudies').then(m => ({ default: m.InstitutionalCaseStudies })));
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
 const InstitutionalPortal = lazy(() => import('./components/InstitutionalPortal').then(m => ({ default: m.InstitutionalPortal })));
@@ -37,7 +36,6 @@ export type AppView =
   | 'library' 
   | 'about' 
   | 'shop' 
-  | 'war-room' 
   | 'case-studies'
   | 'privacy'
   | 'contact'
@@ -98,7 +96,7 @@ export const App: React.FC = () => {
     } else if (route === 'portal' || route === 'clearance' || route === 'client-portal' || route === 'gate') {
       return 'portal';
     } else if (route === 'war-room') {
-      return 'war-room';
+      return 'diagnostic';
     } else if (route === 'proof' || route === 'case-studies') {
       return 'case-studies';
     } else if (route === 'faq' || route === 'faqs' || route === 'questions') {
@@ -142,7 +140,7 @@ export const App: React.FC = () => {
         else if (hash === 'contact' || hash === 'inquiry') cleanPath = '/contact';
         else if (hash === 'booking' || hash === 'schedule' || hash === 'calendly' || hash === 'calendar') cleanPath = '/booking';
         else if (hash === 'portal' || hash === 'clearance' || hash === 'client-portal' || hash === 'gate') cleanPath = '/portal';
-        else if (hash === 'war-room') cleanPath = '/war-room';
+        else if (hash === 'war-room') cleanPath = '/diagnostic';
         else if (hash === 'proof' || hash === 'case-studies') cleanPath = '/case-studies';
         else if (hash === 'faq' || hash === 'faqs' || hash === 'questions') cleanPath = '/faq';
         else if (hash === 'comparison' || hash === 'outcomes') cleanPath = '/comparison';
@@ -221,8 +219,8 @@ export const App: React.FC = () => {
       targetView = 'portal';
       targetPath = '/portal';
     } else if (target === 'war-room') {
-      targetView = 'war-room';
-      targetPath = '/war-room';
+      targetView = 'diagnostic';
+      targetPath = '/diagnostic';
     } else if (target === 'proof' || target === 'case-studies') {
       targetView = 'case-studies';
       targetPath = '/case-studies';
@@ -579,22 +577,7 @@ export const App: React.FC = () => {
           </div>
         )}
 
-        {/* 8. DEDICATED EXECUTIVE WAR ROOM VIEW */}
-        {currentView === 'war-room' && (
-          <div>
-            <SEOHead
-              title="Executive War Room | TULC"
-              description="Simulate real-time governance friction scenarios and quantify annual EBITDA recovery with our interactive simulator."
-              canonicalPath="/war-room"
-            />
-            {renderSubpageBreadcrumb('Executive War Room Simulator', 'Strategic Scenario Simulator', '/war-room')}
-            <Suspense fallback={<div className="py-20 text-center text-[#9d7b38] font-mono text-xs flex justify-center items-center gap-2"><Loader2 className="w-4 h-4 animate-spin"/> Loading War Room Simulator...</div>}>
-              <ExecutiveWarRoom />
-            </Suspense>
-          </div>
-        )}
-
-        {/* 9. DEDICATED CASE STUDIES VIEW */}
+        {/* 8. DEDICATED CASE STUDIES VIEW */}
         {currentView === 'case-studies' && (
           <div>
             <SEOHead

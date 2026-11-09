@@ -37,8 +37,8 @@ export class ApiGatewayPaymentStrategy implements IPaymentStrategy {
         vaultLink: response.vaultLink || `/portal?vault=${order.itemId}-auth`,
         isDuplicatePrevented: !!response.isDuplicatePrevented
       };
-    } catch (err: any) {
-      console.warn('[ApiGatewayPaymentStrategy] Backend API unreachable (static hosting mode). Processing via client sovereign database fallback:', err);
+    } catch {
+      console.warn('[ApiGatewayPaymentStrategy] Backend API unreachable. Processing via offline fallback.');
       try {
         const { SovereignDB } = await import('../../../lib/database');
         await SovereignDB.saveLead({
@@ -48,8 +48,8 @@ export class ApiGatewayPaymentStrategy implements IPaymentStrategy {
           message: `Order clearance for ${order.itemTitle} (${order.currency} ${order.amount}). Key: ${order.idempotencyKey}`,
           role: 'Customer / Purchaser'
         });
-      } catch (dbErr) {
-        console.warn('Client database write deferred:', dbErr);
+      } catch {
+        console.warn('[PaymentStrategies] Offline database write deferred.');
       }
 
       return {
@@ -84,8 +84,8 @@ export class DirectCorporateInvoiceStrategy implements IPaymentStrategy {
           currency: order.currency
         })
       });
-    } catch (err: any) {
-      console.warn('[DirectCorporateInvoiceStrategy] Backend API unreachable (static hosting mode). Processing via client sovereign database fallback:', err);
+    } catch {
+      console.warn('[DirectCorporateInvoiceStrategy] Backend API unreachable. Processing via offline fallback.');
       try {
         const { SovereignDB } = await import('../../../lib/database');
         await SovereignDB.saveLead({
@@ -95,8 +95,8 @@ export class DirectCorporateInvoiceStrategy implements IPaymentStrategy {
           message: `Corporate Procurement Order: ${order.itemTitle} (${order.currency} ${order.amount})`,
           role: 'Procurement Requisition'
         });
-      } catch (dbErr) {
-        console.warn('Client database write deferred:', dbErr);
+      } catch {
+        console.warn('[PaymentStrategies] Invoice database record deferred.');
       }
     }
 
@@ -139,8 +139,8 @@ export class RazorpayPaymentStrategy implements IPaymentStrategy {
         vaultLink: response.vaultLink || `/portal?vault=${order.itemId}-auth`,
         isDuplicatePrevented: !!response.isDuplicatePrevented
       };
-    } catch (err: any) {
-      console.warn('[RazorpayPaymentStrategy] Direct server call fallback to verified sovereign ledger:', err);
+    } catch {
+      console.warn('[RazorpayPaymentStrategy] Direct server call fallback to offline ledger.');
       try {
         const { SovereignDB } = await import('../../../lib/database');
         await SovereignDB.saveLead({
@@ -150,8 +150,8 @@ export class RazorpayPaymentStrategy implements IPaymentStrategy {
           message: `Razorpay UPI/Card Order for ${order.itemTitle} (${order.currency} ${order.amount}). Key: ${order.idempotencyKey}`,
           role: 'Customer / Razorpay Checkout'
         });
-      } catch (dbErr) {
-        console.warn('Razorpay database record deferred:', dbErr);
+      } catch {
+        console.warn('[PaymentStrategies] Razorpay database record deferred.');
       }
 
       return {

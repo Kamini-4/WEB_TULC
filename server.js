@@ -1,5 +1,6 @@
 // Production & Preview Server for The Unbounded Leadership Co.
 // Built with pure Node.js (zero external dependencies) to guarantee 100% reliable startup
+// Secure secret handling: All API keys and clearance tokens are server-side only
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -13,6 +14,12 @@ const PORT = parseInt(process.env.PORT || '3000', 10);
 const HOST = '0.0.0.0';
 const DIST_DIR = path.resolve(__dirname, 'dist');
 const ROOT_DIR = __dirname;
+
+// Server-side authorized passkeys loaded strictly from environment variable
+const AUTHORIZED_PASSKEYS = (process.env.PORTAL_CLEARANCE_KEYS || '')
+  .split(',')
+  .map(k => k.trim().toUpperCase())
+  .filter(Boolean);
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -61,7 +68,7 @@ function serveStaticFile(req, res, filePath) {
       headers['Cache-Control'] = 'public, max-age=86400';
     }
 
-    // CORS & iframe embedding headers
+    // CORS & security headers (never expose credentials)
     headers['Access-Control-Allow-Origin'] = '*';
     headers['X-Content-Type-Options'] = 'nosniff';
 
@@ -113,14 +120,18 @@ const server = http.createServer((req, res) => {
   const urlObj = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
   const pathname = decodeURIComponent(urlObj.pathname);
 
-  // Health check endpoint
+  // Health check endpoint (safe, no secrets exposed)
   if (pathname === '/health' || pathname === '/api/health') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ status: 'ok', time: new Date().toISOString() }));
+    res.end(JSON.stringify({ 
+      status: 'ok', 
+      server: 'TULC Node Enterprise Substrate',
+      aiConfigured: Boolean(process.env.GEMINI_API_KEY)
+    }));
     return;
   }
 
-  // API Passkey Verification endpoint
+  // Server-Side Passkey Verification endpoint (Secrets remain on server)
   if (pathname === '/api/portal/verify-passkey' && method === 'POST') {
     let body = '';
     req.on('data', chunk => { body += chunk; });
@@ -128,7 +139,12 @@ const server = http.createServer((req, res) => {
       try {
         const parsed = JSON.parse(body || '{}');
         const key = (parsed.key || '').trim().toUpperCase();
-        const valid = key.startsWith('TULC-') || key.length >= 8;
+        
+        // Check against environment-configured keys, or structured format
+        const isEnvAuthorized = AUTHORIZED_PASSKEYS.length > 0 && AUTHORIZED_PASSKEYS.includes(key);
+        const isStructuredFormat = /^[A-Z0-9_-]{8,40}$/i.test(key);
+        const valid = isEnvAuthorized || (AUTHORIZED_PASSKEYS.length === 0 && isStructuredFormat);
+
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({
           valid,
@@ -138,6 +154,60 @@ const server = http.createServer((req, res) => {
       } catch {
         res.writeHead(400, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ valid: false, error: 'Invalid payload' }));
+      }
+    });
+    return;
+  }
+
+  // Server-Side Gemini AI Gateway Proxy (Keeps GEMINI_API_KEY strictly server-side)
+  if (pathname === '/api/ai/generate' && method === 'POST') {
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', async () => {
+      try {
+        const apiKey = process.env.GEMINI_API_KEY;
+        if (!apiKey) {
+          res.writeHead(503, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'AI key uncalibrated on server', fallback: true }));
+          return;
+        }
+
+        const parsed = JSON.parse(body || '{}');
+        const prompt = parsed.prompt || '';
+        if (!prompt) {
+          res.writeHead(400, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Prompt is required' }));
+          return;
+        }
+
+        const model = 'gemini-3.8-flash';
+        const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+        const aiResponse = await fetch(geminiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: {
+              temperature: 0.5,
+              maxOutputTokens: 2048
+            }
+          })
+        });
+
+        if (!aiResponse.ok) {
+          res.writeHead(502, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Upstream AI provider error', fallback: true }));
+          return;
+        }
+
+        const data = await aiResponse.json();
+        const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ text, success: true }));
+      } catch {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'AI generation failed', fallback: true }));
       }
     });
     return;
@@ -172,12 +242,14 @@ const server = http.createServer((req, res) => {
   }
 
   // 4. Default: All other routes are SPA client-side routes (/assessment, /faq, /services, etc.)
-  // Always serve index.html with HTTP 200 so React Router / App.tsx renders the view!
+  // Always serve index.html with HTTP 200 so React App.tsx renders the view!
   serveSpaHtml(req, res);
 });
 
 server.listen(PORT, HOST, () => {
   console.log(`[TULC_SERVER] Production & Preview Server active on http://${HOST}:${PORT}`);
+  console.log(`[SECURITY] GEMINI_API_KEY: ${process.env.GEMINI_API_KEY ? '[CONFIGURED ON SERVER]' : '[UNSET - offline fallback mode]'}`);
+  console.log(`[SECURITY] PORTAL_CLEARANCE_KEYS: ${AUTHORIZED_PASSKEYS.length > 0 ? `[${AUTHORIZED_PASSKEYS.length} KEYS CONFIGURED]` : '[DEFAULT SYNTAX MODE]'}`);
 });
 
 process.on('SIGTERM', () => {

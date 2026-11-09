@@ -6,8 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   define: {
-    'process.env.GEMINI_API_KEY': JSON.stringify(process.env.GEMINI_API_KEY || process.env.API_KEY || ''),
-    'process.env.ADMIN_EMAIL': JSON.stringify(process.env.VITE_ADMIN_EMAIL || process.env.NOTIFICATION_EMAIL || 'suchita135sancheti@gmail.com'),
+    'process.env.ADMIN_EMAIL': JSON.stringify(process.env.VITE_ADMIN_EMAIL || 'suchita@theunboundedleadership.com'),
   },
   build: {
     target: 'es2020',
@@ -18,7 +17,6 @@ export default defineConfig({
         manualChunks: {
           'vendor-react': ['react', 'react-dom'],
           'vendor-lucide': ['lucide-react'],
-          'vendor-ai': ['@google/genai'],
         },
       },
     },

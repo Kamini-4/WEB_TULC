@@ -100,7 +100,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
       setActiveVaultLink(result.vaultLink || `/portal?vault=${item.id}-license-${result.licenseToken || 'AUTH'}`);
       setStep('success');
     } catch (err: any) {
-      console.error('Checkout failed:', err);
+      console.error('Checkout failed: [REDACTED]');
       setErrorMessage(err.message || 'Payment processing error. Please retry.');
     } finally {
       setIsProcessing(false);

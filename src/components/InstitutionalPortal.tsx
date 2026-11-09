@@ -73,29 +73,14 @@ export const InstitutionalPortal: React.FC<InstitutionalPortalProps> = ({
         // Fallback to local institutional validation
       }
 
-      // 2. Built-in validation rule: Known master keys or valid institutional syntax
+      // 2. Syntax validation fallback for offline/static deployment
       if (!verified) {
-        // Allow built-in test passkeys or structured clearance keys
-        if (
-          activeKey === 'TULC-CLEARANCE-2026' ||
-          activeKey === 'TULC-BETA-7821-X9K' ||
-          activeKey === 'APEX-GLOBAL-BETA' ||
-          activeKey === 'SOVEREIGN-EXECUTIVE' ||
-          activeKey === 'FOUNDER-ALPHA-78' ||
-          activeKey.startsWith('TULC-') ||
-          activeKey.length >= 8
-        ) {
+        // Validate structured institutional clearance key syntax (min 8 characters, alphanumeric/dash)
+        const isStructuredKey = /^[A-Z0-9_-]{8,40}$/i.test(activeKey);
+        if (isStructuredKey) {
           verified = true;
-          if (activeKey.includes('APEX')) {
-            orgName = 'Apex Global Technologies (Executive Board)';
-            clearanceTier = 'Tier 1 Board Clearance';
-          } else if (activeKey.includes('FOUNDER')) {
-            orgName = 'Founders Sovereign Cohort';
-            clearanceTier = 'Founder Decoupling Advisory';
-          } else {
-            orgName = 'Enterprise Retainer Client Organization';
-            clearanceTier = 'Tier 3 Sovereign Retainer & Diagnostic Suite';
-          }
+          orgName = 'Institutional Client Partner';
+          clearanceTier = 'Tier 3 Sovereign Retainer & Diagnostic Suite';
         }
       }
 

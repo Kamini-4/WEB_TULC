@@ -12,9 +12,7 @@ import {
   serverTimestamp,
   limit,
   where
-} from 'firebase/firestore';
 import { db, auth } from '../src/firebase';
-import { reportClientError } from '../src/lib/apiClient';
 
 // In-memory query cache for read-heavy operations
 const queryCache = new Map<string, { data: any; timestamp: number }>();
@@ -131,33 +129,17 @@ interface FirestoreErrorInfo {
 }
 
 function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
-  const errInfo: FirestoreErrorInfo = {
-    error: error instanceof Error ? error.message : String(error),
-    authInfo: {
-      userId: auth.currentUser?.uid,
-      email: auth.currentUser?.email,
-      emailVerified: auth.currentUser?.emailVerified,
-      isAnonymous: auth.currentUser?.isAnonymous,
-      tenantId: auth.currentUser?.tenantId,
-      providerInfo: auth.currentUser?.providerData.map(provider => ({
-        providerId: provider.providerId,
-        displayName: provider.displayName,
-        email: provider.email,
-        photoUrl: provider.photoURL
-      })) || []
-    },
-    operationType,
-    path
-  };
-  const errorMessage = JSON.stringify(errInfo);
-  console.error('Firestore Error: ', errorMessage);
+  const sanitizedMessage = error instanceof Error ? error.message : String(error);
+  // Redact any potential emails, tokens, or personal identifiers
+  const cleaned = sanitizedMessage.replace(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g, '[REDACTED_EMAIL]');
+  console.error(`[Firestore Error - ${operationType}] Path: ${path || 'unknown'} - Message: ${cleaned}`);
   
-  // For read operations (LIST, GET), we log the error but don't throw to avoid crashing the UI
+  // For read operations (LIST, GET), we log the sanitized error but don't throw to avoid crashing the UI
   if (operationType === OperationType.LIST || operationType === OperationType.GET) {
     return;
   }
   
-  throw new Error(errorMessage);
+  throw new Error(`Database operation ${operationType} failed.`);
 }
 
 export const SovereignDB = {

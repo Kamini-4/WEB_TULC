@@ -35,7 +35,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     { name: 'Calendly Executive Booking', path: '/booking', target: 'booking', tag: 'Calendar' },
     { name: 'Confidential Advisory Desk', path: '/contact', target: 'contact', tag: 'In-Camera' },
     { name: 'Case Proof & Performance Logs', path: '/case-studies', target: 'case-studies', tag: 'Evidence' },
-    { name: 'Executive War Room Simulator', path: '/war-room', target: 'war-room', tag: 'Simulator' },
     { name: 'Corporate FAQ (27 Answers)', path: '/faq', target: 'faq', tag: 'Architecture' },
     { name: 'Privacy Policy & Covenant', path: '/privacy', target: 'privacy', tag: 'Legal' }
   ];

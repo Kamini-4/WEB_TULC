@@ -25,23 +25,16 @@
   ],
   "exclude": [
     "node_modules",
-    "components",
     "lib",
-    "data",
     "server",
     "scripts",
-    "src/pages",
     "src/core",
     "src/components/shop",
     "src/components/BlogSection.tsx",
     "src/components/Breadcrumbs.tsx",
-    "src/components/CalibrationModal.tsx",
-    "src/components/DiagnosticFunnel.tsx",
-    "src/components/InternalHubBridges.tsx",
     "src/components/InternalLinksMatrix.tsx",
     "src/components/Navigation.tsx",
     "src/components/SEOHead.tsx",
-    "src/components/TribeManifesto.tsx",
     "src/data",
     "src/lib"
   ]

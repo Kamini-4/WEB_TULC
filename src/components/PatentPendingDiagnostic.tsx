@@ -109,8 +109,8 @@ export const PatentPendingDiagnostic: React.FC<DiagnosticProps> = ({
         modelTitle
       );
       setAiMemorandum(memo);
-    } catch (e) {
-      console.error(e);
+    } catch {
+      console.error('[Diagnostic] AI Memorandum generation exception.');
     } finally {
       setIsGeneratingAi(false);
     }
