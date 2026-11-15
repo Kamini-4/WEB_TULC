@@ -32,6 +32,7 @@ export const CalendlyBookingView: React.FC<CalendlyBookingViewProps> = ({
   const [urlInput, setUrlInput] = useState(calendlyUrl);
   const [copied, setCopied] = useState(false);
   const [iframeLoading, setIframeLoading] = useState(true);
+  const [urlError, setUrlError] = useState<string | null>(null);
 
   useEffect(() => {
     const current = getCalendlyUrl();
@@ -48,12 +49,18 @@ export const CalendlyBookingView: React.FC<CalendlyBookingViewProps> = ({
   const handleSaveUrl = (e: React.FormEvent) => {
     e.preventDefault();
     const clean = urlInput.trim();
-    if (clean) {
-      setCalendlyUrl(clean);
-      setUrlState(clean);
-      setIsEditingUrl(false);
-      setIframeLoading(true);
+    if (!clean) return;
+    const saved = setCalendlyUrl(clean);
+    if (!saved) {
+      setUrlError('Only verified https://calendly.com/ scheduling URLs are permitted.');
+      return;
     }
+    const safeUrl = getCalendlyUrl();
+    setUrlError(null);
+    setUrlState(safeUrl);
+    setUrlInput(safeUrl);
+    setIsEditingUrl(false);
+    setIframeLoading(true);
   };
 
   const embedUrl = calendlyUrl.includes('?') 
@@ -211,6 +218,9 @@ export const CalendlyBookingView: React.FC<CalendlyBookingViewProps> = ({
             <p className="text-[10px] text-zinc-500 font-mono">
               The updated Calendly booking link will be saved in your browser and used across all booking buttons.
             </p>
+            {urlError && (
+              <p className="text-[11px] text-rose-700 font-semibold">{urlError}</p>
+            )}
           </form>
         )}
 

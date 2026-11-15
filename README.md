@@ -32,9 +32,12 @@ Global leadership consultancy founded by Suchita Sancheti. We help founders, CEO
    - Only public-safe metadata (`VITE_ADMIN_EMAIL`, `VITE_APP_URL`) utilizes the `VITE_` prefix.
    - `.env` and all credential patterns are strictly excluded in `.gitignore`.
    - A sanitized `.env.example` template is provided for all deployment environments.
-3. **Log & Response Sanitization**:
-   - Error handlers and console logs strip secret tokens, sensitive payloads, and headers.
-   - API endpoints return status flags and verified text without echoing back secret credentials.
+3. **Production Deployment Hardening (`server.js`)**:
+   - **Fail-Fast Environment Validation**: In `NODE_ENV=production`, startup aborts if `GEMINI_API_KEY`, `PORTAL_CLEARANCE_KEYS`, or `ALLOWED_ORIGINS` is missing/placeholder, or if `DATABASE_URL` lacks TLS (`?sslmode=require`) or uses default credentials.
+   - **Security Headers & Strict CSP**: All responses enforce `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Strict-Transport-Security` (1 year), and `Content-Security-Policy` without `'unsafe-inline'` scripts.
+   - **CORS Allowlist**: Wildcard `*` is prohibited; only origins configured in `ALLOWED_ORIGINS` are permitted.
+   - **Rate Limiting & Correlation IDs**: Auth/passkey endpoints enforce 5 attempts/min per IP (password reset endpoints 3/hour per IP). Errors return generic messages with an `X-Correlation-Id` while detailed errors remain server-side.
+   - **Log & Response Sanitization**: Error handlers strip secret tokens, passkeys, and internal paths.
 
 ---
 

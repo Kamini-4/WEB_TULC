@@ -281,6 +281,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                     <input
                       type="text"
                       required
+                      maxLength={120}
                       placeholder="e.g. Helena Vance"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
@@ -295,6 +296,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                     <input
                       type="email"
                       required
+                      maxLength={254}
                       placeholder="vance@enterprise-holdings.com"
                       value={formData.corporateEmail}
                       onChange={(e) => setFormData({ ...formData, corporateEmail: e.target.value })}
@@ -331,6 +333,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                     <input
                       type="text"
                       required
+                      maxLength={140}
                       placeholder="e.g. Apex Global Syndicate"
                       value={formData.organization}
                       onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
@@ -379,6 +382,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                   </label>
                   <textarea
                     rows={2}
+                    maxLength={2000}
                     placeholder="Briefly characterize the friction vector (e.g., board impasse over capital allocation, founder succession transition, committee decision lag)..."
                     value={formData.frictionNotes}
                     onChange={(e) => setFormData({ ...formData, frictionNotes: e.target.value })}

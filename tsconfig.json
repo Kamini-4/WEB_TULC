@@ -25,11 +25,7 @@
   ],
   "exclude": [
     "node_modules",
-    "lib",
-    "server",
     "scripts",
-    "src/core",
-    "src/components/shop",
     "src/components/BlogSection.tsx",
     "src/components/Breadcrumbs.tsx",
     "src/components/InternalLinksMatrix.tsx",

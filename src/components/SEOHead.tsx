@@ -198,7 +198,10 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     scriptElement.textContent = JSON.stringify({
       '@context': 'https://schema.org',
       '@graph': graph
-    });
+    })
+      .replace(/</g, '\\u003c')
+      .replace(/>/g, '\\u003e')
+      .replace(/&/g, '\\u0026');
 
   }, [title, description, canonicalPath, keywords, type, image, articleData, faqData, breadcrumbs]);
 

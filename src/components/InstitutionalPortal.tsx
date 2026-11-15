@@ -25,17 +25,19 @@ export const InstitutionalPortal: React.FC<InstitutionalPortalProps> = ({
   const [clearanceData, setClearanceData] = useState<ClearanceData | null>(null);
   const [redirectCountdown, setRedirectCountdown] = useState<number | null>(null);
 
-  // Check URL query parameters for key
+  // Scrub any sensitive query params if present (never accept passkeys via URL query strings)
   useEffect(() => {
     try {
-      const urlParams = new URLSearchParams(window.location.search);
-      const urlKey = (urlParams.get('key') || urlParams.get('passkey'))?.toUpperCase();
-      if (urlKey) {
-        setPasskey(urlKey);
-        void handleVerifyKey(urlKey);
+      const url = new URL(window.location.href);
+      if (url.searchParams.has('key') || url.searchParams.has('passkey') || url.searchParams.has('token')) {
+        url.searchParams.delete('key');
+        url.searchParams.delete('passkey');
+        url.searchParams.delete('token');
+        window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+        setError('For security, passkeys cannot be supplied in URLs. Please enter your passkey below.');
       }
     } catch {
-      // In-browser fallback
+      // Safe fallback
     }
   }, []);
 
@@ -50,44 +52,29 @@ export const InstitutionalPortal: React.FC<InstitutionalPortalProps> = ({
     setError(null);
 
     try {
-      // 1. Try server passkey verification endpoint if available
-      let verified = false;
-      let orgName = 'Institutional Partner Org';
-      let clearanceTier = 'Tier 3 Sovereign Retainer';
+      const response = await fetch('/api/portal/verify-passkey', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key: activeKey })
+      });
 
-      try {
-        const response = await fetch('/api/portal/verify-passkey', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ key: activeKey })
-        });
-        if (response.ok) {
-          const resData = await response.json();
-          if (resData.valid) {
-            verified = true;
-            orgName = resData.organization || orgName;
-            clearanceTier = resData.tier || clearanceTier;
-          }
-        }
-      } catch {
-        // Fallback to local institutional validation
+      const resData = await response.json().catch(() => ({}));
+
+      if (response.status === 429) {
+        setError('Too many verification attempts. Please wait one minute before trying again.');
+        return;
       }
 
-      // 2. Syntax validation fallback for offline/static deployment
-      if (!verified) {
-        // Validate structured institutional clearance key syntax (min 8 characters, alphanumeric/dash)
-        const isStructuredKey = /^[A-Z0-9_-]{8,40}$/i.test(activeKey);
-        if (isStructuredKey) {
-          verified = true;
-          orgName = 'Institutional Client Partner';
-          clearanceTier = 'Tier 3 Sovereign Retainer & Diagnostic Suite';
-        }
+      if (response.status === 503) {
+        setError('Portal verification service is currently unconfigured. Please contact the Advisory Desk.');
+        return;
       }
 
-      if (verified) {
+      if (response.ok && resData.valid) {
         setClearanceData({
-          organization: orgName,
-          tier: clearanceTier,
+          organization: resData.organization || 'Institutional Partner Org',
+          tier: resData.tier || 'Tier 3 Sovereign Retainer',
           expiresAt: Date.now() + 90 * 24 * 60 * 60 * 1000,
           targetUrl: TARGET_APP_URL
         });
@@ -95,8 +82,8 @@ export const InstitutionalPortal: React.FC<InstitutionalPortalProps> = ({
       } else {
         setError('Invalid or unrecognized access key. Please verify credentials or contact the Advisory Desk.');
       }
-    } catch (err: any) {
-      setError(err?.message || 'Access verification failed. Please check connectivity or advisory desk.');
+    } catch {
+      setError('Access verification service is unreachable. Please check connectivity or contact the Advisory Desk.');
     } finally {
       setIsVerifying(false);
     }
@@ -180,7 +167,7 @@ export const InstitutionalPortal: React.FC<InstitutionalPortalProps> = ({
                     onKeyDown={(e) => {
                       if (e.key === 'Enter') handleVerifyKey();
                     }}
-                    placeholder="e.g. TULC-CLEARANCE-2026"
+                    placeholder="ENTER INSTITUTIONAL PASSKEY"
                     className="w-full bg-[#0e0f12] border border-[#3f3f46] text-white font-mono text-base tracking-widest pl-12 pr-4 py-3.5 focus:outline-none focus:border-[#d4af37] transition-colors placeholder:text-[#52525b] uppercase rounded-xs"
                     disabled={isVerifying}
                     autoFocus
@@ -193,23 +180,6 @@ export const InstitutionalPortal: React.FC<InstitutionalPortalProps> = ({
                     In-camera privilege & 256-bit encryption enforced.
                   </span>
                 </div>
-              </div>
-
-              {/* Quick autofill chip for testing/evaluation */}
-              <div className="p-3 bg-[#0e0f12] border border-[#27272a] rounded-xs flex items-center justify-between gap-2 text-xs">
-                <span className="font-mono text-[10px] text-[#a1a1aa] uppercase tracking-wider">
-                  Test Passkey:
-                </span>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setPasskey('TULC-CLEARANCE-2026');
-                    if (error) setError(null);
-                  }}
-                  className="text-[11px] font-mono font-bold text-[#d4af37] hover:text-white underline transition-colors cursor-pointer"
-                >
-                  TULC-CLEARANCE-2026 (Autofill)
-                </button>
               </div>
 
               {/* Error Banner */}
@@ -353,14 +323,20 @@ export const InstitutionalPortal: React.FC<InstitutionalPortalProps> = ({
               <div className="pt-2">
                 <button
                   type="button"
-                  onClick={() => {
+                  onClick={async () => {
+                    try {
+                      await fetch('/api/portal/logout', {
+                        method: 'POST',
+                        credentials: 'same-origin'
+                      });
+                    } catch {}
                     setClearanceData(null);
                     setRedirectCountdown(null);
                     setPasskey('');
                   }}
                   className="text-xs text-[#71717a] hover:text-white font-mono underline transition-colors cursor-pointer"
                 >
-                  Use a different passkey
+                  Revoke Session & Use Different Passkey
                 </button>
               </div>
             </div>

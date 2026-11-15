@@ -61,7 +61,6 @@ const staticRoutes = [
   // Common aliases & sub-routes
   'faqs',
   'questions',
-  'test',
   'audit',
   'simple-test',
   'founder-assessment',

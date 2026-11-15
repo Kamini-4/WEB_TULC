@@ -33,6 +33,7 @@ export const CalendlyModal: React.FC<CalendlyModalProps> = ({
   const [urlInput, setUrlInput] = useState(calendlyUrl);
   const [copied, setCopied] = useState(false);
   const [iframeLoading, setIframeLoading] = useState(true);
+  const [urlError, setUrlError] = useState<string | null>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -56,12 +57,18 @@ export const CalendlyModal: React.FC<CalendlyModalProps> = ({
   const handleSaveUrl = (e: React.FormEvent) => {
     e.preventDefault();
     const clean = urlInput.trim();
-    if (clean) {
-      setCalendlyUrl(clean);
-      setUrlState(clean);
-      setIsEditingUrl(false);
-      setIframeLoading(true);
+    if (!clean) return;
+    const saved = setCalendlyUrl(clean);
+    if (!saved) {
+      setUrlError('Only verified https://calendly.com/ scheduling URLs are permitted.');
+      return;
     }
+    const safeUrl = getCalendlyUrl();
+    setUrlError(null);
+    setUrlState(safeUrl);
+    setUrlInput(safeUrl);
+    setIsEditingUrl(false);
+    setIframeLoading(true);
   };
 
   // Append embed parameters for sleek embedded look
@@ -187,6 +194,9 @@ export const CalendlyModal: React.FC<CalendlyModalProps> = ({
             <p className="text-[10px] text-zinc-500 font-mono">
               Saved locally in browser so your custom calendar link is permanently preserved.
             </p>
+            {urlError && (
+              <p className="text-[11px] text-rose-700 font-semibold">{urlError}</p>
+            )}
           </form>
         )}
 

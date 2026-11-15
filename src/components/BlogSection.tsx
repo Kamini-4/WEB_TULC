@@ -26,6 +26,27 @@ interface BlogSectionProps {
   onOpenConsultation: (topic?: string) => void;
 }
 
+function renderFormattedInline(text: string): React.ReactNode[] {
+  const tokens = text.split(/(\*\*.*?\*\*|\*[^*]+\*)/g);
+  return tokens.map((token, idx) => {
+    if (token.startsWith('**') && token.endsWith('**') && token.length > 4) {
+      return (
+        <strong key={idx} className="text-[#17181c] font-bold">
+          {token.slice(2, -2)}
+        </strong>
+      );
+    }
+    if (token.startsWith('*') && token.endsWith('*') && token.length > 2) {
+      return (
+        <em key={idx} className="text-[#8c6708] italic font-semibold">
+          {token.slice(1, -1)}
+        </em>
+      );
+    }
+    return <React.Fragment key={idx}>{token}</React.Fragment>;
+  });
+}
+
 export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) => {
   const [selectedPost, setSelectedPost] = useState<BlogPost>(BLOG_POSTS[0]);
   const [activeCategory, setActiveCategory] = useState<string>('All');
@@ -242,14 +263,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
 
                   <div className="space-y-3 text-sm sm:text-base text-[#4e5159] leading-relaxed">
                     {section.content.map((p, pIdx) => (
-                      <p 
-                        key={pIdx} 
-                        dangerouslySetInnerHTML={{ 
-                          __html: p
-                            .replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#17181c] font-bold">$1</strong>')
-                            .replace(/\*(.*?)\*/g, '<em class="text-[#8c6708] italic font-semibold">$1</em>') 
-                        }} 
-                      />
+                      <p key={pIdx}>{renderFormattedInline(p)}</p>
                     ))}
                   </div>
 

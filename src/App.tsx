@@ -71,7 +71,7 @@ export const App: React.FC = () => {
     const rawHash = window.location.hash.replace('#', '').toLowerCase();
     const route = rawPath || rawHash;
 
-    if (route === 'assessment' || route === 'test' || route === 'simple-test' || route === 'audit' || route === 'founder-assessment') {
+    if (route === 'assessment' || route === 'simple-test' || route === 'audit' || route === 'founder-assessment') {
       return 'test';
     } else if (route === 'domains' || route === '5-domains' || route === 'framework') {
       return 'domains';
@@ -128,7 +128,7 @@ export const App: React.FC = () => {
       if (window.location.hash && !window.location.hash.startsWith('#faq-')) {
         const hash = window.location.hash.replace('#', '').toLowerCase();
         let cleanPath = '/';
-        if (hash === 'assessment' || hash === 'test' || hash === 'simple-test' || hash === 'audit' || hash === 'founder-assessment') cleanPath = '/assessment';
+        if (hash === 'assessment' || hash === 'simple-test' || hash === 'audit' || hash === 'founder-assessment') cleanPath = '/assessment';
         else if (hash === 'domains' || hash === '5-domains' || hash === 'framework') cleanPath = '/domains';
         else if (hash === 'diagnostic' || hash === 'deep-assessment' || hash === 'forensic-diagnostic') cleanPath = '/diagnostic';
         else if (hash === 'shop' || hash === 'store' || hash === 'publications' || hash === 'blueprints' || hash === 'toolkits') cleanPath = '/shop';

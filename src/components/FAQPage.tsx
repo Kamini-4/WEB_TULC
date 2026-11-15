@@ -68,21 +68,10 @@ export const FAQPage: React.FC<FAQPageProps> = ({ onNavigate, onOpenConsultation
     });
   }, [selectedCategory, searchQuery]);
 
-  // Generate Schema.org FAQPage structured data
-  const faqSchema = useMemo(() => {
-    return {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      'mainEntity': FAQ_ITEMS.map((item) => ({
-        '@type': 'Question',
-        'name': item.question,
-        'acceptedAnswer': {
-          '@type': 'Answer',
-          'text': item.answer
-        }
-      }))
-    };
-  }, []);
+  const faqSchemaData = useMemo(
+    () => FAQ_ITEMS.map((item) => ({ question: item.question, answer: item.answer })),
+    []
+  );
 
   return (
     <div className="bg-[#f8f6f0] text-[#17181c] min-h-screen py-6 sm:py-10">
@@ -91,12 +80,7 @@ export const FAQPage: React.FC<FAQPageProps> = ({ onNavigate, onOpenConsultation
         description="Official 27-question guide on founder dependency, leadership architecture, decision rights, and organizational alignment by Suchita Sancheti."
         canonicalPath="/faq"
         keywords="founder dependency FAQ, leadership architecture FAQ, global leadership consultancy, decision rights, organizational alignment, Suchita Sancheti, delegation outcomes"
-      />
-
-      {/* JSON-LD Schema.org FAQPage script */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        faqData={faqSchemaData}
       />
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">

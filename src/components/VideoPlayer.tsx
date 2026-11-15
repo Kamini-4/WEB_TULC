@@ -24,7 +24,19 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
     return match ? match[1] : null;
   };
 
-  const driveId = videoUrl ? getDriveId(videoUrl) : null;
+  const safeVideoUrl = (() => {
+    if (!videoUrl) return null;
+    const trimmed = videoUrl.trim();
+    if (trimmed.startsWith('/')) return trimmed;
+    try {
+      const parsed = new URL(trimmed);
+      return parsed.protocol === 'https:' ? parsed.toString() : null;
+    } catch {
+      return null;
+    }
+  })();
+
+  const driveId = safeVideoUrl ? getDriveId(safeVideoUrl) : null;
   const aspectClass = aspectRatio === 'portrait' ? 'aspect-[9/16] min-h-[380px] sm:min-h-0' : 'aspect-video';
 
   const renderActiveVideo = () => {
@@ -46,7 +58,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
     }
 
     // Handle YouTube
-    if (videoId) {
+    if (videoId && /^[\w-]{6,20}$/.test(videoId)) {
       return (
         <iframe
           width="100%"
@@ -61,10 +73,10 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
     }
 
     // Fallback direct raw video URL
-    if (videoUrl) {
+    if (safeVideoUrl) {
       return (
         <video
-          src={videoUrl}
+          src={safeVideoUrl}
           controls
           autoPlay
           playsInline

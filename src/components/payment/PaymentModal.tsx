@@ -1,22 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  X, 
-  Lock, 
-  CreditCard, 
-  ShieldCheck, 
-  CheckCircle2, 
-  Download, 
-  Copy, 
-  FileText, 
-  Building2, 
-  Sparkles, 
-  ArrowRight, 
-  Loader2, 
+import {
+  X,
+  Lock,
+  CreditCard,
+  ShieldCheck,
+  CheckCircle2,
+  Download,
+  Copy,
+  FileText,
+  Building2,
+  Sparkles,
+  Loader2,
   AlertCircle,
-  ExternalLink,
-  Printer,
-  Calendar,
-  Smartphone
+  Clock
 } from 'lucide-react';
 
 export interface PaymentItem {
@@ -29,6 +25,7 @@ export interface PaymentItem {
 }
 
 export interface PaymentReceipt {
+  orderId: string;
   transactionId: string;
   timestamp: string;
   amount: number;
@@ -38,6 +35,7 @@ export interface PaymentReceipt {
   paymentMethod: string;
   itemTitle: string;
   creditVoucherCode: string;
+  status: 'paid' | 'pending_wire';
 }
 
 interface PaymentModalProps {
@@ -47,194 +45,307 @@ interface PaymentModalProps {
   onSuccess?: (receipt: PaymentReceipt) => void;
 }
 
+interface ServerQuote {
+  orderId: string;
+  razorpayOrderId: string;
+  razorpayKeyId: string;
+  currency: string;
+  amountSmallestUnit: number;
+  subtotal: number;
+  discountAmount: number;
+  taxAmount: number;
+  totalDisplay: number;
+  itemTitle: string;
+}
+
+declare global {
+  interface Window {
+    Razorpay?: new (options: Record<string, unknown>) => {
+      open: () => void;
+      on: (event: string, cb: (resp: unknown) => void) => void;
+    };
+  }
+}
+
+function loadRazorpayCheckoutScript(): Promise<boolean> {
+  if (typeof window === 'undefined') return Promise.resolve(false);
+  if (window.Razorpay) return Promise.resolve(true);
+  return new Promise((resolve) => {
+    const existing = document.querySelector('script[src="https://checkout.razorpay.com/v1/checkout.js"]');
+    if (existing) {
+      existing.addEventListener('load', () => resolve(Boolean(window.Razorpay)));
+      existing.addEventListener('error', () => resolve(false));
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.async = true;
+    script.onload = () => resolve(Boolean(window.Razorpay));
+    script.onerror = () => resolve(false);
+    document.head.appendChild(script);
+  });
+}
+
 export const PaymentModal: React.FC<PaymentModalProps> = ({
   isOpen,
   onClose,
   item,
   onSuccess
 }) => {
-  const [activeTab, setActiveTab] = useState<'card' | 'wallet' | 'wire'>('card');
+  const [activeTab, setActiveTab] = useState<'gateway' | 'wire'>('gateway');
   const [isProcessing, setIsProcessing] = useState(false);
   const [receipt, setReceipt] = useState<PaymentReceipt | null>(null);
   const [copiedVoucher, setCopiedVoucher] = useState(false);
   const [currency, setCurrency] = useState<'USD' | 'EUR' | 'GBP' | 'INR' | 'AED'>('USD');
-
-  // Form Fields
-  const [cardNumber, setCardNumber] = useState('');
-  const [cardExpiry, setCardExpiry] = useState('');
-  const [cardCvc, setCardCvc] = useState('');
-  const [cardName, setCardName] = useState('');
   const [email, setEmail] = useState('');
   const [organization, setOrganization] = useState('');
+  const [couponCode, setCouponCode] = useState('');
   const [validationError, setValidationError] = useState<string | null>(null);
+  const [serverQuote, setServerQuote] = useState<ServerQuote | null>(null);
 
-  // Reset states and zero out payment card memory when modal status changes
   useEffect(() => {
     if (isOpen) {
       setReceipt(null);
       setIsProcessing(false);
       setValidationError(null);
-    } else {
-      setCardNumber('');
-      setCardExpiry('');
-      setCardCvc('');
-      setCardName('');
+      setServerQuote(null);
     }
   }, [isOpen, item]);
 
   const handleCloseModal = () => {
-    // Immediate memory purge of cardholder data
-    setCardNumber('');
-    setCardExpiry('');
-    setCardCvc('');
-    setCardName('');
     setValidationError(null);
+    setServerQuote(null);
     onClose();
   };
 
   if (!isOpen || !item) return null;
 
-  // Currency multiplier calculation
-  const currencyRates: Record<string, { symbol: string; rate: number }> = {
-    USD: { symbol: '$', rate: 1 },
-    EUR: { symbol: '€', rate: 0.92 },
-    GBP: { symbol: '£', rate: 0.79 },
-    INR: { symbol: '₹', rate: 86.5 },
-    AED: { symbol: 'AED ', rate: 3.67 }
+  const currencySymbols: Record<string, string> = {
+    USD: '$',
+    EUR: '€',
+    GBP: '£',
+    INR: '₹',
+    AED: 'AED '
   };
+  const currencySymbol = currencySymbols[currency] || '$';
 
-  const currentRate = currencyRates[currency] || currencyRates.USD;
-  const convertedAmount = Math.round(item.priceUSD * currentRate.rate);
-  const formattedPrice = `${currentRate.symbol}${convertedAmount.toLocaleString()}`;
-
-  // Card formatting helpers
-  const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const raw = e.target.value.replace(/\D/g, '').slice(0, 16);
-    const formatted = raw.replace(/(\d{4})/g, '$1 ').trim();
-    setCardNumber(formatted);
-  };
-
-  const handleExpiryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const raw = e.target.value.replace(/\D/g, '').slice(0, 4);
-    if (raw.length >= 3) {
-      setCardExpiry(`${raw.slice(0, 2)}/${raw.slice(2, 4)}`);
-    } else {
-      setCardExpiry(raw);
-    }
-  };
-
-  const handleFillDemoCard = () => {
-    setCardNumber('4242 4242 4242 4242');
-    setCardExpiry('12/28');
-    setCardCvc('888');
-    setCardName('Executive Director');
-    if (!email) setEmail('executive@boardroom.org');
-    if (!organization) setOrganization('Enterprise Holdings Ltd.');
-    setValidationError(null);
-  };
-
-  const handleProcessPayment = (methodName: string) => {
-    if (!email || !email.includes('@')) {
+  const handleInitiateRazorpayCheckout = async () => {
+    const normalizedEmail = email.trim();
+    if (!normalizedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedEmail)) {
       setValidationError('Please enter a valid institutional or corporate email address.');
       return;
-    }
-
-    if (activeTab === 'card') {
-      const cleanCard = cardNumber.replace(/\s/g, '');
-      if (cleanCard.length < 15) {
-        setValidationError('Please enter a valid 16-digit card number (or click "Fill Demo Card").');
-        return;
-      }
-      if (!cardExpiry || cardExpiry.length < 5) {
-        setValidationError('Please enter a valid expiration date (MM/YY).');
-        return;
-      }
-      if (!cardCvc || cardCvc.length < 3) {
-        setValidationError('Please enter your 3 or 4 digit security code.');
-        return;
-      }
     }
 
     setValidationError(null);
     setIsProcessing(true);
 
-    setTimeout(() => {
-      const randNum = Math.floor(100000 + Math.random() * 900000);
-      const newReceipt: PaymentReceipt = {
-        transactionId: `TXN-TULC-${randNum}`,
-        timestamp: new Date().toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        }),
-        amount: convertedAmount,
-        currency,
-        customerEmail: email,
-        customerName: cardName || 'Authorized Officer',
-        paymentMethod: methodName,
-        itemTitle: item.title,
-        creditVoucherCode: `CREDIT-90DAY-${randNum.toString().slice(0, 4)}`
-      };
+    try {
+      // Server independently looks up itemId, computes totals/taxes/discounts, and creates Razorpay order
+      const orderResp = await fetch('/api/payments/create-order', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          itemId: item.id,
+          quantity: 1,
+          currency,
+          customerEmail: normalizedEmail,
+          organization: organization.trim(),
+          couponCode: couponCode.trim() || undefined
+        })
+      });
 
-      // Instantly purge card credentials from memory
-      setCardNumber('');
-      setCardExpiry('');
-      setCardCvc('');
-      setCardName('');
-
-      setReceipt(newReceipt);
-      setIsProcessing(false);
-      if (onSuccess) {
-        onSuccess(newReceipt);
+      const orderData = await orderResp.json().catch(() => ({}));
+      if (!orderResp.ok) {
+        setValidationError(
+          orderData.error ||
+            'Online gateway checkout is temporarily unavailable. Please use Corporate Wire / Invoice or contact the Advisory Desk.'
+        );
+        setIsProcessing(false);
+        return;
       }
-    }, 1200);
+
+      const quote = orderData as ServerQuote;
+      setServerQuote(quote);
+
+      const sdkLoaded = await loadRazorpayCheckoutScript();
+      if (!sdkLoaded || !window.Razorpay || !quote.razorpayKeyId) {
+        setValidationError(
+          'Unable to initialize hosted Razorpay Checkout. Please verify connectivity or select Corporate Wire / Invoice.'
+        );
+        setIsProcessing(false);
+        return;
+      }
+
+      const rzp = new window.Razorpay({
+        key: quote.razorpayKeyId,
+        amount: quote.amountSmallestUnit,
+        currency: quote.currency,
+        name: 'The Unbounded Leadership Co.',
+        description: quote.itemTitle,
+        order_id: quote.razorpayOrderId,
+        prefill: {
+          email: normalizedEmail
+        },
+        theme: {
+          color: '#17181c'
+        },
+        modal: {
+          ondismiss: () => {
+            setIsProcessing(false);
+          }
+        },
+        handler: async (rzpResponse: Record<string, string>) => {
+          try {
+            const verifyResp = await fetch('/api/payments/verify', {
+              method: 'POST',
+              credentials: 'same-origin',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                orderId: quote.orderId,
+                razorpay_order_id: rzpResponse.razorpay_order_id,
+                razorpay_payment_id: rzpResponse.razorpay_payment_id,
+                razorpay_signature: rzpResponse.razorpay_signature
+              })
+            });
+
+            const verifyData = await verifyResp.json().catch(() => ({}));
+            if (!verifyResp.ok || !verifyData.verified) {
+              setValidationError(
+                verifyData.error || 'Server payment signature verification failed. Access has not been granted.'
+              );
+              setIsProcessing(false);
+              return;
+            }
+
+            const confirmedReceipt: PaymentReceipt = {
+              orderId: quote.orderId,
+              transactionId: verifyData.transactionId,
+              timestamp: verifyData.timestamp,
+              amount: verifyData.amount,
+              currency: verifyData.currency,
+              customerEmail: verifyData.customerEmail,
+              customerName: organization.trim() || 'Authorized Executive Officer',
+              paymentMethod: 'Razorpay Hosted Checkout (Signature Verified)',
+              itemTitle: verifyData.itemTitle,
+              creditVoucherCode: verifyData.creditVoucherCode,
+              status: 'paid'
+            };
+
+            setReceipt(confirmedReceipt);
+            setIsProcessing(false);
+            if (onSuccess) onSuccess(confirmedReceipt);
+          } catch {
+            setValidationError('Unable to reach server to verify payment. Please contact support with your order ID.');
+            setIsProcessing(false);
+          }
+        }
+      });
+
+      rzp.on('payment.failed', () => {
+        setValidationError('Payment authorization was declined or failed by your bank.');
+        setIsProcessing(false);
+      });
+
+      rzp.open();
+    } catch {
+      setValidationError('Payment server unreachable. Please check connectivity or contact the Advisory Desk.');
+      setIsProcessing(false);
+    }
   };
 
-  const handleDownloadDeliverable = () => {
-    const content = `THE UNBOUNDED LEADERSHIP CO.
-OFFICIAL EXECUTIVE DELIVERABLE & RECEIPT
-=====================================================
-Item: ${item.title}
-Transaction Reference: ${receipt?.transactionId}
-Date: ${receipt?.timestamp}
-Authorized Client: ${receipt?.customerName} (${receipt?.customerEmail})
-Amount Paid: ${receipt?.currency} ${receipt?.amount}
-100% Advisory Credit Voucher: ${receipt?.creditVoucherCode}
+  const handleRequestWireInvoice = async () => {
+    const normalizedEmail = email.trim();
+    if (!normalizedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedEmail)) {
+      setValidationError('Please enter a valid institutional or corporate email address.');
+      return;
+    }
 
-EXECUTIVE SUMMARY & OPERATING PROTOCOL:
-- Authority Decoupling Rubric (Ready for Board Ratification)
-- 14-Day Autonomous Execution Loop
-- The $5,000 Delegation Matrix & Reversible Decision Rulebook
-- Direct Advisory Access to Suchita Sancheti
+    setValidationError(null);
+    setIsProcessing(true);
 
-HOW TO REDEEM YOUR 100% ADVISORY CREDIT:
-Present your voucher code (${receipt?.creditVoucherCode}) during consultation scheduling 
-to have 100% of this payment credited against your executive retainer or forensic audit mandate.
+    try {
+      const resp = await fetch('/api/payments/wire-request', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          itemId: item.id,
+          quantity: 1,
+          currency,
+          customerEmail: normalizedEmail,
+          organization: organization.trim()
+        })
+      });
 
-Confidential & Privileged — The Unbounded Leadership Co.`;
+      const data = await resp.json().catch(() => ({}));
+      if (!resp.ok) {
+        setValidationError(data.error || 'Unable to generate pro-forma invoice.');
+        setIsProcessing(false);
+        return;
+      }
 
-    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `${item.id}-licensed-package.txt`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+      const pendingReceipt: PaymentReceipt = {
+        orderId: data.orderId,
+        transactionId: data.invoiceReference,
+        timestamp: data.timestamp,
+        amount: data.amount,
+        currency: data.currency,
+        customerEmail: data.customerEmail,
+        customerName: organization.trim() || 'Authorized Executive Officer',
+        paymentMethod: 'Corporate Wire / Pro-Forma Invoice (Awaiting Settlement)',
+        itemTitle: data.itemTitle,
+        creditVoucherCode: 'ISSUED UPON WIRE SETTLEMENT',
+        status: 'pending_wire'
+      };
+
+      setReceipt(pendingReceipt);
+    } catch {
+      setValidationError('Unable to reach server for invoice creation.');
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  const handleDownloadDeliverable = async () => {
+    if (!receipt || receipt.status !== 'paid') return;
+
+    try {
+      const resp = await fetch(`/api/payments/entitlement/${encodeURIComponent(receipt.orderId)}`, {
+        method: 'GET',
+        credentials: 'same-origin'
+      });
+
+      if (!resp.ok) {
+        const err = await resp.json().catch(() => ({}));
+        setValidationError(err.error || 'Payment verification required before downloading materials.');
+        return;
+      }
+
+      const data = await resp.json();
+      const content = data.deliverablePackageText || '';
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${item.id}-licensed-package.txt`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch {
+      setValidationError('Unable to download verified deliverable package.');
+    }
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-xs overflow-y-auto">
-      <div 
+      <div
         className="bg-white border-2 border-black rounded-lg max-w-xl w-full p-4 sm:p-6 shadow-2xl relative my-auto text-black animate-in fade-in zoom-in-95 duration-200"
         role="dialog"
         aria-modal="true"
         aria-labelledby="payment-dialog-title"
       >
-        {/* Close button */}
         <button
           onClick={handleCloseModal}
           className="absolute top-3.5 right-3.5 p-1.5 text-zinc-600 hover:text-black rounded-full hover:bg-stone-100 transition-colors cursor-pointer"
@@ -243,39 +354,68 @@ Confidential & Privileged — The Unbounded Leadership Co.`;
           <X className="w-5 h-5" />
         </button>
 
-        {/* ========================================================================= */}
-        {/* VIEW A: SUCCESS RECEIPT STATE                                            */}
-        {/* ========================================================================= */}
         {receipt ? (
           <div className="space-y-4 py-2">
             <div className="text-center space-y-2">
-              <div className="w-12 h-12 rounded-full bg-emerald-50 border-2 border-emerald-600 flex items-center justify-center mx-auto text-emerald-600 shadow-sm">
-                <CheckCircle2 className="w-7 h-7" />
+              <div
+                className={`w-12 h-12 rounded-full border-2 flex items-center justify-center mx-auto shadow-sm ${
+                  receipt.status === 'paid'
+                    ? 'bg-emerald-50 border-emerald-600 text-emerald-600'
+                    : 'bg-amber-50 border-amber-600 text-amber-700'
+                }`}
+              >
+                {receipt.status === 'paid' ? (
+                  <CheckCircle2 className="w-7 h-7" />
+                ) : (
+                  <Clock className="w-7 h-7" />
+                )}
               </div>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-800 font-bold block">
-                Payment Authorized & Cryptographically Confirmed
+              <span
+                className={`text-[10px] font-mono uppercase tracking-widest font-bold block ${
+                  receipt.status === 'paid' ? 'text-emerald-800' : 'text-amber-800'
+                }`}
+              >
+                {receipt.status === 'paid'
+                  ? 'Payment Verified Server-Side · Signature Confirmed'
+                  : 'Pro-Forma Wire Docket Created · Pending Bank Settlement'}
               </span>
               <h2 id="payment-dialog-title" className="text-xl sm:text-2xl font-black text-black">
-                Access Granted & Receipt Dispatched
+                {receipt.status === 'paid'
+                  ? 'Access Granted & Receipt Confirmed'
+                  : 'Corporate Wire Instructions Issued'}
               </h2>
               <p className="text-xs text-zinc-700 max-w-md mx-auto">
-                A formal tax invoice and instant workspace links have been dispatched to{' '}
-                <strong className="text-black font-bold">{receipt.customerEmail}</strong>.
+                {receipt.status === 'paid' ? (
+                  <>
+                    Receipt recorded for <strong className="text-black font-bold">{receipt.customerEmail}</strong>.
+                  </>
+                ) : (
+                  <>
+                    Digital deliverables unlock automatically once wire settlement is verified for{' '}
+                    <strong className="text-black font-bold">{receipt.customerEmail}</strong>.
+                  </>
+                )}
               </p>
             </div>
 
-            {/* Official Receipt Docket */}
+            {validationError && (
+              <div className="p-2.5 bg-rose-50 border border-rose-300 text-rose-800 rounded text-xs flex items-start gap-2">
+                <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                <span>{validationError}</span>
+              </div>
+            )}
+
             <div className="bg-[#faf8f4] border-2 border-[#d8cebe] rounded-md p-3.5 sm:p-4 text-xs space-y-2 font-mono">
               <div className="flex justify-between border-b border-[#e5decfe0] pb-2">
                 <span className="text-zinc-600">Item Requisitioned:</span>
                 <span className="font-bold text-black text-right max-w-[240px] truncate">{receipt.itemTitle}</span>
               </div>
               <div className="flex justify-between border-b border-[#e5decfe0] pb-2">
-                <span className="text-zinc-600">Transaction Reference:</span>
+                <span className="text-zinc-600">Reference ID:</span>
                 <span className="font-bold text-black">{receipt.transactionId}</span>
               </div>
               <div className="flex justify-between border-b border-[#e5decfe0] pb-2">
-                <span className="text-zinc-600">Total Settled:</span>
+                <span className="text-zinc-600">Server-Verified Total:</span>
                 <span className="font-bold text-emerald-700 text-sm">
                   {receipt.currency} {receipt.amount.toLocaleString()}
                 </span>
@@ -286,38 +426,44 @@ Confidential & Privileged — The Unbounded Leadership Co.`;
                   <span className="font-black text-[#9d7b38] bg-[#eedec0] px-2 py-0.5 rounded-xs">
                     {receipt.creditVoucherCode}
                   </span>
-                  <button
-                    onClick={() => {
-                      navigator.clipboard.writeText(receipt.creditVoucherCode);
-                      setCopiedVoucher(true);
-                      setTimeout(() => setCopiedVoucher(false), 2000);
-                    }}
-                    className="p-1 hover:bg-stone-200 rounded cursor-pointer text-zinc-700"
-                    title="Copy Voucher"
-                  >
-                    {copiedVoucher ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                  </button>
+                  {receipt.status === 'paid' && (
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(receipt.creditVoucherCode);
+                        setCopiedVoucher(true);
+                        setTimeout(() => setCopiedVoucher(false), 2000);
+                      }}
+                      className="p-1 hover:bg-stone-200 rounded cursor-pointer text-zinc-700"
+                      title="Copy Voucher"
+                    >
+                      {copiedVoucher ? (
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                      ) : (
+                        <Copy className="w-3.5 h-3.5" />
+                      )}
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
 
-            {/* Retainer Promise Notice */}
             <div className="p-3 bg-amber-50/70 border border-amber-200 rounded-md flex items-start gap-2.5 text-xs">
               <Sparkles className="w-4 h-4 text-[#9d7b38] shrink-0 mt-0.5" />
               <p className="text-zinc-800 leading-snug">
-                <strong>100% Retainer Guarantee:</strong> The full amount paid (${item.priceUSD} USD) is now automatically credited toward any future mandate, diagnostic audit, or executive advisory session with Suchita Sancheti.
+                <strong>100% Retainer Guarantee:</strong> All verified investments are credited toward future executive mandates or diagnostic audits with Suchita Sancheti.
               </p>
             </div>
 
-            {/* Instant Access & Download Buttons */}
             <div className="space-y-2 pt-1">
-              <button
-                onClick={handleDownloadDeliverable}
-                className="w-full py-3 px-4 bg-black hover:bg-zinc-800 text-white font-bold text-xs uppercase font-mono tracking-wider rounded-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm active:scale-98"
-              >
-                <Download className="w-4 h-4 text-[#d4af37]" />
-                <span>Download Licensed Materials Package (Instant Access)</span>
-              </button>
+              {receipt.status === 'paid' && (
+                <button
+                  onClick={handleDownloadDeliverable}
+                  className="w-full py-3 px-4 bg-black hover:bg-zinc-800 text-white font-bold text-xs uppercase font-mono tracking-wider rounded-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm active:scale-98"
+                >
+                  <Download className="w-4 h-4 text-[#d4af37]" />
+                  <span>Download Verified Materials Package</span>
+                </button>
+              )}
 
               <button
                 onClick={handleCloseModal}
@@ -328,42 +474,41 @@ Confidential & Privileged — The Unbounded Leadership Co.`;
             </div>
           </div>
         ) : (
-          /* ========================================================================= */
-          /* VIEW B: CHECKOUT & PAYMENT SELECTION STATE                                */
-          /* ========================================================================= */
           <div className="space-y-4">
-            
-            {/* Header / Item Summary */}
             <div className="border-b border-stone-200 pb-3 pr-6">
               <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#9d7b38] font-black">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#9d7b38]" />
-                <span>Encrypted Executive Checkout · Institutional Clearance</span>
+                <span>Server-Verified Executive Checkout · Institutional Clearance</span>
               </div>
               <h2 id="payment-dialog-title" className="text-lg sm:text-xl font-black text-black mt-0.5 leading-snug">
                 {item.title}
               </h2>
-              {item.subtitle && (
-                <p className="text-xs text-zinc-700 mt-0.5">{item.subtitle}</p>
-              )}
+              {item.subtitle && <p className="text-xs text-zinc-700 mt-0.5">{item.subtitle}</p>}
             </div>
 
-            {/* Price & Currency Bar */}
             <div className="p-3 bg-[#faf8f4] border border-[#d8cebe] rounded-md flex items-center justify-between">
               <div>
-                <span className="text-[10px] font-mono uppercase text-zinc-500 font-bold block">Total Investment</span>
-                <span className="text-2xl font-black text-black">{formattedPrice}</span>
+                <span className="text-[10px] font-mono uppercase text-zinc-500 font-bold block">
+                  Base Catalog Price (Server Computes Final Tax/Discount)
+                </span>
+                <span className="text-2xl font-black text-black">
+                  {serverQuote ? `${currencySymbol}${serverQuote.totalDisplay.toLocaleString()}` : `$${item.priceUSD.toLocaleString()} USD`}
+                </span>
                 <span className="text-[10px] font-mono text-zinc-600 ml-1.5 uppercase">({currency})</span>
               </div>
 
-              {/* Currency Selector */}
               <div className="flex items-center gap-1 text-xs font-mono font-bold">
                 {(['USD', 'EUR', 'GBP', 'INR', 'AED'] as const).map((curr) => (
                   <button
                     key={curr}
-                    onClick={() => setCurrency(curr)}
+                    type="button"
+                    onClick={() => {
+                      setCurrency(curr);
+                      setServerQuote(null);
+                    }}
                     className={`px-2 py-1 rounded text-[11px] transition-colors cursor-pointer ${
-                      currency === curr 
-                        ? 'bg-black text-[#d4af37] font-black' 
+                      currency === curr
+                        ? 'bg-black text-[#d4af37] font-black'
                         : 'bg-white border border-stone-200 text-zinc-700 hover:bg-stone-100'
                     }`}
                   >
@@ -373,49 +518,30 @@ Confidential & Privileged — The Unbounded Leadership Co.`;
               </div>
             </div>
 
-            {/* Payment Method Tabs */}
-            <div className="grid grid-cols-3 gap-1.5 bg-stone-100 p-1 rounded-md text-xs font-mono font-bold">
+            <div className="grid grid-cols-2 gap-1.5 bg-stone-100 p-1 rounded-md text-xs font-mono font-bold">
               <button
                 type="button"
-                onClick={() => setActiveTab('card')}
+                onClick={() => setActiveTab('gateway')}
                 className={`py-2 px-2 rounded-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                  activeTab === 'card' 
-                    ? 'bg-white text-black shadow-xs font-black' 
-                    : 'text-zinc-600 hover:text-black'
+                  activeTab === 'gateway' ? 'bg-white text-black shadow-xs font-black' : 'text-zinc-600 hover:text-black'
                 }`}
               >
                 <CreditCard className="w-3.5 h-3.5 text-[#9d7b38]" />
-                <span>Credit Card</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setActiveTab('wallet')}
-                className={`py-2 px-2 rounded-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                  activeTab === 'wallet' 
-                    ? 'bg-white text-black shadow-xs font-black' 
-                    : 'text-zinc-600 hover:text-black'
-                }`}
-              >
-                <Smartphone className="w-3.5 h-3.5 text-[#9d7b38]" />
-                <span>Apple / Google Pay</span>
+                <span>Razorpay Checkout (Card / UPI)</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => setActiveTab('wire')}
                 className={`py-2 px-2 rounded-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                  activeTab === 'wire' 
-                    ? 'bg-white text-black shadow-xs font-black' 
-                    : 'text-zinc-600 hover:text-black'
+                  activeTab === 'wire' ? 'bg-white text-black shadow-xs font-black' : 'text-zinc-600 hover:text-black'
                 }`}
               >
                 <Building2 className="w-3.5 h-3.5 text-[#9d7b38]" />
-                <span>Wire / Invoice</span>
+                <span>Corporate Wire / Invoice</span>
               </button>
             </div>
 
-            {/* Error Message if any */}
             {validationError && (
               <div className="p-2.5 bg-rose-50 border border-rose-300 text-rose-800 rounded text-xs flex items-start gap-2">
                 <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
@@ -423,11 +549,10 @@ Confidential & Privileged — The Unbounded Leadership Co.`;
               </div>
             )}
 
-            {/* Customer Contact Details */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               <div>
                 <label className="block text-[10px] font-mono uppercase text-zinc-700 font-bold mb-1">
-                  Corporate Email (for Delivery & Receipt) *
+                  Corporate Email (for Receipt & Access) *
                 </label>
                 <input
                   type="email"
@@ -453,134 +578,52 @@ Confidential & Privileged — The Unbounded Leadership Co.`;
               </div>
             </div>
 
-            {/* TAB 1: CREDIT / DEBIT CARD */}
-            {activeTab === 'card' && (
-              <div className="space-y-2.5 pt-1">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono uppercase text-zinc-600 font-bold">
-                    Card Payment Details
-                  </span>
-                  <button
-                    type="button"
-                    onClick={handleFillDemoCard}
-                    className="text-[10px] font-mono text-[#9d7b38] hover:text-[#7d5f24] underline cursor-pointer font-bold"
-                  >
-                    ⚡ One-Click Fill Demo Card
-                  </button>
-                </div>
-
+            {activeTab === 'gateway' && (
+              <div className="space-y-3 pt-1">
                 <div>
-                  <label className="block text-[10px] font-mono uppercase text-zinc-700 font-bold mb-0.5">
-                    Cardholder Name
+                  <label className="block text-[10px] font-mono uppercase text-zinc-700 font-bold mb-1">
+                    Authorized Mandate / Discount Code (Optional)
                   </label>
                   <input
                     type="text"
-                    placeholder="Name as printed on card"
-                    value={cardName}
-                    onChange={(e) => setCardName(e.target.value)}
-                    className="w-full bg-[#fcfaf7] border border-stone-300 rounded px-2.5 py-1.5 text-xs text-black placeholder:text-stone-400 focus:outline-none focus:border-black"
+                    placeholder="Validated exclusively on server"
+                    value={couponCode}
+                    onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                    className="w-full bg-[#fcfaf7] border border-stone-300 rounded px-2.5 py-1.5 text-xs text-black font-mono uppercase placeholder:text-stone-400 focus:outline-none focus:border-black"
                   />
                 </div>
 
-                <div>
-                  <label className="block text-[10px] font-mono uppercase text-zinc-700 font-bold mb-0.5">
-                    Card Number
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      placeholder="4242 •••• •••• 4242"
-                      value={cardNumber}
-                      onChange={handleCardNumberChange}
-                      className="w-full bg-[#fcfaf7] border border-stone-300 rounded pl-2.5 pr-10 py-1.5 text-xs text-black font-mono placeholder:text-stone-400 focus:outline-none focus:border-black"
-                    />
-                    <CreditCard className="w-4 h-4 text-zinc-400 absolute right-3 top-2 pointer-events-none" />
+                <div className="p-3 bg-stone-50 border border-stone-200 rounded-md text-xs text-zinc-700 space-y-1">
+                  <div className="font-bold text-black flex items-center gap-1.5">
+                    <Lock className="w-3.5 h-3.5 text-[#9d7b38]" />
+                    <span>Zero Client-Side Card Handling (PCI-DSS Compliant)</span>
                   </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2.5">
-                  <div>
-                    <label className="block text-[10px] font-mono uppercase text-zinc-700 font-bold mb-0.5">
-                      Expiry (MM/YY)
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="12/28"
-                      value={cardExpiry}
-                      onChange={handleExpiryChange}
-                      className="w-full bg-[#fcfaf7] border border-stone-300 rounded px-2.5 py-1.5 text-xs text-black font-mono placeholder:text-stone-400 focus:outline-none focus:border-black"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[10px] font-mono uppercase text-zinc-700 font-bold mb-0.5">
-                      CVC / CVV
-                    </label>
-                    <input
-                      type="password"
-                      maxLength={4}
-                      placeholder="•••"
-                      value={cardCvc}
-                      onChange={(e) => setCardCvc(e.target.value.replace(/\D/g, ''))}
-                      className="w-full bg-[#fcfaf7] border border-stone-300 rounded px-2.5 py-1.5 text-xs text-black font-mono placeholder:text-stone-400 focus:outline-none focus:border-black"
-                    />
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  disabled={isProcessing}
-                  onClick={() => handleProcessPayment('Credit Card (256-Bit Encrypted)')}
-                  className="w-full mt-2 py-3 px-4 bg-black hover:bg-zinc-800 disabled:bg-zinc-400 text-white font-black text-xs uppercase font-mono tracking-wider rounded-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm active:scale-98"
-                >
-                  {isProcessing ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin text-[#d4af37]" />
-                      <span>Authorizing Sovereign Clearance...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Lock className="w-3.5 h-3.5 text-[#d4af37]" />
-                      <span>Pay {formattedPrice} & Secure Access Now</span>
-                    </>
-                  )}
-                </button>
-              </div>
-            )}
-
-            {/* TAB 2: APPLE / GOOGLE PAY */}
-            {activeTab === 'wallet' && (
-              <div className="space-y-3 pt-2 text-center">
-                <div className="p-4 bg-stone-50 border border-stone-200 rounded-md space-y-2">
-                  <Smartphone className="w-6 h-6 text-black mx-auto" />
-                  <h3 className="text-sm font-bold text-black">1-Tap Sovereign Biometric Authorization</h3>
-                  <p className="text-xs text-zinc-600 max-w-sm mx-auto">
-                    Authenticate instantly with Apple Pay, Google Pay, or your corporate hardware key.
+                  <p className="text-[11px] leading-snug">
+                    Card, UPI, and net-banking details are tokenized directly inside Razorpay&apos;s hosted gateway. Totals, taxes, and payment signatures are verified server-side before unlocking materials.
                   </p>
                 </div>
 
                 <button
                   type="button"
                   disabled={isProcessing}
-                  onClick={() => handleProcessPayment('1-Tap Digital Wallet (Apple/Google Pay)')}
-                  className="w-full py-3.5 px-4 bg-black hover:bg-zinc-900 text-white font-black text-xs uppercase font-mono tracking-wider rounded-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md active:scale-98"
+                  onClick={handleInitiateRazorpayCheckout}
+                  className="w-full py-3 px-4 bg-black hover:bg-zinc-800 disabled:bg-zinc-400 text-white font-black text-xs uppercase font-mono tracking-wider rounded-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm active:scale-98"
                 >
                   {isProcessing ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin text-[#d4af37]" />
-                      <span>Processing Digital Token...</span>
+                      <span>Verifying Order on Server...</span>
                     </>
                   ) : (
                     <>
                       <Lock className="w-3.5 h-3.5 text-[#d4af37]" />
-                      <span>Authorize 1-Tap Payment · {formattedPrice}</span>
+                      <span>Proceed to Hosted Razorpay Checkout</span>
                     </>
                   )}
                 </button>
               </div>
             )}
 
-            {/* TAB 3: INSTITUTIONAL WIRE / PRO-FORMA INVOICE */}
             {activeTab === 'wire' && (
               <div className="space-y-2.5 pt-1 text-xs">
                 <div className="p-3 bg-[#faf8f4] border border-[#d8cebe] rounded space-y-1.5 font-mono">
@@ -592,53 +635,46 @@ Confidential & Privileged — The Unbounded Leadership Co.`;
                     <span className="text-zinc-600">Institutional Bank:</span>
                     <span className="font-bold text-black">JPMorgan Chase / Barclays Institutional</span>
                   </div>
-                  <div className="flex justify-between border-b border-stone-200 pb-1">
+                  <div className="flex justify-between">
                     <span className="text-zinc-600">Routing / SWIFT:</span>
                     <span className="font-bold text-black">CHASUS33 / BACS 20-00-00</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-zinc-600">Payment Reference:</span>
-                    <span className="font-bold text-[#9d7b38]">TULC-INV-{Math.floor(100000 + Math.random() * 900000)}</span>
                   </div>
                 </div>
 
                 <p className="text-[11px] text-zinc-600 italic">
-                  Selecting corporate wire will dispatch a pro-forma tax invoice and banking details to your corporate email immediately.
+                  A server-tracked pro-forma invoice reference will be created. Digital materials remain locked until bank settlement is confirmed.
                 </p>
 
                 <button
                   type="button"
                   disabled={isProcessing}
-                  onClick={() => handleProcessPayment('Corporate Wire & Pro-Forma Invoice')}
+                  onClick={handleRequestWireInvoice}
                   className="w-full py-3 px-4 bg-black hover:bg-zinc-800 text-white font-black text-xs uppercase font-mono tracking-wider rounded-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm active:scale-98"
                 >
                   {isProcessing ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin text-[#d4af37]" />
-                      <span>Generating Pro-Forma Invoice...</span>
+                      <span>Generating Server Invoice Docket...</span>
                     </>
                   ) : (
                     <>
                       <FileText className="w-3.5 h-3.5 text-[#d4af37]" />
-                      <span>Generate Corporate Pro-Forma Invoice ({formattedPrice})</span>
+                      <span>Generate Corporate Pro-Forma Invoice</span>
                     </>
                   )}
                 </button>
               </div>
             )}
 
-            {/* Security Footer Guarantee */}
             <div className="pt-2 border-t border-stone-200 flex items-center justify-between text-[10px] font-mono text-zinc-600">
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#9d7b38]" />
-                <span>256-Bit TLS Bank Encryption · PCI-DSS Tier 1</span>
+                <span>256-Bit TLS · Server-Authoritative Verification</span>
               </div>
               <span className="text-[#9d7b38] font-bold">100% Retainer Credited</span>
             </div>
-
           </div>
         )}
-
       </div>
     </div>
   );
