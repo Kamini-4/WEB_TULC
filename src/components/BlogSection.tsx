@@ -192,7 +192,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               <div className="article-direct-answer p-4 sm:p-5 rounded-none bg-[#faf6ee] border-2 border-[#9d7b38]/60 shadow-xs space-y-2">
                 <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#9d7b38] font-bold">
                   <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
-                  <span>Direct Executive Answer (AEO / GEO Key Takeaway)</span>
+                  <span>Direct Executive Answer · Key Takeaway</span>
                 </div>
                 <p className="text-sm font-serif font-bold text-[#17181c] leading-relaxed">
                   {selectedPost.aeoDirectAnswer.coreDefinition}
@@ -505,11 +505,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                 <div className="flex items-center justify-between pb-2.5 border-b border-[#ebdcc0]">
                   <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#9d7b38] font-bold">
                     <HelpCircle className="w-4 h-4 text-[#9d7b38]" />
-                    <span>Executive Inquiries & Search Answers (AEO / GEO FAQ)</span>
+                    <span>Executive Inquiries & Frequently Asked Questions</span>
                   </div>
-                  <span className="text-[10px] font-mono text-[#8c6708] uppercase font-semibold">
-                    Direct Answer Engine Node
-                  </span>
                 </div>
                 <div className="space-y-3">
                   {selectedPost.faqItems.map((item, qIdx) => (
