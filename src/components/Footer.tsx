@@ -22,20 +22,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   };
 
   const directPageLinks = [
-    { name: 'Home / Overview', path: '/', target: 'home', tag: 'Core' },
-    { name: 'Founder Dependency Assessment', path: '/assessment', target: 'test', tag: 'Free 60s' },
-    { name: 'Forensic Diagnostic (Phase 2)', path: '/diagnostic', target: 'diagnostic', tag: 'Dossier' },
+    { name: 'Overview', path: '/', target: 'home', tag: 'Core' },
+    { name: '60-Sec Assessment & Operational Model', path: '/assessment', target: 'test', tag: 'Unified' },
     { name: 'Services & Retainers', path: '/services', target: 'partnerships', tag: 'Fractional COO' },
     { name: 'The Firm & Suchita Sancheti', path: '/about', target: 'about', tag: 'About' },
-    { name: 'Executive Blueprints & Systems', path: '/shop', target: 'shop', tag: 'Toolkits' },
-    { name: 'Strategic Intelligence Library', path: '/library', target: 'library', tag: '19 Dispatches' },
+    { name: 'Executive Toolkits & Pay', path: '/shop', target: 'shop', tag: 'Toolkits' },
+    { name: 'Strategic Intelligence Library', path: '/library', target: 'library', tag: 'Dispatches' },
     { name: 'Executive Video Briefing', path: '/briefing', target: 'briefing', tag: 'Video' },
-    { name: '5 Core Operating Domains', path: '/domains', target: 'domains', tag: 'Architecture' },
-    { name: 'Institutional Client Portal', path: '/portal', target: 'portal', tag: 'Encrypted' },
-    { name: 'Calendly Executive Booking', path: '/booking', target: 'booking', tag: 'Calendar' },
-    { name: 'Confidential Advisory Desk', path: '/contact', target: 'contact', tag: 'In-Camera' },
-    { name: 'Case Proof & Performance Logs', path: '/case-studies', target: 'case-studies', tag: 'Evidence' },
-    { name: 'Corporate FAQ (27 Answers)', path: '/faq', target: 'faq', tag: 'Architecture' },
+    { name: 'Institutional Client Portal', path: '/portal', target: 'portal', tag: 'Portal' },
+    { name: 'Book 1-on-1 Call (Calendly)', path: '/booking', target: 'booking', tag: 'Calendar' },
+    { name: 'Confidential Advisory Desk', path: '/contact', target: 'contact', tag: 'Contact' },
+    { name: 'Case Studies', path: '/case-studies', target: 'case-studies', tag: 'Evidence' },
+    { name: 'Corporate FAQ', path: '/faq', target: 'faq', tag: 'Guide' },
     { name: 'Privacy Policy & Covenant', path: '/privacy', target: 'privacy', tag: 'Legal' }
   ];
   return (
@@ -271,12 +269,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 Direct Page Links Directory
               </span>
               <p className="text-[12px] text-[#6b6e76] font-mono mt-0.5">
-                Dedicated clean URLs for all 16 institutional pages with 1-click clipboard link copy.
+                Dedicated clean URLs across all {directPageLinks.length} institutional views with 1-click clipboard link copy.
               </p>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-[10px] font-mono text-[#8a8070] bg-[#ffffff] border border-[#d8cebe] px-2 py-0.5 rounded-xs">
-                16 Dedicated URLs
+                {directPageLinks.length} Direct URLs
               </span>
             </div>
           </div>

@@ -3,8 +3,6 @@ import { ConsultationInquiry, PartnershipModelId } from '../types';
 import { Lock, ShieldCheck, CheckCircle2, Send, Clock, FileText, Loader2, Phone, Mail, ArrowLeft, Sparkles, Calendar, ExternalLink } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
 import { CalendlyModal } from './CalendlyModal';
-import { FAQSubset } from './FAQSubset';
-import { getFaqSubset } from '../data/faqData';
 
 interface InquiryProps {
   initialPartnership?: PartnershipModelId | 'council-chambers';
@@ -276,7 +274,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-[11px] font-bold text-[#17181c] uppercase mb-1">
-                      Executive Full Name *
+                      Executive Full Name
                     </label>
                     <input
                       type="text"
@@ -291,7 +289,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
 
                   <div>
                     <label className="block text-[11px] font-bold text-[#17181c] uppercase mb-1">
-                      Corporate / Institutional Email *
+                      Corporate / Institutional Email
                     </label>
                     <input
                       type="email"
@@ -308,7 +306,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label className="block text-[11px] font-bold text-[#17181c] uppercase mb-1">
-                      Role / Board Title *
+                      Role / Board Title
                     </label>
                     <select
                       value={formData.role}
@@ -328,7 +326,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
 
                   <div>
                     <label className="block text-[11px] font-bold text-[#17181c] uppercase mb-1">
-                      Enterprise / Institution Name *
+                      Enterprise / Institution Name
                     </label>
                     <input
                       type="text"
@@ -477,22 +475,6 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
               </form>
             )}
           </div>
-        </div>
-
-        {/* Engagement & Scoping FAQ Subset */}
-        <div className="mt-8">
-          <FAQSubset
-            title="Engagement, Scoping & Protocol FAQ"
-            subtitle="Essential information on transformation protocols, family office advisory, and measuring leadership architecture results."
-            items={getFaqSubset(['faq-21', 'faq-23', 'faq-24', 'faq-25', 'faq-26', 'faq-27'])}
-            onNavigate={(target) => {
-              try {
-                window.history.pushState(null, '', `/${target}`);
-                window.dispatchEvent(new PopStateEvent('popstate'));
-              } catch {}
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
         </div>
 
       </div>

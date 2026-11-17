@@ -11,10 +11,10 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   currentView = 'home'
 }) => {
   const navItems = [
-    { id: 'top', label: 'Home', icon: Home },
-    { id: 'test', label: 'Assessment', icon: Zap, badge: 'FREE' },
+    { id: 'top', label: 'Overview', icon: Home },
+    { id: 'test', label: 'Assess', icon: Zap },
     { id: 'partnerships', label: 'Services', icon: Layers },
-    { id: 'shop', label: 'Blueprints', icon: BookOpen },
+    { id: 'shop', label: 'Toolkits', icon: BookOpen },
     { id: 'about', label: 'About', icon: User },
   ];
 
@@ -29,7 +29,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           const Icon = item.icon;
           const isActive = 
             (item.id === 'top' && (currentView === 'home' || currentView === 'top')) ||
-            (item.id === 'test' && (currentView === 'test' || currentView === 'diagnostic')) ||
+            (item.id === 'test' && currentView === 'test') ||
             (item.id === 'partnerships' && currentView === 'partnerships') ||
             (item.id === 'shop' && currentView === 'shop') ||
             (item.id === 'about' && currentView === 'about');
@@ -42,20 +42,10 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
                 isActive ? 'text-[#9d7b38]' : 'text-[#6b6e76] hover:text-[#17181c]'
               }`}
             >
-              <div className="relative">
-                <Icon className={`w-4 h-4 ${isActive ? 'stroke-[2.5px]' : 'stroke-[1.75px]'}`} />
-                {item.badge && (
-                  <span className="absolute -top-1 -right-2 text-[8px] font-bold text-[#8f6d28] bg-[#eae2d3] px-1 rounded-full leading-none py-0.5">
-                    {item.badge}
-                  </span>
-                )}
-              </div>
+              <Icon className={`w-4 h-4 ${isActive ? 'stroke-[2.5px]' : 'stroke-[1.75px]'}`} />
               <span className={`text-[10px] mt-1 font-medium tracking-normal ${isActive ? 'font-bold text-[#17181c]' : ''}`}>
                 {item.label}
               </span>
-              {isActive && (
-                <span className="absolute bottom-1 w-1 h-1 rounded-full bg-[#9d7b38]" />
-              )}
             </button>
           );
         })}

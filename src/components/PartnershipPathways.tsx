@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { PartnershipPathway, PartnershipModelId } from '../types';
 import { ArrowRight, CheckCircle2, Download, ShieldCheck, Flame, Compass, Zap, Sparkles, Check, X, CreditCard, Lock } from 'lucide-react';
 import { PaymentModal, PaymentItem } from './payment/PaymentModal';
-import { FAQSubset } from './FAQSubset';
-import { getFaqSubset } from '../data/faqData';
 
 interface PathwaysProps {
   onSelectModel: (modelId: PartnershipModelId) => void;
@@ -184,10 +182,9 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
                     : 'border-2 border-[#d8cebe] hover:border-black'
                 }`}
               >
-                {/* Recommended Badge on Flagship Track 02 */}
                 {isEmbedding && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-black text-[#d4af37] text-[10px] font-mono uppercase font-black tracking-wider px-2.5 py-0.5 rounded-full shadow-xs flex items-center gap-1 whitespace-nowrap">
-                    <Sparkles className="w-2.5 h-2.5 text-[#d4af37]" />
+                  <div className="bg-[#17181c] text-[#d4af37] text-[10px] font-mono uppercase font-black tracking-wider px-4 py-1.5 rounded-t-md flex items-center justify-center gap-1.5">
+                    <Sparkles className="w-3 h-3 text-[#d4af37]" />
                     <span>CORE 90-DAY TRANSFORMATION</span>
                   </div>
                 )}
@@ -335,22 +332,6 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
               <span>Inquire Protocol</span>
             </button>
           </div>
-        </div>
-
-        {/* Strategic Alignment & Global Transformation FAQ Subset */}
-        <div className="mt-8">
-          <FAQSubset
-            title="Strategic Alignment & Global Leadership FAQ"
-            subtitle="Core organizational insights on decision ownership, global consistency, and transformation protocols."
-            items={getFaqSubset(['faq-16', 'faq-17', 'faq-18', 'faq-19', 'faq-20', 'faq-21', 'faq-22', 'faq-23', 'faq-24', 'faq-25'])}
-            onNavigate={(target) => {
-              try {
-                window.history.pushState(null, '', `/${target}`);
-                window.dispatchEvent(new PopStateEvent('popstate'));
-              } catch {}
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
         </div>
 
       </div>

@@ -21,8 +21,6 @@ import {
   ChevronUp
 } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
-import { FAQSubset } from './FAQSubset';
-import { getFaqSubset } from '../data/faqData';
 
 interface AboutSectionProps {
   onOpenConsultation: () => void;
@@ -190,7 +188,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
               <p>
                 But past $5M or $20M in revenue, that exact superpower becomes your single biggest operational bottleneck. You hired smart, capable leaders. You pay top compensation. Yet somehow, every complex issue still reaches your desk at 8:00 PM. Your team hesitates not from lack of ambition, but because your decision boundaries are stored in your head rather than hard-coded into the architecture.
               </p>
-              <p className="italic text-black bg-[#faf8f4] p-3 rounded-xs border-l-4 border-[#9d7b38] font-semibold">
+              <p className="italic text-black bg-[#faf8f4] p-3.5 rounded-xs border border-[#d8cebe] font-semibold">
                 "When you scale without architecture, you just scale your personal exhaustion. True leadership isn't being indispensable to daily operations—it is building an enterprise that executes with sovereign clarity whether you are in the boardroom or halfway across the globe."
               </p>
               <p>
@@ -442,22 +440,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
 
             </div>
           )}
-        </div>
-
-        {/* The Firm & Leadership Architecture FAQ Subset */}
-        <div className="mt-8">
-          <FAQSubset
-            title="The Firm & Leadership Architecture FAQ"
-            subtitle="Core institutional definitions, global positioning, and how leadership architecture differs from coaching or training."
-            items={getFaqSubset(['faq-1', 'faq-2', 'faq-3', 'faq-4', 'faq-5'])}
-            onNavigate={(target) => {
-              try {
-                window.history.pushState(null, '', `/${target}`);
-                window.dispatchEvent(new PopStateEvent('popstate'));
-              } catch {}
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
         </div>
 
       </div>

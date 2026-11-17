@@ -552,7 +552,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               <div>
                 <label className="block text-[10px] font-mono uppercase text-zinc-700 font-bold mb-1">
-                  Corporate Email (for Receipt & Access) *
+                  Corporate Email (for Receipt & Access)
                 </label>
                 <input
                   type="email"
