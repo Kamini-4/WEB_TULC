@@ -22,12 +22,13 @@ export const HeroSection: React.FC<HeroProps> = ({
             className="font-bold text-[#17181c] leading-[1.12] tracking-tight font-serif [text-wrap:balance]"
             style={{ fontSize: 'clamp(2rem, 4vw, 3.35rem)' }}
           >
-            Your business should scale without everything waiting on you.
+            Your business should scale{' '}
+            <span className="text-[#9d7b38]">without everything waiting on you.</span>
           </h1>
 
           <p className="text-base sm:text-lg text-[#3f424a] font-normal leading-relaxed max-w-2xl mx-auto">
             When every approval, escalation, and strategic call still hits your desk, growth stalls at the speed of your calendar.{' '}
-            <strong className="font-bold text-[#17181c]">
+            <strong className="font-bold text-[#9d7b38]">
               We install autonomous decision systems and leadership execution in 90 days
             </strong>
             —so your team runs the operation while you compound the enterprise.
@@ -38,7 +39,7 @@ export const HeroSection: React.FC<HeroProps> = ({
             <button
               type="button"
               onClick={onLaunchDiagnostic}
-              className="px-6 sm:px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] transition-all rounded-sm flex items-center justify-center gap-2 shadow-md active:scale-[0.98] min-h-[48px] w-full sm:w-auto cursor-pointer whitespace-nowrap"
+              className="px-6 sm:px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-[#f8f6f0] bg-[#17181c] hover:bg-[#282a30] border border-[#d4af37]/50 transition-all rounded-sm flex items-center justify-center gap-2 shadow-md active:scale-[0.98] min-h-[48px] w-full sm:w-auto cursor-pointer whitespace-nowrap"
             >
               <span>Take the 60-Sec Assessment</span>
               <ArrowRight className="w-4 h-4 text-[#d4af37]" />
@@ -47,7 +48,7 @@ export const HeroSection: React.FC<HeroProps> = ({
             <button
               type="button"
               onClick={onExplorePartnerships}
-              className="px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#17181c] bg-white hover:bg-[#faf7f0] border border-[#d8cebe] hover:border-[#9d7b38] transition-all rounded-sm text-center min-h-[48px] flex items-center justify-center cursor-pointer w-full sm:w-auto whitespace-nowrap"
+              className="px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#17181c] bg-white hover:bg-[#faf7f0] border border-[#9d7b38]/60 hover:border-[#9d7b38] transition-all rounded-sm text-center min-h-[48px] flex items-center justify-center cursor-pointer w-full sm:w-auto whitespace-nowrap"
             >
               <span>See Services & Fractional COO</span>
             </button>
@@ -55,17 +56,20 @@ export const HeroSection: React.FC<HeroProps> = ({
 
           <div className="pt-1 flex items-center justify-center gap-2 text-xs text-[#6e727c]">
             <ShieldCheck className="w-3.5 h-3.5 text-[#9d7b38] shrink-0" />
-            <span>Fractional COO & Operating Architecture by Suchita Sancheti · Confidential & Non-Advisory</span>
+            <span>
+              Fractional COO &amp; Operating Architecture by{' '}
+              <strong className="text-[#9d7b38] font-bold">Suchita Sancheti</strong> · Confidential &amp; Non-Advisory
+            </span>
           </div>
         </div>
 
         {/* 3 Concrete Numbers — Immediately Explain the Stakes */}
         <div className="mt-8 pt-6 border-t border-[#e5decfe0] grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-          <div className="p-4 sm:p-5 rounded-md bg-[#141416] border border-[#2b2d33] text-white space-y-1.5">
+          <div className="p-4 sm:p-5 rounded-md bg-[#141416] border border-[#d4af37]/30 text-white space-y-1.5">
             <div className="text-2xl sm:text-3xl font-black text-[#d4af37] tabular-nums">
               15–20 hrs/wk
             </div>
-            <div className="text-sm font-bold text-white">
+            <div className="text-sm font-bold text-[#f3e5ab]">
               Reclaimed From Daily Firefighting
             </div>
             <p className="text-xs text-[#a6a9b2] leading-relaxed">
@@ -73,11 +77,11 @@ export const HeroSection: React.FC<HeroProps> = ({
             </p>
           </div>
 
-          <div className="p-4 sm:p-5 rounded-md bg-[#141416] border border-[#2b2d33] text-white space-y-1.5">
+          <div className="p-4 sm:p-5 rounded-md bg-[#141416] border border-[#d4af37]/30 text-white space-y-1.5">
             <div className="text-2xl sm:text-3xl font-black text-[#d4af37] tabular-nums">
               72 Hours
             </div>
-            <div className="text-sm font-bold text-white">
+            <div className="text-sm font-bold text-[#f3e5ab]">
               Decision Velocity vs. 6-Week Committees
             </div>
             <p className="text-xs text-[#a6a9b2] leading-relaxed">
@@ -85,11 +89,11 @@ export const HeroSection: React.FC<HeroProps> = ({
             </p>
           </div>
 
-          <div className="p-4 sm:p-5 rounded-md bg-[#141416] border border-[#2b2d33] text-white space-y-1.5">
+          <div className="p-4 sm:p-5 rounded-md bg-[#141416] border border-[#d4af37]/30 text-white space-y-1.5">
             <div className="text-2xl sm:text-3xl font-black text-[#d4af37] tabular-nums">
               90 Days
             </div>
-            <div className="text-sm font-bold text-white">
+            <div className="text-sm font-bold text-[#f3e5ab]">
               Complete System Install With Exit Date
             </div>
             <p className="text-xs text-[#a6a9b2] leading-relaxed">

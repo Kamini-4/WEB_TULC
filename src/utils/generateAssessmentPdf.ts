@@ -1,4 +1,5 @@
 import { jsPDF } from 'jspdf';
+import { formatExactAmount } from './pricing';
 
 export interface DomainResultEntry {
   domainNumber: string;
@@ -7,13 +8,19 @@ export interface DomainResultEntry {
   score: number;
   maxScore: number;
   lostHours: number;
+  timeCost: number;
+  dragCost: number;
   delayCost: number;
 }
 
 export interface AssessmentPdfPayload {
   totalScore: number;
   totalLostHours: number;
+  totalTimeCost: number;
+  totalDragCost: number;
   totalDelayCost: number;
+  hourlyOpportunityRate: number;
+  annualWorkingWeeks: number;
   statusLabel: string;
   verdictHeadline: string;
   verdictSummary: string;
@@ -44,7 +51,7 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
   };
 
   // Top Header Band
-  doc.setFillColor(23, 24, 28); // #17181c
+  doc.setFillColor(20, 20, 22); // #141416
   doc.rect(0, 0, pageWidth, 88, 'F');
 
   doc.setDrawColor(212, 175, 55); // #d4af37 gold accent rule
@@ -71,13 +78,13 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
   });
   doc.text(`Prepared confidentially  |  ${dateStr}  |  Methodology by Suchita Sancheti`, marginX, 72);
 
-  cursorY = 112;
+  cursorY = 110;
 
   // Score Summary Card
   doc.setFillColor(250, 248, 244);
   doc.setDrawColor(216, 206, 190);
   doc.setLineWidth(1);
-  doc.roundedRect(marginX, cursorY, contentWidth, 92, 4, 4, 'FD');
+  doc.roundedRect(marginX, cursorY, contentWidth, 108, 4, 4, 'FD');
 
   // 3 KPI Columns inside summary box
   const colW = contentWidth / 3;
@@ -85,22 +92,29 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
   doc.setFontSize(8);
   doc.setTextColor(157, 123, 56);
   doc.text('AUTONOMY SCORE', marginX + 16, cursorY + 22);
-  doc.text('WEEKLY TIME RECLAIMABLE', marginX + colW + 12, cursorY + 22);
-  doc.text('ANNUAL DELAY COST', marginX + colW * 2 + 12, cursorY + 22);
+  doc.text('WEEKLY TIME RECLAIMABLE', marginX + colW + 10, cursorY + 22);
+  doc.text('EXACT ANNUAL EXECUTION COST', marginX + colW * 2 + 4, cursorY + 22);
 
   doc.setFont('helvetica', 'bold');
-  doc.setFontSize(22);
+  doc.setFontSize(20);
   doc.setTextColor(23, 24, 28);
-  doc.text(`${payload.totalScore} / 100`, marginX + 16, cursorY + 48);
-  doc.text(`${payload.totalLostHours}+ Hrs / Wk`, marginX + colW + 12, cursorY + 48);
-  doc.text(`$${payload.totalDelayCost.toLocaleString()} / Yr`, marginX + colW * 2 + 12, cursorY + 48);
+  doc.text(`${payload.totalScore} / 100`, marginX + 16, cursorY + 46);
+  doc.text(`${payload.totalLostHours.toFixed(1)} Hrs / Wk`, marginX + colW + 10, cursorY + 46);
+  doc.setTextColor(157, 123, 56);
+  doc.text(`${formatExactAmount(payload.totalDelayCost)}`, marginX + colW * 2 + 4, cursorY + 46);
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8);
+  doc.setTextColor(80, 84, 92);
+  const formulaLine = `Calculation: ${payload.totalLostHours.toFixed(1)} hrs/wk x ${payload.annualWorkingWeeks} wks x ${formatExactAmount(payload.hourlyOpportunityRate)}/hr (${formatExactAmount(payload.totalTimeCost)}) + ${formatExactAmount(payload.totalDragCost)} operational lag = ${formatExactAmount(payload.totalDelayCost)}/yr`;
+  doc.text(formulaLine, marginX + 16, cursorY + 72);
 
   doc.setFont('helvetica', 'bold');
-  doc.setFontSize(9);
+  doc.setFontSize(8.5);
   doc.setTextColor(157, 123, 56);
-  doc.text(`CLASSIFICATION: ${payload.statusLabel.toUpperCase()}`, marginX + 16, cursorY + 74);
+  doc.text(`CLASSIFICATION: ${payload.statusLabel.toUpperCase()}`, marginX + 16, cursorY + 92);
 
-  cursorY += 110;
+  cursorY += 126;
 
   // Executive Verdict
   doc.setFont('times', 'bold');
@@ -137,37 +151,41 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(9.5);
   doc.setTextColor(157, 123, 56);
-  doc.text('FIVE-DOMAIN OPERATING BREAKDOWN', marginX, cursorY);
+  doc.text('FIVE-DOMAIN OPERATING & COST BREAKDOWN', marginX, cursorY);
   cursorY += 12;
 
   payload.domainResults.forEach((d) => {
-    checkPageBreak(36);
+    checkPageBreak(42);
     const tierText = d.score <= 8 ? 'Critical Drag' : d.score <= 14 ? 'Moderate Friction' : 'Autonomous';
     doc.setFillColor(255, 255, 255);
     doc.setDrawColor(224, 217, 204);
-    doc.roundedRect(marginX, cursorY, contentWidth, 28, 2, 2, 'FD');
+    doc.roundedRect(marginX, cursorY, contentWidth, 34, 2, 2, 'FD');
 
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(9.5);
     doc.setTextColor(23, 24, 28);
-    doc.text(`${d.domainNumber}. ${d.domainName}`, marginX + 10, cursorY + 17);
+    doc.text(`${d.domainNumber}. ${d.domainName}`, marginX + 10, cursorY + 15);
 
     doc.setFont('helvetica', 'normal');
-    doc.setFontSize(8.5);
+    doc.setFontSize(8.2);
     doc.setTextColor(90, 94, 102);
-    doc.text(d.selectedLabel, marginX + 165, cursorY + 17);
+    doc.text(
+      `${d.selectedLabel} (${d.lostHours.toFixed(1)} hrs/wk · ${formatExactAmount(d.delayCost)}/yr)`,
+      marginX + 10,
+      cursorY + 28
+    );
 
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(9);
     if (d.score <= 8) doc.setTextColor(180, 35, 35);
     else if (d.score <= 14) doc.setTextColor(161, 98, 7);
     else doc.setTextColor(21, 128, 61);
-    doc.text(`${d.score}/${d.maxScore} (${tierText})`, pageWidth - marginX - 10, cursorY + 17, { align: 'right' });
+    doc.text(`${d.score}/${d.maxScore} (${tierText})`, pageWidth - marginX - 10, cursorY + 18, { align: 'right' });
 
-    cursorY += 34;
+    cursorY += 40;
   });
 
-  cursorY += 12;
+  cursorY += 10;
 
   // Next 90-Day Roadmap
   checkPageBreak(190);
@@ -179,9 +197,9 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
 
   const roadmapPhases = [
     {
-      phase: 'DAYS 1-30  |  STABILIZE & RECLAIM 10+ HOURS WEEKLY',
+      phase: 'DAYS 1-30  |  STABILIZE & RECLAIM LEADERSHIP CAPACITY',
       detail:
-        'Audit every decision, escalation, and expense hitting your desk. Install explicit $5,000+ autonomous spending and operational thresholds, and assign a single accountable owner to every core workstream so routine fires stop coming to you.',
+        'Audit every decision, escalation, and expense hitting your desk. Install explicit $5,000.00+ autonomous spending and operational thresholds, and assign a single accountable owner to every core workstream so routine fires stop coming to you.',
     },
     {
       phase: 'DAYS 31-60  |  INSTALL DECISION RIGHTS & 14-DAY EXECUTION LOOPS',
@@ -191,7 +209,7 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
     {
       phase: 'DAYS 61-90  |  AUTONOMOUS EXECUTION & 30-DAY FOUNDER TEST',
       detail:
-        'Embed cross-functional peer accountability scorecards and run a structured step-away stress test. Revenue operations, hiring, and client delivery compound independently, concluding with a clean 90-day handover.',
+        'Embed cross-functional peer accountability scorecards and run a structured step-away stress test. Revenue operations, hiring, and client delivery compound independently, concluding with a clean Day-90 handover.',
     },
   ];
 
@@ -206,7 +224,7 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
 
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(9);
-    doc.setTextColor(23, 24, 28);
+    doc.setTextColor(157, 123, 56);
     doc.text(item.phase, marginX + 10, cursorY + 17);
 
     doc.setFont('helvetica', 'normal');
@@ -242,7 +260,7 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
     },
     {
       title: '4. Permanent Ownership & Exit (Weeks 11-12)',
-      body: 'Your organization keeps 100% of the playbooks and governance rhythms in perpetuity. We validate independence and exit on day 90.',
+      body: 'Your organization keeps 100% of the playbooks and governance rhythms in perpetuity. We validate independence and exit cleanly on Day 90.',
     },
   ];
 
@@ -273,7 +291,7 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
   const ctaBoxH = nextLines.length * 13 + 52;
   checkPageBreak(ctaBoxH + 20);
 
-  doc.setFillColor(23, 24, 28);
+  doc.setFillColor(20, 20, 22);
   doc.setDrawColor(212, 175, 55);
   doc.setLineWidth(1.5);
   doc.roundedRect(marginX, cursorY, contentWidth, ctaBoxH, 4, 4, 'FD');

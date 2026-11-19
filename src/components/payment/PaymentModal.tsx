@@ -14,6 +14,11 @@ import {
   AlertCircle,
   Clock
 } from 'lucide-react';
+import {
+  SettlementCurrency,
+  computeExactClientPreview,
+  formatExactAmount,
+} from '../../utils/pricing';
 
 export interface PaymentItem {
   id: string;
@@ -96,7 +101,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
   const [isProcessing, setIsProcessing] = useState(false);
   const [receipt, setReceipt] = useState<PaymentReceipt | null>(null);
   const [copiedVoucher, setCopiedVoucher] = useState(false);
-  const [currency, setCurrency] = useState<'USD' | 'EUR' | 'GBP' | 'INR' | 'AED'>('USD');
+  const [currency, setCurrency] = useState<SettlementCurrency>('USD');
   const [email, setEmail] = useState('');
   const [organization, setOrganization] = useState('');
   const [couponCode, setCouponCode] = useState('');
@@ -120,14 +125,8 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
 
   if (!isOpen || !item) return null;
 
-  const currencySymbols: Record<string, string> = {
-    USD: '$',
-    EUR: '€',
-    GBP: '£',
-    INR: '₹',
-    AED: 'AED '
-  };
-  const currencySymbol = currencySymbols[currency] || '$';
+  const exactPreview = computeExactClientPreview(item.id, item.priceUSD, currency, 1);
+  const currencySymbol = exactPreview.symbol;
 
   const handleInitiateRazorpayCheckout = async () => {
     const normalizedEmail = email.trim();
@@ -414,16 +413,16 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
                 <span className="text-zinc-600">Reference ID:</span>
                 <span className="font-bold text-black">{receipt.transactionId}</span>
               </div>
-              <div className="flex justify-between border-b border-[#e5decfe0] pb-2">
-                <span className="text-zinc-600">Server-Verified Total:</span>
-                <span className="font-bold text-emerald-700 text-sm">
-                  {receipt.currency} {receipt.amount.toLocaleString()}
+              <div className="flex justify-between items-center border-b border-[#e5decfe0] pb-2">
+                <span className="text-zinc-600">Server-Verified Exact Total:</span>
+                <span className="font-black text-[#9d7b38] text-sm tabular-nums">
+                  {formatExactAmount(receipt.amount, `${receipt.currency} `)}
                 </span>
               </div>
               <div className="flex justify-between items-center pt-1">
-                <span className="text-zinc-600">100% Retainer Credit Voucher:</span>
+                <span className="text-zinc-600">100.00% Retainer Credit Voucher:</span>
                 <div className="flex items-center gap-1.5">
-                  <span className="font-black text-[#9d7b38] bg-[#eedec0] px-2 py-0.5 rounded-xs">
+                  <span className="font-black text-[#d4af37] bg-[#141416] px-2 py-0.5 rounded-xs border border-[#d4af37]/50">
                     {receipt.creditVoucherCode}
                   </span>
                   {receipt.status === 'paid' && (
@@ -486,35 +485,90 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
               {item.subtitle && <p className="text-xs text-zinc-700 mt-0.5">{item.subtitle}</p>}
             </div>
 
-            <div className="p-3 bg-[#faf8f4] border border-[#d8cebe] rounded-md flex items-center justify-between">
-              <div>
-                <span className="text-[10px] font-mono uppercase text-zinc-500 font-bold block">
-                  Base Catalog Price (Server Computes Final Tax/Discount)
+            {/* Exact Server-Authoritative Calculation Ledger */}
+            <div className="rounded-md border border-[#d8cebe] overflow-hidden bg-[#faf8f4]">
+              <div className="p-3 border-b border-[#e5decfe0] flex flex-wrap items-center justify-between gap-2">
+                <span className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold">
+                  Exact Settlement Calculation ({currency})
                 </span>
-                <span className="text-2xl font-black text-black">
-                  {serverQuote ? `${currencySymbol}${serverQuote.totalDisplay.toLocaleString()}` : `$${item.priceUSD.toLocaleString()} USD`}
-                </span>
-                <span className="text-[10px] font-mono text-zinc-600 ml-1.5 uppercase">({currency})</span>
+                <div className="flex items-center gap-1 text-xs font-mono font-bold">
+                  {(['USD', 'EUR', 'GBP', 'INR', 'AED'] as const).map((curr) => (
+                    <button
+                      key={curr}
+                      type="button"
+                      onClick={() => {
+                        setCurrency(curr);
+                        setServerQuote(null);
+                      }}
+                      className={`px-2 py-1 rounded text-[11px] transition-colors cursor-pointer ${
+                        currency === curr
+                          ? 'bg-[#141416] text-[#d4af37] font-black border border-[#d4af37]/60'
+                          : 'bg-white border border-stone-200 text-zinc-700 hover:bg-stone-100'
+                      }`}
+                    >
+                      {curr}
+                    </button>
+                  ))}
+                </div>
               </div>
 
-              <div className="flex items-center gap-1 text-xs font-mono font-bold">
-                {(['USD', 'EUR', 'GBP', 'INR', 'AED'] as const).map((curr) => (
-                  <button
-                    key={curr}
-                    type="button"
-                    onClick={() => {
-                      setCurrency(curr);
-                      setServerQuote(null);
-                    }}
-                    className={`px-2 py-1 rounded text-[11px] transition-colors cursor-pointer ${
-                      currency === curr
-                        ? 'bg-black text-[#d4af37] font-black'
-                        : 'bg-white border border-stone-200 text-zinc-700 hover:bg-stone-100'
-                    }`}
-                  >
-                    {curr}
-                  </button>
-                ))}
+              <div className="p-3 space-y-1.5 text-[11px] font-mono">
+                <div className="flex justify-between text-zinc-700">
+                  <span>Base Catalog Rate (USD):</span>
+                  <span className="font-bold text-[#141416] tabular-nums">
+                    {formatExactAmount(exactPreview.baseUsd)} USD
+                  </span>
+                </div>
+
+                {currency !== 'USD' && (
+                  <div className="flex justify-between text-zinc-600">
+                    <span>Applied FX Rate (1.00 USD):</span>
+                    <span className="tabular-nums">
+                      {exactPreview.rate.toFixed(2)} {currency}
+                    </span>
+                  </div>
+                )}
+
+                <div className="flex justify-between text-zinc-700">
+                  <span>Converted Subtotal:</span>
+                  <span className="font-bold text-[#141416] tabular-nums">
+                    {formatExactAmount(
+                      serverQuote ? serverQuote.subtotal : exactPreview.subtotal,
+                      currencySymbol
+                    )}
+                  </span>
+                </div>
+
+                {serverQuote && serverQuote.discountAmount > 0 && (
+                  <div className="flex justify-between text-emerald-700 font-bold">
+                    <span>Verified Mandate Credit Applied:</span>
+                    <span className="tabular-nums">
+                      -{formatExactAmount(serverQuote.discountAmount, currencySymbol)}
+                    </span>
+                  </div>
+                )}
+
+                <div className="flex justify-between text-zinc-700">
+                  <span>Statutory Tax ({exactPreview.taxLabel}):</span>
+                  <span className="font-bold text-[#141416] tabular-nums">
+                    {formatExactAmount(
+                      serverQuote ? serverQuote.taxAmount : exactPreview.taxAmount,
+                      currencySymbol
+                    )}
+                  </span>
+                </div>
+              </div>
+
+              <div className="px-3 py-2.5 bg-[#141416] text-white flex items-center justify-between border-t border-[#d4af37]/50">
+                <span className="text-[11px] font-mono uppercase font-bold text-[#f4ecd8]">
+                  Exact Total Due ({currency})
+                </span>
+                <span className="text-xl font-black text-[#d4af37] font-mono tabular-nums">
+                  {formatExactAmount(
+                    serverQuote ? serverQuote.totalDisplay : exactPreview.totalExact,
+                    currencySymbol
+                  )}
+                </span>
               </div>
             </div>
 

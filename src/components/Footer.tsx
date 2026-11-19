@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BookOpen, Zap, Target, Eye, Phone, Mail, Shield, Lock, FileText, Calendar, Copy, CheckCircle2, ArrowRight } from 'lucide-react';
+import React from 'react';
+import { Phone, Mail, Calendar, ArrowRight, ShieldCheck } from 'lucide-react';
 import { LinkedinIcon, InstagramIcon } from './SocialIcons';
 
 interface FooterProps {
@@ -7,357 +7,260 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
-  const [copiedPath, setCopiedPath] = useState<string | null>(null);
-
-  const copyFooterLink = (path: string) => {
-    try {
-      const fullUrl = `${window.location.origin}${path}`;
-      navigator.clipboard.writeText(fullUrl);
-      setCopiedPath(path);
-      setTimeout(() => setCopiedPath(null), 2000);
-    } catch {
-      setCopiedPath(path);
-      setTimeout(() => setCopiedPath(null), 2000);
-    }
+  const handleLink = (e: React.MouseEvent, target: string) => {
+    e.preventDefault();
+    onNavigate(target);
   };
 
-  const directPageLinks = [
-    { name: 'Overview', path: '/', target: 'home', tag: 'Core' },
-    { name: '60-Sec Assessment & Operational Model', path: '/assessment', target: 'test', tag: 'Unified' },
-    { name: 'Services & Retainers', path: '/services', target: 'partnerships', tag: 'Fractional COO' },
-    { name: 'The Firm & Suchita Sancheti', path: '/about', target: 'about', tag: 'About' },
-    { name: 'Executive Toolkits & Pay', path: '/shop', target: 'shop', tag: 'Toolkits' },
-    { name: 'Strategic Intelligence Library', path: '/library', target: 'library', tag: 'Dispatches' },
-    { name: 'Executive Video Briefing', path: '/briefing', target: 'briefing', tag: 'Video' },
-    { name: 'Institutional Client Portal', path: '/portal', target: 'portal', tag: 'Portal' },
-    { name: 'Book 1-on-1 Call (Calendly)', path: '/booking', target: 'booking', tag: 'Calendar' },
-    { name: 'Confidential Advisory Desk', path: '/contact', target: 'contact', tag: 'Contact' },
-    { name: 'Case Studies', path: '/case-studies', target: 'case-studies', tag: 'Evidence' },
-    { name: 'Corporate FAQ', path: '/faq', target: 'faq', tag: 'Guide' },
-    { name: 'Privacy Policy & Covenant', path: '/privacy', target: 'privacy', tag: 'Legal' }
-  ];
   return (
-    <footer className="bg-[#ede7da] border-t border-[#dfd7c8] py-8 sm:py-12 text-[#6b6e76] text-xs">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Top Header & Brand Statement */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 mb-6 border-b border-[#dfd7c8] gap-5">
-          <div className="flex items-start sm:items-center gap-4">
-            <img 
-              src="/assets/tulc-gold-navy-crest.jpg" 
-              alt="The Unbounded Leadership Co. Crest & Official Insignia" 
-              className="h-16 sm:h-20 w-auto max-w-[160px] sm:max-w-[200px] rounded-sm object-contain border-2 border-[#9d7b38]/70 shadow-md shrink-0 bg-[#0c1322] p-1"
-              style={{ imageRendering: '-webkit-optimize-contrast' }}
-              width="200"
-              height="140"
-              loading="lazy"
-            />
-            <div>
-              <div className="text-lg sm:text-xl font-bold text-[#141416] tracking-tight font-serif">
-                The Unbounded Leadership Co.
+    <footer className="bg-[#0f1014] text-[#c8c2b6] border-t-2 border-[#d4af37]">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+        {/* Main 4-Column Institutional Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-8 border-b border-[#262830]">
+          {/* Col 1: Brand Authority & Thesis */}
+          <div className="lg:col-span-4 space-y-4">
+            <a
+              href="/"
+              onClick={(e) => handleLink(e, 'top')}
+              className="inline-flex items-center gap-3 group"
+            >
+              <img
+                src="/assets/tulc-gold-navy-crest.jpg"
+                alt="The Unbounded Leadership Co. Crest"
+                className="h-12 w-auto rounded-sm object-contain border border-[#d4af37]/70 bg-[#0a0c14] p-0.5 shrink-0"
+                width="120"
+                height="80"
+                loading="lazy"
+              />
+              <div>
+                <div className="text-base sm:text-lg font-bold font-serif text-[#f8f6f0] group-hover:text-[#d4af37] transition-colors leading-tight">
+                  The Unbounded Leadership Co.
+                </div>
+                <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#d4af37] mt-0.5">
+                  Founded by Suchita Sancheti
+                </div>
               </div>
-              <p className="text-[#9d7b38] font-mono text-[11px] font-bold tracking-wider uppercase">
-                Founded by Suchita Sancheti · Global Leadership Consultancy
-              </p>
-              <p className="text-[#6b6e76] text-xs mt-0.5 max-w-md font-normal leading-relaxed italic">
-                A global leadership consultancy helping founders, CEOs and leadership teams address founder dependency, decision bottlenecks and organisational misalignment through leadership architecture.
-              </p>
+            </a>
+
+            <p className="text-xs sm:text-[13px] text-[#b5afa2] leading-relaxed max-w-sm">
+              We partner with founders and boards to eliminate operational dependency, codify{' '}
+              <span className="text-[#d4af37] font-semibold">autonomous decision rights</span>, and
+              build self-running executive teams within a fixed{' '}
+              <span className="text-[#d4af37] font-semibold">90-day mandate</span>.
+            </p>
+
+            <div className="flex items-center gap-2 text-[11px] font-mono text-[#d4af37] pt-1">
+              <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
+              <span>Chatham House &amp; In-Camera Privilege Enforced</span>
             </div>
           </div>
 
-          {/* Core Navigation Links */}
-          <nav aria-label="Footer Navigation" className="flex flex-wrap items-center gap-3 sm:gap-4 font-semibold text-[#4a4c52]">
-            <a
-              href="/"
-              onClick={(e) => { e.preventDefault(); onNavigate('top'); }}
-              className="hover:text-[#141416] transition-colors py-1"
-            >
-              Overview
-            </a>
-            <a
-              href="/about"
-              onClick={(e) => { e.preventDefault(); onNavigate('about'); }}
-              className="hover:text-[#141416] transition-colors py-1 font-bold text-[#141416]"
-            >
-              About
-            </a>
-            <a
-              href="/services"
-              onClick={(e) => { e.preventDefault(); onNavigate('partnerships'); }}
-              className="hover:text-[#141416] transition-colors py-1 font-bold text-[#141416]"
-            >
-              Services
-            </a>
-            <a
-              href="/comparison"
-              onClick={(e) => { e.preventDefault(); onNavigate('comparison'); }}
-              className="hover:text-[#141416] transition-colors py-1 font-medium"
-            >
-              The Outcomes
-            </a>
-            <a
-              href="/shop"
-              onClick={(e) => { e.preventDefault(); onNavigate('shop'); }}
-              className="hover:text-[#9d7b38] transition-colors flex items-center gap-1 py-1 font-bold text-[#141416]"
-            >
-              <BookOpen className="w-3.5 h-3.5 text-[#9d7b38]" />
-              <span>Executive Blueprints</span>
-            </a>
-            <a
-              href="/assessment"
-              onClick={(e) => { e.preventDefault(); onNavigate('test'); }}
-              className="hover:text-[#9d7b38] transition-colors py-1 flex items-center gap-1 font-bold text-[#141416]"
-            >
-              <Zap className="w-3.5 h-3.5 text-[#9d7b38]" />
-              <span>Assessment</span>
-            </a>
-            <a
-              href="/case-studies"
-              onClick={(e) => { e.preventDefault(); onNavigate('case-studies'); }}
-              className="hover:text-[#141416] transition-colors py-1"
-            >
-              Case Studies
-            </a>
-            <a
-              href="/faq"
-              onClick={(e) => { e.preventDefault(); onNavigate('faq'); }}
-              className="hover:text-[#9d7b38] transition-colors py-1 font-bold text-[#141416]"
-            >
-              FAQ
-            </a>
-            <a
-              href="/portal"
-              onClick={(e) => { e.preventDefault(); onNavigate('portal'); }}
-              className="hover:text-[#9d7b38] transition-colors py-1 flex items-center gap-1 font-bold text-[#141416]"
-            >
-              <Lock className="w-3.5 h-3.5 text-[#9d7b38]" />
-              <span>Client Portal</span>
-            </a>
-            <a
-              href="/contact"
-              onClick={(e) => { e.preventDefault(); onNavigate('contact'); }}
-              className="text-[#9d7b38] hover:text-[#7d5f24] font-bold transition-colors py-1"
-            >
-              Contact
-            </a>
-            <a
-              href="/booking"
-              onClick={(e) => { e.preventDefault(); onNavigate('booking'); }}
-              className="hover:text-[#141416] transition-colors py-1 flex items-center gap-1 font-bold text-[#141416]"
-            >
-              <Calendar className="w-3.5 h-3.5 text-[#9d7b38]" />
-              <span>Book via Calendly</span>
-            </a>
-            <a
-              href="/privacy"
-              onClick={(e) => { e.preventDefault(); onNavigate('privacy'); }}
-              className="hover:text-[#141416] transition-colors py-1 underline underline-offset-2"
-            >
-              Privacy Policy
-            </a>
-          </nav>
-        </div>
-
-        {/* Executive Direct Contact & Social Media Strip */}
-        <div className="p-4 sm:p-5 rounded-md bg-[#f6f2e9] border border-[#dcd3c2] mb-6">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-            
-            {/* Clickable Phone & Email Links */}
-            <div className="space-y-1.5">
-              <span className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold tracking-wider block">
-                Direct Confidential Executive Channels
-              </span>
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs">
-                <a 
-                  href="tel:+919325346704" 
-                  className="flex items-center gap-2 text-[#17181c] hover:text-[#9d7b38] font-bold transition-colors"
+          {/* Col 2: Core Practice */}
+          <div className="lg:col-span-2 space-y-3">
+            <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#d4af37]">
+              Practice
+            </div>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <a
+                  href="/"
+                  onClick={(e) => handleLink(e, 'top')}
+                  className="hover:text-[#d4af37] transition-colors"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#9d7b38] shrink-0" />
+                  Overview
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/assessment"
+                  onClick={(e) => handleLink(e, 'test')}
+                  className="text-[#f3e5ab] hover:text-[#d4af37] font-semibold transition-colors"
+                >
+                  60-Sec Audit &amp; Model
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services"
+                  onClick={(e) => handleLink(e, 'partnerships')}
+                  className="hover:text-[#d4af37] transition-colors"
+                >
+                  Services &amp; Retainers
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/comparison"
+                  onClick={(e) => handleLink(e, 'comparison')}
+                  className="hover:text-[#d4af37] transition-colors"
+                >
+                  Outcomes Comparison
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/about"
+                  onClick={(e) => handleLink(e, 'about')}
+                  className="hover:text-[#d4af37] transition-colors"
+                >
+                  About Suchita Sancheti
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 3: Toolkits, Research & Access */}
+          <div className="lg:col-span-3 space-y-3">
+            <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#d4af37]">
+              Resources &amp; Client Access
+            </div>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <a
+                  href="/shop"
+                  onClick={(e) => handleLink(e, 'shop')}
+                  className="text-[#f3e5ab] hover:text-[#d4af37] font-semibold transition-colors"
+                >
+                  Executive Toolkits &amp; Direct Pay
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/case-studies"
+                  onClick={(e) => handleLink(e, 'case-studies')}
+                  className="hover:text-[#d4af37] transition-colors"
+                >
+                  Verified Client Case Studies
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/library"
+                  onClick={(e) => handleLink(e, 'library')}
+                  className="hover:text-[#d4af37] transition-colors"
+                >
+                  Research Dispatches
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/briefing"
+                  onClick={(e) => handleLink(e, 'briefing')}
+                  className="hover:text-[#d4af37] transition-colors"
+                >
+                  Executive Video Briefing
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/faq"
+                  onClick={(e) => handleLink(e, 'faq')}
+                  className="hover:text-[#d4af37] transition-colors"
+                >
+                  Corporate FAQ
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/portal"
+                  onClick={(e) => handleLink(e, 'portal')}
+                  className="hover:text-[#d4af37] transition-colors"
+                >
+                  Institutional Client Portal
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 4: Direct Advisory Desk */}
+          <div className="lg:col-span-3">
+            <div className="p-4 rounded-sm bg-[#16181f] border border-[#d4af37]/40 space-y-3">
+              <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#d4af37]">
+                Direct Executive Desk
+              </div>
+
+              <div className="space-y-2 text-xs">
+                <a
+                  href="tel:+919325346704"
+                  className="flex items-center gap-2 text-[#f8f6f0] hover:text-[#d4af37] font-bold transition-colors tabular-nums"
+                >
+                  <Phone className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
                   <span>+91 9325346704</span>
                 </a>
 
-                <a 
-                  href="mailto:suchita@theunboundedleadership.com" 
-                  className="flex items-center gap-2 text-[#17181c] hover:text-[#9d7b38] font-semibold transition-colors"
+                <a
+                  href="mailto:suchita@theunboundedleadership.com"
+                  className="flex items-center gap-2 text-[#e0dacd] hover:text-[#d4af37] transition-colors break-all"
                 >
-                  <Mail className="w-3.5 h-3.5 text-[#9d7b38] shrink-0" />
+                  <Mail className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
                   <span>suchita@theunboundedleadership.com</span>
                 </a>
+              </div>
 
-                <a 
-                  href="mailto:suchita135sancheti@gmail.com" 
-                  className="flex items-center gap-2 text-[#17181c] hover:text-[#9d7b38] font-semibold transition-colors"
-                >
-                  <Mail className="w-3.5 h-3.5 text-[#9d7b38] shrink-0" />
-                  <span>suchita135sancheti@gmail.com</span>
-                </a>
-
+              <div className="pt-1 space-y-2">
                 <a
                   href="/booking"
-                  onClick={(e) => { e.preventDefault(); onNavigate('booking'); }}
-                  className="flex items-center gap-1.5 text-black hover:text-[#9d7b38] font-bold transition-colors bg-white px-2.5 py-1 rounded-xs border border-[#9d7b38]/50 shadow-2xs font-mono text-[11px]"
+                  onClick={(e) => handleLink(e, 'booking')}
+                  className="w-full py-2.5 px-3 bg-[#d4af37] hover:bg-[#e5c14d] text-[#0f1014] text-xs font-mono font-black uppercase tracking-wider rounded-xs flex items-center justify-center gap-1.5 transition-colors whitespace-nowrap"
                 >
-                  <Calendar className="w-3.5 h-3.5 text-[#9d7b38] shrink-0" />
-                  <span>Book Calendly Briefing</span>
+                  <Calendar className="w-3.5 h-3.5 shrink-0" />
+                  <span>Book 20-Min Briefing</span>
+                  <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+                </a>
+              </div>
+
+              <div className="pt-2 border-t border-[#262830] flex items-center gap-4 text-[11px] font-semibold">
+                <a
+                  href="https://www.linkedin.com/in/suchita-sancheti"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[#d4af37] hover:text-[#f8f6f0] transition-colors"
+                >
+                  <LinkedinIcon className="w-3.5 h-3.5" />
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="https://www.instagram.com/transformingleadership"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[#d4af37] hover:text-[#f8f6f0] transition-colors"
+                >
+                  <InstagramIcon className="w-3.5 h-3.5" />
+                  <span>Instagram</span>
                 </a>
               </div>
             </div>
-
-            {/* Social Media Links */}
-            <div className="space-y-1.5 lg:text-right">
-              <span className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold tracking-wider block">
-                Official Social & Institutional Profiles
-              </span>
-              <div className="flex items-center lg:justify-end gap-3 text-xs">
-                <a 
-                  href="https://www.linkedin.com/in/suchita-sancheti" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#ffffff] hover:bg-[#faf7f0] border border-[#d8cebe] hover:border-[#9d7b38] rounded-xs text-[#17181c] font-semibold transition-all shadow-2xs group"
-                >
-                  <LinkedinIcon className="w-3.5 h-3.5 text-[#0077b5] group-hover:scale-110 transition-transform" />
-                  <span>LinkedIn (Suchita Sancheti)</span>
-                </a>
-
-                <a 
-                  href="https://www.instagram.com/transformingleadership" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#ffffff] hover:bg-[#faf7f0] border border-[#d8cebe] hover:border-[#9d7b38] rounded-xs text-[#17181c] font-semibold transition-all shadow-2xs group"
-                >
-                  <InstagramIcon className="w-3.5 h-3.5 text-[#e4405f] group-hover:scale-110 transition-transform" />
-                  <span>@transformingleadership</span>
-                </a>
-              </div>
-            </div>
-
           </div>
         </div>
 
-        {/* Verbatim Vision & Mission */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pb-6 mb-6 border-b border-[#dfd7c8]">
-          
-          {/* Vision */}
-          <div className="p-4 sm:p-5 rounded-md bg-[#f6f2e9] border border-[#dcd3c2] space-y-2 shadow-2xs">
-            <div className="flex items-center gap-1.5 text-xs font-mono uppercase text-[#9d7b38] font-bold">
-              <Eye className="w-3.5 h-3.5 text-[#9d7b38]" />
-              <span>Our Vision</span>
-            </div>
-            <p className="text-[13px] sm:text-sm text-[#26282e] font-serif leading-relaxed italic">
-              “To align human ambition with enduring organizational architecture — so that power, scale, and perpetuity compound as one, and what the world's greatest founders build today commands the future long after they have conquered it.”
-            </p>
-          </div>
-
-          {/* Mission */}
-          <div className="p-4 sm:p-5 rounded-md bg-[#f6f2e9] border border-[#dcd3c2] space-y-2 shadow-2xs">
-            <div className="flex items-center gap-1.5 text-xs font-mono uppercase text-[#9d7b38] font-bold">
-              <Target className="w-3.5 h-3.5 text-[#9d7b38]" />
-              <span>Our Mission</span>
-            </div>
-            <p className="text-[13px] sm:text-sm text-[#26282e] font-serif leading-relaxed italic">
-              “We work with the world's most consequential founders to architect the structural conditions for absolute organizational sovereignty. Across five foundational domains of systemic alignment, we dismantle operational dependency, dissolve leadership entropy, and engineer the precise infrastructure that allows an empire to grow, scale, and compound — with or without its founder at the helm.”
-            </p>
-          </div>
-
-        </div>
-
-        {/* Dedicated Direct Page Links Directory */}
-        <div className="p-4 sm:p-6 rounded-md bg-[#f6f2e9] border border-[#dcd3c2] mb-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-4 border-b border-[#dfd7c8] gap-2">
-            <div>
-              <span className="text-[11px] font-mono uppercase text-[#9d7b38] font-bold tracking-wider block">
-                Direct Page Links Directory
-              </span>
-              <p className="text-[12px] text-[#6b6e76] font-mono mt-0.5">
-                Dedicated clean URLs across all {directPageLinks.length} institutional views with 1-click clipboard link copy.
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-[10px] font-mono text-[#8a8070] bg-[#ffffff] border border-[#d8cebe] px-2 py-0.5 rounded-xs">
-                {directPageLinks.length} Direct URLs
-              </span>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
-            {directPageLinks.map((item) => {
-              const isCopied = copiedPath === item.path;
-              return (
-                <div
-                  key={item.path}
-                  className="flex items-center justify-between p-2 rounded-xs bg-[#ffffff] border border-[#dfd7c8] hover:border-[#9d7b38] transition-colors group"
-                >
-                  <a
-                    href={item.path}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      onNavigate(item.target);
-                    }}
-                    className="flex items-center gap-2 min-w-0 flex-1 py-0.5 cursor-pointer text-left"
-                    title={`Go to ${item.name}`}
-                  >
-                    <span className="text-[10px] font-mono font-bold text-[#9d7b38] bg-[#f8f6f0] px-1.5 py-0.5 rounded-2xs shrink-0 border border-[#e8dfd0]">
-                      {item.path}
-                    </span>
-                    <span className="text-xs font-semibold text-[#17181c] group-hover:text-[#9d7b38] transition-colors truncate">
-                      {item.name}
-                    </span>
-                  </a>
-
-                  <button
-                    onClick={() => copyFooterLink(item.path)}
-                    title={`Copy direct link for ${item.path}`}
-                    aria-label={`Copy direct link for ${item.name}`}
-                    className="ml-2 inline-flex items-center gap-1 px-2 py-1 text-[10px] font-mono rounded-2xs bg-[#f8f6f0] hover:bg-[#17181c] text-[#17181c] hover:text-[#f8f6f0] border border-[#d8cebe] transition-colors shrink-0 cursor-pointer"
-                  >
-                    {isCopied ? (
-                      <>
-                        <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-                        <span className="text-emerald-700 font-bold">Copied</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-3 h-3 shrink-0" />
-                        <span>Copy</span>
-                      </>
-                    )}
-                  </button>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Bottom Legal, Privacy & Compliance Ledger */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-[#7d8089] text-[11px]">
+        {/* Clean Bottom Legal Strip */}
+        <div className="pt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] text-[#8d887c]">
           <div>
-            © {new Date().getFullYear()} The Unbounded Leadership Co. All institutional rights reserved.
+            &copy; {new Date().getFullYear()}{' '}
+            <span className="text-[#f4ecd8] font-semibold">The Unbounded Leadership Co.</span> All
+            institutional rights reserved.
           </div>
+
           <div className="flex flex-wrap items-center gap-2.5">
-            <a 
-              href="/privacy" 
-              onClick={(e) => { e.preventDefault(); onNavigate('privacy'); }}
-              className="text-[#17181c] hover:text-[#9d7b38] font-semibold underline"
+            <a
+              href="/privacy"
+              onClick={(e) => handleLink(e, 'privacy')}
+              className="text-[#d4af37] hover:underline font-semibold"
             >
               Privacy Policy
             </a>
-            <span aria-hidden="true" className="text-[#c9bea9]">·</span>
-            <a 
-              href="/contact" 
-              onClick={(e) => { e.preventDefault(); onNavigate('contact'); }}
-              className="text-[#17181c] hover:text-[#9d7b38] font-semibold"
+            <span aria-hidden="true" className="text-[#3b3e4a]">&middot;</span>
+            <a
+              href="/contact"
+              onClick={(e) => handleLink(e, 'contact')}
+              className="text-[#f4ecd8] hover:text-[#d4af37] transition-colors"
             >
-              Contact Advisory Desk
+              Confidential Inquiry
             </a>
-            <span aria-hidden="true" className="text-[#c9bea9]">·</span>
-            <span>Patent Pending: L.O.S.-P721</span>
-            <span aria-hidden="true" className="text-[#c9bea9]">·</span>
-            <span>Executive Mastery + Sovereign Systems Architecture</span>
-            <span aria-hidden="true" className="text-[#c9bea9]">·</span>
-            <span>In-Camera Privilege Enforced</span>
+            <span aria-hidden="true" className="text-[#3b3e4a]">&middot;</span>
+            <span>Patent Pending: <span className="text-[#d4af37]">L.O.S.-P721</span></span>
           </div>
         </div>
-
       </div>
     </footer>
   );

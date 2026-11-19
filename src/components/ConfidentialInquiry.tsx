@@ -61,7 +61,8 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                 <span>Strict In-Camera Protocol</span>
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17181c] leading-tight">
-                Initiate Confidential Mandate Dialogue
+                Initiate{' '}
+                <span className="text-[#9d7b38]">Confidential Mandate Dialogue</span>
               </h2>
               <p className="mt-2 text-sm sm:text-base text-[#4e5159] leading-relaxed italic">
                 Leadership is a choice, not a title. When you are ready to stop managing compliance and start installing sovereign authority, we are ready to convene.
@@ -69,7 +70,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
             </div>
 
             {/* Protocol Guarantees */}
-            <div className="p-4 sm:p-5 rounded-lg bg-[#141416] text-white border border-[#2b2d33] shadow-lg space-y-3">
+            <div className="p-4 sm:p-5 rounded-lg bg-[#141416] text-white border border-[#d4af37]/50 shadow-lg space-y-3">
               <div className="text-[11px] uppercase text-[#d4af37] font-bold">
                 Privilege & Protocol Commitments
               </div>
@@ -78,7 +79,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                 <div className="flex items-start gap-2.5">
                   <ShieldCheck className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-xs font-bold text-white">Chatham House & Attorney-Client Privilege</div>
+                    <div className="text-xs font-bold text-[#f3e5ab]">Chatham House & Attorney-Client Privilege</div>
                     <div className="text-[11px] text-[#a6a9b2] mt-0.5 italic">
                       Zero disclosure to market analysts, external press, or advisory intermediaries.
                     </div>
@@ -88,9 +89,9 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                 <div className="flex items-start gap-2.5">
                   <Clock className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-xs font-bold text-white">Direct Senior Partner Response Within 4 Hours</div>
+                    <div className="text-xs font-bold text-[#f3e5ab]">Direct Senior Partner Response Within 4 Hours</div>
                     <div className="text-[11px] text-[#a6a9b2] mt-0.5 italic">
-                      Every inquiry is triaged exclusively by former Fortune 500 Chairs and Managing Directors.
+                      Every inquiry is triaged exclusively by senior principal counsel.
                     </div>
                   </div>
                 </div>
@@ -98,7 +99,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                 <div className="flex items-start gap-2.5">
                   <FileText className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-xs font-bold text-white">Immediate Mutual Sovereign NDA Execution</div>
+                    <div className="text-xs font-bold text-[#f3e5ab]">Immediate Mutual Sovereign NDA Execution</div>
                     <div className="text-[11px] text-[#a6a9b2] mt-0.5 italic">
                       Automated digital execution of institutional confidentiality before any strategic disclosures.
                     </div>
@@ -162,7 +163,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
             
             {submissionReceipt ? (
               <div className="py-6 space-y-4 text-center sm:text-left">
-                <div className="w-12 h-12 rounded-full bg-[#faf6ee] border border-[#ebdcc0] flex items-center justify-center mx-auto sm:mx-0">
+                <div className="w-12 h-12 rounded-sm bg-[#faf6ee] border border-[#ebdcc0] flex items-center justify-center mx-auto sm:mx-0">
                   <CheckCircle2 className="w-6 h-6 text-[#9d7b38]" />
                 </div>
                 <div>
@@ -227,7 +228,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                     }}
                     aria-label="Go back"
                     title="Go back"
-                    className="p-2.5 rounded-full text-[#17181c] hover:text-[#9d7b38] hover:bg-[#ede5d6] border border-[#d8cebe] transition-colors flex items-center justify-center min-w-[42px] min-h-[42px] cursor-pointer"
+                    className="p-2.5 rounded-sm text-[#17181c] hover:text-[#9d7b38] hover:bg-[#ede5d6] border border-[#d8cebe] transition-colors flex items-center justify-center min-w-[42px] min-h-[42px] cursor-pointer"
                   >
                     <ArrowLeft className="w-5 h-5 text-[#9d7b38]" />
                   </button>
@@ -366,10 +367,10 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                       onChange={(e) => setFormData({ ...formData, selectedPartnership: e.target.value as any })}
                       className="w-full bg-[#faf6ee] border border-[#ebdcc0] rounded px-3 py-2 text-base sm:text-xs text-[#9d7b38] font-bold focus:outline-none focus:border-[#9d7b38] shadow-xs min-h-[40px]"
                     >
-                      <option value="retainer">Category 03 · Fractional COO & Strategic Retainer (Annual Mandate)</option>
-                      <option value="embedding">Category 02 · Operating Architecture Embedding (90-Day Systems-Driven Scale)</option>
-                      <option value="diagnostic">Category 01 · Founder Dependency Forensic Diagnostic (14-Day Rapid Audit)</option>
-                      <option value="council-chambers">The Executive Advisory Board (Annual CEO Sparring Seat)</option>
+                      <option value="retainer">Category 03 · Fractional COO Retainer ($17,850.00 / Qtr)</option>
+                      <option value="embedding">Category 02 · Operating Architecture Embedding ($31,680.00 / 90 Days)</option>
+                      <option value="diagnostic">Category 01 · Forensic Diagnostic ($9,650.00 / 14 Days)</option>
+                      <option value="council-chambers">The Executive Advisory Board ($1,785.00 Annual Seat)</option>
                     </select>
                   </div>
                 </div>
@@ -442,7 +443,7 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                     }}
                     aria-label="Go back"
                     title="Go back"
-                    className="p-2 -ml-2 rounded-full text-[#17181c] hover:text-[#9d7b38] hover:bg-[#ede5d6] transition-colors cursor-pointer flex items-center justify-center min-w-[36px] min-h-[36px]"
+                    className="p-2 -ml-2 rounded-sm text-[#17181c] hover:text-[#9d7b38] hover:bg-[#ede5d6] transition-colors cursor-pointer flex items-center justify-center min-w-[36px] min-h-[36px]"
                   >
                     <ArrowLeft className="w-5 h-5 text-[#9d7b38]" />
                   </button>

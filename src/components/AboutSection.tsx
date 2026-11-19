@@ -41,11 +41,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
           </div>
 
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-black tracking-tight leading-tight">
-            "You Didn't Build An Empire To Remain Trapped In Its Machinery."
+            "You Didn't Build An Empire To{' '}
+            <span className="text-[#9d7b38]">Remain Trapped In Its Machinery.</span>"
           </h2>
 
           <p className="text-xs sm:text-[13px] text-zinc-900 leading-relaxed italic max-w-xl mx-auto">
-            Founded by Suchita Sancheti — eliminating founder dependency, scaling without the founder, and installing Fractional COO operating systems in 90 days.
+            Founded by <strong className="text-[#9d7b38] not-italic font-bold">Suchita Sancheti</strong> — eliminating founder dependency, scaling without the founder, and installing Fractional COO operating systems in{' '}
+            <strong className="text-[#9d7b38] not-italic font-bold">90 days</strong>.
           </p>
         </div>
 
@@ -81,10 +83,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                     Founder & Enterprise Architect
                   </div>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 ring-2 ring-emerald-950"></span>
-                  <span className="text-[8px] font-mono text-emerald-400 uppercase tracking-widest">Active</span>
-                </div>
+                <span className="text-[8px] font-mono text-[#d4af37] uppercase tracking-widest font-bold">
+                  Principal
+                </span>
               </div>
             </div>
 
@@ -188,31 +189,33 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
               <p>
                 But past $5M or $20M in revenue, that exact superpower becomes your single biggest operational bottleneck. You hired smart, capable leaders. You pay top compensation. Yet somehow, every complex issue still reaches your desk at 8:00 PM. Your team hesitates not from lack of ambition, but because your decision boundaries are stored in your head rather than hard-coded into the architecture.
               </p>
-              <p className="italic text-black bg-[#faf8f4] p-3.5 rounded-xs border border-[#d8cebe] font-semibold">
-                "When you scale without architecture, you just scale your personal exhaustion. True leadership isn't being indispensable to daily operations—it is building an enterprise that executes with sovereign clarity whether you are in the boardroom or halfway across the globe."
+              <p className="italic text-black bg-[#faf8f4] p-3.5 rounded-xs border border-[#d4af37]/70 font-semibold">
+                "When you scale without architecture, you just scale your personal exhaustion. True leadership isn't being indispensable to daily operations—it is building an enterprise that executes with{' '}
+                <span className="text-[#9d7b38] font-bold">sovereign clarity</span> whether you are in the boardroom or halfway across the globe."
               </p>
               <p>
-                We do not deliver theoretical slide decks. We partner with you directly for 90 days to codify decision rights, install asynchronous execution cadences, and build an autonomous operating system that returns your life and accelerates your company's valuation.
+                We do not deliver theoretical slide decks. We partner with you directly for{' '}
+                <strong className="text-[#9d7b38]">90 days</strong> to codify decision rights, install asynchronous execution cadences, and build an autonomous operating system that returns your life and accelerates your company's valuation.
               </p>
             </div>
 
             {/* 4 Quantitative Sovereign Metrics Grid — Balanced High Contrast */}
             <div className="pt-3 border-t border-[#ebdcc0] grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
-              <div className="p-2.5 rounded-xs bg-[#faf8f4] border border-[#d8cebe] shadow-2xs">
-                <div className="font-mono text-lg font-black text-black">90 Days</div>
-                <div className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold">Strict Runway</div>
+              <div className="p-2.5 rounded-xs bg-[#141416] border border-[#d4af37]/50 shadow-2xs">
+                <div className="font-mono text-lg font-black text-[#d4af37] tabular-nums">90 Days</div>
+                <div className="text-[10px] font-mono uppercase text-[#f3e5ab] font-bold">Strict Runway</div>
               </div>
-              <div className="p-2.5 rounded-xs bg-[#faf8f4] border border-[#d8cebe] shadow-2xs">
-                <div className="font-mono text-lg font-black text-black">20+ Hrs</div>
-                <div className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold">Weekly Reclaimed</div>
+              <div className="p-2.5 rounded-xs bg-[#141416] border border-[#d4af37]/50 shadow-2xs">
+                <div className="font-mono text-lg font-black text-[#d4af37] tabular-nums">20+ Hrs</div>
+                <div className="text-[10px] font-mono uppercase text-[#f3e5ab] font-bold">Weekly Reclaimed</div>
               </div>
-              <div className="p-2.5 rounded-xs bg-[#faf8f4] border border-[#d8cebe] shadow-2xs">
-                <div className="font-mono text-lg font-black text-black">30%+ Bump</div>
-                <div className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold">Valuation Multiple</div>
+              <div className="p-2.5 rounded-xs bg-[#141416] border border-[#d4af37]/50 shadow-2xs">
+                <div className="font-mono text-lg font-black text-[#d4af37] tabular-nums">30%+ Bump</div>
+                <div className="text-[10px] font-mono uppercase text-[#f3e5ab] font-bold">Valuation Multiple</div>
               </div>
-              <div className="p-2.5 rounded-xs bg-[#faf8f4] border border-[#d8cebe] shadow-2xs">
-                <div className="font-mono text-lg font-black text-black">100% Owned</div>
-                <div className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold">IP In Perpetuity</div>
+              <div className="p-2.5 rounded-xs bg-[#141416] border border-[#d4af37]/50 shadow-2xs">
+                <div className="font-mono text-lg font-black text-[#d4af37] tabular-nums">100.00%</div>
+                <div className="text-[10px] font-mono uppercase text-[#f3e5ab] font-bold">IP Owned Forever</div>
               </div>
             </div>
 
@@ -277,7 +280,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                     Unimplemented advice; you stay trapped in the daily firefighting machinery.
                   </td>
                   <td className="py-2 px-3 bg-white border-l-2 border-r-2 border-[#d4af37] text-black">
-                    <span className="font-bold text-black block mb-0.5">Codified Decoupled OS in 90 Days</span>
+                    <span className="font-bold text-[#9d7b38] block mb-0.5">Codified Decoupled OS in 90 Days</span>
                     Autonomous infrastructure installed directly into your team with strict exit date.
                   </td>
                 </tr>
@@ -292,7 +295,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                     More status check-ins and homework that add work just managing the consultants.
                   </td>
                   <td className="py-2 px-3 bg-white border-l-2 border-r-2 border-[#d4af37] text-black">
-                    <span className="font-bold text-black block mb-0.5">Reclaims 20+ Hours Every Week</span>
+                    <span className="font-bold text-[#9d7b38] block mb-0.5">Reclaims 20+ Hours Every Week</span>
                     Dismantles 70% of consensus meetings with 14-day asynchronous execution loops.
                   </td>
                 </tr>
@@ -307,7 +310,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                     Acquirers and PE still penalize valuation due to heavy key-person dependency.
                   </td>
                   <td className="py-2 px-3 bg-white border-l-2 border-r-2 border-[#d4af37] text-black">
-                    <span className="font-bold text-black block mb-0.5">30%–100%+ Multiple Expansion</span>
+                    <span className="font-bold text-[#9d7b38] block mb-0.5">30%–100%+ Multiple Expansion</span>
                     Eliminates founder dependency, unlocking institutional-grade capital and top-quartile exit valuation.
                   </td>
                 </tr>
@@ -322,7 +325,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                     Incentivized to stay forever by billing hourly or monthly without finishing.
                   </td>
                   <td className="py-2 px-3 bg-white border-l-2 border-r-2 border-[#d4af37] text-black">
-                    <span className="font-bold text-black block mb-0.5">Strict 90 Days With Exit Date</span>
+                    <span className="font-bold text-[#9d7b38] block mb-0.5">Strict 90 Days With Exit Date</span>
                     We build your self-running system, train your leads, and exit completely.
                   </td>
                 </tr>
@@ -337,7 +340,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                     Sold by senior partners, but handed off to inexperienced recent graduates.
                   </td>
                   <td className="py-2 px-3 bg-white border-l-2 border-r-2 border-[#d4af37] text-black">
-                    <span className="font-bold text-black block mb-0.5">Founder Suchita Sancheti Directly</span>
+                    <span className="font-bold text-[#9d7b38] block mb-0.5">Founder Suchita Sancheti Directly</span>
                     Zero juniors. Direct 1-on-1 strategic immersion with proven enterprise architect.
                   </td>
                 </tr>

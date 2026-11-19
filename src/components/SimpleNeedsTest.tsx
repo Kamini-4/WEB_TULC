@@ -24,6 +24,11 @@ import {
   DomainResultEntry,
 } from '../utils/generateAssessmentPdf';
 
+import { formatExactAmount } from '../utils/pricing';
+
+const EXECUTIVE_HOURLY_RATE_USD = 64.25;
+const ANNUAL_WORKING_WEEKS = 48;
+
 interface DomainQuestion {
   id: string;
   domainNumber: string;
@@ -34,7 +39,7 @@ interface DomainQuestion {
     description: string;
     score: number;
     lostHours: number;
-    delayCost: number;
+    dragCost: number;
   }[];
 }
 
@@ -50,16 +55,16 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
         description:
           'Trapped answering messages, putting out fires, and resolving operational questions my team should solve.',
         score: 4,
-        lostHours: 15,
-        delayCost: 45000,
+        lostHours: 14.5,
+        dragCost: 3420.50,
       },
       {
         label: 'Constant Interruptions & Sign-Offs',
         description:
           'I try to focus on growth, but team members keep asking for approval before taking action.',
         score: 11,
-        lostHours: 8,
-        delayCost: 25000,
+        lostHours: 7.5,
+        dragCost: 1840.25,
       },
       {
         label: 'Protected Strategic Growth',
@@ -67,7 +72,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'Zero routine questions reach my desk. My leadership bench resolves operational friction autonomously.',
         score: 20,
         lostHours: 0,
-        delayCost: 0,
+        dragCost: 0,
       },
     ],
   },
@@ -82,16 +87,16 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
         description:
           'Deliverables fall below standard, forcing me to step in, rewrite, or finish execution myself.',
         score: 4,
-        lostHours: 14,
-        delayCost: 50000,
+        lostHours: 13.5,
+        dragCost: 8420.00,
       },
       {
         label: 'Hesitant Delays on Tough Calls',
         description:
           'They manage routine work well, but freeze when tough trade-offs or spending decisions arise.',
         score: 12,
-        lostHours: 6,
-        delayCost: 20000,
+        lostHours: 5.5,
+        dragCost: 3218.50,
       },
       {
         label: 'Flawless Autonomous Delivery',
@@ -99,7 +104,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'Projects finish on schedule to exact standards with zero need for executive intervention.',
         score: 20,
         lostHours: 0,
-        delayCost: 0,
+        dragCost: 0,
       },
     ],
   },
@@ -114,16 +119,16 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
         description:
           'Decisions bounce across multiple committees. Weeks pass before anything gets signed off.',
         score: 4,
-        lostHours: 12,
-        delayCost: 40000,
+        lostHours: 11.5,
+        dragCost: 6180.75,
       },
       {
         label: 'Second-Guessing After Sign-Off',
         description:
           'We agree on plans in meetings, but execution slows down due to doubts and backchannel debates.',
         score: 11,
-        lostHours: 6,
-        delayCost: 20000,
+        lostHours: 5.5,
+        dragCost: 2890.00,
       },
       {
         label: 'Decisive 72-Hour Execution Loops',
@@ -131,7 +136,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'Designated leaders make decisions in days and execute with full authority and speed.',
         score: 20,
         lostHours: 0,
-        delayCost: 0,
+        dragCost: 0,
       },
     ],
   },
@@ -146,16 +151,16 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
         description:
           'Client deals, key hires, and major initiatives grind to a complete halt until I return.',
         score: 4,
-        lostHours: 16,
-        delayCost: 60000,
+        lostHours: 15.5,
+        dragCost: 11420.50,
       },
       {
         label: 'Day-to-Day Survives, Strategy Stops',
         description:
           'Routine work gets done, but tough problems pile up and strategic expansion pauses.',
         score: 12,
-        lostHours: 8,
-        delayCost: 25000,
+        lostHours: 7.5,
+        dragCost: 4120.25,
       },
       {
         label: 'Company Runs & Expands Smoothly',
@@ -163,7 +168,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'The executive bench hits quarterly targets without disruption or constant guidance.',
         score: 20,
         lostHours: 0,
-        delayCost: 0,
+        dragCost: 0,
       },
     ],
   },
@@ -178,16 +183,16 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
         description:
           'Leads pull in conflicting directions, protect turf, and escalate disputes to me.',
         score: 4,
-        lostHours: 10,
-        delayCost: 35000,
+        lostHours: 9.5,
+        dragCost: 4860.50,
       },
       {
         label: 'Polite Agreement, Sluggish Action',
         description:
           'Everyone nods in executive reviews, but follow-through stalls once the meeting ends.',
         score: 12,
-        lostHours: 5,
-        delayCost: 15000,
+        lostHours: 4.5,
+        dragCost: 2140.00,
       },
       {
         label: 'Total Alignment & Mutual Accountability',
@@ -195,7 +200,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'Senior leaders challenge each other openly, own outcomes completely, and execute as one.',
         score: 20,
         lostHours: 0,
-        delayCost: 0,
+        dragCost: 0,
       },
     ],
   },
@@ -311,10 +316,14 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
     setPdfDownloaded(false);
   };
 
-  // Computations per domain
+  // Exact itemized computations per domain
   const domainResults: DomainResultEntry[] = FIVE_DOMAINS_QUESTIONS.map((q, qIdx) => {
     const optIdx = answers[qIdx] ?? 0;
     const chosen = q.options[optIdx] ?? q.options[0];
+    const timeCost = Number(
+      (chosen.lostHours * ANNUAL_WORKING_WEEKS * EXECUTIVE_HOURLY_RATE_USD).toFixed(2)
+    );
+    const delayCost = Number((timeCost + chosen.dragCost).toFixed(2));
     return {
       domainNumber: q.domainNumber,
       domainName: q.domainName,
@@ -322,24 +331,23 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
       score: chosen.score,
       maxScore: 20,
       lostHours: chosen.lostHours,
-      delayCost: chosen.delayCost,
+      timeCost,
+      dragCost: chosen.dragCost,
+      delayCost,
     };
   });
 
-  const totalScore = answers.reduce((acc, optIdx, qIdx) => {
-    const q = FIVE_DOMAINS_QUESTIONS[qIdx];
-    return acc + (q?.options[optIdx]?.score ?? 0);
-  }, 0);
-
-  const totalLostHours = answers.reduce((acc, optIdx, qIdx) => {
-    const q = FIVE_DOMAINS_QUESTIONS[qIdx];
-    return acc + (q?.options[optIdx]?.lostHours ?? 0);
-  }, 0);
-
-  const totalDelayCost = answers.reduce((acc, optIdx, qIdx) => {
-    const q = FIVE_DOMAINS_QUESTIONS[qIdx];
-    return acc + (q?.options[optIdx]?.delayCost ?? 0);
-  }, 0);
+  const totalScore = domainResults.reduce((acc, d) => acc + d.score, 0);
+  const totalLostHours = Number(
+    domainResults.reduce((acc, d) => acc + d.lostHours, 0).toFixed(1)
+  );
+  const totalTimeCost = Number(
+    domainResults.reduce((acc, d) => acc + d.timeCost, 0).toFixed(2)
+  );
+  const totalDragCost = Number(
+    domainResults.reduce((acc, d) => acc + d.dragCost, 0).toFixed(2)
+  );
+  const totalDelayCost = Number((totalTimeCost + totalDragCost).toFixed(2));
 
   const weakestDomains = domainResults
     .filter((d) => d.score <= 12)
@@ -363,22 +371,22 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
     : 'Your leadership team runs smoothly—now lock in institutional permanence.';
 
   const verdictSummary = isSevereBottleneck
-    ? `At a ${totalScore}/100 autonomy score, roughly ${totalLostHours}+ hours of your week and $${totalDelayCost.toLocaleString()}/yr in delayed execution are trapped waiting on your personal sign-off. Without explicit decision rights and 14-day execution loops, hiring more senior managers will only increase your review load.`
+    ? `At a ${totalScore}/100 autonomy score, exactly ${totalLostHours.toFixed(1)} hours of your week and ${formatExactAmount(totalDelayCost)}/yr in delayed execution are trapped waiting on your personal sign-off. Without explicit decision rights and 14-day execution loops, hiring more senior managers will only increase your review load.`
     : isModerateFriction
-    ? `At ${totalScore}/100, routine work moves, yet leadership hesitates on tough trade-offs and re-opens settled calls—costing ${totalLostHours}+ executive hours weekly and $${totalDelayCost.toLocaleString()}/yr in stalled momentum. Codifying spending thresholds and peer accountability eliminates this drag within 90 days.`
+    ? `At ${totalScore}/100, routine work moves, yet leadership hesitates on tough trade-offs and re-opens settled calls—costing ${totalLostHours.toFixed(1)} executive hours weekly and ${formatExactAmount(totalDelayCost)}/yr in stalled momentum. Codifying spending thresholds and peer accountability eliminates this drag within 90 days.`
     : `At ${totalScore}/100, your organization already operates with strong autonomy. The priority over the next 90 days is formalizing written succession protocols and governance cadences so enterprise valuation commands a top-quartile multiple without founder reliance.`;
 
   const recommendedTrackName = isSevereBottleneck
-    ? 'Operating Architecture Embedding (90-Day Overhaul)'
+    ? 'Operating Architecture Embedding (90-Day Overhaul · $31,680.00)'
     : isModerateFriction
-    ? 'Mandate Forensic Diagnostic (14-Day Rapid Audit)'
-    : 'Fractional COO & Sovereign Counsel Retainer';
+    ? 'Mandate Forensic Diagnostic (14-Day Audit · $9,650.00)'
+    : 'Fractional COO & Sovereign Counsel ($17,850.00 / Qtr)';
 
   const recommendedTrackSummary = isSevereBottleneck
-    ? 'Directly embed for 90 days to install $5k+ delegation rules, kill status meetings, and run the 30-day absence test.'
+    ? 'Directly embed for 90 days ($6,336.00 initial deposit) to install $5,000.00+ delegation rules, kill status meetings, and run the 30-day absence test.'
     : isModerateFriction
-    ? 'Isolate your exact decision bottlenecks in 14 days and deploy targeted execution cadences with senior leaders.'
-    : 'Preserve high velocity through quarterly governance sparring and boardroom succession architecture.';
+    ? 'Isolate your exact decision bottlenecks in 14 days ($2,412.50 initial deposit) and deploy targeted execution cadences with senior leaders.'
+    : 'Preserve high velocity ($5,355.00 quarter lock) through quarterly governance sparring and boardroom succession architecture.';
 
   const handleScheduleCall = () => {
     onConsultationRequest({
@@ -394,7 +402,11 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
     downloadAssessmentPdfReport({
       totalScore,
       totalLostHours,
+      totalTimeCost,
+      totalDragCost,
       totalDelayCost,
+      hourlyOpportunityRate: EXECUTIVE_HOURLY_RATE_USD,
+      annualWorkingWeeks: ANNUAL_WORKING_WEEKS,
       statusLabel,
       verdictHeadline,
       verdictSummary,
@@ -423,7 +435,7 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
               Diagnostic & Operational Model · One Unified View
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#17181c] leading-tight">
-              Pinpoint the Bottleneck. See the 90-Day Fix.
+              Pinpoint the Bottleneck. <span className="text-[#9d7b38]">See the 90-Day Fix.</span>
             </h2>
           </div>
 
@@ -479,9 +491,9 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
               </div>
 
               {/* Progress Bar */}
-              <div className="w-full bg-[#ede5d6] h-1.5 rounded-full overflow-hidden">
+              <div className="w-full bg-[#ede5d6] h-1.5 rounded-xs overflow-hidden">
                 <div
-                  className="bg-[#17181c] h-full transition-all duration-300"
+                  className="bg-[#9d7b38] h-full transition-all duration-300"
                   style={{
                     width: `${((currentStep + 1) / FIVE_DOMAINS_QUESTIONS.length) * 100}%`,
                   }}
@@ -500,14 +512,14 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                     key={idx}
                     type="button"
                     onClick={() => handleSelectOption(idx)}
-                    className="w-full text-left p-4 rounded-sm bg-[#faf8f4] hover:bg-[#17181c] text-[#17181c] hover:text-white border border-[#dfd7c8] hover:border-[#17181c] transition-all cursor-pointer group flex items-start justify-between gap-3"
+                    className="w-full text-left p-4 rounded-sm bg-[#faf8f4] hover:bg-[#17181c] text-[#17181c] hover:text-white border border-[#dfd7c8] hover:border-[#d4af37] transition-all cursor-pointer group flex items-start justify-between gap-3"
                   >
                     <div className="space-y-1 flex-1">
                       <div className="flex items-center gap-2.5">
-                        <span className="w-5 h-5 rounded-full bg-[#ebdcc0] text-[#17181c] group-hover:bg-[#d4af37] text-[11px] font-mono font-black flex items-center justify-center shrink-0">
+                        <span className="w-5 h-5 rounded-xs bg-[#ebdcc0] text-[#17181c] group-hover:bg-[#d4af37] text-[11px] font-mono font-black flex items-center justify-center shrink-0">
                           {String.fromCharCode(65 + idx)}
                         </span>
-                        <span className="text-sm sm:text-base font-bold">{opt.label}</span>
+                        <span className="text-sm sm:text-base font-bold group-hover:text-[#f3e5ab] transition-colors">{opt.label}</span>
                       </div>
                       <p className="text-xs sm:text-[13px] text-[#4e5159] group-hover:text-zinc-200 pl-7 leading-relaxed">
                         {opt.description}
@@ -611,7 +623,7 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                       </span>
                       <span>
                         Your responses show acute drag in{' '}
-                        <strong className="text-white">{weakestDomains.join(', ')}</strong>. Fixing these first yields the fastest recovery in leadership capacity.
+                        <strong className="text-[#d4af37]">{weakestDomains.join(', ')}</strong>. Fixing these first yields the fastest recovery in leadership capacity.
                       </span>
                     </div>
                   )}
@@ -623,24 +635,24 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                       <Clock className="w-3.5 h-3.5" />
                       <span>Executive Time Trapped</span>
                     </div>
-                    <div className="text-2xl sm:text-3xl font-black text-[#17181c] tabular-nums">
-                      {totalLostHours}+ Hours / Wk
+                    <div className="text-2xl sm:text-3xl font-black text-[#9d7b38] tabular-nums">
+                      {totalLostHours.toFixed(1)} Hours / Wk
                     </div>
                     <p className="text-xs text-[#4e5159]">
-                      Spent in escalations, sign-offs, and rework your leadership bench should own.
+                      Exact weekly hours lost to routine escalations, sign-offs, and rework ({(totalLostHours * ANNUAL_WORKING_WEEKS).toFixed(1)} hrs across {ANNUAL_WORKING_WEEKS} wks/yr).
                     </p>
                   </div>
 
                   <div className="p-4 rounded-md bg-white border border-[#d8cebe] space-y-1">
                     <div className="flex items-center gap-1.5 text-xs font-mono font-bold uppercase text-[#9d7b38]">
                       <TrendingDown className="w-3.5 h-3.5" />
-                      <span>Estimated Annual Execution Cost</span>
+                      <span>Exact Annual Execution Cost</span>
                     </div>
-                    <div className="text-2xl sm:text-3xl font-black text-[#17181c] tabular-nums">
-                      ${totalDelayCost.toLocaleString()} / Yr
+                    <div className="text-2xl sm:text-3xl font-black text-[#9d7b38] tabular-nums">
+                      {formatExactAmount(totalDelayCost)} / Yr
                     </div>
-                    <p className="text-xs text-[#4e5159]">
-                      Compound margin and speed lost while initiatives wait for founder approval.
+                    <p className="text-[11px] font-mono text-[#4e5159] leading-relaxed tabular-nums">
+                      {totalLostHours.toFixed(1)} hrs &times; {ANNUAL_WORKING_WEEKS} wks &times; {formatExactAmount(EXECUTIVE_HOURLY_RATE_USD)}/hr ({formatExactAmount(totalTimeCost)}) + {formatExactAmount(totalDragCost)} operational lag.
                     </p>
                   </div>
                 </div>
@@ -650,7 +662,7 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
               <div className="bg-white rounded-md border border-[#d8cebe] p-5 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-mono uppercase text-[#9d7b38] font-bold tracking-wider">
-                    5-Domain Scorecard Breakdown
+                    5-Domain Scorecard &amp; Cost Breakdown
                   </span>
                   <span className="text-[11px] font-mono text-[#6b6e76]">20 pts per domain</span>
                 </div>
@@ -680,7 +692,7 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                           </span>
                         </div>
                         <div className="text-xs font-bold text-[#17181c]">{d.domainName}</div>
-                        <div className="w-full h-1.5 bg-[#e8dfd0] rounded-full overflow-hidden">
+                        <div className="w-full h-1.5 bg-[#e8dfd0] rounded-xs overflow-hidden">
                           <div
                             className={`h-full ${
                               isCritical
@@ -694,6 +706,9 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                         </div>
                         <div className="text-[11px] text-[#555861] leading-snug">
                           {d.selectedLabel}
+                        </div>
+                        <div className="text-[10px] font-mono font-bold text-[#9d7b38] tabular-nums pt-0.5">
+                          {d.lostHours.toFixed(1)}h · {formatExactAmount(d.delayCost)}
                         </div>
                       </div>
                     );
@@ -709,10 +724,10 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                       Your Action Plan
                     </span>
                     <h4 className="text-lg sm:text-xl font-bold font-serif text-[#17181c]">
-                      Next 90-Day Roadmap to Eliminate Founder Dependency
+                      Next <span className="text-[#9d7b38]">90-Day Roadmap</span> to Eliminate Founder Dependency
                     </h4>
                   </div>
-                  <span className="text-xs font-mono font-bold text-[#17181c] bg-[#faf8f4] border border-[#d8cebe] px-2.5 py-1 rounded-xs self-start sm:self-auto">
+                  <span className="text-xs font-mono font-bold text-[#d4af37] bg-[#141416] border border-[#d4af37]/60 px-2.5 py-1 rounded-xs self-start sm:self-auto">
                     Definitive 90-Day Runway
                   </span>
                 </div>
@@ -796,7 +811,7 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                     Execution Methodology
                   </span>
                   <h4 className="text-lg sm:text-xl font-bold font-serif text-[#17181c]">
-                    How We Do It — Without Slide Decks or Endless Retainers
+                    How We Do It — <span className="text-[#9d7b38]">Without Slide Decks or Endless Retainers</span>
                   </h4>
                 </div>
 
@@ -827,7 +842,10 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                       <span>Recommended Next Step · {recommendedTrackName}</span>
                     </div>
                     <h4 className="text-lg sm:text-xl font-bold font-serif text-[#f4ecd8]">
-                      Stop Losing {totalLostHours}+ Hours Every Week. Let’s Walk Through Your Roadmap.
+                      Stop Losing{' '}
+                      <span className="text-[#d4af37]">{totalLostHours.toFixed(1)} Hours</span> &amp;{' '}
+                      <span className="text-[#d4af37]">{formatExactAmount(totalDelayCost)}/Yr</span>.
+                      Let’s Walk Through Your Roadmap.
                     </h4>
                     <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                       {recommendedTrackSummary} Download your full PDF report now, or book a confidential 20-minute debrief with Suchita Sancheti to review your exact numbers.
@@ -864,20 +882,23 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                         id: 'delegation-matrix',
                         title: 'The $5,000 Delegation Matrix',
                         subtitle:
-                          'Immediate rulebook to recover 15 hours/week by delegating decisions under $5,000.',
-                        priceUSD: 95,
+                          '$41.20 Rulebook + $32.80 Matrix + $24.40 Protocol — recover executive hours by delegating decisions under $5,000.00.',
+                        priceUSD: 98.40,
                         category: 'toolkit',
                         deliverables: [
-                          '1-Page Delegation Rulebook',
-                          'Reversible Decision Matrix',
-                          'Emergency Escalation Protocol',
+                          '1-Page Delegation Rulebook ($41.20 value)',
+                          'Reversible Decision Matrix ($32.80 value)',
+                          'Emergency Escalation Protocol ($24.40 value)',
                         ],
                       })
                     }
-                    className="w-full py-2.5 px-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white rounded-xs text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-colors"
+                    className="w-full py-2.5 px-3 bg-zinc-900 hover:bg-zinc-800 border border-[#d4af37]/40 text-white rounded-xs text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-colors"
                   >
                     <CreditCard className="w-3.5 h-3.5 text-[#d4af37]" />
-                    <span>Start Immediately: Delegation Matrix · $95</span>
+                    <span>
+                      Start Immediately: Delegation Matrix ·{' '}
+                      <span className="text-[#d4af37]">{formatExactAmount(98.40)}</span>
+                    </span>
                   </button>
 
                   <button
@@ -1028,7 +1049,7 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
         isOpen={showCalendlyModal}
         onClose={() => setShowCalendlyModal(false)}
         customTitle="Book 20-Min Operating Audit Debrief via Calendly"
-        contextNote={`Audit Score: ${totalScore}/100 · Time Reclaimable: ${totalLostHours} hrs/wk · Estimated Delay Cost: $${totalDelayCost.toLocaleString()}/yr.`}
+        contextNote={`Audit Score: ${totalScore}/100 · Time Reclaimable: ${totalLostHours.toFixed(1)} hrs/wk · Exact Execution Cost: ${formatExactAmount(totalDelayCost)}/yr.`}
       />
     </section>
   );

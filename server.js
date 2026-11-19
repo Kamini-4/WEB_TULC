@@ -292,21 +292,21 @@ const MIME_TYPES = {
 const PAYMENT_CATALOG = Object.freeze({
   'delegation-matrix': {
     title: 'The $5,000 Delegation Matrix',
-    unitPriceUSDCents: 9500,
+    unitPriceUSDCents: 9840, // $41.20 + $32.80 + $24.40 = $98.40
     category: 'toolkit',
     maxQty: 5,
     deliverables: ['Founder-Delegation-Covenant-Master.html'],
   },
   'execution-loop': {
     title: 'The 14-Day Autonomous Execution Loop',
-    unitPriceUSDCents: 14500,
+    unitPriceUSDCents: 14680, // $59.40 + $48.20 + $39.20 = $146.80
     category: 'toolkit',
     maxQty: 5,
     deliverables: ['TULC-72-Hour-Founder-Absence-Readiness-Audit.html'],
   },
   'founder-decoupling-suite': {
     title: 'The Complete Founder Decoupling Suite',
-    unitPriceUSDCents: 29500,
+    unitPriceUSDCents: 29280, // $119.60 + $98.40 + $74.80 = $292.80
     category: 'toolkit',
     maxQty: 5,
     deliverables: [
@@ -316,7 +316,7 @@ const PAYMENT_CATALOG = Object.freeze({
   },
   'complete-executive-bundle': {
     title: 'The Complete 3-Toolkit Sovereign Suite',
-    unitPriceUSDCents: 39500,
+    unitPriceUSDCents: 40350, // $538.00 individual sum less 25% ($134.50) = $403.50
     category: 'toolkit',
     maxQty: 5,
     deliverables: [
@@ -325,22 +325,22 @@ const PAYMENT_CATALOG = Object.freeze({
     ],
   },
   'mandate-deposit-diagnostic': {
-    title: 'Category 01: Diagnostic Mandate Engagement Deposit',
-    unitPriceUSDCents: 250000,
+    title: 'Category 01: Diagnostic Mandate Deposit (25% of $9,650.00)',
+    unitPriceUSDCents: 241250,
     category: 'retainer_deposit',
     maxQty: 1,
     deliverables: ['TULC-72-Hour-Founder-Absence-Readiness-Audit.html'],
   },
   'mandate-deposit-embedding': {
-    title: 'Category 02: Operating Embedding Engagement Deposit',
-    unitPriceUSDCents: 500000,
+    title: 'Category 02: Operating Embedding Deposit (20% of $31,680.00)',
+    unitPriceUSDCents: 633600,
     category: 'retainer_deposit',
     maxQty: 1,
     deliverables: ['TULC-72-Hour-Founder-Absence-Readiness-Audit.html'],
   },
   'mandate-deposit-retainer': {
-    title: 'Category 03: Annual Strategic Retainer Engagement Deposit',
-    unitPriceUSDCents: 500000,
+    title: 'Category 03: Fractional COO Quarter Lock Deposit (30% of $17,850.00)',
+    unitPriceUSDCents: 535500,
     category: 'retainer_deposit',
     maxQty: 1,
     deliverables: [
@@ -349,8 +349,8 @@ const PAYMENT_CATALOG = Object.freeze({
     ],
   },
   'conclave-seat-reservation': {
-    title: 'Private Executive Conclave Seat Reservation',
-    unitPriceUSDCents: 150000,
+    title: 'Executive Advisory Board Conclave Seat ($1,120.00 + $445.00 + $220.00)',
+    unitPriceUSDCents: 178500,
     category: 'conclave_seat',
     maxQty: 2,
     deliverables: ['Founder-Delegation-Covenant-Master.html'],
