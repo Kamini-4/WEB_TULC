@@ -1,0 +1,27 @@
+{
+  "name": "The Unbounded Leadership Co.",
+  "short_name": "Unbounded Leadership",
+  "description": "Global leadership architecture consultancy founded by Suchita Sancheti. Re-architect your operating system in 90 days to eliminate founder dependency and approval bottlenecks.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8f6f0",
+  "theme_color": "#141416",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "categories": ["business", "productivity", "consulting"],
+  "icons": [
+    {
+      "src": "/assets/tulc-gold-navy-crest.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

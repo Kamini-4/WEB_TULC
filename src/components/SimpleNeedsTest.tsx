@@ -26,7 +26,7 @@ import {
 
 import { formatExactAmount } from '../utils/pricing';
 
-const EXECUTIVE_HOURLY_RATE_USD = 64.25;
+const EXECUTIVE_HOURLY_RATE_INR = 5429.15;
 const ANNUAL_WORKING_WEEKS = 48;
 
 interface DomainQuestion {
@@ -56,7 +56,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'Trapped answering messages, putting out fires, and resolving operational questions my team should solve.',
         score: 4,
         lostHours: 14.5,
-        dragCost: 3420.50,
+        dragCost: 289032.25,
       },
       {
         label: 'Constant Interruptions & Sign-Offs',
@@ -64,7 +64,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'I try to focus on growth, but team members keep asking for approval before taking action.',
         score: 11,
         lostHours: 7.5,
-        dragCost: 1840.25,
+        dragCost: 155501.10,
       },
       {
         label: 'Protected Strategic Growth',
@@ -88,7 +88,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'Deliverables fall below standard, forcing me to step in, rewrite, or finish execution myself.',
         score: 4,
         lostHours: 13.5,
-        dragCost: 8420.00,
+        dragCost: 711490.00,
       },
       {
         label: 'Hesitant Delays on Tough Calls',
@@ -96,7 +96,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'They manage routine work well, but freeze when tough trade-offs or spending decisions arise.',
         score: 12,
         lostHours: 5.5,
-        dragCost: 3218.50,
+        dragCost: 271963.25,
       },
       {
         label: 'Flawless Autonomous Delivery',
@@ -120,7 +120,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'Decisions bounce across multiple committees. Weeks pass before anything gets signed off.',
         score: 4,
         lostHours: 11.5,
-        dragCost: 6180.75,
+        dragCost: 522273.35,
       },
       {
         label: 'Second-Guessing After Sign-Off',
@@ -128,7 +128,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'We agree on plans in meetings, but execution slows down due to doubts and backchannel debates.',
         score: 11,
         lostHours: 5.5,
-        dragCost: 2890.00,
+        dragCost: 244205.00,
       },
       {
         label: 'Decisive 72-Hour Execution Loops',
@@ -152,7 +152,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'Client deals, key hires, and major initiatives grind to a complete halt until I return.',
         score: 4,
         lostHours: 15.5,
-        dragCost: 11420.50,
+        dragCost: 965032.25,
       },
       {
         label: 'Day-to-Day Survives, Strategy Stops',
@@ -160,7 +160,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'Routine work gets done, but tough problems pile up and strategic expansion pauses.',
         score: 12,
         lostHours: 7.5,
-        dragCost: 4120.25,
+        dragCost: 348161.10,
       },
       {
         label: 'Company Runs & Expands Smoothly',
@@ -184,7 +184,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'Leads pull in conflicting directions, protect turf, and escalate disputes to me.',
         score: 4,
         lostHours: 9.5,
-        dragCost: 4860.50,
+        dragCost: 410712.25,
       },
       {
         label: 'Polite Agreement, Sluggish Action',
@@ -192,7 +192,7 @@ const FIVE_DOMAINS_QUESTIONS: DomainQuestion[] = [
           'Everyone nods in executive reviews, but follow-through stalls once the meeting ends.',
         score: 12,
         lostHours: 4.5,
-        dragCost: 2140.00,
+        dragCost: 180830.00,
       },
       {
         label: 'Total Alignment & Mutual Accountability',
@@ -220,7 +220,7 @@ const OPERATIONAL_MODEL_CIRCUITS = [
     name: 'Delegation Fidelity',
     icon: Cpu,
     breaksToday: 'Teams hesitate or deliver half-baked work because your decision criteria live only in your head.',
-    whatWeInstall: 'Written authority thresholds ($5k–$50k+) and clear quality charters teams follow without guessing.',
+    whatWeInstall: 'Written authority thresholds (₹425000–₹4225000+) and clear quality charters teams follow without guessing.',
     outcome: 'Zero founder rework',
   },
   {
@@ -316,12 +316,12 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
     setPdfDownloaded(false);
   };
 
-  // Exact itemized computations per domain
+  // Exact itemized computations per domain (INR)
   const domainResults: DomainResultEntry[] = FIVE_DOMAINS_QUESTIONS.map((q, qIdx) => {
     const optIdx = answers[qIdx] ?? 0;
     const chosen = q.options[optIdx] ?? q.options[0];
     const timeCost = Number(
-      (chosen.lostHours * ANNUAL_WORKING_WEEKS * EXECUTIVE_HOURLY_RATE_USD).toFixed(2)
+      (chosen.lostHours * ANNUAL_WORKING_WEEKS * EXECUTIVE_HOURLY_RATE_INR).toFixed(2)
     );
     const delayCost = Number((timeCost + chosen.dragCost).toFixed(2));
     return {
@@ -377,16 +377,16 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
     : `At ${totalScore}/100, your organization already operates with strong autonomy. The priority over the next 90 days is formalizing written succession protocols and governance cadences so enterprise valuation commands a top-quartile multiple without founder reliance.`;
 
   const recommendedTrackName = isSevereBottleneck
-    ? 'Operating Architecture Embedding (90-Day Overhaul · $31,680.00)'
+    ? 'Operating Architecture Embedding (90-Day Overhaul · ₹284650)'
     : isModerateFriction
-    ? 'Mandate Forensic Diagnostic (14-Day Audit · $9,650.00)'
-    : 'Fractional COO & Sovereign Counsel ($17,850.00 / Qtr)';
+    ? 'Mandate Forensic Diagnostic (Solo ₹38450 · Group 3+ CXOs ₹89450)'
+    : 'Fractional COO Retainer (₹205350 / Qtr · 3 Monthly Instalments)';
 
   const recommendedTrackSummary = isSevereBottleneck
-    ? 'Directly embed for 90 days ($6,336.00 initial deposit) to install $5,000.00+ delegation rules, kill status meetings, and run the 30-day absence test.'
+    ? 'Directly embed for 90 days (₹71162.50 initial deposit) to install ₹425000+ delegation rules, kill status meetings, and run the 30-day absence test.'
     : isModerateFriction
-    ? 'Isolate your exact decision bottlenecks in 14 days ($2,412.50 initial deposit) and deploy targeted execution cadences with senior leaders.'
-    : 'Preserve high velocity ($5,355.00 quarter lock) through quarterly governance sparring and boardroom succession architecture.';
+    ? 'Isolate your exact decision bottlenecks in 14 days (Solo CEO ₹38450 or Group 3+ CXOs ₹89450; 50% kickoff lock).'
+    : 'Preserve high velocity via 3 monthly instalments of ₹68450 (0% markup) or a ₹61605 quarter lock deposit.';
 
   const handleScheduleCall = () => {
     onConsultationRequest({
@@ -405,7 +405,7 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
       totalTimeCost,
       totalDragCost,
       totalDelayCost,
-      hourlyOpportunityRate: EXECUTIVE_HOURLY_RATE_USD,
+      hourlyOpportunityRate: EXECUTIVE_HOURLY_RATE_INR,
       annualWorkingWeeks: ANNUAL_WORKING_WEEKS,
       statusLabel,
       verdictHeadline,
@@ -648,11 +648,11 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                       <TrendingDown className="w-3.5 h-3.5" />
                       <span>Exact Annual Execution Cost</span>
                     </div>
-                    <div className="text-2xl sm:text-3xl font-black text-[#9d7b38] tabular-nums">
+                    <div className="text-sm font-mono font-bold text-[#9d7b38] tabular-nums">
                       {formatExactAmount(totalDelayCost)} / Yr
                     </div>
                     <p className="text-[11px] font-mono text-[#4e5159] leading-relaxed tabular-nums">
-                      {totalLostHours.toFixed(1)} hrs &times; {ANNUAL_WORKING_WEEKS} wks &times; {formatExactAmount(EXECUTIVE_HOURLY_RATE_USD)}/hr ({formatExactAmount(totalTimeCost)}) + {formatExactAmount(totalDragCost)} operational lag.
+                      {totalLostHours.toFixed(1)} hrs &times; {ANNUAL_WORKING_WEEKS} wks &times; {formatExactAmount(EXECUTIVE_HOURLY_RATE_INR)}/hr ({formatExactAmount(totalTimeCost)}) + {formatExactAmount(totalDragCost)} operational lag.
                     </p>
                   </div>
                 </div>
@@ -747,7 +747,7 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#9d7b38] shrink-0 mt-0.5" />
-                        <span>Grant managers clear $5,000+ decision and spend limits immediately.</span>
+                        <span>Grant managers clear ₹425000+ decision and spend limits immediately.</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#9d7b38] shrink-0 mt-0.5" />
@@ -880,15 +880,15 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                     onClick={() =>
                       setActivePaymentItem({
                         id: 'delegation-matrix',
-                        title: 'The $5,000 Delegation Matrix',
+                        title: 'The ₹425000 Delegation Matrix',
                         subtitle:
-                          '$41.20 Rulebook + $32.80 Matrix + $24.40 Protocol — recover executive hours by delegating decisions under $5,000.00.',
-                        priceUSD: 98.40,
+                          'Recover executive hours by delegating routine decisions under ₹425000.',
+                        priceINR: 6850,
                         category: 'toolkit',
                         deliverables: [
-                          '1-Page Delegation Rulebook ($41.20 value)',
-                          'Reversible Decision Matrix ($32.80 value)',
-                          'Emergency Escalation Protocol ($24.40 value)',
+                          '1-Page Delegation Rulebook',
+                          'Reversible Capital Decision Matrix',
+                          'Emergency Escalation & Audit Protocol',
                         ],
                       })
                     }
@@ -897,7 +897,7 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                     <CreditCard className="w-3.5 h-3.5 text-[#d4af37]" />
                     <span>
                       Start Immediately: Delegation Matrix ·{' '}
-                      <span className="text-[#d4af37]">{formatExactAmount(98.40)}</span>
+                      <span className="text-[#d4af37]">{formatExactAmount(6850.00)}</span>
                     </span>
                   </button>
 

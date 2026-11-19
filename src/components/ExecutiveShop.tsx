@@ -25,7 +25,7 @@ export interface ToolkitItem {
   tierNumber: string;
   title: string;
   subtitle: string;
-  priceUSD: number;
+  priceINR: number;
   formulaNote: string;
   bestFor: string;
   whatItFixes: string;
@@ -37,16 +37,16 @@ export const TOOLKITS: ToolkitItem[] = [
   {
     id: 'delegation-matrix',
     tierNumber: '01',
-    title: 'The $5,000 Delegation Matrix',
-    subtitle: 'Give managers pre-approved signing rights under $5,000 without asking you.',
-    priceUSD: 98.40,
-    formulaNote: '$41.20 Rulebook + $32.80 Matrix + $24.40 Protocol',
-    bestFor: 'Founders answering daily approval messages for small purchases.',
-    whatItFixes: 'Stops small decisions from piling up. Empowers leads to act immediately.',
+    title: 'The ₹425000 Delegation Matrix',
+    subtitle: 'Give managers pre-approved signing rights under ₹425000 without asking you.',
+    priceINR: 6850,
+    formulaNote: 'Rulebook ₹2750 + Matrix ₹2250 + Protocol ₹1850',
+    bestFor: 'Founders answering daily approval messages for operational expenses.',
+    whatItFixes: 'Stops routine decisions from piling up. Empowers leads to act immediately.',
     deliverables: [
-      '1-Page Delegation Rulebook ($41.20 value)',
-      'Reversible Decision Matrix ($32.80 value)',
-      'Emergency Escalation Protocol ($24.40 value)',
+      '1-Page Delegation Rulebook',
+      'Reversible Capital Decision Matrix',
+      'Emergency Escalation & Audit Protocol',
     ],
   },
   {
@@ -54,14 +54,14 @@ export const TOOLKITS: ToolkitItem[] = [
     tierNumber: '02',
     title: 'The 14-Day Autonomous Execution Loop',
     subtitle: 'Eliminate status update meetings with bi-weekly delivery commitments.',
-    priceUSD: 146.80,
-    formulaNote: '$59.40 Sprint Spec + $48.20 Async Rhythm + $39.20 Rubric',
+    priceINR: 9850,
+    formulaNote: 'Sprint Spec ₹3950 + Async ₹3250 + Rubric ₹2650',
     bestFor: 'Teams trapped in endless check-in calls and circular debates.',
     whatItFixes: 'Removes weekly check-in meetings. One owner per outcome delivers on time.',
     deliverables: [
-      'Meeting-Free 14-Day Delivery Sprint Template ($59.40 value)',
-      'Asynchronous Weekly Check-In Protocol ($48.20 value)',
-      'Single-Point Ownership Rubric ($39.20 value)',
+      'Meeting-Free 14-Day Delivery Sprint Template',
+      'Asynchronous Weekly Check-In Protocol',
+      'Single-Point Ownership & Status Rubric',
     ],
     isPopular: true,
   },
@@ -70,21 +70,21 @@ export const TOOLKITS: ToolkitItem[] = [
     tierNumber: '03',
     title: 'The Complete Founder Decoupling Suite',
     subtitle: 'The complete architecture so operations compound across a 30-day absence.',
-    priceUSD: 292.80,
-    formulaNote: '$119.60 Runbook + $98.40 Charter + $74.80 Comp Map',
+    priceINR: 14850,
+    formulaNote: 'Runbook ₹6150 + Charter ₹4950 + Risk Kit ₹3750',
     bestFor: 'Founders preparing for enterprise scale or board governance.',
     whatItFixes: 'Removes key-person risk. Delivery and sales close without your physical presence.',
     deliverables: [
-      '30-Day Founder Absence Runbook ($119.60 value)',
-      'C-Suite Governance Charter & Decision Map ($98.40 value)',
-      'Executive Compensation & Authority Thresholds ($74.80 value)',
+      '30-Day Founder Absence Runbook',
+      'C-Suite Governance Charter & Decision Map',
+      'Executive Authority & Risk Firewall Kit',
     ],
   },
 ];
 
-const BUNDLE_INDIVIDUAL_SUM = 98.40 + 146.80 + 292.80; // $538.00 exact
-const BUNDLE_DISCOUNT_AMOUNT = Number((BUNDLE_INDIVIDUAL_SUM * 0.25).toFixed(2)); // $134.50 exact
-const BUNDLE_FINAL_PRICE = Number((BUNDLE_INDIVIDUAL_SUM - BUNDLE_DISCOUNT_AMOUNT).toFixed(2)); // $403.50 exact
+const BUNDLE_INDIVIDUAL_SUM = Number((6850.00 + 9850.00 + 14850.00).toFixed(2)); // ₹31550.00 exact
+const BUNDLE_DISCOUNT_AMOUNT = Number((BUNDLE_INDIVIDUAL_SUM * 0.25).toFixed(2)); // ₹7887.50 exact
+const BUNDLE_FINAL_PRICE = Number((BUNDLE_INDIVIDUAL_SUM - BUNDLE_DISCOUNT_AMOUNT).toFixed(2)); // ₹23662.50 exact
 
 interface ExecutiveShopProps {
   onBackToHome: () => void;
@@ -102,8 +102,8 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
     setActivePaymentItem({
       id: item.id,
       title: item.title,
-      subtitle: `${item.subtitle} (${item.formulaNote})`,
-      priceUSD: item.priceUSD,
+      subtitle: item.subtitle,
+      priceINR: item.priceINR,
       category: 'toolkit',
       deliverables: item.deliverables,
     });
@@ -113,14 +113,13 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
     setActivePaymentItem({
       id: 'complete-executive-bundle',
       title: 'The Complete 3-Toolkit Sovereign Suite',
-      subtitle: `All 3 Toolkits: ${formatExactAmount(BUNDLE_INDIVIDUAL_SUM)} total value less 25.00% bundle deduction (${formatExactAmount(BUNDLE_DISCOUNT_AMOUNT)} saved)`,
-      priceUSD: BUNDLE_FINAL_PRICE,
+      subtitle: `All 3 Executive Toolkits — 25.00% Suite Credit (${formatExactAmount(BUNDLE_DISCOUNT_AMOUNT)} saved)`,
+      priceINR: BUNDLE_FINAL_PRICE,
       category: 'toolkit',
       deliverables: [
-        `Toolkit 01: The $5,000 Delegation Matrix (${formatExactAmount(98.40)})`,
-        `Toolkit 02: The 14-Day Autonomous Execution Loop (${formatExactAmount(146.80)})`,
-        `Toolkit 03: Complete Founder Decoupling Suite (${formatExactAmount(292.80)})`,
-        `Exact 25.00% Bundle Credit Applied: -${formatExactAmount(BUNDLE_DISCOUNT_AMOUNT)}`,
+        'Toolkit 01: The ₹425000 Delegation Matrix',
+        'Toolkit 02: The 14-Day Autonomous Execution Loop',
+        'Toolkit 03: Complete Founder Decoupling Suite',
       ],
     });
   };
@@ -141,7 +140,7 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#141416] border border-[#d4af37]/60 rounded-xs text-[11px] font-mono text-[#d4af37] font-bold">
             <Percent className="w-3 h-3 text-[#d4af37] shrink-0" />
-            <span>100.00% Advisory Credit: Every Dollar Credited Toward Future Mandates</span>
+            <span>100.00% Advisory Credit: Every Rupee Credited Toward Future Mandates</span>
           </div>
 
           <button
@@ -156,14 +155,14 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
         {/* Header */}
         <div className="text-center space-y-1.5">
           <span className="text-[11px] font-mono uppercase tracking-wider text-[#9d7b38] font-bold block">
-            Itemized Systems Pricing · Zero Rounded Estimates
+            Executive Toolkits · Fixed INR Pricing
           </span>
           <h1 className="text-2xl sm:text-4xl font-bold font-serif text-[#17181c] tracking-tight">
-            Executive Toolkits & <span className="text-[#9d7b38]">Delegation Systems</span>
+            Executive Toolkits &amp; <span className="text-[#9d7b38]">Delegation Systems</span>
           </h1>
           <p className="text-xs sm:text-sm text-[#4e5159] max-w-2xl mx-auto">
             Ready-to-deploy delegation rules, decision templates, and meeting-free execution frameworks engineered by{' '}
-            <strong className="text-[#9d7b38] font-bold">Suchita Sancheti</strong>. Priced directly to the cent by deliverable.
+            <strong className="text-[#9d7b38] font-bold">Suchita Sancheti</strong>. Priced in INR (+ 18.00% GST at checkout; multi-currency settlement supported).
           </p>
         </div>
 
@@ -199,11 +198,11 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                       </span>
                     </div>
                     <div className="text-right shrink-0">
-                      <span className="text-2xl sm:text-3xl font-black text-[#9d7b38] tabular-nums">
-                        {formatExactAmount(item.priceUSD)}
+                      <span className="text-sm font-mono font-bold text-[#9d7b38] tabular-nums">
+                        {formatExactAmount(item.priceINR)}
                       </span>
                       <span className="text-[10px] font-mono text-[#6b6e76] block">
-                        USD · Exact Fee
+                        INR · Ex-GST
                       </span>
                     </div>
                   </div>
@@ -226,7 +225,7 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
 
                   <div className="space-y-1.5 pt-1">
                     <span className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold tracking-wider block">
-                      Itemized Deliverables
+                      Included Deliverables
                     </span>
                     <ul className="space-y-1.5 text-xs text-[#17181c]">
                       {item.deliverables.map((del, idx) => (
@@ -243,13 +242,13 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
                   <button
                     type="button"
                     onClick={() => handleRequisition(item)}
-                    className="w-full py-2.5 px-3 bg-[#17181c] hover:bg-[#282a30] text-[#f8f6f0] font-bold text-xs font-mono uppercase tracking-wider rounded-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                    className="w-full py-2.5 px-3 bg-[#17181c] hover:bg-[#282a30] text-[#f8f6f0] font-bold text-xs font-mono uppercase tracking-wider rounded-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer border border-[#d4af37]/40"
                   >
                     <CreditCard className="w-3.5 h-3.5 text-[#d4af37]" />
-                    <span>Acquire Now · {formatExactAmount(item.priceUSD)}</span>
+                    <span>Acquire Now · {formatExactAmount(item.priceINR)}</span>
                   </button>
                   <span className="text-[10px] font-mono text-[#6b6e76] text-center block mt-1.5">
-                    Server computes exact currency & GST breakdown
+                    Server computes exact 18.00% IGST / GST breakdown
                   </span>
                 </div>
               </div>
@@ -262,16 +261,23 @@ export const ExecutiveShop: React.FC<ExecutiveShopProps> = ({
           <div className="space-y-1">
             <div className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#d4af37] font-bold">
               <Sparkles className="w-3 h-3 text-[#d4af37]" />
-              <span>Exact 25.00% Bundle Calculation · Save {formatExactAmount(BUNDLE_DISCOUNT_AMOUNT)}</span>
+              <span>
+                Exact 25.00% Bundle Calculation · Save {formatExactAmount(BUNDLE_DISCOUNT_AMOUNT)}
+              </span>
             </div>
-            <h3 className="text-lg sm:text-xl font-bold font-serif text-[#f4ecd8]">
-              Complete 3-Toolkit Sovereign Suite: {formatExactAmount(BUNDLE_FINAL_PRICE)} USD
+            <h3 className="text-base sm:text-lg font-bold font-serif text-[#f4ecd8]">
+              Complete 3-Toolkit Sovereign Suite:{' '}
+              <span className="text-sm font-mono font-bold text-[#d4af37] tabular-nums">
+                {formatExactAmount(BUNDLE_FINAL_PRICE)} INR
+              </span>
             </h3>
-            <p className="text-xs text-zinc-300 max-w-2xl font-mono">
-              Exact Sum: {formatExactAmount(98.40)} + {formatExactAmount(146.80)} + {formatExactAmount(292.80)} ={' '}
-              <span className="line-through text-zinc-400">{formatExactAmount(BUNDLE_INDIVIDUAL_SUM)}</span>{' '}
-              − 25.00% ({formatExactAmount(BUNDLE_DISCOUNT_AMOUNT)}) ={' '}
-              <strong className="text-[#d4af37]">{formatExactAmount(BUNDLE_FINAL_PRICE)} USD</strong>
+            <p className="text-xs text-zinc-300 max-w-2xl">
+              Includes all 3 toolkits (combined value{' '}
+              <span className="line-through text-zinc-400 font-mono">
+                {formatExactAmount(BUNDLE_INDIVIDUAL_SUM)}
+              </span>
+              ) with 25.00% suite savings applied:{' '}
+              <strong className="text-[#d4af37] font-mono">{formatExactAmount(BUNDLE_FINAL_PRICE)} INR</strong>
             </p>
           </div>
 

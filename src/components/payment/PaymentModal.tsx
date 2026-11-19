@@ -24,7 +24,7 @@ export interface PaymentItem {
   id: string;
   title: string;
   subtitle?: string;
-  priceUSD: number;
+  priceINR: number;
   category: 'toolkit' | 'retainer_deposit' | 'conclave_seat' | 'fast_track_clearance' | 'custom_retainer';
   deliverables?: string[];
 }
@@ -58,6 +58,7 @@ interface ServerQuote {
   amountSmallestUnit: number;
   subtotal: number;
   discountAmount: number;
+  fxConversionFee?: number;
   taxAmount: number;
   totalDisplay: number;
   itemTitle: string;
@@ -101,7 +102,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
   const [isProcessing, setIsProcessing] = useState(false);
   const [receipt, setReceipt] = useState<PaymentReceipt | null>(null);
   const [copiedVoucher, setCopiedVoucher] = useState(false);
-  const [currency, setCurrency] = useState<SettlementCurrency>('USD');
+  const [currency, setCurrency] = useState<SettlementCurrency>('INR');
   const [email, setEmail] = useState('');
   const [organization, setOrganization] = useState('');
   const [couponCode, setCouponCode] = useState('');
@@ -125,7 +126,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
 
   if (!isOpen || !item) return null;
 
-  const exactPreview = computeExactClientPreview(item.id, item.priceUSD, currency, 1);
+  const exactPreview = computeExactClientPreview(item.id, item.priceINR, currency, 1);
   const currencySymbol = exactPreview.symbol;
 
   const handleInitiateRazorpayCheckout = async () => {
@@ -492,7 +493,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
                   Exact Settlement Calculation ({currency})
                 </span>
                 <div className="flex items-center gap-1 text-xs font-mono font-bold">
-                  {(['USD', 'EUR', 'GBP', 'INR', 'AED'] as const).map((curr) => (
+                  {(['INR', 'USD', 'EUR', 'GBP', 'AED'] as const).map((curr) => (
                     <button
                       key={curr}
                       type="button"
@@ -514,27 +515,12 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
 
               <div className="p-3 space-y-1.5 text-[11px] font-mono">
                 <div className="flex justify-between text-zinc-700">
-                  <span>Base Catalog Rate (USD):</span>
-                  <span className="font-bold text-[#141416] tabular-nums">
-                    {formatExactAmount(exactPreview.baseUsd)} USD
-                  </span>
-                </div>
-
-                {currency !== 'USD' && (
-                  <div className="flex justify-between text-zinc-600">
-                    <span>Applied FX Rate (1.00 USD):</span>
-                    <span className="tabular-nums">
-                      {exactPreview.rate.toFixed(2)} {currency}
-                    </span>
-                  </div>
-                )}
-
-                <div className="flex justify-between text-zinc-700">
-                  <span>Converted Subtotal:</span>
+                  <span>{currency === 'INR' ? 'Taxable Subtotal (INR):' : `International Subtotal (${currency}):`}</span>
                   <span className="font-bold text-[#141416] tabular-nums">
                     {formatExactAmount(
                       serverQuote ? serverQuote.subtotal : exactPreview.subtotal,
-                      currencySymbol
+                      currencySymbol,
+                      exactPreview.locale
                     )}
                   </span>
                 </div>
@@ -543,7 +529,22 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
                   <div className="flex justify-between text-emerald-700 font-bold">
                     <span>Verified Mandate Credit Applied:</span>
                     <span className="tabular-nums">
-                      -{formatExactAmount(serverQuote.discountAmount, currencySymbol)}
+                      -{formatExactAmount(serverQuote.discountAmount, currencySymbol, exactPreview.locale)}
+                    </span>
+                  </div>
+                )}
+
+                {currency !== 'INR' && (
+                  <div className="flex justify-between text-zinc-700">
+                    <span>FX Conversion &amp; Gateway Fee ({exactPreview.fxFeePercent.toFixed(2)}%):</span>
+                    <span className="font-bold text-[#141416] tabular-nums">
+                      {formatExactAmount(
+                        serverQuote && typeof serverQuote.fxConversionFee === 'number'
+                          ? serverQuote.fxConversionFee
+                          : exactPreview.fxConversionFee,
+                        currencySymbol,
+                        exactPreview.locale
+                      )}
                     </span>
                   </div>
                 )}
@@ -553,7 +554,8 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
                   <span className="font-bold text-[#141416] tabular-nums">
                     {formatExactAmount(
                       serverQuote ? serverQuote.taxAmount : exactPreview.taxAmount,
-                      currencySymbol
+                      currencySymbol,
+                      exactPreview.locale
                     )}
                   </span>
                 </div>
@@ -561,12 +563,13 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
 
               <div className="px-3 py-2.5 bg-[#141416] text-white flex items-center justify-between border-t border-[#d4af37]/50">
                 <span className="text-[11px] font-mono uppercase font-bold text-[#f4ecd8]">
-                  Exact Total Due ({currency})
+                  Exact Total Payable ({currency})
                 </span>
-                <span className="text-xl font-black text-[#d4af37] font-mono tabular-nums">
+                <span className="text-sm font-bold text-[#d4af37] font-mono tabular-nums">
                   {formatExactAmount(
                     serverQuote ? serverQuote.totalDisplay : exactPreview.totalExact,
-                    currencySymbol
+                    currencySymbol,
+                    exactPreview.locale
                   )}
                 </span>
               </div>
@@ -683,20 +686,20 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
                 <div className="p-3 bg-[#faf8f4] border border-[#d8cebe] rounded space-y-1.5 font-mono">
                   <div className="flex justify-between border-b border-stone-200 pb-1 font-bold text-black">
                     <span>Beneficiary:</span>
-                    <span>The Unbounded Leadership Co. Ltd.</span>
+                    <span>The Unbounded Leadership Co.</span>
                   </div>
                   <div className="flex justify-between border-b border-stone-200 pb-1">
-                    <span className="text-zinc-600">Institutional Bank:</span>
-                    <span className="font-bold text-black">JPMorgan Chase / Barclays Institutional</span>
+                    <span className="text-zinc-600">Domestic INR Settlement:</span>
+                    <span className="font-bold text-black">NEFT / RTGS / IMPS (GST Tax Invoice)</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-zinc-600">Routing / SWIFT:</span>
-                    <span className="font-bold text-black">CHASUS33 / BACS 20-00-00</span>
+                    <span className="text-zinc-600">International Wire:</span>
+                    <span className="font-bold text-black">SWIFT / Corporate Pro-Forma</span>
                   </div>
                 </div>
 
                 <p className="text-[11px] text-zinc-600 italic">
-                  A server-tracked pro-forma invoice reference will be created. Digital materials remain locked until bank settlement is confirmed.
+                  A server-tracked GST pro-forma invoice reference will be issued with exact settlement details. Digital materials unlock automatically upon bank reconciliation.
                 </p>
 
                 <button

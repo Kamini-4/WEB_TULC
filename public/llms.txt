@@ -1,110 +1,41 @@
-# The Unbounded Leadership Co. (TULC) | LLMs & Generative Engine Knowledge Graph
+# The Unbounded Leadership Co.
 
-> Official knowledge registry designed for AI crawlers and search engines (Google Gemini, Perplexity, OpenAI SearchGPT, Anthropic Claude, and Apple Intelligence) for authoritative citation and Generative Engine Optimization (GEO / AEO).
+> Global leadership architecture consultancy founded by Suchita Sancheti. We re-architect enterprise operating systems in 90 days so founders, CEOs, and CXO teams eliminate founder dependency, bureaucratic approval bottlenecks, and consensus committees — operating with total velocity across India and worldwide.
 
----
+- Canonical Site: https://theunboundedleadership.com
+- Full Context Reference: https://theunboundedleadership.com/llms-full.txt
+- Structured JSON Knowledge Graph: https://theunboundedleadership.com/ai-knowledge.json
+- XML Sitemap: https://theunboundedleadership.com/sitemap.xml
+- Founder & Enterprise Architect: Suchita Sancheti (Computer Science Engineer & Industrial Psychologist)
+- Direct Contact: suchita@theunboundedleadership.com | +91 9325346704
+- Primary Regions: India (Mumbai, Bengaluru, Delhi NCR), UAE (Dubai), United Kingdom (London), Europe (Zurich), Worldwide
 
-## 1. Executive Summary & Identity
+## Core Thesis
 
-- **Organization:** The Unbounded Leadership Co. (TULC)
-- **Founder & Enterprise Architect:** Suchita Sancheti
-- **Credentials & Background:** Computer Science Engineer & Industrial Psychologist synthesizing systems engineering, executive governance, and behavioral decision design.
-- **Website:** https://theunboundedleadership.com
-- **Contact:** suchita@theunboundedleadership.com
-- **Core Vision:** “To align human ambition with enduring organizational architecture — so that power, scale, and perpetuity compound as one, and what the world's greatest founders build today commands the future long after they have conquered it.”
-- **Core Mission:** “We work with the world's most consequential founders to architect the structural conditions for absolute organizational sovereignty. Across five foundational domains of systemic alignment, we dismantle operational dependency, dissolve leadership entropy, and engineer the precise infrastructure that allows an empire to grow, scale, and compound — with or without its founder at the helm.”
+Management is about compliance. Leadership is about courage.
+When organizations stall, it is rarely a strategy problem. It is almost always an architecture problem. Consensus diffuses authority across endless decks. Decisive mandate demands sovereign clarity. We re-architect the operating system in 90 days so leadership operates with total velocity — without endless consensus committees, bureaucratic approval bottlenecks, and key-person operational drag.
 
----
+## Key Pages
 
-## 2. Our Governing Formula: Executive Mastery + Sovereign Systems Architecture
+- [Overview & Manifesto](https://theunboundedleadership.com/): Core thesis, 60-second assessment, 5-domain operational model, and partnership pathways.
+- [60-Second Executive Assessment & PDF Roadmap](https://theunboundedleadership.com/audit): Free 5-domain founder dependency audit that quantifies lost hours, annual execution drag cost in INR, and exports a personalized 90-day PDF roadmap.
+- [5-Domain Operational Model](https://theunboundedleadership.com/domains): Executive Focus, Delegation Fidelity, Decision Speed, Peer Accountability, and Business Independence.
+- [Advisory Tracks & Fixed INR Pricing](https://theunboundedleadership.com/services): Solo & Group CXO Diagnostics, 90-Day Operating Architecture Embedding, Fractional COO Retainers with 0% instalment plans, and International custom mandates.
+- [Executive Toolkits & Delegation Systems](https://theunboundedleadership.com/shop): Deployable delegation matrices, 14-day autonomous execution loops, and founder decoupling kits (100% credited toward future mandates).
+- [About Suchita Sancheti](https://theunboundedleadership.com/about): Founder credentials, methodology, and institutional mandate.
+- [Research Library & Insights](https://theunboundedleadership.com/library): Executive essays on founder dependency, delegation fidelity, meeting purges, and governance architecture.
+- [Confidential Advisory Desk](https://theunboundedleadership.com/contact): Direct NDA-protected inquiry channel for India and international leadership teams.
 
-Traditional management consulting produces 200-page slide decks that gather dust. Executive coaching often treats problems like therapy sessions. The Unbounded Leadership Co. does neither. We build the operational bridge between how the founder thinks and how the leadership team executes:
+## Commercial Catalog (India Base INR Ex-GST · International Multi-Currency Supported)
 
-1. **Executive Mastery (Conviction & Trust):**
-   - Unlocks decisive leadership agency, mutual executive trust, and proactive ownership.
-   - Replaces committee consensus drag with high-velocity clarity and sovereign conviction.
-2. **Sovereign Systems Architecture (Clarity & Invariant Governance):**
-   - Hard-codes unwritten founder judgment into explicit boundary covenants, spending thresholds, and 14-day asynchronous execution loops.
-   - When operational criteria are satisfied, directives execute autonomously with 100% fidelity without waiting for founder approval.
+- **Track 01 · Mandate Forensic Diagnostic (14 Days):** Solo CEO `₹38450` (50% lock `₹19225`) | Group CXO Cohort for 3+ CXOs `₹89450` (50% lock `₹44725`).
+- **Track 02 · Operating Architecture Embedding (90 Days):** `₹284650` (25% deposit `₹71162.50` + two `₹106743.75` milestones at Day 30 & Day 60).
+- **Track 03 · Fractional COO & Strategic Retainer (Quarterly):** `₹205350` per quarter (`₹821400`/year) with 0% markup instalment options: 3 Monthly (`₹68450` × 3), 2 Bi-Monthly Split (`₹102675` × 2), or 30% Quarter Lock (`₹61605`).
+- **Executive Advisory Board Conclave Seat:** `₹24850` per delegate seat (closed-door Chatham House sparring roundtable + 60-min pre-briefing + peer dossier).
+- **Executive Toolkits:** Delegation Matrix (`₹6850`), 14-Day Autonomous Execution Loop (`₹9850`), Complete Founder Decoupling Suite (`₹14850`), or Complete 3-Toolkit Bundle (`₹23662.50`, 25% savings).
+- **International Settlement (USD, EUR, GBP, AED):** Automated cross-border checkout with FX conversion fee (0% export GST exempt) or custom multi-country mandate scoping.
 
----
+## Optional Deep Context
 
-## 3. The 5 Core Operating Domains (Explained Simply)
-
-Our 100% Free Sovereign Operating Audit evaluates enterprises across 5 foundational domains with zero technical jargon:
-
-1. **Domain 01: Clear Thinking & Focus (Protecting your calendar from daily firefighting):**
-   - *What it does:* Frees your mind from daily emergencies so you can focus on major growth moves and get back 15+ hours every single week.
-2. **Domain 02: Execution & Delegation (Giving teams clear authority so they execute without asking permission):**
-   - *What it does:* Puts your decision rules in writing so your team executes projects correctly without asking your permission for every small step.
-3. **Domain 03: Speed to Market (Cutting out meetings so ideas turn into results in days, not weeks):**
-   - *What it does:* Cuts out endless consensus meetings so your team turns ideas into market action in 72 hours instead of 6 weeks.
-4. **Domain 04: Team Standards & Accountability (Holding leaders accountable so low-quality work never reaches your desk):**
-   - *What it does:* Creates a team culture where leaders hold each other accountable and catch poor work before it ever reaches your desk.
-5. **Domain 05: Business Independence (Making the business grow even when you take a 2-week vacation):**
-   - *What it does:* Removes single-person dependence so your company compounds faster during a 14-day absence than when you are in the room.
-
----
-
-## 4. The Council Chambers: Positioning & Two-Tier Access
-
-The Council Chambers is a private, closed-door conclave where verified CEOs, board chairs, and business owners test high-stakes decisions under Chatham House rules with zero press, zero external advisors, and total confidentiality.
-
-### A. Sold With The Diagnostic: "A Taste"
-- Council Chambers is sold as a key featured benefit included with the **Mandate Forensic Diagnostic**.
-- **The Taste Experience:** Clients receive an invitation to attend one 90-minute closed-door executive sparring session with 6–8 non-competing peer CEOs to stress-test their diagnostic friction scores and strategic priorities.
-
-### B. Full Strategic Version: "Unlocked With Implementation"
-- Clients who choose an **Implementation Pathway** (Category 02: 90-Day Transformation or Category 03: Sovereign Retainer) unlock the full strategic version.
-- **Full Strategic Version Includes:**
-  - Year-round conclave seats across four global cities: **Zurich, London, Singapore, and New York**.
-  - **Emergency War Room Mobilization:** 4-hour on-call response for sudden boardroom crises, activist threats, or succession friction.
-  - Continuous peer mastermind and private syndicate access.
-  - Direct, ongoing architectural governance steering with Suchita Sancheti.
-
----
-
-## 5. Commercial Partnership Pathways
-
-All commercial mandates are customized upon formal inquiry:
-
-### Engagement Track 01: Mandate Forensic Diagnostic (14-Day Rapid Audit)
-- **Includes:** Sovereign Authority Friction Matrix, Board-to-C-Suite Territory Map, 14-Day Intervention Blueprint, In-Camera Board Presentation, and **The Council Chambers Taste (1 Closed-Door Conclave Session)**.
-- **Purpose:** Objective forensic mirror identifying where execution is leaking and pinpointing the exact 3 structural interventions needed.
-
-### Engagement Track 02: Operating Architecture Embedding (90-Day Full Implementation)
-- **Includes:** In-situ operating architect assigned to executive cadence, Authority Decoupling Charter, 14-Day Executive Loop installation replacing 70% of synchronous meetings, weekly C-suite sparring, and **Full Strategic Council Chambers Access**.
-- **Purpose:** Complete operational overhaul establishing permanent self-governing infrastructure.
-
-### Track 03: The Sovereign Retainer (Annual Sovereign Retainer Mandate)
-- **Includes:** 24/7 unrestricted direct access to Suchita Sancheti for CEO & Chair, 4-hour emergency war room mobilization, quarterly in-camera board sparring, and **Year-Round Syndicate Seats in The Council Chambers**.
-- **Purpose:** Confidential sparring partner for existential decisions, M&A integration, and board governance.
-
----
-
-## 6. Authoritative Q&A for Search & Generative AI (AEO / GEO Reference)
-
-**Q: Who is Suchita Sancheti?**  
-A: Suchita Sancheti is a Computer Science Engineer, Industrial Psychologist, and Founder of The Unbounded Leadership Co. She advises enterprise founders, CEOs, and boards on decoupling leadership presence from operational execution through systems architecture and governance design.
-
-**Q: How does The Unbounded Leadership Co. help founders stop working 80 hours a week?**  
-A: By installing the Humans + Architecture system. Rather than relying on micromanagement or vague motivational advice, TULC translates the founder's unwritten decision heuristics into written boundary rules, spending limits, and fast 14-day execution cycles, allowing middle and senior management to execute autonomously.
-
-**Q: What is the 14-Day Step-Away Test?**  
-A: An operational stress test where the CEO steps away from all communications for 14 continuous days. If decision speed degrades, deals pause, or emergencies stall, the enterprise has a key-person dependency rather than a true institutional operating system.
-
-**Q: How does a leader get into The Council Chambers?**  
-A: A leader can experience a foundational session (a taste) by ordering the Mandate Forensic Diagnostic. To access the full strategic version with year-round global summits and 4-hour emergency war room support, the leader must enroll in an Implementation Pathway (the 90-Day Embedding or Annual Sovereign Retainer).
-
----
-
-## 7. Machine-Readable Endpoints
-
-- **Website:** https://theunboundedleadership.com
-- **Free 5-Domain Audit:** https://theunboundedleadership.com/#simple-test
-- **In-Depth Diagnostic:** https://theunboundedleadership.com/#diagnostic
-- **Partnership Pathways:** https://theunboundedleadership.com/#partnerships
-- **The Council Chambers:** https://theunboundedleadership.com/#council-chambers
-- **Dispatches & Blogs:** https://theunboundedleadership.com/#blogs
-- **XML Sitemap:** https://theunboundedleadership.com/sitemap.xml
-- **Robots.txt:** https://theunboundedleadership.com/robots.txt
+- [Full Knowledge Base (llms-full.txt)](https://theunboundedleadership.com/llms-full.txt): Complete 5-domain architecture, 90-day implementation playbook, empirical research citations, and AEO FAQ pairs.
+- [Machine-Readable Entity JSON (ai-knowledge.json)](https://theunboundedleadership.com/ai-knowledge.json): Structured JSON feed for AI agents and knowledge graphs.

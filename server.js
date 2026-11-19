@@ -286,27 +286,27 @@ const MIME_TYPES = {
 
 // ==============================================================================
 // Authoritative Server-Side Payment Catalog, Currencies & Tax Schedule
-// Prices are denominated in USD cents (integer arithmetic only).
+// Prices are denominated in INR paise (integer arithmetic only).
 // Client-supplied price, amount, tax, or discount values are ALWAYS rejected.
 // ==============================================================================
 const PAYMENT_CATALOG = Object.freeze({
   'delegation-matrix': {
-    title: 'The $5,000 Delegation Matrix',
-    unitPriceUSDCents: 9840, // $41.20 + $32.80 + $24.40 = $98.40
+    title: 'The ₹425000 Delegation Matrix',
+    unitPriceINRPaise: 685000, // ₹2750.00 Rulebook + ₹2250.00 Capital Matrix + ₹1850.00 AI & DB Pack = ₹6850.00
     category: 'toolkit',
     maxQty: 5,
     deliverables: ['Founder-Delegation-Covenant-Master.html'],
   },
   'execution-loop': {
     title: 'The 14-Day Autonomous Execution Loop',
-    unitPriceUSDCents: 14680, // $59.40 + $48.20 + $39.20 = $146.80
+    unitPriceINRPaise: 985000, // ₹3950.00 Sprint Spec + ₹3250.00 Async Cadence + ₹2650.00 AI & DB Schema = ₹9850.00
     category: 'toolkit',
     maxQty: 5,
     deliverables: ['TULC-72-Hour-Founder-Absence-Readiness-Audit.html'],
   },
   'founder-decoupling-suite': {
     title: 'The Complete Founder Decoupling Suite',
-    unitPriceUSDCents: 29280, // $119.60 + $98.40 + $74.80 = $292.80
+    unitPriceINRPaise: 1485000, // ₹6150.00 Runbook + ₹4950.00 Charter + ₹3750.00 AI & Vault Pack = ₹14850.00
     category: 'toolkit',
     maxQty: 5,
     deliverables: [
@@ -316,7 +316,7 @@ const PAYMENT_CATALOG = Object.freeze({
   },
   'complete-executive-bundle': {
     title: 'The Complete 3-Toolkit Sovereign Suite',
-    unitPriceUSDCents: 40350, // $538.00 individual sum less 25% ($134.50) = $403.50
+    unitPriceINRPaise: 2366250, // ₹31550.00 individual sum less 25.00% (₹7887.50) = ₹23662.50
     category: 'toolkit',
     maxQty: 5,
     deliverables: [
@@ -325,22 +325,49 @@ const PAYMENT_CATALOG = Object.freeze({
     ],
   },
   'mandate-deposit-diagnostic': {
-    title: 'Category 01: Diagnostic Mandate Deposit (25% of $9,650.00)',
-    unitPriceUSDCents: 241250,
+    title: 'Track 01: Solo CEO Diagnostic Deposit (50% of ₹38450)',
+    unitPriceINRPaise: 1922500,
+    category: 'retainer_deposit',
+    maxQty: 1,
+    deliverables: ['TULC-72-Hour-Founder-Absence-Readiness-Audit.html'],
+  },
+  'mandate-deposit-diagnostic-group': {
+    title: 'Track 01: Group CXO Cohort Diagnostic Deposit (3+ CXOs · 50% of ₹89450)',
+    unitPriceINRPaise: 4472500,
     category: 'retainer_deposit',
     maxQty: 1,
     deliverables: ['TULC-72-Hour-Founder-Absence-Readiness-Audit.html'],
   },
   'mandate-deposit-embedding': {
-    title: 'Category 02: Operating Embedding Deposit (20% of $31,680.00)',
-    unitPriceUSDCents: 633600,
+    title: 'Track 02: 90-Day Operating Embedding Deposit (25% of ₹284650)',
+    unitPriceINRPaise: 7116250,
     category: 'retainer_deposit',
     maxQty: 1,
     deliverables: ['TULC-72-Hour-Founder-Absence-Readiness-Audit.html'],
   },
   'mandate-deposit-retainer': {
-    title: 'Category 03: Fractional COO Quarter Lock Deposit (30% of $17,850.00)',
-    unitPriceUSDCents: 535500,
+    title: 'Track 03: Fractional COO Quarter Lock Deposit (30% of ₹205350)',
+    unitPriceINRPaise: 6160500,
+    category: 'retainer_deposit',
+    maxQty: 1,
+    deliverables: [
+      'Founder-Delegation-Covenant-Master.html',
+      'TULC-72-Hour-Founder-Absence-Readiness-Audit.html',
+    ],
+  },
+  'mandate-retainer-instalment-monthly': {
+    title: 'Track 03: Fractional COO Retainer — Monthly Instalment 1 of 3 (₹68450/mo)',
+    unitPriceINRPaise: 6845000,
+    category: 'retainer_deposit',
+    maxQty: 1,
+    deliverables: [
+      'Founder-Delegation-Covenant-Master.html',
+      'TULC-72-Hour-Founder-Absence-Readiness-Audit.html',
+    ],
+  },
+  'mandate-retainer-instalment-split': {
+    title: 'Track 03: Fractional COO Retainer — Bi-Monthly Instalment 1 of 2 (₹102675 × 2)',
+    unitPriceINRPaise: 10267500,
     category: 'retainer_deposit',
     maxQty: 1,
     deliverables: [
@@ -349,8 +376,8 @@ const PAYMENT_CATALOG = Object.freeze({
     ],
   },
   'conclave-seat-reservation': {
-    title: 'Executive Advisory Board Conclave Seat ($1,120.00 + $445.00 + $220.00)',
-    unitPriceUSDCents: 178500,
+    title: 'Executive Advisory Board Conclave Seat (₹24850)',
+    unitPriceINRPaise: 2485000,
     category: 'conclave_seat',
     maxQty: 2,
     deliverables: ['Founder-Delegation-Covenant-Master.html'],
@@ -358,11 +385,11 @@ const PAYMENT_CATALOG = Object.freeze({
 });
 
 const CURRENCY_CONFIG = Object.freeze({
-  USD: { rate: 1, taxBps: 0 },
-  EUR: { rate: 0.92, taxBps: 0 },
-  GBP: { rate: 0.79, taxBps: 0 },
-  INR: { rate: 84.5, taxBps: 1800 }, // 18% GST computed strictly server-side
-  AED: { rate: 3.67, taxBps: 0 },
+  INR: { rate: 1, intlParityBps: 0, fxFeeBps: 0, taxBps: 1800 }, // 18.00% IGST / GST computed strictly server-side
+  USD: { rate: 1 / 84.5, intlParityBps: 2000, fxFeeBps: 450, taxBps: 0 }, // +20.00% cross-border delivery parity + 4.50% FX/gateway fee
+  EUR: { rate: 0.92 / 84.5, intlParityBps: 2000, fxFeeBps: 450, taxBps: 0 },
+  GBP: { rate: 0.79 / 84.5, intlParityBps: 2000, fxFeeBps: 450, taxBps: 0 },
+  AED: { rate: 3.67 / 84.5, intlParityBps: 2000, fxFeeBps: 450, taxBps: 0 },
 });
 
 const FORBIDDEN_CLIENT_PRICING_FIELDS = new Set([
@@ -879,7 +906,7 @@ function computeServerPricing(itemId, rawQty, rawCurrency, rawCouponCode, redemp
     };
   }
 
-  const currency = typeof rawCurrency === 'string' ? rawCurrency.trim().toUpperCase() : 'USD';
+  const currency = typeof rawCurrency === 'string' ? rawCurrency.trim().toUpperCase() : 'INR';
   if (!Object.prototype.hasOwnProperty.call(CURRENCY_CONFIG, currency)) {
     return { error: 'Unsupported settlement currency', status: 400 };
   }
@@ -908,11 +935,15 @@ function computeServerPricing(itemId, rawQty, rawCurrency, rawCouponCode, redemp
     }
   }
 
-  // Authoritative smallest-unit computation (cents / paise / fils)
-  const unitSmallest = Math.round(catalogItem.unitPriceUSDCents * currCfg.rate);
-  const subtotalSmallest = unitSmallest * quantity;
+  // Authoritative smallest-unit computation (paise / cents / fils)
+  const basePaise = catalogItem.unitPriceINRPaise * quantity;
+  const intlParityPaise = Math.round((basePaise * currCfg.intlParityBps) / 10000);
+  const adjustedInrPaise = basePaise + intlParityPaise;
+  const subtotalSmallest = Math.round(adjustedInrPaise * currCfg.rate);
   const discountSmallest = Math.round((subtotalSmallest * discountPct) / 100);
-  const taxableSmallest = Math.max(0, subtotalSmallest - discountSmallest);
+  const postDiscountSmallest = Math.max(0, subtotalSmallest - discountSmallest);
+  const fxFeeSmallest = Math.round((postDiscountSmallest * currCfg.fxFeeBps) / 10000);
+  const taxableSmallest = postDiscountSmallest + fxFeeSmallest;
   const taxSmallest = Math.round((taxableSmallest * currCfg.taxBps) / 10000);
   const totalSmallestUnit = taxableSmallest + taxSmallest;
 
@@ -928,6 +959,7 @@ function computeServerPricing(itemId, rawQty, rawCurrency, rawCouponCode, redemp
     appliedCoupon,
     subtotalSmallest,
     discountSmallest,
+    fxFeeSmallest,
     taxSmallest,
     totalSmallestUnit,
     totalDisplay: Number((totalSmallestUnit / 100).toFixed(2)),
@@ -1744,6 +1776,7 @@ const server = http.createServer(async (req, res) => {
           amountSmallestUnit: quote.totalSmallestUnit,
           subtotal: Number((quote.subtotalSmallest / 100).toFixed(2)),
           discountAmount: Number((quote.discountSmallest / 100).toFixed(2)),
+          fxConversionFee: Number((quote.fxFeeSmallest / 100).toFixed(2)),
           taxAmount: Number((quote.taxSmallest / 100).toFixed(2)),
           totalDisplay: quote.totalDisplay,
           itemTitle: quote.catalogItem.title,

@@ -1,0 +1,165 @@
+{
+  "@context": "https://schema.org",
+  "schemaVersion": "2026-11-18",
+  "entity": {
+    "id": "https://theunboundedleadership.com/#organization",
+    "name": "The Unbounded Leadership Co.",
+    "alternateName": "TULC",
+    "url": "https://theunboundedleadership.com",
+    "tagline": "Management is about compliance. Leadership is about courage.",
+    "summary": "Global leadership architecture consultancy founded by Suchita Sancheti that re-architects enterprise operating systems in 90 days to eliminate founder dependency, approval bottlenecks, and consensus drag.",
+    "founder": {
+      "name": "Suchita Sancheti",
+      "role": "Founder & Enterprise Architect",
+      "credentials": [
+        "Computer Science Engineer",
+        "Industrial Psychologist"
+      ],
+      "profiles": [
+        "https://www.linkedin.com/in/suchita-sancheti",
+        "https://www.instagram.com/transformingleadership"
+      ]
+    },
+    "contact": {
+      "email": "suchita@theunboundedleadership.com",
+      "telephone": "+91 9325346704",
+      "regionsServed": [
+        "India",
+        "Mumbai",
+        "Bengaluru",
+        "Delhi NCR",
+        "United Arab Emirates",
+        "Dubai",
+        "United Kingdom",
+        "London",
+        "Switzerland",
+        "Zurich",
+        "Worldwide"
+      ]
+    }
+  },
+  "operationalModel": [
+    {
+      "domainNumber": "01",
+      "name": "Executive Focus",
+      "outcome": "Reclaim 15+ hours per week by removing daily operational firefighting."
+    },
+    {
+      "domainNumber": "02",
+      "name": "Delegation Fidelity",
+      "outcome": "Codify written authority thresholds (₹425000 to ₹4225000+) for zero founder rework."
+    },
+    {
+      "domainNumber": "03",
+      "name": "Decision Speed",
+      "outcome": "Replace circular consensus meetings with 72-hour decision SLAs and 14-day sprints."
+    },
+    {
+      "domainNumber": "04",
+      "name": "Peer Accountability",
+      "outcome": "Install C-suite peer standards and scorecards before deliverables reach the CEO."
+    },
+    {
+      "domainNumber": "05",
+      "name": "Business Independence",
+      "outcome": "Validate autonomous growth via a live 30-day founder absence stress test."
+    }
+  ],
+  "catalog": {
+    "baseCurrency": "INR",
+    "indiaTaxPolicy": "18% IGST / GST itemized at checkout",
+    "internationalCurrencies": ["USD", "EUR", "GBP", "AED"],
+    "internationalTaxPolicy": "0% Export GST Exempt with automated FX conversion or custom cross-border scoping",
+    "services": [
+      {
+        "id": "diagnostic-solo",
+        "name": "Mandate Forensic Diagnostic — Solo Founder / CEO",
+        "duration": "14 Days",
+        "priceINR": 38450,
+        "depositINR": 19225,
+        "url": "https://theunboundedleadership.com/services"
+      },
+      {
+        "id": "diagnostic-group",
+        "name": "Mandate Forensic Diagnostic — Group CXO Cohort (3+ CXOs)",
+        "duration": "14 Days",
+        "priceINR": 89450,
+        "depositINR": 44725,
+        "url": "https://theunboundedleadership.com/services"
+      },
+      {
+        "id": "embedding-90-day",
+        "name": "Operating Architecture Embedding",
+        "duration": "90 Days",
+        "priceINR": 284650,
+        "depositINR": 71162.5,
+        "url": "https://theunboundedleadership.com/services"
+      },
+      {
+        "id": "fractional-coo-retainer",
+        "name": "Fractional COO & Strategic Retainer",
+        "duration": "Quarterly",
+        "priceINR": 205350,
+        "instalmentOptionsINR": {
+          "monthly3x": 68450,
+          "bimonthly2x": 102675,
+          "quarterLock30Pct": 61605
+        },
+        "url": "https://theunboundedleadership.com/services"
+      },
+      {
+        "id": "conclave-seat",
+        "name": "Executive Advisory Board Conclave Seat",
+        "duration": "Closed-Door Roundtable + 60-Min Pre-Briefing",
+        "priceINR": 24850,
+        "url": "https://theunboundedleadership.com/services"
+      }
+    ],
+    "toolkits": [
+      {
+        "id": "delegation-matrix",
+        "name": "The ₹425000 Delegation Matrix",
+        "priceINR": 6850,
+        "url": "https://theunboundedleadership.com/shop"
+      },
+      {
+        "id": "execution-loop",
+        "name": "The 14-Day Autonomous Execution Loop",
+        "priceINR": 9850,
+        "url": "https://theunboundedleadership.com/shop"
+      },
+      {
+        "id": "founder-decoupling-suite",
+        "name": "The Complete Founder Decoupling Suite",
+        "priceINR": 14850,
+        "url": "https://theunboundedleadership.com/shop"
+      },
+      {
+        "id": "complete-executive-bundle",
+        "name": "The Complete 3-Toolkit Sovereign Suite (25% Savings)",
+        "priceINR": 23662.5,
+        "url": "https://theunboundedleadership.com/shop"
+      }
+    ]
+  },
+  "interactiveTools": [
+    {
+      "name": "Free 60-Second Executive Assessment & PDF 90-Day Roadmap",
+      "url": "https://theunboundedleadership.com/audit",
+      "priceINR": 0,
+      "outputs": [
+        "0-100 Executive Autonomy Score",
+        "Weekly Hours Lost to Operational Drag",
+        "Annual Execution Cost in INR",
+        "Downloadable PDF 90-Day Roadmap"
+      ]
+    }
+  ],
+  "endpoints": {
+    "sitemap": "https://theunboundedleadership.com/sitemap.xml",
+    "robots": "https://theunboundedleadership.com/robots.txt",
+    "llms": "https://theunboundedleadership.com/llms.txt",
+    "llmsFull": "https://theunboundedleadership.com/llms-full.txt",
+    "manifest": "https://theunboundedleadership.com/manifest.json"
+  }
+}

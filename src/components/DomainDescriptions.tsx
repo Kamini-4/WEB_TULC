@@ -43,11 +43,11 @@ export const FIVE_DOMAINS_DATA = [
     oneSentence: 'Puts your decision rules in writing so your team executes projects correctly without asking your permission for every small step.',
     icon: Cpu,
     theProblem: 'When directives are handed down, teams hesitate. They seek endless verbal alignment meetings or deliver work that drifts off-target, forcing the founder to personally rewrite decks, redo work, or micromanage outcomes.',
-    whatWeAchieve: 'We translate your unwritten founder standards into explicit boundary covenants and pre-approved spending limits ($50,000+). Direct reports know the exact decision criteria and execute with 100% of your fidelity.',
+    whatWeAchieve: 'We translate your unwritten founder standards into explicit boundary covenants and pre-approved spending limits (₹4225000+). Direct reports know the exact decision criteria and execute with 100% of your fidelity.',
     keyMetrics: [
       '100% execution fidelity on delegated mandates',
       'Zero founder rework required on senior deliverables',
-      'Clear $50k+ autonomous capital deployment limits'
+      'Clear ₹4225000+ autonomous capital deployment limits'
     ],
     financialImpact: 'Recovers up to 5.5% of operating margin siphoned by managerial hesitation and rework.'
   },

@@ -16,23 +16,32 @@ export const HeroSection: React.FC<HeroProps> = ({
       className="relative pt-8 pb-8 sm:pt-10 sm:pb-12 border-b border-[#e5decfe0] bg-[#f8f6f0] overflow-hidden"
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Immediate Point — Clear Value Proposition in 3 Seconds */}
-        <div className="max-w-3xl mx-auto text-center space-y-4">
+        {/* Immediate Point — Authoritative Frontpage Manifesto */}
+        <div className="max-w-4xl mx-auto text-center space-y-4">
           <h1
             className="font-bold text-[#17181c] leading-[1.12] tracking-tight font-serif [text-wrap:balance]"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3.35rem)' }}
+            style={{ fontSize: 'clamp(2.1rem, 4.1vw, 3.5rem)' }}
           >
-            Your business should scale{' '}
-            <span className="text-[#9d7b38]">without everything waiting on you.</span>
+            Management is about compliance.{' '}
+            <span className="text-[#9d7b38] block sm:inline">Leadership is about courage.</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-[#3f424a] font-normal leading-relaxed max-w-2xl mx-auto">
-            When every approval, escalation, and strategic call still hits your desk, growth stalls at the speed of your calendar.{' '}
-            <strong className="font-bold text-[#9d7b38]">
-              We install autonomous decision systems and leadership execution in 90 days
-            </strong>
-            —so your team runs the operation while you compound the enterprise.
-          </p>
+          <div className="space-y-3 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-[#2b2e36] font-normal leading-relaxed">
+              When organizations stall, it is rarely a strategy problem. It is almost always an{' '}
+              <strong className="font-bold text-[#9d7b38]">architecture problem.</strong>{' '}
+              Consensus diffuses authority across endless decks. Decisive mandate demands{' '}
+              <strong className="font-bold text-[#9d7b38]">sovereign clarity.</strong>
+            </p>
+
+            <p className="text-sm sm:text-base text-[#3f424a] font-normal leading-relaxed max-w-2xl mx-auto">
+              We re-architect the operating system in{' '}
+              <strong className="font-bold text-[#9d7b38]">90 days</strong> so leadership operates
+              with <strong className="font-bold text-[#9d7b38]">total velocity</strong> — without
+              endless consensus committees, bureaucratic approval bottlenecks, and key-person
+              operational drag.
+            </p>
+          </div>
 
           {/* Primary & Secondary Action */}
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">

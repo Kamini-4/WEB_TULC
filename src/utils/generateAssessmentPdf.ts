@@ -1,5 +1,7 @@
 import { jsPDF } from 'jspdf';
-import { formatExactAmount } from './pricing';
+import { formatExactInrPdf } from './pricing';
+
+const sanitizePdfCurrency = (text: string): string => text.replace(/₹/g, 'INR ');
 
 export interface DomainResultEntry {
   domainNumber: string;
@@ -96,23 +98,24 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
   doc.text('EXACT ANNUAL EXECUTION COST', marginX + colW * 2 + 4, cursorY + 22);
 
   doc.setFont('helvetica', 'bold');
-  doc.setFontSize(20);
+  doc.setFontSize(17);
   doc.setTextColor(23, 24, 28);
   doc.text(`${payload.totalScore} / 100`, marginX + 16, cursorY + 46);
   doc.text(`${payload.totalLostHours.toFixed(1)} Hrs / Wk`, marginX + colW + 10, cursorY + 46);
+  doc.setFontSize(11.5);
   doc.setTextColor(157, 123, 56);
-  doc.text(`${formatExactAmount(payload.totalDelayCost)}`, marginX + colW * 2 + 4, cursorY + 46);
+  doc.text(`${formatExactInrPdf(payload.totalDelayCost)}`, marginX + colW * 2 + 4, cursorY + 46);
 
   doc.setFont('helvetica', 'normal');
-  doc.setFontSize(8);
+  doc.setFontSize(7.8);
   doc.setTextColor(80, 84, 92);
-  const formulaLine = `Calculation: ${payload.totalLostHours.toFixed(1)} hrs/wk x ${payload.annualWorkingWeeks} wks x ${formatExactAmount(payload.hourlyOpportunityRate)}/hr (${formatExactAmount(payload.totalTimeCost)}) + ${formatExactAmount(payload.totalDragCost)} operational lag = ${formatExactAmount(payload.totalDelayCost)}/yr`;
-  doc.text(formulaLine, marginX + 16, cursorY + 72);
+  const formulaLine = `Calculation: ${payload.totalLostHours.toFixed(1)} hrs/wk x ${payload.annualWorkingWeeks} wks x ${formatExactInrPdf(payload.hourlyOpportunityRate)}/hr (${formatExactInrPdf(payload.totalTimeCost)}) + ${formatExactInrPdf(payload.totalDragCost)} operational lag = ${formatExactInrPdf(payload.totalDelayCost)}/yr`;
+  doc.text(doc.splitTextToSize(formulaLine, contentWidth - 32), marginX + 16, cursorY + 68);
 
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8.5);
   doc.setTextColor(157, 123, 56);
-  doc.text(`CLASSIFICATION: ${payload.statusLabel.toUpperCase()}`, marginX + 16, cursorY + 92);
+  doc.text(`CLASSIFICATION: ${payload.statusLabel.toUpperCase()}`, marginX + 16, cursorY + 95);
 
   cursorY += 126;
 
@@ -120,14 +123,14 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
   doc.setFont('times', 'bold');
   doc.setFontSize(14);
   doc.setTextColor(23, 24, 28);
-  const headlineLines = doc.splitTextToSize(payload.verdictHeadline, contentWidth);
+  const headlineLines = doc.splitTextToSize(sanitizePdfCurrency(payload.verdictHeadline), contentWidth);
   doc.text(headlineLines, marginX, cursorY);
   cursorY += headlineLines.length * 18 + 4;
 
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(10);
   doc.setTextColor(65, 68, 76);
-  const summaryLines = doc.splitTextToSize(payload.verdictSummary, contentWidth);
+  const summaryLines = doc.splitTextToSize(sanitizePdfCurrency(payload.verdictSummary), contentWidth);
   doc.text(summaryLines, marginX, cursorY);
   cursorY += summaryLines.length * 14 + 12;
 
@@ -170,7 +173,7 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
     doc.setFontSize(8.2);
     doc.setTextColor(90, 94, 102);
     doc.text(
-      `${d.selectedLabel} (${d.lostHours.toFixed(1)} hrs/wk · ${formatExactAmount(d.delayCost)}/yr)`,
+      `${d.selectedLabel} (${d.lostHours.toFixed(1)} hrs/wk · ${formatExactInrPdf(d.delayCost)}/yr)`,
       marginX + 10,
       cursorY + 28
     );
@@ -199,7 +202,7 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
     {
       phase: 'DAYS 1-30  |  STABILIZE & RECLAIM LEADERSHIP CAPACITY',
       detail:
-        'Audit every decision, escalation, and expense hitting your desk. Install explicit $5,000.00+ autonomous spending and operational thresholds, and assign a single accountable owner to every core workstream so routine fires stop coming to you.',
+        'Audit every decision, escalation, and expense hitting your desk. Install explicit INR 425000.00+ autonomous spending and operational thresholds, and assign a single accountable owner to every core workstream so routine fires stop coming to you.',
     },
     {
       phase: 'DAYS 31-60  |  INSTALL DECISION RIGHTS & 14-DAY EXECUTION LOOPS',
@@ -285,7 +288,9 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
 
   // Recommended Next Step Footer Callout
   const nextLines = doc.splitTextToSize(
-    `Recommended Track: ${payload.recommendedTrackName} — ${payload.recommendedTrackSummary}`,
+    sanitizePdfCurrency(
+      `Recommended Track: ${payload.recommendedTrackName} — ${payload.recommendedTrackSummary}`
+    ),
     contentWidth - 24
   );
   const ctaBoxH = nextLines.length * 13 + 52;

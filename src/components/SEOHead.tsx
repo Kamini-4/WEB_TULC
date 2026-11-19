@@ -19,7 +19,7 @@ export interface SEOHeadProps {
   breadcrumbs?: Array<{ name: string; path: string }>;
 }
 
-const DEFAULT_IMAGE = 'https://theunboundedleadership.com/og-image.jpg';
+const DEFAULT_IMAGE = 'https://theunboundedleadership.com/assets/tulc-gold-navy-crest.jpg';
 const BASE_URL = 'https://theunboundedleadership.com';
 
 function setMetaTag(attributeName: string, attributeValue: string, content: string) {

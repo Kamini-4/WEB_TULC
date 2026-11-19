@@ -367,10 +367,10 @@ export const ConfidentialInquiry: React.FC<InquiryProps> = ({
                       onChange={(e) => setFormData({ ...formData, selectedPartnership: e.target.value as any })}
                       className="w-full bg-[#faf6ee] border border-[#ebdcc0] rounded px-3 py-2 text-base sm:text-xs text-[#9d7b38] font-bold focus:outline-none focus:border-[#9d7b38] shadow-xs min-h-[40px]"
                     >
-                      <option value="retainer">Category 03 · Fractional COO Retainer ($17,850.00 / Qtr)</option>
-                      <option value="embedding">Category 02 · Operating Architecture Embedding ($31,680.00 / 90 Days)</option>
-                      <option value="diagnostic">Category 01 · Forensic Diagnostic ($9,650.00 / 14 Days)</option>
-                      <option value="council-chambers">The Executive Advisory Board ($1,785.00 Annual Seat)</option>
+                      <option value="diagnostic">Track 01 · Forensic Diagnostic (Solo ₹38450 · Group 3+ CXOs ₹89450)</option>
+                      <option value="embedding">Track 02 · Operating Architecture Embedding (₹284650 / 90 Days)</option>
+                      <option value="retainer">Track 03 · Fractional COO Retainer (₹205350/Qtr or ₹68450/Mo × 3 Instalments)</option>
+                      <option value="council-chambers">Executive Advisory Board Seat (₹24850) · International Custom Mandate</option>
                     </select>
                   </div>
                 </div>
