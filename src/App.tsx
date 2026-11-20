@@ -113,7 +113,14 @@ export const App: React.FC = () => {
       route === 'blogs' ||
       route === 'library' ||
       route === 'dispatches' ||
-      route === 'articles'
+      route === 'articles' ||
+      route.startsWith('library/') ||
+      route.startsWith('blogs/') ||
+      route.startsWith('blog/') ||
+      route.startsWith('articles/') ||
+      route.startsWith('article/') ||
+      route.startsWith('dispatches/') ||
+      route.startsWith('dispatch/')
     ) {
       return { view: 'library', tab: 'assessment' };
     } else if (route === 'about' || route === 'vision-mission' || route === 'founder') {
@@ -177,7 +184,7 @@ export const App: React.FC = () => {
         ) {
           cleanPath = '/assessment';
         } else if (hash === 'domains' || hash === '5-domains' || hash === 'framework') {
-          cleanPath = '/assessment';
+          cleanPath = '/domains';
         } else if (
           hash === 'shop' ||
           hash === 'store' ||
@@ -275,7 +282,7 @@ export const App: React.FC = () => {
       targetTab = 'assessment';
     } else if (target === 'domains' || target === '5-domains' || target === 'framework') {
       targetView = 'test';
-      targetPath = '/assessment';
+      targetPath = '/domains';
       targetTab = 'model';
     } else if (
       target === 'blogs' ||
@@ -535,14 +542,26 @@ export const App: React.FC = () => {
         {currentView === 'test' && (
           <div>
             <SEOHead
-              title="60-Second Assessment & 5-Domain Operational Model | TULC"
-              description="Evaluate key-person risk, decision lag, and organizational drag with our free 60-second assessment and 5-domain operational model."
-              canonicalPath="/assessment"
+              title={
+                assessmentTab === 'model'
+                  ? 'The 5-Domain Executive Operating Model | The Unbounded Leadership Co.'
+                  : '60-Second Executive Dependency Assessment | The Unbounded Leadership Co.'
+              }
+              description={
+                assessmentTab === 'model'
+                  ? 'Explore the 5 operational domains — Executive Focus, Delegation Fidelity, Decision Speed, Peer Accountability, and Business Independence — used to eliminate founder dependency in 90 days.'
+                  : 'Evaluate key-person risk, decision lag, and organizational drag with our free 60-second executive assessment and downloadable 90-day PDF roadmap.'
+              }
+              canonicalPath={assessmentTab === 'model' ? '/domains' : '/assessment'}
             />
             {renderSubpageBreadcrumb(
-              '60-Sec Assessment & Operational Model',
-              'Instant Score · 90-Day Roadmap · PDF Report',
-              '/assessment'
+              assessmentTab === 'model'
+                ? '5-Domain Executive Operating Model'
+                : '60-Sec Assessment & Operational Model',
+              assessmentTab === 'model'
+                ? 'Focus · Delegation · Decision Speed · Accountability · Independence'
+                : 'Instant Score · 90-Day Roadmap · PDF Report',
+              assessmentTab === 'model' ? '/domains' : '/assessment'
             )}
             <Suspense
               fallback={
@@ -564,15 +583,12 @@ export const App: React.FC = () => {
         {/* 3. RESEARCH DISPATCHES & LIBRARY */}
         {currentView === 'library' && (
           <div>
-            <SEOHead
-              title="Strategic Intelligence Library | TULC"
-              description="19 institutional research dispatches and monographs by Suchita Sancheti on executive governance and enterprise sovereignty."
-              canonicalPath="/library"
-            />
             {renderSubpageBreadcrumb(
               'Intelligence Library',
-              '19 Strategic Dispatches by Suchita Sancheti',
-              '/library'
+              '18 Strategic Dispatches by Suchita Sancheti',
+              window.location.pathname.startsWith('/library/')
+                ? window.location.pathname
+                : '/library'
             )}
             <Suspense
               fallback={

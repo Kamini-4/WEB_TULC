@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { BLOG_POSTS, BlogPost } from '../data/blogData';
 import { SEOHead } from './SEOHead';
 import { 
@@ -47,11 +47,39 @@ function renderFormattedInline(text: string): React.ReactNode[] {
   });
 }
 
+function resolvePostFromPathname(): { post: BlogPost; isPermalink: boolean } {
+  if (typeof window === 'undefined') {
+    return { post: BLOG_POSTS[0], isPermalink: false };
+  }
+  const cleanPath = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+  const segments = cleanPath.split('/');
+  if (segments.length >= 2) {
+    const slug = segments[1];
+    const match = BLOG_POSTS.find((p) => p.slug.toLowerCase() === slug);
+    if (match) {
+      return { post: match, isPermalink: true };
+    }
+  }
+  return { post: BLOG_POSTS[0], isPermalink: false };
+}
+
 export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) => {
-  const [selectedPost, setSelectedPost] = useState<BlogPost>(BLOG_POSTS[0]);
+  const initialResolution = resolvePostFromPathname();
+  const [selectedPost, setSelectedPost] = useState<BlogPost>(initialResolution.post);
+  const [isArticlePermalink, setIsArticlePermalink] = useState<boolean>(initialResolution.isPermalink);
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [copiedLinkedInId, setCopiedLinkedInId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const syncFromUrl = () => {
+      const { post, isPermalink } = resolvePostFromPathname();
+      setSelectedPost(post);
+      setIsArticlePermalink(isPermalink);
+    };
+    window.addEventListener('popstate', syncFromUrl);
+    return () => window.removeEventListener('popstate', syncFromUrl);
+  }, []);
 
   const categories = useMemo(() => {
     return ['All', ...Array.from(new Set(BLOG_POSTS.map(p => p.category)))];
@@ -78,6 +106,13 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
 
   const handleSelectPost = (post: BlogPost) => {
     setSelectedPost(post);
+    setIsArticlePermalink(true);
+    try {
+      const targetUrl = `/library/${post.slug}`;
+      if (window.location.pathname !== targetUrl) {
+        window.history.pushState(null, '', targetUrl);
+      }
+    } catch {}
     const readerEl = document.getElementById('blog-reader-view');
     if (readerEl) {
       readerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -139,20 +174,32 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
               </div>
             </div>
 
-            {/* Dynamic SEOHead for Article / FAQ Schema & AEO */}
+            {/* Dynamic SEOHead for Library Index vs Article Permalink */}
             <SEOHead
-              title={`${selectedPost.title} | TULC Intelligence`}
-              description={selectedPost.executiveSummary}
-              canonicalPath={`/library/${selectedPost.slug}`}
+              title={
+                isArticlePermalink
+                  ? `${selectedPost.title} | The Unbounded Leadership Co.`
+                  : 'Strategic Intelligence Library | 18 Executive Dispatches | The Unbounded Leadership Co.'
+              }
+              description={
+                isArticlePermalink
+                  ? selectedPost.executiveSummary
+                  : '18 executive research dispatches and monographs by Suchita Sancheti on eliminating founder dependency, decision rights, and autonomous leadership operating systems.'
+              }
+              canonicalPath={isArticlePermalink ? `/library/${selectedPost.slug}` : '/library'}
               keywords={selectedPost.keywords.join(', ')}
-              type="article"
-              articleData={{
-                datePublished: '2026-08-01T08:00:00+00:00',
-                dateModified: '2026-10-24T00:00:00+00:00',
-                authorName: 'Suchita Sancheti',
-                category: selectedPost.category,
-                wordCount: 1600
-              }}
+              type={isArticlePermalink ? 'article' : 'website'}
+              articleData={
+                isArticlePermalink
+                  ? {
+                      datePublished: '2026-08-01T08:00:00+00:00',
+                      dateModified: '2026-11-18T00:00:00+00:00',
+                      authorName: 'Suchita Sancheti',
+                      category: selectedPost.category,
+                      wordCount: 1600,
+                    }
+                  : undefined
+              }
               faqData={selectedPost.faqItems?.map(f => ({ question: f.question, answer: f.answer }))}
             />
 
@@ -653,10 +700,14 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                 {filteredPosts.map((post) => {
                   const isSelected = selectedPost.id === post.id;
                   return (
-                    <div
+                    <a
                       key={post.id}
-                      onClick={() => handleSelectPost(post)}
-                      className={`p-5 sm:p-6 rounded-none border transition-all duration-200 cursor-pointer flex flex-col justify-between group ${
+                      href={`/library/${post.slug}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleSelectPost(post);
+                      }}
+                      className={`p-5 sm:p-6 rounded-none border transition-all duration-200 cursor-pointer flex flex-col justify-between group no-underline ${
                         isSelected
                           ? 'bg-[#ffffff] border-2 border-[#17181c] shadow-lg ring-1 ring-[#17181c]/10'
                           : 'bg-[#faf8f5] border-[#ded6c5] hover:border-[#9d7b38] hover:bg-[#ffffff] shadow-2xs hover:shadow-md'
@@ -730,7 +781,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onOpenConsultation }) 
                         </div>
                         <ArrowRight className="w-4 h-4 text-[#9d7b38] group-hover:translate-x-1.5 transition-transform" />
                       </div>
-                    </div>
+                    </a>
                   );
                 })}
               </div>

@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { getCanonicalRoutes, ROUTE_ALIASES, renderRouteHtml } from './route-seo-data.mjs';
 
 const DIST_DIR = path.resolve('dist');
 
@@ -14,14 +15,16 @@ if (!fs.existsSync(indexHtmlPath)) {
   process.exit(1);
 }
 
-// 1. Ensure 404.html exists for SPA fallback routing (GitHub Pages, Cloud Run, static hosts)
-const notFoundPath = path.join(DIST_DIR, '404.html');
-fs.copyFileSync(indexHtmlPath, notFoundPath);
-console.log('✔ dist/404.html created for SPA fallback routing');
+const baseIndexHtml = fs.readFileSync(indexHtmlPath, 'utf8');
 
-// Also update public/404.html
-const public404Path = path.resolve('public/404.html');
-fs.copyFileSync(indexHtmlPath, public404Path);
+// 1. Create noindex 404.html for SPA fallback without polluting search index as duplicate "/"
+const notFoundHtml = baseIndexHtml.replace(
+  /<meta\b[^>]*\bname="robots"[^>]*>/i,
+  () => '<meta name="robots" content="noindex, follow" />'
+);
+fs.writeFileSync(path.join(DIST_DIR, '404.html'), notFoundHtml, 'utf8');
+fs.writeFileSync(path.resolve('public/404.html'), notFoundHtml, 'utf8');
+console.log('✔ dist/404.html & public/404.html created with noindex SPA fallback');
 
 // 2. Ensure .nojekyll exists so GitHub Pages serves all assets verbatim
 const nojekyllPath = path.join(DIST_DIR, '.nojekyll');
@@ -37,85 +40,48 @@ if (!fs.existsSync(cnamePath)) {
 }
 console.log('✔ dist/CNAME verified with domain theunboundedleadership.com');
 
-// 4. Pre-generate directory index files for ALL primary routes & aliases so static hosts serve HTTP 200 directly
-const staticRoutes = [
-  // Primary 16 Dedicated URLs
-  'assessment',
-  'diagnostic',
-  'services',
-  'partnerships',
-  'about',
-  'shop',
-  'library',
-  'briefing',
-  'domains',
-  'portal',
-  'booking',
-  'contact',
-  'case-studies',
-  'war-room',
-  'faq',
-  'privacy',
-  'comparison',
+// 4. Pre-render UNIQUE, self-canonicalized HTML for EVERY canonical subpage & all 18 /library/<slug> articles
+const canonicalRoutes = getCanonicalRoutes();
+const routeMapByPath = new Map();
 
-  // Common aliases & sub-routes
-  'faqs',
-  'questions',
-  'audit',
-  'simple-test',
-  'founder-assessment',
-  '5-domains',
-  'framework',
-  'deep-assessment',
-  'forensic-diagnostic',
-  'products',
-  'toolkits',
-  'vault',
-  'store',
-  'documents',
-  'publications',
-  'blueprints',
-  'dispatches',
-  'blogs',
-  'blog',
-  'articles',
-  'article',
-  'dispatch',
-  'video',
-  'founder-briefing',
-  'retainer',
-  'inquiry',
-  'calendly',
-  'calendar',
-  'schedule',
-  'clearance',
-  'client-portal',
-  'proof',
-  'outcomes',
-  'terms',
-  'privacy-policy',
-  'cognitive-tax',
-  'mandates',
-  'methodology',
-  'intake'
-];
+for (const routeSpec of canonicalRoutes) {
+  routeMapByPath.set(routeSpec.path, routeSpec);
+  const relDir = routeSpec.path.replace(/^\/+/, '');
+  const routeDir = path.join(DIST_DIR, relDir);
+  fs.mkdirSync(routeDir, { recursive: true });
 
-for (const route of staticRoutes) {
-  const routeDir = path.join(DIST_DIR, route);
-  if (!fs.existsSync(routeDir)) {
-    fs.mkdirSync(routeDir, { recursive: true });
-  }
-  const routeIndexPath = path.join(routeDir, 'index.html');
-  fs.copyFileSync(indexHtmlPath, routeIndexPath);
+  const renderedHtml = renderRouteHtml(baseIndexHtml, routeSpec);
+  fs.writeFileSync(path.join(routeDir, 'index.html'), renderedHtml, 'utf8');
 }
-console.log(`✔ Pre-rendered directory index.html entries for ${staticRoutes.length} primary routes and aliases (HTTP 200 native serving across all static web hosts)`);
+console.log(
+  `✔ Pre-rendered ${canonicalRoutes.length} unique self-canonicalized subpages & article pages in dist/<route>/index.html`
+);
 
-// 5. Ensure _redirects is present for Netlify & Cloudflare Pages
+// 5. Pre-render alias routes with canonical tags pointing directly to their canonical destination (never "/")
+let aliasCount = 0;
+for (const [aliasPath, canonicalTarget] of Object.entries(ROUTE_ALIASES)) {
+  const targetSpec = routeMapByPath.get(canonicalTarget);
+  if (!targetSpec) continue;
+
+  const relDir = aliasPath.replace(/^\/+/, '');
+  const routeDir = path.join(DIST_DIR, relDir);
+  fs.mkdirSync(routeDir, { recursive: true });
+
+  // Render target page content + canonical pointing to targetSpec.path (consolidates equity cleanly)
+  const renderedHtml = renderRouteHtml(baseIndexHtml, targetSpec);
+  fs.writeFileSync(path.join(routeDir, 'index.html'), renderedHtml, 'utf8');
+  aliasCount++;
+}
+console.log(
+  `✔ Pre-rendered ${aliasCount} alias routes with clean canonical consolidation to target subpages`
+);
+
+// 6. Ensure _redirects is present for Netlify & Cloudflare Pages
 const redirectsPath = path.join(DIST_DIR, '_redirects');
 fs.writeFileSync(redirectsPath, '/*    /index.html   200\n');
 console.log('✔ dist/_redirects verified for Netlify/Cloudflare Pages');
 
-// 6. Ensure .htaccess is present for Apache, LiteSpeed & Hostinger
+// 7. Ensure .htaccess is present for Apache, LiteSpeed & Hostinger
 const htaccessSource = path.resolve('public/.htaccess');
 const htaccessDest = path.join(DIST_DIR, '.htaccess');
 if (fs.existsSync(htaccessSource)) {
@@ -123,4 +89,4 @@ if (fs.existsSync(htaccessSource)) {
   console.log('✔ dist/.htaccess verified for Apache/Hostinger static hosting');
 }
 
-console.log('[STATIC_PREP_COMPLETE] Static distribution bundle successfully configured in dist/');
+console.log('[STATIC_PREP_COMPLETE] All subpages & articles pre-rendered with self-referencing canonicals and semantic HTML.');

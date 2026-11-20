@@ -2416,7 +2416,7 @@ const server = http.createServer(async (req, res) => {
     }
 
     // Static asset serving with strict path traversal and sensitive-file protection
-    const normalizedPath = pathname.replace(/^\/+/, '');
+    const normalizedPath = pathname.replace(/^\/+|\/+$/g, '');
     if (normalizedPath) {
       if (normalizedPath.includes('\0') || isSensitiveFilename(normalizedPath)) {
         sendJson(res, 404, { error: 'Resource not found', correlationId }, correlationId, originHeader);
