@@ -83,13 +83,17 @@ export const EXACT_CATALOG_INR_PAISE: Record<string, number> = {
   'execution-loop': 985000, // ₹3950.00 Sprint Spec + ₹3250.00 Async Cadence + ₹2650.00 AI & DB Schema = ₹9850.00
   'founder-decoupling-suite': 1485000, // ₹6150.00 Runbook + ₹4950.00 Charter + ₹3750.00 AI & Vault Pack = ₹14850.00
   'complete-executive-bundle': 2366250, // ₹31550.00 sum - 25.00% (₹7887.50) = ₹23662.50
-  'mandate-deposit-diagnostic': 1922500, // 50.00% kickoff lock of Solo Diagnostic ₹38450.00 = ₹19225.00
-  'mandate-deposit-diagnostic-group': 4472500, // 50.00% kickoff lock of Group CXO Cohort (3+ CXOs) ₹89450.00 = ₹44725.00
-  'mandate-deposit-embedding': 7116250, // 25.00% kickoff lock of 90-Day Embedding ₹284650.00 = ₹71162.50
-  'mandate-deposit-retainer': 6160500, // 30.00% lock of ₹205350.00 quarterly = ₹61605.00
-  'mandate-retainer-instalment-monthly': 6845000, // Instalment 1 of 3 monthly @ ₹68450.00 (0.00% markup)
-  'mandate-retainer-instalment-split': 10267500, // Instalment 1 of 2 bi-monthly @ ₹102675.00 (50/50 split)
-  'conclave-seat-reservation': 2485000, // ₹14950.00 Roundtable + ₹6250.00 Pre-Briefing + ₹3650.00 AI Dossier & Vault = ₹24850.00
+  'mandate-diagnostic-solo': 3845000, // Full single payment ₹38450 (no instalments on Track 1)
+  'mandate-diagnostic-group': 8945000, // Full single payment ₹89450 for 3+ CXOs (no instalments on Track 1)
+  'mandate-deposit-diagnostic': 3845000,
+  'mandate-deposit-diagnostic-group': 8945000,
+  'mandate-embedding-instalment-monthly': 9488400, // Instalment 1 of 3 monthly (₹94884 + ₹94883 + ₹94883 = ₹284650)
+  'mandate-embedding-instalment-split': 14232500, // Instalment 1 of 2 split (2 × ₹142325 = ₹284650)
+  'mandate-deposit-embedding': 7116250, // 25.00% kickoff lock of 90-Day Embedding ₹284650 = ₹71162.50
+  'mandate-deposit-retainer': 6160500, // 30.00% lock of ₹205350 quarterly = ₹61605
+  'mandate-retainer-instalment-monthly': 6845000, // Instalment 1 of 3 monthly @ ₹68450 (0% markup)
+  'mandate-retainer-instalment-split': 10267500, // Instalment 1 of 2 bi-monthly @ ₹102675 (50/50 split)
+  'conclave-seat-reservation': 2485000,
 };
 
 export function formatExactAmount(

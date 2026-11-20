@@ -283,6 +283,17 @@ interface SimpleNeedsTestProps {
   initialViewTab?: 'assessment' | 'model';
 }
 
+function createShuffledOptionOrders(): number[][] {
+  return FIVE_DOMAINS_QUESTIONS.map((q) => {
+    const indices = q.options.map((_, idx) => idx);
+    for (let i = indices.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+    return indices;
+  });
+}
+
 export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
   onConsultationRequest,
   onExplorePartnerships,
@@ -290,6 +301,7 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
 }) => {
   const [activeWorkspace, setActiveWorkspace] = useState<'assessment' | 'model'>(initialViewTab);
   const [currentStep, setCurrentStep] = useState<number>(0);
+  const [optionOrders, setOptionOrders] = useState<number[][]>(() => createShuffledOptionOrders());
   const [answers, setAnswers] = useState<number[]>([]);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [activeDomainIdx, setActiveDomainIdx] = useState<number>(0);
@@ -312,6 +324,7 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
   const handleReset = () => {
     setCurrentStep(0);
     setAnswers([]);
+    setOptionOrders(createShuffledOptionOrders());
     setIsCompleted(false);
     setPdfDownloaded(false);
   };
@@ -377,16 +390,16 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
     : `At ${totalScore}/100, your organization already operates with strong autonomy. The priority over the next 90 days is formalizing written succession protocols and governance cadences so enterprise valuation commands a top-quartile multiple without founder reliance.`;
 
   const recommendedTrackName = isSevereBottleneck
-    ? 'Operating Architecture Embedding (90-Day Overhaul · ₹284650)'
+    ? 'Track 02 · Operating Architecture Embedding (90-Day Build)'
     : isModerateFriction
-    ? 'Mandate Forensic Diagnostic (Solo ₹38450 · Group 3+ CXOs ₹89450)'
-    : 'Fractional COO Retainer (₹205350 / Qtr · 3 Monthly Instalments)';
+    ? 'Track 01 · Mandate Forensic Diagnostic (Solo or 3+ Leaders)'
+    : 'Track 03 · Fractional COO & Strategic Retainer';
 
   const recommendedTrackSummary = isSevereBottleneck
-    ? 'Directly embed for 90 days (₹71162.50 initial deposit) to install ₹425000+ delegation rules, kill status meetings, and run the 30-day absence test.'
+    ? 'Embed directly for 90 days to install written delegation limits, replace status meetings with 14-day sprints, and validate independence with a live 30-day absence test.'
     : isModerateFriction
-    ? 'Isolate your exact decision bottlenecks in 14 days (Solo CEO ₹38450 or Group 3+ CXOs ₹89450; 50% kickoff lock).'
-    : 'Preserve high velocity via 3 monthly instalments of ₹68450 (0% markup) or a ₹61605 quarter lock deposit.';
+    ? 'Isolate your exact decision bottlenecks in 14 days — solo or with 3+ senior leaders together — and walk away with a clear 90-day fix plan.'
+    : 'Maintain high operating velocity and succession governance with ongoing Fractional COO oversight.';
 
   const handleScheduleCall = () => {
     onConsultationRequest({
@@ -505,30 +518,37 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                 {currentQ.prompt}
               </h3>
 
-              {/* Choices */}
+              {/* Choices (Shuffled Order) */}
               <div className="space-y-2.5">
-                {currentQ.options.map((opt, idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    onClick={() => handleSelectOption(idx)}
-                    className="w-full text-left p-4 rounded-sm bg-[#faf8f4] hover:bg-[#17181c] text-[#17181c] hover:text-white border border-[#dfd7c8] hover:border-[#d4af37] transition-all cursor-pointer group flex items-start justify-between gap-3"
-                  >
-                    <div className="space-y-1 flex-1">
-                      <div className="flex items-center gap-2.5">
-                        <span className="w-5 h-5 rounded-xs bg-[#ebdcc0] text-[#17181c] group-hover:bg-[#d4af37] text-[11px] font-mono font-black flex items-center justify-center shrink-0">
-                          {String.fromCharCode(65 + idx)}
-                        </span>
-                        <span className="text-sm sm:text-base font-bold group-hover:text-[#f3e5ab] transition-colors">{opt.label}</span>
-                      </div>
-                      <p className="text-xs sm:text-[13px] text-[#4e5159] group-hover:text-zinc-200 pl-7 leading-relaxed">
-                        {opt.description}
-                      </p>
-                    </div>
+                {(optionOrders[currentStep] || currentQ.options.map((_, i) => i)).map(
+                  (originalOptIdx, displayIdx) => {
+                    const opt = currentQ.options[originalOptIdx];
+                    return (
+                      <button
+                        key={`${currentQ.id}-${originalOptIdx}`}
+                        type="button"
+                        onClick={() => handleSelectOption(originalOptIdx)}
+                        className="w-full text-left p-4 rounded-sm bg-[#faf8f4] hover:bg-[#17181c] text-[#17181c] hover:text-white border border-[#dfd7c8] hover:border-[#d4af37] transition-all cursor-pointer group flex items-start justify-between gap-3"
+                      >
+                        <div className="space-y-1 flex-1">
+                          <div className="flex items-center gap-2.5">
+                            <span className="w-5 h-5 rounded-xs bg-[#ebdcc0] text-[#17181c] group-hover:bg-[#d4af37] text-[11px] font-mono font-black flex items-center justify-center shrink-0">
+                              {String.fromCharCode(65 + displayIdx)}
+                            </span>
+                            <span className="text-sm sm:text-base font-bold group-hover:text-[#f3e5ab] transition-colors">
+                              {opt.label}
+                            </span>
+                          </div>
+                          <p className="text-xs sm:text-[13px] text-[#4e5159] group-hover:text-zinc-200 pl-7 leading-relaxed">
+                            {opt.description}
+                          </p>
+                        </div>
 
-                    <ArrowRight className="w-4 h-4 text-[#9d7b38] group-hover:text-[#d4af37] group-hover:translate-x-0.5 transition-transform shrink-0 mt-1" />
-                  </button>
-                ))}
+                        <ArrowRight className="w-4 h-4 text-[#9d7b38] group-hover:text-[#d4af37] group-hover:translate-x-0.5 transition-transform shrink-0 mt-1" />
+                      </button>
+                    );
+                  }
+                )}
               </div>
 
               {/* Back Button & Quick Model Switch */}
@@ -895,10 +915,7 @@ export const SimpleNeedsTest: React.FC<SimpleNeedsTestProps> = ({
                     className="w-full py-2.5 px-3 bg-zinc-900 hover:bg-zinc-800 border border-[#d4af37]/40 text-white rounded-xs text-xs font-mono font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-colors"
                   >
                     <CreditCard className="w-3.5 h-3.5 text-[#d4af37]" />
-                    <span>
-                      Start Immediately: Delegation Matrix ·{' '}
-                      <span className="text-[#d4af37]">{formatExactAmount(6850.00)}</span>
-                    </span>
+                    <span>Start Immediately: Delegation Matrix Toolkit</span>
                   </button>
 
                   <button

@@ -444,20 +444,14 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
   });
   cursorY += 70;
 
-  // Direct ROI Contrast Banner (Honest comparison against actual TULC fees)
+  // Direct ROI Contrast Banner (Honest comparison without cluttering prices everywhere)
   if (annualCost > 0) {
     const roiText =
-      `Truthful Investment Comparison: A 14-Day Solo CEO Forensic Diagnostic (${formatExactInrPdf(
-        SOLO_DIAGNOSTIC_INR
-      )} ex-GST; 50% kickoff lock ${formatExactInrPdf(
-        19225
-      )}) equals roughly ${diagnosticPaybackDays} working day${
+      `Truthful Investment Comparison: Your current operating drag costs roughly ${formatExactInrPdf(
+        dailyCost
+      )} every working day. Our 14-Day Forensic Diagnostic equals roughly ${diagnosticPaybackDays} working day${
         diagnosticPaybackDays === 1 ? '' : 's'
-      } of your current execution drag. A full 90-Day Operating Architecture Embedding (${formatExactInrPdf(
-        EMBEDDING_90_DAY_INR
-      )} ex-GST; 25% kickoff ${formatExactInrPdf(
-        71162.5
-      )}) pays for itself in approximately ${embeddingPaybackDays} working days and addresses ${embeddingRoiMultiple}x its fee in annual trapped executive value. Doing nothing is significantly more expensive than fixing the architecture.`;
+      } of that bleed, and a full 90-Day Operating Architecture Embedding pays for itself in approximately ${embeddingPaybackDays} working days (${embeddingRoiMultiple}x annual trapped value vs. mandate fee). Doing nothing is far more expensive than fixing the architecture.`;
     const roiLines = doc.splitTextToSize(roiText, contentWidth - 22);
     const roiH = roiLines.length * 12.8 + 24;
     checkPageBreak(roiH + 12);
@@ -761,34 +755,30 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
 
   const pathways = [
     {
-      name: `Track 01A: Solo CEO Forensic Diagnostic (14 Days) - ${formatExactInrPdf(
+      name: 'Track 01: Mandate Forensic Diagnostic (14 Days) - Solo Founder or 3+ Senior Leaders',
+      desc: `Full single payment (no instalments). Solo Founder / CEO: ${formatExactInrPdf(
         SOLO_DIAGNOSTIC_INR
-      )} ex-GST`,
-      desc: '50% kickoff lock (INR 19225). Best if you want forensic certainty on your personal founder bottlenecks and a custom 90-day operating blueprint within two weeks.',
-    },
-    {
-      name: `Track 01B: Group CXO Cohort Diagnostic (3+ CXOs, 14 Days) - ${formatExactInrPdf(
+      )} ex-GST. Group CXO Analysis (3+ senior leaders together): ${formatExactInrPdf(
         GROUP_DIAGNOSTIC_INR
-      )} ex-GST`,
-      desc: '50% kickoff lock (INR 44725). Built for leadership teams taking the assessment together to expose cross-functional misalignment, duplicate approvals, and C-suite friction.',
+      )} ex-GST. Delivers an exact bottleneck map, 90-day fix plan, and closed-door debrief with Suchita Sancheti.`,
     },
     {
       name: `Track 02: 90-Day Operating Architecture Embedding - ${formatExactInrPdf(
         EMBEDDING_90_DAY_INR
       )} ex-GST`,
-      desc: '25% kickoff lock (INR 71162.50). Our flagship end-to-end transformation installing delegation matrices, 14-day sprints, peer scorecards, and live absence validation.',
+      desc: '0% instalments available: 3 monthly instalments (INR 94884 + INR 94883 x 2), 2 bi-monthly split (INR 142325 x 2), or 25% kickoff lock (INR 71162.50) + 2 milestones.',
     },
     {
       name: `Track 03: Fractional COO & Strategic Retainer - ${formatExactInrPdf(
         RETAINER_QTR_INR
       )} / Quarter ex-GST`,
-      desc: 'Zero-interest instalment options: 3 monthly instalments of INR 68450, 2 bi-monthly instalments of INR 102675, or 30% quarter lock (INR 61605). International USD/EUR/GBP/AED checkout supported.',
+      desc: '0% instalments available: 3 monthly instalments of INR 68450, 2 bi-monthly split of INR 102675, or 30% quarter lock (INR 61605). Convert to USD/EUR/GBP/AED inside Fee & Scope on our website.',
     },
   ];
 
   pathways.forEach((p) => {
     const pLines = doc.splitTextToSize(p.desc, contentWidth - 20);
-    const rowH = pLines.length * 11.8 + 24;
+    const rowH = pLines.length * 11.4 + 23;
     checkPageBreak(rowH + 6);
 
     doc.setFillColor(...C.white);
@@ -797,14 +787,14 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
     doc.roundedRect(marginX, cursorY, contentWidth, rowH, 2.5, 2.5, 'FD');
 
     doc.setFont('helvetica', 'bold');
-    doc.setFontSize(8.7);
+    doc.setFontSize(8.3);
     doc.setTextColor(...C.inkPrimary);
-    doc.text(p.name, marginX + 10, cursorY + 14);
+    doc.text(p.name, marginX + 10, cursorY + 13.5);
 
     doc.setFont('helvetica', 'normal');
-    doc.setFontSize(8.3);
+    doc.setFontSize(7.9);
     doc.setTextColor(...C.inkBody);
-    doc.text(pLines, marginX + 10, cursorY + 26);
+    doc.text(pLines, marginX + 10, cursorY + 25);
 
     cursorY += rowH + 6;
   });
@@ -824,7 +814,7 @@ export function downloadAssessmentPdfReport(payload: AssessmentPdfPayload): void
   );
   const stepLines = [
     'Step 1 (Today): Reserve your 20-min Confidential Review at theunboundedleadership.com/booking',
-    'Step 2 (Within 72 Hrs): Select Solo Diagnostic (INR 38450), Group CXO Cohort (INR 89450), or 90-Day Embedding',
+    'Step 2 (Within 72 Hrs): Select Track 01 (Solo or 3+ Leaders), Track 02 (90-Day Build), or Track 03 (Retainer)',
     'Step 3 (Week 1): Execute Chatham House NDA and launch your Forensic Operating Audit',
   ];
 

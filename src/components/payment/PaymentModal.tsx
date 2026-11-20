@@ -48,6 +48,8 @@ interface PaymentModalProps {
   onClose: () => void;
   item: PaymentItem | null;
   onSuccess?: (receipt: PaymentReceipt) => void;
+  initialCurrency?: SettlementCurrency;
+  allowCurrencySwitch?: boolean;
 }
 
 interface ServerQuote {
@@ -96,13 +98,15 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
   isOpen,
   onClose,
   item,
-  onSuccess
+  onSuccess,
+  initialCurrency = 'INR',
+  allowCurrencySwitch = true,
 }) => {
   const [activeTab, setActiveTab] = useState<'gateway' | 'wire'>('gateway');
   const [isProcessing, setIsProcessing] = useState(false);
   const [receipt, setReceipt] = useState<PaymentReceipt | null>(null);
   const [copiedVoucher, setCopiedVoucher] = useState(false);
-  const [currency, setCurrency] = useState<SettlementCurrency>('INR');
+  const [currency, setCurrency] = useState<SettlementCurrency>(initialCurrency);
   const [email, setEmail] = useState('');
   const [organization, setOrganization] = useState('');
   const [couponCode, setCouponCode] = useState('');
@@ -115,8 +119,9 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
       setIsProcessing(false);
       setValidationError(null);
       setServerQuote(null);
+      setCurrency(initialCurrency);
     }
-  }, [isOpen, item]);
+  }, [isOpen, item, initialCurrency]);
 
   const handleCloseModal = () => {
     setValidationError(null);
@@ -492,25 +497,31 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
                 <span className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold">
                   Exact Settlement Calculation ({currency})
                 </span>
-                <div className="flex items-center gap-1 text-xs font-mono font-bold">
-                  {(['INR', 'USD', 'EUR', 'GBP', 'AED'] as const).map((curr) => (
-                    <button
-                      key={curr}
-                      type="button"
-                      onClick={() => {
-                        setCurrency(curr);
-                        setServerQuote(null);
-                      }}
-                      className={`px-2 py-1 rounded text-[11px] transition-colors cursor-pointer ${
-                        currency === curr
-                          ? 'bg-[#141416] text-[#d4af37] font-black border border-[#d4af37]/60'
-                          : 'bg-white border border-stone-200 text-zinc-700 hover:bg-stone-100'
-                      }`}
-                    >
-                      {curr}
-                    </button>
-                  ))}
-                </div>
+                {allowCurrencySwitch ? (
+                  <div className="flex items-center gap-1 text-xs font-mono font-bold">
+                    {(['INR', 'USD', 'EUR', 'GBP', 'AED'] as const).map((curr) => (
+                      <button
+                        key={curr}
+                        type="button"
+                        onClick={() => {
+                          setCurrency(curr);
+                          setServerQuote(null);
+                        }}
+                        className={`px-2 py-1 rounded text-[11px] transition-colors cursor-pointer ${
+                          currency === curr
+                            ? 'bg-[#141416] text-[#d4af37] font-black border border-[#d4af37]/60'
+                            : 'bg-white border border-stone-200 text-zinc-700 hover:bg-stone-100'
+                        }`}
+                      >
+                        {curr}
+                      </button>
+                    ))}
+                  </div>
+                ) : (
+                  <span className="px-2 py-0.5 rounded bg-[#141416] text-[#d4af37] text-[10px] font-mono font-bold">
+                    {currency}
+                  </span>
+                )}
               </div>
 
               <div className="p-3 space-y-1.5 text-[11px] font-mono">

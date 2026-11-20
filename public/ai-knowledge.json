@@ -76,7 +76,7 @@
         "name": "Mandate Forensic Diagnostic — Solo Founder / CEO",
         "duration": "14 Days",
         "priceINR": 38450,
-        "depositINR": 19225,
+        "paymentTerms": "Single full payment (no instalments)",
         "url": "https://theunboundedleadership.com/services"
       },
       {
@@ -84,7 +84,7 @@
         "name": "Mandate Forensic Diagnostic — Group CXO Cohort (3+ CXOs)",
         "duration": "14 Days",
         "priceINR": 89450,
-        "depositINR": 44725,
+        "paymentTerms": "Single full payment (no instalments)",
         "url": "https://theunboundedleadership.com/services"
       },
       {
@@ -92,7 +92,12 @@
         "name": "Operating Architecture Embedding",
         "duration": "90 Days",
         "priceINR": 284650,
-        "depositINR": 71162.5,
+        "instalmentOptionsINR": {
+          "monthly3xDay1": 94884,
+          "monthly3xDay30And60": 94883,
+          "bimonthly2x": 142325,
+          "kickoffLock25Pct": 71162.5
+        },
         "url": "https://theunboundedleadership.com/services"
       },
       {

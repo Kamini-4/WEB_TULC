@@ -269,16 +269,16 @@ export function getCanonicalRoutes() {
           </p>
 
           <section style="margin-bottom: 1.5rem;">
-            <h2>Track 01 · Mandate Forensic Diagnostic (14 Days)</h2>
+            <h2>Track 01 · Mandate Forensic Diagnostic (14 Days — 1 Founder or 3+ Leaders Together)</h2>
             <ul>
-              <li><strong>Solo CEO / Founder Diagnostic:</strong> ₹38450 (ex-GST) — 50% kickoff deposit ₹19225. Includes full 5-domain audit, bottleneck telemetry, and written 90-day execution blueprint.</li>
-              <li><strong>Group CXO Cohort Diagnostic (3+ Executives):</strong> ₹89450 (ex-GST) — 50% kickoff deposit ₹44725. Multi-executive alignment audit, cross-functional friction mapping, and unified leadership roadmap.</li>
+              <li><strong>Solo CEO / Founder Diagnostic:</strong> ₹38450 (ex-GST) — single full payment (no instalments). Includes full 5-domain audit, bottleneck telemetry, and written 90-day execution blueprint.</li>
+              <li><strong>Group CXO Cohort Diagnostic (3+ Leaders):</strong> ₹89450 (ex-GST) — single full payment (no instalments). Multi-executive alignment audit, cross-functional friction mapping, and unified leadership roadmap.</li>
             </ul>
           </section>
 
           <section style="margin-bottom: 1.5rem;">
             <h2>Track 02 · Operating Architecture Embedding (90 Days)</h2>
-            <p><strong>₹284650 (ex-GST)</strong> — 25% kickoff deposit ₹71162.50. Full installation of written delegation thresholds, 14-day autonomous execution sprints, leadership scorecards, live 30-day absence stress-test, and clean Day-90 handoff.</p>
+            <p><strong>₹284650 (ex-GST)</strong> — 0% markup instalment options: 3 monthly instalments (₹94884 + ₹94883 + ₹94883), 2 bi-monthly instalments of ₹142325, or 25% kickoff lock ₹71162.50. Full installation of written delegation thresholds, 14-day autonomous execution sprints, leadership scorecards, live 30-day absence stress-test, and clean Day-90 handoff.</p>
           </section>
 
           <section style="margin-bottom: 1.5rem;">

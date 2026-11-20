@@ -136,8 +136,24 @@ export const Header: React.FC<HeaderProps> = ({
           </a>
         </nav>
 
-        {/* Action Zone: 1 Primary CTA + Unified Menu Button */}
-        <div className="flex items-center gap-2.5 shrink-0">
+        {/* Action Zone: Portal Button + Primary CTA + Unified Menu Button */}
+        <div className="flex items-center gap-2 shrink-0">
+          <a
+            href="/portal"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('portal');
+            }}
+            className={`inline-flex px-3 py-2 text-xs font-mono font-bold uppercase rounded-sm transition-colors whitespace-nowrap shrink-0 min-h-[38px] items-center gap-1.5 border ${
+              currentView === 'portal'
+                ? 'bg-[#141416] text-[#d4af37] border-[#d4af37]'
+                : 'bg-[#faf6ee] hover:bg-[#141416] text-[#17181c] hover:text-[#d4af37] border-[#9d7b38]/60'
+            }`}
+          >
+            <Lock className="w-3.5 h-3.5 text-[#9d7b38] shrink-0" />
+            <span>Portal</span>
+          </a>
+
           <button
             type="button"
             onClick={() => {
