@@ -10,6 +10,7 @@ export interface PartnershipPathway {
   thePain: string;
   theDesire: string;
   theOutcome: string;
+  outcomes?: string[];
   deliverables: string[];
   idealClient: string;
 }

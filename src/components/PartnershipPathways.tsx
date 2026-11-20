@@ -45,7 +45,7 @@ export const DIAGNOSTIC_COHORT_OPTIONS: DiagnosticCohortOption[] = [
     title: 'Solo Founder / CEO Diagnostic',
     fullFeeINR: 38450,
     sneakPeek: 'Audit ₹28500 + Debrief ₹6450 + Platform ₹3500',
-    scopeNote: '1:1 founder diagnostic, bottleneck map & 90-day fix plan. Full single payment.',
+    scopeNote: '1:1 founder diagnostic, 90-day fix plan & Council Chamber access. Full single payment.',
   },
   {
     id: 'group',
@@ -54,7 +54,7 @@ export const DIAGNOSTIC_COHORT_OPTIONS: DiagnosticCohortOption[] = [
     title: 'Group CXO Analysis (3+ Senior Leaders)',
     fullFeeINR: 89450,
     sneakPeek: '3+ CXO Audit ₹64900 + Alignment ₹14800 + Multi-Seat Platform ₹9750',
-    scopeNote: '3 or more senior leaders assessed together (saves 22.45% vs. solo). Full single payment.',
+    scopeNote: '3+ senior leaders assessed together + Council Chamber access (saves 22.45% vs. solo). Full single payment.',
   },
 ];
 
@@ -183,14 +183,24 @@ export const PARTNERSHIP_PATHWAYS: PartnershipPathway[] = [
     theDesire:
       'Plain, objective proof of what is broken and what to fix first — with zero politics.',
     theOutcome:
-      'Available for a solo founder or 3+ senior leaders (CEO & CXOs) together. Walk away with an exact map of who owns what, where time and margin leak, and your top 3 fixes for the next 90 days.',
-    deliverables: [
-      'Take it solo or as a group of 3+ senior leaders (CEO & CXOs)',
-      'Exact map of decision bottlenecks & weekly founder time leaks',
-      'Written 90-day fix plan ranked by fastest business impact',
-      'Private closed-door debrief directly with Suchita Sancheti',
+      'Available for 1 founder or 3+ senior leaders together. Pinpoint exact time leaks, separate systems issues from talent gaps, align leadership, and gain access to the private Council Chamber.',
+    outcomes: [
+      'Know with certainty whether your drag is a systems issue, role design flaw, or talent gap',
+      'Quantify exact weekly founder hours and annual margin leaking through approval queues',
+      'Align 1 founder or 3+ senior leaders around one objective fix priority with zero politics',
+      'Unlock direct access to the private Council Chamber for peer-level founder sparring',
     ],
-    idealClient: 'Founders or leadership teams of 3+ executives who want crystal-clear answers before committing to a 90-day overhaul.',
+    deliverables: [
+      'Built for 1 solo founder or a group of 3+ senior leaders (CEO & CXOs) together',
+      'Full 5-Domain Forensic Audit of calendars, approval queues & decision bottlenecks',
+      'Founder Dependency & Margin-Leak Map detailing weekly hours & stalled execution',
+      'Role Ownership & Talent vs. Systems Verdict across your senior leadership bench',
+      'Written 90-Day Fix Blueprint ranked by fastest cash, time & execution impact',
+      'Private closed-door executive debrief directly with Suchita Sancheti',
+      'Included access to the private Council Chamber (Chatham House peer sparring room)',
+    ],
+    idealClient:
+      'Founders or leadership teams of 3+ executives who want crystal-clear answers and Council Chamber access before committing to a 90-day overhaul.',
   },
   {
     id: 'embedding',
@@ -204,14 +214,24 @@ export const PARTNERSHIP_PATHWAYS: PartnershipPathway[] = [
     theDesire:
       'A self-running leadership bench that owns decisions cleanly and delivers on time without status meetings.',
     theOutcome:
-      'We embed with your leadership team for 90 days to install written delegation limits, 14-day execution sprints, peer scorecards, and a live 30-day founder absence test — then exit cleanly on Day 90.',
-    deliverables: [
-      'Direct principal-led operating system build (zero junior handoffs)',
-      'Written delegation limits & clear single-owner decision rights',
-      '14-day execution sprints replacing redundant status meetings',
-      'Live 30-day absence stress-test & 100% playbook handover',
+      'Reclaim 15–20 hours a week, compress 6-week decisions into 72 hours, eliminate status meeting bloat, and pass a live 30-day founder absence test before our clean Day-90 exit.',
+    outcomes: [
+      'Reclaim 15–20 hours every week from routine firefighting, approvals & team hand-holding',
+      'Cut cross-functional decisions from 4–6 weeks of committee drag down to 72 hours',
+      'Replace circular status meetings with self-run 14-day leadership delivery sprints',
+      'Prove your company scales without you via a live 30-day absence test before Day-90 exit',
     ],
-    idealClient: 'Growth-stage CEOs and leadership teams ready to remove founder bottlenecks permanently in 90 days.',
+    deliverables: [
+      'Direct principal-led operating build with Suchita Sancheti (zero junior handoffs)',
+      'Written Delegation Charter & single-owner spend and decision limits across leaders',
+      'Meeting Purge & 14-Day Autonomous Execution Loops eliminating 70% of status syncs',
+      'Weekly C-Suite Peer Scorecards & Accountability Cadence (no upward escalation)',
+      'Live 30-Day Founder Absence Stress-Test across sales, hiring & client delivery',
+      'Direct leadership bench calibration so managers own outcomes cleanly end-to-end',
+      '100% ownership handover of custom playbooks, SOPs & governance trackers on Day 90',
+    ],
+    idealClient:
+      'Growth-stage CEOs and leadership teams ready to remove founder bottlenecks permanently in 90 days.',
   },
   {
     id: 'retainer',
@@ -225,14 +245,24 @@ export const PARTNERSHIP_PATHWAYS: PartnershipPathway[] = [
     theDesire:
       'An uncompromising Fractional COO in your corner with zero internal politics.',
     theOutcome:
-      'Ongoing Fractional COO governance with Suchita Sancheti covering leadership alignment, succession, M&A integration, and high-stakes execution calls.',
-    deliverables: [
-      'Direct Fractional COO counsel with Suchita Sancheti',
-      'Ongoing C-suite cadence, scorecard & accountability oversight',
-      '4-hour emergency war-room response guarantee',
-      'Quarterly in-camera succession & operating health audits',
+      'Sustain execution velocity through expansion, transitions, or M&A with an uncompromising Fractional COO enforcing standards, succession readiness, and board confidence.',
+    outcomes: [
+      'Maintain high execution speed through rapid scaling, new markets, or org transitions',
+      'Pressure-test high-stakes hires, restructures & board calls with an unbiased operator',
+      'Prevent old founder-bottleneck habits and meeting bloat from creeping back in',
+      'Protect succession depth and board confidence without a permanent full-time COO hire',
     ],
-    idealClient: 'Growth CEOs, Board Chairs, and Founders navigating rapid expansion or leadership transitions.',
+    deliverables: [
+      'Ongoing Fractional COO counsel directly with Suchita Sancheti',
+      'Bi-weekly C-suite operating cadence, scorecard & accountability enforcement',
+      '4-hour emergency war-room response guarantee for critical crises or impasses',
+      'Quarterly in-camera succession, org-health & key-person dependency audits',
+      'Senior CXO hiring bar calibration, role charters & 90-day onboarding reviews',
+      'Pre-board operating pack review & confidential strategic sparring before key meetings',
+      'Priority access to the private Council Chamber & peer executive roundtables',
+    ],
+    idealClient:
+      'Growth CEOs, Board Chairs, and Founders navigating rapid expansion or leadership transitions.',
   },
 ];
 
@@ -409,14 +439,28 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
                       </p>
                     </div>
 
-                    {/* Plain-Language Outcome Summary */}
-                    <div className="p-3 bg-[#faf8f4] border border-[#e2d8c9] rounded-xs">
-                      <p className="text-xs text-[#17181c] leading-relaxed">
-                        {model.theOutcome}
-                      </p>
+                    {/* Clear Outcome Pointers */}
+                    <div className="p-3 bg-[#faf8f4] border border-[#e2d8c9] rounded-xs space-y-1.5">
+                      <span className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold tracking-wider block">
+                        Key Outcomes
+                      </span>
+                      {model.outcomes && model.outcomes.length > 0 ? (
+                        <ul className="space-y-1.5 text-xs text-[#17181c]">
+                          {model.outcomes.map((outcome, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <ArrowRight className="w-3 h-3 text-[#9d7b38] shrink-0 mt-0.5" />
+                              <span className="leading-snug">{outcome}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="text-xs text-[#17181c] leading-relaxed">
+                          {model.theOutcome}
+                        </p>
+                      )}
                     </div>
 
-                    {/* Key Deliverables */}
+                    {/* Expanded Key Deliverables */}
                     <div className="space-y-1.5 pt-0.5">
                       <span className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold tracking-wider block">
                         What We Deliver
@@ -783,6 +827,25 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
                       );
                     })}
                   </div>
+                </div>
+              )}
+
+              {showSpecModal.outcomes && showSpecModal.outcomes.length > 0 && (
+                <div>
+                  <strong className="text-[#9d7b38] block text-[10px] font-mono uppercase mb-1.5">
+                    Key Outcomes
+                  </strong>
+                  <ul className="space-y-1.5">
+                    {showSpecModal.outcomes.map((item, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-start gap-2 bg-white p-2 rounded-xs border border-[#e2d8c9]"
+                      >
+                        <ArrowRight className="w-3.5 h-3.5 text-[#9d7b38] shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
 

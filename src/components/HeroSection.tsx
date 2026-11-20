@@ -18,10 +18,7 @@ export const HeroSection: React.FC<HeroProps> = ({
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Immediate Point — Authoritative Frontpage Manifesto */}
         <div className="max-w-4xl mx-auto text-center space-y-4">
-          <h1
-            className="font-bold text-[#17181c] leading-[1.12] tracking-tight font-serif [text-wrap:balance]"
-            style={{ fontSize: 'clamp(2.1rem, 4.1vw, 3.5rem)' }}
-          >
+          <h1 className="text-2xl sm:text-3xl md:text-[2.15rem] italic font-bold text-[#17181c] leading-[1.2] tracking-tight font-serif [text-wrap:balance]">
             Management is about compliance.{' '}
             <span className="text-[#9d7b38] block sm:inline">Leadership is about courage.</span>
           </h1>

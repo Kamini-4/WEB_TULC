@@ -271,8 +271,8 @@ export function getCanonicalRoutes() {
           <section style="margin-bottom: 1.5rem;">
             <h2>Track 01 · Mandate Forensic Diagnostic (14 Days — 1 Founder or 3+ Leaders Together)</h2>
             <ul>
-              <li><strong>Solo CEO / Founder Diagnostic:</strong> ₹38450 (ex-GST) — single full payment (no instalments). Includes full 5-domain audit, bottleneck telemetry, and written 90-day execution blueprint.</li>
-              <li><strong>Group CXO Cohort Diagnostic (3+ Leaders):</strong> ₹89450 (ex-GST) — single full payment (no instalments). Multi-executive alignment audit, cross-functional friction mapping, and unified leadership roadmap.</li>
+              <li><strong>Solo CEO / Founder Diagnostic:</strong> ₹38450 (ex-GST) — single full payment (no instalments). Includes full 5-domain audit, bottleneck telemetry, written 90-day execution blueprint, and access to the private Council Chamber.</li>
+              <li><strong>Group CXO Cohort Diagnostic (3+ Leaders):</strong> ₹89450 (ex-GST) — single full payment (no instalments). Multi-executive alignment audit, cross-functional friction mapping, unified leadership roadmap, and access to the private Council Chamber.</li>
             </ul>
           </section>
 
