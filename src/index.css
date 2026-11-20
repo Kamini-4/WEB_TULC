@@ -184,6 +184,67 @@
 .animate-wave-4 { animation: waveBar 1.2s ease-in-out infinite 0.2s; }
 .animate-wave-5 { animation: waveBar 1.2s ease-in-out infinite 0.4s; }
 
+/* Services Reveal Button Motion Graphics */
+@keyframes goldSweep {
+  0% {
+    transform: translateX(-140%) skewX(-22deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.65;
+  }
+  45% {
+    transform: translateX(240%) skewX(-22deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(240%) skewX(-22deg);
+    opacity: 0;
+  }
+}
+
+@keyframes revealSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-motion-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-motion-sheen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 38%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.28) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  animation: goldSweep 4.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.btn-motion-sheen-delay::after {
+  animation-delay: 2.4s;
+}
+
+.reveal-pointer-item {
+  opacity: 0;
+  animation: revealSlideIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 /* Custom subtle scrollbars */
 ::-webkit-scrollbar {
   width: 6px;

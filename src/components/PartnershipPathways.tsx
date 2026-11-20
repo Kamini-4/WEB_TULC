@@ -11,6 +11,9 @@ import {
   CalendarClock,
   Users,
   Globe,
+  ChevronDown,
+  Target,
+  Layers,
 } from 'lucide-react';
 import { PaymentModal, PaymentItem } from './payment/PaymentModal';
 import {
@@ -186,18 +189,18 @@ export const PARTNERSHIP_PATHWAYS: PartnershipPathway[] = [
       'Available for 1 founder or 3+ senior leaders together. Pinpoint exact time leaks, separate systems issues from talent gaps, align leadership, and gain access to the private Council Chamber.',
     outcomes: [
       'Know with certainty whether your drag is a systems issue, role design flaw, or talent gap',
+      'Unlock direct access to the private Council Chamber for peer-level founder sparring',
       'Quantify exact weekly founder hours and annual margin leaking through approval queues',
       'Align 1 founder or 3+ senior leaders around one objective fix priority with zero politics',
-      'Unlock direct access to the private Council Chamber for peer-level founder sparring',
     ],
     deliverables: [
       'Built for 1 solo founder or a group of 3+ senior leaders (CEO & CXOs) together',
+      'Included access to the private Council Chamber (Chatham House peer sparring room)',
       'Full 5-Domain Forensic Audit of calendars, approval queues & decision bottlenecks',
       'Founder Dependency & Margin-Leak Map detailing weekly hours & stalled execution',
       'Role Ownership & Talent vs. Systems Verdict across your senior leadership bench',
       'Written 90-Day Fix Blueprint ranked by fastest cash, time & execution impact',
       'Private closed-door executive debrief directly with Suchita Sancheti',
-      'Included access to the private Council Chamber (Chatham House peer sparring room)',
     ],
     idealClient:
       'Founders or leadership teams of 3+ executives who want crystal-clear answers and Council Chamber access before committing to a 90-day overhaul.',
@@ -282,6 +285,22 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
   const [showSpecModal, setShowSpecModal] = useState<PartnershipPathway | null>(null);
   const [activePaymentItem, setActivePaymentItem] = useState<PaymentItem | null>(null);
   const [checkoutCurrency, setCheckoutCurrency] = useState<SettlementCurrency>('INR');
+  const [openPanels, setOpenPanels] = useState<
+    Record<string, { outcomes: boolean; deliverables: boolean }>
+  >({});
+
+  const toggleTrackPanel = (trackId: string, panel: 'outcomes' | 'deliverables') => {
+    setOpenPanels((prev) => {
+      const current = prev[trackId] || { outcomes: false, deliverables: false };
+      return {
+        ...prev,
+        [trackId]: {
+          ...current,
+          [panel]: !current[panel],
+        },
+      };
+    });
+  };
 
   const selectedDiagnosticCohort =
     DIAGNOSTIC_COHORT_OPTIONS.find((d) => d.id === diagnosticCohortId) ||
@@ -363,145 +382,330 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
   return (
     <section
       id="partnerships"
-      className="py-8 sm:py-10 border-b border-[#dfd7c8] bg-[#f2ede2] relative"
+      className="py-10 sm:py-12 border-b border-[#d4af37]/30 bg-[#f4efe4] relative"
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="max-w-3xl mb-6">
-          <div className="flex items-center gap-2 text-xs uppercase text-[#9d7b38] font-bold mb-1">
-            <ShieldCheck className="w-4 h-4 text-[#9d7b38]" />
+        {/* Section Header — Black & Gold Authority Framing */}
+        <div className="max-w-3xl mb-7">
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#141416] text-[#d4af37] border border-[#d4af37]/50 rounded-xs text-[10px] font-mono uppercase font-black tracking-wider mb-2.5">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#d4af37]" />
             <span>Fixed Scope · Direct Principal Execution · Clean Day-90 Exit</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#17181c] leading-tight">
-            How Leaders Partner With Us
+          <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#141416] leading-tight">
+            How Leaders Partner <span className="text-[#9d7b38]">With Us</span>
           </h2>
-          <p className="mt-1.5 text-xs sm:text-sm text-[#4e5159] leading-relaxed">
-            Three direct ways to remove founder bottlenecks and install autonomous execution. Open{' '}
-            <strong className="text-[#17181c]">Fee &amp; Scope</strong> on any track for full fee details, group options, instalment schedules (Tracks 02 &amp; 03), and international currency conversion.
+          <p className="mt-1.5 text-xs sm:text-sm text-[#3f424a] leading-relaxed">
+            Click <strong className="text-[#141416]">Key Outcomes</strong> or{' '}
+            <strong className="text-[#141416]">What We Deliver</strong> on any track to reveal the full breakdown. Open{' '}
+            <strong className="text-[#141416]">Full Scope, Outcomes &amp; Fee</strong> for group pricing (Track 01), 0% instalment schedules (Tracks 02 &amp; 03), and currency conversion.
           </p>
         </div>
 
-        {/* 3 Service Cards */}
+        {/* 3 Service Cards — Obsidian Black & Sovereign Gold Hierarchy */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch mb-6">
           {PARTNERSHIP_PATHWAYS.map((model) => {
             const isDiagnostic = model.id === 'diagnostic';
             const isEmbedding = model.id === 'embedding';
             const isRetainer = model.id === 'retainer';
             const pricing = TRACK_PRICING[model.id];
+            const panelState = openPanels[model.id] || { outcomes: false, deliverables: false };
+            const outcomesList = model.outcomes || [];
 
             return (
               <div
                 key={model.id}
-                className={`bg-white rounded-md flex flex-col justify-between transition-all duration-200 relative shadow-2xs ${
+                className={`rounded-md flex flex-col justify-between transition-all duration-200 relative ${
                   isEmbedding
-                    ? 'border-2 border-[#17181c] ring-1 ring-[#d4af37]/60'
-                    : 'border border-[#d8cebe] hover:border-[#9d7b38]'
+                    ? 'bg-[#141416] text-white border-2 border-[#d4af37] shadow-xl ring-1 ring-[#d4af37]/30'
+                    : 'bg-white text-[#141416] border border-[#141416]/25 hover:border-[#d4af37] shadow-sm'
                 }`}
               >
                 {isDiagnostic && (
-                  <div className="bg-[#141416] text-[#d4af37] text-[10px] font-mono uppercase font-black tracking-wider px-4 py-1.5 rounded-t-sm flex items-center justify-center gap-1.5 border-b border-[#d4af37]/40">
+                  <div className="bg-[#141416] text-[#d4af37] text-[10px] font-mono uppercase font-black tracking-wider px-4 py-2 rounded-t-sm flex items-center justify-center gap-1.5 border-b border-[#d4af37]/50">
                     <Users className="w-3 h-3 text-[#d4af37]" />
                     <span>FOR 1 FOUNDER OR 3+ LEADERS TOGETHER</span>
                   </div>
                 )}
 
                 {isEmbedding && (
-                  <div className="bg-[#17181c] text-[#d4af37] text-[10px] font-mono uppercase font-black tracking-wider px-4 py-1.5 rounded-t-sm flex items-center justify-center gap-1.5">
-                    <Sparkles className="w-3 h-3 text-[#d4af37]" />
+                  <div className="bg-gradient-to-r from-[#c89f2c] via-[#f0d878] to-[#c89f2c] text-[#141416] text-[10px] font-mono uppercase font-black tracking-wider px-4 py-2 rounded-t-xs flex items-center justify-center gap-1.5">
+                    <Sparkles className="w-3 h-3 text-[#141416]" />
                     <span>FLAGSHIP 90-DAY BUILD · 0% INSTALMENTS</span>
                   </div>
                 )}
 
                 {isRetainer && (
-                  <div className="bg-[#141416] text-[#d4af37] text-[10px] font-mono uppercase font-black tracking-wider px-4 py-1.5 rounded-t-sm flex items-center justify-center gap-1.5 border-b border-[#d4af37]/40">
+                  <div className="bg-[#141416] text-[#d4af37] text-[10px] font-mono uppercase font-black tracking-wider px-4 py-2 rounded-t-sm flex items-center justify-center gap-1.5 border-b border-[#d4af37]/50">
                     <CalendarClock className="w-3 h-3 text-[#d4af37]" />
                     <span>QUARTERLY FRACTIONAL COO · 0% INSTALMENTS</span>
                   </div>
                 )}
 
                 <div className="p-5 space-y-3.5 flex-1 flex flex-col justify-between">
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between border-b border-[#ebdcc0] pb-2">
-                      <span className="text-xs font-mono font-black text-[#9d7b38] uppercase tracking-wider">
+                  <div className="space-y-3.5">
+                    <div
+                      className={`flex items-center justify-between pb-2 border-b ${
+                        isEmbedding ? 'border-[#d4af37]/30' : 'border-[#d4af37]/40'
+                      }`}
+                    >
+                      <span
+                        className={`text-xs font-mono font-black uppercase tracking-wider ${
+                          isEmbedding ? 'text-[#d4af37]' : 'text-[#9d7b38]'
+                        }`}
+                      >
                         Track {model.tierNumber}
                       </span>
-                      <span className="text-[11px] font-mono font-bold text-[#17181c] bg-[#faf8f4] border border-[#d8cebe] px-2 py-0.5 rounded-xs">
+                      <span
+                        className={`text-[11px] font-mono font-bold px-2 py-0.5 rounded-xs border ${
+                          isEmbedding
+                            ? 'text-[#f5e6b3] bg-[#1f2025] border-[#d4af37]/40'
+                            : 'text-[#141416] bg-[#faf6ee] border-[#d4af37]/40'
+                        }`}
+                      >
                         {model.cadence}
                       </span>
                     </div>
 
-                    <div className="space-y-1">
-                      <h3 className="text-lg sm:text-xl font-bold font-serif text-[#17181c] leading-snug">
+                    <div className="space-y-1.5">
+                      <h3
+                        className={`text-lg sm:text-xl font-bold font-serif leading-snug ${
+                          isEmbedding ? 'text-[#f8f4ea]' : 'text-[#141416]'
+                        }`}
+                      >
                         {model.name}
                       </h3>
-                      <p className="text-xs text-[#555861] italic font-serif leading-relaxed">
-                        "{model.tagline}"
+                      <p
+                        className={`text-xs italic font-serif leading-relaxed ${
+                          isEmbedding ? 'text-[#c9c2b2]' : 'text-[#555861]'
+                        }`}
+                      >
+                        &ldquo;{model.tagline}&rdquo;
+                      </p>
+                      <p
+                        className={`text-xs leading-relaxed pt-0.5 ${
+                          isEmbedding ? 'text-zinc-300' : 'text-[#3f424a]'
+                        }`}
+                      >
+                        {model.theOutcome}
                       </p>
                     </div>
 
-                    {/* Clear Outcome Pointers */}
-                    <div className="p-3 bg-[#faf8f4] border border-[#e2d8c9] rounded-xs space-y-1.5">
-                      <span className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold tracking-wider block">
-                        Key Outcomes
-                      </span>
-                      {model.outcomes && model.outcomes.length > 0 ? (
-                        <ul className="space-y-1.5 text-xs text-[#17181c]">
-                          {model.outcomes.map((outcome, idx) => (
-                            <li key={idx} className="flex items-start gap-2">
-                              <ArrowRight className="w-3 h-3 text-[#9d7b38] shrink-0 mt-0.5" />
-                              <span className="leading-snug">{outcome}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p className="text-xs text-[#17181c] leading-relaxed">
-                          {model.theOutcome}
-                        </p>
-                      )}
-                    </div>
+                    {/* Interactive Motion-Graphic Reveal Buttons */}
+                    <div className="space-y-2.5 pt-1">
+                      {/* 1. KEY OUTCOMES BUTTON + SMOOTH REVEAL */}
+                      <div className="space-y-0">
+                        <button
+                          type="button"
+                          onClick={() => toggleTrackPanel(model.id, 'outcomes')}
+                          aria-expanded={panelState.outcomes}
+                          className={`group w-full px-3.5 py-2.5 rounded-xs border flex items-center justify-between gap-2 transition-all duration-300 cursor-pointer active:scale-[0.99] ${
+                            panelState.outcomes
+                              ? isEmbedding
+                                ? 'bg-gradient-to-r from-[#d4af37] via-[#ebd071] to-[#d4af37] text-[#141416] border-[#f0d878] shadow-md'
+                                : 'bg-[#141416] text-[#f8f4ea] border-[#d4af37] shadow-md'
+                              : isEmbedding
+                                ? 'btn-motion-sheen bg-[#1d1e22] hover:bg-[#25272d] text-[#f5e6b3] border-[#d4af37]/65 hover:border-[#f0d878]'
+                                : 'btn-motion-sheen bg-[#141416] hover:bg-black text-[#f8f4ea] border-[#d4af37]/70 hover:border-[#d4af37]'
+                          }`}
+                        >
+                          <span className="flex items-center gap-2 min-w-0">
+                            <Target
+                              className={`w-3.5 h-3.5 shrink-0 ${
+                                panelState.outcomes && isEmbedding ? 'text-[#141416]' : 'text-[#d4af37]'
+                              }`}
+                            />
+                            <span className="text-xs font-mono font-black uppercase tracking-wider truncate">
+                              Key Outcomes
+                            </span>
+                          </span>
 
-                    {/* Expanded Key Deliverables */}
-                    <div className="space-y-1.5 pt-0.5">
-                      <span className="text-[10px] font-mono uppercase text-[#9d7b38] font-bold tracking-wider block">
-                        What We Deliver
-                      </span>
-                      <ul className="space-y-1.5 text-xs text-[#17181c]">
-                        {model.deliverables.map((del, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-[#9d7b38] shrink-0 mt-0.5" />
-                            <span className="font-medium leading-snug">{del}</span>
-                          </li>
-                        ))}
-                      </ul>
+                          <ChevronDown
+                            className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
+                              panelState.outcomes
+                                ? `rotate-180 ${isEmbedding ? 'text-[#141416]' : 'text-[#d4af37]'}`
+                                : 'text-[#d4af37]'
+                            }`}
+                          />
+                        </button>
+
+                        <div
+                          className={`grid transition-all duration-300 ease-out ${
+                            panelState.outcomes
+                              ? 'grid-rows-[1fr] opacity-100 mt-1.5'
+                              : 'grid-rows-[0fr] opacity-0 mt-0'
+                          }`}
+                        >
+                          <div className="overflow-hidden">
+                            <div
+                              className={`p-3 rounded-xs border ${
+                                isEmbedding
+                                  ? 'bg-[#1b1c20] border-[#d4af37]/40'
+                                  : 'bg-[#faf6ee] border-[#d4af37]/50'
+                              }`}
+                            >
+                              <ul
+                                className={`space-y-2 text-xs ${
+                                  isEmbedding ? 'text-[#f1ece1]' : 'text-[#141416]'
+                                }`}
+                              >
+                                {outcomesList.map((outcome, idx) => (
+                                  <li
+                                    key={`${model.id}-out-${idx}-${panelState.outcomes}`}
+                                    style={{ animationDelay: `${idx * 55}ms` }}
+                                    className={`flex items-start gap-2 ${
+                                      panelState.outcomes ? 'reveal-pointer-item' : ''
+                                    }`}
+                                  >
+                                    <ArrowRight
+                                      className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
+                                        isEmbedding ? 'text-[#d4af37]' : 'text-[#9d7b38]'
+                                      }`}
+                                    />
+                                    <span className="leading-snug">{outcome}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* 2. WHAT WE DELIVER BUTTON + SMOOTH REVEAL */}
+                      <div className="space-y-0">
+                        <button
+                          type="button"
+                          onClick={() => toggleTrackPanel(model.id, 'deliverables')}
+                          aria-expanded={panelState.deliverables}
+                          className={`group w-full px-3.5 py-2.5 rounded-xs border flex items-center justify-between gap-2 transition-all duration-300 cursor-pointer active:scale-[0.99] ${
+                            panelState.deliverables
+                              ? isEmbedding
+                                ? 'bg-gradient-to-r from-[#d4af37] via-[#ebd071] to-[#d4af37] text-[#141416] border-[#f0d878] shadow-md'
+                                : 'bg-[#141416] text-[#f8f4ea] border-[#d4af37] shadow-md'
+                              : isEmbedding
+                                ? 'btn-motion-sheen btn-motion-sheen-delay bg-[#1d1e22] hover:bg-[#25272d] text-[#f5e6b3] border-[#d4af37]/65 hover:border-[#f0d878]'
+                                : 'btn-motion-sheen btn-motion-sheen-delay bg-[#faf6ee] hover:bg-[#141416] text-[#141416] hover:text-[#f8f4ea] border-[#d4af37] hover:border-[#d4af37]'
+                          }`}
+                        >
+                          <span className="flex items-center gap-2 min-w-0">
+                            <Layers
+                              className={`w-3.5 h-3.5 shrink-0 transition-colors ${
+                                panelState.deliverables && isEmbedding
+                                  ? 'text-[#141416]'
+                                  : isEmbedding
+                                    ? 'text-[#d4af37]'
+                                    : panelState.deliverables
+                                      ? 'text-[#d4af37]'
+                                      : 'text-[#9d7b38] group-hover:text-[#d4af37]'
+                              }`}
+                            />
+                            <span className="text-xs font-mono font-black uppercase tracking-wider truncate">
+                              What We Deliver
+                            </span>
+                          </span>
+
+                          <ChevronDown
+                            className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
+                              panelState.deliverables
+                                ? `rotate-180 ${isEmbedding ? 'text-[#141416]' : 'text-[#d4af37]'}`
+                                : isEmbedding
+                                  ? 'text-[#d4af37]'
+                                  : 'text-[#9d7b38] group-hover:text-[#d4af37]'
+                            }`}
+                          />
+                        </button>
+
+                        <div
+                          className={`grid transition-all duration-300 ease-out ${
+                            panelState.deliverables
+                              ? 'grid-rows-[1fr] opacity-100 mt-1.5'
+                              : 'grid-rows-[0fr] opacity-0 mt-0'
+                          }`}
+                        >
+                          <div className="overflow-hidden">
+                            <div
+                              className={`p-3 rounded-xs border ${
+                                isEmbedding
+                                  ? 'bg-[#1b1c20] border-[#d4af37]/40'
+                                  : 'bg-[#fcfaf5] border-[#d4af37]/50'
+                              }`}
+                            >
+                              <ul
+                                className={`space-y-2 text-xs ${
+                                  isEmbedding ? 'text-zinc-200' : 'text-[#141416]'
+                                }`}
+                              >
+                                {model.deliverables.map((del, idx) => (
+                                  <li
+                                    key={`${model.id}-del-${idx}-${panelState.deliverables}`}
+                                    style={{ animationDelay: `${idx * 50}ms` }}
+                                    className={`flex items-start gap-2 ${
+                                      panelState.deliverables ? 'reveal-pointer-item' : ''
+                                    }`}
+                                  >
+                                    <CheckCircle2
+                                      className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
+                                        isEmbedding ? 'text-[#d4af37]' : 'text-[#9d7b38]'
+                                      }`}
+                                    />
+                                    <span className="font-medium leading-snug">{del}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
                   {/* Understated Small-Font Fee Line Only */}
-                  <div className="pt-2.5 border-t border-[#ebdcc0]">
-                    <p className="text-[11px] font-mono text-[#6b6e76] leading-snug">
+                  <div
+                    className={`pt-2.5 border-t ${
+                      isEmbedding ? 'border-[#d4af37]/30' : 'border-[#d4af37]/35'
+                    }`}
+                  >
+                    <p
+                      className={`text-[11px] font-mono leading-snug ${
+                        isEmbedding ? 'text-zinc-400' : 'text-[#6b6e76]'
+                      }`}
+                    >
                       {pricing.cardFeeNote}
                     </p>
                   </div>
                 </div>
 
-                {/* Clean Price-Free Action Buttons */}
+                {/* Black & Gold Primary / Secondary Buttons */}
                 <div className="p-5 pt-0 space-y-2">
                   <button
                     type="button"
                     onClick={() => setShowSpecModal(model)}
-                    className="w-full py-2.5 px-3 bg-[#17181c] hover:bg-[#282a30] text-[#f8f6f0] font-bold text-xs font-mono uppercase tracking-wider rounded-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer border border-[#d4af37]/40"
+                    className={`w-full py-2.5 px-3 font-bold text-xs font-mono uppercase tracking-wider rounded-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                      isEmbedding
+                        ? 'bg-gradient-to-r from-[#d4af37] via-[#f0d878] to-[#d4af37] hover:brightness-105 text-[#141416] font-black shadow-sm'
+                        : 'bg-[#141416] hover:bg-black text-[#f8f6f0] border border-[#d4af37]/60'
+                    }`}
                   >
-                    <Download className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>View Fee &amp; Scope</span>
+                    <Download
+                      className={`w-3.5 h-3.5 shrink-0 ${
+                        isEmbedding ? 'text-[#141416]' : 'text-[#d4af37]'
+                      }`}
+                    />
+                    <span>Full Scope, Outcomes &amp; Fee</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => handleSelect(model)}
-                    className="w-full py-2 px-2 bg-white hover:bg-stone-100 text-[#17181c] text-[11px] font-mono uppercase font-bold rounded-xs border border-stone-300 transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                    className={`w-full py-2 px-2 text-[11px] font-mono uppercase font-bold rounded-xs border transition-colors flex items-center justify-center gap-1 cursor-pointer ${
+                      isEmbedding
+                        ? 'bg-[#1d1e22] hover:bg-[#272930] text-[#f5e6b3] border-[#d4af37]/40'
+                        : 'bg-white hover:bg-[#faf6ee] text-[#141416] border-[#141416]/25'
+                    }`}
                   >
                     <span>Inquire First</span>
-                    <ArrowRight className="w-3 h-3 text-[#9d7b38]" />
+                    <ArrowRight
+                      className={`w-3 h-3 ${isEmbedding ? 'text-[#d4af37]' : 'text-[#9d7b38]'}`}
+                    />
                   </button>
                 </div>
               </div>
@@ -512,7 +716,7 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
         {/* Advisory Board Conclave Strip */}
         <div
           id="council-feature"
-          className="p-5 rounded-md bg-[#141416] text-white border border-[#d4af37] shadow-md flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left"
+          className="p-5 rounded-md bg-[#141416] text-white border-2 border-[#d4af37] shadow-lg flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left"
         >
           <div className="space-y-1">
             <div className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#d4af37] font-bold">
@@ -531,7 +735,7 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
             <button
               type="button"
               onClick={handlePayConclaveSeat}
-              className="px-4 py-2.5 bg-[#d4af37] hover:bg-[#e3c04f] text-[#141416] font-black text-xs uppercase tracking-wider rounded-xs font-mono cursor-pointer whitespace-nowrap flex items-center gap-1.5"
+              className="px-4 py-2.5 bg-gradient-to-r from-[#d4af37] via-[#f0d878] to-[#d4af37] hover:brightness-105 text-[#141416] font-black text-xs uppercase tracking-wider rounded-xs font-mono cursor-pointer whitespace-nowrap flex items-center gap-1.5"
             >
               <CreditCard className="w-3.5 h-3.5 text-[#141416]" />
               <span>Reserve Delegate Seat</span>
@@ -545,7 +749,7 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
                   PARTNERSHIP_PATHWAYS[0];
                 onOpenConsultationWithModel(retainer);
               }}
-              className="px-3.5 py-2.5 bg-zinc-900 hover:bg-zinc-800 text-stone-200 border border-zinc-700 text-xs uppercase font-mono tracking-wider rounded-xs cursor-pointer whitespace-nowrap"
+              className="px-3.5 py-2.5 bg-[#1d1e22] hover:bg-[#272930] text-[#f5e6b3] border border-[#d4af37]/50 text-xs uppercase font-mono tracking-wider rounded-xs cursor-pointer whitespace-nowrap"
             >
               <span>Inquire Protocol</span>
             </button>
@@ -553,30 +757,31 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
         </div>
       </div>
 
-      {/* FEE & SCOPE MODAL (ONLY PLACE FOR GROUP BREAKDOWN, INSTALMENT SELECTION & CURRENCY CONVERSION) */}
+      {/* FULL SCOPE, OUTCOMES & FEE MODAL (ONLY PLACE FOR FULL LIST, GROUP BREAKDOWN, INSTALMENTS & CURRENCY CONVERSION) */}
       {showSpecModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-2xs p-4 overflow-y-auto">
-          <div className="bg-white border-2 border-[#17181c] rounded-md max-w-xl w-full p-5 sm:p-6 shadow-2xl space-y-4 my-8 animate-in fade-in duration-200 text-[#17181c]">
-            <div className="flex items-start justify-between border-b border-[#d8cebe] pb-3">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-2xs p-4 overflow-y-auto">
+          <div className="bg-white border-2 border-[#d4af37] rounded-md max-w-xl w-full shadow-2xl my-8 animate-in fade-in duration-200 text-[#141416] overflow-hidden">
+            <div className="bg-[#141416] text-white px-5 sm:px-6 py-4 flex items-start justify-between border-b-2 border-[#d4af37]">
               <div>
-                <span className="text-[10px] font-mono uppercase text-[#9d7b38] font-black">
-                  Fee &amp; Scope · Track {showSpecModal.tierNumber}
+                <span className="text-[10px] font-mono uppercase text-[#d4af37] font-black tracking-wider">
+                  Full Scope, Outcomes &amp; Fee · Track {showSpecModal.tierNumber}
                 </span>
-                <h3 className="text-lg font-bold font-serif text-[#17181c] mt-0.5">
+                <h3 className="text-lg font-bold font-serif text-[#f8f4ea] mt-0.5">
                   {showSpecModal.name}
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setShowSpecModal(null)}
-                className="text-[#17181c] hover:text-rose-700 text-xl font-bold p-1 cursor-pointer"
+                className="text-[#d4af37] hover:text-white text-xl font-bold p-1 cursor-pointer"
                 aria-label="Close Fee and Scope"
               >
                 ✕
               </button>
             </div>
 
-            <div className="space-y-3 text-xs leading-relaxed text-[#17181c] max-h-[62vh] overflow-y-auto pr-1">
+            <div className="p-5 sm:p-6 space-y-4">
+              <div className="space-y-3 text-xs leading-relaxed text-[#141416] max-h-[60vh] overflow-y-auto pr-1">
               {/* Currency Converter — Exclusively Inside Fee & Scope */}
               <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 bg-[#faf8f4] border border-[#d8cebe] rounded-xs">
                 <span className="text-[10px] font-mono uppercase text-[#4e5159] font-bold flex items-center gap-1.5">
@@ -867,30 +1072,31 @@ export const PartnershipPathways: React.FC<PathwaysProps> = ({
               </div>
             </div>
 
-            <div className="pt-3 border-t border-[#d8cebe] flex flex-wrap items-center justify-between gap-3">
-              <span className="text-[11px] font-mono font-bold text-[#9d7b38]">
-                {showSpecModal.cadence}
-              </span>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => setShowSpecModal(null)}
-                  className="px-3 py-1.5 bg-stone-100 hover:bg-stone-200 text-[#17181c] text-xs font-bold rounded-xs cursor-pointer"
-                >
-                  Close
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    const m = showSpecModal;
-                    setShowSpecModal(null);
-                    handleCheckoutTrack(m, feeCurrency);
-                  }}
-                  className="px-3.5 py-1.5 bg-[#d4af37] hover:bg-[#e3c04f] text-[#141416] text-xs font-black uppercase font-mono rounded-xs cursor-pointer flex items-center gap-1.5"
-                >
-                  <CreditCard className="w-3.5 h-3.5" />
-                  <span>Proceed to Payment</span>
-                </button>
+              <div className="pt-3 border-t border-[#d8cebe] flex flex-wrap items-center justify-between gap-3">
+                <span className="text-[11px] font-mono font-bold text-[#9d7b38]">
+                  {showSpecModal.cadence}
+                </span>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowSpecModal(null)}
+                    className="px-3 py-1.5 bg-stone-100 hover:bg-stone-200 text-[#141416] text-xs font-bold rounded-xs cursor-pointer"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const m = showSpecModal;
+                      setShowSpecModal(null);
+                      handleCheckoutTrack(m, feeCurrency);
+                    }}
+                    className="px-3.5 py-1.5 bg-[#141416] hover:bg-black text-[#d4af37] border border-[#d4af37] text-xs font-black uppercase font-mono rounded-xs cursor-pointer flex items-center gap-1.5"
+                  >
+                    <CreditCard className="w-3.5 h-3.5 text-[#d4af37]" />
+                    <span>Proceed to Payment</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>

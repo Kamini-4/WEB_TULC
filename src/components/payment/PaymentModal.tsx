@@ -109,6 +109,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
   const [currency, setCurrency] = useState<SettlementCurrency>(initialCurrency);
   const [email, setEmail] = useState('');
   const [organization, setOrganization] = useState('');
+  const [detailStep, setDetailStep] = useState<0 | 1>(0);
   const [couponCode, setCouponCode] = useState('');
   const [validationError, setValidationError] = useState<string | null>(null);
   const [serverQuote, setServerQuote] = useState<ServerQuote | null>(null);
@@ -120,6 +121,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
       setValidationError(null);
       setServerQuote(null);
       setCurrency(initialCurrency);
+      setDetailStep(0);
     }
   }, [isOpen, item, initialCurrency]);
 
@@ -617,33 +619,86 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
               </div>
             )}
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              <div>
-                <label className="block text-[10px] font-mono uppercase text-zinc-700 font-bold mb-1">
-                  Corporate Email (for Receipt & Access)
-                </label>
-                <input
-                  type="email"
-                  required
-                  placeholder="chair@enterprise.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-[#fcfaf7] border border-stone-300 rounded px-2.5 py-1.5 text-xs text-black placeholder:text-stone-400 focus:outline-none focus:border-black shadow-2xs"
-                />
+            {/* One-by-One Customer Detail Capture */}
+            <div className="p-3 bg-[#fcfaf7] border border-stone-200 rounded-md space-y-2.5">
+              <div className="flex items-center justify-between text-[10px] font-mono uppercase">
+                <span className="text-[#9d7b38] font-bold">
+                  {detailStep === 0 ? 'Step 1 of 2 · Receipt Email' : 'Step 2 of 2 · Organization'}
+                </span>
+                {detailStep === 1 && (
+                  <button
+                    type="button"
+                    onClick={() => setDetailStep(0)}
+                    className="text-zinc-600 hover:text-black underline cursor-pointer"
+                  >
+                    Edit Email
+                  </button>
+                )}
               </div>
 
-              <div>
-                <label className="block text-[10px] font-mono uppercase text-zinc-700 font-bold mb-1">
-                  Enterprise / Organization Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="e.g. Acme Industrial Group"
-                  value={organization}
-                  onChange={(e) => setOrganization(e.target.value)}
-                  className="w-full bg-[#fcfaf7] border border-stone-300 rounded px-2.5 py-1.5 text-xs text-black placeholder:text-stone-400 focus:outline-none focus:border-black shadow-2xs"
-                />
-              </div>
+              {detailStep === 0 ? (
+                <div className="space-y-2">
+                  <label className="block text-[11px] font-bold text-black">
+                    What corporate email should receive the tax invoice &amp; access link?
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      type="email"
+                      required
+                      placeholder="chair@enterprise.com"
+                      value={email}
+                      onChange={(e) => {
+                        setValidationError(null);
+                        setEmail(e.target.value);
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          e.preventDefault();
+                          const trimmed = email.trim();
+                          if (!trimmed || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
+                            setValidationError('Please enter a valid corporate email address.');
+                          } else {
+                            setValidationError(null);
+                            setDetailStep(1);
+                          }
+                        }
+                      }}
+                      className="flex-1 bg-white border border-stone-300 rounded px-2.5 py-2 text-xs text-black placeholder:text-stone-400 focus:outline-none focus:border-black shadow-2xs"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const trimmed = email.trim();
+                        if (!trimmed || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
+                          setValidationError('Please enter a valid corporate email address.');
+                        } else {
+                          setValidationError(null);
+                          setDetailStep(1);
+                        }
+                      }}
+                      className="px-3.5 py-2 bg-[#141416] hover:bg-black text-[#d4af37] font-mono text-[11px] font-bold uppercase rounded-xs cursor-pointer shrink-0"
+                    >
+                      Next →
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  <div className="text-[11px] font-mono text-zinc-600">
+                    Receipt email: <strong className="text-black">{email}</strong>
+                  </div>
+                  <label className="block text-[11px] font-bold text-black">
+                    What is your enterprise or organization name?
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Acme Industrial Group"
+                    value={organization}
+                    onChange={(e) => setOrganization(e.target.value)}
+                    className="w-full bg-white border border-stone-300 rounded px-2.5 py-2 text-xs text-black placeholder:text-stone-400 focus:outline-none focus:border-black shadow-2xs"
+                  />
+                </div>
+              )}
             </div>
 
             {activeTab === 'gateway' && (
